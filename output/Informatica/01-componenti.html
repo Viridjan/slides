@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · Modulo 1 — Componenti</title>
+
+<!-- ============================================================
+     FONTS — Fraunces (display serif) + Space Grotesk (body)
+     Distinctive "study zine" pairing, never system fonts.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   THEME TOKENS — change these to restyle the whole course.
+   "Warm Study Zine": cream paper, ink, red/teal/gold accents.
+   ============================================================ */
+:root{
+  --paper:#f4ece0;        /* cream paper background */
+  --paper-2:#ece0cf;      /* slightly darker paper */
+  --ink:#1c1714;          /* near-black ink */
+  --ink-soft:#3a322c;     /* softened ink for body copy */
+  --ink-faint:#6b5f54;    /* captions / meta */
+  --red:#e6533b;          /* primary accent (tape, highlights) */
+  --teal:#163b35;         /* deep green panel */
+  --teal-2:#1f5249;       /* lighter green */
+  --gold:#e6c14a;         /* gold accent */
+  --gold-deep:#d98a2b;    /* amber */
+  --sky:#3f7e8c;          /* cool accent */
+  --line:#d8c9b4;         /* hairline on paper */
+
+  --font-display:"Fraunces",Georgia,serif;
+  --font-body:"Space Grotesk",sans-serif;
+  --font-mono:"Space Mono",monospace;
+
+  --stage-bg:#241d17;     /* letterbox color around the stage */
+  --slide-bg:var(--paper);
+
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --dur:.6s;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+/* ============================================================
+   FIXED 16:9 STAGE — viewport-base.css (included in full).
+   Slides authored at 1920×1080, whole stage scaled to fit.
+   ============================================================ */
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+.deck-controls{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000;}
+@media print{
+  html,body{width:1920px;height:auto;overflow:visible;background:#fff;}
+  .deck-viewport{position:static;overflow:visible;background:#fff;}
+  .deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}
+  .slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}
+  .slide:last-child{break-after:auto;page-break-after:auto;}
+  .deck-controls{display:none !important;}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}
+}
+
+/* ============================================================
+   GLOBAL SLIDE FRAME
+   Every slide: cream paper, subtle grain, page number, deck tab.
+   ============================================================ */
+.slide{
+  font-family:var(--font-body);color:var(--ink);
+  padding:96px 110px;
+}
+/* faint paper grain so the cream never reads as flat white */
+.slide::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(var(--line) .8px,transparent .8px);
+  background-size:26px 26px;opacity:.30;
+}
+/* deck identity tab — top-right of every content slide */
+.deck-tab{
+  position:absolute;top:0;right:120px;z-index:5;
+  background:var(--teal);color:var(--paper);
+  font-family:var(--font-mono);font-size:20px;letter-spacing:1px;
+  padding:14px 22px 12px;border-radius:0 0 10px 10px;
+}
+.page-num{
+  position:absolute;bottom:56px;right:120px;z-index:5;
+  font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);
+}
+.page-num b{color:var(--red);font-size:30px;}
+
+/* ============================================================
+   REVEAL ANIMATION — staggered entrance on the active slide.
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(34px);
+  transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}
+.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}
+.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}
+.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;} .d2{transition-delay:.32s !important;}
+.d3{transition-delay:.44s !important;} .d4{transition-delay:.56s !important;}
+.d5{transition-delay:.68s !important;} .d6{transition-delay:.80s !important;}
+
+/* ============================================================
+   SHARED COMPONENTS
+   ============================================================ */
+/* "washi tape" label — signature zine move */
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;
+  font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);
+  box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);} .tape.teal{background:var(--teal);}
+
+/* section eyebrow */
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;
+  font-size:36px;color:var(--red);}
+
+/* heading scales */
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:150px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:96px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:76px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+
+/* body copy */
+.lead{font-size:34px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:29px;line-height:1.5;color:var(--ink-soft);}
+
+/* paper card with sticker shadow */
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;
+  padding:34px 36px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:40px;margin-bottom:12px;line-height:1;}
+.card p{font-size:26px;line-height:1.42;color:var(--ink-soft);}
+.card .ic{font-size:54px;line-height:1;display:block;margin-bottom:10px;}
+
+/* chips */
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;
+  padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.chip.red{background:var(--red);color:#fff;}
+
+/* callout note — "lo sapevi?" */
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;
+  padding:26px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;
+  text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:27px;line-height:1.4;color:var(--ink);}
+
+/* metaphor badge (e.g. "il cervello") */
+.meta-badge{font-family:var(--font-display);font-style:italic;font-weight:700;
+  color:var(--teal);font-size:34px;}
+
+/* analogy strip used on concept slides */
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);
+  color:var(--paper);border-radius:50px;padding:16px 30px;font-size:28px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:34px;color:var(--gold);}
+
+/* ============================================================
+   LAYOUT HELPERS
+   ============================================================ */
+.col{display:flex;flex-direction:column;}
+.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:26px;}
+
+/* ============================================================
+   ILLUSTRATION SHELL — frame for inline SVG diagrams
+   ============================================================ */
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;
+  box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu svg{width:100%;height:auto;display:block;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);
+  text-align:center;margin-top:14px;}
+
+/* comparison table */
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:27px;}
+.cmp th{font-family:var(--font-display);font-weight:900;font-size:34px;text-align:left;
+  padding:16px 24px;color:var(--paper);}
+.cmp th.hdd{background:var(--sky);border-radius:12px 0 0 0;}
+.cmp th.ssd{background:var(--red);border-radius:0 12px 0 0;}
+.cmp th:first-child{background:var(--ink);}
+.cmp td{padding:13px 24px;border-bottom:2px solid var(--line);color:var(--ink-soft);
+  background:#fbf5ec;vertical-align:top;line-height:1.32;}
+.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2);}
+.cmp tr:last-child td{border-bottom:none;}
+
+/* ============================================================
+   TITLE SLIDE
+   ============================================================ */
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));
+  right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.title-right .dual{position:relative;z-index:2;text-align:center;color:var(--paper);}
+.title-right .dual .a,.title-right .dual .b{font-family:var(--font-display);font-weight:900;font-size:118px;line-height:.92;}
+.title-right .dual .b{color:var(--gold);}
+.title-right .dual .plus{font-size:62px;opacity:.75;margin:6px 0;}
+
+/* ============================================================
+   AGENDA / INDEX
+   ============================================================ */
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(4,auto);grid-template-columns:1fr 1fr;gap:22px 60px;margin-top:18px;}
+.agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:18px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:54px;color:var(--red);min-width:78px;}
+.agenda-item .t{font-size:30px;font-weight:600;color:var(--ink);}
+
+/* closing */
+.closing{background:var(--teal);}
+.closing::before{opacity:.12;}
+.closing *{color:var(--paper);}
+.closing .h-mega{color:var(--paper);}
+.closing .gold{color:var(--gold);}
+
+/* ============================================================
+   EDIT MODE
+   ============================================================ */
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;
+  border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;
+  opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}
+.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);
+  font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+
+/* progress bar */
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;
+  transition:width .35s var(--ease);}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+  <!-- ============ SLIDE 1 · TITLE ============ -->
+  <section class="slide title-slide active">
+    <div class="title-left">
+      <div class="tape reveal">Corso di Informatica</div>
+      <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo 01 — Componenti</div>
+      <h1 class="h-mega reveal" contenteditable="true">Dentro<br>il <em class="hot">computer</em></h1>
+      <p class="lead reveal" style="margin-top:30px;" contenteditable="true">Cos'è davvero un PC, di cosa è fatto e perché ogni pezzo conta. Partiamo da zero, senza dare niente per scontato.</p>
+      <div class="chips reveal" style="margin-top:46px;">
+        <span class="chip">8 lezioni</span>
+        <span class="chip alt">Livello base</span>
+        <span class="chip alt">~45 min</span>
+      </div>
+    </div>
+    <div class="title-right">
+      <div class="dual">
+        <div class="a">HARDWARE</div>
+        <div class="plus">+</div>
+        <div class="b">SOFTWARE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 2 · AGENDA ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="center">
+      <div class="tape teal reveal">In questo modulo</div>
+      <h2 class="h-sec reveal" style="margin-top:24px;">Cosa impareremo</h2>
+      <div class="agenda-list reveal d1">
+        <div class="agenda-item"><span class="n">01</span><span class="t">Hardware e Software</span></div>
+        <div class="agenda-item"><span class="n">02</span><span class="t">Il processore (CPU)</span></div>
+        <div class="agenda-item"><span class="n">03</span><span class="t">Memoria: RAM e Hard disk</span></div>
+        <div class="agenda-item"><span class="n">04</span><span class="t">Scheda madre, video e audio</span></div>
+        <div class="agenda-item"><span class="n">05</span><span class="t">Alimentazione</span></div>
+        <div class="agenda-item"><span class="n">06</span><span class="t">Periferiche e porte</span></div>
+        <div class="agenda-item"><span class="n">07</span><span class="t">Il software e il sistema operativo</span></div>
+        <div class="agenda-item"><span class="n">08</span><span class="t">Browser e suite per ufficio</span></div>
+      </div>
+    </div>
+    <div class="page-num"><b>02</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 3 · COS'È UN PC ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="eyebrow reveal">Punto di partenza</div>
+        <h2 class="h-big reveal">Cos'è un <em class="hot">PC</em>?</h2>
+        <p class="lead reveal d1">Un <b>Personal Computer</b> — “PC” — è un dispositivo elettronico pensato per essere usato da una persona alla volta. Serve a fare tantissime cose diverse: scrivere, navigare in internet, guardare video, ascoltare musica, giocare, studiare o lavorare.</p>
+        <p class="body reveal d2">La parola chiave è <b>“personale”</b>: a differenza dei grandi computer di una volta — che occupavano intere stanze ed erano usati da molte persone insieme — il PC è tuo, sta sulla scrivania (o nello zaino) ed esegue ciò che chiedi tu.</p>
+        <div class="chips reveal d3">
+          <span class="chip red">Desktop fisso</span>
+          <span class="chip alt">Portatile</span>
+          <span class="chip alt">Tablet</span>
+          <span class="chip alt">Smartphone</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="note reveal d2">
+          <div class="lbl">💡 Lo sapevi?</div>
+          <p>Anche lo smartphone che hai in tasca è un computer a tutti gli effetti: ha un processore, della memoria e dei programmi. È semplicemente un PC reso piccolo, portatile e con il touch al posto del mouse.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"><b>03</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE · FISSO vs PORTATILE ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape gold reveal">Tanti formati, stessa idea</div>
+      <h2 class="h-sec reveal">Fisso, portatile o tascabile?</h2>
+      <p class="lead reveal d1" style="margin-bottom:4px;">Esistono in tante forme diverse, ma <b>dentro funzionano tutti allo stesso modo</b>: hanno un processore, della memoria, dei programmi. Cambiano dimensioni, comodità e potenza.</p>
+      <div class="grid4 reveal d2">
+        <div class="card"><span class="ic">🖥️</span><h3 style="font-size:30px;">Fisso (Desktop)</h3><p>Sta sulla scrivania. Più potente ed espandibile, ma non si sposta. Ottimo per lavorare a casa o in ufficio.</p></div>
+        <div class="card"><span class="ic">💻</span><h3 style="font-size:30px;">Portatile (Laptop)</h3><p>Tutto in uno, con batteria. Lo porti ovunque. Il compromesso più comune tra potenza e libertà.</p></div>
+        <div class="card"><span class="ic">📱</span><h3 style="font-size:30px;">Tablet</h3><p>Schermo touch, leggerissimo, senza tastiera fisica. Comodo per leggere, guardare e navigare.</p></div>
+        <div class="card"><span class="ic">📞</span><h3 style="font-size:30px;">Smartphone</h3><p>Un computer in tasca: telefona, fotografa, naviga e fa girare migliaia di app.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:8px;">
+        <div class="lbl">💡 Il concetto chiave</div>
+        <p>Più un dispositivo è piccolo e portatile, più si cerca un equilibrio: guadagni in comodità, a volte perdi in potenza e spazio. Ma la “ricetta” dei componenti resta sempre la stessa.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 4 · HARDWARE vs SOFTWARE ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="center">
+      <div class="tape reveal">Le due grandi categorie</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Hardware <span style="color:var(--ink-faint)">&amp;</span> Software</h2>
+      <p class="lead reveal d1" style="margin-top:10px;">Tutto ciò che riguarda un computer si può dividere in due famiglie. Capire questa differenza è la base di tutto il resto.</p>
+      <div class="grid2 reveal d2" style="margin-top:38px;">
+        <div class="card" style="border-color:var(--teal);box-shadow:7px 8px 0 rgba(22,59,53,.25);">
+          <span class="ic">🧰</span>
+          <h3>Hardware <span class="meta-badge">— il corpo</span></h3>
+          <p>Tutte le parti <b>fisiche</b> che puoi toccare e vedere: lo schermo, la tastiera, i circuiti dentro la scatola. È il “corpo” della macchina.</p>
+        </div>
+        <div class="card" style="border-color:var(--red);box-shadow:7px 8px 0 rgba(230,83,59,.22);">
+          <span class="ic">🧠</span>
+          <h3>Software <span class="meta-badge" style="color:var(--red)">— la mente</span></h3>
+          <p>Tutti i <b>programmi e le istruzioni</b> che dicono all'hardware cosa fare. Non puoi toccarli: sono la “mente” che dà vita al corpo.</p>
+        </div>
+      </div>
+      <div class="analogy reveal d3" style="margin-top:34px;align-self:center;">
+        <span class="big">Analogia:</span> l'hardware è il corpo, il software è la mente. Senza uno l'altro non serve a niente.
+      </div>
+    </div>
+    <div class="page-num"><b>04</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 5 · HARDWARE (overview) ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="col stack" style="height:100%;justify-content:center;">
+      <div class="eyebrow reveal">01 · Hardware</div>
+      <h2 class="h-big reveal">Le parti che puoi <em class="hot">toccare</em></h2>
+      <p class="lead reveal d1">L'hardware è l'insieme dei componenti fisici del computer. Alcuni stanno nascosti dentro la scatola, altri sono ben visibili. Ecco i protagonisti che incontreremo uno per uno:</p>
+      <div class="grid4 reveal d2" style="margin-top:14px;">
+        <div class="card"><span class="ic">🧠</span><h3 style="font-size:32px;">CPU</h3><p>Il processore, il cervello.</p></div>
+        <div class="card"><span class="ic">⚡</span><h3 style="font-size:32px;">RAM</h3><p>Memoria a breve termine.</p></div>
+        <div class="card"><span class="ic">💾</span><h3 style="font-size:32px;">Hard disk</h3><p>Memoria a lungo termine.</p></div>
+        <div class="card"><span class="ic">🗺️</span><h3 style="font-size:32px;">Scheda madre</h3><p>Collega tutto il resto.</p></div>
+      </div>
+      <div class="grid4 reveal d3">
+        <div class="card"><span class="ic">🖥️</span><h3 style="font-size:32px;">Scheda video</h3><p>Gestisce le immagini.</p></div>
+        <div class="card"><span class="ic">🔊</span><h3 style="font-size:32px;">Scheda audio</h3><p>Gestisce il suono.</p></div>
+        <div class="card"><span class="ic">🔌</span><h3 style="font-size:32px;">Alimentatore</h3><p>Fornisce l'energia.</p></div>
+        <div class="card"><span class="ic">🖱️</span><h3 style="font-size:32px;">Periferiche</h3><p>Input e output.</p></div>
+      </div>
+    </div>
+    <div class="page-num"><b>05</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 6 · CPU ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Componente · CPU</div>
+        <h2 class="h-big reveal">Il <em class="hot">processore</em></h2>
+        <p class="lead reveal d1">La CPU (<i>Central Processing Unit</i>) è a tutti gli effetti il <b>“cervello” del computer</b>. Si occupa di elaborare le istruzioni e di eseguire le operazioni necessarie per far funzionare tutto.</p>
+        <p class="body reveal d2">Ogni cosa che chiedi — aprire un'app, scrivere una lettera, riprodurre un video — passa dalla CPU sotto forma di calcoli. Due numeri ne descrivono la potenza: la <b>frequenza</b>, misurata in <b>GHz</b> (gigahertz), cioè quanto è veloce; e i <b>core</b>, cioè quanti “cervelli” lavorano in parallelo. Più core significa più cose fatte contemporaneamente, senza rallentare.</p>
+        <div class="note reveal d3">
+          <div class="lbl">💡 Lo sapevi?</div>
+          <p>Una CPU moderna esegue <b>miliardi</b> di operazioni al secondo. Quando il PC sembra “lento”, spesso è perché la CPU ha troppe cose da calcolare tutte insieme.</p>
+        </div>
+      </div>
+      <div class="illu reveal d2">
+        <!-- SVG: chip CPU con piedini e simbolo "cervello/clock" -->
+        <svg viewBox="0 0 320 300" role="img" aria-label="Disegno di un processore">
+          <g stroke="#1c1714" stroke-width="5" fill="none" stroke-linecap="round">
+            <!-- pin laterali -->
+            <g stroke-width="6">
+              <line x1="70" y1="40" x2="70" y2="14"/><line x1="120" y1="40" x2="120" y2="14"/>
+              <line x1="170" y1="40" x2="170" y2="14"/><line x1="220" y1="40" x2="220" y2="14"/>
+              <line x1="70" y1="260" x2="70" y2="286"/><line x1="120" y1="260" x2="120" y2="286"/>
+              <line x1="170" y1="260" x2="170" y2="286"/><line x1="220" y1="260" x2="220" y2="286"/>
+              <line x1="40" y1="80" x2="14" y2="80"/><line x1="40" y1="130" x2="14" y2="130"/>
+              <line x1="40" y1="180" x2="14" y2="180"/><line x1="40" y1="220" x2="14" y2="220"/>
+              <line x1="280" y1="80" x2="306" y2="80"/><line x1="280" y1="130" x2="306" y2="130"/>
+              <line x1="280" y1="180" x2="306" y2="180"/><line x1="280" y1="220" x2="306" y2="220"/>
+            </g>
+          </g>
+          <rect x="40" y="40" width="240" height="220" rx="16" fill="#163b35" stroke="#1c1714" stroke-width="6"/>
+          <rect x="78" y="78" width="164" height="144" rx="10" fill="#e6c14a" stroke="#1c1714" stroke-width="5"/>
+          <!-- "brain/CPU" mark -->
+          <text x="160" y="170" font-family="Fraunces,serif" font-weight="900" font-size="70" fill="#1c1714" text-anchor="middle">CPU</text>
+        </svg>
+        <div class="illu-cap">Un chip con tanti contatti (i “piedini”)</div>
+      </div>
+    </div>
+    <div class="page-num"><b>06</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 7 · RAM ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="split">
+      <div class="illu reveal d1">
+        <!-- SVG: modulo RAM -->
+        <svg viewBox="0 0 360 230" role="img" aria-label="Modulo di memoria RAM">
+          <rect x="20" y="40" width="320" height="120" rx="10" fill="#1f5249" stroke="#1c1714" stroke-width="6"/>
+          <!-- chip neri -->
+          <g fill="#1c1714">
+            <rect x="44" y="66" width="50" height="48" rx="5"/><rect x="106" y="66" width="50" height="48" rx="5"/>
+            <rect x="168" y="66" width="50" height="48" rx="5"/><rect x="230" y="66" width="50" height="48" rx="5"/>
+            <rect x="292" y="66" width="34" height="48" rx="5"/>
+          </g>
+          <!-- contatti dorati -->
+          <g fill="#e6c14a">
+            <rect x="30" y="166" width="300" height="20" rx="3"/>
+          </g>
+          <g stroke="#1f5249" stroke-width="4">
+            <line x1="40" y1="166" x2="40" y2="186"/><line x1="70" y1="166" x2="70" y2="186"/>
+            <line x1="100" y1="166" x2="100" y2="186"/><line x1="130" y1="166" x2="130" y2="186"/>
+            <line x1="160" y1="166" x2="160" y2="186"/><line x1="190" y1="166" x2="190" y2="186"/>
+            <line x1="220" y1="166" x2="220" y2="186"/><line x1="250" y1="166" x2="250" y2="186"/>
+            <line x1="280" y1="166" x2="280" y2="186"/><line x1="310" y1="166" x2="310" y2="186"/>
+          </g>
+        </svg>
+        <div class="illu-cap">Un banco di RAM: si infila nella scheda madre</div>
+      </div>
+      <div class="col stack">
+        <div class="tape gold reveal">Componente · RAM</div>
+        <h2 class="h-big reveal">La <em class="hot">RAM</em></h2>
+        <p class="lead reveal d1"><b>RAM</b> sta per <i>Random Access Memory</i>. È la <b>“memoria a breve termine”</b> del computer: conserva temporaneamente le informazioni con cui la macchina sta lavorando <i>in questo momento</i>.</p>
+        <p class="body reveal d2">È velocissima, ma ha una caratteristica importante: <b>se spegni il computer, il contenuto della RAM si cancella</b>. Per questo i file vanno salvati sull'hard disk, altrimenti vanno persi.</p>
+        <div class="analogy reveal d3"><span class="big">Come</span> la scrivania su cui tieni aperti i fogli mentre lavori: più è grande, più cose ci stanno sopra.</div>
+      </div>
+    </div>
+    <div class="page-num"><b>07</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 8 · HARD DISK ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape teal reveal">Componente · Memoria</div>
+      <h2 class="h-big reveal">L'<em class="hot">hard disk</em></h2>
+      <p class="lead reveal d1">È la <b>“memoria a lungo termine”</b>: qui vengono conservati in modo permanente il sistema operativo, i programmi e i tuoi file. A differenza della RAM, <b>se spegni il PC i dati restano</b>.</p>
+      <p class="body reveal d2">Oggi sul mercato esistono due tipi di hard disk. Spesso un PC ne combina entrambi per avere il meglio di velocità e capacità.</p>
+      <table class="cmp reveal d3" style="margin-top:8px;">
+        <tr><th></th><th class="hdd">HDD — a disco</th><th class="ssd">SSD — a stato solido</th></tr>
+        <tr><td>Come funziona</td><td>Un disco magnetico che gira, letto da una testina meccanica.</td><td>Memoria elettronica, senza parti in movimento.</td></tr>
+        <tr><td>Velocità</td><td>Più lento.</td><td>Molto più veloce: il PC si accende e apre i programmi in un lampo.</td></tr>
+        <tr><td>Capacità / prezzo</td><td>Tanto spazio a poco prezzo.</td><td>Costa di più a parità di spazio.</td></tr>
+        <tr><td>Ideale per</td><td>Archiviare grandi quantità di dati.</td><td>Sistema operativo e programmi usati ogni giorno.</td></tr>
+      </table>
+    </div>
+    <div class="page-num"><b>08</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE · BIT & BYTE ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape teal reveal">Quanto è grande un file?</div>
+        <h2 class="h-big reveal">Bit, byte &amp; <em class="hot">company</em></h2>
+        <p class="lead reveal d1">La memoria del computer si misura in <b>byte</b>. Un byte è una piccolissima quantità di informazione — più o meno una lettera dell'alfabeto. I file veri sono fatti di milioni o miliardi di byte, perciò usiamo dei “gradini” più grandi.</p>
+        <p class="body reveal d2">Ogni gradino vale circa <b>1000 volte</b> il precedente. Conoscerli ti aiuta a capire quanto spazio occupa una foto, un video o un programma — e quanto spazio hai ancora libero.</p>
+        <div class="note reveal d3">
+          <div class="lbl">💡 In pratica</div>
+          <p>Una canzone pesa pochi <b>MB</b>; un film in HD vari <b>GB</b>. Un hard disk da <b>1 TB</b> può contenere migliaia di canzoni e centinaia di film.</p>
+        </div>
+      </div>
+      <div class="col" style="gap:20px;justify-content:center;">
+        <div class="card reveal d1" style="padding:22px 30px;"><h3 style="font-size:34px;">Byte <span class="meta-badge">— B</span></h3><p>L'unità base. ~1 carattere di testo.</p></div>
+        <div class="card reveal d2" style="padding:22px 30px;border-color:var(--sky);"><h3 style="font-size:34px;">Kilobyte <span class="meta-badge" style="color:var(--sky)">— KB</span></h3><p>~1000 byte. Un breve documento di testo.</p></div>
+        <div class="card reveal d3" style="padding:22px 30px;border-color:var(--gold-deep);"><h3 style="font-size:34px;">Megabyte <span class="meta-badge" style="color:var(--gold-deep)">— MB</span></h3><p>~1000 KB. Una foto o una canzone.</p></div>
+        <div class="card reveal d4" style="padding:22px 30px;border-color:var(--teal);"><h3 style="font-size:34px;">Gigabyte <span class="meta-badge" style="color:var(--teal)">— GB</span></h3><p>~1000 MB. Un film, tante app.</p></div>
+        <div class="card reveal d5" style="padding:22px 30px;border-color:var(--red);"><h3 style="font-size:34px;">Terabyte <span class="meta-badge" style="color:var(--red)">— TB</span></h3><p>~1000 GB. Un intero hard disk.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 9 · SCHEDA MADRE ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Componente · Scheda madre</div>
+        <h2 class="h-big reveal">La <em class="hot">scheda madre</em></h2>
+        <p class="lead reveal d1">La scheda madre (<i>motherboard</i>) <b>collega e coordina tutte le altre parti</b> del computer. È il “centro di comando” che permette ai componenti di comunicare tra loro.</p>
+        <p class="body reveal d2">Come la mappa di una città mostra le strade che uniscono i quartieri, la scheda madre contiene i “percorsi” elettrici che fanno arrivare dati ed energia da un componente all'altro. CPU, RAM, schede e hard disk si collegano tutti qui.</p>
+        <div class="note reveal d3">
+          <div class="lbl">🗺️ Tieni a mente</div>
+          <p>Se la CPU è il cervello e la RAM la scrivania, la scheda madre è la <b>rete di strade</b> che permette a tutto di parlarsi.</p>
+        </div>
+      </div>
+      <div class="illu reveal d2">
+        <!-- SVG: scheda madre stilizzata come mappa città -->
+        <svg viewBox="0 0 320 300" role="img" aria-label="Scheda madre come mappa di strade">
+          <rect x="20" y="20" width="280" height="260" rx="14" fill="#1f5249" stroke="#1c1714" stroke-width="6"/>
+          <!-- "strade" -->
+          <g stroke="#e6c14a" stroke-width="5" fill="none" opacity=".85">
+            <path d="M60 60 H260 M60 110 H200 M120 110 V250 M200 60 V200 M60 200 H260 M60 250 H120"/>
+          </g>
+          <!-- componenti come "quartieri" -->
+          <rect x="44" y="44" width="90" height="46" rx="6" fill="#e6533b" stroke="#1c1714" stroke-width="4"/>
+          <text x="89" y="74" font-family="Space Mono,monospace" font-size="20" fill="#fff" text-anchor="middle">CPU</text>
+          <rect x="210" y="150" width="64" height="90" rx="6" fill="#3f7e8c" stroke="#1c1714" stroke-width="4"/>
+          <text x="242" y="200" font-family="Space Mono,monospace" font-size="17" fill="#fff" text-anchor="middle">RAM</text>
+          <rect x="44" y="210" width="72" height="48" rx="6" fill="#e6c14a" stroke="#1c1714" stroke-width="4"/>
+          <text x="80" y="240" font-family="Space Mono,monospace" font-size="16" fill="#1c1714" text-anchor="middle">DISK</text>
+        </svg>
+        <div class="illu-cap">Le “strade” collegano i componenti</div>
+      </div>
+    </div>
+    <div class="page-num"><b>09</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 10 · SCHEDA VIDEO + AUDIO ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="center">
+      <div class="tape gold reveal">Componenti · Video &amp; Audio</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">Immagini e suono</h2>
+      <div class="grid2 reveal d1" style="margin-top:30px;">
+        <div class="card">
+          <span class="ic">🖥️</span>
+          <h3>Scheda video (GPU)</h3>
+          <p>Gestisce tutto ciò che <b>vedi</b> sullo schermo: immagini, video, giochi. Stabilisce anche quanti schermi puoi collegare contemporaneamente (es. monitor + TV) e a quale qualità. Per i videogiochi, la grafica 3D e il montaggio video serve una scheda potente; per scrivere e navigare ne basta una semplice.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🔊</span>
+          <h3>Scheda audio</h3>
+          <p>Gestisce tutto ciò che <b>senti</b>: musica, audio dei film, suoni di sistema. Permette di collegare casse, cuffie e microfoni.</p>
+        </div>
+      </div>
+      <div class="note reveal d2" style="margin-top:30px;">
+        <div class="lbl">💡 Spesso già incluse</div>
+        <p>Nella maggior parte dei PC scheda video e scheda audio sono <b>già integrate nella scheda madre</b>. Si aggiunge una scheda dedicata solo quando servono prestazioni elevate, ad esempio per il gaming, il montaggio video o la grafica.</p>
+      </div>
+    </div>
+    <div class="page-num"><b>10</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 11 · ALIMENTATORE ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="split">
+      <div class="illu reveal d1" style="background:var(--teal);border-color:var(--ink);">
+        <svg viewBox="0 0 300 240" role="img" aria-label="Alimentazione e batteria">
+          <!-- spina -->
+          <g stroke="#e6c14a" stroke-width="8" stroke-linecap="round" fill="none">
+            <path d="M40 60 V30 M80 60 V30"/>
+          </g>
+          <rect x="24" y="60" width="72" height="56" rx="10" fill="#e6c14a" stroke="#f4ece0" stroke-width="4"/>
+          <path d="M96 88 H150" stroke="#f4ece0" stroke-width="6" fill="none" stroke-dasharray="10 8"/>
+          <!-- batteria -->
+          <rect x="150" y="58" width="120" height="60" rx="10" fill="#e6533b" stroke="#f4ece0" stroke-width="4"/>
+          <rect x="270" y="74" width="14" height="28" rx="3" fill="#f4ece0"/>
+          <g fill="#f4ece0"><rect x="166" y="74" width="16" height="28"/><rect x="190" y="74" width="16" height="28"/><rect x="214" y="74" width="16" height="28"/></g>
+          <!-- lampo -->
+          <path d="M150 150 l-30 50 h26 l-14 40 l46 -56 h-26 z" fill="#e6c14a" stroke="#f4ece0" stroke-width="3"/>
+        </svg>
+        <div class="illu-cap" style="color:#cdbfa8;">Dalla presa di corrente al computer</div>
+      </div>
+      <div class="col stack">
+        <div class="tape reveal">Componente · Energia</div>
+        <h2 class="h-big reveal">L'<em class="hot">alimentatore</em></h2>
+        <p class="lead reveal d1">Fornisce l'<b>energia elettrica</b> necessaria a far funzionare il computer, trasformando la corrente della presa di casa in una forma adatta ai componenti.</p>
+        <p class="body reveal d2">Nei dispositivi portatili — laptop, tablet, smartphone — l'alimentatore fisso viene sostituito dalla coppia <b>batteria + caricabatterie</b>: la batteria accumula energia, il caricabatterie la ricarica quando serve.</p>
+        <div class="chips reveal d3">
+          <span class="chip red">Fisso → alimentatore</span>
+          <span class="chip">Portatile → batteria + carica</span>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"><b>11</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 12 · PERIFERICHE INPUT ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape teal reveal">Periferiche · INPUT</div>
+      <h2 class="h-big reveal">Mandare informazioni <em class="hot">dentro</em></h2>
+      <p class="lead reveal d1">I dispositivi di <b>input</b> sono tutti gli accessori che ci permettono di <b>inviare informazioni</b> al computer: con loro “diciamo” alla macchina cosa fare.</p>
+      <div class="grid4 reveal d2" style="margin-top:8px;">
+        <div class="card"><span class="ic">⌨️</span><h3 style="font-size:30px;">Tastiera</h3><p>Per scrivere testo e comandi.</p></div>
+        <div class="card"><span class="ic">🖱️</span><h3 style="font-size:30px;">Mouse</h3><p>Per puntare e cliccare.</p></div>
+        <div class="card"><span class="ic">🎤</span><h3 style="font-size:30px;">Microfono</h3><p>Per registrare la voce.</p></div>
+        <div class="card"><span class="ic">📷</span><h3 style="font-size:30px;">Webcam / scanner</h3><p>Per acquisire immagini.</p></div>
+      </div>
+      <div class="analogy reveal d3" style="margin-top:30px;align-self:flex-start;"><span class="big">Input =</span> dal mondo → al computer</div>
+    </div>
+    <div class="page-num"><b>12</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 13 · PERIFERICHE OUTPUT ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">Periferiche · OUTPUT</div>
+      <h2 class="h-big reveal">Ricevere i risultati <em class="hot">fuori</em></h2>
+      <p class="lead reveal d1">I dispositivi di <b>output</b> ci permettono di <b>vedere o sentire i risultati</b> di ciò che abbiamo chiesto al computer: sono la sua risposta verso di noi.</p>
+      <div class="grid4 reveal d2" style="margin-top:8px;">
+        <div class="card"><span class="ic">🖥️</span><h3 style="font-size:30px;">Schermo</h3><p>Mostra immagini e testo.</p></div>
+        <div class="card"><span class="ic">🔈</span><h3 style="font-size:30px;">Casse / cuffie</h3><p>Fanno sentire i suoni.</p></div>
+        <div class="card"><span class="ic">🖨️</span><h3 style="font-size:30px;">Stampante</h3><p>Mette su carta i documenti.</p></div>
+        <div class="card"><span class="ic">📽️</span><h3 style="font-size:30px;">Proiettore</h3><p>Ingrandisce su parete.</p></div>
+      </div>
+      <div class="analogy reveal d3" style="margin-top:30px;align-self:flex-start;background:var(--red);"><span class="big" style="color:#fff;">Output =</span> dal computer → al mondo</div>
+    </div>
+    <div class="page-num"><b>13</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 14 · PORTE ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">Connessioni · Porte</div>
+        <h2 class="h-big reveal">Le <em class="hot">porte</em></h2>
+        <p class="lead reveal d1">Le porte sono i <b>connettori</b> sul computer dove colleghiamo cavi e accessori. Ogni forma corrisponde a un tipo di collegamento diverso — non a caso le spine entrano solo nella porta giusta.</p>
+        <div class="stack reveal d2" style="margin-top:6px;">
+          <p class="body"><b>USB</b> — la più comune: chiavette, mouse, tastiere, ricarica.</p>
+          <p class="body"><b>HDMI</b> — collega monitor, TV e proiettori (video + audio).</p>
+          <p class="body"><b>Jack audio</b> — per cuffie e casse.</p>
+          <p class="body"><b>Ethernet</b> — per connettersi a internet via cavo.</p>
+        </div>
+      </div>
+      <div class="illu reveal d2">
+        <svg viewBox="0 0 300 320" role="img" aria-label="Tipi di porte">
+          <g font-family="Space Mono,monospace" font-size="20" fill="#1c1714">
+            <!-- USB -->
+            <rect x="40" y="36" width="120" height="40" rx="5" fill="#3f7e8c" stroke="#1c1714" stroke-width="4"/>
+            <rect x="52" y="48" width="78" height="16" fill="#f4ece0"/>
+            <text x="180" y="62">USB</text>
+            <!-- HDMI -->
+            <path d="M40 110 h120 l-14 36 h-92 z" fill="#e6533b" stroke="#1c1714" stroke-width="4"/>
+            <text x="180" y="136">HDMI</text>
+            <!-- Jack -->
+            <circle cx="70" cy="208" r="26" fill="#e6c14a" stroke="#1c1714" stroke-width="4"/>
+            <circle cx="70" cy="208" r="9" fill="#1c1714"/>
+            <text x="120" y="216">Jack audio</text>
+            <!-- Ethernet -->
+            <rect x="40" y="262" width="80" height="46" rx="5" fill="#1f5249" stroke="#1c1714" stroke-width="4"/>
+            <rect x="66" y="300" width="28" height="14" fill="#1f5249" stroke="#1c1714" stroke-width="4"/>
+            <text x="140" y="292">Ethernet</text>
+          </g>
+        </svg>
+        <div class="illu-cap">Ogni porta ha una forma diversa</div>
+      </div>
+    </div>
+    <div class="page-num"><b>14</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 15 · SOFTWARE ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="eyebrow reveal">02 · Software</div>
+      <h2 class="h-big reveal">I programmi che <em class="hot">non puoi toccare</em></h2>
+      <p class="lead reveal d1">Il <b>software</b> è l'insieme dei programmi e delle istruzioni che permettono al computer di svolgere compiti specifici. Sono elementi <b>immateriali</b>: non li tocchi, ma senza di loro l'hardware sarebbe solo una scatola di metallo e plastica.</p>
+      <div class="grid3 reveal d2" style="margin-top:14px;">
+        <div class="card"><span class="ic">🪟</span><h3>Sistema operativo</h3><p>Il software di base che fa funzionare tutto il resto.</p></div>
+        <div class="card"><span class="ic">🌐</span><h3>Browser</h3><p>Per navigare in internet.</p></div>
+        <div class="card"><span class="ic">📄</span><h3>Programmi</h3><p>Word, Excel, giochi, app: ognuno fa un compito.</p></div>
+      </div>
+      <div class="analogy reveal d3" style="margin-top:30px;align-self:flex-start;"><span class="big">Ricorda:</span> hardware = corpo · software = mente</div>
+    </div>
+    <div class="page-num"><b>15</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 16 · SISTEMA OPERATIVO ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Software · Il più importante</div>
+        <h2 class="h-big reveal">Il <em class="hot">sistema operativo</em></h2>
+        <p class="lead reveal d1">È il software <b>di base</b> che controlla il computer e consente a tutti gli altri programmi di funzionare. È la prima cosa che si avvia quando accendi il PC.</p>
+        <p class="body reveal d2">Gestisce lo schermo, i file, le periferiche e fa da “traduttore” tra te e l'hardware. Ne esistono diversi, ognuno con il suo stile — ma il compito è sempre lo stesso.</p>
+        <div class="note reveal d3">
+          <div class="lbl">📱 Attenzione</div>
+          <p>Il sistema operativo dei computer è diverso da quello degli smartphone: <b>Android</b> e <b>iOS</b> sono pensati per il touch, <b>Windows</b> e <b>macOS</b> per mouse e tastiera.</p>
+        </div>
+      </div>
+      <div class="col" style="gap:24px;">
+        <div class="card reveal d2"><span class="ic">🪟</span><h3>Windows</h3><p>Il più diffuso sui PC di tutto il mondo.</p></div>
+        <div class="card reveal d3"><span class="ic">🍎</span><h3>macOS</h3><p>Il sistema dei computer Apple (Mac).</p></div>
+        <div class="card reveal d4"><span class="ic">🐧</span><h3>Linux</h3><p>Gratuito e libero, molto usato dai tecnici.</p></div>
+      </div>
+    </div>
+    <div class="page-num"><b>16</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 17 · BROWSER ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="split">
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 340 240" role="img" aria-label="Finestra di un browser web">
+          <rect x="20" y="30" width="300" height="180" rx="14" fill="#fbf5ec" stroke="#1c1714" stroke-width="6"/>
+          <rect x="20" y="30" width="300" height="46" rx="14" fill="#163b35"/>
+          <circle cx="44" cy="53" r="8" fill="#e6533b"/><circle cx="70" cy="53" r="8" fill="#e6c14a"/><circle cx="96" cy="53" r="8" fill="#3f7e8c"/>
+          <rect x="120" y="42" width="180" height="22" rx="11" fill="#f4ece0"/>
+          <text x="134" y="59" font-family="Space Mono,monospace" font-size="15" fill="#6b5f54">https://</text>
+          <!-- contenuto -->
+          <rect x="44" y="98" width="120" height="90" rx="8" fill="#e6c14a" opacity=".7"/>
+          <rect x="180" y="98" width="118" height="14" rx="7" fill="#d8c9b4"/>
+          <rect x="180" y="122" width="118" height="14" rx="7" fill="#d8c9b4"/>
+          <rect x="180" y="146" width="80" height="14" rx="7" fill="#d8c9b4"/>
+        </svg>
+        <div class="illu-cap">Una finestra di browser</div>
+      </div>
+      <div class="col stack">
+        <div class="tape teal reveal">Software · Internet</div>
+        <h2 class="h-big reveal">Il <em class="hot">browser</em></h2>
+        <p class="lead reveal d1">Un browser è l'applicazione che permette di <b>accedere a internet e visitare i siti web</b>. È la finestra attraverso cui guardi tutto il web.</p>
+        <p class="body reveal d2">Esempi: <b>Chrome</b>, <b>Firefox</b>, <b>Safari</b>, <b>Edge</b>. Il nome deriva dal verbo inglese <i>to browse</i>, che significa “sfogliare” — proprio come si sfogliano le pagine di una rivista.</p>
+        <div class="chips reveal d3">
+          <span class="chip">Chrome</span><span class="chip alt">Firefox</span><span class="chip alt">Safari</span><span class="chip alt">Edge</span>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"><b>17</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 18 · SUITE UFFICIO ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="center">
+      <div class="tape gold reveal">Software · Lavoro</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">La suite per ufficio</h2>
+      <p class="lead reveal d1" style="margin-top:8px;">Una <b>suite office</b> riunisce i programmi che servono per usare il PC come strumento di studio e di lavoro. I tre più usati:</p>
+      <div class="grid3 reveal d2" style="margin-top:34px;">
+        <div class="card" style="border-color:var(--sky);">
+          <span class="ic">📝</span><h3>Word</h3>
+          <p>Per <b>scrivere</b>: lettere, relazioni, curriculum, documenti di ogni tipo.</p>
+        </div>
+        <div class="card" style="border-color:var(--teal);">
+          <span class="ic">📊</span><h3>Excel</h3>
+          <p>Per i <b>fogli di calcolo</b>: tabelle, conti, grafici e numeri.</p>
+        </div>
+        <div class="card" style="border-color:var(--red);">
+          <span class="ic">📽️</span><h3>PowerPoint</h3>
+          <p>Per le <b>presentazioni</b> con diapositive, come questa.</p>
+        </div>
+      </div>
+      <div class="note reveal d3" style="margin-top:32px;">
+        <div class="lbl">💡 Buono a sapersi</div>
+        <p>Microsoft Office non è l'unica scelta: esistono alternative gratuite come <b>Google Documenti / Fogli / Presentazioni</b> e <b>LibreOffice</b>, che fanno le stesse cose.</p>
+      </div>
+    </div>
+    <div class="page-num"><b>18</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 19 · RIEPILOGO MAPPA ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">Mettiamo tutto insieme</div>
+      <h2 class="h-sec reveal">La mappa del computer</h2>
+      <div class="grid2 reveal d1" style="margin-top:20px;gap:40px;">
+        <div class="card" style="border-color:var(--teal);">
+          <h3 style="color:var(--teal);">🧰 Hardware — il corpo</h3>
+          <p style="margin-top:10px;line-height:1.55;">
+            <b>CPU</b> = il cervello · <b>RAM</b> = memoria a breve termine · <b>Hard disk</b> = memoria a lungo termine · <b>Scheda madre</b> = collega tutto · <b>Schede video/audio</b> = immagini e suono · <b>Alimentatore</b> = energia · <b>Periferiche</b> = input e output.
+          </p>
+        </div>
+        <div class="card" style="border-color:var(--red);">
+          <h3 style="color:var(--red);">🧠 Software — la mente</h3>
+          <p style="margin-top:10px;line-height:1.55;">
+            <b>Sistema operativo</b> = la base che fa funzionare tutto · <b>Browser</b> = per internet · <b>Suite ufficio</b> = Word, Excel, PowerPoint per studiare e lavorare.
+          </p>
+        </div>
+      </div>
+      <div class="analogy reveal d2" style="margin-top:34px;align-self:center;font-size:30px;">
+        <span class="big">In una frase:</span> l'hardware è il corpo, il software è la mente. Insieme fanno il computer.
+      </div>
+    </div>
+    <div class="page-num"><b>19</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 20 · DOMANDE / VERIFICA ============ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M1</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape teal reveal">Verifica veloce</div>
+      <h2 class="h-sec reveal">Hai capito tutto?</h2>
+      <p class="lead reveal d1" style="margin-bottom:6px;">Prova a rispondere a mente prima di andare avanti:</p>
+      <div class="grid2 reveal d2" style="gap:26px 40px;">
+        <div class="card"><h3 style="font-size:34px;">1.</h3><p>Qual è la differenza tra hardware e software?</p></div>
+        <div class="card"><h3 style="font-size:34px;">2.</h3><p>Perché la RAM si “svuota” quando spegni il PC?</p></div>
+        <div class="card"><h3 style="font-size:34px;">3.</h3><p>Che differenza c'è tra un HDD e un SSD?</p></div>
+        <div class="card"><h3 style="font-size:34px;">4.</h3><p>Fai un esempio di periferica di input e una di output.</p></div>
+      </div>
+    </div>
+    <div class="page-num"><b>20</b> / 21</div>
+  </section>
+
+  <!-- ============ SLIDE 21 · CHIUSURA ============ -->
+  <section class="slide closing">
+    <div class="center" style="align-items:center;text-align:center;">
+      <div class="eyebrow reveal gold">Fine Modulo 01</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Bravi! 🎉</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1100px;text-align:center;margin-top:20px;">
+        Ora sai com'è fatto un computer dentro e fuori. Nel <span class="gold">prossimo modulo</span> vediamo come si collega al mondo: <b>Internet</b>.
+      </p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a class="chip" href="02-internet.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → M2 · Internet</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<!-- progress + edit chrome (outside the stage) -->
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+<script>
+/* ============================================================
+   SLIDE CONTROLLER — fixed-stage scaling + navigation.
+   ============================================================ */
+class SlidePresentation{
+  constructor(){
+    this.slides=[...document.querySelectorAll('.slide')];
+    this.i=0;
+    this.stage=document.getElementById('deckStage');
+    this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());
+    this.keys();this.touch();this.wheel();
+    this.numberPages();
+    this.show(0);
+  }
+  scale(){
+    const f=Math.min(innerWidth/1920,innerHeight/1080);
+    const x=(innerWidth-1920*f)/2,y=(innerHeight-1080*f)/2;
+    this.stage.style.transform=`translate(${x}px,${y}px) scale(${f})`;
+  }
+  numberPages(){
+    /* Auto-fill page numbers so inserting/removing slides never breaks them. */
+    const total=this.slides.length;
+    this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');
+      if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;});
+  }
+  show(n){
+    this.i=Math.max(0,Math.min(n,this.slides.length-1));
+    this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});
+    this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';
+  }
+  next(){this.show(this.i+1);} prev(){this.show(this.i-1);}
+  keys(){
+    addEventListener('keydown',e=>{
+      if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+      if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+      else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+      else if(e.key==='Home'){this.show(0);} else if(e.key==='End'){this.show(this.slides.length-1);}
+    });
+  }
+  touch(){
+    let x0=null;
+    addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;
+      if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});
+  }
+  wheel(){
+    let lock=false;
+    addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;
+      if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();
+      setTimeout(()=>lock=false,700);},{passive:true});
+  }
+}
+const deck=new SlidePresentation();
+
+/* ============================================================
+   INLINE EDITING — hover top-left or press E. Saves to localStorage.
+   ============================================================ */
+const editor={
+  isActive:false,
+  toggle(){
+    this.isActive=!this.isActive;
+    document.body.classList.toggle('editing',this.isActive);
+    document.getElementById('editToggle').classList.toggle('active',this.isActive);
+    document.getElementById('editHint').classList.toggle('show',this.isActive);
+    document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));
+    if(this.isActive)this.load();
+  },
+  key(){return 'inf-m1-edits';},
+  save(){
+    const data={};
+    document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);
+    localStorage.setItem(this.key(),JSON.stringify(data));
+    const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);
+  },
+  load(){
+    const raw=localStorage.getItem(this.key());if(!raw)return;
+    const data=JSON.parse(raw);
+    document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});
+  }
+};
+/* give each editable a stable id so edits persist */
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+
+const toggleBtn=document.getElementById('editToggle');
+const hotzone=document.querySelector('.edit-hotzone');
+let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{
+  const onEditable=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';
+  if((e.key==='e'||e.key==='E')&&!onEditable){editor.toggle();}
+  if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}
+});
+</script>
+</body>
+</html>

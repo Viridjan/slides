@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sicurezza Digitale · C2 — Minacce e Vulnerabilità della Rete</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;background:#fff;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}.slide:last-child{break-after:auto;page-break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}.d5{transition-delay:.68s !important;}.d6{transition-delay:.80s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:142px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:28px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 32px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:10px;line-height:1;}
+.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:50px;line-height:1;display:block;margin-bottom:8px;}
+.card .mono{font-family:var(--font-mono);font-size:23px;color:var(--teal);font-weight:700;}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:24px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa;}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:26px;line-height:1.4;color:var(--ink);}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:22px;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu svg{width:100%;height:auto;display:block;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--red),#a02010);right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:18px 60px;margin-top:16px;}
+.agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:15px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:72px;}
+.agenda-item .t{font-size:28px;font-weight:600;color:var(--ink);}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing .gold{color:var(--gold);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease);}
+/* threat badge */
+.threat-badge{display:inline-block;font-family:var(--font-mono);font-size:19px;font-weight:700;padding:6px 16px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;}
+.threat-badge.high{background:#e6533b;color:#fff;}
+.threat-badge.med{background:#e6c14a;color:#1c1714;}
+.threat-badge.low{background:#d8c9b4;color:#1c1714;}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- === SLIDE 1: TITLE === -->
+<section class="slide title-slide active">
+  <div class="title-left">
+    <div class="tape reveal">Corso di Informatica</div>
+    <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Sicurezza Digitale · Concetto 2</div>
+    <h1 class="h-mega reveal" contenteditable="true">Minacce e<br><em class="hot">Vulnerabilità<br>della Rete</em></h1>
+    <p class="lead reveal" style="margin-top:30px;" contenteditable="true">Virus, malware, ransomware, phishing e attacchi di rete: come funzionano, come si diffondono e come difendersi concretamente.</p>
+    <div class="chips reveal" style="margin-top:46px;"><span class="chip">Concetto 2 / 3</span><span class="chip alt">Intermedio</span><span class="chip alt">~45 min</span></div>
+  </div>
+  <div class="title-right">
+    <div style="position:relative;z-index:2;">
+      <svg viewBox="0 0 220 220" width="220" role="img" aria-label="Simbolo di pericolo digitale: teschio su schermo">
+        <!-- Monitor frame -->
+        <rect x="30" y="40" width="160" height="110" rx="10" fill="#f4ece0" stroke="#f4ece0" stroke-width="4" opacity=".15"/>
+        <rect x="40" y="50" width="140" height="90" rx="6" fill="#1c1714" opacity=".8"/>
+        <!-- Skull -->
+        <ellipse cx="110" cy="84" rx="28" ry="26" fill="#e6533b"/>
+        <ellipse cx="99" cy="88" rx="7" ry="8" fill="#1c1714"/>
+        <ellipse cx="121" cy="88" rx="7" ry="8" fill="#1c1714"/>
+        <rect x="100" y="100" width="6" height="10" rx="2" fill="#e6533b"/>
+        <rect x="107" y="100" width="6" height="10" rx="2" fill="#e6533b"/>
+        <rect x="114" y="100" width="6" height="10" rx="2" fill="#e6533b"/>
+        <!-- Warning lines -->
+        <line x1="56" y1="60" x2="70" y2="74" stroke="#e6533b" stroke-width="3" opacity=".7"/>
+        <line x1="150" y1="60" x2="164" y2="74" stroke="#e6533b" stroke-width="3" opacity=".7"/>
+        <!-- Stand -->
+        <rect x="96" y="150" width="28" height="12" rx="3" fill="#f4ece0" opacity=".2"/>
+        <rect x="80" y="162" width="60" height="8" rx="4" fill="#f4ece0" opacity=".2"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- === SLIDE 2: AGENDA === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="center">
+    <div class="tape teal reveal">In questo modulo</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
+    <div class="agenda-list reveal d1">
+      <div class="agenda-item"><span class="n">01</span><span class="t">Minacce e vulnerabilità: definizioni</span></div>
+      <div class="agenda-item"><span class="n">02</span><span class="t">Tipi di malware</span></div>
+      <div class="agenda-item"><span class="n">03</span><span class="t">Ransomware: il sequestro digitale</span></div>
+      <div class="agenda-item"><span class="n">04</span><span class="t">Phishing e sue varianti</span></div>
+      <div class="agenda-item"><span class="n">05</span><span class="t">Come riconoscere il phishing</span></div>
+      <div class="agenda-item"><span class="n">06</span><span class="t">Attacchi alle reti WiFi</span></div>
+      <div class="agenda-item"><span class="n">07</span><span class="t">Man-in-the-Middle e intercettazione</span></div>
+      <div class="agenda-item"><span class="n">08</span><span class="t">Botnet e attacchi DDoS</span></div>
+      <div class="agenda-item"><span class="n">09</span><span class="t">Come difendersi dal malware</span></div>
+      <div class="agenda-item"><span class="n">10</span><span class="t">Backup, antivirus e risposta agli incidenti</span></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 3: MINACCE VS VULNERABILITÀ === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="center">
+    <div class="tape reveal">Le basi</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Minacce <em class="hot">vs</em> Vulnerabilità</h2>
+    <p class="lead reveal d1">Due concetti spesso confusi, ma fondamentalmente diversi. Capirli aiuta a capire dove e come difendersi.</p>
+    <div class="grid2 reveal d2" style="margin-top:24px;">
+      <div class="card" style="border-color:var(--red);border-width:3px;">
+        <span class="ic">⚠️</span>
+        <h3>Minaccia (Threat)</h3>
+        <p>Tutto ciò che può causare danno: un hacker, un virus, una email truffaldina, un dipendente negligente. La minaccia è esterna — non possiamo controllarla, solo ridurre la nostra esposizione.</p>
+        <p style="margin-top:12px;font-family:var(--font-mono);font-size:22px;color:var(--red);">Esempio: un gruppo di hacker che sviluppa ransomware.</p>
+      </div>
+      <div class="card" style="border-color:var(--sky);border-width:3px;">
+        <span class="ic">🕳️</span>
+        <h3>Vulnerabilità (Vulnerability)</h3>
+        <p>Un difetto nel nostro sistema che permette alla minaccia di fare danno: software non aggiornato, password debole, configurazione errata. <b>Questa la controlliamo noi.</b></p>
+        <p style="margin-top:12px;font-family:var(--font-mono);font-size:22px;color:var(--sky);">Esempio: usare Windows XP senza aggiornamenti nel 2024.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:24px;">
+      <div class="lbl">💡 La formula del rischio</div>
+      <p><b>Rischio = Minaccia × Vulnerabilità × Impatto.</b> Non possiamo azzerare le minacce, ma possiamo ridurre le vulnerabilità e limitare l'impatto potenziale.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 4: TIPI DI MALWARE === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="center">
+    <div class="tape gold reveal">Malware</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Il <em class="hot">Bestiario</em> del Malware</h2>
+    <p class="lead reveal d1"><b>Malware</b> = <em>Malicious Software</em>. Software creato appositamente per danneggiare, rubare o spiare. Ne esistono molti tipi, ognuno con un obiettivo diverso.</p>
+    <div class="grid3 reveal d2" style="margin-top:20px;">
+      <div class="card">
+        <span class="ic">🦠</span>
+        <h3>Virus</h3>
+        <p>Si attacca ad altri file e si diffonde quando li apri o li condividi. Come un virus biologico, ha bisogno di un "ospite" per spostarsi.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🪱</span>
+        <h3>Worm</h3>
+        <p>Si diffonde autonomamente nella rete senza bisogno di un file ospite. Può infettare migliaia di computer in pochi minuti sfruttando una vulnerabilità di rete.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🐴</span>
+        <h3>Trojan</h3>
+        <p>Si nasconde dentro un programma apparentemente legittimo. Lo installi pensando sia qualcosa di utile, ma in realtà apre una porta agli hacker nel tuo sistema.</p>
+      </div>
+    </div>
+    <div class="grid3 reveal d3" style="margin-top:20px;">
+      <div class="card">
+        <span class="ic">👁️</span>
+        <h3>Spyware</h3>
+        <p>Ti spia in silenzio: registra le tue digitazioni (keylogger), scatta screenshot, accede a webcam e microfono senza che tu te ne accorga.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🔐</span>
+        <h3>Ransomware</h3>
+        <p>Cifra tutti i tuoi file rendendoli inaccessibili, poi chiede un riscatto per restituire la chiave. Il più distruttivo in assoluto — trattato nella prossima slide.</p>
+      </div>
+      <div class="card">
+        <span class="ic">📢</span>
+        <h3>Adware</h3>
+        <p>Mostra pubblicità indesiderate, spesso redirect del browser, toolbar non richieste. Meno pericoloso ma fastidioso e spesso vettore per altri malware.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 5: RANSOMWARE === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape reveal">Il più pericoloso</div>
+      <h2 class="h-big reveal">Ransomware:<br>il <em class="hot">sequestro<br>digitale</em></h2>
+      <p class="lead reveal d1">Cifra tutti i tuoi file — foto, documenti, lavoro — e chiede un riscatto in criptovaluta per restituirli. Spesso non li restituisce neanche dopo il pagamento.</p>
+      <p class="body reveal d2">Un click su un allegato email sbagliato può cifrare in pochi minuti l'intero disco fisso, tutti i file di rete condivisi, tutti gli hard disk collegati via USB.</p>
+      <div class="note red reveal d3">
+        <div class="lbl">📊 Impatto reale 2023</div>
+        <p>Il riscatto medio richiesto alle PMI italiane nel 2023 è stato di <b>€ 82.000</b>. Il 40% delle aziende colpite ha chiuso entro 12 mesi dall'attacco.</p>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 280 300" style="max-width:260px;margin:0 auto;" role="img" aria-label="Schermata ransomware con lucchetto e richiesta di riscatto">
+        <!-- Screen -->
+        <rect x="20" y="20" width="240" height="200" rx="12" fill="#1c1714" stroke="#e6533b" stroke-width="5"/>
+        <!-- Warning icon -->
+        <polygon points="140,44 168,90 112,90" fill="#e6533b"/>
+        <text x="140" y="83" text-anchor="middle" font-size="24" fill="#1c1714" font-weight="900">!</text>
+        <!-- Text lines -->
+        <rect x="50" y="104" width="180" height="12" rx="4" fill="#e6533b" opacity=".8"/>
+        <rect x="70" y="124" width="140" height="10" rx="4" fill="#6b5f54" opacity=".6"/>
+        <rect x="60" y="142" width="160" height="10" rx="4" fill="#6b5f54" opacity=".6"/>
+        <!-- Lock -->
+        <rect x="110" y="158" width="60" height="44" rx="8" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+        <path d="M122 158 V144 a18 18 0 0 1 36 0 V158" fill="none" stroke="#1c1714" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="140" cy="178" r="8" fill="#1c1714"/>
+        <!-- Stand -->
+        <rect x="116" y="220" width="48" height="10" rx="3" fill="#3a322c"/>
+        <rect x="100" y="230" width="80" height="8" rx="4" fill="#3a322c"/>
+        <!-- Countdown timer feel -->
+        <rect x="44" y="248" width="192" height="40" rx="8" fill="#e6533b" opacity=".15" stroke="#e6533b" stroke-width="2"/>
+        <text x="140" y="274" text-anchor="middle" font-family="Space Mono" font-size="20" fill="#e6533b" font-weight="700">⏰ 47:23:11 rimasti</text>
+      </svg>
+      <div class="illu-cap">Schermata tipica di un ransomware</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 6: PHISHING E VARIANTI === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="center">
+    <div class="tape teal reveal">Inganno digitale</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Phishing e le sue <em class="hot">varianti</em></h2>
+    <p class="lead reveal d1"><b>Phishing</b> = pescare. L'attaccante lancia "esche" digitali sperando che qualcuno abbocchi. È la tecnica di attacco più diffusa al mondo.</p>
+    <div class="grid4 reveal d2" style="margin-top:20px;">
+      <div class="card">
+        <span class="ic">📧</span>
+        <h3>Phishing</h3>
+        <p>Email massiva che imita banche, Poste, Amazon. Inviata a milioni di persone — anche l'1% che ci casca è un successo.</p>
+        <div style="margin-top:12px;"><span class="threat-badge high">Alto rischio</span></div>
+      </div>
+      <div class="card">
+        <span class="ic">🎯</span>
+        <h3>Spear Phishing</h3>
+        <p>Email personalizzata con il tuo nome, azienda, dettagli reali. Molto più convincente — studiato su misura per te.</p>
+        <div style="margin-top:12px;"><span class="threat-badge high">Altissimo rischio</span></div>
+      </div>
+      <div class="card">
+        <span class="ic">📱</span>
+        <h3>Smishing</h3>
+        <p>Phishing via SMS. "Il tuo pacco è bloccato, clicca qui." Il link porta a un sito falso che ruba i dati della carta.</p>
+        <div style="margin-top:12px;"><span class="threat-badge med">Medio rischio</span></div>
+      </div>
+      <div class="card">
+        <span class="ic">📞</span>
+        <h3>Vishing</h3>
+        <p>Phishing via telefono. Qualcuno si finge la banca o l'Agenzia delle Entrate e chiede dati personali o bonifici urgenti.</p>
+        <div style="margin-top:12px;"><span class="threat-badge high">Alto rischio</span></div>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:20px;">
+      <div class="lbl">📊 Lo sapevi?</div>
+      <p>Il <b>36% di tutte le violazioni di dati</b> nel 2023 è iniziato con un attacco di phishing. È la porta d'ingresso più usata dagli hacker, proprio perché funziona.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 7: COME RICONOSCERE IL PHISHING === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape gold reveal">Segnali d'allarme</div>
+      <h2 class="h-big reveal">Come riconoscere<br>una email di <em class="hot">phishing</em></h2>
+      <div class="stack reveal d1">
+        <div class="agenda-item" style="padding:12px 4px;"><span style="font-size:30px;min-width:46px;">🔴</span><div><b style="font-size:26px;">Mittente sospetto</b><br><span style="font-size:22px;color:var(--ink-faint);">support@amazon-sicurezza.com invece di @amazon.it</span></div></div>
+        <div class="agenda-item" style="padding:12px 4px;"><span style="font-size:30px;min-width:46px;">🔴</span><div><b style="font-size:26px;">Urgenza artificiale</b><br><span style="font-size:22px;color:var(--ink-faint);">"Il tuo account verrà bloccato entro 24 ore"</span></div></div>
+        <div class="agenda-item" style="padding:12px 4px;"><span style="font-size:30px;min-width:46px;">🔴</span><div><b style="font-size:26px;">Link che non corrispondono</b><br><span style="font-size:22px;color:var(--ink-faint);">Passa il mouse sul link — l'URL reale è diverso da quello mostrato</span></div></div>
+        <div class="agenda-item" style="padding:12px 4px;"><span style="font-size:30px;min-width:46px;">🔴</span><div><b style="font-size:26px;">Allegati non richiesti</b><br><span style="font-size:22px;color:var(--ink-faint);">Fattura.pdf.exe, documento.docm con macro</span></div></div>
+        <div class="agenda-item" style="padding:12px 4px;"><span style="font-size:30px;min-width:46px;">🟡</span><div><b style="font-size:26px;">Errori grammaticali o tono strano</b><br><span style="font-size:22px;color:var(--ink-faint);">Le banche vere usano i tuoi dati precisi e non fanno errori</span></div></div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 280 300" style="max-width:260px;margin:0 auto;" role="img" aria-label="Email con segnali di phishing evidenziati">
+        <!-- Email frame -->
+        <rect x="20" y="20" width="240" height="260" rx="10" fill="#fbf5ec" stroke="#1c1714" stroke-width="4"/>
+        <!-- Header bar -->
+        <rect x="20" y="20" width="240" height="44" rx="10" fill="#1c1714"/>
+        <rect x="20" y="44" width="240" height="20" fill="#1c1714"/>
+        <text x="40" y="48" font-family="Space Mono" font-size="14" fill="#f4ece0">Da: amazon-sicurezza.net</text>
+        <!-- Red flag on sender -->
+        <circle cx="234" cy="38" r="12" fill="#e6533b"/>
+        <text x="234" y="43" text-anchor="middle" font-size="14" fill="#fff" font-weight="700">!</text>
+        <!-- Subject -->
+        <text x="36" y="86" font-family="Space Grotesk" font-size="14" fill="#1c1714" font-weight="700">URGENTE: Account sospeso</text>
+        <rect x="30" y="74" width="220" height="22" rx="4" fill="#f3b6aa" opacity=".5"/>
+        <!-- Body lines -->
+        <rect x="36" y="106" width="180" height="10" rx="3" fill="#d8c9b4"/>
+        <rect x="36" y="122" width="200" height="10" rx="3" fill="#d8c9b4"/>
+        <rect x="36" y="138" width="160" height="10" rx="3" fill="#d8c9b4"/>
+        <!-- Fake link -->
+        <rect x="36" y="158" width="180" height="22" rx="4" fill="#3f7e8c" opacity=".3"/>
+        <text x="44" y="174" font-family="Space Mono" font-size="12" fill="#3f7e8c">Clicca qui → amaz0n-login.ru</text>
+        <circle cx="234" cy="170" r="12" fill="#e6533b"/>
+        <text x="234" y="175" text-anchor="middle" font-size="14" fill="#fff" font-weight="700">!</text>
+        <!-- Attachment -->
+        <rect x="36" y="192" width="140" height="30" rx="6" fill="#d8c9b4"/>
+        <text x="54" y="212" font-family="Space Mono" font-size="12" fill="#1c1714">📎 fattura.pdf.exe</text>
+        <circle cx="206" cy="208" r="12" fill="#e6533b"/>
+        <text x="206" y="213" text-anchor="middle" font-size="14" fill="#fff" font-weight="700">!</text>
+        <!-- Bottom -->
+        <rect x="80" y="240" width="120" height="28" rx="8" fill="#e6533b"/>
+        <text x="140" y="259" text-anchor="middle" font-family="Space Grotesk" font-size="14" fill="#fff" font-weight="700">Accedi subito →</text>
+      </svg>
+      <div class="illu-cap">Anatomia di una email di phishing</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 8: ATTACCHI WIFI === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="center">
+    <div class="tape reveal">Reti wireless</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Attacchi alle <em class="hot">Reti WiFi</em></h2>
+    <p class="lead reveal d1">Le reti wireless sono comode ma esposte. Chi si connette alla tua rete può vedere il traffico, accedere ai dispositivi e intercettare dati sensibili.</p>
+    <div class="grid3 reveal d2" style="margin-top:20px;">
+      <div class="card">
+        <span class="ic">📶</span>
+        <h3>Evil Twin (AP Gemello)</h3>
+        <p>L'attaccante crea una rete WiFi con lo stesso nome del tuo bar o hotel preferito. Ti connetti pensando sia quella legittima — in realtà passa tutto attraverso di lui.</p>
+        <p style="margin-top:10px;font-family:var(--font-mono);font-size:21px;color:var(--red);">WiFi: "HotelMilano_Free" ← falsa!</p>
+      </div>
+      <div class="card">
+        <span class="ic">🔓</span>
+        <h3>Reti aperte e non cifrate</h3>
+        <p>Il WiFi di bar, stazioni e aeroporti spesso non cifra il traffico. Chiunque nella stessa rete può "sniffare" — vedere le pagine che visiti, i dati che invii su HTTP.</p>
+        <p style="margin-top:10px;">Soluzione: usa solo HTTPS, oppure attiva una VPN.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🏠</span>
+        <h3>Router di casa vulnerabile</h3>
+        <p>La password predefinita del router (spesso "admin" o "1234") non viene mai cambiata. L'attaccante si connette alla tua rete domestica e controlla tutti i dispositivi.</p>
+        <p style="margin-top:10px;">Soluzione: cambia subito le credenziali del router.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">🛡️ Regole per il WiFi pubblico</div>
+      <p>Non fare operazioni bancarie su WiFi pubblico. Usa sempre HTTPS (🔒 nel browser). Se possibile, attiva una VPN per cifrare tutto il traffico.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 9: MAN IN THE MIDDLE === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Intercettazione</div>
+      <h2 class="h-big reveal">Attacco<br><em class="hot">Man-in-the-Middle</em></h2>
+      <p class="lead reveal d1">L'attaccante si posiziona "in mezzo" alla comunicazione tra te e il server. Legge, e a volte modifica, tutto il traffico che passa — senza che tu te ne accorga.</p>
+      <p class="body reveal d2">Immagina di mandare una lettera a qualcuno. Il postino la apre, la legge, eventualmente cambia il contenuto e la richiude. Tu e il destinatario non sapete nulla.</p>
+      <div class="stack reveal d3">
+        <div class="note">
+          <div class="lbl">✅ Come difendersi</div>
+          <p>Controlla sempre il lucchetto 🔒 nella barra del browser (HTTPS). Non ignorare gli avvisi di certificato SSL scaduto o non valido — segnalano spesso un MITM.</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 300" style="max-width:240px;margin:0 auto;" role="img" aria-label="Schema Man-in-the-Middle: attaccante tra utente e server">
+        <!-- User -->
+        <circle cx="50" cy="60" r="24" fill="#3f7e8c"/>
+        <rect x="34" y="84" width="32" height="40" rx="8" fill="#163b35"/>
+        <text x="50" y="140" text-anchor="middle" font-family="Space Grotesk" font-size="14" fill="#6b5f54">Tu</text>
+        <!-- Server -->
+        <rect x="192" y="36" width="48" height="68" rx="6" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+        <rect x="200" y="44" width="32" height="6" rx="2" fill="#e6c14a"/>
+        <rect x="200" y="56" width="32" height="6" rx="2" fill="#e6c14a" opacity=".5"/>
+        <rect x="200" y="68" width="32" height="6" rx="2" fill="#e6c14a" opacity=".3"/>
+        <text x="216" y="120" text-anchor="middle" font-family="Space Grotesk" font-size="14" fill="#6b5f54">Server</text>
+        <!-- Attacker in middle -->
+        <circle cx="130" cy="170" r="28" fill="#e6533b" stroke="#1c1714" stroke-width="3"/>
+        <text x="130" y="165" text-anchor="middle" font-size="24" fill="#fff">👹</text>
+        <text x="130" y="185" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#fff">hacker</text>
+        <!-- Arrows -->
+        <line x1="74" y1="80" x2="106" y2="152" stroke="#e6533b" stroke-width="3" stroke-dasharray="8"/>
+        <polygon points="100,150 112,146 108,158" fill="#e6533b"/>
+        <line x1="154" y1="152" x2="192" y2="82" stroke="#e6533b" stroke-width="3" stroke-dasharray="8"/>
+        <polygon points="186,88 196,82 192,94" fill="#e6533b"/>
+        <!-- X on direct path -->
+        <line x1="74" y1="72" x2="190" y2="72" stroke="#d8c9b4" stroke-width="2" stroke-dasharray="6" opacity=".5"/>
+        <!-- Label -->
+        <text x="130" y="240" text-anchor="middle" font-family="Space Grotesk" font-size="16" fill="#e6533b" font-weight="700">Legge tutto il traffico</text>
+        <text x="130" y="262" text-anchor="middle" font-family="Space Mono" font-size="13" fill="#6b5f54">password, dati, messaggi</text>
+      </svg>
+      <div class="illu-cap">Il postino che apre le lettere</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 10: BOTNET E DDOS === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape gold reveal">Attacchi di rete</div>
+      <h2 class="h-big reveal">Botnet e<br><em class="hot">Attacchi DDoS</em></h2>
+      <p class="lead reveal d1">Una <b>botnet</b> è una rete di dispositivi infetti controllati a distanza da un hacker — a tua insaputa. Il tuo computer potrebbe farne parte adesso.</p>
+      <p class="body reveal d2">Le botnet vengono usate per lanciare <b>attacchi DDoS</b> (Distributed Denial of Service): migliaia di dispositivi bombardano un sito con richieste fino a farlo crashare.</p>
+      <div class="note reveal d3" style="margin-top:14px;">
+        <div class="lbl">📊 Scala reale</div>
+        <p>La botnet Mirai nel 2016 ha usato <b>600.000 dispositivi IoT</b> (telecamere, router, frigoriferi smart) per abbattere Netflix, Twitter e Reddit con un singolo attacco.</p>
+      </div>
+      <div class="analogy reveal d3" style="margin-top:14px;font-size:25px;"><span class="big">Analogia:</span> 10.000 persone che bloccano l'ingresso di un negozio.</div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 280 280" style="max-width:260px;margin:0 auto;" role="img" aria-label="Schema botnet: hacker controlla dispositivi infetti che attaccano un server">
+        <!-- C&C Server (hacker) -->
+        <rect x="106" y="20" width="68" height="44" rx="8" fill="#e6533b" stroke="#1c1714" stroke-width="3"/>
+        <text x="140" y="47" text-anchor="middle" font-family="Space Mono" font-size="13" fill="#fff" font-weight="700">C&amp;C</text>
+        <!-- Bot nodes -->
+        <circle cx="40" cy="130" r="16" fill="#d98a2b" opacity=".8"/>
+        <circle cx="90" cy="160" r="16" fill="#d98a2b" opacity=".8"/>
+        <circle cx="50" cy="200" r="14" fill="#d98a2b" opacity=".7"/>
+        <circle cx="130" cy="180" r="14" fill="#d98a2b" opacity=".7"/>
+        <circle cx="190" cy="160" r="16" fill="#d98a2b" opacity=".8"/>
+        <circle cx="240" cy="130" r="16" fill="#d98a2b" opacity=".8"/>
+        <circle cx="220" cy="200" r="14" fill="#d98a2b" opacity=".7"/>
+        <!-- Lines from C&C to bots -->
+        <line x1="120" y1="64" x2="50" y2="114" stroke="#e6533b" stroke-width="2" stroke-dasharray="5" opacity=".6"/>
+        <line x1="130" y1="64" x2="90" y2="144" stroke="#e6533b" stroke-width="2" stroke-dasharray="5" opacity=".6"/>
+        <line x1="140" y1="64" x2="130" y2="166" stroke="#e6533b" stroke-width="2" stroke-dasharray="5" opacity=".6"/>
+        <line x1="150" y1="64" x2="190" y2="144" stroke="#e6533b" stroke-width="2" stroke-dasharray="5" opacity=".6"/>
+        <line x1="160" y1="64" x2="240" y2="114" stroke="#e6533b" stroke-width="2" stroke-dasharray="5" opacity=".6"/>
+        <!-- Target server -->
+        <rect x="106" y="230" width="68" height="40" rx="8" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+        <text x="140" y="256" text-anchor="middle" font-family="Space Mono" font-size="12" fill="#f3b6aa" font-weight="700">TARGET 💥</text>
+        <!-- Attack arrows to target -->
+        <line x1="50" y1="146" x2="118" y2="228" stroke="#e6533b" stroke-width="2" opacity=".5"/>
+        <line x1="90" y1="176" x2="124" y2="228" stroke="#e6533b" stroke-width="2" opacity=".5"/>
+        <line x1="130" y1="194" x2="136" y2="228" stroke="#e6533b" stroke-width="2" opacity=".5"/>
+        <line x1="190" y1="176" x2="156" y2="228" stroke="#e6533b" stroke-width="2" opacity=".5"/>
+        <line x1="240" y1="146" x2="162" y2="228" stroke="#e6533b" stroke-width="2" opacity=".5"/>
+      </svg>
+      <div class="illu-cap">Il botmaster comanda dall'ombra</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 11: ZERO-DAY E VULNERABILITY CHAIN === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="center">
+    <div class="tape teal reveal">Minacce avanzate</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Vulnerabilità <em class="hot">Zero-Day</em></h2>
+    <p class="lead reveal d1">Una vulnerabilità "zero-day" è un difetto nel software che il produttore <b>non conosce ancora</b>. Non esiste patch. Non c'è modo di difendersi — finché non viene scoperta e corretta.</p>
+    <div class="grid2 reveal d2" style="margin-top:24px;">
+      <div class="card">
+        <span class="ic">🕰️</span>
+        <h3>Perché si chiama "zero-day"?</h3>
+        <p>Il produttore ha avuto <b>zero giorni</b> per prepararsi: la vulnerabilità viene sfruttata dagli attaccanti prima ancora che il vendor sappia che esiste. Il vantaggio è totalmente dell'attaccante.</p>
+      </div>
+      <div class="card">
+        <span class="ic">💰</span>
+        <h3>Il mercato delle zero-day</h3>
+        <p>Le zero-day vengono comprate e vendute — legalmente da aziende di sicurezza (bug bounty) e illegalmente nel dark web. Una zero-day iOS può valere <b>fino a 2,5 milioni di dollari</b>.</p>
+      </div>
+    </div>
+    <div class="grid2 reveal d3" style="margin-top:22px;">
+      <div class="note">
+        <div class="lbl">🛡️ Come difendersi</div>
+        <p>Contro le zero-day non esiste patch. L'unica difesa è la <b>difesa in profondità</b>: più strati di sicurezza, così che una sola vulnerabilità non basti a compromettere tutto.</p>
+      </div>
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">📊 Esempio famoso</div>
+        <p><b>WannaCry (2017):</b> zero-day in Windows usata da NSA, rubata e pubblicata. Colpì 230.000 computer in 150 paesi in un solo weekend. Incluso il NHS britannico.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 12: INGEGNERIA SOCIALE AVANZATA === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="center">
+    <div class="tape gold reveal">Psicologia dell'attacco</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Ingegneria Sociale: <em class="hot">le tecniche</em></h2>
+    <p class="lead reveal d1">Il social engineering sfrutta le debolezze psicologiche umane — non quelle tecniche. Conoscere le tecniche è il primo passo per non caderne vittima.</p>
+    <div class="grid3 reveal d2" style="margin-top:20px;">
+      <div class="card">
+        <span class="ic">⏰</span>
+        <h3>Urgenza e paura</h3>
+        <p>"Il tuo account viene chiuso tra 2 ore." La fretta fa bypassare il pensiero critico. Un servizio legittimo non ti mette mai sotto pressione temporale artificiale.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🤝</span>
+        <h3>Pretexting</h3>
+        <p>L'attaccante crea uno scenario credibile: si finge un collega IT, un funzionario bancario, un cliente arrabbiato. Raccoglie informazioni nel tempo per costruire fiducia.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🎁</span>
+        <h3>Baiting</h3>
+        <p>Una chiavetta USB trovata "per caso" nel parcheggio dell'azienda. La curiosità fa sì che qualcuno la inserisca nel computer. Dentro c'è malware.</p>
+      </div>
+    </div>
+    <div class="note red reveal d3" style="margin-top:22px;">
+      <div class="lbl">⚠️ Il principio fondamentale</div>
+      <p>Se qualcosa crea <b>urgenza, paura o curiosità artificiale</b>, fermati. Un secondo di pausa per verificare vale più di qualsiasi tecnologia di sicurezza.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 13: COME DIFENDERSI DAL MALWARE === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">Difesa attiva</div>
+      <h2 class="h-big reveal">Come difendersi<br>dal <em class="hot">malware</em></h2>
+      <p class="lead reveal d1">Nessuna singola soluzione è sufficiente. La difesa efficace è fatta di <b>più strati</b> che si completano a vicenda.</p>
+      <div class="stack reveal d2">
+        <div class="agenda-item" style="padding:11px 4px;"><span style="font-size:30px;min-width:46px;">🛡️</span><div><b style="font-size:26px;">Antivirus/EDR aggiornato</b><br><span style="font-size:22px;color:var(--ink-faint);">Rileva malware noti e comportamenti sospetti in tempo reale</span></div></div>
+        <div class="agenda-item" style="padding:11px 4px;"><span style="font-size:30px;min-width:46px;">🔄</span><div><b style="font-size:26px;">Sistema e app sempre aggiornati</b><br><span style="font-size:22px;color:var(--ink-faint);">Chiude le vulnerabilità già note prima che vengano sfruttate</span></div></div>
+        <div class="agenda-item" style="padding:11px 4px;"><span style="font-size:30px;min-width:46px;">🧠</span><div><b style="font-size:26px;">Non aprire allegati sospetti</b><br><span style="font-size:22px;color:var(--ink-faint);">Il vettore n°1 di infezione è ancora l'allegato email</span></div></div>
+        <div class="agenda-item" style="padding:11px 4px;"><span style="font-size:30px;min-width:46px;">👤</span><div><b style="font-size:26px;">Usa account standard (non admin)</b><br><span style="font-size:22px;color:var(--ink-faint);">Un malware eredita i tuoi permessi — meno permessi, meno danni</span></div></div>
+        <div class="agenda-item" style="padding:11px 4px;"><span style="font-size:30px;min-width:46px;">🌐</span><div><b style="font-size:26px;">Attiva il firewall</b><br><span style="font-size:22px;color:var(--ink-faint);">Blocca le connessioni non autorizzate da e verso internet</span></div></div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 300" style="max-width:240px;margin:0 auto;" role="img" aria-label="Scudo a strati di difesa">
+        <!-- Outer shield layer -->
+        <path d="M130 20 l90 40 v80 a90 90 0 0 1-180 0 V60 z" fill="#d8c9b4" stroke="#1c1714" stroke-width="3" opacity=".5"/>
+        <!-- Middle shield layer -->
+        <path d="M130 44 l66 30 v66 a66 66 0 0 1-132 0 V74 z" fill="#e6c14a" stroke="#1c1714" stroke-width="3" opacity=".7"/>
+        <!-- Inner shield layer -->
+        <path d="M130 68 l42 20 v52 a42 42 0 0 1-84 0 V88 z" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+        <!-- Center icon -->
+        <text x="130" y="152" text-anchor="middle" font-size="44" fill="#f4ece0">✓</text>
+        <!-- Layer labels -->
+        <text x="230" y="90" font-family="Space Mono" font-size="12" fill="#6b5f54">Firewall</text>
+        <line x1="214" y1="88" x2="194" y2="78" stroke="#6b5f54" stroke-width="1"/>
+        <text x="230" y="130" font-family="Space Mono" font-size="12" fill="#d98a2b">Antivirus</text>
+        <line x1="218" y1="128" x2="194" y2="120" stroke="#d98a2b" stroke-width="1"/>
+        <text x="30" y="90" text-anchor="end" font-family="Space Mono" font-size="12" fill="#6b5f54">Updates</text>
+        <line x1="36" y1="88" x2="60" y2="78" stroke="#6b5f54" stroke-width="1"/>
+        <text x="30" y="130" text-anchor="end" font-family="Space Mono" font-size="12" fill="#d98a2b">Backup</text>
+        <line x1="36" y1="128" x2="60" y2="118" stroke="#d98a2b" stroke-width="1"/>
+        <!-- Core -->
+        <text x="130" y="230" text-anchor="middle" font-family="Space Grotesk" font-size="15" fill="#1c1714" font-weight="700">Difesa in profondità</text>
+        <text x="130" y="250" text-anchor="middle" font-family="Space Mono" font-size="13" fill="#6b5f54">più strati = più sicurezza</text>
+      </svg>
+      <div class="illu-cap">Ogni strato copre le lacune degli altri</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 14: BACKUP === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="center">
+    <div class="tape gold reveal">La rete di sicurezza</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Il <em class="hot">Backup</em>: l'ultima linea di difesa</h2>
+    <p class="lead reveal d1">Contro il ransomware, un buon backup è spesso l'unica vera soluzione. Se i tuoi dati sono copiati altrove, il sequestro non ha potere.</p>
+    <div class="grid3 reveal d2" style="margin-top:22px;">
+      <div class="card" style="text-align:center;">
+        <h3 style="font-size:60px;margin-bottom:14px;">3</h3>
+        <h3>Copie dei dati</h3>
+        <p>L'originale + due backup. Se una copia fallisce, ne hai ancora un'altra.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3 style="font-size:60px;margin-bottom:14px;">2</h3>
+        <h3>Supporti diversi</h3>
+        <p>Hard disk esterno + cloud, oppure HD interno + NAS. Diversifica il rischio di guasto hardware.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3 style="font-size:60px;margin-bottom:14px;">1</h3>
+        <h3>Copia offline/offsite</h3>
+        <p>Almeno una copia scollegata dalla rete. Un ransomware che cifra tutto non raggiunge un HD staccato.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 La regola 3-2-1</div>
+      <p><b>3 copie, 2 supporti diversi, 1 offsite/offline.</b> Chi segue questa regola può ripristinare tutto in poche ore dopo un ransomware — senza pagare il riscatto.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 15: ANTIVIRUS VS EDR === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Strumenti di difesa</div>
+      <h2 class="h-big reveal">Antivirus <em class="hot">vs</em> EDR</h2>
+      <p class="lead reveal d1">Non tutti i software di protezione sono uguali. La differenza è cruciale.</p>
+      <div class="grid2 reveal d2" style="margin-top:10px;">
+        <div class="card">
+          <h3>🛡️ Antivirus classico</h3>
+          <p>Confronta i file con un database di malware noti ("firme"). Ottimo contro minacce conosciute, cieco contro nuovi malware o attacchi fileless.</p>
+          <p style="margin-top:10px;font-family:var(--font-mono);font-size:21px;color:var(--teal);">Windows Defender, Avast, Kaspersky</p>
+        </div>
+        <div class="card" style="border-color:var(--teal);">
+          <h3 style="color:var(--teal);">⚡ EDR</h3>
+          <p>Endpoint Detection &amp; Response. Analizza il <b>comportamento</b> dei processi in tempo reale. Rileva anche minacce mai viste prima.</p>
+          <p style="margin-top:10px;font-family:var(--font-mono);font-size:21px;color:var(--teal);">CrowdStrike, SentinelOne, Defender ATP</p>
+        </div>
+      </div>
+      <div class="note reveal d3" style="margin-top:14px;">
+        <div class="lbl">💡 Per uso personale</div>
+        <p>Windows Defender integrato in Windows 10/11 è ottimo per uso domestico. Tienilo attivo e aggiornato — è gratuito e più che sufficiente per il 95% delle minacce quotidiane.</p>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 260" style="max-width:240px;margin:0 auto;" role="img" aria-label="Confronto antivirus firma vs EDR comportamentale">
+        <!-- Antivirus side -->
+        <rect x="20" y="30" width="100" height="200" rx="10" fill="#fbf5ec" stroke="#d8c9b4" stroke-width="3"/>
+        <text x="70" y="58" text-anchor="middle" font-family="Space Grotesk" font-size="15" fill="#1c1714" font-weight="700">Antivirus</text>
+        <text x="70" y="74" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#6b5f54">firma = lista</text>
+        <!-- Known malware match -->
+        <rect x="36" y="88" width="68" height="20" rx="4" fill="#e6533b" opacity=".7"/>
+        <text x="70" y="102" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#fff">malware A ✓</text>
+        <rect x="36" y="114" width="68" height="20" rx="4" fill="#e6533b" opacity=".7"/>
+        <text x="70" y="128" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#fff">malware B ✓</text>
+        <!-- Unknown -->
+        <rect x="36" y="140" width="68" height="20" rx="4" fill="#d8c9b4" opacity=".5"/>
+        <text x="70" y="154" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#6b5f54">NEW ??? 👻</text>
+        <text x="70" y="185" text-anchor="middle" font-family="Space Grotesk" font-size="13" fill="#e6533b">Non visto!</text>
+        <!-- EDR side -->
+        <rect x="140" y="30" width="100" height="200" rx="10" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+        <text x="190" y="58" text-anchor="middle" font-family="Space Grotesk" font-size="15" fill="#f4ece0" font-weight="700">EDR</text>
+        <text x="190" y="74" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#e6c14a">comportamento</text>
+        <!-- Behavior monitoring -->
+        <rect x="156" y="88" width="68" height="20" rx="4" fill="#e6c14a" opacity=".8"/>
+        <text x="190" y="102" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#1c1714">script run ✓</text>
+        <rect x="156" y="114" width="68" height="20" rx="4" fill="#e6c14a" opacity=".8"/>
+        <text x="190" y="128" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#1c1714">network conn ✓</text>
+        <rect x="156" y="140" width="68" height="20" rx="4" fill="#e6533b"/>
+        <text x="190" y="154" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#fff">NEW → BLOCCA</text>
+        <text x="190" y="185" text-anchor="middle" font-family="Space Grotesk" font-size="13" fill="#e6c14a">Comportamento sospetto!</text>
+      </svg>
+      <div class="illu-cap">Firma vs comportamento: approcci diversi</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 16: SICUREZZA DELLE RETI === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="center">
+    <div class="tape reveal">Protezione rete</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Mettere in sicurezza<br>la propria <em class="hot">rete domestica</em></h2>
+    <p class="lead reveal d1">La rete di casa è il perimetro della tua vita digitale. Configurarla bene protegge tutti i dispositivi collegati — smartphone, PC, smart TV, dispositivi IoT.</p>
+    <div class="grid4 reveal d2" style="margin-top:22px;">
+      <div class="card">
+        <span class="ic">🔑</span>
+        <h3>Cambia le credenziali del router</h3>
+        <p>Admin/password predefinite sono note a tutti. Cambia username e password del pannello di gestione subito dopo l'installazione.</p>
+      </div>
+      <div class="card">
+        <span class="ic">📡</span>
+        <h3>Usa WPA3 o WPA2</h3>
+        <p>Il protocollo di cifratura WiFi. WEP è rotto da anni — usalo solo come museo. WPA2 è minimo accettabile, WPA3 è il gold standard.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🕵️</span>
+        <h3>Rete ospiti separata</h3>
+        <p>Crea una rete WiFi separata per gli ospiti e per i dispositivi IoT. Se un dispositivo viene compromesso, non raggiunge il resto della rete.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🔄</span>
+        <h3>Aggiorna il firmware</h3>
+        <p>Il router ha un sistema operativo che va aggiornato come qualsiasi altro software. Router con firmware vecchio sono buckets: facilissimi da attaccare.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 Check rapido</div>
+      <p>Digita <span style="font-family:var(--font-mono);">192.168.1.1</span> nel browser. Sei nella dashboard del router — cambia le credenziali se non lo hai mai fatto. Ci vogliono 2 minuti.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 17: VPN === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape gold reveal">Tunnel sicuro</div>
+      <h2 class="h-big reveal">VPN: rete<br><em class="hot">privata virtuale</em></h2>
+      <p class="lead reveal d1">Una VPN cifra tutto il traffico internet tra il tuo dispositivo e un server remoto, rendendo impossibile per chiunque intercettare i dati nel mezzo.</p>
+      <p class="body reveal d2">Particolarmente utile su WiFi pubblici, per aggirare censure geografiche, e per mascherare il tuo indirizzo IP dal sito che visiti.</p>
+      <div class="stack reveal d3" style="margin-top:10px;">
+        <div class="note">
+          <div class="lbl">✅ VPN consigliate (no log)</div>
+          <p><b>Mullvad</b> — massima privacy, pagamento anonimo. <b>ProtonVPN</b> — free plan disponibile, open source. <b>Wireguard</b> — protocollo moderno, molto veloce.</p>
+        </div>
+        <div class="note red">
+          <div class="lbl">⚠️ Attenzione</div>
+          <p>VPN gratuite sconosciute spesso <b>vendono i tuoi dati</b>. Una VPN non ti rende completamente anonimo — vedi Concetto 3.</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 260" style="max-width:240px;margin:0 auto;" role="img" aria-label="Schema VPN: tunnel cifrato tra dispositivo e internet">
+        <!-- Device -->
+        <rect x="20" y="110" width="60" height="40" rx="8" fill="#3f7e8c" stroke="#1c1714" stroke-width="3"/>
+        <text x="50" y="136" text-anchor="middle" font-family="Space Mono" font-size="12" fill="#f4ece0">📱 Tu</text>
+        <!-- VPN tunnel -->
+        <rect x="88" y="118" width="84" height="24" rx="12" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <text x="130" y="134" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#1c1714" font-weight="700">VPN cifrata 🔒</text>
+        <!-- Attacker above -->
+        <circle cx="130" cy="72" r="20" fill="#e6533b" opacity=".6"/>
+        <text x="130" y="67" text-anchor="middle" font-size="16" fill="#fff">👹</text>
+        <text x="130" y="86" text-anchor="middle" font-family="Space Grotesk" font-size="12" fill="#e6533b">attaccante</text>
+        <!-- X over sniffing -->
+        <line x1="118" y1="92" x2="122" y2="118" stroke="#e6533b" stroke-width="2" stroke-dasharray="4"/>
+        <line x1="116" y1="100" x2="128" y2="108" stroke="#e6533b" stroke-width="3"/>
+        <line x1="128" y1="100" x2="116" y2="108" stroke="#e6533b" stroke-width="3"/>
+        <!-- VPN server -->
+        <rect x="180" y="100" width="60" height="60" rx="8" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+        <text x="210" y="126" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#e6c14a">VPN</text>
+        <text x="210" y="142" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#e6c14a">SERVER</text>
+        <!-- Internet cloud -->
+        <ellipse cx="210" cy="210" rx="44" ry="26" fill="#d8c9b4"/>
+        <ellipse cx="188" cy="220" rx="28" ry="18" fill="#d8c9b4"/>
+        <ellipse cx="232" cy="220" rx="28" ry="18" fill="#d8c9b4"/>
+        <text x="210" y="218" text-anchor="middle" font-family="Space Grotesk" font-size="13" fill="#1c1714">🌐 Internet</text>
+        <line x1="210" y1="160" x2="210" y2="190" stroke="#163b35" stroke-width="3"/>
+      </svg>
+      <div class="illu-cap">Il tunnel VPN rende il traffico illeggibile</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 18: RISPOSTA AGLI INCIDENTI === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="center">
+    <div class="tape teal reveal">Cosa fare se</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Sei stato <em class="hot">attaccato?</em> Cosa fare</h2>
+    <p class="lead reveal d1">Scoprire di essere stati compromessi è stressante. Avere un piano in testa aiuta a limitare i danni e agire con lucidità.</p>
+    <div class="grid2 reveal d2" style="margin-top:20px;gap:20px 40px;">
+      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:60px;line-height:1;">1</span><div><b style="font-size:28px;">Disconnetti dalla rete</b><br><p style="font-size:24px;color:var(--ink-soft);">Stacca il cavo o disattiva il WiFi subito. Impedisci al malware di comunicare con l'attaccante o diffondersi in rete.</p></div></div>
+      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:60px;line-height:1;">2</span><div><b style="font-size:28px;">Non spegnere il PC</b><br><p style="font-size:24px;color:var(--ink-soft);">Alcuni malware cancellano le tracce allo spegnimento. Lascia acceso per permettere l'analisi forense se necessaria.</p></div></div>
+      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:60px;line-height:1;">3</span><div><b style="font-size:28px;">Cambia le password dall'esterno</b><br><p style="font-size:24px;color:var(--ink-soft);">Da un altro dispositivo, cambia subito le password di email, banca e account critici. Il dispositivo infetto non è attendibile.</p></div></div>
+      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:60px;line-height:1;">4</span><div><b style="font-size:28px;">Segnala e chiedi aiuto</b><br><p style="font-size:24px;color:var(--ink-soft);">Denuncia alla Polizia Postale (commissariatodips.it). Per aziende: contatta un team di incident response professionista.</p></div></div>
+    </div>
+    <div class="note red reveal d3" style="margin-top:18px;">
+      <div class="lbl">⚠️ Non pagare il riscatto</div>
+      <p>Il pagamento non garantisce il ripristino dei dati — e finanzia il gruppo criminale. Con un buon backup, il riscatto diventa irrilevante.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 19: QUIZ === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C2</div>
+  <div class="col stack" style="justify-content:center;height:100%;">
+    <div class="tape teal reveal">Verifica veloce</div>
+    <h2 class="h-sec reveal">Hai capito tutto?</h2>
+    <p class="lead reveal d1" style="margin-bottom:6px;">Prova a rispondere a mente:</p>
+    <div class="grid2 reveal d2" style="gap:24px 40px;">
+      <div class="card"><h3 style="font-size:32px;">1.</h3><p>Qual è la differenza tra un virus e un worm? Quale si diffonde più velocemente e perché?</p></div>
+      <div class="card"><h3 style="font-size:32px;">2.</h3><p>Perché il ransomware è considerato la minaccia più distruttiva per le aziende?</p></div>
+      <div class="card"><h3 style="font-size:32px;">3.</h3><p>Cosa devi controllare PRIMA di cliccare su un link in una email urgente?</p></div>
+      <div class="card"><h3 style="font-size:32px;">4.</h3><p>Hai subito un attacco. Qual è la prima azione da compiere? E la seconda?</p></div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">🎯 Scenario pratico</div>
+      <p>Ti arriva un SMS: <em>"Il tuo conto Intesa Sanpaolo è stato bloccato. Clicca qui per sbloccare: bit.ly/3xZ9q"</em>. Cosa fai? Nomina tutti i segnali d'allarme che vedi.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 20: CLOSING === -->
+<section class="slide closing">
+  <div class="center" style="align-items:center;text-align:center;">
+    <div class="eyebrow reveal gold">Fine Concetto 02</div>
+    <h2 class="h-mega reveal" style="margin-top:10px;">Armati! 🛡️</h2>
+    <p class="lead reveal d1" style="color:var(--paper);max-width:1100px;text-align:center;margin-top:20px;">Ora conosci le principali minacce della rete. Nel <span class="gold">prossimo e ultimo concetto</span> esploriamo la <b>Privacy, l'Anonimato e il Pseudonimato</b>: come proteggere la propria identità digitale.</p>
+    <div class="chips reveal d2" style="margin-top:44px;justify-content:center;"><a class="chip" href="03-privacy.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → C3 · Privacy e Anonimato</a></div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;}); }
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'sec-c02-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>

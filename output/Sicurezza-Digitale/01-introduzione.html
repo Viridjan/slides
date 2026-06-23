@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sicurezza Digitale · C1 — Introduzione alla Sicurezza Digitale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;background:#fff;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}.slide:last-child{break-after:auto;page-break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}.d5{transition-delay:.68s !important;}.d6{transition-delay:.80s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:142px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:28px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:30px 34px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:10px;line-height:1;}
+.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:50px;line-height:1;display:block;margin-bottom:8px;}
+.card .mono{font-family:var(--font-mono);font-size:23px;color:var(--teal);font-weight:700;}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.chip.red{background:var(--red);color:#fff;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:24px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa;}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:26px;line-height:1.4;color:var(--ink);}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:24px;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu svg{width:100%;height:auto;display:block;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:18px 60px;margin-top:16px;}
+.agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:15px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:72px;}
+.agenda-item .t{font-size:28px;font-weight:600;color:var(--ink);}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing .gold{color:var(--gold);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease);}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- === SLIDE 1: TITLE === -->
+<section class="slide title-slide active">
+  <div class="title-left">
+    <div class="tape reveal">Corso di Informatica</div>
+    <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Sicurezza Digitale · Concetto 1</div>
+    <h1 class="h-mega reveal" contenteditable="true">Introduzione<br>alla <em class="hot">Sicurezza<br>Digitale</em></h1>
+    <p class="lead reveal" style="margin-top:30px;" contenteditable="true">Cosa significa proteggere la nostra vita online, perché riguarda tutti e come possiamo difenderci ogni giorno.</p>
+    <div class="chips reveal" style="margin-top:46px;"><span class="chip">Concetto 1 / 3</span><span class="chip alt">Fondamentale</span><span class="chip alt">~40 min</span></div>
+  </div>
+  <div class="title-right">
+    <div style="position:relative;z-index:2;">
+      <svg viewBox="0 0 220 240" width="220" role="img" aria-label="Lucchetto digitale su rete">
+        <!-- Network base -->
+        <circle cx="110" cy="195" r="10" fill="#f4ece0" opacity=".6"/>
+        <circle cx="60" cy="220" r="8" fill="#f4ece0" opacity=".4"/>
+        <circle cx="160" cy="220" r="8" fill="#f4ece0" opacity=".4"/>
+        <circle cx="30" cy="180" r="7" fill="#f4ece0" opacity=".3"/>
+        <circle cx="190" cy="180" r="7" fill="#f4ece0" opacity=".3"/>
+        <line x1="110" y1="195" x2="60" y2="220" stroke="#f4ece0" stroke-width="2" opacity=".3"/>
+        <line x1="110" y1="195" x2="160" y2="220" stroke="#f4ece0" stroke-width="2" opacity=".3"/>
+        <line x1="110" y1="195" x2="30" y2="180" stroke="#f4ece0" stroke-width="2" opacity=".3"/>
+        <line x1="110" y1="195" x2="190" y2="180" stroke="#f4ece0" stroke-width="2" opacity=".3"/>
+        <!-- Lock body -->
+        <rect x="72" y="110" width="76" height="62" rx="10" fill="#e6533b" stroke="#f4ece0" stroke-width="4"/>
+        <!-- Lock shackle -->
+        <path d="M90 110 V88 a20 20 0 0 1 40 0 V110" fill="none" stroke="#f4ece0" stroke-width="8" stroke-linecap="round"/>
+        <!-- Keyhole -->
+        <circle cx="110" cy="136" r="10" fill="#1c1714"/>
+        <rect x="105" y="136" width="10" height="16" rx="4" fill="#1c1714"/>
+        <!-- Glow -->
+        <ellipse cx="110" cy="170" rx="50" ry="8" fill="#e6533b" opacity=".25"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- === SLIDE 2: AGENDA === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="center">
+    <div class="tape teal reveal">In questo modulo</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
+    <div class="agenda-list reveal d1">
+      <div class="agenda-item"><span class="n">01</span><span class="t">Cos'è la Sicurezza Digitale</span></div>
+      <div class="agenda-item"><span class="n">02</span><span class="t">Il Triangolo CIA</span></div>
+      <div class="agenda-item"><span class="n">03</span><span class="t">Cosa dobbiamo proteggere</span></div>
+      <div class="agenda-item"><span class="n">04</span><span class="t">La nostra vita digitale</span></div>
+      <div class="agenda-item"><span class="n">05</span><span class="t">Perché la sicurezza ci riguarda</span></div>
+      <div class="agenda-item"><span class="n">06</span><span class="t">Casi reali e conseguenze</span></div>
+      <div class="agenda-item"><span class="n">07</span><span class="t">La sicurezza è per tutti</span></div>
+      <div class="agenda-item"><span class="n">08</span><span class="t">Il fattore umano</span></div>
+      <div class="agenda-item"><span class="n">09</span><span class="t">Sicurezza nella vita quotidiana</span></div>
+      <div class="agenda-item"><span class="n">10</span><span class="t">Password, 2FA e buone abitudini</span></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 3: COS'È LA SICUREZZA DIGITALE (1.1) === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape reveal">Definizione</div>
+      <h2 class="h-big reveal">Cos'è la <em class="hot">Sicurezza<br>Digitale?</em></h2>
+      <p class="lead reveal d1" contenteditable="true">Un insieme di <b>pratiche, strumenti e comportamenti</b> pensati per proteggere dati, dispositivi e identità digitale da accessi non autorizzati, furti e danni.</p>
+      <div class="grid2 reveal d2" style="margin-top:10px;">
+        <div class="card"><span class="ic">🛡️</span><h3>Difesa tecnica</h3><p>Software antivirus, firewall, crittografia — sistemi che bloccano gli attacchi in automatico.</p></div>
+        <div class="card"><span class="ic">🧠</span><h3>Consapevolezza</h3><p>Riconoscere i rischi e scegliere comportamenti sicuri ogni giorno — la parte più importante.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:16px;">
+        <div class="lbl">💡 Analogia</div>
+        <p>Come chiudere a chiave la porta di casa <em>e</em> non lasciare le chiavi sotto lo zerbino.</p>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 280 280" style="max-width:280px;margin:0 auto;" role="img" aria-label="Lucchetto sopra una rete di nodi">
+        <!-- Network nodes -->
+        <circle cx="140" cy="210" r="13" fill="#3f7e8c"/>
+        <circle cx="64" cy="240" r="11" fill="#3f7e8c"/>
+        <circle cx="216" cy="240" r="11" fill="#3f7e8c"/>
+        <circle cx="40" cy="178" r="10" fill="#163b35"/>
+        <circle cx="240" cy="178" r="10" fill="#163b35"/>
+        <line x1="140" y1="210" x2="64" y2="240" stroke="#d8c9b4" stroke-width="3"/>
+        <line x1="140" y1="210" x2="216" y2="240" stroke="#d8c9b4" stroke-width="3"/>
+        <line x1="140" y1="210" x2="40" y2="178" stroke="#d8c9b4" stroke-width="3"/>
+        <line x1="140" y1="210" x2="240" y2="178" stroke="#d8c9b4" stroke-width="3"/>
+        <line x1="64" y1="240" x2="40" y2="178" stroke="#d8c9b4" stroke-width="2"/>
+        <line x1="216" y1="240" x2="240" y2="178" stroke="#d8c9b4" stroke-width="2"/>
+        <!-- Lock body -->
+        <rect x="106" y="108" width="68" height="60" rx="9" fill="#e6533b" stroke="#1c1714" stroke-width="4"/>
+        <!-- Lock shackle -->
+        <path d="M122 108 V88 a18 18 0 0 1 36 0 V108" fill="none" stroke="#1c1714" stroke-width="7" stroke-linecap="round"/>
+        <!-- Keyhole -->
+        <circle cx="140" cy="132" r="10" fill="#1c1714"/>
+        <rect x="135" y="132" width="10" height="16" rx="4" fill="#1c1714"/>
+        <!-- Glow ring -->
+        <ellipse cx="140" cy="166" rx="54" ry="10" fill="#e6533b" opacity=".18"/>
+      </svg>
+      <div class="illu-cap">Protezione dei dati in rete</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 4: IL TRIANGOLO CIA === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="center">
+    <div class="tape gold reveal">I fondamenti</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">La Triade <em class="hot">CID</em></h2>
+    <p class="lead reveal d1" style="margin-bottom:20px;">Ogni sistema di sicurezza si basa su tre principi. Si chiamano la <b>triade CID</b> — l'ABC della protezione digitale.</p>
+    <div class="grid3 reveal d2">
+      <div class="card" style="border-color:var(--sky);border-width:3px;">
+        <span class="ic">🔒</span>
+        <h3 style="color:var(--sky);">Confidenzialità</h3>
+        <p class="mono">Confidentiality</p>
+        <p style="margin-top:10px;">Solo le persone autorizzate possono accedere alle informazioni. Come un diario con lucchetto: nessuno può leggerlo senza la chiave.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);border-width:3px;">
+        <span class="ic">✅</span>
+        <h3 style="color:var(--red);">Integrità</h3>
+        <p class="mono">Integrity</p>
+        <p style="margin-top:10px;">I dati non vengono modificati senza autorizzazione. Quello che hai scritto rimane esattamente quello che hai scritto — nessuno lo ha alterato.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal);border-width:3px;">
+        <span class="ic">⚡</span>
+        <h3 style="color:var(--teal);">Disponibilità</h3>
+        <p class="mono">Availability</p>
+        <p style="margin-top:10px;">I sistemi funzionano quando ne hai bisogno. Un sito sempre raggiungibile, un file sempre accessibile, un servizio sempre attivo.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 Lo sapevi?</div>
+      <p>Un attacco informatico viola <em>sempre</em> almeno uno di questi tre principi del CID. Identificare quale aiuta a capire il danno reale e come rispondere.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 5: COSA PROTEGGE (1.2) === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">Beni digitali</div>
+      <h2 class="h-big reveal">Cosa dobbiamo<br><em class="hot">proteggere?</em></h2>
+      <p class="lead reveal d1">Non solo i computer. Qualsiasi dispositivo o servizio che utilizzi contiene informazioni di valore — anche se non te ne accorgi.</p>
+      <div class="stack reveal d2">
+        <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">👤</span><div><b style="font-size:27px;">Dati personali</b><br><span style="font-size:23px;color:var(--ink-faint);">Nome, indirizzo, codice fiscale, numero di conto bancario</span></div></div>
+        <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📱</span><div><b style="font-size:27px;">Dispositivi</b><br><span style="font-size:23px;color:var(--ink-faint);">Smartphone, laptop, tablet, smartwatch, smart TV</span></div></div>
+        <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🌐</span><div><b style="font-size:27px;">Reti e connessioni</b><br><span style="font-size:23px;color:var(--ink-faint);">WiFi di casa, reti aziendali, hotspot pubblici</span></div></div>
+        <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🔑</span><div><b style="font-size:27px;">Account e identità</b><br><span style="font-size:23px;color:var(--ink-faint);">Email, social, home banking, app di lavoro, servizi cloud</span></div></div>
+      </div>
+      <div class="analogy reveal d3" style="margin-top:16px;font-size:25px;"><span class="big">Regola:</span> La sicurezza non riguarda solo i computer.</div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 280 280" style="max-width:260px;margin:0 auto;" role="img" aria-label="Dispositivi digitali connessi e protetti">
+        <!-- Laptop -->
+        <rect x="30" y="100" width="130" height="88" rx="7" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+        <rect x="40" y="110" width="110" height="68" rx="4" fill="#3f7e8c" opacity=".7"/>
+        <rect x="18" y="188" width="154" height="10" rx="5" fill="#1c1714"/>
+        <!-- Smartphone -->
+        <rect x="192" y="88" width="66" height="110" rx="10" fill="#e6533b" stroke="#1c1714" stroke-width="3"/>
+        <rect x="202" y="102" width="46" height="76" rx="4" fill="#f4ece0" opacity=".9"/>
+        <circle cx="225" cy="190" r="6" fill="#1c1714"/>
+        <!-- Cloud -->
+        <ellipse cx="100" cy="52" rx="40" ry="24" fill="#d8c9b4"/>
+        <ellipse cx="68" cy="62" rx="26" ry="18" fill="#d8c9b4"/>
+        <ellipse cx="132" cy="62" rx="26" ry="18" fill="#d8c9b4"/>
+        <rect x="60" y="58" width="80" height="26" fill="#d8c9b4"/>
+        <!-- Lock on cloud -->
+        <rect x="90" y="42" width="20" height="16" rx="4" fill="#e6533b" stroke="#1c1714" stroke-width="2"/>
+        <path d="M94 42 V36 a6 6 0 0 1 12 0 V42" fill="none" stroke="#1c1714" stroke-width="3" stroke-linecap="round"/>
+        <!-- Connections -->
+        <line x1="100" y1="84" x2="100" y2="100" stroke="#d8c9b4" stroke-width="2" stroke-dasharray="4"/>
+        <line x1="118" y1="188" x2="192" y2="148" stroke="#d8c9b4" stroke-width="2" stroke-dasharray="4"/>
+        <!-- Tablet hint -->
+        <rect x="30" y="225" width="100" height="48" rx="7" fill="#d98a2b" stroke="#1c1714" stroke-width="2" opacity=".7"/>
+        <rect x="38" y="232" width="84" height="34" rx="3" fill="#f4ece0" opacity=".6"/>
+        <line x1="80" y1="198" x2="80" y2="225" stroke="#d8c9b4" stroke-width="2" stroke-dasharray="4"/>
+      </svg>
+      <div class="illu-cap">Ogni dispositivo è un bene da proteggere</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 6: LA NOSTRA VITA DIGITALE (1.3) === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="center">
+    <div class="tape reveal">Connessi ogni giorno</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Viviamo <em class="hot">Digitalmente</em></h2>
+    <p class="lead reveal d1">Quanti servizi online avete usato <b>solo oggi?</b> Probabilmente molto più di quanto pensiate.</p>
+    <div class="grid4 reveal d2" style="margin-top:20px;">
+      <div class="card" style="text-align:center;">
+        <span class="ic">📧</span>
+        <h3>Email</h3>
+        <p>Comunicazioni personali e di lavoro. Spesso la chiave di accesso a tutti gli altri servizi.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">📱</span>
+        <h3>Social Network</h3>
+        <p>Instagram, TikTok, Facebook — foto, preferenze, contatti personali, messaggi privati.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">🏦</span>
+        <h3>App Bancarie</h3>
+        <p>Pagamenti, bonifici, carte di credito — accesso diretto ai nostri soldi in tempo reale.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">☁️</span>
+        <h3>Cloud & Commerce</h3>
+        <p>Google Drive, iCloud, Amazon — documenti personali e acquisti salvati online.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:20px;">
+      <div class="lbl">📊 Lo sapevi?</div>
+      <p>Un italiano medio usa <b>7-10 servizi online diversi ogni giorno</b>. Ognuno è un potenziale punto d'accesso per un attaccante. Quanti ne usate voi?</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 7: QUANTO VALE LA NOSTRA IMPRONTA DIGITALE === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape gold reveal">Dati e valore</div>
+      <h2 class="h-big reveal">Quanto vale la nostra<br><em class="hot">impronta digitale?</em></h2>
+      <p class="lead reveal d1">Ogni azione online lascia una traccia. I tuoi dati hanno un valore reale — per le aziende e per i criminali.</p>
+      <p class="body reveal d2">Una carta di credito rubata vale circa <b>5-30€ nel mercato nero</b>. Un account email completo può valere <b>fino a 80€</b>. Un profilo di identità completo — nome, codice fiscale, indirizzo, carta — supera i <b>100€</b>.</p>
+      <div class="analogy reveal d3"><span class="big">Regola:</span> i tuoi dati sono già un bene. Trattali come tale.</div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 230" style="max-width:260px;margin:0 auto;" role="img" aria-label="Grafico del valore dei dati nel mercato nero">
+        <!-- Axes -->
+        <line x1="44" y1="24" x2="44" y2="188" stroke="#1c1714" stroke-width="4"/>
+        <line x1="44" y1="188" x2="234" y2="188" stroke="#1c1714" stroke-width="4"/>
+        <!-- Bars -->
+        <rect x="60" y="158" width="42" height="30" fill="#3f7e8c" rx="4"/>
+        <text x="81" y="152" text-anchor="middle" font-family="Space Mono" font-size="13" fill="#163b35" font-weight="700">~€20</text>
+        <text x="81" y="206" text-anchor="middle" font-family="Space Grotesk" font-size="13" fill="#6b5f54">Carta</text>
+        <rect x="124" y="118" width="42" height="70" fill="#e6c14a" rx="4"/>
+        <text x="145" y="112" text-anchor="middle" font-family="Space Mono" font-size="13" fill="#163b35" font-weight="700">~€80</text>
+        <text x="145" y="206" text-anchor="middle" font-family="Space Grotesk" font-size="13" fill="#6b5f54">Email</text>
+        <rect x="188" y="58" width="42" height="130" fill="#e6533b" rx="4"/>
+        <text x="209" y="52" text-anchor="middle" font-family="Space Mono" font-size="13" fill="#e6533b" font-weight="700">€100+</text>
+        <text x="209" y="206" text-anchor="middle" font-family="Space Grotesk" font-size="13" fill="#6b5f54">Identità</text>
+      </svg>
+      <div class="illu-cap">Prezzi stimati nel dark web, 2024</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 8: PERCHÉ LA SICUREZZA È IMPORTANTE (1.4) === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="center">
+    <div class="tape reveal">Conseguenze reali</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Cosa succede se <em class="hot">non ci proteggiamo?</em></h2>
+    <div class="grid4 reveal d1" style="margin-top:24px;">
+      <div class="card" style="border-color:var(--red);">
+        <span class="ic">🗃️</span>
+        <h3>Furto di dati</h3>
+        <p>Informazioni personali, documenti e foto private venduti o usati per ricattarti. Il danno può essere permanente.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <span class="ic">💸</span>
+        <h3>Perdita di denaro</h3>
+        <p>Accesso ai conti bancari, acquisti non autorizzati, truffe sui pagamenti. Recuperare i soldi è spesso impossibile.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <span class="ic">💼</span>
+        <h3>Problemi lavorativi</h3>
+        <p>Un account aziendale compromesso può causare licenziamento, responsabilità legali o danni ai clienti.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <span class="ic">😔</span>
+        <h3>Danni reputazionali</h3>
+        <p>Messaggi falsi inviati a tuo nome, foto diffuse senza consenso, profili social clonati per truffare amici.</p>
+      </div>
+    </div>
+    <div class="note red reveal d2" style="margin-top:24px;">
+      <div class="lbl">⚠️ Perché l'email è la chiave di tutto</div>
+      <p>Chi accede alla tua email può cliccare "Password dimenticata" su qualsiasi altro sito e prendere il controllo di <b>banca, social, lavoro</b> — tutto in pochi minuti.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 9: ESEMPI REALI === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="center">
+    <div class="tape gold reveal">Casi concreti</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Non capita solo alle <em class="hot">grandi aziende</em></h2>
+    <p class="lead reveal d1">Spesso pensiamo agli attacchi come roba da film. Ma i dati dicono che colpiscono soprattutto le persone comuni.</p>
+    <div class="grid3 reveal d2" style="margin-top:20px;">
+      <div class="card">
+        <span class="ic">📲</span>
+        <h3>SIM Swapping</h3>
+        <p>Il numero di telefono viene trasferito alla SIM dell'attaccante. Lui riceve i tuoi SMS di verifica e accede al conto bancario. Colpisce persone comuni ogni settimana in Italia.</p>
+      </div>
+      <div class="card">
+        <span class="ic">💌</span>
+        <h3>Email di phishing</h3>
+        <p>Una mail "dalla banca" o "da Amazon" chiede le credenziali. Spesso impossibile da distinguere da quella vera. Ogni anno colpisce milioni di italiani — anche persone esperte.</p>
+      </div>
+      <div class="card">
+        <span class="ic">📸</span>
+        <h3>Account social clonati</h3>
+        <p>Qualcuno crea un profilo identico al tuo con le tue foto e scrive ai tuoi amici chiedendo denaro urgente. La vittima sei tu, non il criminale — ma ci vuole tempo per risolvere.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:20px;">
+      <div class="lbl">📊 Dati CNAIPIC 2023</div>
+      <p>In Italia nel 2023 sono stati registrati oltre <b>2.100 attacchi informatici significativi</b>. Il 65% ha preso di mira privati cittadini e piccole imprese.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 10: LA SICUREZZA È PER TUTTI (1.5) === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">Riguarda tutti</div>
+      <h2 class="h-big reveal">Non solo per<br><em class="hot">esperti</em></h2>
+      <p class="lead reveal d1">Non servono lauree in informatica. Serve la stessa attenzione che usiamo già in altri ambiti della vita quotidiana.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">🌍 Tutti usano Internet</div>
+          <p>Social, shopping, messaggistica — chiunque abbia uno smartphone è già online e già esposto.</p>
+        </div>
+        <div class="note">
+          <div class="lbl">💎 Tutti hanno dati di valore</div>
+          <p>Anche se credi di non avere "niente di importante": la tua identità, i tuoi contatti, le tue foto valgono comunque.</p>
+        </div>
+        <div class="note" style="background:#f3b6aa;">
+          <div class="lbl">🎯 Tutti possono diventare vittime</div>
+          <p>Gli attacchi di massa non scelgono per importanza — colpiscono chi non si è protetto.</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 300" style="max-width:250px;margin:0 auto;" role="img" aria-label="Persone diverse connesse a uno scudo digitale">
+        <!-- Shield center -->
+        <path d="M130 90 l44 22 v44 a44 44 0 0 1-88 0 V112 z" fill="#e6533b" stroke="#1c1714" stroke-width="4"/>
+        <text x="130" y="148" text-anchor="middle" font-size="40" fill="#fff">✓</text>
+        <!-- Person TL: student -->
+        <circle cx="46" cy="62" r="20" fill="#3f7e8c"/>
+        <rect x="32" y="82" width="28" height="40" rx="8" fill="#163b35"/>
+        <!-- Person TR: professional -->
+        <circle cx="214" cy="62" r="20" fill="#e6c14a"/>
+        <rect x="200" y="82" width="28" height="40" rx="8" fill="#d98a2b"/>
+        <!-- Person BL: elder -->
+        <circle cx="46" cy="240" r="20" fill="#e6533b"/>
+        <rect x="32" y="260" width="28" height="34" rx="8" fill="#c43020"/>
+        <!-- Person BR: child -->
+        <circle cx="214" cy="240" r="20" fill="#163b35"/>
+        <rect x="200" y="260" width="28" height="34" rx="8" fill="#1f5249"/>
+        <!-- Connection lines -->
+        <line x1="66" y1="74" x2="112" y2="108" stroke="#d8c9b4" stroke-width="2" stroke-dasharray="6"/>
+        <line x1="194" y1="74" x2="148" y2="108" stroke="#d8c9b4" stroke-width="2" stroke-dasharray="6"/>
+        <line x1="66" y1="240" x2="112" y2="168" stroke="#d8c9b4" stroke-width="2" stroke-dasharray="6"/>
+        <line x1="194" y1="240" x2="148" y2="168" stroke="#d8c9b4" stroke-width="2" stroke-dasharray="6"/>
+      </svg>
+      <div class="illu-cap">La sicurezza è una competenza quotidiana</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 11: LA SUPERFICIE DI ATTACCO === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="center">
+    <div class="tape gold reveal">Concetto chiave</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">La <em class="hot">Superficie di Attacco</em></h2>
+    <p class="lead reveal d1">È l'insieme di tutti i punti attraverso cui un attaccante può provare ad entrare nel tuo sistema o nella tua vita digitale.</p>
+    <div class="grid3 reveal d2" style="margin-top:20px;">
+      <div class="card">
+        <span class="ic">🔌</span>
+        <h3>Punti fisici</h3>
+        <p>USB inserite su computer pubblici, dispositivi lasciati incustoditi, schermo visibile in luoghi pubblici — qualcuno legge cosa stai scrivendo.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🌐</span>
+        <h3>Punti di rete</h3>
+        <p>WiFi pubblici non sicuri, router di casa con password predefinita del fornitore, porte di comunicazione aperte inutilmente.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🧩</span>
+        <h3>Punti software</h3>
+        <p>App non aggiornate con falle note, password riutilizzate su più siti, permessi eccessivi concessi alle app (GPS, microfono, contatti).</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 La regola d'oro</div>
+      <p><b>Ridurre la superficie di attacco</b>: disinstalla app inutilizzate, chiudi account vecchi, non usare WiFi pubblici per operazioni sensibili. Meno porte aperte = meno rischi.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 12: SICUREZZA NELLA VITA QUOTIDIANA (1.6) === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape reveal">Esempi concreti</div>
+      <h2 class="h-big reveal">Sicurezza nella<br><em class="hot">vita quotidiana</em></h2>
+      <p class="lead reveal d1">Piccole abitudini che fanno una differenza enorme. Quali di queste fate già?</p>
+      <div class="stack reveal d2">
+        <div class="agenda-item" style="padding:12px 4px;"><span style="font-size:32px;min-width:50px;">📱</span><div><b style="font-size:26px;">Blocca il telefono</b><br><span style="font-size:22px;color:var(--ink-faint);">PIN, impronta o Face ID — sempre attivi, anche a casa</span></div></div>
+        <div class="agenda-item" style="padding:12px 4px;"><span style="font-size:32px;min-width:50px;">🔑</span><div><b style="font-size:26px;">Password robuste</b><br><span style="font-size:22px;color:var(--ink-faint);">Diverse per ogni account, mai "123456" o il tuo nome</span></div></div>
+        <div class="agenda-item" style="padding:12px 4px;"><span style="font-size:32px;min-width:50px;">🔄</span><div><b style="font-size:26px;">Aggiorna le applicazioni</b><br><span style="font-size:22px;color:var(--ink-faint);">Ogni aggiornamento chiude falle di sicurezza già note</span></div></div>
+        <div class="agenda-item" style="padding:12px 4px;"><span style="font-size:32px;min-width:50px;">📧</span><div><b style="font-size:26px;">Verifica le email sospette</b><br><span style="font-size:22px;color:var(--ink-faint);">Non cliccare link, controlla il mittente reale dall'indirizzo</span></div></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:14px;">
+        <div class="lbl">🎯 Attività</div>
+        <p>Dì ad alta voce quali di queste azioni fai <em>già oggi</em> — e quale inizieresti domani.</p>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 300" style="max-width:240px;margin:0 auto;" role="img" aria-label="Checklist di sicurezza quotidiana">
+        <!-- Clipboard -->
+        <rect x="28" y="30" width="204" height="258" rx="14" fill="#fbf5ec" stroke="#1c1714" stroke-width="5"/>
+        <!-- Clip -->
+        <rect x="88" y="18" width="84" height="28" rx="9" fill="#1c1714"/>
+        <!-- Items -->
+        <rect x="52" y="72" width="160" height="36" rx="7" fill="#e6c14a" opacity=".65"/>
+        <text x="72" y="96" font-family="Space Grotesk" font-size="18" fill="#1c1714" font-weight="600">🔒 Blocca telefono ✓</text>
+        <rect x="52" y="116" width="160" height="36" rx="7" fill="#e6c14a" opacity=".65"/>
+        <text x="72" y="140" font-family="Space Grotesk" font-size="18" fill="#1c1714" font-weight="600">🔑 Password sicure ✓</text>
+        <rect x="52" y="160" width="160" height="36" rx="7" fill="#d8c9b4" opacity=".55"/>
+        <text x="72" y="184" font-family="Space Grotesk" font-size="17" fill="#6b5f54">🔄 Aggiorna app ○</text>
+        <rect x="52" y="204" width="160" height="36" rx="7" fill="#d8c9b4" opacity=".55"/>
+        <text x="72" y="228" font-family="Space Grotesk" font-size="17" fill="#6b5f54">📧 Verifica email ○</text>
+        <!-- Pencil -->
+        <line x1="196" y1="236" x2="218" y2="272" stroke="#e6533b" stroke-width="8" stroke-linecap="round"/>
+        <polygon points="212,268 222,268 217,280" fill="#1c1714"/>
+        <line x1="194" y1="234" x2="200" y2="240" stroke="#1c1714" stroke-width="4"/>
+      </svg>
+      <div class="illu-cap">Checklist di sicurezza quotidiana</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 13: IL FATTORE UMANO === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="center">
+    <div class="tape teal reveal">Il rischio invisibile</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Il <em class="hot">Fattore Umano</em></h2>
+    <p class="lead reveal d1">La tecnologia è sempre più sicura. Ma il punto debole siamo spesso <b>noi stessi</b> — e gli attaccanti lo sanno benissimo.</p>
+    <div class="grid2 reveal d2" style="margin-top:20px;">
+      <div class="card">
+        <span class="ic">🎭</span>
+        <h3>Social Engineering</h3>
+        <p>Manipolare le persone invece di attaccare i sistemi. L'attaccante si finge qualcuno di fidato — la banca, un collega, il supporto tecnico — per farti rivelare informazioni o compiere azioni.</p>
+        <p style="margin-top:12px;font-family:var(--font-mono);font-size:21px;color:var(--red);">"Ciao, sono dell'IT. Confermami la tua password per un aggiornamento urgente."</p>
+      </div>
+      <div class="card">
+        <span class="ic">😬</span>
+        <h3>I nostri errori tipici</h3>
+        <p>Usiamo la stessa password ovunque. Clicchiamo i link prima di leggere il mittente. Ci fidiamo di email "ufficiali" senza verificarle. Lasciamo il PC sbloccato in pubblico.</p>
+        <div style="margin-top:14px;background:var(--paper-2);border-radius:10px;padding:14px 18px;">
+          <div style="font-family:var(--font-mono);font-size:22px;color:var(--red);font-weight:700;">~90%</div>
+          <div style="font-size:23px;color:var(--ink-soft);">degli attacchi riusciti sfrutta un errore umano</div>
+        </div>
+      </div>
+    </div>
+    <div class="note red reveal d3" style="margin-top:22px;">
+      <div class="lbl">⚠️ Regola d'oro</div>
+      <p>Nessun servizio legittimo ti chiederà mai la password via telefono, SMS o email. <b>Mai. Nessuna eccezione.</b></p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 14: AGGIORNAMENTI E PATCH === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape gold reveal">Igiene digitale</div>
+      <h2 class="h-big reveal">Perché gli<br><em class="hot">aggiornamenti</em><br>sono vitali</h2>
+      <p class="lead reveal d1">Ogni software contiene difetti chiamati "vulnerabilità". Gli aggiornamenti li correggono prima che qualcuno li sfrutti per attaccarti.</p>
+      <p class="body reveal d2">Quando ignori "Aggiornamento disponibile", stai lasciando una porta aperta. Gli attaccanti conoscono le falle dei software vecchi e le sfruttano in modo <b>automatico e sistematico</b>.</p>
+      <div class="note reveal d3" style="margin-top:14px;">
+        <div class="lbl">📊 Dato reale</div>
+        <p>Il <b>60% degli attacchi riusciti</b> sfrutta vulnerabilità per cui esisteva già una patch disponibile — spesso da settimane o mesi.</p>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 300" style="max-width:240px;margin:0 auto;" role="img" aria-label="Timeline aggiornamenti: chi si aggiorna è al sicuro, chi no resta esposto">
+        <!-- Vertical timeline -->
+        <line x1="80" y1="36" x2="80" y2="272" stroke="#d8c9b4" stroke-width="4"/>
+        <!-- Event 1 -->
+        <circle cx="80" cy="64" r="16" fill="#e6533b" stroke="#1c1714" stroke-width="3"/>
+        <text x="108" y="60" font-family="Space Grotesk" font-size="16" fill="#1c1714" font-weight="700">Vulnerabilità scoperta</text>
+        <text x="108" y="78" font-family="Space Mono" font-size="13" fill="#6b5f54">dagli hacker</text>
+        <!-- Event 2 -->
+        <circle cx="80" cy="130" r="16" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+        <text x="108" y="126" font-family="Space Grotesk" font-size="16" fill="#1c1714" font-weight="700">Patch rilasciata</text>
+        <text x="108" y="144" font-family="Space Mono" font-size="13" fill="#6b5f54">dal produttore</text>
+        <!-- Event 3: updated -->
+        <circle cx="80" cy="196" r="16" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+        <text x="80" y="201" text-anchor="middle" font-size="14" fill="#f4ece0" font-weight="700">✓</text>
+        <text x="108" y="192" font-family="Space Grotesk" font-size="16" fill="#163b35" font-weight="700">Aggiornato → al sicuro</text>
+        <text x="108" y="210" font-family="Space Mono" font-size="13" fill="#6b5f54">rischio eliminato</text>
+        <!-- Event 4: not updated -->
+        <circle cx="80" cy="256" r="16" fill="#f3b6aa" stroke="#e6533b" stroke-width="3"/>
+        <text x="80" y="261" text-anchor="middle" font-size="14" fill="#e6533b" font-weight="700">✗</text>
+        <text x="108" y="252" font-family="Space Grotesk" font-size="16" fill="#e6533b" font-weight="700">Non aggiornato → esposto</text>
+        <text x="108" y="270" font-family="Space Mono" font-size="13" fill="#6b5f54">bersaglio facile</text>
+      </svg>
+      <div class="illu-cap">Chi non aggiorna resta vulnerabile</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 15: PASSWORD === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="center">
+    <div class="tape reveal">Autenticazione</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Password: la prima<br><em class="hot">linea di difesa</em></h2>
+    <div class="grid2 reveal d1" style="margin-top:24px;align-items:start;">
+      <div class="card" style="border-color:var(--red);">
+        <h3 style="color:var(--red);">❌ Password deboli — da evitare</h3>
+        <div style="font-family:var(--font-mono);font-size:26px;margin-top:12px;line-height:1.7;">
+          <div style="color:#e6533b;">123456</div>
+          <div style="color:#e6533b;">password</div>
+          <div style="color:#e6533b;">giulia1990</div>
+          <div style="color:#e6533b;">qwerty</div>
+          <div style="color:#e6533b;">iloveyou</div>
+        </div>
+        <p style="margin-top:14px;">Un computer le indovina in <b>meno di un secondo</b> con un attacco a dizionario.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal);">
+        <h3 style="color:var(--teal);">✅ Password forti — così si fa</h3>
+        <div style="font-family:var(--font-mono);font-size:23px;margin-top:12px;line-height:1.7;">
+          <div style="color:#163b35;">Tr0mb0ne!Viola#47</div>
+          <div style="color:#163b35;">gatto.luna.porta.7</div>
+          <div style="color:#163b35;">!Mela-Blu&amp;Treno99</div>
+        </div>
+        <p style="margin-top:14px;">Almeno 12 caratteri, misto lettere maiuscole/minuscole, numeri e simboli.</p>
+        <div class="note" style="margin-top:14px;padding:14px 18px;">
+          <div class="lbl" style="font-size:18px;">💡 Consiglio</div>
+          <p style="font-size:22px;">Usa un <b>gestore di password</b> (Bitwarden, 1Password, KeePass). Una sola password maestra, il resto è automatico.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 16: AUTENTICAZIONE A DUE FATTORI === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">Doppia protezione</div>
+      <h2 class="h-big reveal">Autenticazione a<br><em class="hot">Due Fattori (2FA)</em></h2>
+      <p class="lead reveal d1">Anche se qualcuno ruba la tua password, con il 2FA non può accedere al tuo account senza avere anche il tuo telefono fisicamente.</p>
+      <p class="body reveal d2">Dopo la password, il sistema chiede un <b>secondo codice</b> che arriva solo sul tuo smartphone — via SMS, app dedicata o chiavetta fisica USB.</p>
+      <div class="chips reveal d3" style="margin-top:14px;">
+        <span class="chip">SMS / email</span>
+        <span class="chip alt">App (Google Auth)</span>
+        <span class="chip alt">Chiave FIDO2</span>
+      </div>
+      <div class="note reveal d3" style="margin-top:16px;">
+        <div class="lbl">🛡️ Impatto reale</div>
+        <p>Il 2FA blocca il <b>99,9% degli attacchi automatizzati</b> agli account. Attivalo subito su email e home banking.</p>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 300" style="max-width:240px;margin:0 auto;" role="img" aria-label="Schema dei due passaggi di autenticazione: password poi codice OTP per ottenere accesso">
+        <!-- Step 1 -->
+        <rect x="28" y="28" width="204" height="64" rx="12" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+        <text x="130" y="54" text-anchor="middle" font-family="Space Grotesk" font-size="18" fill="#1c1714" font-weight="700">1. Inserisci password</text>
+        <text x="130" y="76" text-anchor="middle" font-family="Space Mono" font-size="18" fill="#6b5f54">● ● ● ● ● ● ● ●</text>
+        <!-- Arrow 1 -->
+        <line x1="130" y1="92" x2="130" y2="124" stroke="#1c1714" stroke-width="3"/>
+        <polygon points="122,122 138,122 130,136" fill="#1c1714"/>
+        <!-- Step 2 -->
+        <rect x="28" y="136" width="204" height="64" rx="12" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+        <text x="130" y="162" text-anchor="middle" font-family="Space Grotesk" font-size="18" fill="#f4ece0" font-weight="700">2. Codice OTP dal telefono</text>
+        <text x="130" y="186" text-anchor="middle" font-family="Space Mono" font-size="22" fill="#e6c14a" font-weight="700">4 8 3 9 1 2</text>
+        <!-- Arrow 2 -->
+        <line x1="130" y1="200" x2="130" y2="232" stroke="#1c1714" stroke-width="3"/>
+        <polygon points="122,230 138,230 130,244" fill="#1c1714"/>
+        <!-- Result -->
+        <rect x="48" y="244" width="164" height="52" rx="12" fill="#e6533b" stroke="#1c1714" stroke-width="3"/>
+        <text x="130" y="276" text-anchor="middle" font-family="Space Grotesk" font-size="20" fill="#fff" font-weight="700">✓ Accesso consentito</text>
+      </svg>
+      <div class="illu-cap">Due chiavi valgono più di una</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 17: SICUREZZA VS USABILITÀ === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="center">
+    <div class="tape gold reveal">Il bilanciamento</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Sicurezza <em class="hot">vs</em> Usabilità</h2>
+    <p class="lead reveal d1">Più sicuro spesso significa più scomodo. Ma questo non vuol dire che dobbiamo scegliere: esiste un equilibrio pratico.</p>
+    <div class="grid3 reveal d2" style="margin-top:24px;">
+      <div class="card" style="border-color:var(--red);">
+        <h3>❌ Troppo rigido</h3>
+        <p>Password di 40 caratteri, cambiata ogni settimana, 2FA obbligatorio per tutto. <b>Impossibile da usare</b> — le persone trovano scorciatoie e aggirano i sistemi troppo rigidi.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal);border-width:3px;background:var(--paper);">
+        <h3 style="color:var(--teal);">⚖️ Equilibrio giusto</h3>
+        <p>Password forte + gestore password + 2FA sui servizi critici. <b>Sicuro e usabile.</b> La sicurezza funziona solo se le persone la adottano davvero — se è impossibile, non viene usata.</p>
+      </div>
+      <div class="card" style="border-color:var(--sky);">
+        <h3>❌ Troppo comodo</h3>
+        <p>Stessa password ovunque, nessun 2FA, aggiornamenti mai fatti. <b>Estremamente rischioso</b> — una sola falla compromette tutto l'ecosistema digitale.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 Principio pratico</div>
+      <p>Applica la <b>massima protezione dove il rischio è massimo</b>: email e banca prima di tutto. Meno attenzione dove il rischio è basso. Non trattare tutte le password allo stesso modo.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 18: 10 BUONE ABITUDINI === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="center">
+    <div class="tape teal reveal">Riepilogo pratico</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">10 Buone <em class="hot">Abitudini Digitali</em></h2>
+    <div class="grid2 reveal d1" style="margin-top:18px;gap:14px 50px;">
+      <div style="display:flex;gap:16px;align-items:flex-start;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1.1;">01</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Password diverse e robuste per ogni account</p></div>
+      <div style="display:flex;gap:16px;align-items:flex-start;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1.1;">02</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Attiva il 2FA su email e app bancarie</p></div>
+      <div style="display:flex;gap:16px;align-items:flex-start;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1.1;">03</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Aggiorna sempre app e sistema operativo</p></div>
+      <div style="display:flex;gap:16px;align-items:flex-start;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1.1;">04</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Blocca il dispositivo quando lo lasci</p></div>
+      <div style="display:flex;gap:16px;align-items:flex-start;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1.1;">05</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Non cliccare link senza verificare il mittente</p></div>
+      <div style="display:flex;gap:16px;align-items:flex-start;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1.1;">06</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Evita WiFi pubblici per operazioni sensibili</p></div>
+      <div style="display:flex;gap:16px;align-items:flex-start;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1.1;">07</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Non condividere la password con nessuno</p></div>
+      <div style="display:flex;gap:16px;align-items:flex-start;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1.1;">08</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Controlla i permessi delle app installate</p></div>
+      <div style="display:flex;gap:16px;align-items:flex-start;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1.1;">09</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Usa un gestore di password (es. Bitwarden)</p></div>
+      <div style="display:flex;gap:16px;align-items:flex-start;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1.1;">10</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Backup regolari dei dati importanti</p></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 19: QUIZ === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C1</div>
+  <div class="col stack" style="justify-content:center;height:100%;">
+    <div class="tape teal reveal">Verifica veloce</div>
+    <h2 class="h-sec reveal">Hai capito tutto?</h2>
+    <p class="lead reveal d1" style="margin-bottom:6px;">Prova a rispondere a mente prima di vedere le prossime slide:</p>
+    <div class="grid2 reveal d2" style="gap:24px 40px;">
+      <div class="card"><h3 style="font-size:32px;">1.</h3><p>Cosa significa la "D" nella triade CID della sicurezza informatica?</p></div>
+      <div class="card"><h3 style="font-size:32px;">2.</h3><p>Perché il furto dell'account email è particolarmente grave rispetto ad altri account?</p></div>
+      <div class="card"><h3 style="font-size:32px;">3.</h3><p>Cos'è il Social Engineering e perché non serve essere informatici per subirlo?</p></div>
+      <div class="card"><h3 style="font-size:32px;">4.</h3><p>Perché non bisogna usare la stessa password su siti diversi?</p></div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">🎯 Bonus</div>
+      <p>Nomina <b>tre buone abitudini digitali</b> che puoi adottare <em>già oggi</em> — senza costi, senza attrezzatura speciale.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 20: CLOSING === -->
+<section class="slide closing">
+  <div class="center" style="align-items:center;text-align:center;">
+    <div class="eyebrow reveal gold">Fine Concetto 01</div>
+    <h2 class="h-mega reveal" style="margin-top:10px;">Protetti! 🔒</h2>
+    <p class="lead reveal d1" style="color:var(--paper);max-width:1100px;text-align:center;margin-top:20px;">Conosci le basi della sicurezza digitale. Nel <span class="gold">prossimo concetto</span> entriamo nel dettaglio delle <b>Minacce e Vulnerabilità della Rete</b>: virus, malware, ransomware e come difendersi in pratica.</p>
+    <div class="chips reveal d2" style="margin-top:44px;justify-content:center;"><a class="chip" href="02-minacce.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → C2 · Minacce e Vulnerabilità</a></div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;}); }
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'sec-c01-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>

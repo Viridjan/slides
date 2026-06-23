@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · Modulo 4 — Documenti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;background:#fff;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}.slide:last-child{break-after:auto;page-break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}.d5{transition-delay:.68s !important;}.d6{transition-delay:.80s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:148px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:92px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:74px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:28px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:30px 34px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:10px;line-height:1;}
+.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:50px;line-height:1;display:block;margin-bottom:8px;}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.chip.red{background:var(--red);color:#fff;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:24px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa;}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:26px;line-height:1.4;color:var(--ink);}
+.meta-badge{font-family:var(--font-display);font-style:italic;font-weight:700;color:var(--teal);font-size:34px;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:24px;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu svg{width:100%;height:auto;display:block;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+/* ordered steps list */
+.steps{counter-reset:st;display:flex;flex-direction:column;gap:16px;}
+.step{display:flex;align-items:flex-start;gap:22px;background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:18px 26px;box-shadow:4px 5px 0 rgba(28,23,20,.12);}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--font-display);font-weight:900;font-size:40px;color:var(--red);min-width:46px;line-height:1;}
+.step .t{font-size:27px;line-height:1.35;color:var(--ink-soft);padding-top:4px;}
+.step .t b{color:var(--ink);}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:26px;}
+.cmp th{font-family:var(--font-display);font-weight:900;font-size:33px;text-align:left;padding:16px 24px;color:var(--paper);}
+.cmp th.a{background:var(--sky);border-radius:12px 0 0 0;}.cmp th.b{background:var(--red);border-radius:0 12px 0 0;}
+.cmp th:first-child{background:var(--ink);}
+.cmp td{padding:13px 24px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.32;}
+.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2);}
+.cmp tr:last-child td{border-bottom:none;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.section{background:var(--teal);}.section::before{opacity:.12;}.section *{color:var(--paper);}
+.section .big-n{font-family:var(--font-display);font-weight:900;font-size:120px;line-height:.85;color:var(--gold);}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(4,auto);grid-template-columns:1fr 1fr;gap:18px 60px;margin-top:16px;}
+.agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:15px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:72px;}
+.agenda-item .t{font-size:28px;font-weight:600;color:var(--ink);}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing .gold{color:var(--gold);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease);}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+  <!-- 1 · TITLE -->
+  <section class="slide title-slide active">
+    <div class="title-left">
+      <div class="tape reveal">Corso di Informatica</div>
+      <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo 04 — Documenti</div>
+      <h1 class="h-mega reveal" contenteditable="true">Mettere<br>tutto <em class="hot">per iscritto</em></h1>
+      <p class="lead reveal" style="margin-top:30px;" contenteditable="true">I documenti che servono davvero sul lavoro: la scheda cliente, un curriculum che ti fa notare e un listino fatto bene.</p>
+      <div class="chips reveal" style="margin-top:46px;">
+        <span class="chip">Modulo 4 / 8</span><span class="chip alt">Pratico</span><span class="chip alt">~50 min</span>
+      </div>
+    </div>
+    <div class="title-right">
+      <svg width="280" height="320" viewBox="0 0 280 320" aria-label="Documenti">
+        <rect x="58" y="60" width="150" height="190" rx="10" fill="#3f7e8c" stroke="#1c1714" stroke-width="6" transform="rotate(-7 133 155)"/>
+        <rect x="72" y="50" width="150" height="200" rx="10" fill="#f4ece0" stroke="#1c1714" stroke-width="6"/>
+        <g stroke="#1c1714" stroke-width="7" stroke-linecap="round"><line x1="96" y1="92" x2="198" y2="92"/><line x1="96" y1="124" x2="198" y2="124"/><line x1="96" y1="156" x2="170" y2="156"/></g>
+        <circle cx="186" cy="206" r="30" fill="#e6533b" stroke="#1c1714" stroke-width="5"/>
+        <path d="M173 206 l10 10 l18 -20" fill="none" stroke="#f4ece0" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 2 · AGENDA -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M4</div>
+    <div class="center">
+      <div class="tape teal reveal">In questo modulo</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Tre documenti chiave</h2>
+      <div class="agenda-list reveal d1">
+        <div class="agenda-item"><span class="n">01</span><span class="t">La scheda cliente</span></div>
+        <div class="agenda-item"><span class="n">02</span><span class="t">Cosa scrivere nella scheda</span></div>
+        <div class="agenda-item"><span class="n">03</span><span class="t">Il curriculum vitae</span></div>
+        <div class="agenda-item"><span class="n">04</span><span class="t">Le sezioni del CV</span></div>
+        <div class="agenda-item"><span class="n">05</span><span class="t">Esperienze e competenze</span></div>
+        <div class="agenda-item"><span class="n">06</span><span class="t">Privacy e più CV</span></div>
+        <div class="agenda-item"><span class="n">07</span><span class="t">Listini e promozioni</span></div>
+        <div class="agenda-item"><span class="n">08</span><span class="t">Un listino in Word</span></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 3 · SCHEDA CLIENTE -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M4</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Documento · Scheda cliente</div>
+        <h2 class="h-big reveal">La <em class="hot">scheda cliente</em></h2>
+        <p class="lead reveal d1">Permette di tenere traccia in digitale dei <b>dati importanti</b> di un cliente e delle sue <b>abitudini</b>, a fini di organizzazione e marketing.</p>
+        <p class="body reveal d2">Usare queste informazioni in modo informatico aiuta a <b>non perdere clienti</b>, a recuperarli quando si allontanano e a organizzare il lavoro in modo efficiente.</p>
+        <div class="analogy reveal d3"><span class="big">In pratica:</span> la memoria digitale del tuo rapporto con ogni cliente.</div>
+      </div>
+      <div class="illu reveal d2">
+        <svg viewBox="0 0 280 240" role="img" aria-label="Scheda cliente">
+          <rect x="40" y="36" width="200" height="168" rx="12" fill="#fbf5ec" stroke="#1c1714" stroke-width="5"/>
+          <circle cx="84" cy="84" r="26" fill="#e6c14a" stroke="#1c1714" stroke-width="4"/>
+          <path d="M70 84 a14 14 0 0 1 28 0" fill="#1c1714"/><circle cx="84" cy="76" r="9" fill="#1c1714"/>
+          <g stroke="#163b35" stroke-width="7" stroke-linecap="round"><line x1="126" y1="70" x2="214" y2="70"/><line x1="126" y1="92" x2="190" y2="92"/></g>
+          <g stroke="#3f7e8c" stroke-width="6" stroke-linecap="round"><line x1="64" y1="140" x2="216" y2="140"/><line x1="64" y1="162" x2="216" y2="162"/><line x1="64" y1="184" x2="170" y2="184"/></g>
+        </svg>
+        <div class="illu-cap">Una scheda per ogni cliente</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 4 · COSA CONTIENE LA SCHEDA -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M4</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape gold reveal">Scheda cliente · Contenuto</div>
+      <h2 class="h-big reveal">Cosa deve <em class="hot">contenere</em></h2>
+      <p class="lead reveal d1">Tre tipi di informazioni, ognuno con uno scopo preciso.</p>
+      <div class="grid3 reveal d2" style="margin-top:6px;">
+        <div class="card"><span class="ic">📇</span><h3>Dati anagrafici</h3><p>Come contattare il cliente in caso di necessità. Anche il <b>compleanno</b> è utile: per promo e auguri mirati.</p></div>
+        <div class="card"><span class="ic">👥</span><h3>Dati “gruppo”</h3><p>A quale <b>gruppo</b> appartiene (es. abbonati, VIP, nuovi): così non gli neghi un'offerta a lui dedicata.</p></div>
+        <div class="card"><span class="ic">📊</span><h3>Comportamento</h3><p>Ogni quanto fa trattamenti e quanto spende: per <b>offerte di richiamo</b> se dirada, o proposte su misura.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:8px;">
+        <div class="lbl">💡 Perché conviene</div>
+        <p>Con questi dati puoi accorgerti se un cliente abituale sta sparendo e agire <b>prima</b> di perderlo — invece di scoprirlo quando è troppo tardi.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 5 · CV PERCHÉ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M4</div>
+    <div class="split">
+      <div class="illu reveal d1" style="background:var(--teal);border-color:var(--ink);">
+        <svg viewBox="0 0 240 260" role="img" aria-label="Curriculum vitae" style="max-width:300px;margin:0 auto;">
+          <rect x="40" y="30" width="160" height="200" rx="10" fill="#f4ece0" stroke="#1c1714" stroke-width="6"/>
+          <circle cx="74" cy="68" r="18" fill="#e6c14a"/>
+          <g stroke="#163b35" stroke-width="6" stroke-linecap="round"><line x1="104" y1="60" x2="178" y2="60"/><line x1="104" y1="78" x2="158" y2="78"/></g>
+          <rect x="62" y="108" width="116" height="9" rx="4" fill="#e6533b"/>
+          <g stroke="#1c1714" stroke-width="5" stroke-linecap="round" opacity=".7">
+            <line x1="62" y1="134" x2="178" y2="134"/><line x1="62" y1="152" x2="178" y2="152"/>
+            <line x1="62" y1="170" x2="150" y2="170"/><line x1="62" y1="196" x2="178" y2="196"/><line x1="62" y1="214" x2="140" y2="214"/></g>
+        </svg>
+        <div class="illu-cap" style="color:#cdbfa8;">Il tuo biglietto da visita</div>
+      </div>
+      <div class="col stack">
+        <div class="tape reveal">Documento · Curriculum</div>
+        <h2 class="h-big reveal">Il <em class="hot">curriculum vitae</em></h2>
+        <p class="lead reveal d1">Un CV ben scritto è il modo migliore per <b>emergere</b> tra tanti candidati. Spesso fa la differenza tra ottenere un lavoro e non ottenerlo.</p>
+        <p class="body reveal d2">Il segreto è <b>organizzare bene le informazioni</b>: chi seleziona ha pochi secondi per ogni CV e deve trovare subito ciò che cerca. Un riassunto chiaro ed efficace vale più di mille parole.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 6 · CV STRUTTURA -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M4</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape teal reveal">CV · La struttura</div>
+      <h2 class="h-big reveal">L'<em class="hot">ordine</em> giusto</h2>
+      <p class="lead reveal d1">Esiste un ordine standard che permette a chi seleziona di trovare al volo le informazioni. Seguilo:</p>
+      <div class="grid2 reveal d2" style="margin-top:6px;gap:14px 30px;">
+        <div class="step"><div class="t"><b>Dati personali</b> e anagrafici</div></div>
+        <div class="step"><div class="t"><b>Esperienze</b> lavorative significative</div></div>
+        <div class="step"><div class="t"><b>Titoli di studio</b> e certificazioni</div></div>
+        <div class="step"><div class="t"><b>Altre competenze</b> (inclusa la patente)</div></div>
+        <div class="step"><div class="t"><b>Hobby</b> e interessi</div></div>
+        <div class="step"><div class="t"><b>Consenso privacy</b> (GDPR)</div></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 7 · CV ANAGRAFICI -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M4</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">CV · Sezione 1</div>
+        <h2 class="h-big reveal">Dati <em class="hot">personali</em></h2>
+        <p class="lead reveal d1">Le informazioni per essere contattati. Poche, giuste, sempre aggiornate:</p>
+        <div class="stack reveal d2" style="margin-top:4px;">
+          <p class="body">• <b>Nome e cognome</b></p>
+          <p class="body">• <b>Numero di telefono</b></p>
+          <p class="body">• <b>Email</b> che leggi davvero e dove sei raggiungibile</p>
+          <p class="body">• <b>Profili rilevanti</b>: portfolio, pagina Instagram professionale…</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="note red reveal d2">
+          <div class="lbl">📷 E la foto?</div>
+          <p>Di solito <b>non si mette</b>, per evitare discriminazioni basate sull'aspetto — a meno che non sia espressamente richiesta. Nel dubbio, lasciala fuori.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 8 · CV ESPERIENZE 1 -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M4</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">CV · Esperienze lavorative</div>
+      <h2 class="h-big reveal">Quali esperienze <em class="hot">mettere</em></h2>
+      <div class="grid3 reveal d1" style="margin-top:8px;">
+        <div class="card"><span class="ic">🎯</span><h3>Solo le rilevanti</h3><p>Niente lavori di pochi giorni o che non vuoi rifare. Conta ciò che serve al ruolo per cui ti candidi.</p></div>
+        <div class="card"><span class="ic">⬇️</span><h3>Dalla più importante</h3><p>Ordina dalla più significativa alla meno: per un ruolo da estetista, l'esperienza da estetista va in alto.</p></div>
+        <div class="card"><span class="ic">🔖</span><h3>Evidenzia i nomi noti</h3><p>Hai lavorato per un'azienda famosa e riconoscibile? Mettila <b>in grassetto</b> e bene in vista.</p></div>
+      </div>
+      <div class="note reveal d2" style="margin-top:8px;">
+        <div class="lbl">💡 Dettaglia</div>
+        <p>Più descrivi con precisione cosa facevi, più è facile per chi seleziona capire <b>quante cose sai fare</b>. La genericità non aiuta.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 9 · CV ESPERIENZE 2 (come si scrive) -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M4</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape teal reveal">CV · Esperienze lavorative</div>
+        <h2 class="h-big reveal" style="font-size:78px;">Come <em class="hot">descriverle</em></h2>
+        <p class="body reveal d1">Per ogni esperienza indica sempre:</p>
+        <div class="stack reveal d2" style="margin-top:2px;">
+          <p class="body">• <b>Ruolo e periodo</b> — [mese/anno] inizio → fine</p>
+          <p class="body">• <b>Mansioni</b> — cosa facevi, responsabilità, programmi usati</p>
+          <p class="body">• <b>Datore di lavoro</b> — l'azienda (o le aziende)</p>
+        </div>
+        <p class="body reveal d3" style="font-size:25px;">Più esperienze brevi e simili si possono <b>raggruppare</b> in una sola voce.</p>
+      </div>
+      <div class="illu reveal d2" style="place-items:stretch;">
+        <div style="font-family:var(--font-body);width:100%;">
+          <div style="font-family:var(--font-display);font-weight:900;font-size:32px;color:var(--ink);">Capo Estetista — SPA Bellezza</div>
+          <div style="font-family:var(--font-mono);font-size:22px;color:var(--red);margin:4px 0 14px;">01/2019 – in corso</div>
+          <div style="font-size:24px;line-height:1.45;color:var(--ink-soft);">
+            <b>Mansioni:</b> gestione trattamenti viso e corpo, responsabile prenotazioni e acquisti, formazione del personale junior. Uso del gestionale di salone e di Office.
+          </div>
+        </div>
+        <div class="illu-cap">Esempio di una voce ben scritta</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 10 · CV TITOLI + LINGUE -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M4</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape gold reveal">CV · Sezione 3</div>
+      <h2 class="h-big reveal">Titoli di studio &amp; <em class="hot">lingue</em></h2>
+      <div class="grid2 reveal d1" style="margin-top:8px;gap:40px;">
+        <div class="card" style="border-color:var(--sky);">
+          <span class="ic">🎓</span><h3>Scuole e corsi</h3>
+          <p>Indica solo il <b>titolo più alto</b> (col diploma, non scrivi le medie). Per ognuno: titolo, anno, voto se rilevante, ed ente/scuola. Aggiungi qualifiche e corsi professionali.</p>
+        </div>
+        <div class="card" style="border-color:var(--teal);">
+          <span class="ic">🗣️</span><h3>Lingue straniere</h3>
+          <p>Non basta elencarle: <b>indica sempre il livello</b> — madrelingua, ottimo, buono, scolastico, cenni. È un'informazione obbligatoria e molto guardata.</p>
+        </div>
+      </div>
+      <div class="note reveal d2" style="margin-top:26px;">
+        <div class="lbl">💡 Onestà</div>
+        <p>Dichiara livelli veri: un colloquio in lingua o una prova pratica smaschera subito le esagerazioni.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 11 · CV COMPETENZE + HOBBY -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M4</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">CV · Sezioni 4 e 5</div>
+      <h2 class="h-big reveal">Competenze &amp; <em class="hot">hobby</em></h2>
+      <div class="grid2 reveal d1" style="margin-top:8px;gap:40px;">
+        <div class="card" style="border-color:var(--gold-deep);">
+          <span class="ic">💻</span><h3>Altre competenze</h3>
+          <p>Competenze non certificate, patenti e patentini. Tra le <b>conoscenze informatiche</b> indica quali programmi sai usare (gestionali, Office). Evita ovvietà come “so usare email e internet”: nel 2025 si dà per scontato.</p>
+        </div>
+        <div class="card" style="border-color:var(--sky);">
+          <span class="ic">⛹️</span><h3>Hobby e interessi</h3>
+          <p>Solo quelli che raccontano una <b>soft skill</b>: sport ad alto livello, volontariato, organizzazione di eventi, ruoli da educatore. Dicono che sai <b>organizzarti</b> e <b>gestire persone</b>.</p>
+        </div>
+      </div>
+      <div class="analogy reveal d2" style="margin-top:26px;align-self:flex-start;"><span class="big">Filtro:</span> se un hobby non dice nulla di utile sul lavoro, toglilo.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 12 · CV PRIVACY + PIÙ CV -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M4</div>
+    <div class="center">
+      <div class="tape teal reveal">CV · Ultimi dettagli</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">Privacy e più curriculum</h2>
+      <div class="grid2 reveal d1" style="margin-top:26px;">
+        <div class="card" style="border-color:var(--red);">
+          <span class="ic">🔏</span><h3>Consenso privacy (GDPR)</h3>
+          <p>Spesso serve autorizzare il trattamento dei dati nel CV. Si usa una frase standard:</p>
+          <p style="font-family:var(--font-mono);font-size:20px;margin-top:10px;color:var(--ink);">“Autorizzo il trattamento dei miei dati personali ai sensi del D.lgs. 196/2003 e dell'art. 13 GDPR 679/2016.”</p>
+        </div>
+        <div class="card" style="border-color:var(--teal);">
+          <span class="ic">🗂️</span><h3>Più di un CV?</h3>
+          <p><b>Sì</b> se ti candidi per ruoli diversi (cambia l'ordine di importanza) o all'estero (tieni una versione in inglese). <b>No</b> se lavori in proprio: lì conta di più un buon profilo social.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 13 · LISTINI -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M4</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">Documento · Listino</div>
+        <h2 class="h-big reveal">Listini e <em class="hot">promo</em></h2>
+        <p class="lead reveal d1">Non sempre servono strumenti elaborati: per un uso “interno”, slegato dai social, un semplice documento basta e avanza.</p>
+        <p class="body reveal d2">Che sia un riepilogo da tenere per sé o un memorandum rapido da appoggiare sul bancone, un listino è <b>sempre comodo da avere a portata di mano</b>. E si fa benissimo in Word.</p>
+        <div class="analogy reveal d3"><span class="big">Principio:</span> lo strumento più semplice che fa il lavoro è quello giusto.</div>
+      </div>
+      <div class="illu reveal d2">
+        <svg viewBox="0 0 260 250" role="img" aria-label="Listino prezzi">
+          <rect x="40" y="26" width="180" height="200" rx="10" fill="#fbf5ec" stroke="#1c1714" stroke-width="5"/>
+          <rect x="106" y="42" width="48" height="26" rx="5" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+          <text x="130" y="61" font-family="Space Mono,monospace" font-size="15" fill="#1c1714" text-anchor="middle">LOGO</text>
+          <g font-family="Space Mono,monospace" font-size="17" fill="#1c1714">
+            <line x1="58" y1="96" x2="202" y2="96" stroke="#163b35" stroke-width="3"/>
+            <text x="58" y="124">Manicure</text><text x="200" y="124" text-anchor="end" fill="#e6533b">25€</text>
+            <text x="58" y="152">Pedicure</text><text x="200" y="152" text-anchor="end" fill="#e6533b">30€</text>
+            <text x="58" y="180">Pulizia viso</text><text x="200" y="180" text-anchor="end" fill="#e6533b">40€</text>
+            <line x1="58" y1="198" x2="202" y2="198" stroke="#d8c9b4" stroke-width="2"/>
+          </g>
+        </svg>
+        <div class="illu-cap">Un listino chiaro fatto in Word</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 14 · LISTINO IN WORD -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M4</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">Listino · Come si fa</div>
+      <h2 class="h-big reveal">Un listino in <em class="hot">Word</em></h2>
+      <p class="lead reveal d1">Pochi passaggi per un risultato ordinato e professionale:</p>
+      <div class="grid2 reveal d2" style="margin-top:6px;gap:14px 30px;">
+        <div class="step"><div class="t">Metti in cima il <b>logo</b> del salone o dell'attività</div></div>
+        <div class="step"><div class="t">Usa un <b>titolo chiaro</b> (es. “Listino prezzi e servizi”)</div></div>
+        <div class="step"><div class="t">Indica un <b>periodo di validità</b> (es. “Primavera–Estate 2025”)</div></div>
+        <div class="step"><div class="t">Crea una <b>tabella</b> con servizi e prezzi, ordinata e leggibile</div></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:8px;">
+        <div class="lbl">💡 Il periodo di validità</div>
+        <p>Serve se i prezzi cambiano ogni tanto: così è chiaro a tutti quando un listino è “vecchio” e va aggiornato.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 15 · QUIZ -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M4</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape teal reveal">Verifica veloce</div>
+      <h2 class="h-sec reveal">Hai capito tutto?</h2>
+      <p class="lead reveal d1" style="margin-bottom:6px;">Prova a rispondere a mente:</p>
+      <div class="grid2 reveal d2" style="gap:24px 40px;">
+        <div class="card"><h3 style="font-size:32px;">1.</h3><p>A cosa serve, in concreto, una scheda cliente?</p></div>
+        <div class="card"><h3 style="font-size:32px;">2.</h3><p>In che ordine vanno le sezioni di un CV?</p></div>
+        <div class="card"><h3 style="font-size:32px;">3.</h3><p>Perché di solito non si mette la foto nel CV?</p></div>
+        <div class="card"><h3 style="font-size:32px;">4.</h3><p>Quali 4 elementi non devono mancare in un listino?</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 16 · CLOSING -->
+  <section class="slide closing">
+    <div class="center" style="align-items:center;text-align:center;">
+      <div class="eyebrow reveal gold">Fine Modulo 04</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Documenti pronti! 📄</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1100px;text-align:center;margin-top:20px;">
+        Sai creare i documenti che contano. Nel <span class="gold">prossimo modulo</span> lavoriamo con i numeri e le tabelle: <b>Excel</b>.
+      </p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a class="chip" href="05.1-excel.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → M5 · Excel</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;});}
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'inf-m4-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>

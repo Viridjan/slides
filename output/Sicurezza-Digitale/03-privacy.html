@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sicurezza Digitale · C3 — Privacy, Anonimato e Pseudonimo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;background:#fff;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}.slide:last-child{break-after:auto;page-break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}.d5{transition-delay:.68s !important;}.d6{transition-delay:.80s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:142px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:28px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 32px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:10px;line-height:1;}
+.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:50px;line-height:1;display:block;margin-bottom:8px;}
+.card .mono{font-family:var(--font-mono);font-size:23px;color:var(--teal);font-weight:700;}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:24px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa;}
+.note.teal{background:var(--teal);}.note.teal *{color:var(--paper) !important;}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:26px;line-height:1.4;color:var(--ink);}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:22px;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu svg{width:100%;height:auto;display:block;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--sky),#1c4a56);right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:18px 60px;margin-top:16px;}
+.agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:15px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:72px;}
+.agenda-item .t{font-size:28px;font-weight:600;color:var(--ink);}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing .gold{color:var(--gold);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease);}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- === SLIDE 1: TITLE === -->
+<section class="slide title-slide active">
+  <div class="title-left">
+    <div class="tape reveal">Corso di Informatica</div>
+    <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Sicurezza Digitale · Concetto 3</div>
+    <h1 class="h-mega reveal" contenteditable="true">Privacy,<br><em class="hot">Anonimato</em><br>e Pseudonimo</h1>
+    <p class="lead reveal" style="margin-top:30px;" contenteditable="true">Chi conosce i tuoi dati, come vieni tracciato online, e cosa puoi fare per proteggere la tua identità digitale.</p>
+    <div class="chips reveal" style="margin-top:46px;"><span class="chip">Concetto 3 / 3</span><span class="chip alt">Avanzato</span><span class="chip alt">~45 min</span></div>
+  </div>
+  <div class="title-right">
+    <div style="position:relative;z-index:2;">
+      <svg viewBox="0 0 220 220" width="220" role="img" aria-label="Occhio stilizzato con maschera: privacy e identità">
+        <!-- Eye outer -->
+        <ellipse cx="110" cy="110" rx="80" ry="50" fill="none" stroke="#f4ece0" stroke-width="6" opacity=".4"/>
+        <!-- Iris -->
+        <circle cx="110" cy="110" r="34" fill="#3f7e8c" stroke="#f4ece0" stroke-width="4"/>
+        <!-- Pupil -->
+        <circle cx="110" cy="110" r="18" fill="#1c1714"/>
+        <!-- Reflection -->
+        <circle cx="120" cy="102" r="7" fill="#f4ece0" opacity=".5"/>
+        <!-- Mask over eye -->
+        <path d="M54 98 Q110 72 166 98 L166 118 Q110 140 54 118 Z" fill="#163b35" stroke="#e6c14a" stroke-width="3" opacity=".85"/>
+        <text x="110" y="114" text-anchor="middle" font-family="Space Mono" font-size="13" fill="#e6c14a" font-weight="700">PRIVATO</text>
+        <!-- Slash through tracking -->
+        <line x1="36" y1="74" x2="184" y2="146" stroke="#e6533b" stroke-width="5" opacity=".6"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- === SLIDE 2: AGENDA === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="center">
+    <div class="tape teal reveal">In questo modulo</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
+    <div class="agenda-list reveal d1">
+      <div class="agenda-item"><span class="n">01</span><span class="t">Cos'è la privacy digitale</span></div>
+      <div class="agenda-item"><span class="n">02</span><span class="t">Il GDPR: i tuoi diritti</span></div>
+      <div class="agenda-item"><span class="n">03</span><span class="t">Come veniamo tracciati</span></div>
+      <div class="agenda-item"><span class="n">04</span><span class="t">I metadati: dati nascosti nei dati</span></div>
+      <div class="agenda-item"><span class="n">05</span><span class="t">Anonimato digitale</span></div>
+      <div class="agenda-item"><span class="n">06</span><span class="t">Pseudonimato</span></div>
+      <div class="agenda-item"><span class="n">07</span><span class="t">Anonimato vs Pseudonimato</span></div>
+      <div class="agenda-item"><span class="n">08</span><span class="t">TOR: come funziona davvero</span></div>
+      <div class="agenda-item"><span class="n">09</span><span class="t">Privacy sui social e dispositivi</span></div>
+      <div class="agenda-item"><span class="n">10</span><span class="t">Identità digitale e reputazione</span></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 3: COS'È LA PRIVACY DIGITALE === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="center">
+    <div class="tape reveal">Diritto fondamentale</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Cos'è la <em class="hot">Privacy Digitale?</em></h2>
+    <p class="lead reveal d1">La privacy digitale è il diritto di <b>controllare chi sa cosa su di noi</b> nell'ambiente online. Non è nascondersi — è decidere.</p>
+    <div class="grid3 reveal d2" style="margin-top:24px;">
+      <div class="card">
+        <span class="ic">📋</span>
+        <h3>Informazionale</h3>
+        <p>Chi raccoglie i miei dati, per quale scopo, per quanto tempo li conserva. Il controllo sul flusso delle informazioni personali.</p>
+      </div>
+      <div class="card">
+        <span class="ic">💻</span>
+        <h3>Comunicativa</h3>
+        <p>Il diritto a comunicare in modo privato — messaggi, email, chiamate — senza essere ascoltati da terzi non autorizzati.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🧍</span>
+        <h3>Identitaria</h3>
+        <p>La capacità di costruire e proteggere la propria identità online, decidendo come presentarsi e cosa condividere di sé.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 Perché la privacy è importante</div>
+      <p>"Non ho niente da nascondere" è il ragionamento sbagliato. La privacy non riguarda i segreti — riguarda il <b>potere di scegliere</b>. Chi controlla i tuoi dati può influenzare le tue decisioni.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 4: IL GDPR === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">La legge europea</div>
+      <h2 class="h-big reveal">GDPR: i tuoi<br><em class="hot">diritti digitali</em></h2>
+      <p class="lead reveal d1">Il <b>Regolamento Generale sulla Protezione dei Dati</b> (GDPR, 2018) è la legge europea che protegge i tuoi dati personali. Si applica a qualsiasi azienda che tratta dati di cittadini EU.</p>
+      <div class="stack reveal d2">
+        <div class="agenda-item" style="padding:10px 4px;"><span style="font-size:28px;min-width:46px;">📖</span><div><b style="font-size:25px;">Diritto di accesso</b> — sai sempre quali dati hanno su di te</div></div>
+        <div class="agenda-item" style="padding:10px 4px;"><span style="font-size:28px;min-width:46px;">✏️</span><div><b style="font-size:25px;">Diritto di rettifica</b> — puoi correggere dati errati</div></div>
+        <div class="agenda-item" style="padding:10px 4px;"><span style="font-size:28px;min-width:46px;">🗑️</span><div><b style="font-size:25px;">Diritto all'oblio</b> — puoi chiedere la cancellazione</div></div>
+        <div class="agenda-item" style="padding:10px 4px;"><span style="font-size:28px;min-width:46px;">🚫</span><div><b style="font-size:25px;">Diritto di opposizione</b> — puoi dire no al trattamento</div></div>
+        <div class="agenda-item" style="padding:10px 4px;"><span style="font-size:28px;min-width:46px;">📦</span><div><b style="font-size:25px;">Portabilità</b> — puoi ricevere i tuoi dati in formato leggibile</div></div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 280" style="max-width:240px;margin:0 auto;" role="img" aria-label="Stella EU con scudo GDPR">
+        <!-- EU circle of stars -->
+        <circle cx="130" cy="120" r="90" fill="none" stroke="#e6c14a" stroke-width="2" stroke-dasharray="4" opacity=".4"/>
+        <!-- Stars at circle positions (simplified) -->
+        <text x="130" y="36" text-anchor="middle" font-size="16" fill="#e6c14a">★</text>
+        <text x="175" y="52" text-anchor="middle" font-size="16" fill="#e6c14a">★</text>
+        <text x="206" y="96" text-anchor="middle" font-size="16" fill="#e6c14a">★</text>
+        <text x="206" y="148" text-anchor="middle" font-size="16" fill="#e6c14a">★</text>
+        <text x="175" y="192" text-anchor="middle" font-size="16" fill="#e6c14a">★</text>
+        <text x="130" y="208" text-anchor="middle" font-size="16" fill="#e6c14a">★</text>
+        <text x="85" y="192" text-anchor="middle" font-size="16" fill="#e6c14a">★</text>
+        <text x="54" y="148" text-anchor="middle" font-size="16" fill="#e6c14a">★</text>
+        <text x="54" y="96" text-anchor="middle" font-size="16" fill="#e6c14a">★</text>
+        <text x="85" y="52" text-anchor="middle" font-size="16" fill="#e6c14a">★</text>
+        <!-- Center shield -->
+        <path d="M130 72 l34 16 v34 a34 34 0 0 1-68 0 V88 z" fill="#163b35" stroke="#e6c14a" stroke-width="3"/>
+        <text x="130" y="118" text-anchor="middle" font-family="Space Mono" font-size="16" fill="#e6c14a" font-weight="700">GDPR</text>
+        <!-- Fine text below -->
+        <text x="130" y="244" text-anchor="middle" font-family="Space Grotesk" font-size="15" fill="#1c1714" font-weight="700">Multa max: €20 milioni</text>
+        <text x="130" y="264" text-anchor="middle" font-family="Space Mono" font-size="13" fill="#6b5f54">o 4% fatturato globale</text>
+      </svg>
+      <div class="illu-cap">Violare il GDPR costa carissimo</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 5: COME VENIAMO TRACCIATI === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="center">
+    <div class="tape gold reveal">Tracciamento digitale</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Come veniamo <em class="hot">tracciati online</em></h2>
+    <p class="lead reveal d1">Ogni volta che navighi, lasci una scia di informazioni. Le aziende usano queste tecniche per profilarti, spesso senza che tu ne sia consapevole.</p>
+    <div class="grid4 reveal d2" style="margin-top:20px;">
+      <div class="card">
+        <span class="ic">🍪</span>
+        <h3>Cookie</h3>
+        <p>File salvati nel browser che ricordano le tue preferenze e attività. I <b>cookie di terze parti</b> seguono la tua navigazione su tutti i siti, non solo quello che stai visitando.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🖐️</span>
+        <h3>Browser Fingerprinting</h3>
+        <p>Il tuo browser è unico: combinazione di schermo, font, plugin, fuso orario, lingua. Questo "fingerprint" ti identifica anche senza cookie — impossibile evitarlo con l'incognito.</p>
+      </div>
+      <div class="card">
+        <span class="ic">📊</span>
+        <h3>Pixel di tracciamento</h3>
+        <p>Immagini invisibili 1×1 pixel nelle email o nelle pagine web. Quando vengono caricate, dicono al mittente quando hai aperto l'email, da dove e con quale dispositivo.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🔗</span>
+        <h3>Tracciamento cross-site</h3>
+        <p>I pulsanti "Mi piace" e "Accedi con Google" su altri siti inviano dati a Facebook/Google anche se non ci clicchi. Meta e Google ti vedono ovunque sul web.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:20px;">
+      <div class="lbl">📊 Lo sapevi?</div>
+      <p>Il 79% dei siti web usa almeno un tracker di terze parti. Il sito medio ne contiene <b>7-12</b>. Il tuo profilo comportamentale online vale migliaia di euro al mercato pubblicitario.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 6: I METADATI === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape reveal">Dati sui dati</div>
+      <h2 class="h-big reveal">I <em class="hot">Metadati:</em><br>dati nascosti<br>nei dati</h2>
+      <p class="lead reveal d1">Un file non contiene solo il suo contenuto visibile — contiene anche <b>metadati</b>: informazioni sul file stesso, spesso rivelatori quanto il contenuto.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">📸 Una foto scattata col telefono contiene:</div>
+          <p>Data e ora esatta · Coordinate GPS del luogo · Modello del dispositivo · Software usato · Impostazioni della fotocamera</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">📄 Un documento Word contiene:</div>
+          <p>Nome dell'autore · Azienda · Tutte le revisioni con chi ha modificato cosa e quando · Commenti eliminati (spesso recuperabili)</p>
+        </div>
+      </div>
+      <div class="analogy reveal d3"><span class="big">Regola:</span> Prima di condividere, rimuovi i metadati.</div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 280" style="max-width:240px;margin:0 auto;" role="img" aria-label="Foto con metadati GPS e ora visibili">
+        <!-- Photo frame -->
+        <rect x="30" y="20" width="200" height="160" rx="10" fill="#1c1714" stroke="#d8c9b4" stroke-width="3"/>
+        <!-- Photo content (landscape) -->
+        <rect x="38" y="28" width="184" height="144" rx="6" fill="#3f7e8c" opacity=".6"/>
+        <ellipse cx="130" cy="80" rx="44" ry="30" fill="#e6c14a" opacity=".5"/>
+        <rect x="38" y="120" width="184" height="52" rx="0 0 6 6" fill="#163b35" opacity=".7"/>
+        <!-- GPS pin on photo -->
+        <circle cx="148" cy="74" r="10" fill="#e6533b" stroke="#fff" stroke-width="2"/>
+        <line x1="148" y1="84" x2="148" y2="96" stroke="#e6533b" stroke-width="3"/>
+        <!-- Metadata panel below -->
+        <rect x="30" y="188" width="200" height="82" rx="10" fill="#fbf5ec" stroke="#d8c9b4" stroke-width="2"/>
+        <text x="46" y="208" font-family="Space Mono" font-size="12" fill="#6b5f54">📍 41.902°N, 12.496°E</text>
+        <text x="46" y="226" font-family="Space Mono" font-size="12" fill="#6b5f54">📅 2024-03-15 14:32:07</text>
+        <text x="46" y="244" font-family="Space Mono" font-size="12" fill="#6b5f54">📱 iPhone 15 Pro</text>
+        <text x="46" y="262" font-family="Space Mono" font-size="12" fill="#e6533b">→ Roma, Colosseo!</text>
+      </svg>
+      <div class="illu-cap">Una foto rivela dove sei stato e quando</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 7: ANONIMATO DIGITALE === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="center">
+    <div class="tape teal reveal">Senza identità</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">L'<em class="hot">Anonimato</em> Digitale</h2>
+    <p class="lead reveal d1">L'anonimato digitale significa agire online <b>senza che nessuno possa ricondurre le azioni a te</b> — non solo un nome falso, ma nessun identificatore collegabile alla persona reale.</p>
+    <div class="grid2 reveal d2" style="margin-top:24px;">
+      <div class="card">
+        <span class="ic">🎭</span>
+        <h3>Vero anonimato: cos'è</h3>
+        <p>Non lasciare nessuna traccia che possa collegare le tue azioni online alla tua identità reale. Niente IP, niente cookie, niente metadati, niente pattern comportamentali riconoscibili.</p>
+        <p style="margin-top:12px;"><b>Esempio legittimo:</b> giornalisti in paesi autoritari, attivisti, vittime di violenza domestica che cercano aiuto online.</p>
+      </div>
+      <div class="card">
+        <span class="ic">⚠️</span>
+        <h3>Perché è difficile</h3>
+        <p>Il vero anonimato online è <b>molto difficile da raggiungere</b>. Il solo indirizzo IP è sufficiente a identificarti. I provider internet conservano i log delle connessioni per mesi o anni.</p>
+        <p style="margin-top:12px;">Anche TOR, lo strumento più potente, può essere compromesso da errori comportamentali.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 La modalità incognito NON è anonimato</div>
+      <p>La modalità privata del browser cancella solo la cronologia <em>locale</em>. Il tuo provider, il tuo datore di lavoro, i siti che visiti — ti vedono tutti lo stesso. È semplicemente "privacy dal browser", non anonimato.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 8: PSEUDONIMATO === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape gold reveal">Identità parziale</div>
+      <h2 class="h-big reveal">Il <em class="hot">Pseudonimato</em></h2>
+      <p class="lead reveal d1">Agire online con un'identità <b>non direttamente collegata al proprio nome reale</b>, ma che mantiene una continuità — la stessa persona torna, con lo stesso "personaggio".</p>
+      <p class="body reveal d2">Non è anonimato completo: lo pseudonimo potrebbe essere de-anonimizzato nel tempo se si fanno errori, ma offre un livello di separazione pratico tra identità online e identità reale.</p>
+      <div class="stack reveal d3">
+        <div class="note">
+          <div class="lbl">✅ Esempi legittimi di pseudonimato</div>
+          <p>Scrittori con nom de plume (J.K. Rowling come "Robert Galbraith"). Creator di contenuti con username diverso dal nome reale. Professionisti che separano vita privata e pubblica.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">⚖️ Legalmente riconosciuto</div>
+          <p>Il GDPR riconosce la pseudonimizzazione come misura di sicurezza valida. I dati pseudonimizzati sono ancora "dati personali" — non quelli anonimi.</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 280" style="max-width:240px;margin:0 auto;" role="img" aria-label="Due facce: identità reale e pseudonimo separati">
+        <!-- Real identity -->
+        <circle cx="80" cy="90" r="50" fill="#e6c14a" stroke="#1c1714" stroke-width="4"/>
+        <text x="80" y="82" text-anchor="middle" font-size="30" fill="#1c1714">👤</text>
+        <text x="80" y="104" text-anchor="middle" font-family="Space Grotesk" font-size="14" fill="#1c1714" font-weight="700">Marco Rossi</text>
+        <text x="80" y="120" text-anchor="middle" font-family="Space Grotesk" font-size="13" fill="#6b5f54">Identità reale</text>
+        <!-- Divider arrow -->
+        <line x1="134" y1="90" x2="168" y2="90" stroke="#1c1714" stroke-width="3"/>
+        <polygon points="164,84 176,90 164,96" fill="#1c1714"/>
+        <!-- Pseudonym identity -->
+        <circle cx="210" cy="90" r="50" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
+        <text x="210" y="82" text-anchor="middle" font-size="30" fill="#f4ece0">🎭</text>
+        <text x="210" y="104" text-anchor="middle" font-family="Space Mono" font-size="14" fill="#e6c14a" font-weight="700">@darkbyte99</text>
+        <text x="210" y="120" text-anchor="middle" font-family="Space Grotesk" font-size="13" fill="#d8c9b4">Pseudonimo</text>
+        <!-- Actions from pseudonym -->
+        <line x1="210" y1="144" x2="210" y2="166" stroke="#163b35" stroke-width="3"/>
+        <rect x="150" y="166" width="120" height="34" rx="8" fill="#e6c14a" opacity=".8" stroke="#1c1714" stroke-width="2"/>
+        <text x="210" y="188" text-anchor="middle" font-family="Space Mono" font-size="12" fill="#1c1714">Azioni online</text>
+        <!-- Link back (dashed = not direct) -->
+        <line x1="80" y1="144" x2="80" y2="200" stroke="#d8c9b4" stroke-width="2" stroke-dasharray="6"/>
+        <line x1="80" y1="200" x2="150" y2="200" stroke="#d8c9b4" stroke-width="2" stroke-dasharray="6"/>
+        <text x="115" y="222" text-anchor="middle" font-family="Space Mono" font-size="12" fill="#6b5f54">non diretto</text>
+      </svg>
+      <div class="illu-cap">Pseudonimo = separazione, non invisibilità</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 9: ANONIMATO VS PSEUDONIMATO === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="center">
+    <div class="tape reveal">Confronto</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Anonimato <em class="hot">vs</em> Pseudonimato</h2>
+    <p class="lead reveal d1">Due concetti spesso confusi, ma con implicazioni pratiche e legali molto diverse.</p>
+    <div class="reveal d2" style="margin-top:24px;">
+      <table style="width:100%;border-collapse:separate;border-spacing:0;font-size:26px;">
+        <tr>
+          <th style="background:var(--ink);color:var(--paper);padding:18px 28px;font-family:var(--font-display);font-weight:900;font-size:32px;text-align:left;border-radius:12px 0 0 0;width:30%;">Aspetto</th>
+          <th style="background:var(--teal);color:var(--paper);padding:18px 28px;font-family:var(--font-display);font-weight:900;font-size:32px;text-align:left;width:35%;">🎭 Anonimato</th>
+          <th style="background:var(--sky);color:var(--paper);padding:18px 28px;font-family:var(--font-display);font-weight:900;font-size:32px;text-align:left;border-radius:0 12px 0 0;width:35%;">👤 Pseudonimato</th>
+        </tr>
+        <tr>
+          <td style="background:var(--paper-2);padding:14px 28px;font-weight:700;color:var(--ink);border-bottom:2px solid var(--line);">Identità</td>
+          <td style="background:#fbf5ec;padding:14px 28px;color:var(--ink-soft);border-bottom:2px solid var(--line);">Non tracciabile — nessun collegamento all'identità reale</td>
+          <td style="background:#fbf5ec;padding:14px 28px;color:var(--ink-soft);border-bottom:2px solid var(--line);">Nome alternativo — potenzialmente de-anonimizzabile</td>
+        </tr>
+        <tr>
+          <td style="background:var(--paper-2);padding:14px 28px;font-weight:700;color:var(--ink);border-bottom:2px solid var(--line);">Continuità</td>
+          <td style="background:#fbf5ec;padding:14px 28px;color:var(--ink-soft);border-bottom:2px solid var(--line);">Nessuna reputazione cumulata — ogni sessione è "zero"</td>
+          <td style="background:#fbf5ec;padding:14px 28px;color:var(--ink-soft);border-bottom:2px solid var(--line);">Costruisce reputazione nel tempo con lo stesso alias</td>
+        </tr>
+        <tr>
+          <td style="background:var(--paper-2);padding:14px 28px;font-weight:700;color:var(--ink);border-bottom:2px solid var(--line);">Difficoltà</td>
+          <td style="background:#fbf5ec;padding:14px 28px;color:var(--ink-soft);border-bottom:2px solid var(--line);">Molto alta — TOR, tails OS, no account personali</td>
+          <td style="background:#fbf5ec;padding:14px 28px;color:var(--ink-soft);border-bottom:2px solid var(--line);">Media — account separato, email alias, comportamento attento</td>
+        </tr>
+        <tr>
+          <td style="background:var(--paper-2);padding:14px 28px;font-weight:700;color:var(--ink);">GDPR</td>
+          <td style="background:#fbf5ec;padding:14px 28px;color:var(--ink-soft);">Dati anonimi: non soggetti al GDPR</td>
+          <td style="background:#fbf5ec;padding:14px 28px;color:var(--ink-soft);">Dati pseudonimizzati: ancora soggetti al GDPR</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 10: TOR === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Strumento avanzato</div>
+      <h2 class="h-big reveal">TOR: come<br>funziona <em class="hot">davvero</em></h2>
+      <p class="lead reveal d1"><b>The Onion Router</b>. Il tuo traffico passa attraverso <b>tre nodi casuali</b> gestiti da volontari in tutto il mondo. Ogni nodo conosce solo il precedente e il successivo — mai l'intera catena.</p>
+      <p class="body reveal d2">Il nome deriva dalla cipolla: ogni nodo "sbuccia" uno strato di cifratura. Nessun singolo nodo conosce sia chi sei (origine) sia cosa vuoi fare (destinazione).</p>
+      <div class="stack reveal d3">
+        <div class="note">
+          <div class="lbl">✅ Usi legittimi</div>
+          <p>Giornalismo in paesi censurati, whistleblowing sicuro, accesso a risorse bloccate, ricerca sulla sicurezza.</p>
+        </div>
+        <div class="note red">
+          <div class="lbl">⚠️ TOR non è magia</div>
+          <p>Non protegge da: login ad account personali durante la sessione, JavaScript malevolo, metadati nei file scaricati, comportamenti identificativi.</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 300" style="max-width:240px;margin:0 auto;" role="img" aria-label="Schema TOR: tre nodi tra utente e destinazione, ognuno con solo un passo di visibilità">
+        <!-- User -->
+        <circle cx="130" cy="30" r="20" fill="#3f7e8c" stroke="#1c1714" stroke-width="3"/>
+        <text x="130" y="36" text-anchor="middle" font-size="14" fill="#f4ece0">👤</text>
+        <text x="130" y="62" text-anchor="middle" font-family="Space Mono" font-size="12" fill="#6b5f54">Tu</text>
+        <!-- Arrow -->
+        <line x1="130" y1="52" x2="130" y2="80" stroke="#d8c9b4" stroke-width="2"/>
+        <!-- Node 1 -->
+        <circle cx="130" cy="100" r="22" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+        <text x="130" y="97" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#1c1714" font-weight="700">Nodo 1</text>
+        <text x="130" y="112" text-anchor="middle" font-family="Space Mono" font-size="9" fill="#1c1714">🧅 Milano</text>
+        <line x1="130" y1="122" x2="130" y2="148" stroke="#d8c9b4" stroke-width="2"/>
+        <!-- Node 2 -->
+        <circle cx="130" cy="168" r="22" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+        <text x="130" y="165" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#1c1714" font-weight="700">Nodo 2</text>
+        <text x="130" y="180" text-anchor="middle" font-family="Space Mono" font-size="9" fill="#1c1714">🧅 Berlino</text>
+        <line x1="130" y1="190" x2="130" y2="216" stroke="#d8c9b4" stroke-width="2"/>
+        <!-- Node 3 (exit) -->
+        <circle cx="130" cy="236" r="22" fill="#e6533b" stroke="#1c1714" stroke-width="3"/>
+        <text x="130" y="233" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#fff" font-weight="700">Exit</text>
+        <text x="130" y="248" text-anchor="middle" font-family="Space Mono" font-size="9" fill="#fff">🧅 Tokyo</text>
+        <line x1="130" y1="258" x2="130" y2="278" stroke="#d8c9b4" stroke-width="2"/>
+        <!-- Destination -->
+        <text x="130" y="294" text-anchor="middle" font-family="Space Mono" font-size="12" fill="#6b5f54">🌐 Sito web</text>
+        <!-- Side labels -->
+        <text x="168" y="104" font-family="Space Mono" font-size="10" fill="#d98a2b">sa: chi sei</text>
+        <text x="168" y="172" font-family="Space Mono" font-size="10" fill="#d98a2b">sa: solo N1→N3</text>
+        <text x="168" y="240" font-family="Space Mono" font-size="10" fill="#d98a2b">sa: dove vai</text>
+      </svg>
+      <div class="illu-cap">Tre strati: nessuno vede il quadro completo</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 11: PRIVACY SUI SOCIAL === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="center">
+    <div class="tape gold reveal">Social network</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Privacy sui <em class="hot">Social Network</em></h2>
+    <p class="lead reveal d1">I social raccolgono enormi quantità di dati su di te. Ma molte impostazioni di privacy sono nascondere nei menu — e i default favoriscono sempre la piattaforma, non te.</p>
+    <div class="grid3 reveal d2" style="margin-top:20px;">
+      <div class="card">
+        <span class="ic">⚙️</span>
+        <h3>Controlla le impostazioni</h3>
+        <p>Profilo pubblico vs privato. Chi può vedere i tuoi post, foto, amici. Chi può taggarti. Abilita la <b>revisione dei tag</b> prima che appaiano sul tuo profilo.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🔗</span>
+        <h3>App collegate</h3>
+        <p>Quante app hai collegato al tuo profilo Facebook o Google nel tempo? Ognuna ha accesso ai tuoi dati. Revoca l'accesso a quelle che non usi più — in Impostazioni → App.</p>
+      </div>
+      <div class="card">
+        <span class="ic">📍</span>
+        <h3>Geolocalizzazione</h3>
+        <p>Instagram, TikTok e Facebook possono tracciare la tua posizione anche quando non usi l'app. Disattiva la posizione o impostala su "Solo durante l'uso".</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 La regola OSINT</div>
+      <p>Prima di postare, chiediti: <b>questa informazione potrebbe essere usata per trovarmi fisicamente, per impersonarmi, o per manipolarmi?</b> Combinando casa, lavoro, routine e aspetto fisico pubblici, chiunque può costruire un profilo dettagliato.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 12: IMPOSTAZIONI PRIVACY DISPOSITIVI === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Sul dispositivo</div>
+      <h2 class="h-big reveal">Privacy sul<br><em class="hot">tuo telefono</em></h2>
+      <p class="lead reveal d1">Lo smartphone sa quasi tutto di te. Ecco le impostazioni da controllare subito.</p>
+      <div class="stack reveal d2">
+        <div class="agenda-item" style="padding:10px 4px;"><span style="font-size:28px;min-width:44px;">📍</span><div><b style="font-size:25px;">Permessi posizione</b><br><span style="font-size:21px;color:var(--ink-faint);">Solo durante l'uso — mai "sempre". Revoca alle app che non ne hanno bisogno.</span></div></div>
+        <div class="agenda-item" style="padding:10px 4px;"><span style="font-size:28px;min-width:44px;">🎙️</span><div><b style="font-size:25px;">Microfono e fotocamera</b><br><span style="font-size:21px;color:var(--ink-faint);">Controlla quali app hanno accesso. Usa il blocco fisico per la webcam del PC.</span></div></div>
+        <div class="agenda-item" style="padding:10px 4px;"><span style="font-size:28px;min-width:44px;">📒</span><div><b style="font-size:25px;">Rubrica e foto</b><br><span style="font-size:21px;color:var(--ink-faint);">Poche app ne hanno bisogno davvero. Una torcia non deve accedere ai tuoi contatti.</span></div></div>
+        <div class="agenda-item" style="padding:10px 4px;"><span style="font-size:28px;min-width:44px;">📡</span><div><b style="font-size:25px;">Pubblicità personalizzata</b><br><span style="font-size:21px;color:var(--ink-faint);">Android: Impostazioni → Privacy → Annunci. iOS: Impostazioni → Privacy → Apple Advertising.</span></div></div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 300" style="max-width:240px;margin:0 auto;" role="img" aria-label="Smartphone con permessi controllati">
+        <!-- Phone frame -->
+        <rect x="60" y="20" width="140" height="260" rx="20" fill="#1c1714" stroke="#d8c9b4" stroke-width="4"/>
+        <rect x="70" y="36" width="120" height="228" rx="12" fill="#f4ece0"/>
+        <!-- Notch -->
+        <rect x="110" y="20" width="60" height="20" rx="0 0 10 10" fill="#1c1714"/>
+        <!-- Permission rows -->
+        <text x="130" y="68" text-anchor="middle" font-family="Space Grotesk" font-size="13" fill="#1c1714" font-weight="700">Permessi App</text>
+        <line x1="78" y1="76" x2="182" y2="76" stroke="#d8c9b4" stroke-width="1"/>
+        <!-- Row 1: location off -->
+        <text x="84" y="98" font-family="Space Mono" font-size="12" fill="#6b5f54">📍 Posizione</text>
+        <rect x="158" y="86" width="34" height="18" rx="9" fill="#e6c14a"/>
+        <circle cx="166" cy="95" r="7" fill="#fff"/>
+        <text x="163" y="116" font-family="Space Mono" font-size="10" fill="#d98a2b">Solo uso</text>
+        <!-- Row 2: mic off -->
+        <text x="84" y="138" font-family="Space Mono" font-size="12" fill="#6b5f54">🎙️ Microfono</text>
+        <rect x="158" y="126" width="34" height="18" rx="9" fill="#d8c9b4"/>
+        <circle cx="184" cy="135" r="7" fill="#fff"/>
+        <text x="172" y="156" font-family="Space Mono" font-size="10" fill="#163b35">Off</text>
+        <!-- Row 3: camera off -->
+        <text x="84" y="178" font-family="Space Mono" font-size="12" fill="#6b5f54">📷 Fotocamera</text>
+        <rect x="158" y="166" width="34" height="18" rx="9" fill="#d8c9b4"/>
+        <circle cx="184" cy="175" r="7" fill="#fff"/>
+        <text x="172" y="196" font-family="Space Mono" font-size="10" fill="#163b35">Off</text>
+        <!-- Row 4: contacts -->
+        <text x="84" y="218" font-family="Space Mono" font-size="12" fill="#6b5f54">📒 Contatti</text>
+        <rect x="158" y="206" width="34" height="18" rx="9" fill="#d8c9b4"/>
+        <circle cx="184" cy="215" r="7" fill="#fff"/>
+        <text x="172" y="236" font-family="Space Mono" font-size="10" fill="#163b35">Off</text>
+        <!-- Bottom bar -->
+        <rect x="108" y="258" width="44" height="6" rx="3" fill="#d8c9b4"/>
+      </svg>
+      <div class="illu-cap">Meno permessi = meno esposizione</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 13: BROWSER E MOTORI DI RICERCA === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="center">
+    <div class="tape gold reveal">Strumenti alternativi</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Browser e ricerca<br><em class="hot">privacy-friendly</em></h2>
+    <p class="lead reveal d1">Chrome e Google raccolgono enormi quantità di dati. Esistono alternative valide che non tracciano la tua navigazione — senza sacrificare l'usabilità.</p>
+    <div class="grid4 reveal d2" style="margin-top:22px;">
+      <div class="card">
+        <h3 style="font-size:32px;">🦊 Firefox</h3>
+        <p>Browser open source con tracking protection integrato. Altamente personalizzabile. Con estensioni uBlock Origin e Privacy Badger diventa molto più sicuro di Chrome.</p>
+        <p style="margin-top:10px;font-family:var(--font-mono);font-size:20px;color:var(--teal);">✅ Consigliato</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:32px;">🦁 Brave</h3>
+        <p>Blocca automaticamente tracker e pubblicità. Basato su Chromium — compatibile con le estensioni di Chrome. Ottimo per chi viene da Chrome.</p>
+        <p style="margin-top:10px;font-family:var(--font-mono);font-size:20px;color:var(--teal);">✅ Consigliato</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:32px;">🔍 DuckDuckGo</h3>
+        <p>Motore di ricerca che non traccia le tue query e non costruisce profili pubblicitari. Risultati di qualità comparabile a Google per la maggior parte delle ricerche quotidiane.</p>
+        <p style="margin-top:10px;font-family:var(--font-mono);font-size:20px;color:var(--teal);">✅ Consigliato</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:32px;">🐙 Startpage</h3>
+        <p>Restituisce i risultati di Google ma senza tracciamento. Il "best of both worlds": qualità Google, privacy DuckDuckGo. Basato in Olanda (GDPR).</p>
+        <p style="margin-top:10px;font-family:var(--font-mono);font-size:20px;color:var(--teal);">✅ Consigliato</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:20px;">
+      <div class="lbl">💡 Estensioni utili per Firefox/Chrome</div>
+      <p><b>uBlock Origin</b> — blocca tracker e pubblicità. <b>Privacy Badger</b> (EFF) — impara e blocca i tracker in automatico. <b>HTTPS Everywhere</b> — forza HTTPS ove disponibile.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 14: IL DIRITTO ALL'OBLIO === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">GDPR Art. 17</div>
+      <h2 class="h-big reveal">Il Diritto<br><em class="hot">all'Oblio</em></h2>
+      <p class="lead reveal d1">Il diritto di chiedere la <b>cancellazione dei propri dati personali</b> a qualsiasi azienda o servizio che li detiene, senza obbligo di motivare la richiesta.</p>
+      <p class="body reveal d2">Vale anche contro i motori di ricerca: puoi chiedere a Google di rimuovere dai risultati di ricerca link con informazioni personali obsolete, errate o irrilevanti che appaiono cercando il tuo nome.</p>
+      <div class="stack reveal d3">
+        <div class="note">
+          <div class="lbl">✅ Come esercitarlo</div>
+          <p>Google: <span style="font-family:var(--font-mono);font-size:22px;">g.co/removecontent</span>. Per le aziende: scrivi all'indirizzo del Data Protection Officer (DPO) indicato nella loro privacy policy. Devono rispondere entro 30 giorni.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">⚠️ I limiti</div>
+          <p>Il diritto all'oblio non è assoluto. Non si applica a informazioni di interesse pubblico, attività giornalistica, ricerca scientifica o procedimenti legali in corso.</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 280" style="max-width:240px;margin:0 auto;" role="img" aria-label="Risultato di ricerca cancellato con simbolo di rimozione">
+        <!-- Search bar -->
+        <rect x="20" y="20" width="220" height="44" rx="10" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <text x="42" y="48" font-family="Space Mono" font-size="15" fill="#6b5f54">🔍 Marco Rossi</text>
+        <!-- Result 1: normal -->
+        <rect x="20" y="76" width="220" height="54" rx="8" fill="#fbf5ec" stroke="#d8c9b4" stroke-width="2"/>
+        <text x="36" y="99" font-family="Space Grotesk" font-size="14" fill="#3f7e8c" font-weight="700">Marco Rossi — LinkedIn</text>
+        <text x="36" y="118" font-family="Space Mono" font-size="12" fill="#6b5f54">linkedin.com/in/m-rossi-44f</text>
+        <!-- Result 2: REMOVED -->
+        <rect x="20" y="140" width="220" height="54" rx="8" fill="#f3b6aa" stroke="#e6533b" stroke-width="2"/>
+        <text x="36" y="160" font-family="Space Grotesk" font-size="13" fill="#e6533b" font-weight="700" style="text-decoration:line-through;">Articolo imbarazzante 2009</text>
+        <text x="36" y="178" font-family="Space Mono" font-size="11" fill="#e6533b">[ Rimosso su richiesta — GDPR Art.17 ]</text>
+        <!-- Red X overlay -->
+        <line x1="206" y1="146" x2="226" y2="166" stroke="#e6533b" stroke-width="4"/>
+        <line x1="226" y1="146" x2="206" y2="166" stroke="#e6533b" stroke-width="4"/>
+        <!-- Result 3: normal -->
+        <rect x="20" y="206" width="220" height="54" rx="8" fill="#fbf5ec" stroke="#d8c9b4" stroke-width="2"/>
+        <text x="36" y="229" font-family="Space Grotesk" font-size="14" fill="#3f7e8c" font-weight="700">Marco Rossi Photography</text>
+        <text x="36" y="248" font-family="Space Mono" font-size="12" fill="#6b5f54">marcorossiphoto.it</text>
+      </svg>
+      <div class="illu-cap">Puoi far rimuovere risultati obsoleti</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 15: EMAIL PRIVATA === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="center">
+    <div class="tape gold reveal">Comunicazioni</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Email e messaggi <em class="hot">davvero privati</em></h2>
+    <p class="lead reveal d1">Gmail legge le tue email per mostrare pubblicità mirata. WhatsApp appartiene a Meta. Esistono alternative che garantiscono cifratura end-to-end e no-log policy.</p>
+    <div class="grid2 reveal d2" style="margin-top:22px;gap:28px 40px;">
+      <div class="card">
+        <h3>📧 Email cifrata</h3>
+        <p><b>ProtonMail</b> (Svizzera) — Zero-access encryption: nemmeno Proton può leggere le tue email. Piano gratuito disponibile, account anonimo senza telefono richiesto.</p>
+        <p style="margin-top:10px;"><b>Tutanota</b> — Tedesco, open source, cifratura anche dei metadati. Alternativa valida.</p>
+      </div>
+      <div class="card">
+        <h3>💬 Messaggistica cifrata</h3>
+        <p><b>Signal</b> — Il gold standard. End-to-end encryption, open source, no-log, nessun dato sulle conversazioni. Usato da giornalisti e attivisti di tutto il mondo.</p>
+        <p style="margin-top:10px;"><b>Telegram</b> NON è cifrato di default — solo le "chat segrete" lo sono. I messaggi normali sono in chiaro sui server.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:24px;">
+      <div class="lbl">💡 Alias email</div>
+      <p>Servizi come <b>SimpleLogin</b> o <b>Addy.io</b> creano indirizzi alias usa-e-getta che reinoltrano alla tua email reale. Ideali per registrarti su siti senza rivelare la vera email — e facili da disattivare se iniziano a spammare.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 16: IDENTITÀ DIGITALE E REPUTAZIONE === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">Presenza online</div>
+      <h2 class="h-big reveal">Identità digitale<br>e <em class="hot">reputazione</em></h2>
+      <p class="lead reveal d1">La tua identità digitale è tutto ciò che esiste di te online — anche ciò che non hai pubblicato tu direttamente. La reputazione digitale si costruisce in anni e si distrugge in minuti.</p>
+      <p class="body reveal d2">Datori di lavoro, partner commerciali, e persino privati cercano informazioni sulle persone prima di incontrarle. Il 70% dei responsabili HR controlla i profili social dei candidati.</p>
+      <div class="stack reveal d3">
+        <div class="note">
+          <div class="lbl">🔍 Fai una OSINT su te stesso</div>
+          <p>Cerca il tuo nome su Google. Guarda cosa appare nelle immagini. Controlla cosa è visibile pubblicamente sui social. Quello che vedi, lo vede anche chiunque altro.</p>
+        </div>
+        <div class="analogy" style="font-size:25px;margin-top:0;"><span class="big">Regola:</span> Non postare nulla che non diresti in pubblico.</div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 300" style="max-width:240px;margin:0 auto;" role="img" aria-label="Iceberg della presenza digitale: piccola parte visibile, grande parte sommersa">
+        <!-- Water line -->
+        <rect x="20" y="140" width="220" height="6" rx="3" fill="#3f7e8c" opacity=".5"/>
+        <!-- Above water: visible -->
+        <polygon points="130,20 180,140 80,140" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+        <text x="130" y="96" text-anchor="middle" font-family="Space Grotesk" font-size="14" fill="#1c1714" font-weight="700">Visibile</text>
+        <text x="130" y="114" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#1c1714">profilo social</text>
+        <!-- Below water: hidden -->
+        <polygon points="80,140 180,140 210,260 50,260" fill="#163b35" stroke="#1c1714" stroke-width="3" opacity=".9"/>
+        <text x="130" y="178" text-anchor="middle" font-family="Space Grotesk" font-size="14" fill="#e6c14a" font-weight="700">Nascosto ma presente</text>
+        <text x="130" y="200" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#d8c9b4">vecchie iscrizioni</text>
+        <text x="130" y="218" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#d8c9b4">commenti rimossi</text>
+        <text x="130" y="236" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#d8c9b4">foto taggate da altri</text>
+        <text x="130" y="254" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#d8c9b4">leak di dati passati</text>
+        <!-- Water label -->
+        <text x="210" y="136" text-anchor="end" font-family="Space Mono" font-size="12" fill="#3f7e8c">🌊 web pubblico</text>
+      </svg>
+      <div class="illu-cap">La tua presenza online è un iceberg</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 17: PRIVACY BY DESIGN === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="center">
+    <div class="tape gold reveal">Principio fondante</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Privacy <em class="hot">by Design</em></h2>
+    <p class="lead reveal d1">La privacy non deve essere aggiunta come funzione extra — deve essere <b>integrata fin dall'inizio</b> nella progettazione di qualsiasi sistema, servizio o prodotto digitale.</p>
+    <div class="grid3 reveal d2" style="margin-top:24px;">
+      <div class="card">
+        <span class="ic">🔒</span>
+        <h3>Privacy by Default</h3>
+        <p>Il GDPR richiede che i default siano sempre i più protettivi. Il profilo Instagram nuovo deve essere <b>privato per default</b>, non pubblico. Le condivisioni devono opt-in, non opt-out.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🎯</span>
+        <h3>Minimizzazione dei dati</h3>
+        <p>Raccogliere <b>solo i dati necessari</b> per lo scopo dichiarato. Un'app meteo non ha bisogno del tuo numero di telefono. Un sito di ricette non ha bisogno della tua data di nascita.</p>
+      </div>
+      <div class="card">
+        <span class="ic">⏳</span>
+        <h3>Limitazione della conservazione</h3>
+        <p>I dati devono essere cancellati <b>quando non servono più</b>. Non conservare log per "sicurezza futura". Definisci una retention policy e rispettala — è anche un obbligo GDPR.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 Come utente</div>
+      <p>Leggi (o almeno scorri) la privacy policy prima di registrarti. Cerca le parole chiave: "terze parti", "condividiamo", "partner commerciali". Se una app free non spiega come guadagna, probabilmente <b>il prodotto sei tu</b>.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 18: CHECKLIST PRIVACY PERSONALE === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="center">
+    <div class="tape teal reveal">Azioni concrete</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">La tua <em class="hot">Checklist Privacy</em></h2>
+    <p class="lead reveal d1">Cosa puoi fare questa settimana per migliorare concretamente la tua privacy digitale:</p>
+    <div class="grid2 reveal d2" style="margin-top:16px;gap:14px 50px;">
+      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">01</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Controlla le impostazioni privacy di Instagram, Facebook e TikTok</p></div>
+      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">02</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Revoca i permessi di posizione alle app che non ne hanno bisogno</p></div>
+      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">03</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Installa uBlock Origin sul browser e smetti di essere tracciato</p></div>
+      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">04</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Cerca il tuo nome su Google — cosa vedi? Cosa si potrebbe rimuovere?</p></div>
+      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">05</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Verifica su haveibeenpwned.com se la tua email è stata esposta in leak</p></div>
+      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">06</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Cambia il motore di ricerca predefinito in DuckDuckGo o Startpage</p></div>
+      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">07</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Disattiva la pubblicità personalizzata nelle impostazioni del telefono</p></div>
+      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">08</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Revoca l'accesso alle app collegate ai tuoi profili social non usate</p></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 19: QUIZ === -->
+<section class="slide">
+  <div class="deck-tab">SICUREZZA · C3</div>
+  <div class="col stack" style="justify-content:center;height:100%;">
+    <div class="tape teal reveal">Verifica veloce</div>
+    <h2 class="h-sec reveal">Hai capito tutto?</h2>
+    <p class="lead reveal d1" style="margin-bottom:6px;">Prova a rispondere a mente:</p>
+    <div class="grid2 reveal d2" style="gap:24px 40px;">
+      <div class="card"><h3 style="font-size:32px;">1.</h3><p>Qual è la differenza concreta tra anonimato e pseudonimato? Fai un esempio per ciascuno.</p></div>
+      <div class="card"><h3 style="font-size:32px;">2.</h3><p>La modalità incognito del browser ti rende anonimo? Cosa nasconde e cosa NON nasconde?</p></div>
+      <div class="card"><h3 style="font-size:32px;">3.</h3><p>Cos'è un metadato? Che informazioni può rivelare una foto scattata con lo smartphone?</p></div>
+      <div class="card"><h3 style="font-size:32px;">4.</h3><p>Quali sono i diritti garantiti dal GDPR riguardo ai tuoi dati personali? Nominane tre.</p></div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">🎯 Scenario</div>
+      <p>Vuoi contattare un giornalista per segnalare una cosa importante rimanendo anonimo. Quali strumenti useresti? Quali errori devi assolutamente evitare?</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 20: CLOSING === -->
+<section class="slide closing">
+  <div class="center" style="align-items:center;text-align:center;">
+    <div class="eyebrow reveal gold">Fine del Corso</div>
+    <h2 class="h-mega reveal" style="margin-top:10px;">Consapevoli! 🎓</h2>
+    <p class="lead reveal d1" style="color:var(--paper);max-width:1200px;text-align:center;margin-top:20px;">Hai completato il corso di <span class="gold">Sicurezza Digitale</span>. Ora conosci i fondamenti della protezione online, le minacce reali e gli strumenti per difendere la tua privacy. La sicurezza non è un prodotto da comprare — è un <b>modo di pensare</b> da coltivare ogni giorno.</p>
+    <div class="chips reveal d2" style="margin-top:36px;justify-content:center;gap:20px;">
+      <a class="chip" href="01-introduzione.html" style="background:var(--paper-2);color:var(--ink);text-decoration:none;cursor:pointer;">← C1 · Introduzione</a>
+      <a class="chip" href="02-minacce.html" style="background:var(--paper-2);color:var(--ink);text-decoration:none;cursor:pointer;">← C2 · Minacce</a>
+    </div>
+    <p class="reveal d3" style="color:var(--paper);margin-top:36px;font-family:var(--font-mono);font-size:24px;opacity:.6;">Corso di Informatica · Sicurezza Digitale · 2024-2025</p>
+  </div>
+</section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;}); }
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'sec-c03-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>

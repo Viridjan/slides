@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · Modulo 2 — Internet</title>
+
+<!-- FONTS — Fraunces (display) + Space Grotesk (body) + Space Mono (accents) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   THEME TOKENS — "Warm Study Zine" (shared across the course).
+   ============================================================ */
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);
+  --ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+
+/* FIXED 16:9 STAGE — viewport-base.css (full) */
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+.deck-controls{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000;}
+@media print{
+  html,body{width:1920px;height:auto;overflow:visible;background:#fff;}
+  .deck-viewport{position:static;overflow:visible;background:#fff;}
+  .deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}
+  .slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}
+  .slide:last-child{break-after:auto;page-break-after:auto;}
+  .deck-controls{display:none !important;}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+
+/* GLOBAL SLIDE FRAME */
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);
+  font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+
+/* REVEAL ANIMATION */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}
+.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}
+.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}
+.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}.d5{transition-delay:.68s !important;}.d6{transition-delay:.80s !important;}
+
+/* SHARED COMPONENTS */
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;
+  padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:150px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:96px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:76px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+.lead{font-size:34px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:29px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:34px 36px;
+  box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:40px;margin-bottom:12px;line-height:1;}
+.card p{font-size:26px;line-height:1.42;color:var(--ink-soft);}
+.card .ic{font-size:54px;line-height:1;display:block;margin-bottom:10px;}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.chip.red{background:var(--red);color:#fff;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;
+  color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:27px;line-height:1.4;color:var(--ink);}
+.meta-badge{font-family:var(--font-display);font-style:italic;font-weight:700;color:var(--teal);font-size:34px;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;
+  padding:16px 30px;font-size:28px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:34px;color:var(--gold);}
+
+/* LAYOUT */
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:26px;}
+
+/* ILLUSTRATION SHELL */
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);
+  padding:30px;display:grid;place-items:center;}
+.illu svg{width:100%;height:auto;display:block;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+
+/* COMPARISON TABLE */
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:27px;}
+.cmp th{font-family:var(--font-display);font-weight:900;font-size:34px;text-align:left;padding:16px 24px;color:var(--paper);}
+.cmp th.a{background:var(--sky);border-radius:12px 0 0 0;}
+.cmp th.b{background:var(--red);border-radius:0 12px 0 0;}
+.cmp th:first-child{background:var(--ink);}
+.cmp td{padding:13px 24px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.32;}
+.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2);}
+.cmp tr:last-child td{border-bottom:none;}
+
+/* TITLE SLIDE */
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;
+  animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.title-right .dual{position:relative;z-index:2;text-align:center;color:var(--paper);}
+.title-right .dual .a,.title-right .dual .b{font-family:var(--font-display);font-weight:900;font-size:112px;line-height:.92;}
+.title-right .dual .b{color:var(--gold);}
+.title-right .dual .plus{font-size:54px;opacity:.75;margin:6px 0;font-family:var(--font-body);font-weight:700;}
+
+/* AGENDA */
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(4,auto);grid-template-columns:1fr 1fr;gap:20px 60px;margin-top:18px;}
+.agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:16px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:50px;color:var(--red);min-width:74px;}
+.agenda-item .t{font-size:29px;font-weight:600;color:var(--ink);}
+
+/* CLOSING */
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}
+.closing .h-mega{color:var(--paper);}.closing .gold{color:var(--gold);}
+
+/* EDIT MODE */
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;
+  border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);
+  font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease);}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+  <!-- ===== 1 · TITLE ===== -->
+  <section class="slide title-slide active">
+    <div class="title-left">
+      <div class="tape reveal">Corso di Informatica</div>
+      <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo 02 — Internet</div>
+      <h1 class="h-mega reveal" contenteditable="true">Sempre<br><em class="hot">connessi</em></h1>
+      <p class="lead reveal" style="margin-top:30px;" contenteditable="true">Come parlano tra loro i dispositivi: cavi e onde, reti vicine e lontane, e quel “luogo” chiamato cloud dove finiscono i nostri dati.</p>
+      <div class="chips reveal" style="margin-top:46px;">
+        <span class="chip">Modulo 2 / 8</span><span class="chip alt">Livello base</span><span class="chip alt">~45 min</span>
+      </div>
+    </div>
+    <div class="title-right"><div class="dual">
+      <div class="a">VIA CAVO</div><div class="plus">oppure</div><div class="b">WIRELESS</div>
+    </div></div>
+  </section>
+
+  <!-- ===== 2 · AGENDA ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="center">
+      <div class="tape teal reveal">In questo modulo</div>
+      <h2 class="h-sec reveal" style="margin-top:24px;">Cosa impareremo</h2>
+      <div class="agenda-list reveal d1">
+        <div class="agenda-item"><span class="n">01</span><span class="t">Cos'è una connessione</span></div>
+        <div class="agenda-item"><span class="n">02</span><span class="t">Via cavo vs. wireless</span></div>
+        <div class="agenda-item"><span class="n">03</span><span class="t">WiFi e Bluetooth</span></div>
+        <div class="agenda-item"><span class="n">04</span><span class="t">Reti telefoniche: 3G, 4G, 5G</span></div>
+        <div class="agenda-item"><span class="n">05</span><span class="t">Locale vs. globale</span></div>
+        <div class="agenda-item"><span class="n">06</span><span class="t">Il cloud: cos'è e a cosa serve</span></div>
+        <div class="agenda-item"><span class="n">07</span><span class="t">Cloud computing</span></div>
+        <div class="agenda-item"><span class="n">08</span><span class="t">Cloud o locale? Quando usarli</span></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 3 · CONNESSIONI ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="eyebrow reveal">Punto di partenza</div>
+        <h2 class="h-big reveal">Cos'è una <em class="hot">connessione</em>?</h2>
+        <p class="lead reveal d1">Essere sempre connessi è ormai una necessità della vita digitale. Una <b>connessione</b> è semplicemente il modo in cui due dispositivi <b>comunicano e si scambiano dati</b> tra loro.</p>
+        <p class="body reveal d2">Connettersi bene significa avere accesso alle informazioni in modo <b>ordinato</b>, poterle conservare in digitale e gestirle da luoghi e dispositivi diversi — anche in più persone contemporaneamente.</p>
+        <div class="note reveal d3">
+          <div class="lbl">💡 Pensaci</div>
+          <p>Quando mandi un messaggio, guardi un video o stampi un documento dal telefono, stai usando una connessione. Cambia solo <b>come</b> avviene.</p>
+        </div>
+      </div>
+      <div class="illu reveal d2">
+        <svg viewBox="0 0 300 280" role="img" aria-label="Due dispositivi che si scambiano dati">
+          <rect x="20" y="40" width="110" height="150" rx="14" fill="#163b35" stroke="#1c1714" stroke-width="6"/>
+          <rect x="36" y="58" width="78" height="104" rx="6" fill="#f4ece0"/>
+          <circle cx="75" cy="176" r="7" fill="#f4ece0"/>
+          <rect x="170" y="70" width="110" height="80" rx="12" fill="#e6533b" stroke="#1c1714" stroke-width="6"/>
+          <rect x="186" y="86" width="78" height="48" rx="5" fill="#f4ece0"/>
+          <g stroke="#d98a2b" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="2 18">
+            <path d="M130 120 H170"/>
+          </g>
+          <text x="150" y="245" font-family="Space Mono,monospace" font-size="22" fill="#1c1714" text-anchor="middle">dati  ⇄  dati</text>
+        </svg>
+        <div class="illu-cap">Connettere = far parlare due dispositivi</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 4 · LE DUE DISTINZIONI ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="center">
+      <div class="tape reveal">Come classificarle</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">Due domande, sempre le stesse</h2>
+      <p class="lead reveal d1" style="margin-top:6px;">Di fronte a qualsiasi connessione, possiamo farci due domande. Le risposte ci dicono subito di che tipo si tratta.</p>
+      <div class="grid2 reveal d2" style="margin-top:34px;">
+        <div class="card" style="border-color:var(--sky);">
+          <span class="ic">🔌</span>
+          <h3>Via cavo <span class="meta-badge" style="color:var(--sky)">o</span> wireless?</h3>
+          <p>Passa attraverso un <b>filo fisico</b> (cavo) oppure “vola” nell'aria tramite <b>onde radio</b> (senza fili)?</p>
+        </div>
+        <div class="card" style="border-color:var(--gold-deep);">
+          <span class="ic">🌍</span>
+          <h3>Locale <span class="meta-badge" style="color:var(--gold-deep)">o</span> globale?</h3>
+          <p>Collega solo dispositivi <b>vicini tra loro</b> (locale) oppure passa per <b>Internet</b> raggiungendo tutto il mondo (globale)?</p>
+        </div>
+      </div>
+      <div class="analogy reveal d3" style="margin-top:34px;align-self:center;">
+        <span class="big">In breve:</span> con cosa viaggiano i dati, e fin dove arrivano.
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 5 · VIA CAVO · USB ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Via cavo · USB</div>
+        <h2 class="h-big reveal">Il cavo <em class="hot">USB</em></h2>
+        <p class="lead reveal d1">La connessione <b>USB</b> è la più diffusa: è considerata quasi <b>universale</b> perché funziona con moltissimi dispositivi — chiavette, mouse, tastiere, telefoni — e spesso serve anche a <b>ricaricare</b>.</p>
+        <p class="body reveal d2">Ne esistono diversi connettori, cambiati nel tempo per essere più piccoli e più veloci:</p>
+        <div class="chips reveal d3">
+          <span class="chip">USB-A</span><span class="chip alt">Mini USB</span><span class="chip alt">Micro USB</span><span class="chip red">USB-C</span>
+        </div>
+        <div class="note reveal d4">
+          <div class="lbl">💡 USB-C</div>
+          <p>È il più recente: piccolo, veloce e <b>reversibile</b> (entra in qualsiasi verso). Ormai è lo standard di telefoni e portatili.</p>
+        </div>
+      </div>
+      <div class="illu reveal d2">
+        <svg viewBox="0 0 300 260" role="img" aria-label="Tipi di connettori USB">
+          <g font-family="Space Mono,monospace" font-size="18" fill="#1c1714">
+            <rect x="40" y="34" width="120" height="40" rx="5" fill="#3f7e8c" stroke="#1c1714" stroke-width="4"/>
+            <rect x="52" y="46" width="78" height="16" fill="#f4ece0"/><text x="178" y="60">USB-A</text>
+            <rect x="60" y="110" width="80" height="34" rx="14" fill="#d98a2b" stroke="#1c1714" stroke-width="4"/><text x="160" y="132">USB-C</text>
+            <rect x="64" y="184" width="72" height="30" rx="6" fill="#e6c14a" stroke="#1c1714" stroke-width="4"/>
+            <path d="M70 184 l8 -14 h50 l8 14" fill="#e6c14a" stroke="#1c1714" stroke-width="4"/><text x="160" y="206">Micro USB</text>
+          </g>
+        </svg>
+        <div class="illu-cap">Connettori diversi, stessa famiglia</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 6 · VIA CAVO · RETE ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape teal reveal">Via cavo · Rete e internet</div>
+      <h2 class="h-big reveal">Cavi per andare <em class="hot">in rete</em></h2>
+      <p class="lead reveal d1">Per collegare computer tra loro e portare Internet in casa esistono cavi dedicati, ognuno con un compito preciso.</p>
+      <div class="grid3 reveal d2" style="margin-top:8px;">
+        <div class="card"><span class="ic">🖧</span><h3>Ethernet</h3><p>Collega il PC alla rete locale e a Internet via cavo. Stabile e veloce: ideale dove serve affidabilità.</p></div>
+        <div class="card"><span class="ic">📞</span><h3>Cavo telefonico</h3><p>La vecchia linea telefonica, usata per anni per portare Internet (ADSL) nelle case.</p></div>
+        <div class="card"><span class="ic">💡</span><h3>Fibra ottica</h3><p>Trasmette i dati con la <b>luce</b>: velocissima, è oggi il modo migliore per navigare.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:8px;">
+        <div class="lbl">💡 Perché il cavo, oggi?</div>
+        <p>Anche con il WiFi ovunque, il cavo resta utile dove conta la <b>stabilità</b>: niente cadute di segnale, velocità costante. Per questo i router e i PC fissi spesso si collegano via Ethernet.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 7 · WIRELESS INTRO ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="split">
+      <div class="illu reveal d1" style="background:var(--teal);border-color:var(--ink);">
+        <svg viewBox="0 0 280 240" role="img" aria-label="Onde wireless">
+          <circle cx="140" cy="180" r="16" fill="#e6c14a"/>
+          <g stroke="#e6c14a" stroke-width="9" fill="none" stroke-linecap="round" opacity=".95">
+            <path d="M100 150 a56 56 0 0 1 80 0"/>
+            <path d="M80 122 a86 86 0 0 1 120 0" opacity=".7"/>
+            <path d="M60 96 a116 116 0 0 1 160 0" opacity=".45"/>
+          </g>
+        </svg>
+        <div class="illu-cap" style="color:#cdbfa8;">I dati “volano” come onde radio</div>
+      </div>
+      <div class="col stack">
+        <div class="tape gold reveal">Senza fili</div>
+        <h2 class="h-big reveal">Le connessioni <em class="hot">wireless</em></h2>
+        <p class="lead reveal d1"><b>Wireless</b> viene dall'inglese <i>wire</i> (cavo) + <i>less</i> (senza): letteralmente <b>“senza cavo”</b>. I dati viaggiano nell'aria sotto forma di <b>onde radio</b>.</p>
+        <p class="body reveal d2">È la base dell'interconnessione moderna: telefoni, computer e mille altri oggetti “intelligenti” comunicano tra loro e con Internet senza un solo filo. Vediamo i tipi più importanti.</p>
+        <div class="chips reveal d3">
+          <span class="chip">WiFi</span><span class="chip alt">Bluetooth</span><span class="chip alt">3G/4G/5G</span><span class="chip alt">Infrarossi</span>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 8 · WIFI ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Wireless · WiFi</div>
+        <h2 class="h-big reveal">Il <em class="hot">WiFi</em></h2>
+        <p class="lead reveal d1">Il WiFi permette di collegarsi a una rete locale o a Internet <b>senza fili</b>, con una buona velocità adatta a quasi tutte le attività online: navigare, guardare video, lavorare.</p>
+        <p class="body reveal d2">È diffusissimo in case e aziende per collegare computer, smartphone e dispositivi intelligenti. Funziona entro un <b>certo raggio</b> attorno al router: più ti allontani (o più muri ci sono), più il segnale cala.</p>
+        <div class="note reveal d3">
+          <div class="lbl">💡 Il router</div>
+          <p>È la “scatola” che porta Internet in casa e crea la rete WiFi. La password serve a impedire che gli estranei usino (o spiino) la tua connessione.</p>
+        </div>
+      </div>
+      <div class="illu reveal d2">
+        <svg viewBox="0 0 300 250" role="img" aria-label="Router WiFi che copre la casa">
+          <rect x="100" y="150" width="100" height="56" rx="10" fill="#163b35" stroke="#1c1714" stroke-width="5"/>
+          <line x1="130" y1="150" x2="130" y2="120" stroke="#1c1714" stroke-width="5"/>
+          <line x1="170" y1="150" x2="170" y2="120" stroke="#1c1714" stroke-width="5"/>
+          <circle cx="124" cy="178" r="6" fill="#e6c14a"/><circle cx="146" cy="178" r="6" fill="#e6c14a"/>
+          <g stroke="#e6533b" stroke-width="8" fill="none" stroke-linecap="round">
+            <path d="M118 108 a44 44 0 0 1 64 0"/>
+            <path d="M100 86 a70 70 0 0 1 100 0" opacity=".6"/>
+            <path d="M82 64 a96 96 0 0 1 136 0" opacity=".35"/>
+          </g>
+        </svg>
+        <div class="illu-cap">Il router diffonde il segnale tutt'intorno</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 9 · BLUETOOTH ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="split">
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 200 250" role="img" aria-label="Simbolo Bluetooth" style="max-width:330px;margin:0 auto;">
+          <circle cx="100" cy="125" r="92" fill="#163b35"/>
+          <path d="M100 50 V200 L140 160 L70 95 M100 50 V200 L140 90 L70 155"
+            fill="none" stroke="#e6c14a" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+        <div class="illu-cap">Il celebre simbolo del Bluetooth</div>
+      </div>
+      <div class="col stack">
+        <div class="tape teal reveal">Wireless · Bluetooth</div>
+        <h2 class="h-big reveal">Il <em class="hot">Bluetooth</em></h2>
+        <p class="lead reveal d1">Il Bluetooth è perfetto per le connessioni a <b>corto raggio</b> tra dispositivi vicini: auricolari, cuffie, tastiere, casse, smartwatch.</p>
+        <p class="body reveal d2">Offre un collegamento <b>semplice e veloce</b> da attivare (basta “accoppiare” i due dispositivi una volta) ed è prezioso per far dialogare i nostri gadget personali senza cavi.</p>
+        <div class="analogy reveal d3"><span class="big">Differenza:</span> il WiFi porta Internet in tutta la casa, il Bluetooth collega due oggetti vicini.</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 10 · RETI TELEFONICHE ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape gold reveal">Wireless · Reti telefoniche</div>
+      <h2 class="h-big reveal">3G, 4G, 5G: <em class="hot">internet ovunque</em></h2>
+      <p class="lead reveal d1">Sono le connessioni dei telefoni: senza fili, funzionano anche fuori casa grazie alle <b>antenne</b> sparse sul territorio. Ogni “generazione” (G = <i>generation</i>) è più veloce della precedente.</p>
+      <div class="grid4 reveal d2" style="margin-top:6px;">
+        <div class="card"><h3>📶 3G</h3><p>La prima vera Internet mobile. Lenta per gli standard di oggi.</p></div>
+        <div class="card"><h3>📶 4G</h3><p>Veloce: ha reso normali video e social in mobilità.</p></div>
+        <div class="card"><h3>📶 5G</h3><p>Velocissima e reattiva, l'ultima arrivata.</p></div>
+        <div class="card" style="border-color:var(--sky);"><h3>🗼 Antenne</h3><p>Più sei vicino e meno ostacoli ci sono, più il segnale è forte.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:8px;">
+        <div class="lbl">💡 Cosa cambia tra una G e l'altra</div>
+        <p>Cambiano il <b>protocollo</b> (il “linguaggio” con cui si trasmettono i dati), la <b>velocità</b> e la <b>portata del segnale</b>. Il principio però è sempre lo stesso: dati che viaggiano via onde fino all'antenna più vicina.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 11 · INFRAROSSI ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Wireless · Infrarossi</div>
+        <h2 class="h-big reveal">Gli <em class="hot">infrarossi</em></h2>
+        <p class="lead reveal d1">Sono le trasmissioni usate dalla maggior parte dei <b>telecomandi</b>. Funzionano a <b>cortissimo raggio</b> e in linea retta, e costano pochissimo.</p>
+        <p class="body reveal d2">Il loro limite — la corta distanza — è in realtà un <b>vantaggio</b>: non sarebbe comodo se il telecomando del salotto cambiasse anche il canale della TV del vicino! Per questo restano perfetti dove serve un comando “mirato” e vicino.</p>
+        <div class="note reveal d3">
+          <div class="lbl">💡 Curiosità</div>
+          <p>La luce a infrarossi è invisibile ai nostri occhi, ma una fotocamera di telefono spesso riesce a “vederla”: prova a inquadrare un telecomando mentre premi un tasto.</p>
+        </div>
+      </div>
+      <div class="illu reveal d2">
+        <svg viewBox="0 0 300 220" role="img" aria-label="Telecomando a infrarossi verso la TV">
+          <rect x="24" y="50" width="56" height="120" rx="14" fill="#e6533b" stroke="#1c1714" stroke-width="5"/>
+          <circle cx="52" cy="74" r="7" fill="#f4ece0"/>
+          <g fill="#f4ece0"><rect x="40" y="96" width="24" height="10" rx="3"/><rect x="40" y="116" width="24" height="10" rx="3"/><rect x="40" y="136" width="24" height="10" rx="3"/></g>
+          <g stroke="#d98a2b" stroke-width="6" stroke-linecap="round"><path d="M92 70 h26"/><path d="M92 86 h20"/><path d="M92 102 h26"/></g>
+          <rect x="170" y="56" width="110" height="80" rx="8" fill="#163b35" stroke="#1c1714" stroke-width="5"/>
+          <rect x="184" y="70" width="82" height="52" rx="4" fill="#f4ece0"/>
+          <rect x="206" y="136" width="38" height="10" fill="#1c1714"/>
+        </svg>
+        <div class="illu-cap">Vicino e “in linea”: il telecomando</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 12 · LOCALE vs GLOBALE ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape teal reveal">Fin dove arrivano i dati</div>
+      <h2 class="h-big reveal">Locale <span style="color:var(--ink-faint)">vs</span> <em class="hot">globale</em></h2>
+      <p class="lead reveal d1">Questa distinzione non è (solo) geografica: riguarda <b>se serve o no passare da Internet</b>.</p>
+      <table class="cmp reveal d2" style="margin-top:10px;">
+        <tr><th></th><th class="a">🏠 Locale</th><th class="b">🌍 Globale</th></tr>
+        <tr><td>Cosa collega</td><td>Due o più dispositivi vicini, in modo “privato”.</td><td>Dispositivi ovunque, sfruttando la rete Internet.</td></tr>
+        <tr><td>Serve Internet?</td><td>No: avviene tra apparecchi vicini.</td><td>Sì: i dati passano per la rete globale.</td></tr>
+        <tr><td>Esempi</td><td>Bluetooth alle cuffie; due PC collegati via cavo.</td><td>Una stampante WiFi usata da più persone; un sito web.</td></tr>
+        <tr><td>Portata</td><td>Limitata allo spazio vicino.</td><td>Praticamente tutto il mondo.</td></tr>
+      </table>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 13 · CLOUD COS'È ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="split">
+      <div class="illu reveal d1" style="background:var(--teal);border-color:var(--ink);">
+        <svg viewBox="0 0 300 220" role="img" aria-label="Il cloud con dispositivi collegati">
+          <path d="M90 120 a40 40 0 0 1 8 -79 a52 52 0 0 1 99 12 a36 36 0 0 1 -7 71 z" fill="#e6c14a" stroke="#f4ece0" stroke-width="5"/>
+          <g stroke="#f4ece0" stroke-width="5" fill="none" stroke-dasharray="2 12" stroke-linecap="round">
+            <path d="M110 130 V180"/><path d="M150 132 V180"/><path d="M190 130 V180"/>
+          </g>
+          <g fill="#e6533b" stroke="#f4ece0" stroke-width="3">
+            <rect x="92" y="180" width="36" height="28" rx="4"/><rect x="132" y="180" width="36" height="28" rx="4"/><rect x="172" y="180" width="36" height="28" rx="4"/>
+          </g>
+        </svg>
+        <div class="illu-cap" style="color:#cdbfa8;">Un magazzino di dati raggiungibile da ogni dispositivo</div>
+      </div>
+      <div class="col stack">
+        <div class="tape gold reveal">La rete · Cloud</div>
+        <h2 class="h-big reveal">Cos'è il <em class="hot">cloud</em>?</h2>
+        <p class="lead reveal d1">Il cloud (“nuvola”) permette di <b>conservare i dati su Internet</b> invece che solo sul proprio dispositivo. I file stanno su potenti computer remoti, e tu li raggiungi quando vuoi.</p>
+        <p class="body reveal d2">Il vantaggio è enorme: puoi <b>accedere agli stessi file da telefono, tablet e PC</b>, da casa o fuori, e se perdi un dispositivo i dati restano al sicuro. Serve solo una connessione Internet.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 14 · CLOUD ESEMPIO ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">Cloud · Perché conviene</div>
+      <h2 class="h-sec reveal">Un esempio che conosci: Netflix</h2>
+      <p class="lead reveal d1" style="margin-top:6px;">Immagina di dover scaricare <b>tutti</b> i film di Netflix sul tuo hard disk, o averli in DVD: uno spreco di spazio enorme, e impossibile da gestire.</p>
+      <div class="grid2 reveal d2" style="margin-top:24px;gap:40px;">
+        <div class="card" style="border-color:var(--red);">
+          <span class="ic">💿</span><h3>Senza cloud</h3>
+          <p>Ognuno dovrebbe avere una copia di ogni file sul proprio dispositivo. Tanto spazio occupato, copie da aggiornare a mano, niente accesso da fuori.</p>
+        </div>
+        <div class="card" style="border-color:var(--teal);">
+          <span class="ic">☁️</span><h3>Con il cloud</h3>
+          <p>I film stanno <b>una volta sola</b> sui server e sono disponibili a milioni di utenti insieme, in streaming, senza “intasare” alcun disco.</p>
+        </div>
+      </div>
+      <div class="analogy reveal d3" style="margin-top:30px;align-self:flex-start;"><span class="big">Idea:</span> non possiedi il file, lo raggiungi quando ti serve.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 15 · CLOUD COLLABORAZIONE ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape teal reveal">Cloud · Lavorare insieme</div>
+      <h2 class="h-sec reveal">Tutti sullo stesso file</h2>
+      <p class="lead reveal d1" style="margin-top:6px;">Il cloud non serve solo a conservare: permette a <b>più persone di usare lo stesso file insieme</b>, ognuno dal proprio dispositivo. Pensiamo a uno studio di estetica:</p>
+      <div class="grid3 reveal d2" style="margin-top:24px;">
+        <div class="card"><span class="ic">📅</span><h3>Appuntamenti</h3><p>La segreteria crea e sposta gli appuntamenti; chi è in studio li vede aggiornati in tempo reale e organizza gli spazi.</p></div>
+        <div class="card"><span class="ic">📈</span><h3>Fatturato</h3><p>Un foglio del fatturato condiviso resta sempre consultabile e aggiornato da chi ne ha diritto.</p></div>
+        <div class="card"><span class="ic">🤝</span><h3>Collaborazione</h3><p>Niente più copie via email: un'unica versione, sempre quella giusta, per tutto il team.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:8px;">
+        <div class="lbl">💡 Vantaggio chiave</div>
+        <p>Una sola versione del file, condivisa e sempre aggiornata: si evitano errori, doppioni e la confusione del “qual è l'ultima copia?”.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 16 · CLOUD COMPUTING ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Cloud · Un passo oltre</div>
+        <h2 class="h-big reveal">Il <em class="hot">cloud computing</em></h2>
+        <p class="lead reveal d1">Il cloud non serve solo ad <b>archiviare</b> file: può anche fornire <b>potenza di calcolo e programmi</b> attraverso la rete.</p>
+        <p class="body reveal d2">Con il cloud computing puoi <b>usare applicazioni che girano su computer remoti</b>, senza doverle installare né possedere macchine potenti. Pensa a modificare un documento dentro il browser, o a usare un programma di fotoritocco online: il lavoro vero avviene “nella nuvola”.</p>
+        <div class="analogy reveal d3"><span class="big">Storage</span> = parcheggi i file · <span class="big" style="margin-left:8px;">Computing</span> = usi anche i programmi</div>
+      </div>
+      <div class="illu reveal d2">
+        <svg viewBox="0 0 300 230" role="img" aria-label="Programmi che girano nel cloud">
+          <path d="M86 110 a38 38 0 0 1 8 -75 a50 50 0 0 1 95 11 a34 34 0 0 1 -7 68 z" fill="#163b35" stroke="#1c1714" stroke-width="5"/>
+          <g fill="#e6c14a"><rect x="104" y="64" width="20" height="20" rx="4"/><rect x="134" y="64" width="20" height="20" rx="4"/><rect x="164" y="64" width="20" height="20" rx="4"/></g>
+          <text x="143" y="108" font-family="Space Mono,monospace" font-size="16" fill="#f4ece0" text-anchor="middle">app online</text>
+          <g stroke="#d98a2b" stroke-width="5" stroke-dasharray="2 10" stroke-linecap="round"><path d="M143 140 V176"/></g>
+          <rect x="100" y="176" width="90" height="44" rx="8" fill="#e6533b" stroke="#1c1714" stroke-width="4"/>
+          <text x="145" y="204" font-family="Space Mono,monospace" font-size="16" fill="#f4ece0" text-anchor="middle">il tuo PC</text>
+        </svg>
+        <div class="illu-cap">Il programma gira altrove, tu lo usi e basta</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 17 · QUANDO USARE ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape gold reveal">Decidere</div>
+      <h2 class="h-sec reveal">Cloud o in locale?</h2>
+      <p class="lead reveal d1" style="margin-top:6px;">Non c'è una scelta giusta in assoluto: dipende da <b>come e dove</b> ti servono i dati.</p>
+      <div class="grid2 reveal d2" style="margin-top:24px;gap:40px;">
+        <div class="card" style="border-color:var(--teal);">
+          <span class="ic">☁️</span><h3>Meglio il cloud quando…</h3>
+          <p>…ti servono i dati da <b>più luoghi e dispositivi</b> (telefono, tablet, PC), devi <b>condividerli</b> con altri, o vuoi una copia di sicurezza. Richiede però una connessione Internet.</p>
+        </div>
+        <div class="card" style="border-color:var(--sky);">
+          <span class="ic">💾</span><h3>Meglio in locale quando…</h3>
+          <p>…lavori sempre dallo stesso dispositivo, hai bisogno dei file <b>anche senza Internet</b>, o tratti dati molto delicati che preferisci tenere solo con te.</p>
+        </div>
+      </div>
+      <div class="note reveal d3" style="margin-top:26px;">
+        <div class="lbl">💡 Spesso la risposta è “entrambi”</div>
+        <p>Molti tengono i file di lavoro nel cloud per comodità e una copia importante anche in locale per sicurezza. Le due cose non si escludono.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 18 · RECAP ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">Mettiamo tutto insieme</div>
+      <h2 class="h-sec reveal">La mappa delle connessioni</h2>
+      <div class="grid2 reveal d1" style="margin-top:20px;gap:40px;">
+        <div class="card" style="border-color:var(--sky);">
+          <h3 style="color:var(--sky);">🔌 Come viaggiano i dati</h3>
+          <p style="margin-top:10px;line-height:1.55;"><b>Via cavo</b> (USB, Ethernet, fibra) = stabile e veloce. <b>Wireless</b> = senza fili: <b>WiFi</b> (Internet in casa), <b>Bluetooth</b> (oggetti vicini), <b>3G/4G/5G</b> (Internet ovunque), <b>infrarossi</b> (telecomandi).</p>
+        </div>
+        <div class="card" style="border-color:var(--red);">
+          <h3 style="color:var(--red);">🌍 Fin dove arrivano</h3>
+          <p style="margin-top:10px;line-height:1.55;"><b>Locale</b> = dispositivi vicini, senza Internet. <b>Globale</b> = passa per la rete e raggiunge il mondo. Il <b>cloud</b> conserva i file online e, col <b>cloud computing</b>, fa girare anche i programmi.</p>
+        </div>
+      </div>
+      <div class="analogy reveal d2" style="margin-top:34px;align-self:center;font-size:30px;">
+        <span class="big">In una frase:</span> i dati viaggiano con cavi o onde, e arrivano vicino o in tutto il mondo.
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 19 · QUIZ ===== -->
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape teal reveal">Verifica veloce</div>
+      <h2 class="h-sec reveal">Hai capito tutto?</h2>
+      <p class="lead reveal d1" style="margin-bottom:6px;">Prova a rispondere a mente prima di andare avanti:</p>
+      <div class="grid2 reveal d2" style="gap:26px 40px;">
+        <div class="card"><h3 style="font-size:34px;">1.</h3><p>Che differenza c'è tra una connessione via cavo e una wireless?</p></div>
+        <div class="card"><h3 style="font-size:34px;">2.</h3><p>Quando conviene il WiFi e quando il Bluetooth?</p></div>
+        <div class="card"><h3 style="font-size:34px;">3.</h3><p>Cosa vuol dire che una connessione è “globale”?</p></div>
+        <div class="card"><h3 style="font-size:34px;">4.</h3><p>Fai un esempio in cui il cloud è più comodo del locale.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== 20 · CLOSING ===== -->
+  <section class="slide closing">
+    <div class="center" style="align-items:center;text-align:center;">
+      <div class="eyebrow reveal gold">Fine Modulo 02</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Connessi! 🌐</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1100px;text-align:center;margin-top:20px;">
+        Ora sai come i dispositivi si parlano e dove finiscono i tuoi dati. Nel <span class="gold">prossimo modulo</span> impariamo a proteggerli: <b>Sicurezza</b>.
+      </p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a class="chip" href="03.1-sicurezza.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → M3 · Sicurezza</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+<script>
+/* SLIDE CONTROLLER — fixed-stage scaling + navigation. */
+class SlidePresentation{
+  constructor(){
+    this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());
+    this.keys();this.touch();this.wheel();this.numberPages();this.show(0);
+  }
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);
+    this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;
+    this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;});}
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));
+    this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});
+    this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{
+    if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;
+      if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;
+    if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+
+/* INLINE EDITING — hover top-left or press E. Saves to localStorage. */
+const editor={
+  isActive:false,
+  toggle(){this.isActive=!this.isActive;
+    document.body.classList.toggle('editing',this.isActive);
+    document.getElementById('editToggle').classList.toggle('active',this.isActive);
+    document.getElementById('editHint').classList.toggle('show',this.isActive);
+    document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));
+    if(this.isActive)this.load();},
+  key(){return 'inf-m2-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);
+    localStorage.setItem(this.key(),JSON.stringify(data));
+    const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';
+    setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);
+    document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}
+};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';
+  if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}
+  if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>
