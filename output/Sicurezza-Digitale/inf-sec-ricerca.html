@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · Ricerca e Gestione delle Informazioni Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;}.slide:last-child{break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--gold-deep);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:142px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+em.gold{font-style:italic;color:var(--gold-deep);}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 32px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:10px;line-height:1;}
+.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:50px;line-height:1;display:block;margin-bottom:8px;}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:24px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.teal{background:var(--teal);}.note.teal *{color:#fff !important;}
+.note.red{background:#f3b6aa;}
+.note.dark{background:var(--ink);}.note.dark *{color:var(--paper) !important;}.note.dark .lbl{color:var(--gold) !important;}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:26px;line-height:1.4;color:var(--ink);}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:22px;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--gold-deep);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#e8a040,#8a4a10);right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:18px 60px;margin-top:16px;}
+.agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:15px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:72px;}
+.agenda-item .t{font-size:28px;font-weight:600;color:var(--ink);}
+.closing{background:var(--gold-deep);}.closing::before{opacity:.10;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing em.hot{color:var(--gold);}
+.mono-box{background:var(--ink);color:var(--gold);font-family:var(--font-mono);font-size:30px;padding:18px 28px;border-radius:10px;border:2px solid var(--gold-deep);display:inline-block;}
+.mono-box.small{font-size:24px;}
+.op-row{display:flex;align-items:center;gap:24px;padding:16px 0;border-bottom:2px dashed var(--line);}
+.op-row .op{font-family:var(--font-mono);font-size:26px;font-weight:700;color:var(--gold-deep);min-width:260px;}
+.op-row .desc{font-size:26px;color:var(--ink-soft);}
+.pill{display:inline-block;font-family:var(--font-mono);font-size:22px;font-weight:700;padding:8px 20px;border-radius:30px;border:2px solid currentColor;}
+.pill.int{background:#e6f3f7;color:var(--sky);border-color:var(--sky);}
+.pill.ext{background:#fdf3e0;color:var(--gold-deep);border-color:var(--gold-deep);}
+.pill.dl{background:#f0faf0;color:#2e7d4f;border-color:#2e7d4f;}
+.pill.mail{background:#fef0f0;color:var(--red);border-color:var(--red);}
+.pill.nav{background:#f5f0ff;color:#7a4db5;border-color:#7a4db5;}
+.check-row{display:flex;align-items:flex-start;gap:20px;padding:14px 0;border-bottom:1px dashed var(--line);}
+.check-row .ck{font-size:28px;min-width:36px;}
+.check-row .tx{font-size:27px;line-height:1.4;color:var(--ink-soft);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--gold-deep);z-index:1000;transition:width .35s var(--ease);}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- === SLIDE 1: TITLE === -->
+<section class="slide title-slide active">
+  <div class="title-left">
+    <div class="tape gold reveal">Informatica · Basi</div>
+    <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo 4 — Ricerca Online</div>
+    <h1 class="h-big reveal" contenteditable="true">Ricerca e<br>Gestione<br>delle <em class="gold">Informazioni</em></h1>
+    <p class="lead reveal" style="margin-top:26px;" contenteditable="true">Link, motori di ricerca, tecniche di ricerca efficace, moduli online, enciclopedie e strumenti di traduzione.</p>
+    <div class="chips reveal" style="margin-top:40px;"><span class="chip">Modulo 4</span><span class="chip alt">Basi</span><span class="chip alt">~40 min</span></div>
+  </div>
+  <div class="title-right">
+    <div style="position:relative;z-index:2;text-align:center;">
+      <svg viewBox="0 0 200 200" width="200" role="img" aria-label="Lente di ingrandimento su pagina web">
+        <rect x="30" y="20" width="120" height="140" rx="10" fill="rgba(244,236,224,.15)" stroke="rgba(244,236,224,.4)" stroke-width="3"/>
+        <rect x="44" y="36" width="92" height="10" rx="3" fill="rgba(244,236,224,.5)"/>
+        <rect x="44" y="54" width="70" height="8" rx="3" fill="rgba(244,236,224,.3)"/>
+        <rect x="44" y="68" width="84" height="8" rx="3" fill="rgba(244,236,224,.3)"/>
+        <rect x="44" y="82" width="60" height="8" rx="3" fill="rgba(244,236,224,.2)"/>
+        <circle cx="118" cy="130" r="38" fill="none" stroke="#e6c14a" stroke-width="5"/>
+        <circle cx="118" cy="130" r="26" fill="rgba(230,193,74,.15)"/>
+        <line x1="146" y1="158" x2="168" y2="180" stroke="#e6c14a" stroke-width="6" stroke-linecap="round"/>
+        <text x="118" y="136" text-anchor="middle" font-size="22" fill="#e6c14a">🔍</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- === SLIDE 2: AGENDA === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">In questo modulo</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
+    <div class="agenda-list reveal d1">
+      <div class="agenda-item"><span class="n">01</span><span class="t">Cosa sono i collegamenti ipertestuali</span></div>
+      <div class="agenda-item"><span class="n">02</span><span class="t">Come riconoscere e tipologie di link</span></div>
+      <div class="agenda-item"><span class="n">03</span><span class="t">Sicurezza dei link</span></div>
+      <div class="agenda-item"><span class="n">04</span><span class="t">Motori di ricerca — cosa sono e come funzionano</span></div>
+      <div class="agenda-item"><span class="n">05</span><span class="t">Parole chiave e tecniche di ricerca</span></div>
+      <div class="agenda-item"><span class="n">06</span><span class="t">Operatori di ricerca avanzata</span></div>
+      <div class="agenda-item"><span class="n">07</span><span class="t">Moduli online — compilare e inviare</span></div>
+      <div class="agenda-item"><span class="n">08</span><span class="t">Enciclopedie e dizionari digitali</span></div>
+      <div class="agenda-item"><span class="n">09</span><span class="t">Strumenti di traduzione automatica</span></div>
+      <div class="agenda-item"><span class="n">10</span><span class="t">Riepilogo del modulo</span></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 3: COSA SONO I LINK (slide 22) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape gold reveal">I collegamenti o link</div>
+      <h2 class="h-big reveal">Cosa sono i<br><em class="gold">collegamenti</em><br>ipertestuali</h2>
+      <p class="lead reveal d1">Un collegamento ipertestuale (<b>hyperlink</b> o <b>link</b>) è un elemento che consente di passare da una risorsa digitale a un'altra con un semplice clic.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">🔗 Un link può collegare</div>
+          <p>Una pagina web · Un documento · Un'immagine · Un video · Una sezione della stessa pagina</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">🌐 Perché sono fondamentali</div>
+          <p>I link costituiscono uno degli elementi fondamentali del World Wide Web. Senza di essi ogni pagina sarebbe un'isola — i link creano la "rete" del Web.</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 240 220" style="max-width:220px;margin:0 auto;" role="img" aria-label="Due documenti collegati da un link">
+        <rect x="10" y="30" width="90" height="70" rx="8" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <rect x="22" y="44" width="66" height="8" rx="3" fill="#d8c9b4"/>
+        <rect x="22" y="58" width="50" height="6" rx="3" fill="#d8c9b4"/>
+        <rect x="22" y="70" width="58" height="6" rx="3" fill="#d8c9b4"/>
+        <rect x="22" y="82" width="36" height="8" rx="3" fill="#3f7e8c" opacity=".7"/>
+        <rect x="140" y="30" width="90" height="70" rx="8" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <rect x="152" y="44" width="66" height="8" rx="3" fill="#d8c9b4"/>
+        <rect x="152" y="58" width="50" height="6" rx="3" fill="#d8c9b4"/>
+        <rect x="152" y="70" width="58" height="6" rx="3" fill="#d8c9b4"/>
+        <path d="M100 86 C120 86 120 86 140 86" fill="none" stroke="#e6c14a" stroke-width="3"/>
+        <polygon points="136,82 144,86 136,90" fill="#e6c14a"/>
+        <text x="120" y="78" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#d98a2b">link</text>
+        <rect x="10" y="130" width="90" height="70" rx="8" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <rect x="52" y="152" width="50" height="50" rx="6" fill="#d8c9b4"/>
+        <text x="77" y="182" text-anchor="middle" font-size="26">🖼️</text>
+        <path d="M100 165 C120 165 120 165 140 165" fill="none" stroke="#e6c14a" stroke-width="3" stroke-dasharray="6"/>
+        <polygon points="136,161 144,165 136,169" fill="#e6c14a"/>
+        <rect x="140" y="130" width="90" height="70" rx="8" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <text x="185" y="174" text-anchor="middle" font-size="30">📹</text>
+        <text x="120" y="157" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#d98a2b">link</text>
+      </svg>
+      <div class="illu-cap">Da pagine a immagini, video, file</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 4: COME RICONOSCERE UN LINK (slide 23) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Riconoscimento</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Come <em class="gold">riconoscere</em> un link</h2>
+    <p class="lead reveal d1">Nella maggior parte dei siti web i link si distinguono visivamente da testo normale.</p>
+    <div class="grid3 reveal d2" style="margin-top:26px;">
+      <div class="card" style="text-align:center;">
+        <span class="ic">📏</span>
+        <h3>Sottolineatura</h3>
+        <p>Il testo del link appare sottolineato. Convenzione storica del Web — il primo browser la introdusse nel 1991 e rimane lo standard.</p>
+        <p style="margin-top:14px;font-size:28px;text-decoration:underline;color:var(--sky);">Clicca qui</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">🎨</span>
+        <h3>Colore differente</h3>
+        <p>I link non visitati sono tipicamente blu, quelli già visitati viola. Il colore segnala che c'è qualcosa di interattivo.</p>
+        <p style="margin-top:14px;font-size:28px;color:#3355cc;text-decoration:underline;">Non visitato</p>
+        <p style="font-size:28px;color:#551a8b;text-decoration:underline;">Visitato</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">🖱️</span>
+        <h3>Cambio del cursore</h3>
+        <p>Il puntatore del mouse cambia da freccia a mano con il dito indice quando passa sopra un link cliccabile.</p>
+        <p style="margin-top:14px;font-size:40px;">👆</p>
+        <p style="font-size:22px;color:var(--ink-faint);">Cursore su link</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">📱 Dispositivi mobili</div>
+      <p>Nei dispositivi mobili i link possono apparire come <b>pulsanti</b> o <b>testi cliccabili</b> senza sottolineatura. Il cambio di cursore non esiste — il feedback è al tocco (colore attivo, animazione).</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 5: TIPOLOGIE DI LINK (slide 24) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Classificazione</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Tipologie di <em class="gold">link</em></h2>
+    <p class="lead reveal d1">Ogni tipologia ha uno scopo specifico. Riconoscerle aiuta a navigare in modo più consapevole.</p>
+    <div class="grid3 reveal d2" style="margin-top:24px;gap:20px;">
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="pill int">Link interni</span></div>
+        <h3>Stesso sito</h3>
+        <p>Collegano pagine o sezioni dello stesso sito web. Usati nei menu di navigazione, sommari, breadcrumb.</p>
+      </div>
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="pill ext">Link esterni</span></div>
+        <h3>Sito diverso</h3>
+        <p>Portano verso un dominio differente. Si aprono spesso in una nuova scheda. Citazioni, referenze, sponsor.</p>
+      </div>
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="pill dl">Link di download</span></div>
+        <h3>Scarica file</h3>
+        <p>Avviano il download di un file (PDF, ZIP, immagine). Il browser può aprire il file direttamente o salvarlo.</p>
+      </div>
+    </div>
+    <div class="grid2 reveal d3" style="margin-top:20px;gap:20px;">
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="pill mail">Link email</span></div>
+        <h3>Apre client email</h3>
+        <p>Cliccando si apre il programma di posta con il destinatario già inserito. Usa il protocollo <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;">mailto:</code></p>
+      </div>
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="pill nav">Link di navigazione</span></div>
+        <h3>Struttura del sito</h3>
+        <p>Fanno parte del sistema di navigazione principale (navbar, sidebar, footer). Organizzano la struttura del sito.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 6: LINK INTERNI ED ESTERNI (slide 25) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape gold reveal">A confronto</div>
+      <h2 class="h-big reveal">Link <em class="gold">interni</em><br>ed <em class="hot">esterni</em></h2>
+      <div class="stack reveal d1">
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl" style="color:var(--sky) !important;">🔵 Link interni</div>
+          <p>Collegano pagine dello <b>stesso sito</b>. L'URL di destinazione appartiene allo stesso dominio di partenza.</p>
+          <p style="margin-top:10px;font-family:var(--font-mono);font-size:22px;">Home → Contatti<br>Articolo → Sezione</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl" style="color:var(--gold-deep) !important;">🟠 Link esterni</div>
+          <p>Portano verso un <b>sito differente</b>. L'URL di destinazione appartiene a un dominio diverso.</p>
+          <p style="margin-top:10px;font-family:var(--font-mono);font-size:22px;">Wikipedia → Treccani<br>Blog → Fonte citata</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 240 260" style="max-width:220px;margin:0 auto;" role="img" aria-label="Sito A con link interno e link esterno verso sito B">
+        <!-- Site A box -->
+        <rect x="10" y="10" width="180" height="130" rx="10" fill="#f0ede8" stroke="#1c1714" stroke-width="3"/>
+        <rect x="10" y="10" width="180" height="30" rx="10" fill="#163b35"/>
+        <rect x="10" y="30" width="180" height="10" fill="#163b35"/>
+        <text x="100" y="30" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#e6c14a">sitofinto.it</text>
+        <!-- Pages inside A -->
+        <rect x="26" y="54" width="60" height="36" rx="6" fill="#3f7e8c" opacity=".7"/>
+        <text x="56" y="76" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#fff">Home</text>
+        <rect x="106" y="54" width="68" height="36" rx="6" fill="#3f7e8c" opacity=".7"/>
+        <text x="140" y="76" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#fff">Contatti</text>
+        <!-- Internal link arrow -->
+        <line x1="86" y1="72" x2="106" y2="72" stroke="#e6c14a" stroke-width="3"/>
+        <polygon points="102,68 110,72 102,76" fill="#e6c14a"/>
+        <text x="96" y="62" text-anchor="middle" font-family="Space Mono" font-size="9" fill="#d98a2b">interno</text>
+        <!-- Page with external link -->
+        <rect x="26" y="106" width="148" height="24" rx="6" fill="#d8c9b4"/>
+        <text x="100" y="122" text-anchor="middle" font-size="12" fill="#1c1714">🔗 link a treccani.it →</text>
+        <!-- External arrow going out -->
+        <line x1="100" y1="140" x2="100" y2="180" stroke="#e6533b" stroke-width="3"/>
+        <polygon points="96,176 100,184 104,176" fill="#e6533b"/>
+        <text x="120" y="166" font-family="Space Mono" font-size="9" fill="#e6533b">esterno</text>
+        <!-- Site B box -->
+        <rect x="20" y="190" width="160" height="56" rx="10" fill="#fbf5ec" stroke="#e6533b" stroke-width="3"/>
+        <text x="100" y="208" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#e6533b">treccani.it</text>
+        <rect x="36" y="214" width="128" height="20" rx="4" fill="#d8c9b4"/>
+        <text x="100" y="228" text-anchor="middle" font-size="12" fill="#6b5f54">Dizionario della lingua italiana</text>
+      </svg>
+      <div class="illu-cap">Interno = stesso dominio</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 7: SICUREZZA DEI LINK (slide 26) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape reveal">Attenzione</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;"><em class="hot">Sicurezza</em> dei link</h2>
+    <p class="lead reveal d1">Prima di cliccare un collegamento è importante verificare alcune caratteristiche. Molti attacchi di phishing utilizzano link falsificati.</p>
+    <div class="grid2 reveal d2" style="margin-top:22px;">
+      <div class="col stack">
+        <div class="check-row"><span class="ck">🔍</span><div class="tx"><b>Controlla il dominio</b> — il nome del sito deve essere quello atteso. Un link a "amaz0n.it" o "paypa1.com" è falsificato.</div></div>
+        <div class="check-row"><span class="ck">🔒</span><div class="tx"><b>Controlla HTTPS</b> — il protocollo deve essere HTTPS, non HTTP. Senza lucchetto i dati viaggiano in chiaro.</div></div>
+        <div class="check-row"><span class="ck">✏️</span><div class="tx"><b>Controlla errori di scrittura</b> — "goog1e.com", "facebo0k.it", "arnazon.it" sono domini truffaldini che imitano quelli reali.</div></div>
+        <div class="check-row"><span class="ck">📩</span><div class="tx"><b>Verifica la provenienza</b> — chi ha inviato il link? Un messaggio urgente non richiesto con un link è spesso phishing.</div></div>
+      </div>
+      <div class="col stack">
+        <div class="note red">
+          <div class="lbl">⚠️ Phishing via link</div>
+          <p>Un messaggio email o SMS ti chiede di cliccare un link "urgente" per verificare il tuo account. Il link porta a una pagina falsa identica all'originale. L'obiettivo è rubare le tue credenziali.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">💡 Tecnica pratica</div>
+          <p>Passa il mouse sopra il link senza cliccare — in basso a sinistra del browser appare l'URL reale di destinazione. Se è diverso da quello mostrato, non cliccare.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 8: COS'È UN MOTORE DI RICERCA (slide 27) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape gold reveal">Motori di ricerca</div>
+      <h2 class="h-big reveal">Cos'è un<br><em class="gold">motore</em><br>di ricerca</h2>
+      <p class="lead reveal d1">Un motore di ricerca è un servizio che permette di <b>trovare informazioni presenti sul Web</b>. Analizza miliardi di pagine e costruisce un indice consultabile dagli utenti in tempo reale.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">📚 Come funziona in breve</div>
+          <p>I motori esplorano continuamente il Web raccogliendo pagine (<b>crawling</b>), le organizzano in un enorme indice (<b>indexing</b>) e le ordinano per rilevanza quando cerchi qualcosa (<b>ranking</b>).</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">⚡ In numeri</div>
+          <p>Google elabora oltre <b>8,5 miliardi</b> di ricerche al giorno. L'indice di Google contiene oltre <b>100 miliardi</b> di pagine web.</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 240 200" style="max-width:220px;margin:0 auto;" role="img" aria-label="Casella di ricerca che trova risultati da molte pagine">
+        <!-- Search box -->
+        <rect x="20" y="20" width="200" height="36" rx="18" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <text x="52" y="43" font-family="Space Mono" font-size="13" fill="#6b5f54">ricerca...</text>
+        <circle cx="198" cy="38" r="12" fill="#d98a2b"/>
+        <text x="198" y="43" text-anchor="middle" font-size="14" fill="#fff">🔍</text>
+        <!-- Arrow down -->
+        <line x1="120" y1="56" x2="120" y2="76" stroke="#d98a2b" stroke-width="3"/>
+        <polygon points="116,72 120,80 124,72" fill="#d98a2b"/>
+        <!-- Results -->
+        <rect x="20" y="84" width="200" height="24" rx="6" fill="#e6c14a" opacity=".3" stroke="#d98a2b" stroke-width="2"/>
+        <text x="36" y="100" font-family="Space Grotesk" font-size="12" fill="#1c1714" font-weight="700">1. sitofinto.it — Risultato rilevante</text>
+        <rect x="20" y="114" width="200" height="22" rx="6" fill="var(--paper-2)" stroke="#d8c9b4" stroke-width="1.5"/>
+        <text x="36" y="129" font-family="Space Grotesk" font-size="12" fill="#3a322c">2. altrositofinto.it — Secondo risultato</text>
+        <rect x="20" y="142" width="200" height="22" rx="6" fill="var(--paper-2)" stroke="#d8c9b4" stroke-width="1.5"/>
+        <text x="36" y="157" font-family="Space Grotesk" font-size="12" fill="#6b5f54">3. esempio.org — Terzo risultato</text>
+        <rect x="20" y="170" width="200" height="22" rx="6" fill="var(--paper-2)" stroke="#d8c9b4" stroke-width="1.5" opacity=".5"/>
+        <text x="36" y="185" font-family="Space Grotesk" font-size="12" fill="#6b5f54" opacity=".6">4. ...</text>
+      </svg>
+      <div class="illu-cap">L'utente vede solo il risultato finale</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 9: I PRINCIPALI MOTORI (slide 28) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Panoramica</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">I principali <em class="gold">motori di ricerca</em></h2>
+    <p class="lead reveal d1">Ognuno presenta caratteristiche differenti — non esiste un unico strumento giusto per tutti i contesti.</p>
+    <div class="grid4 reveal d2" style="margin-top:24px;">
+      <div class="card" style="text-align:center;">
+        <span class="ic">🔵</span>
+        <h3>Google</h3>
+        <p>Il più usato al mondo (~92% del mercato). Risultati estesi, integrazione con mappe, immagini, notizie. Raccoglie molti dati sull'utente.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">🟦</span>
+        <h3>Bing</h3>
+        <p>Motore di Microsoft. Integrato in Windows e nel browser Edge. Ottimo per immagini e video. Strumento AI Copilot integrato.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">🟠</span>
+        <h3>DuckDuckGo</h3>
+        <p>Priorità alla <b>privacy</b> — non traccia le ricerche, non crea profili utente. Ottimo quando si vuole riservatezza.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">🌿</span>
+        <h3>Ecosia</h3>
+        <p>Motore <b>ecologico</b> — utilizza parte dei ricavi pubblicitari per finanziare la piantumazione di alberi. Oltre 200 milioni di alberi piantati.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 La scelta dipende dalle esigenze</div>
+      <p>Nessuna urgenza? Usa quello che preferisci. <b>Privacy</b> → DuckDuckGo. <b>Impatto ambientale</b> → Ecosia. <b>Massima copertura</b> → Google. <b>Integrazione Windows</b> → Bing.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 10: COME FUNZIONANO I MOTORI (slide 29) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Dietro le quinte</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Come funzionano i <em class="gold">motori</em></h2>
+    <p class="lead reveal d1">Il processo si basa su tre fasi. L'utente vede solo il risultato finale — in realtà dietro c'è un sistema enormemente complesso.</p>
+    <div class="grid3 reveal d2" style="margin-top:26px;">
+      <div class="card" style="border-color:var(--sky);">
+        <div style="font-family:var(--font-display);font-weight:900;font-size:72px;color:var(--sky);line-height:1;margin-bottom:12px;">1</div>
+        <h3>Scansione (Crawling)</h3>
+        <p>Programmi automatici chiamati <b>spider</b> o <b>bot</b> navigano continuamente il Web, seguendo ogni link trovato e scaricando il contenuto delle pagine.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <div style="font-family:var(--font-display);font-weight:900;font-size:72px;color:var(--gold-deep);line-height:1;margin-bottom:12px;">2</div>
+        <h3>Indicizzazione (Indexing)</h3>
+        <p>Le pagine scaricate vengono analizzate e inserite in un enorme <b>indice</b> — come un catalogo alfabetico di miliardi di pagine con tutte le parole che contengono.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <div style="font-family:var(--font-display);font-weight:900;font-size:72px;color:var(--red);line-height:1;margin-bottom:12px;">3</div>
+        <h3>Ordinamento (Ranking)</h3>
+        <p>Quando cerchi qualcosa, l'algoritmo confronta la tua query con l'indice e ordina i risultati per <b>rilevanza e autorevolezza</b>. Centinaia di fattori vengono considerati.</p>
+      </div>
+    </div>
+    <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">Analogia:</span> come una biblioteca che aggiorna continuamente il catalogo e ti dice dove trovare ogni libro.</div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 11: QUANDO SCEGLIERE MOTORI DIVERSI (slide 30) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Scelta consapevole</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Quando scegliere <em class="gold">motori diversi</em></h2>
+    <div class="grid3 reveal d1" style="margin-top:26px;">
+      <div class="card" style="border-color:#3355cc;">
+        <span class="ic">🔵</span>
+        <h3>Google</h3>
+        <p>Eccelle nella <b>quantità di risultati</b>. Prima scelta per ricerche generali, notizie recenti, mappe, immagini, testi accademici.</p>
+        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:#3355cc;">↳ Massima copertura</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <span class="ic">🟠</span>
+        <h3>DuckDuckGo</h3>
+        <p>Privilegia la <b>privacy</b>. Nessun tracciamento, nessuna profilazione. I risultati non variano in base alla tua storia di navigazione.</p>
+        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:var(--gold-deep);">↳ Riservatezza</p>
+      </div>
+      <div class="card" style="border-color:#2e7d4f;">
+        <span class="ic">🌿</span>
+        <h3>Ecosia</h3>
+        <p>Utilizza parte dei ricavi pubblicitari per <b>finanziare progetti ambientali</b>. Ottima alternativa per chi vuole un impatto positivo.</p>
+        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:#2e7d4f;">↳ Impatto ecologico</p>
+      </div>
+    </div>
+    <div class="note reveal d2" style="margin-top:22px;">
+      <div class="lbl">💡 La scelta dipende dalle esigenze dell'utente</div>
+      <p>Non esiste il motore "migliore" in assoluto. Scegli in base a <b>cosa stai cercando</b>, al tuo <b>livello di attenzione alla privacy</b> e ai tuoi <b>valori</b>. Puoi usarli tutti e cambiare in base al contesto.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 12: IMPORTANZA PAROLE CHIAVE (slide 31) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape gold reveal">Tecniche di ricerca</div>
+      <h2 class="h-big reveal">L'importanza<br>delle <em class="gold">parole</em><br>chiave</h2>
+      <p class="lead reveal d1">Le parole chiave (<b>keyword</b>) sono i termini principali usati per cercare un argomento. Una ricerca efficace dipende dalla scelta delle parole <em>corrette</em>.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">🎯 Il principio base</div>
+          <p>Il motore non "capisce" la tua intenzione — confronta le tue parole con i testi indicizzati. Parole vaghe → risultati vaghi. Parole precise → risultati precisi.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">📝 Cosa sono esattamente</div>
+          <p>Le keyword sono i <b>concetti principali</b> della tua ricerca, non la frase intera. Prima di cercare, chiediti: quali sono le parole che descrivono meglio il mio bisogno?</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 240 200" style="max-width:220px;margin:0 auto;" role="img" aria-label="Parole chiave precise vs vaghe">
+        <!-- Vague -->
+        <rect x="10" y="20" width="220" height="40" rx="8" fill="#f3b6aa" stroke="#e6533b" stroke-width="2"/>
+        <text x="120" y="35" text-anchor="middle" font-family="Space Mono" font-size="12" fill="#1c1714" font-weight="700">computer</text>
+        <text x="120" y="52" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#e6533b">→ miliardi di risultati generici</text>
+        <text x="14" y="36" font-family="Space Mono" font-size="18">😕</text>
+        <!-- Arrow -->
+        <line x1="120" y1="68" x2="120" y2="88" stroke="#d98a2b" stroke-width="2.5"/>
+        <polygon points="116,84 120,92 124,84" fill="#d98a2b"/>
+        <text x="130" y="82" font-family="Space Mono" font-size="10" fill="#d98a2b">più specifica</text>
+        <!-- Specific -->
+        <rect x="10" y="96" width="220" height="52" rx="8" fill="#c8f0d8" stroke="#2e7d4f" stroke-width="2"/>
+        <text x="120" y="115" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#1c1714" font-weight="700">miglior portatile</text>
+        <text x="120" y="130" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#1c1714" font-weight="700">per grafica 2025</text>
+        <text x="120" y="143" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#2e7d4f">→ risultati pertinenti</text>
+        <text x="14" y="120" font-family="Space Mono" font-size="22">😊</text>
+      </svg>
+      <div class="illu-cap">Più è specifica, più è utile</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 13: GENERICHE E SPECIFICHE (slide 32) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Qualità della ricerca</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Parole chiave <em class="gold">generiche</em> e <em class="hot">specifiche</em></h2>
+    <p class="lead reveal d1">Le parole chiave specifiche producono risultati più pertinenti. La generalità è un nemico della ricerca efficace.</p>
+    <div class="grid2 reveal d2" style="margin-top:24px;">
+      <div class="card" style="border-color:var(--red);">
+        <h3 style="color:var(--red);">Ricerca generica</h3>
+        <div class="mono-box" style="margin:14px 0;display:block;text-align:center;font-size:36px;">computer</div>
+        <p>Produce <b>miliardi di risultati</b> su ogni aspetto dei computer: storia, componenti, marche, accessori, software, prezzi… Quasi impossibile trovare quello che cerchi davvero.</p>
+      </div>
+      <div class="card" style="border-color:#2e7d4f;">
+        <h3 style="color:#2e7d4f;">Ricerca specifica</h3>
+        <div class="mono-box" style="margin:14px 0;display:block;text-align:center;font-size:26px;">miglior computer<br>portatile per grafica 2025</div>
+        <p>Produce <b>risultati mirati</b> — confronti, recensioni, guide d'acquisto specifiche per il tuo bisogno reale. Risparmia tempo e trova subito ciò che serve.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 Strategia consigliata</div>
+      <p>Parti da una ricerca specifica. Se i risultati non bastano, <b>allarga gradualmente</b> togliendo una parola alla volta. Non partire dal generico — perderesti troppo tempo tra risultati irrilevanti.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 14: FRASI COMPLETE (slide 33) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Ricerca naturale</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Utilizzare <em class="gold">frasi complete</em></h2>
+    <p class="lead reveal d1">I motori di ricerca moderni comprendono domande formulate in linguaggio naturale. Puoi cercare come se stessi facendo una domanda a una persona.</p>
+    <div class="grid2 reveal d2" style="margin-top:26px;">
+      <div class="card">
+        <span class="ic">💬</span>
+        <h3>Domanda diretta</h3>
+        <p>Invece di: <code style="background:var(--paper-2);padding:4px 10px;border-radius:6px;font-size:22px;">stampante laser funzionamento</code></p>
+        <p style="margin-top:14px;">Prova: </p>
+        <div class="mono-box small" style="margin-top:10px;">come funziona una stampante laser</div>
+        <p style="margin-top:14px;">Il motore comprende l'intenzione e mostra spiegazioni, video tutorial, articoli tecnici.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🤖</span>
+        <h3>Perché funziona</h3>
+        <p>I motori moderni usano l'<b>intelligenza artificiale</b> per interpretare il significato della query, non solo per trovare le parole esatte. Capiscono il contesto e l'intenzione.</p>
+        <p style="margin-top:14px;">Google chiama questa tecnologia <b>BERT</b> e <b>MUM</b> — modelli linguistici simili a quelli che alimentano i chatbot AI.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">📌 Esempio pratico</div>
+      <p>Cercare <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;">perché il cielo è blu</code> produce una risposta diretta in cima ai risultati. I motori moderni preferiscono domande chiare al linguaggio "telegrafic".</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 15: OPERATORI AVANZATI (slide 34) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Ricerca avanzata</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Operatori di <em class="gold">ricerca avanzata</em></h2>
+    <p class="lead reveal d1">Caratteri e parole speciali che istruiscono il motore su come cercare. Permettono risultati molto più precisi.</p>
+    <div class="col stack reveal d2" style="margin-top:16px;">
+      <div class="op-row">
+        <div class="op">"cyber security"</div>
+        <div class="desc"><b>Ricerca esatta</b> — le virgolette obbligano il motore a trovare esattamente quella frase, non le parole separate.</div>
+      </div>
+      <div class="op-row">
+        <div class="op">site:gov.it</div>
+        <div class="desc"><b>Ricerca limitata a un dominio</b> — mostra solo risultati dal sito o dominio specificato. Utile per cercare info ufficiali.</div>
+      </div>
+      <div class="op-row">
+        <div class="op">filetype:pdf</div>
+        <div class="desc"><b>Ricerca per tipo di file</b> — filtra i risultati per formato. <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;">filetype:pdf sicurezza informatica</code> trova solo documenti PDF.</div>
+      </div>
+      <div class="op-row">
+        <div class="op">-parola</div>
+        <div class="desc"><b>Esclusione</b> — il trattino esclude una parola dai risultati. <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;">virus -informatico</code> cerca "virus" ma non in contesto informatico.</div>
+      </div>
+      <div class="op-row" style="border:none;">
+        <div class="op">OR</div>
+        <div class="desc"><b>Alternativa</b> — <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;">gatto OR cane</code> trova pagine che parlano di gatti o di cani (o entrambi).</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 16: VALUTARE I RISULTATI (slide 35) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Senso critico</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;"><em class="gold">Valutare</em> i risultati ottenuti</h2>
+    <p class="lead reveal d1">Non tutti i risultati sono ugualmente affidabili. La posizione in classifica non indica la veridicità — indica solo la rilevanza secondo l'algoritmo.</p>
+    <div class="grid2 reveal d2" style="margin-top:22px;">
+      <div class="col stack">
+        <div class="check-row"><span class="ck">✍️</span><div class="tx"><b>Autore</b> — chi ha scritto il contenuto? È un esperto riconosciuto, un'istituzione, un'organizzazione? O è anonimo?</div></div>
+        <div class="check-row"><span class="ck">📅</span><div class="tx"><b>Data di pubblicazione</b> — le informazioni sono recenti? In settori come la medicina o la tecnologia le informazioni datate possono essere obsolete o errate.</div></div>
+        <div class="check-row"><span class="ck">🏛️</span><div class="tx"><b>Attendibilità</b> — il sito è una fonte accademica, istituzionale, giornalistica? Qual è la sua reputazione?</div></div>
+        <div class="check-row"><span class="ck">📚</span><div class="tx"><b>Qualità della fonte</b> — cita altre fonti verificabili? Il contenuto è scritto con cura o è generico e superficiale?</div></div>
+      </div>
+      <div class="col stack">
+        <div class="note red">
+          <div class="lbl">⚠️ Attenzione ai bias</div>
+          <p>I motori personalizzano i risultati in base alla tua storia di navigazione. Potresti vedere solo opinioni allineate alle tue (bolla del filtro). Confronta più fonti diverse.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">✅ Regola pratica</div>
+          <p>Per qualsiasi informazione importante, <b>verifica su almeno tre fonti indipendenti</b>. Se le fonti autorevoli concordano, l'informazione è probabilmente affidabile.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 17: COSA SONO I MODULI ONLINE (slide 36) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape gold reveal">Moduli online</div>
+      <h2 class="h-big reveal">Cosa sono<br>i <em class="gold">moduli</em><br>online</h2>
+      <p class="lead reveal d1">Un modulo online (<b>form</b>) permette di raccogliere informazioni dagli utenti in modo strutturato e di inviarle direttamente a un sistema.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">📋 Esempi comuni</div>
+          <p>Registrazione a un servizio · Iscrizione a un corso · Sondaggi e questionari · Richiesta di assistenza · Prenotazioni · Candidature di lavoro · Ordini online</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">🔑 Perché sono importanti</div>
+          <p>Sono il principale strumento con cui le organizzazioni raccolgono dati dagli utenti. Ogni volta che ti registri, prenoti o compili qualcosa online, stai usando un form.</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 230 250" style="max-width:210px;margin:0 auto;" role="img" aria-label="Modulo online con campi nome email e pulsante invio">
+        <rect x="10" y="10" width="210" height="230" rx="12" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <text x="115" y="38" text-anchor="middle" font-family="Fraunces" font-size="18" fill="#1c1714" font-weight="700">Modulo di contatto</text>
+        <text x="22" y="60" font-family="Space Grotesk" font-size="12" fill="#6b5f54">Nome *</text>
+        <rect x="22" y="64" width="186" height="26" rx="5" fill="#fff" stroke="#d8c9b4" stroke-width="2"/>
+        <text x="34" y="81" font-family="Space Mono" font-size="11" fill="#d8c9b4">Mario Rossi</text>
+        <text x="22" y="106" font-family="Space Grotesk" font-size="12" fill="#6b5f54">Email *</text>
+        <rect x="22" y="110" width="186" height="26" rx="5" fill="#fff" stroke="#d98a2b" stroke-width="2"/>
+        <text x="34" y="127" font-family="Space Mono" font-size="11" fill="#d98a2b">mario@email.it</text>
+        <text x="22" y="152" font-family="Space Grotesk" font-size="12" fill="#6b5f54">Messaggio</text>
+        <rect x="22" y="156" width="186" height="52" rx="5" fill="#fff" stroke="#d8c9b4" stroke-width="2"/>
+        <text x="34" y="174" font-family="Space Mono" font-size="10" fill="#d8c9b4">Scrivi qui il tuo</text>
+        <text x="34" y="188" font-family="Space Mono" font-size="10" fill="#d8c9b4">messaggio...</text>
+        <rect x="66" y="218" width="98" height="14" rx="7" fill="#d98a2b"/>
+        <text x="115" y="229" text-anchor="middle" font-family="Space Grotesk" font-size="11" fill="#fff" font-weight="700">Invia →</text>
+      </svg>
+      <div class="illu-cap">Campi, validazione, pulsante invio</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 18: CAMPI PIÙ COMUNI (slide 37) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Anatomia del modulo</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Campi più <em class="gold">comuni</em></h2>
+    <p class="lead reveal d1">I moduli possono contenere diversi tipi di campi. Alcuni sono obbligatori (contrassegnati con <b>*</b>), altri facoltativi.</p>
+    <div class="grid3 reveal d2" style="margin-top:24px;">
+      <div class="card">
+        <span class="ic">✍️</span>
+        <h3>Testo libero</h3>
+        <p><b>Nome</b> · <b>Cognome</b> · <b>Messaggio</b> — Caselle in cui si digita liberamente. Possono avere un limite di caratteri.</p>
+      </div>
+      <div class="card">
+        <span class="ic">📧</span>
+        <h3>Campi validati</h3>
+        <p><b>Email</b> — deve contenere @<br><b>Telefono</b> — solo numeri<br><b>Data</b> — formato specifico<br>Il browser segnala errori di formato prima dell'invio.</p>
+      </div>
+      <div class="card">
+        <span class="ic">📎</span>
+        <h3>Allegati</h3>
+        <p>Permettono di caricare file (PDF, immagini, documenti). Spesso hanno limiti di dimensione e tipo di file accettato.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">⭐ Campi obbligatori</div>
+      <p>I campi contrassegnati con <b>*</b> (asterisco) sono obbligatori — il modulo non può essere inviato senza compilarli. I campi facoltativi si possono lasciare vuoti. Prima di compilare, verifica sempre quali informazioni sono strettamente necessarie.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 19: INVIO DI UN MODULO (slide 38) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Prima di cliccare Invia</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;"><em class="gold">Invio</em> di un modulo</h2>
+    <p class="lead reveal d1">Prima dell'invio è necessario verificare alcuni elementi fondamentali. Errori nella compilazione possono invalidare la richiesta o causare problemi.</p>
+    <div class="grid3 reveal d2" style="margin-top:26px;">
+      <div class="card">
+        <span class="ic">✅</span>
+        <h3>Correttezza dei dati</h3>
+        <p>Rileggi tutto prima di inviare. Un errore nell'email ti impedirà di ricevere la risposta. Un errore nel nome potrebbe invalidare documenti ufficiali.</p>
+      </div>
+      <div class="card">
+        <span class="ic">📎</span>
+        <h3>Presenza di allegati</h3>
+        <p>Se il modulo richiede documenti, verifica di averli allegati e che siano nel formato richiesto (PDF, JPG…) e non superino la dimensione massima consentita.</p>
+      </div>
+      <div class="card">
+        <span class="ic">☑️</span>
+        <h3>Autorizzazioni richieste</h3>
+        <p>Molti moduli richiedono di accettare i <b>termini e condizioni</b> o la <b>privacy policy</b>. Leggile prima — stai dando il consenso al trattamento dei tuoi dati.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 Dopo l'invio</div>
+      <p>Dopo aver inviato un modulo ricevi solitamente un <b>messaggio di conferma</b> nella pagina o via email. Conservalo — è la prova dell'invio. Se non arriva, controlla la cartella spam o riprova.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 20: GESTIONE E MODIFICA (slide 39) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">I tuoi dati</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Gestione e <em class="gold">modifica</em> dei dati</h2>
+    <p class="lead reveal d1">Molti servizi consentono di tornare e modificare le informazioni inserite. È importante conoscere i propri diritti sui dati personali.</p>
+    <div class="grid3 reveal d2" style="margin-top:26px;">
+      <div class="card">
+        <span class="ic">✏️</span>
+        <h3>Modificare le informazioni</h3>
+        <p>La maggior parte dei servizi online ha un'area personale dove puoi aggiornare dati come email, indirizzo, numero di telefono, preferenze.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🔄</span>
+        <h3>Aggiornare i dati</h3>
+        <p>Mantenere i dati aggiornati è importante. Dati obsoleti possono causare problemi nelle comunicazioni o nell'accesso ai servizi.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🗑️</span>
+        <h3>Eliminare la richiesta</h3>
+        <p>In molti casi puoi richiedere la cancellazione dei tuoi dati. Il <b>GDPR</b> garantisce il <em>diritto all'oblio</em> per i cittadini europei.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">⚖️ I tuoi diritti (GDPR)</div>
+      <p>Come utente europeo hai il diritto di <b>accedere</b> ai tuoi dati, <b>correggerli</b>, <b>cancellarli</b> (diritto all'oblio), <b>limitarne il trattamento</b> e <b>portarli</b> altrove. Puoi sempre chiedere al servizio cosa sa di te.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 21: ENCICLOPEDIE ONLINE (slide 40) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape gold reveal">Enciclopedie e dizionari</div>
+      <h2 class="h-big reveal"><em class="gold">Enciclopedie</em><br>online</h2>
+      <p class="lead reveal d1">Le enciclopedie forniscono informazioni <b>organizzate e approfondite</b> su argomenti specifici. Sono diverse dai risultati di ricerca — strutturate, curate e validate.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">📖 Principali enciclopedie</div>
+          <p><b>Wikipedia</b> — libera, multilingua, collaborativa. La più consultata al mondo.<br><b>Treccani</b> — enciclopedia italiana autorevole, curata da esperti.<br><b>Britannica</b> — storica enciclopedia anglosassone, alta autorevolezza accademica.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">🎯 Quando usarle</div>
+          <p>Per capire un argomento di cui sai poco, per trovare una panoramica affidabile, per individuare fonti primarie da approfondire. Sono ottimi punti di partenza.</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 220 200" style="max-width:200px;margin:0 auto;" role="img" aria-label="Libro enciclopedico con voci organizzate">
+        <rect x="20" y="20" width="180" height="160" rx="10" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <rect x="20" y="20" width="180" height="36" rx="10" fill="#d98a2b"/>
+        <rect x="20" y="46" width="180" height="10" fill="#d98a2b"/>
+        <text x="110" y="44" text-anchor="middle" font-family="Fraunces" font-size="16" fill="#fff" font-weight="700">Enciclopedia</text>
+        <rect x="34" y="68" width="90" height="10" rx="3" fill="#d98a2b" opacity=".6"/>
+        <rect x="34" y="84" width="152" height="8" rx="3" fill="#d8c9b4"/>
+        <rect x="34" y="96" width="130" height="8" rx="3" fill="#d8c9b4"/>
+        <rect x="34" y="108" width="144" height="8" rx="3" fill="#d8c9b4"/>
+        <rect x="34" y="126" width="80" height="10" rx="3" fill="#d98a2b" opacity=".6"/>
+        <rect x="34" y="142" width="152" height="8" rx="3" fill="#d8c9b4"/>
+        <rect x="34" y="154" width="110" height="8" rx="3" fill="#d8c9b4"/>
+        <rect x="34" y="166" width="130" height="8" rx="3" fill="#d8c9b4"/>
+      </svg>
+      <div class="illu-cap">Voci organizzate, curate da esperti</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 22: COME USARE UN'ENCICLOPEDIA (slide 41) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Uso critico</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Come utilizzare un'<em class="gold">enciclopedia</em></h2>
+    <p class="lead reveal d1">Non tutte le voci enciclopediche sono uguali. Le informazioni devono essere confrontate, verificate e controllate per aggiornamento.</p>
+    <div class="grid3 reveal d2" style="margin-top:26px;">
+      <div class="card">
+        <span class="ic">🔄</span>
+        <h3>Confrontare</h3>
+        <p>Non fermarsi a una sola enciclopedia. Confrontare la stessa voce su Wikipedia e Treccani permette di identificare differenze, lacune o punti di vista diversi.</p>
+      </div>
+      <div class="card">
+        <span class="ic">✅</span>
+        <h3>Verificare</h3>
+        <p>Le enciclopedie collaborative (come Wikipedia) possono contenere errori o informazioni di parte. Controlla le fonti citate in fondo alla pagina — quelle sono le fonti primarie vere.</p>
+      </div>
+      <div class="card">
+        <span class="ic">📅</span>
+        <h3>Aggiornare</h3>
+        <p>Verifica la data dell'ultima modifica. Argomenti scientifici, tecnologici e di attualità cambiano rapidamente — una voce del 2018 potrebbe essere obsoleta.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 Wikipedia: punto di partenza, non fonte definitiva</div>
+      <p>Wikipedia è utile per capire un argomento velocemente e trovare le fonti primarie. In ambito accademico o professionale, cita sempre le <b>fonti originali</b> riportate nelle note di Wikipedia, non Wikipedia stessa.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 23: DIZIONARI ONLINE (slide 42) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Lingua e significati</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;"><em class="gold">Dizionari</em> online</h2>
+    <p class="lead reveal d1">I dizionari online permettono di consultare significati, sinonimi, contrari ed etimologie in pochi secondi — sono strumenti fondamentali per la ricerca e la scrittura.</p>
+    <div class="grid4 reveal d2" style="margin-top:24px;">
+      <div class="card" style="text-align:center;">
+        <span class="ic">📖</span>
+        <h3>Significati</h3>
+        <p>Il significato preciso di una parola, con tutte le accezioni. Fondamentale per capire documenti tecnici o giuridici.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">↔️</span>
+        <h3>Sinonimi</h3>
+        <p>Parole con significato simile. Utili per arricchire il lessico e evitare ripetizioni nella scrittura.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">🔄</span>
+        <h3>Contrari</h3>
+        <p>Parole con significato opposto. Aiutano a capire i confini semantici di un termine e a esprimere negazioni.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">🏛️</span>
+        <h3>Etimologie</h3>
+        <p>L'origine storica di una parola. Capire da dove viene una parola aiuta a ricordarne il significato e a comprendere parole derivate.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:20px;">
+      <div class="lbl">🔤 Strumenti consigliati</div>
+      <p><b>Treccani.it</b> — vocabolario italiano autorevole · <b>Accademia della Crusca</b> — consulenza linguistica · <b>Wordreference</b> — multilingua, sinonimi, forum di discussione · <b>Etimo.it</b> — etimologie italiane</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 24: FONTI AFFIDABILI (slide 43) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Autorevolezza</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Fonti <em class="gold">affidabili</em></h2>
+    <p class="lead reveal d1">Le fonti ufficiali sono generalmente preferibili. Riconoscere un'istituzione autorevole richiede pratica — ecco un riferimento.</p>
+    <div class="grid4 reveal d2" style="margin-top:22px;">
+      <div class="card" style="text-align:center;border-color:var(--gold-deep);">
+        <span class="ic">📚</span>
+        <h3>Treccani</h3>
+        <p>Istituto della Enciclopedia Italiana. Fondato nel 1925, curato da accademici. Standard di riferimento per l'italiano.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--sky);">
+        <span class="ic">🌿</span>
+        <h3>Accademia della Crusca</h3>
+        <p>La più antica accademia linguistica del mondo (1583). Custode della lingua italiana, risponde a consulenze grammaticali.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--teal);">
+        <span class="ic">🌍</span>
+        <h3>Britannica</h3>
+        <p>Enciclopedia fondata nel 1768. La più antica enciclopedia in lingua inglese ancora in uso. Alta autorevolezza accademica internazionale.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--red);">
+        <span class="ic">🏛️</span>
+        <h3>Enc. Italiana</h3>
+        <p>Enciclopedia Italiana di Scienze, Lettere ed Arti. Progetto editoriale monumentale, 36 volumi, curato da Treccani.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:20px;">
+      <div class="lbl">📌 Segnale di autorevolezza</div>
+      <p>Fonti autorevoli: citano le fonti primarie · hanno un comitato editoriale · indicano gli autori · aggiornano le voci · sono riconosciute dall'ambiente accademico. Se manca uno di questi elementi, verifica altrove.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 25: TRADUZIONE AUTOMATICA (slide 44) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape gold reveal">Strumenti di traduzione</div>
+      <h2 class="h-big reveal">Traduzione<br><em class="gold">automatica</em></h2>
+      <p class="lead reveal d1">La traduzione automatica consente di convertire testi tra lingue differenti. Gli strumenti moderni utilizzano sistemi di <b>intelligenza artificiale</b> — risultati molto migliorati rispetto al passato.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">🤖 Intelligenza artificiale</div>
+          <p>I traduttori moderni usano reti neurali addestrate su miliardi di testi. Non traducono parola per parola ma cercano di capire il <b>significato complessivo</b> e riformularlo nell'altra lingua.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">🌍 Utilizzi principali</div>
+          <p>Capire un sito in lingua straniera · Tradurre un documento · Comunicare con persone che parlano un'altra lingua · Studiare una lingua straniera · Ricerca accademica internazionale</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 220 200" style="max-width:200px;margin:0 auto;" role="img" aria-label="Testo in inglese tradotto in italiano">
+        <rect x="10" y="20" width="200" height="70" rx="8" fill="#f0ede8" stroke="#d8c9b4" stroke-width="2"/>
+        <text x="115" y="42" text-anchor="middle" font-family="Space Grotesk" font-size="12" fill="#6b5f54">English</text>
+        <rect x="22" y="48" width="176" height="30" rx="6" fill="#fff" stroke="#d8c9b4" stroke-width="1.5"/>
+        <text x="110" y="67" text-anchor="middle" font-family="Space Mono" font-size="12" fill="#3a322c">"Hello, how are you?"</text>
+        <!-- Arrow with AI indicator -->
+        <line x1="115" y1="90" x2="115" y2="114" stroke="#d98a2b" stroke-width="3"/>
+        <polygon points="111,110 115,118 119,110" fill="#d98a2b"/>
+        <rect x="76" y="96" width="78" height="20" rx="10" fill="#d98a2b"/>
+        <text x="115" y="110" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#fff">🤖 AI</text>
+        <rect x="10" y="122" width="200" height="58" rx="8" fill="#f0ede8" stroke="#d98a2b" stroke-width="2"/>
+        <text x="115" y="144" text-anchor="middle" font-family="Space Grotesk" font-size="12" fill="#d98a2b">Italiano</text>
+        <rect x="22" y="150" width="176" height="22" rx="6" fill="#fff" stroke="#d98a2b" stroke-width="1.5"/>
+        <text x="110" y="165" text-anchor="middle" font-family="Space Mono" font-size="12" fill="#d98a2b">"Ciao, come stai?"</text>
+      </svg>
+      <div class="illu-cap">Le reti neurali capiscono il significato</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 26: PRINCIPALI STRUMENTI (slide 45) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Panoramica</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Principali <em class="gold">strumenti</em> di traduzione</h2>
+    <p class="lead reveal d1">Ogni strumento presenta vantaggi e limiti. La scelta dipende dal contesto e dal livello di accuratezza richiesto.</p>
+    <div class="grid3 reveal d2" style="margin-top:26px;">
+      <div class="card" style="text-align:center;">
+        <span class="ic">🔵</span>
+        <h3>Google Translate</h3>
+        <p>Il più diffuso al mondo. Supporta oltre 130 lingue. Ottimo per comprensione rapida. Integrato in Chrome per tradurre interi siti. Qualità variabile tra lingue.</p>
+        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:var(--sky);">Punti di forza: quantità lingue, velocità</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">🎯</span>
+        <h3>DeepL</h3>
+        <p>Considerato il più accurato per le lingue europee. Produce traduzioni più naturali, mantiene meglio il tono e le sfumature. Preferito in ambito professionale.</p>
+        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:var(--gold-deep);">Punti di forza: qualità, naturalezza</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">🔷</span>
+        <h3>Microsoft Translator</h3>
+        <p>Integrato in Office, Teams, Edge. Ottimo per documenti aziendali. Supporta la traduzione in tempo reale nelle conversazioni e nelle presentazioni live.</p>
+        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:#3355cc;">Punti di forza: integrazione Office</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 27: TRADURRE UNA PAGINA WEB (slide 46) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Pratico</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Tradurre una <em class="gold">pagina web</em></h2>
+    <p class="lead reveal d1">Molti browser permettono di tradurre automaticamente un sito. La traduzione avviene senza modificare il contenuto originale.</p>
+    <div class="grid2 reveal d2" style="margin-top:26px;">
+      <div class="card">
+        <span class="ic">🌐</span>
+        <h3>Traduzione integrata nel browser</h3>
+        <p>Quando visiti una pagina in lingua straniera, il browser (Chrome, Edge, Safari) propone automaticamente la traduzione. Un clic traduce l'intera pagina mantenendo il layout originale.</p>
+        <p style="margin-top:14px;font-family:var(--font-mono);font-size:22px;color:var(--gold-deep);">Chrome: icona in barra URL → Traduci</p>
+      </div>
+      <div class="card">
+        <span class="ic">🔧</span>
+        <h3>Come funziona</h3>
+        <p>Il testo della pagina viene inviato ai server del traduttore, elaborato e restituito tradotto. Il layout (immagini, pulsanti, struttura) rimane identico. Solo il testo cambia lingua.</p>
+        <p style="margin-top:14px;">La pagina originale sul server non viene modificata — la traduzione è solo visiva, solo per te.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">⚠️ Attenzione alla privacy</div>
+      <p>Quando traduci una pagina, il suo contenuto viene inviato ai server del traduttore (Google, Microsoft…). <b>Non tradurre documenti riservati</b> (contratti, dati medici, password) usando traduttori online gratuiti.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 28: LIMITI DELLA TRADUZIONE (slide 47) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape reveal">Limiti</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Limiti della <em class="hot">traduzione automatica</em></h2>
+    <p class="lead reveal d1">Le traduzioni automatiche possono essere molto utili, ma presentano limiti importanti. È sempre consigliata una verifica umana per testi importanti.</p>
+    <div class="grid3 reveal d2" style="margin-top:22px;">
+      <div class="card" style="border-color:var(--red);">
+        <span class="ic">❌</span>
+        <h3>Errori</h3>
+        <p>Frasi grammaticalmente errate, parole sbagliate, costruzioni innaturali. Più raro con le lingue europee principali, più frequente con lingue meno comuni o testi tecnici.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <span class="ic">🎭</span>
+        <h3>Perdita di sfumature</h3>
+        <p>Ironia, umorismo, tono formale/informale, registro linguistico — le sfumature sono difficili da tradurre automaticamente. Un testo scherzoso può sembrare serio e viceversa.</p>
+      </div>
+      <div class="card" style="border-color:var(--sky);">
+        <span class="ic">🗣️</span>
+        <h3>Modi di dire</h3>
+        <p>Le espressioni idiomatiche ("prendere in giro", "it's raining cats and dogs") vengono spesso tradotte letteralmente con risultati incomprensibili o assurdi.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">✅ Quando affidarsi alla traduzione automatica</div>
+      <p><b>Va bene per:</b> capire il senso generale di un testo, navigare siti stranieri, bozze informali. <b>Non va bene per:</b> documenti legali o medici, comunicazioni ufficiali, testi da pubblicare, contratti. In questi casi serve sempre un traduttore umano professionista.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 29: RIEPILOGO (slide 48) === -->
+<section class="slide">
+  <div class="deck-tab">RICERCA · M4</div>
+  <div class="center">
+    <div class="tape gold reveal">Riepilogo</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">In questo modulo<br>abbiamo <em class="gold">studiato</em></h2>
+    <div class="grid3 reveal d1" style="margin-top:26px;">
+      <div class="card">
+        <span class="ic">🔗</span>
+        <h3>Collegamenti ipertestuali</h3>
+        <p>Cosa sono, come riconoscerli, tipologie (interni/esterni/download/email) e come verificarne la sicurezza prima di cliccare.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🔍</span>
+        <h3>Motori di ricerca</h3>
+        <p>Come funzionano (crawling, indexing, ranking), i principali (Google, DuckDuckGo, Ecosia) e come scegliere quello giusto.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🎯</span>
+        <h3>Tecniche di ricerca</h3>
+        <p>Parole chiave generiche vs specifiche, domande in linguaggio naturale, operatori avanzati e come valutare l'affidabilità dei risultati.</p>
+      </div>
+    </div>
+    <div class="grid3 reveal d2" style="margin-top:20px;">
+      <div class="card">
+        <span class="ic">📋</span>
+        <h3>Moduli online</h3>
+        <p>Campi comuni, compilazione corretta, verifica prima dell'invio e gestione dei propri dati (diritti GDPR).</p>
+      </div>
+      <div class="card">
+        <span class="ic">📚</span>
+        <h3>Enciclopedie e dizionari</h3>
+        <p>Wikipedia come punto di partenza, Treccani e Britannica come fonti autorevoli, uso critico e verifica delle informazioni.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🌍</span>
+        <h3>Traduzione automatica</h3>
+        <p>Google Translate, DeepL, Microsoft Translator — strumenti potenti con limiti precisi. Verifica umana sempre consigliata.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 30: CLOSING === -->
+<section class="slide closing">
+  <div class="center" style="align-items:center;text-align:center;">
+    <div class="eyebrow reveal" style="color:var(--gold);">Fine Modulo 4</div>
+    <h2 class="h-mega reveal" style="margin-top:10px;color:#fff;">Trovato! <em class="hot">🔍</em></h2>
+    <p class="lead reveal d1" style="color:#f4ece0;max-width:1100px;text-align:center;margin-top:20px;">Sai cercare, valutare le fonti, usare moduli e tradurre contenuti online. Hai tutti gli strumenti per navigare <b>in modo consapevole e critico</b>. Il prossimo modulo entra nel cuore della <span style="color:var(--gold);">sicurezza digitale</span>.</p>
+    <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+      <a class="chip" href="01-introduzione.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → Introduzione alla Sicurezza Digitale</a>
+      <a class="chip alt" href="inf-sec-indice.html" style="color:#f4ece0;border-color:rgba(244,236,224,.4);text-decoration:none;cursor:pointer;">↩ Indice del corso</a>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;}); }
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'inf-sec-ricerca-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>
