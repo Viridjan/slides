@@ -37,3 +37,53 @@ Three steps per its SKILL.md: (1) confirm requirements + outline and recommend a
 ## License caution
 
 `academic-pptx` is **Proprietary** (see its frontmatter / LICENSE). Keep this repo private if pushed to a remote.
+
+---
+
+## Active courses in `output/`
+
+Two course families live under `output/`. All decks in both families share the **Warm Study Zine** design system — locked CSS tokens and a `SlidePresentation` JS class that must stay identical across every file.
+
+### `output/Informatica/`
+
+10 modules rebuilt from the PPTX originals in `corsi/`. Naming: `NN-topic.html` (sub-modules use `NN.N-topic.html`, e.g. `03.1-sicurezza.html`).
+
+### `output/Sicurezza-Digitale/`
+
+Three sub-families, all sharing the same design system:
+
+| Prefix | Purpose |
+|--------|---------|
+| `inf-sec-<topic>.html` | Prerequisite modules (reti, navigazione, …) — deck-tab sky/teal |
+| `NN-<topic>.html` | Main security course (C1–C5) — deck-tab red |
+| `inf-sec-indice.html` | **Course index** — must be updated every time a new module is added |
+
+**Index maintenance rule:** `inf-sec-indice.html` has one `<div class="section-group">` per topic section. Add new modules there. Card CSS classes: `.pre` (sky), `.sec` (red), `.inf` (gold). Paths from `Sicurezza-Digitale/` to `Informatica/` need the `../Informatica/` prefix.
+
+### Warm Study Zine — locked design tokens
+
+These CSS variables are identical in every deck and must not be changed:
+
+```css
+:root {
+  --paper:#f4ece0; --paper-2:#ece0cf; --ink:#1c1714; --ink-soft:#3a322c; --ink-faint:#6b5f54;
+  --red:#e6533b;   --teal:#163b35;   --teal-2:#1f5249; --gold:#e6c14a; --gold-deep:#d98a2b;
+  --sky:#3f7e8c;   --line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;
+  --font-body:"Space Grotesk",sans-serif;
+  --font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17; --slide-bg:var(--paper);
+}
+```
+
+Every deck also includes:
+- **Inline editor** — hover top-left hotzone or press `E`; edits saved to `localStorage` under a per-deck key.
+- **`numberPages()`** — auto-fills `.page-num` spans; no manual slide numbers.
+- **`.reveal` animation** — staggered entrance on `.slide.visible`; use `.d1/.d2/.d3` for manual delay overrides.
+- **Closing slide** uses `.closing` class (tinted background) and `<a class="chip" href="next.html">` for cross-deck navigation.
+
+Use **fictional domains** in URL examples (e.g. `www.sitofinto.it`), never real Italian domain names like `scuola.it`.
+
+## Source materials
+
+Original PPTX files live in `corsi/`. `corsi/source/Corso_Viridjan.pptx` (~200 MB) is excluded from git — see `corsi/source/EXCLUDED.md`. Other PPTX files in `corsi/` are tracked normally. Topics not yet converted to HTML: IA, Arduino, Scratch, Sound Design, Game Design, Blender/3D, Micro:bit, TinkerCAD.
