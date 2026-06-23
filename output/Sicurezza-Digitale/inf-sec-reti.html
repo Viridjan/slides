@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · Reti Informatiche e Internet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;}.slide:last-child{break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--sky);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.sky{background:var(--sky);}.tape.teal{background:var(--teal);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:142px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:28px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 32px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:10px;line-height:1;}
+.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:50px;line-height:1;display:block;margin-bottom:8px;}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:24px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.sky{background:var(--sky);}.note.sky *{color:#fff !important;}
+.note.red{background:#f3b6aa;}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:26px;line-height:1.4;color:var(--ink);}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:22px;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--sky);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#5aa3b4,#1c3a40);right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:18px 60px;margin-top:16px;}
+.agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:15px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:72px;}
+.agenda-item .t{font-size:28px;font-weight:600;color:var(--ink);}
+.closing{background:var(--sky);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing em.hot{color:var(--gold);}
+.tag{display:inline-block;font-family:var(--font-mono);font-size:22px;font-weight:700;padding:8px 18px;border-radius:6px;border:2px solid currentColor;}
+.tag.lan{background:#e6f3f7;color:var(--sky);border-color:var(--sky);}
+.tag.wan{background:#fdf3e0;color:var(--gold-deep);border-color:var(--gold-deep);}
+.tag.man{background:#f3eefa;color:#7a4db5;border-color:#7a4db5;}
+.tag.pan{background:#f0faf0;color:#2e7d4f;border-color:#2e7d4f;}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--sky);z-index:1000;transition:width .35s var(--ease);}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- === SLIDE 1: TITLE === -->
+<section class="slide title-slide active">
+  <div class="title-left">
+    <div class="tape reveal">Informatica · Basi</div>
+    <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo 1 — Reti e Internet</div>
+    <h1 class="h-big reveal" style="font-size:100px;" contenteditable="true">Reti<br>Informatiche<br>e <em class="hot">Internet</em></h1>
+    <p class="lead reveal" style="margin-top:26px;" contenteditable="true">Come i dispositivi comunicano tra loro, cos'è Internet, cos'è il Web e come funziona una richiesta online.</p>
+    <div class="chips reveal" style="margin-top:40px;"><span class="chip">Modulo 1</span><span class="chip alt">Basi</span><span class="chip alt">~35 min</span></div>
+  </div>
+  <div class="title-right">
+    <div style="position:relative;z-index:2;">
+      <svg viewBox="0 0 220 220" width="220" role="img" aria-label="Rete di dispositivi connessi">
+        <!-- Central hub -->
+        <circle cx="110" cy="110" r="22" fill="#e6c14a" stroke="#f4ece0" stroke-width="4"/>
+        <text x="110" y="116" text-anchor="middle" font-size="18" fill="#1c1714">🌐</text>
+        <!-- Nodes -->
+        <circle cx="110" cy="34" r="16" fill="#f4ece0" opacity=".7"/>
+        <text x="110" y="40" text-anchor="middle" font-size="14">💻</text>
+        <circle cx="186" cy="72" r="16" fill="#f4ece0" opacity=".7"/>
+        <text x="186" y="78" text-anchor="middle" font-size="14">📱</text>
+        <circle cx="186" cy="148" r="16" fill="#f4ece0" opacity=".7"/>
+        <text x="186" y="154" text-anchor="middle" font-size="14">🖨️</text>
+        <circle cx="110" cy="186" r="16" fill="#f4ece0" opacity=".7"/>
+        <text x="110" y="192" text-anchor="middle" font-size="14">🖥️</text>
+        <circle cx="34" cy="148" r="16" fill="#f4ece0" opacity=".7"/>
+        <text x="34" y="154" text-anchor="middle" font-size="14">💾</text>
+        <circle cx="34" cy="72" r="16" fill="#f4ece0" opacity=".7"/>
+        <text x="34" y="78" text-anchor="middle" font-size="14">📡</text>
+        <!-- Connections -->
+        <line x1="110" y1="88" x2="110" y2="50" stroke="#f4ece0" stroke-width="2" opacity=".5"/>
+        <line x1="128" y1="98" x2="170" y2="78" stroke="#f4ece0" stroke-width="2" opacity=".5"/>
+        <line x1="128" y1="122" x2="170" y2="142" stroke="#f4ece0" stroke-width="2" opacity=".5"/>
+        <line x1="110" y1="132" x2="110" y2="170" stroke="#f4ece0" stroke-width="2" opacity=".5"/>
+        <line x1="92" y1="122" x2="50" y2="142" stroke="#f4ece0" stroke-width="2" opacity=".5"/>
+        <line x1="92" y1="98" x2="50" y2="78" stroke="#f4ece0" stroke-width="2" opacity=".5"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- === SLIDE 2: AGENDA === -->
+<section class="slide">
+  <div class="deck-tab">RETI · M1</div>
+  <div class="center">
+    <div class="tape sky reveal">In questo modulo</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
+    <div class="agenda-list reveal d1">
+      <div class="agenda-item"><span class="n">01</span><span class="t">Cos'è una rete informatica</span></div>
+      <div class="agenda-item"><span class="n">02</span><span class="t">Tipologie di reti: LAN, WAN, MAN</span></div>
+      <div class="agenda-item"><span class="n">03</span><span class="t">Come si connettono i dispositivi</span></div>
+      <div class="agenda-item"><span class="n">04</span><span class="t">Cos'è Internet</span></div>
+      <div class="agenda-item"><span class="n">05</span><span class="t">Internet e Web: differenza</span></div>
+      <div class="agenda-item"><span class="n">06</span><span class="t">Come funziona una richiesta Web</span></div>
+      <div class="agenda-item"><span class="n">07</span><span class="t">Client e Server</span></div>
+      <div class="agenda-item"><span class="n">08</span><span class="t">Vantaggi delle reti</span></div>
+      <div class="agenda-item"><span class="n">09</span><span class="t">Rischi delle reti</span></div>
+      <div class="agenda-item"><span class="n">10</span><span class="t">Perché serve la sicurezza</span></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 3: COS'È UNA RETE INFORMATICA === -->
+<section class="slide">
+  <div class="deck-tab">RETI · M1</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape sky reveal">Definizione</div>
+      <h2 class="h-big reveal">Cos'è una<br><em class="hot">rete</em><br>informatica?</h2>
+      <p class="lead reveal d1">Un insieme di <b>dispositivi collegati tra loro</b> per scambiare dati e condividere risorse. Ogni dispositivo connesso alla rete si chiama <b>nodo</b>.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">💻 Esempi di dispositivi</div>
+          <p>Computer · Smartphone · Tablet · Stampanti · Server · Telecamere IP · Smartwatch · Televisori smart</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">🎯 Obiettivi principali</div>
+          <p><b>Condivisione di informazioni</b> — documenti, file, media<br><b>Accesso a servizi comuni</b> — stampanti, internet, cloud<br><b>Comunicazione tra utenti</b> — email, messaggi, videocall</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 260" style="max-width:240px;margin:0 auto;" role="img" aria-label="Nodi di rete connessi con linee">
+        <!-- Central router/switch -->
+        <rect x="94" y="94" width="72" height="52" rx="10" fill="#3f7e8c" stroke="#1c1714" stroke-width="3"/>
+        <text x="130" y="118" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#f4ece0" font-weight="700">Switch</text>
+        <text x="130" y="134" text-anchor="middle" font-size="16">🔀</text>
+        <!-- Devices around -->
+        <circle cx="50" cy="50" r="26" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <text x="50" y="44" text-anchor="middle" font-size="18">💻</text>
+        <text x="50" y="64" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#6b5f54">PC</text>
+        <circle cx="210" cy="50" r="26" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <text x="210" y="44" text-anchor="middle" font-size="18">📱</text>
+        <text x="210" y="64" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#6b5f54">Mobile</text>
+        <circle cx="50" cy="200" r="26" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <text x="50" y="194" text-anchor="middle" font-size="18">🖨️</text>
+        <text x="50" y="214" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#6b5f54">Stampante</text>
+        <circle cx="210" cy="200" r="26" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+        <text x="210" y="194" text-anchor="middle" font-size="18">🖥️</text>
+        <text x="210" y="214" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#1c1714">Server</text>
+        <!-- Cables -->
+        <line x1="74" y1="68" x2="100" y2="98" stroke="#1c1714" stroke-width="3"/>
+        <line x1="186" y1="68" x2="160" y2="98" stroke="#1c1714" stroke-width="3"/>
+        <line x1="74" y1="184" x2="100" y2="144" stroke="#1c1714" stroke-width="3"/>
+        <line x1="186" y1="184" x2="160" y2="144" stroke="#1c1714" stroke-width="3"/>
+        <!-- Data flow dots -->
+        <circle cx="88" cy="84" r="5" fill="#e6533b"/>
+        <circle cx="172" cy="84" r="5" fill="#e6533b"/>
+      </svg>
+      <div class="illu-cap">Ogni dispositivo è un nodo della rete</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 4: TIPOLOGIE DI RETI === -->
+<section class="slide">
+  <div class="deck-tab">RETI · M1</div>
+  <div class="center">
+    <div class="tape reveal">Classificazione</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Tipologie di <em class="hot">reti</em></h2>
+    <p class="lead reveal d1">Le reti si classificano in base alla loro <b>estensione geografica</b>. Più grande è la rete, più complessa è la sua gestione.</p>
+    <div class="grid4 reveal d2" style="margin-top:22px;">
+      <div class="card" style="border-color:var(--sky);">
+        <div style="margin-bottom:12px;"><span class="tag lan">LAN</span></div>
+        <h3>Local Area Network</h3>
+        <p>Rete locale — copre un'area limitata. Casa, ufficio, scuola, edificio. I dispositivi sono fisicamente vicini. Alta velocità, bassa latenza.</p>
+        <p style="margin-top:10px;font-family:var(--font-mono);font-size:20px;color:var(--sky);">Raggio: fino a ~1 km</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <div style="margin-bottom:12px;"><span class="tag wan">WAN</span></div>
+        <h3>Wide Area Network</h3>
+        <p>Rete geografica — collega aree molto distanti. Città, nazioni, continenti. <b>Internet è la WAN più grande del mondo.</b></p>
+        <p style="margin-top:10px;font-family:var(--font-mono);font-size:20px;color:var(--gold-deep);">Raggio: globale</p>
+      </div>
+      <div class="card" style="border-color:#7a4db5;">
+        <div style="margin-bottom:12px;"><span class="tag man">MAN</span></div>
+        <h3>Metropolitan Area Network</h3>
+        <p>Rete metropolitana — copre una città o un campus universitario. Spesso usata dalle amministrazioni pubbliche per connettere edifici distanti.</p>
+        <p style="margin-top:10px;font-family:var(--font-mono);font-size:20px;color:#7a4db5;">Raggio: 5–50 km</p>
+      </div>
+      <div class="card" style="border-color:#2e7d4f;">
+        <div style="margin-bottom:12px;"><span class="tag pan">PAN</span></div>
+        <h3>Personal Area Network</h3>
+        <p>Rete personale — i dispositivi di una singola persona. Connessione Bluetooth tra smartphone e cuffie, o tra laptop e smartwatch.</p>
+        <p style="margin-top:10px;font-family:var(--font-mono);font-size:20px;color:#2e7d4f;">Raggio: pochi metri</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:20px;">
+      <div class="lbl">💡 A scuola o in ufficio</div>
+      <p>La rete WiFi che usi a scuola è una <b>LAN</b>. Il collegamento della scuola a Internet è una <b>WAN</b>. Sono strati diversi dello stesso sistema.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 5: COME SI CONNETTONO I DISPOSITIVI === -->
+<section class="slide">
+  <div class="deck-tab">RETI · M1</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape sky reveal">Connessioni</div>
+      <h2 class="h-big reveal">Come si<br><em class="hot">connettono</em><br>i dispositivi</h2>
+      <p class="lead reveal d1">I dispositivi possono connettersi a una rete in modo <b>fisico (cablato)</b> o <b>senza fili (wireless)</b>. Ogni metodo ha vantaggi e limiti.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">🔌 Cablato — Ethernet</div>
+          <p>Cavo fisico (RJ-45). Velocità elevata, connessione stabile, nessuna interferenza. Ideale per PC fissi, server, stampanti di rete.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">📡 Wireless — WiFi</div>
+          <p>Segnale radio. Mobilità totale, nessun cavo. Soggetto a interferenze, distanza limitata dall'access point. Protocollo: IEEE 802.11.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">🌐 Fibra ottica</div>
+          <p>Trasmissione tramite impulsi di luce in fibre di vetro. Velocità elevatissima (fino a Tb/s), bassa latenza. Usata per dorsali Internet e connessioni FTTH.</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 260" style="max-width:240px;margin:0 auto;" role="img" aria-label="Confronto connessione cablata vs wireless">
+        <!-- Router center -->
+        <rect x="98" y="108" width="64" height="44" rx="8" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+        <text x="130" y="126" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#f4ece0">ROUTER</text>
+        <text x="130" y="142" text-anchor="middle" font-size="14">📡</text>
+        <!-- Wired device left -->
+        <rect x="20" y="112" width="56" height="36" rx="6" fill="#3f7e8c" stroke="#1c1714" stroke-width="2"/>
+        <text x="48" y="126" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#fff">Cablato</text>
+        <text x="48" y="140" text-anchor="middle" font-size="13">💻</text>
+        <line x1="76" y1="130" x2="98" y2="130" stroke="#1c1714" stroke-width="4"/>
+        <text x="87" y="122" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#6b5f54">RJ-45</text>
+        <!-- Wireless devices -->
+        <circle cx="130" cy="44" r="26" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <text x="130" y="38" text-anchor="middle" font-size="18">📱</text>
+        <text x="130" y="58" text-anchor="middle" font-family="Space Mono" font-size="9" fill="#1c1714">WiFi</text>
+        <!-- WiFi waves up -->
+        <path d="M116 96 Q130 86 144 96" fill="none" stroke="#e6533b" stroke-width="2.5"/>
+        <path d="M110 88 Q130 74 150 88" fill="none" stroke="#e6533b" stroke-width="2" opacity=".6"/>
+        <path d="M104 80 Q130 62 156 80" fill="none" stroke="#e6533b" stroke-width="1.5" opacity=".3"/>
+        <!-- Right wireless device -->
+        <circle cx="200" cy="160" r="24" fill="#fbf5ec" stroke="#1c1714" stroke-width="2"/>
+        <text x="200" y="154" text-anchor="middle" font-size="18">🖥️</text>
+        <text x="200" y="173" text-anchor="middle" font-family="Space Mono" font-size="9" fill="#6b5f54">WiFi</text>
+        <path d="M178 148 Q186 138 194 148" fill="none" stroke="#e6533b" stroke-width="2"/>
+        <path d="M174 140 Q186 126 198 140" fill="none" stroke="#e6533b" stroke-width="1.5" opacity=".6"/>
+        <!-- Bottom fiber label -->
+        <rect x="70" y="220" width="120" height="28" rx="6" fill="#1c1714"/>
+        <text x="130" y="238" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#e6c14a">🔆 Fibra — dorsale</text>
+      </svg>
+      <div class="illu-cap">Cablato = stabile; WiFi = mobile</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 6: COS'È INTERNET === -->
+<section class="slide">
+  <div class="deck-tab">RETI · M1</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape sky reveal">La rete delle reti</div>
+      <h2 class="h-big reveal">Cos'è<br><em class="hot">Internet?</em></h2>
+      <p class="lead reveal d1">Internet non è un unico cavo o un unico server. È una <b>rete mondiale composta da milioni di reti interconnesse</b> — aziendali, universitarie, governative, domestiche.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">🌍 Caratteristiche principali</div>
+          <p><b>Decentralizzata</b> — nessun singolo punto di controllo<br><b>Distribuita</b> — i dati trovano percorsi alternativi<br><b>Accessibile</b> — da qualsiasi punto del pianeta</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">⚙️ Cosa permette</div>
+          <p>Navigazione web · Email · Videoconferenze · Streaming · Cloud Computing · Messaggistica · E-commerce · Internet of Things</p>
+        </div>
+      </div>
+      <div class="analogy reveal d3"><span class="big">In breve:</span> una rete di strade locali collegate in una rete globale.</div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 240" style="max-width:240px;margin:0 auto;" role="img" aria-label="Globo con nodi di rete connessi">
+        <circle cx="130" cy="120" r="100" fill="none" stroke="#d8c9b4" stroke-width="2" stroke-dasharray="4" opacity=".4"/>
+        <ellipse cx="90" cy="90" rx="34" ry="24" fill="#3f7e8c" opacity=".4"/>
+        <ellipse cx="168" cy="80" rx="26" ry="20" fill="#3f7e8c" opacity=".4"/>
+        <ellipse cx="158" cy="148" rx="30" ry="22" fill="#3f7e8c" opacity=".3"/>
+        <ellipse cx="78" cy="154" rx="20" ry="16" fill="#3f7e8c" opacity=".3"/>
+        <circle cx="90" cy="90" r="9" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <circle cx="168" cy="80" r="9" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <circle cx="158" cy="148" r="9" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <circle cx="78" cy="154" r="9" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <circle cx="130" cy="120" r="12" fill="#e6533b" stroke="#1c1714" stroke-width="2"/>
+        <text x="130" y="125" text-anchor="middle" font-size="12" fill="#fff">🌐</text>
+        <line x1="90" y1="90" x2="168" y2="80" stroke="#e6c14a" stroke-width="2" opacity=".7"/>
+        <line x1="90" y1="90" x2="130" y2="120" stroke="#e6c14a" stroke-width="2" opacity=".7"/>
+        <line x1="168" y1="80" x2="130" y2="120" stroke="#e6c14a" stroke-width="2" opacity=".7"/>
+        <line x1="130" y1="120" x2="158" y2="148" stroke="#e6c14a" stroke-width="2" opacity=".7"/>
+        <line x1="130" y1="120" x2="78" y2="154" stroke="#e6c14a" stroke-width="2" opacity=".7"/>
+        <line x1="78" y1="154" x2="158" y2="148" stroke="#e6c14a" stroke-width="2" opacity=".7"/>
+        <text x="130" y="210" text-anchor="middle" font-family="Space Grotesk" font-size="14" fill="#6b5f54">Milioni di reti interconnesse</text>
+      </svg>
+      <div class="illu-cap">Ogni nodo è collegato a più vicini</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 7: INTERNET ≠ WEB === -->
+<section class="slide">
+  <div class="deck-tab">RETI · M1</div>
+  <div class="center">
+    <div class="tape reveal">Distinzione fondamentale</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Internet <em class="hot">≠</em> World Wide Web</h2>
+    <p class="lead reveal d1">Sono due cose diverse. Internet è l'infrastruttura — il Web è uno dei servizi che ci gira sopra.</p>
+    <div class="grid2 reveal d2" style="margin-top:24px;">
+      <div class="card" style="border-color:var(--sky);">
+        <span class="ic">🌐</span>
+        <h3>Internet</h3>
+        <p>La <b>rete fisica e logica</b> — cavi, router, protocolli, indirizzi IP. L'infrastruttura che permette a qualsiasi dispositivo di comunicare con qualsiasi altro nel mondo.</p>
+        <p style="margin-top:14px;"><b>Analogia:</b> la rete stradale — asfalto, ponti, svincoli.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <span class="ic">🕸️</span>
+        <h3>World Wide Web (WWW)</h3>
+        <p>Un <b>servizio che usa Internet</b> — pagine web collegate tra loro tramite link (ipertesti), accessibili tramite un browser. Inventato da Tim Berners-Lee nel 1989.</p>
+        <p style="margin-top:14px;"><b>Analogia:</b> i negozi e gli edifici lungo la rete stradale.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:24px;">
+      <div class="lbl">💡 Altri servizi su Internet (non sono il Web)</div>
+      <p><b>Email</b> (protocollo SMTP/IMAP) · <b>FTP</b> (trasferimento file) · <b>SSH</b> (accesso remoto sicuro) · <b>VoIP</b> (chiamate vocali) · <b>Videoconferenze</b> · <b>Giochi online</b> · <b>DNS</b></p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 8: COME FUNZIONA UNA RICHIESTA WEB === -->
+<section class="slide">
+  <div class="deck-tab">RETI · M1</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape sky reveal">Step by step</div>
+      <h2 class="h-big reveal">Come funziona<br>una <em class="hot">richiesta</em><br>Web</h2>
+      <p class="lead reveal d1">Quando digiti un indirizzo nel browser, accadono molte cose in pochi millisecondi. Ecco le fasi principali.</p>
+      <div class="stack reveal d2">
+        <div class="agenda-item" style="padding:10px 0;border-bottom:2px dashed var(--line);"><span style="font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:54px;">1</span><div style="font-size:26px;"><b>Inserisci l'indirizzo</b><br><span style="color:var(--ink-faint);font-size:22px;">Es. www.wikipedia.org nel browser</span></div></div>
+        <div class="agenda-item" style="padding:10px 0;border-bottom:2px dashed var(--line);"><span style="font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:54px;">2</span><div style="font-size:26px;"><b>Il browser chiede al DNS</b><br><span style="color:var(--ink-faint);font-size:22px;">"Qual è l'IP di wikipedia.org?"</span></div></div>
+        <div class="agenda-item" style="padding:10px 0;border-bottom:2px dashed var(--line);"><span style="font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:54px;">3</span><div style="font-size:26px;"><b>Il browser contatta il server</b><br><span style="color:var(--ink-faint);font-size:22px;">Connessione TCP all'indirizzo IP trovato</span></div></div>
+        <div class="agenda-item" style="padding:10px 0;border-bottom:2px dashed var(--line);"><span style="font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:54px;">4</span><div style="font-size:26px;"><b>Il server invia i dati</b><br><span style="color:var(--ink-faint);font-size:22px;">HTML, CSS, immagini, script</span></div></div>
+        <div class="agenda-item" style="padding:10px 0;"><span style="font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:54px;">5</span><div style="font-size:26px;"><b>Il browser visualizza la pagina</b><br><span style="color:var(--ink-faint);font-size:22px;">Interpreta il codice e mostra il risultato</span></div></div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 300" style="max-width:240px;margin:0 auto;" role="img" aria-label="Sequenza browser-DNS-server">
+        <!-- Browser -->
+        <rect x="20" y="20" width="80" height="54" rx="8" fill="#3f7e8c" stroke="#1c1714" stroke-width="3"/>
+        <text x="60" y="42" text-anchor="middle" font-size="20" fill="#fff">🌐</text>
+        <text x="60" y="62" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#f4ece0">Browser</text>
+        <!-- DNS -->
+        <rect x="90" y="110" width="80" height="54" rx="8" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+        <text x="130" y="132" text-anchor="middle" font-size="20" fill="#1c1714">📒</text>
+        <text x="130" y="152" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#1c1714">DNS</text>
+        <!-- Server -->
+        <rect x="160" y="200" width="80" height="54" rx="8" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+        <text x="200" y="222" text-anchor="middle" font-size="20" fill="#fff">🖥️</text>
+        <text x="200" y="242" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#f4ece0">Server</text>
+        <!-- Arrows -->
+        <line x1="80" y1="50" x2="108" y2="120" stroke="#e6533b" stroke-width="3"/>
+        <polygon points="104,116 112,128 116,116" fill="#e6533b"/>
+        <text x="72" y="92" font-family="Space Mono" font-size="10" fill="#e6533b">1. DNS?</text>
+        <line x1="160" y1="142" x2="176" y2="204" stroke="#e6533b" stroke-width="3"/>
+        <polygon points="172,200 180,212 184,200" fill="#e6533b"/>
+        <text x="162" y="180" font-family="Space Mono" font-size="10" fill="#e6533b">2. IP→</text>
+        <line x1="200" y1="200" x2="80" y2="70" stroke="#e6c14a" stroke-width="2" stroke-dasharray="6"/>
+        <text x="110" y="148" font-family="Space Mono" font-size="10" fill="#d98a2b">3. HTML ←</text>
+      </svg>
+      <div class="illu-cap">DNS → Server → Browser: ~200ms</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 9: CLIENT E SERVER === -->
+<section class="slide">
+  <div class="deck-tab">RETI · M1</div>
+  <div class="center">
+    <div class="tape sky reveal">Architettura</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Client e <em class="hot">Server</em></h2>
+    <p class="lead reveal d1">Il modello fondamentale di Internet: un <b>client</b> fa richieste, un <b>server</b> risponde. Ogni interazione online segue questo schema.</p>
+    <div class="grid2 reveal d2" style="margin-top:22px;">
+      <div class="card" style="border-color:var(--sky);">
+        <span class="ic">📲</span>
+        <h3>Client</h3>
+        <p>Il dispositivo che <b>richiede</b> informazioni o servizi. Avvia sempre la comunicazione.</p>
+        <p style="margin-top:14px;font-weight:700;">Esempi:</p>
+        <p>Computer con browser · Smartphone con app · Lettore di email · App di streaming</p>
+        <p style="margin-top:14px;font-family:var(--font-mono);font-size:21px;color:var(--sky);">Chiede → Riceve → Mostra</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <span class="ic">🖥️</span>
+        <h3>Server</h3>
+        <p>Il computer che <b>fornisce</b> servizi o contenuti. Rimane in ascolto e risponde alle richieste.</p>
+        <p style="margin-top:14px;font-weight:700;">Esempi:</p>
+        <p>Server web (Apache, Nginx) · Server email (Gmail) · Server cloud (AWS, Drive) · Server di gioco</p>
+        <p style="margin-top:14px;font-family:var(--font-mono);font-size:21px;color:var(--gold-deep);">Ascolta → Elabora → Risponde</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 Un dispositivo può essere entrambi</div>
+      <p>Il tuo computer è client quando naviga su Wikipedia. Può diventare server se condivide file in rete locale o ospita un sito. Il ruolo dipende dall'interazione, non dal dispositivo.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 10: VANTAGGI DELLE RETI === -->
+<section class="slide">
+  <div class="deck-tab">RETI · M1</div>
+  <div class="center">
+    <div class="tape sky reveal">Perché le reti sono utili</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;"><em class="hot">Vantaggi</em> delle reti</h2>
+    <p class="lead reveal d1">Le reti hanno trasformato il modo in cui lavoriamo, comunichiamo e accediamo alle informazioni. Sono la base del mondo digitale moderno.</p>
+    <div class="grid3 reveal d2" style="margin-top:22px;">
+      <div class="card">
+        <span class="ic">💬</span>
+        <h3>Comunicazione immediata</h3>
+        <p>Email, messaggi istantanei, videochiamate. Due persone agli antipodi del mondo possono comunicare in tempo reale senza costi rilevanti.</p>
+      </div>
+      <div class="card">
+        <span class="ic">📂</span>
+        <h3>Condivisione di risorse</h3>
+        <p>Documenti, stampanti, software, storage — accessibili da più dispositivi. Un ufficio condivide una sola stampante invece di averne una per scrivania.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🌍</span>
+        <h3>Accesso remoto</h3>
+        <p>Lavorare da casa accedendo ai sistemi aziendali. Controllare dispositivi a distanza. Il lavoro non è più legato a un luogo fisico specifico.</p>
+      </div>
+    </div>
+    <div class="grid2 reveal d3" style="margin-top:22px;gap:22px;">
+      <div class="note">
+        <div class="lbl">🤝 Collaborazione online</div>
+        <p>Più persone modificano lo stesso documento contemporaneamente (Google Docs), partecipano a riunioni virtuali, gestiscono progetti condivisi.</p>
+      </div>
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">💾 Backup centralizzati</div>
+        <p>I dati salvati su cloud o server di rete sono protetti anche se un singolo dispositivo si rompe o viene smarrito. Ridondanza come protezione.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 11: RISCHI DELLE RETI === -->
+<section class="slide">
+  <div class="deck-tab">RETI · M1</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape reveal">Il rovescio della medaglia</div>
+      <h2 class="h-big reveal"><em class="hot">Rischi</em><br>delle reti</h2>
+      <p class="lead reveal d1">Ogni connessione è una porta aperta in entrambe le direzioni. Insieme ai vantaggi, le reti introducono nuovi rischi che non esistevano prima.</p>
+      <div class="stack reveal d2">
+        <div class="note red">
+          <div class="lbl">🔓 Accesso non autorizzato</div>
+          <p>Un attaccante può tentare di entrare nei sistemi connessi — dalla rete locale a Internet. Senza protezioni, qualsiasi dispositivo è potenzialmente raggiungibile.</p>
+        </div>
+        <div class="note red">
+          <div class="lbl">🦠 Malware e virus</div>
+          <p>I programmi malevoli si diffondono attraverso la rete — email infette, siti compromessi, file scaricati. La velocità di diffusione è proporzionale alla connettività.</p>
+        </div>
+        <div class="note red">
+          <div class="lbl">📤 Furto di dati</div>
+          <p>Dati personali, password, dati bancari possono essere intercettati durante la trasmissione o sottratti da sistemi compromessi.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">⚡ Interruzione dei servizi</div>
+        <p>Attacchi DDoS, guasti di rete, dipendenza da infrastrutture esterne. Un'azienda moderna senza rete è paralizzata in pochi minuti.</p>
+      </div>
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">📡 Intercettazione</div>
+        <p>Il traffico su reti non cifrate può essere letto da chiunque sia sulla stessa rete. Reti WiFi pubbliche non sicure sono particolarmente rischiose.</p>
+      </div>
+      <div class="note sky">
+        <div class="lbl">→ Per questo esiste</div>
+        <p>La <b>sicurezza informatica</b> — l'insieme di pratiche, strumenti e competenze per proteggere reti e sistemi da questi rischi.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 12: QUIZ === -->
+<section class="slide">
+  <div class="deck-tab">RETI · M1</div>
+  <div class="col stack" style="justify-content:center;height:100%;">
+    <div class="tape sky reveal">Verifica veloce</div>
+    <h2 class="h-sec reveal">Hai capito tutto?</h2>
+    <p class="lead reveal d1" style="margin-bottom:6px;">Prova a rispondere a mente:</p>
+    <div class="grid2 reveal d2" style="gap:24px 40px;">
+      <div class="card"><h3 style="font-size:32px;">1.</h3><p>Qual è la differenza tra una LAN e una WAN? Fai un esempio concreto di ciascuna.</p></div>
+      <div class="card"><h3 style="font-size:32px;">2.</h3><p>Internet e World Wide Web sono la stessa cosa? Spiega la differenza con un'analogia.</p></div>
+      <div class="card"><h3 style="font-size:32px;">3.</h3><p>Cosa fa un client? Cosa fa un server? Quando il tuo telefono è client e quando potrebbe essere server?</p></div>
+      <div class="card"><h3 style="font-size:32px;">4.</h3><p>Elenca due vantaggi e due rischi delle reti informatiche. Come sono collegati l'uno all'altro?</p></div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">🎯 Situazione pratica</div>
+      <p>La tua scuola ha una rete WiFi e stampanti condivise. Che tipo di rete è? Quali vantaggi porta? Quali rischi introduce che non esisterebbero senza rete?</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 13: CLOSING === -->
+<section class="slide closing">
+  <div class="center" style="align-items:center;text-align:center;">
+    <div class="eyebrow reveal" style="color:var(--gold);">Fine Modulo 1</div>
+    <h2 class="h-mega reveal" style="margin-top:10px;color:#fff;">Connessi! <em class="hot">🌐</em></h2>
+    <p class="lead reveal d1" style="color:#f4ece0;max-width:1100px;text-align:center;margin-top:20px;">Sai cos'è una rete, come si classificano, come funziona Internet e quali rischi introduce. Nel <span style="color:var(--gold);">prossimo modulo</span> vediamo come <b>navigare il Web</b> e la struttura degli indirizzi online.</p>
+    <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+      <a class="chip" href="inf-sec-navigazione.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → M2 · Navigazione e URL</a>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;}); }
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'inf-sec-reti-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>

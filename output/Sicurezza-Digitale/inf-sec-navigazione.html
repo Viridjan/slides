@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · Navigazione e Indirizzi Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;}.slide:last-child{break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.teal{background:var(--teal);}.tape.sky{background:var(--sky);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:142px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:28px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 32px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:10px;line-height:1;}
+.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:50px;line-height:1;display:block;margin-bottom:8px;}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:24px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.teal{background:var(--teal);}.note.teal *{color:#fff !important;}
+.note.sky{background:var(--sky);}.note.sky *{color:#fff !important;}
+.note.red{background:#f3b6aa;}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:26px;line-height:1.4;color:var(--ink);}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:22px;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#2a6660,#0d2520);right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:18px 60px;margin-top:16px;}
+.agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:15px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:72px;}
+.agenda-item .t{font-size:28px;font-weight:600;color:var(--ink);}
+.closing{background:var(--teal-2);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing em.hot{color:var(--gold);}
+.url-box{background:var(--teal);color:var(--paper);border-radius:16px;padding:20px 36px;font-family:var(--font-mono);font-size:36px;letter-spacing:-1px;border:3px solid var(--ink);box-shadow:8px 9px 0 rgba(28,23,20,.2);word-break:break-all;}
+.url-box .seg{display:inline;}.url-box .s-proto{color:var(--gold);}.url-box .s-host{color:#7be8e4;}.url-box .s-path{color:#f4ece0;opacity:.8;}.url-box .s-query{color:#e6c14a;opacity:.7;}
+.badge{display:inline-block;font-family:var(--font-mono);font-size:22px;font-weight:700;padding:8px 20px;border-radius:8px;border:2px solid currentColor;}
+.badge.http{background:#fdf3e0;color:var(--gold-deep);border-color:var(--gold-deep);}
+.badge.https{background:#e6f3f0;color:var(--teal-2);border-color:var(--teal-2);}
+.badge.geo{background:#f0f7ff;color:var(--sky);border-color:var(--sky);}
+.badge.com{background:#fef0f0;color:var(--red);border-color:var(--red);}
+.badge.org{background:#f0faf0;color:#2e7d4f;border-color:#2e7d4f;}
+.badge.edu{background:#f5f0ff;color:#7a4db5;border-color:#7a4db5;}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--teal);z-index:1000;transition:width .35s var(--ease);}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- === SLIDE 1: TITLE === -->
+<section class="slide title-slide active">
+  <div class="title-left">
+    <div class="tape teal reveal">Informatica · Basi</div>
+    <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo 2+3 — Navigazione e URL</div>
+    <h1 class="h-big reveal" contenteditable="true">Navigazione<br>e Indirizzi<br><em class="hot">Web</em></h1>
+    <p class="lead reveal" style="margin-top:26px;" contenteditable="true">Come funziona la navigazione online, la differenza tra HTTP e HTTPS, la struttura degli URL e i domini di Internet.</p>
+    <div class="chips reveal" style="margin-top:40px;"><span class="chip">Modulo 2+3</span><span class="chip alt">Basi</span><span class="chip alt">~30 min</span></div>
+  </div>
+  <div class="title-right">
+    <div style="position:relative;z-index:2;text-align:center;">
+      <div style="font-family:var(--font-mono);font-size:28px;color:var(--gold);margin-bottom:16px;letter-spacing:1px;">Indirizzo web</div>
+      <div class="url-box" style="font-size:30px;text-align:left;min-width:480px;">
+        <span class="s-proto">https://</span><span class="s-host">www.scuola.it</span><span class="s-path">/corsi</span><span class="s-query">?mod=2</span>
+      </div>
+      <div style="display:flex;gap:24px;margin-top:24px;justify-content:center;">
+        <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:18px;color:var(--gold);margin-bottom:6px;">Protocollo</div><div style="width:12px;height:12px;background:var(--gold);border-radius:50%;margin:0 auto;"></div></div>
+        <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:18px;color:#7be8e4;margin-bottom:6px;">Host</div><div style="width:12px;height:12px;background:#7be8e4;border-radius:50%;margin:0 auto;"></div></div>
+        <div style="text-align:center;"><div style="font-family:var(--font-mono);font-size:18px;color:rgba(244,236,224,.6);margin-bottom:6px;">Percorso</div><div style="width:12px;height:12px;background:rgba(244,236,224,.6);border-radius:50%;margin:0 auto;"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === SLIDE 2: AGENDA === -->
+<section class="slide">
+  <div class="deck-tab">NAV · M2+3</div>
+  <div class="center">
+    <div class="tape teal reveal">In questo modulo</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
+    <div class="agenda-list reveal d1">
+      <div class="agenda-item"><span class="n">01</span><span class="t">Navigare sul Web</span></div>
+      <div class="agenda-item"><span class="n">02</span><span class="t">I protocolli di rete</span></div>
+      <div class="agenda-item"><span class="n">03</span><span class="t">HTTP — il linguaggio del Web</span></div>
+      <div class="agenda-item"><span class="n">04</span><span class="t">HTTPS — comunicazione sicura</span></div>
+      <div class="agenda-item"><span class="n">05</span><span class="t">HTTP vs HTTPS a confronto</span></div>
+      <div class="agenda-item"><span class="n">06</span><span class="t">Cos'è un URL</span></div>
+      <div class="agenda-item"><span class="n">07</span><span class="t">Anatomia di un URL</span></div>
+      <div class="agenda-item"><span class="n">08</span><span class="t">Cos'è un dominio</span></div>
+      <div class="agenda-item"><span class="n">09</span><span class="t">Cos'è un hyperlink</span></div>
+      <div class="agenda-item"><span class="n">10</span><span class="t">Estensioni: geografiche e tematiche</span></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 3: NAVIGARE SUL WEB === -->
+<section class="slide">
+  <div class="deck-tab">NAV · M2+3</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">Punto di partenza</div>
+      <h2 class="h-big reveal">Cosa significa<br><em class="hot">navigare</em><br>sul Web</h2>
+      <p class="lead reveal d1">Navigare significa <b>richiedere e ricevere contenuti</b> da server remoti tramite un programma chiamato <b>browser</b>. L'azione appare semplice; il processo sottostante è complesso.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">🌐 Il browser</div>
+          <p>Il programma che usi per accedere al Web. Invia richieste ai server, riceve i dati (HTML, CSS, JS) e li trasforma in pagine leggibili.<br><b>Esempi:</b> Chrome · Firefox · Safari · Edge · Opera</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">📋 Come si naviga</div>
+          <p>Digiti un indirizzo (URL) nella barra del browser, fai clic su un link, o usi una cronologia. Il browser fa tutto il resto: richiede, riceve, interpreta, mostra.</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 240" style="max-width:240px;margin:0 auto;" role="img" aria-label="Finestra browser con barra degli indirizzi">
+        <!-- Browser window -->
+        <rect x="10" y="10" width="240" height="180" rx="12" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <!-- Title bar -->
+        <rect x="10" y="10" width="240" height="40" rx="12" fill="#163b35"/>
+        <rect x="10" y="40" width="240" height="10" fill="#163b35"/>
+        <!-- Traffic lights -->
+        <circle cx="34" cy="30" r="8" fill="#e6533b"/>
+        <circle cx="56" cy="30" r="8" fill="#e6c14a"/>
+        <circle cx="78" cy="30" r="8" fill="#2e7d4f"/>
+        <!-- URL bar -->
+        <rect x="96" y="18" width="148" height="24" rx="6" fill="#fbf5ec"/>
+        <text x="170" y="34" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#163b35">www.scuola.it</text>
+        <!-- Page content -->
+        <rect x="26" y="66" width="80" height="14" rx="3" fill="#d8c9b4"/>
+        <rect x="26" y="86" width="200" height="10" rx="3" fill="#ece0cf"/>
+        <rect x="26" y="102" width="160" height="10" rx="3" fill="#ece0cf"/>
+        <rect x="26" y="118" width="180" height="10" rx="3" fill="#ece0cf"/>
+        <!-- Image placeholder -->
+        <rect x="26" y="136" width="90" height="46" rx="6" fill="#d8c9b4"/>
+        <text x="71" y="164" text-anchor="middle" font-size="22">🖼️</text>
+        <!-- Text lines beside image -->
+        <rect x="126" y="138" width="106" height="10" rx="3" fill="#ece0cf"/>
+        <rect x="126" y="154" width="86" height="10" rx="3" fill="#ece0cf"/>
+        <rect x="126" y="170" width="96" height="10" rx="3" fill="#ece0cf"/>
+        <!-- Link in teal -->
+        <rect x="26" y="192" width="64" height="14" rx="3" fill="#3f7e8c" opacity=".5"/>
+        <rect x="100" y="192" width="48" height="14" rx="3" fill="#3f7e8c" opacity=".5"/>
+      </svg>
+      <div class="illu-cap">Il browser: finestra sul Web</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 4: PROTOCOLLI DI RETE === -->
+<section class="slide">
+  <div class="deck-tab">NAV · M2+3</div>
+  <div class="center">
+    <div class="tape teal reveal">Come si parla in rete</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">I <em class="hot">protocolli</em> di rete</h2>
+    <p class="lead reveal d1">Un protocollo è un insieme di <b>regole condivise</b> che permettono a due sistemi diversi di comunicare. Come una lingua comune: se parlate la stessa, vi capite.</p>
+    <div class="grid3 reveal d2" style="margin-top:22px;">
+      <div class="card">
+        <span class="ic">🗣️</span>
+        <h3>Cos'è un protocollo</h3>
+        <p>Un accordo su come formattare, trasmettere, ricevere e interpretare i messaggi. Definisce tutto: chi parla per primo, come si segnala un errore, come si chiude la connessione.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🌍</span>
+        <h3>Protocolli del Web</h3>
+        <p><b>HTTP/HTTPS</b> — Scambio di pagine web<br><b>TCP/IP</b> — Consegna dei pacchetti<br><b>DNS</b> — Traduzione nome→IP<br><b>FTP</b> — Trasferimento file<br><b>SMTP/IMAP</b> — Email</p>
+      </div>
+      <div class="card">
+        <span class="ic">🤝</span>
+        <h3>Perché sono importanti</h3>
+        <p>Grazie ai protocolli, un iPhone in Italia può comunicare con un server in Giappone. Senza standard condivisi, nessun sistema potrebbe parlare con un altro.</p>
+      </div>
+    </div>
+    <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">Analogia:</span> il galateo è il protocollo di una conversazione educata — regole che tutti seguono per capirsi.</div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 5: HTTP === -->
+<section class="slide">
+  <div class="deck-tab">NAV · M2+3</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">Il linguaggio del Web</div>
+      <h2 class="h-big reveal"><span class="badge http" style="font-size:60px;padding:14px 30px;display:block;margin-bottom:16px;">HTTP</span>HyperText<br>Transfer<br><em class="hot">Protocol</em></h2>
+      <p class="lead reveal d1">Il protocollo che definisce come browser e server si scambiano <b>documenti ipertestuali</b> (pagine web). Alla base di tutto il World Wide Web.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">⚙️ Come funziona</div>
+          <p><b>Richiesta (Request):</b> il browser chiede una pagina o risorsa.<br><b>Risposta (Response):</b> il server risponde con i dati e un codice di stato (200 OK, 404 Not Found, 301 Redirect…)</p>
+        </div>
+        <div class="note red">
+          <div class="lbl">⚠️ Limite di HTTP</div>
+          <p>I dati viaggiano <b>in chiaro</b> — non cifrati. Chiunque sia sulla stessa rete può leggerli. Inadatto per dati sensibili (password, dati bancari).</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 220" style="max-width:240px;margin:0 auto;" role="img" aria-label="Scambio HTTP richiesta-risposta">
+        <!-- Browser left -->
+        <rect x="10" y="60" width="70" height="50" rx="8" fill="#3f7e8c" stroke="#1c1714" stroke-width="2"/>
+        <text x="45" y="78" text-anchor="middle" font-size="20" fill="#fff">🌐</text>
+        <text x="45" y="96" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#f4ece0">Browser</text>
+        <!-- Server right -->
+        <rect x="180" y="60" width="70" height="50" rx="8" fill="#163b35" stroke="#1c1714" stroke-width="2"/>
+        <text x="215" y="78" text-anchor="middle" font-size="20" fill="#fff">🖥️</text>
+        <text x="215" y="96" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#f4ece0">Server</text>
+        <!-- Request arrow -->
+        <line x1="80" y1="76" x2="180" y2="76" stroke="#e6c14a" stroke-width="3"/>
+        <polygon points="176,72 184,76 176,80" fill="#e6c14a"/>
+        <text x="130" y="66" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#d98a2b">GET /pagina.html</text>
+        <!-- Response arrow -->
+        <line x1="180" y1="100" x2="80" y2="100" stroke="#e6533b" stroke-width="3" stroke-dasharray="6"/>
+        <polygon points="84,96 76,100 84,104" fill="#e6533b"/>
+        <text x="130" y="120" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#e6533b">200 OK — HTML</text>
+        <!-- Warning - not encrypted -->
+        <rect x="48" y="148" width="164" height="40" rx="8" fill="#f3b6aa" stroke="#e6533b" stroke-width="2"/>
+        <text x="130" y="163" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#1c1714" font-weight="700">⚠️ TESTO IN CHIARO</text>
+        <text x="130" y="180" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#1c1714">visibile sulla rete</text>
+        <!-- Eye peering -->
+        <text x="130" y="208" text-anchor="middle" font-size="18">👁️</text>
+      </svg>
+      <div class="illu-cap">HTTP: testo leggibile da chiunque</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 6: HTTPS === -->
+<section class="slide">
+  <div class="deck-tab">NAV · M2+3</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">Comunicazione sicura</div>
+      <h2 class="h-big reveal"><span class="badge https" style="font-size:60px;padding:14px 30px;display:block;margin-bottom:16px;">HTTPS</span>HTTP<br><em class="hot">Secure</em></h2>
+      <p class="lead reveal d1">La versione sicura di HTTP. I dati vengono <b>cifrati tramite TLS</b> (Transport Layer Security) prima di essere trasmessi. Anche se intercettati, risultano illeggibili.</p>
+      <div class="stack reveal d2">
+        <div class="note teal">
+          <div class="lbl" style="color:var(--gold) !important;">🔒 Come funziona la cifratura</div>
+          <p>Browser e server negoziano una chiave segreta (handshake). Tutti i dati successivi vengono cifrati con quella chiave. Solo il destinatario può decifrarli.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">🔑 Certificato digitale</div>
+          <p>HTTPS richiede un <b>certificato SSL/TLS</b> — un documento digitale che verifica l'identità del sito. Il lucchetto verde/grigio nel browser indica che il certificato è valido.</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 220" style="max-width:240px;margin:0 auto;" role="img" aria-label="Scambio HTTPS cifrato con lucchetto">
+        <!-- Browser left -->
+        <rect x="10" y="60" width="70" height="50" rx="8" fill="#3f7e8c" stroke="#1c1714" stroke-width="2"/>
+        <text x="45" y="78" text-anchor="middle" font-size="20" fill="#fff">🌐</text>
+        <text x="45" y="96" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#f4ece0">Browser</text>
+        <!-- Lock on browser -->
+        <text x="72" y="58" font-size="16">🔒</text>
+        <!-- Server right -->
+        <rect x="180" y="60" width="70" height="50" rx="8" fill="#163b35" stroke="#1c1714" stroke-width="2"/>
+        <text x="215" y="78" text-anchor="middle" font-size="20" fill="#fff">🖥️</text>
+        <text x="215" y="96" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#f4ece0">Server</text>
+        <!-- Encrypted arrow -->
+        <line x1="80" y1="76" x2="180" y2="76" stroke="#2e7d4f" stroke-width="3"/>
+        <polygon points="176,72 184,76 176,80" fill="#2e7d4f"/>
+        <text x="130" y="62" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#163b35">*** CIFRATO ***</text>
+        <!-- Response -->
+        <line x1="180" y1="100" x2="80" y2="100" stroke="#2e7d4f" stroke-width="3" stroke-dasharray="6"/>
+        <polygon points="84,96 76,100 84,104" fill="#2e7d4f"/>
+        <text x="130" y="120" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#163b35">*** CIFRATO ***</text>
+        <!-- Eye blocked -->
+        <rect x="48" y="148" width="164" height="40" rx="8" fill="#c8f0d8" stroke="#2e7d4f" stroke-width="2"/>
+        <text x="130" y="163" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#163b35" font-weight="700">✅ DATI CIFRATI</text>
+        <text x="130" y="180" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#163b35">illeggibili se intercettati</text>
+        <text x="130" y="208" text-anchor="middle" font-size="18">🙈</text>
+      </svg>
+      <div class="illu-cap">HTTPS: dati illeggibili in transito</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 7: HTTP vs HTTPS === -->
+<section class="slide">
+  <div class="deck-tab">NAV · M2+3</div>
+  <div class="center">
+    <div class="tape teal reveal">Confronto</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;"><span class="badge http">HTTP</span> vs <span class="badge https">HTTPS</span></h2>
+    <div class="grid2 reveal d1" style="margin-top:22px;">
+      <div class="card" style="border-color:var(--gold-deep);">
+        <h3>HTTP</h3>
+        <p>🔓 Dati <b>non cifrati</b> — visibili in rete<br>⚡ Più veloce (nessuna cifratura)<br>❌ Non adatto a password, dati bancari<br>❌ Nessuna verifica identità del sito<br>📛 Browser mostra "Non sicuro"<br>🏛️ Usato ancora per contenuti pubblici non sensibili</p>
+      </div>
+      <div class="card" style="border-color:var(--teal);">
+        <h3>HTTPS</h3>
+        <p>🔒 Dati <b>cifrati</b> con TLS<br>🛡️ Protegge login, acquisti, messaggi<br>✅ Verifica l'identità del server (certificato)<br>🔑 Lucchetto nel browser<br>📈 Standard moderno — richiesto ovunque<br>🏆 Google favorisce HTTPS nel ranking</p>
+      </div>
+    </div>
+    <div class="grid2 reveal d2" style="margin-top:20px;gap:20px;">
+      <div class="note red">
+        <div class="lbl">⚠️ Attenzione</div>
+        <p>HTTPS garantisce che la <b>connessione</b> sia cifrata, non che il sito sia affidabile. Un sito fraudolento può usare HTTPS. Controlla sempre anche il dominio.</p>
+      </div>
+      <div class="note teal">
+        <div class="lbl">✅ Regola pratica</div>
+        <p>Se devi inserire dati personali (username, password, carta di credito), <b>verifica sempre</b> il lucchetto e che l'indirizzo inizi con <b>https://</b>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 8: COS'È UN URL === -->
+<section class="slide">
+  <div class="deck-tab">NAV · M2+3</div>
+  <div class="center">
+    <div class="tape teal reveal">Identificatori del Web</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Cos'è un <em class="hot">URL</em></h2>
+    <p class="lead reveal d1"><b>URL</b> = Uniform Resource Locator. È l'indirizzo esatto di una risorsa sul Web. Come un indirizzo postale: identifica in modo univoco dove si trova qualcosa su Internet.</p>
+    <div class="grid3 reveal d2" style="margin-top:22px;">
+      <div class="card">
+        <span class="ic">📍</span>
+        <h3>Cosa identifica</h3>
+        <p>Qualsiasi risorsa raggiungibile via Internet: una pagina HTML, un'immagine, un file PDF, un video, un file audio, un'applicazione web.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🌍</span>
+        <h3>Univoco</h3>
+        <p>Due URL diversi identificano due risorse diverse. Lo stesso URL punta sempre alla stessa risorsa (a meno che il server non la cambi o sposti).</p>
+      </div>
+      <div class="card">
+        <span class="ic">🔗</span>
+        <h3>Componenti</h3>
+        <p>Protocollo, host (dominio), porta (opzionale), percorso, query string, frammento. Ogni parte ha un significato preciso che vedremo nella prossima slide.</p>
+      </div>
+    </div>
+    <div class="url-box reveal d3" style="margin-top:24px;font-size:40px;text-align:center;">
+      <span class="s-proto">https://</span><span class="s-host">www.wikipedia.org</span><span class="s-path">/wiki/Internet</span>
+    </div>
+    <p class="illu-cap reveal d3" style="margin-top:10px;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);text-align:center;">Questo URL identifica la pagina "Internet" su Wikipedia in italiano</p>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 9: ANATOMIA DI UN URL === -->
+<section class="slide">
+  <div class="deck-tab">NAV · M2+3</div>
+  <div class="center">
+    <div class="tape teal reveal">Struttura</div>
+    <h2 class="h-sec reveal" style="margin-top:16px;">Anatomia di un <em class="hot">URL</em></h2>
+    <div class="url-box reveal d1" style="margin-top:18px;font-size:38px;text-align:center;">
+      <span class="s-proto">https://</span><span class="s-host">www.scuola.edu.it</span><span class="s-path">/corsi/informatica</span><span class="s-query">?anno=2&tipo=base</span>
+    </div>
+    <div class="grid4 reveal d2" style="margin-top:22px;">
+      <div class="card" style="border-color:var(--gold-deep);">
+        <div style="margin-bottom:10px;"><span class="badge http" style="font-size:20px;">Protocollo</span></div>
+        <h3 style="font-family:var(--font-mono);color:var(--gold-deep);">https://</h3>
+        <p>Definisce le regole di comunicazione. HTTP o HTTPS per il Web. FTP per file. mailto: per email. Termina sempre con <code style="background:var(--paper-2);padding:2px 6px;border-radius:4px;">://</code></p>
+      </div>
+      <div class="card" style="border-color:var(--teal);">
+        <div style="margin-bottom:10px;"><span class="badge https" style="font-size:20px;">Host</span></div>
+        <h3 style="font-family:var(--font-mono);color:var(--teal);">www.scuola.edu.it</h3>
+        <p>Il nome del server da contattare. Composto da sottodominio (www), nome (scuola), estensioni (.edu.it). Il DNS lo traduce in un indirizzo IP.</p>
+      </div>
+      <div class="card" style="border-color:var(--ink-faint);">
+        <div style="margin-bottom:10px;"><span class="badge" style="font-size:20px;border-color:var(--ink-faint);color:var(--ink-faint);">Percorso</span></div>
+        <h3 style="font-family:var(--font-mono);color:var(--ink);">/corsi/informatica</h3>
+        <p>La "cartella" sul server dove si trova la risorsa. Simile al percorso di un file sul computer. Inizia sempre con <code style="background:var(--paper-2);padding:2px 6px;border-radius:4px;">/</code></p>
+      </div>
+      <div class="card" style="border-color:var(--gold);">
+        <div style="margin-bottom:10px;"><span class="badge" style="font-size:20px;border-color:var(--gold-deep);color:var(--gold-deep);">Query</span></div>
+        <h3 style="font-family:var(--font-mono);color:var(--gold-deep);">?anno=2&tipo=base</h3>
+        <p>Parametri opzionali passati al server. Inizia con <code style="background:var(--paper-2);padding:2px 6px;border-radius:4px;">?</code>. Coppie chiave=valore separate da <code style="background:var(--paper-2);padding:2px 6px;border-radius:4px;">&</code>. Usati per filtri, ricerche, opzioni.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 10: COS'È UN DOMINIO === -->
+<section class="slide">
+  <div class="deck-tab">NAV · M2+3</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">Nomi della rete</div>
+      <h2 class="h-big reveal">Cos'è un<br><em class="hot">dominio</em>?</h2>
+      <p class="lead reveal d1">Il dominio è il <b>nome leggibile</b> di un server su Internet. Gli indirizzi IP (come 192.168.1.1) sono numeri difficili da ricordare — i domini li rendono comprensibili.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">🏷️ Come funziona</div>
+          <p>Il <b>DNS</b> (Domain Name System) traduce automaticamente il nome in un indirizzo IP. Digiti <code style="background:var(--paper-2);padding:2px 6px;border-radius:4px;">google.com</code> → il DNS trova l'IP → il browser si connette.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">📝 Struttura del dominio</div>
+          <p><code style="background:var(--paper);padding:2px 8px;border-radius:4px;font-size:24px;">www . wikipedia . org</code><br><br>
+          <b>www</b> = sottodominio (opzionale)<br>
+          <b>wikipedia</b> = nome del dominio (SLD)<br>
+          <b>.org</b> = estensione di primo livello (TLD)</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 260 200" style="max-width:240px;margin:0 auto;" role="img" aria-label="DNS traduce nome in IP">
+        <!-- User typing -->
+        <rect x="10" y="20" width="80" height="40" rx="8" fill="#3f7e8c" stroke="#1c1714" stroke-width="2"/>
+        <text x="50" y="38" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#f4ece0">Digiti:</text>
+        <text x="50" y="52" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#e6c14a">google.com</text>
+        <!-- Arrow to DNS -->
+        <line x1="90" y1="40" x2="130" y2="40" stroke="#e6c14a" stroke-width="2"/>
+        <polygon points="126,36 134,40 126,44" fill="#e6c14a"/>
+        <!-- DNS -->
+        <rect x="130" y="20" width="50" height="40" rx="8" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <text x="155" y="38" text-anchor="middle" font-size="18">📒</text>
+        <text x="155" y="52" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#1c1714">DNS</text>
+        <!-- Arrow down with IP -->
+        <line x1="155" y1="60" x2="155" y2="100" stroke="#e6c14a" stroke-width="2"/>
+        <polygon points="151,96 155,104 159,96" fill="#e6c14a"/>
+        <text x="160" y="86" font-family="Space Mono" font-size="10" fill="#d98a2b">142.250.x.x</text>
+        <!-- IP -->
+        <rect x="108" y="104" width="94" height="36" rx="8" fill="#163b35" stroke="#1c1714" stroke-width="2"/>
+        <text x="155" y="118" text-anchor="middle" font-family="Space Mono" font-size="9" fill="#f4ece0">142.250.74.206</text>
+        <text x="155" y="132" text-anchor="middle" font-family="Space Mono" font-size="9" fill="#7be8e4">IP di Google</text>
+        <!-- Arrow to server -->
+        <line x1="155" y1="140" x2="155" y2="168" stroke="#e6533b" stroke-width="2"/>
+        <polygon points="151,164 155,172 159,164" fill="#e6533b"/>
+        <!-- Server -->
+        <rect x="120" y="168" width="70" height="30" rx="8" fill="#fbf5ec" stroke="#1c1714" stroke-width="2"/>
+        <text x="155" y="188" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#1c1714">🖥️ Google</text>
+      </svg>
+      <div class="illu-cap">DNS: traduce nomi in indirizzi</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 11: HYPERLINK === -->
+<section class="slide">
+  <div class="deck-tab">NAV · M2+3</div>
+  <div class="center">
+    <div class="tape teal reveal">Il tessuto del Web</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Cos'è un <em class="hot">hyperlink</em></h2>
+    <p class="lead reveal d1">Un hyperlink (o semplicemente <b>link</b>) è un elemento cliccabile che porta da una risorsa web a un'altra. È il concetto che ha ispirato il nome "World Wide <b>Web</b>".</p>
+    <div class="grid2 reveal d2" style="margin-top:22px;">
+      <div class="card">
+        <span class="ic">🔗</span>
+        <h3>Caratteristiche</h3>
+        <p>Un link collega qualsiasi risorsa: pagina web, immagine, file da scaricare, email, numero di telefono, sezione della stessa pagina. Può essere testo, un'immagine, un pulsante.</p>
+        <p style="margin-top:14px;font-family:var(--font-mono);font-size:22px;color:var(--teal);">&lt;a href="url"&gt;testo&lt;/a&gt;</p>
+      </div>
+      <div class="card">
+        <span class="ic">🕸️</span>
+        <h3>Il Web come rete di link</h3>
+        <p>Il Web è una <b>rete di documenti interconnessi tramite link</b>. Tim Berners-Lee lo ha concepito nel 1989 come un sistema di ipertesti globale — ogni pagina può puntare a qualsiasi altra.</p>
+        <p style="margin-top:14px;"><b>Miliardi di link</b> formano il tessuto del Web moderno.</p>
+      </div>
+    </div>
+    <div class="grid2 reveal d3" style="margin-top:20px;">
+      <div class="note">
+        <div class="lbl">🔵 Link interni</div>
+        <p>Puntano a un'altra pagina o sezione dello stesso sito. Es: menu di navigazione, sommario di un articolo.</p>
+      </div>
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">🌐 Link esterni</div>
+        <p>Puntano a un sito diverso. Es: una fonte citata, un social network, una risorsa esterna. Si aprono spesso in una nuova scheda.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 12: ANATOMIA DOMINIO === -->
+<section class="slide">
+  <div class="deck-tab">NAV · M2+3</div>
+  <div class="center">
+    <div class="tape teal reveal">Modulo 3 — Struttura</div>
+    <h2 class="h-sec reveal" style="margin-top:16px;">Anatomia di un <em class="hot">dominio</em></h2>
+    <p class="lead reveal d1">Un dominio come <b>www.uniba.it</b> è composto da più parti lette <b>da destra a sinistra</b>: estensione, nome, sottodominio.</p>
+    <div class="url-box reveal d1" style="margin-top:18px;font-size:52px;text-align:center;letter-spacing:2px;">
+      <span class="s-query" style="opacity:1;">www</span><span style="color:rgba(244,236,224,.5);">.</span><span style="color:#7be8e4;">uniba</span><span style="color:rgba(244,236,224,.5);">.</span><span class="s-proto">it</span>
+    </div>
+    <div class="grid3 reveal d2" style="margin-top:22px;">
+      <div class="card" style="border-color:var(--gold-deep);">
+        <h3 style="font-family:var(--font-mono);font-size:44px;color:var(--gold-deep);">.it</h3>
+        <p><b>TLD — Top Level Domain</b> (dominio di primo livello). È il suffisso all'estrema destra. Indica la nazionalità o la categoria del sito. Gestito da ICANN / enti nazionali.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal);">
+        <h3 style="font-family:var(--font-mono);font-size:44px;color:var(--teal);">uniba</h3>
+        <p><b>SLD — Second Level Domain</b> (nome di dominio). È il nome scelto dal proprietario del sito. Deve essere unico all'interno del TLD. Si registra e si paga annualmente.</p>
+      </div>
+      <div class="card" style="border-color:var(--ink-faint);">
+        <h3 style="font-family:var(--font-mono);font-size:44px;color:var(--ink-faint);">www</h3>
+        <p><b>Sottodominio</b>. Prefisso configurabile dal proprietario. "www" è il classico Web server, ma esistono: <code style="background:var(--paper-2);padding:2px 6px;border-radius:4px;">mail.</code>, <code style="background:var(--paper-2);padding:2px 6px;border-radius:4px;">blog.</code>, <code style="background:var(--paper-2);padding:2px 6px;border-radius:4px;">api.</code></p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:18px;">
+      <div class="lbl">💡 Lettura da destra</div>
+      <p><b>.it</b> → chi gestisce il TLD (Registro.it) · <b>uniba</b> → chi ha registrato il dominio (Università di Bari) · <b>www</b> → quale servizio (sito web principale)</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 13: DOMINI GEOGRAFICI === -->
+<section class="slide">
+  <div class="deck-tab">NAV · M2+3</div>
+  <div class="center">
+    <div class="tape teal reveal">Estensioni nazionali</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Domini <em class="hot">geografici</em></h2>
+    <p class="lead reveal d1">I <b>ccTLD</b> (country code Top Level Domain) identificano la nazione di appartenenza di un sito. Assegnati da ICANN a ogni paese secondo la norma ISO 3166.</p>
+    <div class="grid4 reveal d2" style="margin-top:20px;">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:56px;margin-bottom:12px;">🇮🇹</div>
+        <span class="badge geo" style="font-size:36px;padding:12px 24px;display:block;margin:0 auto 12px;">.it</span>
+        <h3>Italia</h3>
+        <p>Gestito da Registro.it (IIT-CNR). Per siti italiani o rivolti a un pubblico italiano. Richiede registrazione a enti accreditati.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:56px;margin-bottom:12px;">🇫🇷</div>
+        <span class="badge geo" style="font-size:36px;padding:12px 24px;display:block;margin:0 auto 12px;">.fr</span>
+        <h3>Francia</h3>
+        <p>Gestito da AFNIC. Richiede un indirizzo o rappresentante in Francia. Forte presenza istituzionale francese.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:56px;margin-bottom:12px;">🇩🇪</div>
+        <span class="badge geo" style="font-size:36px;padding:12px 24px;display:block;margin:0 auto 12px;">.de</span>
+        <h3>Germania</h3>
+        <p>Gestito da DENIC. È il TLD europeo con più registrazioni dopo .com. Molto usato in ambito commerciale e istituzionale tedesco.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:56px;margin-bottom:12px;">🇬🇧</div>
+        <span class="badge geo" style="font-size:36px;padding:12px 24px;display:block;margin:0 auto 12px;">.uk</span>
+        <h3>Regno Unito</h3>
+        <p>Gestito da Nominet. Spesso usato come <b>.co.uk</b> per aziende britanniche. Tra i ccTLD storicamente più diffusi al mondo.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:18px;">
+      <div class="lbl">💡 Attenzione: dominio ≠ origine del sito</div>
+      <p>Un sito con <b>.it</b> non garantisce che sia gestito da italiani o rispetti le leggi italiane. Il dominio è solo un nome — la fiducia si guadagna con altri strumenti (HTTPS, reputazione, trasparenza).</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 14: DOMINI TEMATICI === -->
+<section class="slide">
+  <div class="deck-tab">NAV · M2+3</div>
+  <div class="center">
+    <div class="tape teal reveal">Estensioni tematiche</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Domini <em class="hot">tematici</em></h2>
+    <p class="lead reveal d1">I <b>gTLD</b> (generic Top Level Domain) non identificano una nazione ma una <b>categoria</b> di sito. Permettono di capire immediatamente lo scopo o il pubblico di riferimento.</p>
+    <div class="grid4 reveal d2" style="margin-top:22px;">
+      <div class="card" style="border-color:var(--red);text-align:center;">
+        <span class="badge com" style="font-size:36px;padding:12px 28px;display:block;margin:0 auto 12px;">.com</span>
+        <h3>Commercial</h3>
+        <p>Originariamente per aziende commerciali. Oggi il più usato al mondo — aperto a tutti, nessuna restrizione. <b>google.com</b>, <b>amazon.com</b></p>
+      </div>
+      <div class="card" style="border-color:#2e7d4f;text-align:center;">
+        <span class="badge org" style="font-size:36px;padding:12px 28px;display:block;margin:0 auto 12px;">.org</span>
+        <h3>Organization</h3>
+        <p>Per organizzazioni non profit, ONG, comunità open source. Non è vincolante ma indica l'identità del progetto. <b>wikipedia.org</b></p>
+      </div>
+      <div class="card" style="border-color:#7a4db5;text-align:center;">
+        <span class="badge edu" style="font-size:36px;padding:12px 28px;display:block;margin:0 auto 12px;">.edu</span>
+        <h3>Education</h3>
+        <p>Riservato ad istituzioni accademiche statunitensi accreditate. In Italia si usa spesso <b>.edu.it</b> o <b>.ac.it</b>. <b>mit.edu</b>, <b>harvard.edu</b></p>
+      </div>
+      <div class="card" style="border-color:var(--sky);text-align:center;">
+        <span class="badge geo" style="font-size:36px;padding:12px 28px;display:block;margin:0 auto 12px;">.gov</span>
+        <h3>Government</h3>
+        <p>Riservato al governo statunitense e alle sue agenzie federali. In Italia le PA usano <b>.gov.it</b> oppure <b>.comune.xxx.it</b>. <b>nasa.gov</b></p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:20px;">
+      <div class="lbl">📌 Nuovi gTLD dal 2012</div>
+      <p>ICANN ha aperto centinaia di nuovi TLD generici: <b>.app</b> · <b>.blog</b> · <b>.cloud</b> · <b>.shop</b> · <b>.tech</b> · <b>.pizza</b>. Oggi esistono oltre <b>1500 TLD</b> diversi. Il sistema è in continua espansione.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 15: QUIZ === -->
+<section class="slide">
+  <div class="deck-tab">NAV · M2+3</div>
+  <div class="col stack" style="justify-content:center;height:100%;">
+    <div class="tape teal reveal">Verifica veloce</div>
+    <h2 class="h-sec reveal">Metti alla prova<br>le tue conoscenze</h2>
+    <div class="grid2 reveal d1" style="gap:24px 40px;">
+      <div class="card"><h3 style="font-size:32px;">1.</h3><p>Qual è la differenza tra HTTP e HTTPS? Quando devi preferire uno all'altro?</p></div>
+      <div class="card"><h3 style="font-size:32px;">2.</h3><p>Analizza questo URL: <code style="font-size:20px;background:var(--paper-2);padding:4px 8px;border-radius:4px;">https://mail.google.com/mail/u/0/#inbox</code><br>Identifica: protocollo, sottodominio, dominio, TLD, percorso.</p></div>
+      <div class="card"><h3 style="font-size:32px;">3.</h3><p>Cosa significa vedere il lucchetto nel browser? Cosa <em>non</em> garantisce?</p></div>
+      <div class="card"><h3 style="font-size:32px;">4.</h3><p>Perché un sito con estensione <b>.edu</b> o <b>.gov</b> è generalmente più affidabile di uno con <b>.xyz</b>?</p></div>
+    </div>
+    <div class="note teal reveal d2" style="margin-top:20px;">
+      <div class="lbl" style="color:var(--gold) !important;">🎯 Situazione pratica</div>
+      <p>Ricevi un link: <code style="font-size:22px;background:rgba(255,255,255,.15);padding:4px 10px;border-radius:4px;">http://banca-sicura.xyz/accesso?token=abc</code> — quali segnali ti dicono che qualcosa non va?</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 16: CLOSING === -->
+<section class="slide closing">
+  <div class="center" style="align-items:center;text-align:center;">
+    <div class="eyebrow reveal" style="color:var(--gold);">Fine Modulo 2+3</div>
+    <h2 class="h-mega reveal" style="margin-top:10px;color:#fff;">Orientati! <em class="hot">🧭</em></h2>
+    <p class="lead reveal d1" style="color:#f4ece0;max-width:1100px;text-align:center;margin-top:20px;">Conosci HTTP, HTTPS, la struttura degli URL e i domini. Hai le basi per navigare in modo <b>consapevole e critico</b>. Il prossimo modulo affronta direttamente la <span style="color:var(--gold);">sicurezza digitale</span>.</p>
+    <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+      <a class="chip" href="01-introduzione.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → Introduzione alla Sicurezza Digitale</a>
+      <a class="chip alt" href="inf-sec-indice.html" style="color:#f4ece0;border-color:rgba(244,236,224,.4);text-decoration:none;cursor:pointer;">↩ Indice del corso</a>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;}); }
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'inf-sec-nav-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>
