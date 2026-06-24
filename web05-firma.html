@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · La Firma Email</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;}.slide:last-child{break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--red);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal-2);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:142px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+em.gold{font-style:italic;color:var(--gold-deep);}
+em.teal{font-style:italic;color:var(--teal-2);}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 32px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:10px;line-height:1;}
+.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:50px;line-height:1;display:block;margin-bottom:8px;}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:24px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.teal{background:var(--teal-2);}.note.teal *{color:#fff !important;}.note.teal .lbl{color:var(--gold) !important;}
+.note.red{background:#f3b6aa;}
+.note.dark{background:var(--ink);}.note.dark *{color:var(--paper) !important;}.note.dark .lbl{color:var(--gold) !important;}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:26px;line-height:1.4;color:var(--ink);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:20px;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--red);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:740px;height:740px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f07055,#8a2010);right:-160px;top:-130px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-30px,44px) scale(1.04);}}
+.closing{background:var(--red);}.closing::before{opacity:.10;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing em.hot{color:var(--gold);}
+.mono-box{background:var(--ink);color:var(--gold);font-family:var(--font-mono);font-size:28px;padding:16px 26px;border-radius:10px;border:2px solid var(--red);display:inline-block;line-height:1.6;}
+.mono-box.sm{font-size:22px;}
+.check-row{display:flex;align-items:flex-start;gap:20px;padding:14px 0;border-bottom:1px dashed var(--line);}
+.check-row .ck{font-size:28px;min-width:36px;}
+.check-row .tx{font-size:27px;line-height:1.4;color:var(--ink-soft);}
+.cmp-tag{font-family:var(--font-mono);font-size:20px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.cmp-ok{color:#2e7d4f;}.cmp-bad{color:var(--red);}
+.sig-block{background:#fbf5ec;border:3px solid var(--ink);border-radius:14px;padding:36px 44px;box-shadow:7px 8px 0 rgba(28,23,20,.14);}
+.sig-line{font-family:var(--font-mono);font-size:26px;line-height:1.7;color:var(--ink);}
+.sig-name{font-family:var(--font-display);font-weight:900;font-size:40px;color:var(--ink);line-height:1.1;}
+.sig-role{font-family:var(--font-body);font-size:26px;color:var(--teal-2);font-weight:600;}
+.sig-company{font-family:var(--font-body);font-size:24px;color:var(--ink-faint);font-weight:600;margin-bottom:12px;}
+.sig-divider{border:none;border-top:2px dashed var(--line);margin:12px 0;}
+.sig-contact{font-family:var(--font-mono);font-size:22px;color:var(--ink-soft);line-height:1.8;}
+.sig-link{color:var(--teal-2);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease);}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- SLIDE 1: TITLE -->
+<section class="slide title-slide active">
+  <div class="title-left">
+    <div class="tape reveal">Web · Comunicazione</div>
+    <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo W5 — Firma Email</div>
+    <h1 class="h-big reveal" contenteditable="true">La <em class="hot">Firma</em><br>Email</h1>
+    <p class="lead reveal" style="margin-top:26px;" contenteditable="true">Cos'è, cosa contiene, come si formatta e come si configura una firma professionale nelle principali piattaforme email.</p>
+    <div class="chips reveal" style="margin-top:40px;"><span class="chip">Web · W5</span><span class="chip alt">Comunicazione</span><span class="chip alt">~30 min</span></div>
+  </div>
+  <div class="title-right">
+    <div style="position:relative;z-index:2;text-align:center;">
+      <svg viewBox="0 0 200 200" width="220" role="img" aria-label="Blocco firma sotto un messaggio email">
+        <rect x="20" y="20" width="160" height="100" rx="8" fill="rgba(244,236,224,.15)" stroke="rgba(244,236,224,.4)" stroke-width="2.5"/>
+        <rect x="34" y="34" width="100" height="8" rx="3" fill="rgba(244,236,224,.3)"/>
+        <rect x="34" y="48" width="80" height="7" rx="3" fill="rgba(244,236,224,.2)"/>
+        <rect x="34" y="61" width="90" height="7" rx="3" fill="rgba(244,236,224,.2)"/>
+        <rect x="34" y="74" width="70" height="7" rx="3" fill="rgba(244,236,224,.15)"/>
+        <line x1="20" y1="100" x2="180" y2="100" stroke="rgba(244,236,224,.35)" stroke-width="2" stroke-dasharray="6"/>
+        <rect x="20" y="108" width="160" height="70" rx="8" fill="rgba(244,236,224,.1)" stroke="#e6c14a" stroke-width="2"/>
+        <rect x="32" y="120" width="70" height="9" rx="3" fill="#e6c14a" opacity=".7"/>
+        <rect x="32" y="135" width="50" height="7" rx="3" fill="rgba(244,236,224,.4)"/>
+        <rect x="32" y="148" width="90" height="7" rx="3" fill="rgba(244,236,224,.3)"/>
+        <rect x="32" y="161" width="75" height="7" rx="3" fill="rgba(244,236,224,.25)"/>
+        <text x="145" y="130" text-anchor="middle" font-size="28">✍️</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 2: COS'È UNA FIRMA (S1) -->
+<section class="slide">
+  <div class="deck-tab">FIRMA · W5</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape reveal">Definizione</div>
+      <h2 class="h-big reveal">Cos'è una<br><em class="hot">firma</em><br>email</h2>
+      <p class="lead reveal d1">La firma email è un blocco di testo inserito <b>automaticamente alla fine</b> di ogni messaggio inviato. Identifica il mittente e fornisce le informazioni per essere ricontattati.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">🎯 Scopo</div>
+          <p>Una firma ben realizzata migliora la <b>professionalità</b> della comunicazione e facilita il riconoscimento dell'autore — senza che il mittente debba riscrivere i propri recapiti ad ogni email.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">⚙️ Come funziona</div>
+          <p>Viene configurata una volta nel client email (Gmail, Outlook…) e viene aggiunta <b>in automatico</b> sotto ogni nuovo messaggio. Non serve ricordarsi di aggiungerla.</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 230 280" style="max-width:210px;margin:0 auto;" role="img" aria-label="Email con firma evidenziata in basso">
+        <rect x="10" y="10" width="210" height="260" rx="10" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <rect x="10" y="10" width="210" height="30" rx="10" fill="#1c1714"/>
+        <rect x="10" y="30" width="210" height="10" fill="#1c1714"/>
+        <text x="115" y="30" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#e6c14a">Corpo del messaggio</text>
+        <rect x="26" y="52" width="130" height="8" rx="3" fill="#d8c9b4"/>
+        <rect x="26" y="66" width="110" height="8" rx="3" fill="#d8c9b4"/>
+        <rect x="26" y="80" width="150" height="8" rx="3" fill="#d8c9b4"/>
+        <rect x="26" y="94" width="90" height="8" rx="3" fill="#d8c9b4"/>
+        <line x1="26" y1="116" x2="194" y2="116" stroke="#d8c9b4" stroke-width="2" stroke-dasharray="5"/>
+        <!-- firma block highlighted -->
+        <rect x="18" y="124" width="194" height="136" rx="8" fill="rgba(230,83,59,.08)" stroke="var(--red)" stroke-width="2.5"/>
+        <text x="115" y="140" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#e6533b" font-weight="700">▼ FIRMA ▼</text>
+        <text x="30" y="160" font-family="Fraunces" font-size="16" fill="#1c1714" font-weight="700">Mario Rossi</text>
+        <text x="30" y="176" font-family="Space Grotesk" font-size="12" fill="#1f5249">Responsabile Marketing</text>
+        <text x="30" y="191" font-family="Space Grotesk" font-size="11" fill="#6b5f54">Azienda XYZ</text>
+        <line x1="30" y1="200" x2="194" y2="200" stroke="#d8c9b4" stroke-width="1.5" stroke-dasharray="4"/>
+        <text x="30" y="216" font-family="Space Mono" font-size="10" fill="#3a322c">📧 mario.rossi@azienda.it</text>
+        <text x="30" y="232" font-family="Space Mono" font-size="10" fill="#3a322c">📱 +39 333 000 0000</text>
+        <text x="30" y="248" font-family="Space Mono" font-size="10" fill="#1f5249">🔗 www.azienda.it</text>
+      </svg>
+      <div class="illu-cap">Separata dal corpo del messaggio</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 3: PERCHÉ USARLA (S2) -->
+<section class="slide">
+  <div class="deck-tab">FIRMA · W5</div>
+  <div class="center">
+    <div class="tape reveal">Utilità</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Perché utilizzare<br>una <em class="hot">firma</em></h2>
+    <p class="lead reveal d1">È particolarmente importante nelle comunicazioni lavorative, dove l'identità e la reperibilità del mittente sono fondamentali.</p>
+    <div class="grid3 reveal d2" style="margin-top:28px;">
+      <div class="card" style="text-align:center;border-color:var(--red);">
+        <span class="ic">🪪</span>
+        <h3>Identifica il mittente</h3>
+        <p>Chi riceve il messaggio sa esattamente con chi sta comunicando — nome, ruolo e organizzazione di appartenenza.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--teal-2);">
+        <span class="ic">📞</span>
+        <h3>Fornisce i recapiti</h3>
+        <p>Telefono, email, sito web: il destinatario può scegliere il canale di contatto più comodo senza dover cercare le informazioni altrove.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--gold-deep);">
+        <span class="ic">🏆</span>
+        <h3>Trasmette professionalità</h3>
+        <p>Una firma curata segnala attenzione ai dettagli e rispetto verso l'interlocutore. È il biglietto da visita digitale.</p>
+      </div>
+    </div>
+    <div class="grid2 reveal d3" style="margin-top:20px;">
+      <div class="card" style="text-align:center;border-color:var(--sky);">
+        <span class="ic">🔁</span>
+        <h3>Riduce le ripetizioni</h3>
+        <p>Non è necessario riscrivere i propri dati ad ogni messaggio — la firma li aggiunge automaticamente ogni volta.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:#2e7d4f;">
+        <span class="ic">🧩</span>
+        <h3>Rafforza l'immagine</h3>
+        <p>Contribuisce a costruire un'identità professionale coerente, specialmente se include il logo o i colori aziendali.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 4: INFORMAZIONI ESSENZIALI (S3) -->
+<section class="slide">
+  <div class="deck-tab">FIRMA · W5</div>
+  <div class="center">
+    <div class="tape reveal">Contenuto minimo</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Le informazioni <em class="hot">essenziali</em></h2>
+    <p class="lead reveal d1">Una firma professionale dovrebbe contenere almeno questi tre elementi. Permettono al destinatario di riconoscere e contattare facilmente il mittente.</p>
+    <div class="grid3 reveal d2" style="margin-top:32px;">
+      <div class="card" style="border-color:var(--red);padding:44px 36px;">
+        <div style="font-family:var(--font-display);font-weight:900;font-size:80px;color:var(--red);line-height:1;margin-bottom:16px;">1</div>
+        <h3>Nome e cognome</h3>
+        <p style="margin-top:12px;">L'identificatore principale. Deve essere scritto per esteso e in modo chiaro — è la prima cosa che il destinatario legge.</p>
+        <div style="margin-top:20px;" class="mono-box sm">Mario Rossi</div>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);padding:44px 36px;">
+        <div style="font-family:var(--font-display);font-weight:900;font-size:80px;color:var(--teal-2);line-height:1;margin-bottom:16px;">2</div>
+        <h3>Indirizzo email</h3>
+        <p style="margin-top:12px;">Anche se il destinatario può vederlo nell'intestazione, inserirlo nella firma facilita il copia-incolla e rende la firma autonoma.</p>
+        <div style="margin-top:20px;" class="mono-box sm">mario@azienda.it</div>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);padding:44px 36px;">
+        <div style="font-family:var(--font-display);font-weight:900;font-size:80px;color:var(--gold-deep);line-height:1;margin-bottom:16px;">3</div>
+        <h3>Numero di telefono</h3>
+        <p style="margin-top:12px;">Offre un canale alternativo diretto. Permette al destinatario di chiamare senza dover cercare il numero in un'altra fonte.</p>
+        <div style="margin-top:20px;" class="mono-box sm">+39 333 000 0000</div>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:24px;">
+      <div class="lbl">💡 Questi tre elementi bastano</div>
+      <p>Con nome, email e telefono hai già una firma funzionale. Tutto il resto (ruolo, azienda, sito, social) è un <b>arricchimento opzionale</b> da aggiungere in base al contesto.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 5: NOME E COGNOME (S4) -->
+<section class="slide">
+  <div class="deck-tab">FIRMA · W5</div>
+  <div class="center">
+    <div class="tape reveal">Identità</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Nome e <em class="hot">cognome</em></h2>
+    <p class="lead reveal d1">Il nome è l'elemento principale della firma. Deve essere chiaro, completo e univoco. Una denominazione ambigua o informale riduce la credibilità del messaggio.</p>
+    <div class="grid3 reveal d2" style="margin-top:32px;">
+      <div class="card" style="border-color:#2e7d4f;padding:40px 36px;">
+        <div class="cmp-tag cmp-ok">✅ Corretto</div>
+        <div style="margin-top:16px;" class="mono-box">Mario Rossi</div>
+        <p style="margin-top:20px;">Nome e cognome per esteso. Formale, chiaro, univoco. Non lascia dubbi su chi ha scritto.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);padding:40px 36px;">
+        <div class="cmp-tag" style="color:var(--gold-deep);">⚠️ Accettabile solo in contesti informali</div>
+        <div style="margin-top:16px;" class="mono-box">mario</div>
+        <p style="margin-top:20px;">Solo nome. Va bene tra colleghi stretti, mai con clienti, uffici o persone che non si conoscono.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);padding:40px 36px;">
+        <div class="cmp-tag cmp-bad">❌ Mai in contesti professionali</div>
+        <div style="margin-top:16px;" class="mono-box">supermario88</div>
+        <p style="margin-top:20px;">Nickname o pseudonimo. Trasmette scarsa serietà e rende impossibile identificare il mittente.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 6: RUOLO (S5) -->
+<section class="slide">
+  <div class="deck-tab">FIRMA · W5</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape reveal">Contesto professionale</div>
+      <h2 class="h-big reveal">Il ruolo<br><em class="hot">professionale</em></h2>
+      <p class="lead reveal d1">Quando la comunicazione avviene in ambito lavorativo, specificare il proprio ruolo aiuta il destinatario a capire subito con chi sta parlando e qual è la sua funzione nell'organizzazione.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">🎯 Perché è utile</div>
+          <p>Il destinatario capisce immediatamente se può rispondere a te direttamente o se deve coinvolgere qualcun altro — risparmiando tempo a entrambi.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">📌 Regola pratica</div>
+          <p>Usa il titolo ufficiale dell'organizzazione, non un'autodescrizione libera. "Responsabile Marketing" è più credibile di "esperto di comunicazione creativa".</p>
+        </div>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="sig-block">
+        <div class="sig-name">Mario Rossi</div>
+        <div class="sig-role">Responsabile Marketing</div>
+      </div>
+      <div class="note teal">
+        <div class="lbl">💡 Esempi di ruolo</div>
+        <p>Titolare · Direttore Commerciale · Sviluppatore Web · Assistente Amministrativo · Docente · Coordinatore Progetto · Consulente · Tirocinante</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 7: AZIENDA (S6) -->
+<section class="slide">
+  <div class="deck-tab">FIRMA · W5</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape reveal">Identità organizzativa</div>
+      <h2 class="h-big reveal">Nome<br>dell'<em class="hot">azienda</em></h2>
+      <p class="lead reveal d1">Se si scrive per conto di un'azienda, associazione o ente, è opportuno indicarne il nome. Rafforza l'identità professionale del mittente e chiarisce in quale contesto opera.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">🏢 Quando inserirlo</div>
+          <p>Sempre nelle email professionali inviate per conto dell'organizzazione. Ometti il nome aziendale solo se stai scrivendo a titolo strettamente personale.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">📌 Forma consigliata</div>
+          <p>Usa il nome ufficiale e completo dell'organizzazione — inclusa la forma societaria (S.r.l., S.p.A., Associazione…) se rilevante per il contesto.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="sig-block">
+        <div class="sig-name">Mario Rossi</div>
+        <div class="sig-role">Responsabile Marketing</div>
+        <div class="sig-company">Azienda XYZ S.r.l.</div>
+      </div>
+      <div class="note teal">
+        <div class="lbl">📎 Progressione della firma</div>
+        <p>Ogni elemento si aggiunge al precedente. La firma cresce in modo coerente: nome → ruolo → azienda → contatti → web.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 8: TELEFONI (S7) -->
+<section class="slide">
+  <div class="deck-tab">FIRMA · W5</div>
+  <div class="center">
+    <div class="tape reveal">Reperibilità</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">I recapiti <em class="hot">telefonici</em></h2>
+    <p class="lead reveal d1">I recapiti devono essere aggiornati e realmente utilizzati. Un numero errato o non risposto danneggia la professionalità più dell'assenza del numero stesso.</p>
+    <div class="grid3 reveal d2" style="margin-top:28px;">
+      <div class="card" style="border-color:var(--teal-2);">
+        <span class="ic">☎️</span>
+        <h3>Telefono fisso</h3>
+        <p>Numero dell'ufficio o sede. Indica stabilità e presenza fisica. Includi il prefisso internazionale (+39) per comunicazioni con l'estero.</p>
+        <div style="margin-top:18px;" class="mono-box sm">Tel. +39 080 1234567</div>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <span class="ic">📱</span>
+        <h3>Cellulare</h3>
+        <p>Numero mobile personale o aziendale. Permette di essere contattati anche fuori sede. Valuta attentamente se condividere il numero personale.</p>
+        <div style="margin-top:18px;" class="mono-box sm">Cell. +39 333 1234567</div>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <span class="ic">🏢</span>
+        <h3>Numero aziendale</h3>
+        <p>Centralino o numero dedicato dell'organizzazione. Preferibile al numero personale nelle comunicazioni formali con clienti e fornitori.</p>
+        <div style="margin-top:18px;" class="mono-box sm">+39 02 1234 5678</div>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">⚠️ Aggiorna sempre i numeri</div>
+      <p>Un numero non più attivo nella firma è un errore professionale. Prima di distribuire una firma, verifica che <b>tutti</b> i recapiti siano corretti e che rispondano realmente.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 9: SITO WEB (S8) -->
+<section class="slide">
+  <div class="deck-tab">FIRMA · W5</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape reveal">Presenza online</div>
+      <h2 class="h-big reveal">Il sito<br><em class="hot">web</em></h2>
+      <p class="lead reveal d1">Se disponibile, inserire il sito internet dell'organizzazione offre al destinatario una fonte di informazioni aggiuntive — prodotti, servizi, storia, contatti.</p>
+      <div class="stack reveal d2">
+        <div class="note">
+          <div class="lbl">🌐 Cosa inserire</div>
+          <p>L'URL della homepage o di una pagina specifica rilevante. Usa sempre l'indirizzo completo e funzionante. Un link rotto nella firma è peggio di non averlo.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">💡 Formato consigliato</div>
+          <p>Scrivi l'URL in forma semplice e leggibile. Il client email lo trasformerà automaticamente in un link cliccabile.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="sig-block">
+        <div class="sig-name">Mario Rossi</div>
+        <div class="sig-role">Responsabile Marketing</div>
+        <div class="sig-company">Azienda XYZ S.r.l.</div>
+        <hr class="sig-divider">
+        <div class="sig-contact">
+          📞 +39 080 1234567<br>
+          📧 mario.rossi@azienda.it<br>
+          <span class="sig-link">🔗 www.azienda.it</span>
+        </div>
+      </div>
+      <div class="note teal">
+        <div class="lbl">🔗 Domini fittizi negli esempi</div>
+        <p>Negli esempi si usa sempre un dominio fittizio come <b>www.azienda.it</b>. In una firma reale inserisci il sito effettivo della tua organizzazione.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 10: SOCIAL (S9) -->
+<section class="slide">
+  <div class="deck-tab">FIRMA · W5</div>
+  <div class="center">
+    <div class="tape reveal">Profilo digitale</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">I profili <em class="hot">social</em> nella firma</h2>
+    <p class="lead reveal d1">In alcuni contesti professionali è possibile aggiungere collegamenti ai propri profili online. La scelta dipende dal settore e dall'obiettivo della comunicazione.</p>
+    <div class="grid3 reveal d2" style="margin-top:26px;">
+      <div class="card" style="border-color:#0077b5;">
+        <span class="ic">💼</span>
+        <h3>LinkedIn</h3>
+        <p>Il più appropriato per comunicazioni professionali. Mostra il percorso lavorativo, le competenze, le raccomandazioni. Consigliato quasi sempre.</p>
+        <div style="margin-top:16px;" class="mono-box sm">linkedin.com/in/mariorossi</div>
+      </div>
+      <div class="card" style="border-color:var(--ink);">
+        <span class="ic">💻</span>
+        <h3>GitHub</h3>
+        <p>Rilevante per sviluppatori e ingegneri del software. Mostra i progetti, il codice, le contribuzioni open source. Utile in ambito tech.</p>
+        <div style="margin-top:16px;" class="mono-box sm">github.com/mariorossi</div>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <span class="ic">🎨</span>
+        <h3>Portfolio</h3>
+        <p>Per creativi, designer, fotografi, artisti. Un portfolio online mostra il lavoro direttamente — vale più di mille parole di descrizione.</p>
+        <div style="margin-top:16px;" class="mono-box sm">mariorossi.it</div>
+      </div>
+    </div>
+    <div class="note red reveal d3" style="margin-top:22px;">
+      <div class="lbl">⚠️ Evita profili non pertinenti</div>
+      <p>Non inserire profili Instagram, TikTok, Twitter o Facebook personali in firme professionali — a meno che non siano profili aziendali gestiti ufficialmente. Un profilo personale in una firma di lavoro può risultare poco professionale o invasivo.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 11: FORMATTAZIONE (S10) -->
+<section class="slide">
+  <div class="deck-tab">FIRMA · W5</div>
+  <div class="center">
+    <div class="tape reveal">Estetica</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;"><em class="hot">Formattazione</em> della firma</h2>
+    <p class="lead reveal d1">La firma deve essere ordinata, leggibile e coerente. L'obiettivo è comunicare informazioni in modo chiaro — non impressionare con effetti grafici.</p>
+    <div class="grid2 reveal d2" style="margin-top:26px;">
+      <div class="col stack">
+        <div class="card" style="border-color:#2e7d4f;">
+          <h3 style="color:#2e7d4f;">✅ Principi corretti</h3>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;">
+            <div class="check-row" style="border:none;padding:5px 0;"><span class="ck" style="font-size:22px;">✓</span><div class="tx" style="font-size:23px;">Font semplice e leggibile (stesso dell'email)</div></div>
+            <div class="check-row" style="border:none;padding:5px 0;"><span class="ck" style="font-size:22px;">✓</span><div class="tx" style="font-size:23px;">Al massimo 2 colori: testo e un accento</div></div>
+            <div class="check-row" style="border:none;padding:5px 0;"><span class="ck" style="font-size:22px;">✓</span><div class="tx" style="font-size:23px;">Separazione chiara dal corpo (linea o spazio)</div></div>
+            <div class="check-row" style="border:none;padding:5px 0;"><span class="ck" style="font-size:22px;">✓</span><div class="tx" style="font-size:23px;">Massimo 6-8 righe</div></div>
+            <div class="check-row" style="border:none;padding:5px 0;"><span class="ck" style="font-size:22px;">✓</span><div class="tx" style="font-size:23px;">Logo piccolo e compresso (se usato)</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="card" style="border-color:var(--red);">
+          <h3 style="color:var(--red);">❌ Errori da evitare</h3>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;">
+            <div class="check-row" style="border:none;padding:5px 0;"><span class="ck" style="font-size:22px;">✗</span><div class="tx" style="font-size:23px;">Troppi colori o font diversi</div></div>
+            <div class="check-row" style="border:none;padding:5px 0;"><span class="ck" style="font-size:22px;">✗</span><div class="tx" style="font-size:23px;">Immagini molto grandi o non ottimizzate</div></div>
+            <div class="check-row" style="border:none;padding:5px 0;"><span class="ck" style="font-size:22px;">✗</span><div class="tx" style="font-size:23px;">Citazioni filosofiche o frasi motivazionali</div></div>
+            <div class="check-row" style="border:none;padding:5px 0;"><span class="ck" style="font-size:22px;">✗</span><div class="tx" style="font-size:23px;">Firma più lunga del messaggio stesso</div></div>
+            <div class="check-row" style="border:none;padding:5px 0;"><span class="ck" style="font-size:22px;">✗</span><div class="tx" style="font-size:23px;">Colori a basso contrasto (testo chiaro su sfondo chiaro)</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 12: ESEMPIO FIRMA COMPLETA (S11) -->
+<section class="slide">
+  <div class="deck-tab">FIRMA · W5</div>
+  <div class="center">
+    <div class="tape reveal">Modello</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Esempio di firma <em class="hot">professionale</em></h2>
+    <p class="lead reveal d1">Struttura semplice, gerarchica e facilmente leggibile. Ogni elemento occupa una riga propria.</p>
+    <div class="reveal d2" style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;">
+      <div class="sig-block" style="padding:48px 52px;">
+        <div class="sig-name" contenteditable="true">Mario Rossi</div>
+        <div class="sig-role" contenteditable="true">Responsabile Marketing</div>
+        <div class="sig-company" contenteditable="true">Azienda XYZ S.r.l.</div>
+        <hr class="sig-divider">
+        <div class="sig-contact">
+          📞 Tel. +39 080 1234567<br>
+          📱 Cell. +39 333 1234567<br>
+          📧 mario.rossi@azienda.it<br>
+          <span class="sig-link">🔗 www.azienda.it</span>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="note">
+          <div class="lbl">📐 Struttura gerarchica</div>
+          <p><b>1° livello</b> — Nome (grande, in evidenza)<br><b>2° livello</b> — Ruolo + Azienda<br><b>3° livello</b> — Contatti (dopo separatore)<br><b>4° livello</b> — Web e social (opzionale)</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">💡 Perché funziona</div>
+          <p>L'occhio del destinatario scorre dall'alto verso il basso: prima capisce con chi parla, poi come contattarlo. Nessuno deve cercare le informazioni — sono nell'ordine giusto.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 13: ERRORI COMUNI (S12) -->
+<section class="slide">
+  <div class="deck-tab">FIRMA · W5</div>
+  <div class="center">
+    <div class="tape reveal">Attenzione</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;"><em class="hot">Errori comuni</em> nelle firme</h2>
+    <p class="lead reveal d1">Una firma deve essere informativa e non invasiva. Questi errori sono frequenti e spesso trascurati.</p>
+    <div class="grid3 reveal d2" style="margin-top:26px;">
+      <div class="card" style="border-color:var(--red);">
+        <span class="ic">📅</span>
+        <h3>Informazioni obsolete</h3>
+        <p>Numero di telefono cambiato, azienda diversa, ruolo non più attuale. La firma deve essere aggiornata ad ogni cambiamento — anche piccolo.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <span class="ic">🖼️</span>
+        <h3>Immagini troppo grandi</h3>
+        <p>Loghi ad alta risoluzione o banner pesanti rallentano il caricamento e vengono spesso bloccati dai client email per motivi di sicurezza.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <span class="ic">💬</span>
+        <h3>Citazioni e frasi motivazionali</h3>
+        <p>"Ogni giorno è una nuova opportunità" non appartiene a una firma professionale. Le citazioni allungano inutilmente la firma e possono risultare fuori contesto.</p>
+      </div>
+    </div>
+    <div class="grid2 reveal d3" style="margin-top:20px;gap:20px;">
+      <div class="card" style="border-color:var(--red);">
+        <span class="ic">🎨</span>
+        <h3>Colori poco leggibili</h3>
+        <p>Testo grigio chiaro su sfondo bianco, giallo su bianco, o combinazioni a basso contrasto. Attenzione: i client email non sempre visualizzano i colori come previsto.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <span class="ic">📏</span>
+        <h3>Firma troppo lunga</h3>
+        <p>Se la firma occupa più spazio del messaggio stesso, qualcosa non va. Oltre 8-10 righe inizia a essere eccessivo per la maggior parte dei contesti.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 14: DISCLAIMER (S13) -->
+<section class="slide">
+  <div class="deck-tab">FIRMA · W5</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape reveal">Aspetti legali</div>
+      <h2 class="h-big reveal"><em class="hot">Disclaimer</em><br>e note<br>legali</h2>
+      <p class="lead reveal d1">Alcune organizzazioni aggiungono alla firma testi di natura legale. Sono particolarmente diffusi nelle aziende e negli enti pubblici.</p>
+      <div class="note reveal d2">
+        <div class="lbl">📌 Non è obbligatorio per tutti</div>
+        <p>Le note legali sono necessarie solo quando richieste dall'organizzazione o dalla normativa applicabile. Non aggiungerle se non sai se sono necessarie — meglio chiedere.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="card" style="border-color:var(--teal-2);">
+        <span class="ic">🔒</span>
+        <h3>Riservatezza</h3>
+        <p>Avvisa che il contenuto dell'email è riservato e destinato solo al destinatario indicato. Se ricevuto per errore, il destinatario è invitato a eliminarlo.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <span class="ic">🛡️</span>
+        <h3>Trattamento dati (GDPR)</h3>
+        <p>Informa il destinatario su come vengono trattati i suoi dati personali — requisito spesso richiesto dal Regolamento Europeo sulla Privacy.</p>
+      </div>
+      <div class="card" style="border-color:var(--sky);">
+        <span class="ic">⚖️</span>
+        <h3>Limitazioni di responsabilità</h3>
+        <p>Clausole che limitano la responsabilità legale dell'organizzazione per il contenuto del messaggio. Comune in ambito finanziario e legale.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 15: CONFIGURARE LA FIRMA (S14) -->
+<section class="slide">
+  <div class="deck-tab">FIRMA · W5</div>
+  <div class="center">
+    <div class="tape reveal">Setup</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Configurare una <em class="hot">firma automatica</em></h2>
+    <p class="lead reveal d1">I principali client di posta consentono di creare una o più firme automatiche. Una volta configurata, viene aggiunta automaticamente a ogni nuovo messaggio.</p>
+    <div class="grid4 reveal d2" style="margin-top:26px;">
+      <div class="card" style="text-align:center;border-color:#4285f4;">
+        <span class="ic">🔵</span>
+        <h3>Gmail</h3>
+        <p>Impostazioni → Vedi tutte le impostazioni → Generale → Firma. Supporta HTML, immagini e formattazione ricca.</p>
+        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:#4285f4;">⚙️ → Generali → Firma</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:#0078d4;">
+        <span class="ic">🔷</span>
+        <h3>Outlook</h3>
+        <p>File → Opzioni → Posta → Firme. Permette firme diverse per account diversi e per risposta/inoltro.</p>
+        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:#0078d4;">File → Opzioni → Firma</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--teal-2);">
+        <span class="ic">🦅</span>
+        <h3>Thunderbird</h3>
+        <p>Strumenti → Impostazioni Account → Firma. Supporta testo semplice o HTML. Possibile una firma per account.</p>
+        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:var(--teal-2);">Account → Firma</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--ink-soft);">
+        <span class="ic">🍎</span>
+        <h3>Apple Mail</h3>
+        <p>Preferenze → Firme. Trascina la firma sulla casella email desiderata per associarla. Semplice e visuale.</p>
+        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:var(--ink-faint);">⌘, → Firme</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 Puoi avere firme diverse</div>
+      <p>Molti client supportano <b>più firme</b> — una formale per i clienti, una più breve per i colleghi, una per le risposte. Configura quella più adatta al contesto e sceglila al momento dell'invio.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 16: LABORATORIO (S15) -->
+<section class="slide">
+  <div class="deck-tab">FIRMA · W5</div>
+  <div class="center">
+    <div class="tape reveal">Pratica</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;"><em class="hot">Laboratorio</em> pratico</h2>
+    <p class="lead reveal d1">Ogni partecipante realizzerà una firma personale professionale. Al termine, le firme verranno confrontate e valutate.</p>
+    <div class="grid2 reveal d2" style="margin-top:24px;gap:36px;">
+      <div class="card" style="border-color:var(--red);padding:36px 40px;">
+        <h3>La firma deve contenere</h3>
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:10px;">
+          <div class="check-row" style="border:none;padding:5px 0;"><span class="ck">1️⃣</span><div class="tx" style="font-size:25px;"><b>Nome e cognome</b> — per esteso</div></div>
+          <div class="check-row" style="border:none;padding:5px 0;"><span class="ck">2️⃣</span><div class="tx" style="font-size:25px;"><b>Ruolo o professione</b> (reale o inventato)</div></div>
+          <div class="check-row" style="border:none;padding:5px 0;"><span class="ck">3️⃣</span><div class="tx" style="font-size:25px;"><b>Indirizzo email</b></div></div>
+          <div class="check-row" style="border:none;padding:5px 0;"><span class="ck">4️⃣</span><div class="tx" style="font-size:25px;"><b>Numero di telefono</b></div></div>
+          <div class="check-row" style="border:none;padding:5px 0;"><span class="ck">5️⃣</span><div class="tx" style="font-size:25px;"><b>Sito web</b> (facoltativo)</div></div>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="note teal">
+          <div class="lbl">📋 Confronto finale</div>
+          <p>Dopo la creazione le firme verranno condivise e analizzate insieme per verificare <b>completezza</b>, <b>leggibilità</b> e <b>professionalità</b>.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">🎯 Criteri di valutazione</div>
+          <p>✓ Informazioni complete e corrette<br>✓ Formattazione ordinata<br>✓ Gerarchia visiva chiara (nome → ruolo → contatti)<br>✓ Nessun elemento non pertinente<br>✓ Max 8 righe</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 17: CLOSING -->
+<section class="slide closing">
+  <div class="center" style="align-items:center;text-align:center;">
+    <div class="eyebrow reveal" style="color:var(--gold);">Fine Modulo W5</div>
+    <h2 class="h-mega reveal" style="margin-top:10px;">Firmato! <em class="hot">✍️</em></h2>
+    <p class="lead reveal d1" style="color:#f4ece0;max-width:1100px;text-align:center;margin-top:20px;">Sai cos'è una firma, cosa deve contenere, come formattarla e come configurarla nei principali client email. Una firma professionale è il tuo biglietto da visita digitale — curala come tale.</p>
+    <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+      <a class="chip" href="00-indice.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">↩ Indice del corso</a>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;}); }
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'web-firma-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>
