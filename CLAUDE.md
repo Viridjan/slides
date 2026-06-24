@@ -60,10 +60,13 @@ New decks get the next available number within their series. All cross-deck `hre
 | File | Series/Num | Title |
 |------|-----------|-------|
 | `web01-reti.html` | M1 | Reti Informatiche e Internet |
-| `web02-navigazione.html` | M2 | Navigazione e Indirizzi Web |
-| `web03-ricerca.html` | M4 | Ricerca e Gestione delle Informazioni |
-| `web04-email.html` | M5 | La Posta Elettronica |
+| `web02-navigazione.html` | M2.1 | Navigazione e Indirizzi Web |
+| `web02b-domini.html` | M2.2 | Domini e Indirizzi Internet |
+| `web03-ricerca.html` | M3 | Ricerca e Gestione delle Informazioni |
+| `web04-email.html` | M4 | La Posta Elettronica |
 | `web05-firma.html` | W5 | La Firma Email |
+| `web06-affidabilita.html` | W6 | Valutare l'Affidabilità delle Fonti |
+| `web07-contenuti.html` | W7 | Gestione e Archiviazione dei Contenuti |
 | `sec01-introduzione.html` | C1 | Introduzione alla Sicurezza Digitale |
 | `sec02-minacce.html` | C2 | Minacce e Vulnerabilità |
 | `sec03-privacy.html` | C3 | Privacy, Anonimato e Pseudonimia |
