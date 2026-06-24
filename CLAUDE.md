@@ -40,25 +40,22 @@ Three steps per its SKILL.md: (1) confirm requirements + outline and recommend a
 
 ---
 
-## Active courses in `output/`
+## Active courses in `output/slides/`
 
-Two course families live under `output/`. All decks in both families share the **Warm Study Zine** design system — locked CSS tokens and a `SlidePresentation` JS class that must stay identical across every file.
+All 19 decks live in a single flat folder `output/slides/`. All share the **Warm Study Zine** design system — locked CSS tokens and a `SlidePresentation` JS class that must stay identical across every file.
 
-### `output/Informatica/`
+### Naming convention: `inf-secNN-topic.html`
 
-10 modules rebuilt from the PPTX originals in `corsi/`. Naming: `NN-topic.html` (sub-modules use `NN.N-topic.html`, e.g. `03.1-sicurezza.html`).
+| Range | Course |
+|-------|--------|
+| `inf-sec00-indice` | Course index (update when adding modules) |
+| `inf-sec01` – `inf-sec10` | Informatica (01-componenti → 10-presentazioni) |
+| `inf-sec11` – `inf-sec13` | Prerequisiti sicurezza (reti, navigazione, ricerca) |
+| `inf-sec14` – `inf-sec18` | Sicurezza Digitale C1–C5 |
 
-### `output/Sicurezza-Digitale/`
+New decks get the next available number. All cross-deck `href` links must use the `inf-secNN-topic.html` form — no folder prefixes, no old-style names.
 
-Three sub-families, all sharing the same design system:
-
-| Prefix | Purpose |
-|--------|---------|
-| `inf-sec-<topic>.html` | Prerequisite modules (reti, navigazione, …) — deck-tab sky/teal |
-| `NN-<topic>.html` | Main security course (C1–C5) — deck-tab red |
-| `inf-sec-indice.html` | **Course index** — must be updated every time a new module is added |
-
-**Index maintenance rule:** `inf-sec-indice.html` has one `<div class="section-group">` per topic section. Add new modules there. Card CSS classes: `.pre` (sky), `.sec` (red), `.inf` (gold). Paths from `Sicurezza-Digitale/` to `Informatica/` need the `../Informatica/` prefix.
+**Index maintenance rule:** `inf-sec00-indice.html` has one `<div class="section-group">` per topic section. Add new modules there. Card CSS classes: `.pre` (sky), `.sec` (red), `.inf` (gold).
 
 ### Warm Study Zine — locked design tokens
 
