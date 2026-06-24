@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · Affidabilità delle Informazioni Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;}.slide:last-child{break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--teal);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal-2);}.tape.dark{background:var(--teal);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--teal-2);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:142px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+em.gold{font-style:italic;color:var(--gold-deep);}
+em.teal{font-style:italic;color:var(--teal-2);}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 32px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:10px;line-height:1;}
+.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:50px;line-height:1;display:block;margin-bottom:8px;}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.chip.teal{background:var(--teal-2);color:var(--paper);}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:24px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.teal{background:var(--teal-2);}.note.teal *{color:#fff !important;}.note.teal .lbl{color:var(--gold) !important;}
+.note.dark{background:var(--teal);}.note.dark *{color:var(--paper) !important;}.note.dark .lbl{color:var(--gold) !important;}
+.note.red{background:#f3b6aa;}
+.note.sky{background:rgba(63,126,140,.12);border-color:var(--sky);}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:26px;line-height:1.4;color:var(--ink);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:20px;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.check-row{display:flex;align-items:flex-start;gap:20px;padding:12px 0;border-bottom:1px dashed var(--line);}
+.check-row:last-child{border-bottom:none;}
+.check-row .ck{font-size:26px;min-width:36px;line-height:1.3;}
+.check-row .tx{font-size:27px;line-height:1.4;color:var(--ink-soft);}
+.big-badge{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;border-radius:8px;display:inline-block;}
+.badge-ok{background:#d4f0e0;color:#1a5c34;border:2px solid #2e7d4f;}
+.badge-warn{background:#fde8d8;color:#8a3010;border:2px solid var(--red);}
+.letter-breakdown{display:flex;flex-direction:column;gap:16px;}
+.letter-row{display:flex;align-items:center;gap:20px;}
+.letter{font-family:var(--font-mono);font-weight:700;font-size:52px;color:var(--teal);min-width:60px;line-height:1;}
+.letter-meaning{font-size:30px;line-height:1.3;color:var(--ink-soft);}
+.letter-meaning b{color:var(--teal);font-weight:700;}
+.audience-pill{background:var(--paper-2);border:2px solid var(--line);border-radius:40px;padding:14px 28px;font-size:26px;font-weight:600;text-align:center;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#2a6b5e,#0a1e1b);right:-140px;top:-120px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-28px,40px) scale(1.04);}}
+.closing{background:var(--teal);}.closing::before{opacity:.10;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing em.hot{color:var(--gold);}
+.url-bar{background:#fbf5ec;border:3px solid var(--ink);border-radius:10px;padding:20px 28px;display:flex;align-items:center;gap:16px;box-shadow:5px 6px 0 rgba(28,23,20,.12);}
+.url-lock{font-size:32px;}
+.url-text{font-family:var(--font-mono);font-size:26px;color:var(--ink);}
+.url-text .https{color:var(--teal-2);font-weight:700;}
+.site-type-card{background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:22px 24px;text-align:center;box-shadow:5px 6px 0 rgba(28,23,20,.12);}
+.site-type-card .st-icon{font-size:40px;display:block;margin-bottom:8px;}
+.site-type-card h3{font-family:var(--font-display);font-weight:900;font-size:32px;margin-bottom:6px;}
+.site-type-card p{font-size:21px;color:var(--ink-faint);}
+.risk-row{display:flex;align-items:center;gap:24px;padding:13px 20px;border-radius:10px;margin-bottom:10px;}
+.risk-row:nth-child(odd){background:rgba(230,83,59,.07);}
+.risk-icon{font-size:32px;min-width:42px;}
+.risk-text{font-size:28px;color:var(--ink-soft);}
+.progress-bar-mock{height:12px;border-radius:6px;background:var(--line);overflow:hidden;margin:8px 0;}
+.progress-fill{height:100%;border-radius:6px;background:var(--teal-2);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--teal);}
+body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--teal);z-index:1000;transition:width .35s var(--ease);}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- SLIDE 1: TITLE -->
+<section class="slide title-slide active">
+  <div class="title-left">
+    <div class="tape reveal">Web · Sicurezza</div>
+    <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo W6 — Informazioni Online</div>
+    <h1 class="h-big reveal" contenteditable="true">Navigare con<br><em class="teal">Spirito</em><br><em class="hot">Critico</em></h1>
+    <p class="lead reveal" style="margin-top:24px;" contenteditable="true">Valutare l'affidabilità delle informazioni online e navigare in modo sicuro — competenze digitali fondamentali.</p>
+    <div class="chips reveal" style="margin-top:36px;"><span class="chip">Web · W6</span><span class="chip alt">Affidabilità</span><span class="chip alt">~50 min</span></div>
+  </div>
+  <div class="title-right">
+    <div style="position:relative;z-index:2;text-align:center;">
+      <svg viewBox="0 0 200 200" width="220" role="img" aria-label="Lente di ingrandimento su contenuti web">
+        <circle cx="80" cy="80" r="55" fill="rgba(244,236,224,.1)" stroke="rgba(244,236,224,.35)" stroke-width="3"/>
+        <circle cx="80" cy="80" r="40" fill="rgba(244,236,224,.07)" stroke="rgba(244,236,224,.2)" stroke-width="2"/>
+        <line x1="122" y1="122" x2="168" y2="168" stroke="rgba(244,236,224,.5)" stroke-width="9" stroke-linecap="round"/>
+        <text x="80" y="72" text-anchor="middle" font-size="28" fill="rgba(244,236,224,.8)">🔍</text>
+        <rect x="44" y="90" width="72" height="8" rx="3" fill="rgba(230,193,74,.5)"/>
+        <rect x="44" y="103" width="50" height="7" rx="3" fill="rgba(244,236,224,.3)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 2: PERCHÉ VALUTARE (S1) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">Premessa</div>
+      <h2 class="h-big reveal">Perché <em class="hot">valutare</em><br>le informazioni</h2>
+      <p class="lead reveal d1">Internet offre una quantità enorme di informazioni — ma chiunque può pubblicare contenuti online senza alcun controllo preventivo.</p>
+      <div class="note reveal d2">
+        <div class="lbl">🧠 Spirito critico</div>
+        <p>Non basta trovare un'informazione: bisogna capire se è <b>corretta</b>, <b>aggiornata</b> e <b>proveniente da una fonte affidabile</b>. Questa capacità si chiama <em>alfabetizzazione informativa</em>.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="note teal">
+        <div class="lbl">📊 Il problema della quantità</div>
+        <p>Ogni giorno vengono pubblicati milioni di nuovi contenuti. La quantità non garantisce la qualità. Distinguere informazioni affidabili da quelle inaffidabili è una competenza digitale essenziale.</p>
+      </div>
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">🎯 Dopo questo modulo saprai</div>
+        <p>Riconoscere siti affidabili · Valutare autori e fonti · Navigare in sicurezza · Proteggere i tuoi dati personali</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 3: I RISCHI (S2) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="center">
+    <div class="tape reveal">Conseguenze</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">I rischi delle informazioni <em class="hot">non verificate</em></h2>
+    <div class="grid3 reveal d1" style="margin-top:20px;gap:22px;">
+      <div class="card" style="border-color:var(--red);padding:22px 26px;">
+        <span class="card-ic" style="font-size:44px;display:block;margin-bottom:8px;">📰</span>
+        <h3>Fake news</h3>
+        <p>Notizie false che si diffondono rapidamente. Possono influenzare opinioni, comportamenti e persino decisioni politiche o sanitarie.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);padding:22px 26px;">
+        <span class="card-ic" style="font-size:44px;display:block;margin-bottom:8px;">🎣</span>
+        <h3>Truffe online</h3>
+        <p>Offerte false, false vincite, falsi concorsi. L'obiettivo è rubare dati personali o denaro facendo credere l'inganno legittimo.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);padding:22px 26px;">
+        <span class="card-ic" style="font-size:44px;display:block;margin-bottom:8px;">💸</span>
+        <h3>Perdita economica</h3>
+        <p>Acquisti su siti fraudolenti, investimenti basati su dati falsi, pagamenti per servizi inesistenti. I danni possono essere ingenti.</p>
+      </div>
+    </div>
+    <div class="grid2 reveal d2" style="margin-top:16px;gap:22px;">
+      <div class="card" style="border-color:var(--gold-deep);padding:22px 26px;">
+        <span class="card-ic" style="font-size:44px;display:block;margin-bottom:8px;">⚠️</span>
+        <h3>Decisioni sbagliate</h3>
+        <p>Informazioni errate su salute, legge o finanza possono portare a scelte pericolose per sé stessi e per gli altri.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);padding:22px 26px;">
+        <span class="card-ic" style="font-size:44px;display:block;margin-bottom:8px;">😔</span>
+        <h3>Danno alla reputazione</h3>
+        <p>Condividere informazioni false può compromettere la propria credibilità professionale e personale — online e offline.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 4: RICONOSCERE SITO SICURO (S3) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="center">
+    <div class="tape teal reveal">Sicurezza Web</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">Come riconoscere un sito web <em class="teal">sicuro</em></h2>
+    <p class="lead reveal d1">Prima di inserire dati personali, verifica sempre questi quattro elementi nella barra degli indirizzi del browser.</p>
+    <div class="grid2 reveal d2" style="margin-top:18px;gap:24px;">
+      <div class="card" style="border-color:var(--teal-2);">
+        <h3><span style="color:var(--teal-2);">01</span> Protocollo HTTPS</h3>
+        <p>L'indirizzo deve iniziare con <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;font-family:var(--font-mono);">https://</code> — non con <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;font-family:var(--font-mono);">http://</code>. La "S" finale sta per "Secure".</p>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);">
+        <h3><span style="color:var(--teal-2);">02</span> Simbolo del lucchetto</h3>
+        <p>Il lucchetto 🔒 accanto all'URL indica che la connessione è crittografata. Cliccandoci sopra puoi vedere i dettagli del certificato.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal);">
+        <h3><span style="color:var(--teal);">03</span> Dominio corretto</h3>
+        <p>Verifica che il nome del sito sia esattamente quello atteso. I truffatori usano domini simili: <code style="font-family:var(--font-mono);font-size:22px;">amaz0n.it</code> invece di <code style="font-family:var(--font-mono);font-size:22px;">amazon.it</code>.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal);">
+        <h3><span style="color:var(--teal);">04</span> Certificato valido</h3>
+        <p>Il browser avvisa con un messaggio di errore se il certificato è scaduto o non valido. In quel caso, non procedere con l'inserimento di dati.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 5: HTTPS (S4) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Protocollo</div>
+      <h2 class="h-big reveal">Il protocollo<br><em class="teal">HTTPS</em></h2>
+      <p class="lead reveal d1">La versione sicura del protocollo web. Ogni lettera dell'acronimo ha un significato preciso.</p>
+      <div class="note reveal d2" style="background:var(--paper-2);">
+        <div class="lbl">🔐 Come funziona</div>
+        <p>HTTPS usa <b>TLS (Transport Layer Security)</b> per cifrare tutti i dati scambiati tra il browser e il server. Intercettare i dati trasmessi diventa estremamente difficile.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="letter-breakdown">
+        <div class="letter-row"><span class="letter">H</span><span class="letter-meaning"><b>HyperText</b> — il formato dei documenti web</span></div>
+        <div class="letter-row"><span class="letter">T</span><span class="letter-meaning"><b>Transfer</b> — trasferimento dei dati</span></div>
+        <div class="letter-row"><span class="letter">T</span><span class="letter-meaning"><b>Transfer</b></span></div>
+        <div class="letter-row"><span class="letter">P</span><span class="letter-meaning"><b>Protocol</b> — il "linguaggio" di comunicazione</span></div>
+        <div class="letter-row"><span class="letter" style="color:var(--red);">S</span><span class="letter-meaning"><b style="color:var(--red);">Secure</b> — connessione cifrata e autenticata</span></div>
+      </div>
+      <div class="url-bar" style="margin-top:20px;">
+        <span class="url-lock">🔒</span>
+        <span class="url-text"><span class="https">https://</span>www.banca.it/accesso</span>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 6: IL LUCCHETTO (S5) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Indicatore</div>
+      <h2 class="h-big reveal">Il simbolo del<br><em class="teal">lucchetto</em></h2>
+      <p class="lead reveal d1">Nei browser moderni il lucchetto compare accanto all'URL quando la connessione è protetta tramite certificato digitale.</p>
+      <div class="stack reveal d2">
+        <div class="note teal">
+          <div class="lbl">✅ Cosa indica</div>
+          <p>La comunicazione tra il browser e il server è cifrata — i dati trasmessi non possono essere letti da terzi.</p>
+        </div>
+        <div class="note red">
+          <div class="lbl">⚠️ Cosa NON indica</div>
+          <p>Il lucchetto <b>non garantisce</b> che il sito sia affidabile o legittimo. Garantisce solo che la connessione è sicura.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col reveal d1">
+      <div class="illu" style="padding:40px;">
+        <svg viewBox="0 0 340 240" style="max-width:320px;" role="img" aria-label="Barra URL del browser con lucchetto">
+          <rect x="4" y="4" width="332" height="232" rx="14" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+          <rect x="4" y="4" width="332" height="42" rx="14" fill="#1c1714"/>
+          <rect x="4" y="30" width="332" height="16" fill="#1c1714"/>
+          <circle cx="28" cy="25" r="8" fill="#e6533b" opacity=".8"/>
+          <circle cx="56" cy="25" r="8" fill="#e6c14a" opacity=".8"/>
+          <circle cx="84" cy="25" r="8" fill="#4caf50" opacity=".8"/>
+          <!-- URL bar -->
+          <rect x="20" y="56" width="300" height="40" rx="8" fill="white" stroke="#d8c9b4" stroke-width="2"/>
+          <text x="38" y="82" font-size="18" fill="#1f5249">🔒</text>
+          <text x="60" y="82" font-family="Space Mono" font-size="14" fill="#1f5249" font-weight="700">https://</text>
+          <text x="130" y="82" font-family="Space Mono" font-size="14" fill="#1c1714">www.banca.it</text>
+          <!-- Content mockup -->
+          <rect x="20" y="112" width="180" height="12" rx="4" fill="#d8c9b4"/>
+          <rect x="20" y="132" width="140" height="10" rx="4" fill="#ece0cf"/>
+          <rect x="20" y="150" width="200" height="10" rx="4" fill="#ece0cf"/>
+          <rect x="20" y="170" width="120" height="10" rx="4" fill="#ece0cf"/>
+          <!-- Lock detail callout -->
+          <circle cx="284" cy="76" r="20" fill="rgba(31,82,73,.15)" stroke="#1f5249" stroke-width="2"/>
+          <text x="284" y="83" text-anchor="middle" font-size="18">🔒</text>
+          <line x1="264" y1="76" x2="60" y2="76" stroke="#1f5249" stroke-width="1.5" stroke-dasharray="4"/>
+        </svg>
+        <div class="illu-cap">Lucchetto nella barra degli indirizzi</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 7: HTTPS ≠ AFFIDABILITÀ (S6) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="center">
+    <div class="tape reveal">Attenzione</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;"><em class="hot">HTTPS ≠ Affidabilità</em></h2>
+    <div class="note red reveal d1" style="margin-top:18px;max-width:1300px;">
+      <div class="lbl">🚨 Errore comune</div>
+      <p style="font-size:30px;">Anche un sito <b>fraudolento o pieno di informazioni false</b> può utilizzare HTTPS. Il protocollo sicuro protegge <em>la connessione</em>, non garantisce la qualità o l'onestà del contenuto.</p>
+    </div>
+    <div class="grid3 reveal d2" style="margin-top:18px;">
+      <div class="card" style="border-color:var(--teal-2);padding:22px 26px;">
+        <h3 style="color:var(--teal-2);">🔍 Verifica il dominio</h3>
+        <p>Il nome del sito è quello giusto? Controlla che non ci siano lettere sbagliate, numeri al posto di lettere o estensioni diverse.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);padding:22px 26px;">
+        <h3 style="color:var(--teal-2);">📄 Verifica il contenuto</h3>
+        <p>Le informazioni sono firmate da autori riconoscibili? Ci sono fonti citate? Il linguaggio è professionale e preciso?</p>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);padding:22px 26px;">
+        <h3 style="color:var(--teal-2);">🏢 Verifica il proprietario</h3>
+        <p>Chi gestisce il sito? C'è una sezione "Chi siamo"? I contatti sono reali e verificabili? L'organizzazione esiste davvero?</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 8: SCOPO DEI SITI (S7) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="center">
+    <div class="tape teal reveal">Tipologie</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">Lo <em class="teal">scopo</em> dei siti web</h2>
+    <p class="lead reveal d1">Ogni sito viene creato con un obiettivo preciso. Capire lo scopo è il primo passo per valutare correttamente le informazioni che contiene.</p>
+    <div class="grid4 reveal d2" style="margin-top:18px;">
+      <div class="site-type-card" style="border-color:var(--teal-2);">
+        <span class="st-icon">📰</span>
+        <h3>Informativi</h3>
+        <p>Giornali, enciclopedie, portali istituzionali</p>
+      </div>
+      <div class="site-type-card" style="border-color:var(--sky);">
+        <span class="st-icon">🎬</span>
+        <h3>Intrattenimento</h3>
+        <p>Video, blog, forum, siti umoristici</p>
+      </div>
+      <div class="site-type-card" style="border-color:var(--gold-deep);">
+        <span class="st-icon">💬</span>
+        <h3>Opinione</h3>
+        <p>Blog editoriali, siti di commento, opinionisti</p>
+      </div>
+      <div class="site-type-card" style="border-color:var(--red);">
+        <span class="st-icon">🛒</span>
+        <h3>Commerciali</h3>
+        <p>E-commerce, vetrine, promozioni</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:18px;">
+      <div class="lbl">💡 Regola pratica</div>
+      <p>Prima di affidarti a un'informazione, chiediti: <b>perché questo sito esiste?</b> La risposta cambia il modo in cui interpreti i suoi contenuti.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 9: SITI INFORMATIVI (S8) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Tipo 1 / 4</div>
+      <h2 class="h-big reveal">Siti<br><em class="teal">informativi</em></h2>
+      <p class="lead reveal d1">Il loro scopo principale è fornire informazioni accurate su un argomento. L'accuratezza è la loro ragion d'essere — anche se non è sempre garantita.</p>
+      <div class="note reveal d2">
+        <div class="lbl">📌 Cosa aspettarsi</div>
+        <p>Articoli firmati da autori, fonti citate, aggiornamenti datati. L'affidabilità varia molto: un giornale nazionale è diverso da un blog anonimo, anche se entrambi si definiscono "informativi".</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="note teal">
+        <div class="lbl">📋 Esempi</div>
+        <p>
+          📰 Giornali online (Corriere, Repubblica…)<br>
+          📚 Enciclopedie (Wikipedia, Treccani)<br>
+          🏛️ Siti istituzionali (Governo, Comuni)<br>
+          🔬 Portali scientifici (PubMed, AIRC)
+        </p>
+      </div>
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">✅ Segnali positivi</div>
+        <p>Autore identificabile · Fonti citate · Data di pubblicazione visibile · Aggiornamenti regolari</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 10: SITI INTRATTENIMENTO (S9) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape reveal">Tipo 2 / 4</div>
+      <h2 class="h-big reveal">Siti di<br><em class="hot">intrattenimento</em></h2>
+      <p class="lead reveal d1">Progettati per divertire, coinvolgere o appassionare. Il valore principale non è l'accuratezza delle informazioni, ma l'esperienza dell'utente.</p>
+      <div class="note red reveal d2">
+        <div class="lbl">⚠️ Attenzione</div>
+        <p>Le informazioni presenti potrebbero non essere verificate. Un video popolare o un meme virale non sono fonti attendibili, anche se condivisi da milioni di persone.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">📋 Esempi</div>
+        <p>
+          🎬 Piattaforme video (YouTube, TikTok)<br>
+          ✍️ Blog personali<br>
+          😄 Siti umoristici e satirici<br>
+          💬 Forum e community (Reddit…)
+        </p>
+      </div>
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">💡 Come usarli correttamente</div>
+        <p>Ottimi per ispirazione e svago. Se contengono un'affermazione importante, <b>verificala sempre su fonti primarie</b> prima di condividerla.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 11: SITI DI OPINIONE (S10) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape gold reveal">Tipo 3 / 4</div>
+      <h2 class="h-big reveal">Siti di<br><em class="gold">opinione</em></h2>
+      <p class="lead reveal d1">Presentano punti di vista personali, editoriali o politici. Non è sbagliato leggerli, ma è fondamentale distinguere i fatti dalle opinioni.</p>
+      <div class="note reveal d2">
+        <div class="lbl">🔍 La distinzione chiave</div>
+        <p><b>Fatto:</b> "Le emissioni di CO₂ sono aumentate del 12% nel 2023." (verificabile con dati)<br><b>Opinione:</b> "Il governo ha sbagliato a non intervenire prima." (punto di vista)</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">📋 Esempi</div>
+        <p>
+          ✍️ Blog di opinionisti<br>
+          🗞️ Editoriali e commenti<br>
+          📻 Siti di partiti o movimenti<br>
+          💬 Newsletter di esperti
+        </p>
+      </div>
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">✅ Come approcciarli</div>
+        <p>Leggi più punti di vista diversi. Le opinioni arricchiscono il ragionamento, ma non sostituiscono la ricerca dei fatti.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 12: SITI COMMERCIALI (S11) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape reveal">Tipo 4 / 4</div>
+      <h2 class="h-big reveal">Siti<br><em class="hot">commerciali</em></h2>
+      <p class="lead reveal d1">L'obiettivo è promuovere o vendere prodotti e servizi. Le informazioni presenti possono essere influenzate da finalità commerciali.</p>
+      <div class="note red reveal d2">
+        <div class="lbl">⚠️ Conflitto di interesse</div>
+        <p>Un sito che vende integratori alimentari non è la fonte più obiettiva per valutare l'efficacia di quegli stessi integratori. Le recensioni possono essere false o selezionate.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">📋 Esempi</div>
+        <p>
+          🛒 E-commerce (Amazon, eBay, Zalando)<br>
+          🏪 Siti aziendali e vetrine<br>
+          🏨 Portali di prenotazione<br>
+          📦 Marketplace e comparatori
+        </p>
+      </div>
+      <div class="note teal">
+        <div class="lbl">💡 Strategia consigliata</div>
+        <p>Confronta sempre più fonti indipendenti prima di acquistare o fidarti di un'affermazione commerciale. Cerca recensioni su piattaforme terze.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 13: CHI È L'AUTORE (S12) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="center">
+    <div class="tape teal reveal">Valutazione</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">Chi è l'<em class="teal">autore</em> del contenuto?</h2>
+    <p class="lead reveal d1">Identificare chi ha scritto un contenuto è il primo passo per valutarne l'affidabilità. Un autore anonimo è un segnale di allerta.</p>
+    <div class="grid3 reveal d2" style="margin-top:18px;gap:22px;">
+      <div class="card" style="border-color:var(--teal-2);padding:24px 28px;">
+        <h3>🧑‍💼 Chi ha scritto?</h3>
+        <p>Il nome e cognome dell'autore sono indicati? È possibile trovare informazioni su di lui/lei al di fuori di questo sito?</p>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);padding:24px 28px;">
+        <h3>🎓 Quali competenze ha?</h3>
+        <p>Ha una formazione o un'esperienza rilevante nell'argomento trattato? Un medico che parla di salute è più affidabile di un anonimo.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);padding:24px 28px;">
+        <h3>🌐 È riconosciuto?</h3>
+        <p>È citato da altre fonti affidabili? Ha pubblicazioni, interviste, collaborazioni verificabili? La reputazione si costruisce nel tempo.</p>
+      </div>
+    </div>
+    <div class="note teal reveal d3" style="margin-top:16px;">
+      <div class="lbl">💡 Regola d'oro</div>
+      <p>La presenza di un autore identificabile, con competenze verificabili nell'argomento, aumenta significativamente la credibilità del contenuto.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 14: IMPORTANZA FONTI (S13) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Verifica</div>
+      <h2 class="h-big reveal">L'importanza<br>delle <em class="teal">fonti</em></h2>
+      <p class="lead reveal d1">Le affermazioni importanti devono essere supportate da prove. Un contenuto ben fondato cita le proprie fonti e permette a chiunque di verificarle.</p>
+      <div class="note reveal d2">
+        <div class="lbl">🔍 Regola pratica</div>
+        <p>Se non trovi una fonte citata, cerca la stessa affermazione su siti indipendenti e affidabili. Se non la trovi, sii scettico.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:36px;margin-bottom:14px;">Fonti che aumentano l'affidabilità</h3>
+      <div class="check-row"><span class="ck">📊</span><div class="tx">Statistiche ufficiali (ISTAT, Eurostat…)</div></div>
+      <div class="check-row"><span class="ck">🔬</span><div class="tx">Studi scientifici pubblicati su riviste peer-reviewed</div></div>
+      <div class="check-row"><span class="ck">📜</span><div class="tx">Documenti ufficiali (leggi, sentenze, rapporti)</div></div>
+      <div class="check-row"><span class="ck">📚</span><div class="tx">Libri e pubblicazioni di esperti riconosciuti</div></div>
+      <div class="check-row"><span class="ck">🚫</span><div class="tx" style="color:var(--red);">Assenza di fonti = segnale di allerta</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 15: DATA PUBBLICAZIONE (S14) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Aggiornamento</div>
+      <h2 class="h-big reveal">La data di<br><em class="teal">pubblicazione</em></h2>
+      <p class="lead reveal d1">Alcune informazioni invecchiano rapidamente. Un contenuto corretto cinque anni fa potrebbe essere obsoleto o addirittura sbagliato oggi.</p>
+      <div class="note red reveal d2">
+        <div class="lbl">⚠️ Esempio concreto</div>
+        <p>Un articolo del 2018 sui "migliori smartphone" non è utile nel 2025. Un protocollo medico del 2010 potrebbe essere stato superato da nuove ricerche.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:36px;margin-bottom:14px;">Cosa verificare</h3>
+      <div class="check-row"><span class="ck">📅</span><div class="tx"><b>Data di pubblicazione</b> — visibile nell'articolo o nella pagina</div></div>
+      <div class="check-row"><span class="ck">🔄</span><div class="tx"><b>Data dell'ultimo aggiornamento</b> — alcuni siti la indicano esplicitamente</div></div>
+      <div class="check-row"><span class="ck">📆</span><div class="tx"><b>Contesto temporale</b> — le informazioni sono ancora valide nel periodo attuale?</div></div>
+      <div class="check-row"><span class="ck">🔗</span><div class="tx"><b>Link interni</b> — i link citati funzionano ancora? Rimandano a contenuti attuali?</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 16: AGGIORNAMENTO CONTENUTI (S15) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Qualità</div>
+      <h2 class="h-big reveal">Verificare<br>l'<em class="teal">aggiornamento</em></h2>
+      <p class="lead reveal d1">Un sito aggiornato regolarmente dimostra attenzione alla qualità e alla correttezza delle informazioni nel tempo.</p>
+      <div class="note reveal d2">
+        <div class="lbl">📌 Perché conta</div>
+        <p>Un sito abbandonato da anni può contenere informazioni corrette ma superate — o link non funzionanti che rimandano a contenuti inesistenti o modificati.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:36px;margin-bottom:14px;">Segnali positivi</h3>
+      <div class="check-row"><span class="ck">✅</span><div class="tx"><b>Articoli recenti</b> — pubblicazioni nell'ultimo anno o mese</div></div>
+      <div class="check-row"><span class="ck">✅</span><div class="tx"><b>Link funzionanti</b> — nessun errore 404 nei contenuti principali</div></div>
+      <div class="check-row"><span class="ck">✅</span><div class="tx"><b>Dati aggiornati</b> — statistiche, prezzi e normative riferiti al periodo attuale</div></div>
+      <div class="check-row"><span class="ck">✅</span><div class="tx"><b>Copyright aggiornato</b> — l'anno nel footer corrisponde a quello attuale</div></div>
+      <div class="check-row"><span class="ck">🚫</span><div class="tx" style="color:var(--red);">Sito fermo da anni — valuta con maggiore cautela</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 17: PUBBLICO DI RIFERIMENTO (S16) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="center">
+    <div class="tape teal reveal">Destinatari</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">Riconoscere il <em class="teal">pubblico di riferimento</em></h2>
+    <p class="lead reveal d1">Ogni contenuto è scritto pensando a un pubblico specifico. Capire a chi è destinato aiuta a valutare il livello di accuratezza e il linguaggio usato.</p>
+    <div class="reveal d2" style="margin-top:18px;display:flex;gap:22px;align-items:stretch;">
+      <div class="audience-pill" style="flex:1;">👶 Bambini</div>
+      <div class="audience-pill" style="flex:1;">🎓 Studenti</div>
+      <div class="audience-pill" style="flex:1;">👨‍⚕️ Professionisti</div>
+      <div class="audience-pill" style="flex:1;">🛍️ Consumatori</div>
+      <div class="audience-pill" style="flex:1;">🔬 Esperti</div>
+    </div>
+    <div class="grid2 reveal d3" style="margin-top:16px;gap:22px;">
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">📌 Cosa cambia</div>
+        <p>Un articolo per specialisti usa terminologia tecnica, cita studi e presuppone conoscenze avanzate. Un contenuto per bambini semplifica ma può perdere sfumature importanti.</p>
+      </div>
+      <div class="note teal">
+        <div class="lbl">💡 Come applicarlo</div>
+        <p>Scegli fonti adeguate al tuo livello di competenza. Non affidarti a contenuti troppo semplificati per decisioni importanti — cerca la fonte primaria.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 18: ADEGUATEZZA (S17) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Adeguatezza</div>
+      <h2 class="h-big reveal">Informazioni<br>adeguate al<br><em class="teal">contesto</em></h2>
+      <p class="lead reveal d1">Un contenuto corretto per uno specialista può risultare incomprensibile per un principiante, e viceversa. La scelta della fonte giusta dipende dal proprio punto di partenza.</p>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="note teal">
+        <div class="lbl">📐 Livello di competenza</div>
+        <p>Scegli fonti adeguate alla tua preparazione. Se sei alle prime armi, parti da fonti divulgative. Man mano che impari, accedi alle fonti primarie.</p>
+      </div>
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">🎯 Esigenze specifiche</div>
+        <p>La fonte giusta per comprende<br>un concetto generale è diversa da quella giusta per prendere una decisione professionale o legale.</p>
+      </div>
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">📍 Contesto di utilizzo</div>
+        <p>Un compito scolastico, una ricerca medica e una scelta di acquisto richiedono livelli di verifica diversi. Proporziona lo sforzo all'importanza della decisione.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 19: ACQUISTI ONLINE (S18) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="center">
+    <div class="tape teal reveal">Sicurezza</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">Acquisti online in <em class="teal">sicurezza</em></h2>
+    <p class="lead reveal d1">Prima di inserire dati di pagamento, completa questa verifica in quattro passaggi. Richiede meno di un minuto e può evitare gravi perdite.</p>
+    <div class="grid2 reveal d2" style="margin-top:18px;gap:22px;">
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:22px 28px;"><span class="ck" style="font-size:36px;">1️⃣</span><div class="tx"><b>Usa siti conosciuti</b> — preferisci piattaforme consolidate con track record verificabile. Per siti nuovi, cerca referenze indipendenti.</div></div>
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:22px 28px;"><span class="ck" style="font-size:36px;">2️⃣</span><div class="tx"><b>Leggi le recensioni</b> — cerca feedback su piattaforme terze (Trustpilot, Google Reviews). Diffida di siti con solo recensioni positive e recenti.</div></div>
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:22px 28px;"><span class="ck" style="font-size:36px;">3️⃣</span><div class="tx"><b>Verifica il venditore</b> — chi è? Ha una partita IVA o ragione sociale verificabile? Esiste un indirizzo fisico? Risponde ai contatti?</div></div>
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:22px 28px;"><span class="ck" style="font-size:36px;">4️⃣</span><div class="tx"><b>Controlla HTTPS</b> — soprattutto nella pagina di pagamento. Se manca o il dominio è diverso, non procedere.</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 20: PROTEGGERE DATI (S19) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="center">
+    <div class="tape reveal">Privacy</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">Proteggere i <em class="hot">dati personali</em></h2>
+    <p class="lead reveal d1">Non condividere informazioni non necessarie. Alcune categorie di dati vanno protette con particolare attenzione — una volta diffuse, è difficile o impossibile recuperarle.</p>
+    <div class="grid2 reveal d2" style="margin-top:18px;gap:22px;">
+      <div class="card" style="border-color:var(--red);">
+        <h3>🪪 Documenti d'identità</h3>
+        <p>Carta d'identità, passaporto, codice fiscale. Non inviarli via email o chat senza verificare l'identità del destinatario e la necessità reale.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <h3>🏦 Coordinate bancarie</h3>
+        <p>IBAN, numero di carta, CVV, PIN. Nessuna banca o ente legittimo ti chiederà queste informazioni via email o telefono.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <h3>🔑 Password</h3>
+        <p>Non condividerle con nessuno — nemmeno con persone di fiducia. Usa password diverse per ogni servizio e un password manager.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <h3>📲 Codici OTP</h3>
+        <p>I codici monouso ricevuti via SMS o app. Non comunicarli a nessuno: chi li chiede sta quasi certamente tentando una truffa.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 21: MODULI ONLINE (S20) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Attenzione</div>
+      <h2 class="h-big reveal">I <em class="teal">moduli</em><br>online</h2>
+      <p class="lead reveal d1">Molti siti richiedono la compilazione di moduli. Prima di inserire qualsiasi dato, fai tre domande fondamentali.</p>
+      <div class="note red reveal d2">
+        <div class="lbl">🚨 Segnali di allerta</div>
+        <p>Il modulo chiede dati non necessari (numero di carta per un servizio gratuito). Il sito non ha privacy policy. L'URL è strano o diverso da quello che ti aspettavi.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="card" style="border-color:var(--teal-2);padding:28px;">
+        <h3>❓ Sono realmente necessari?</h3>
+        <p style="margin-top:10px;">Perché questo servizio ha bisogno della mia data di nascita? Del mio numero di telefono? Se non c'è una ragione ovvia, non inserire il dato.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);padding:28px;margin-top:20px;">
+        <h3>📬 Chi li riceverà?</h3>
+        <p style="margin-top:10px;">I miei dati saranno condivisi con terzi? Venduti a inserzionisti? Leggi la privacy policy anche in forma sintetica.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);padding:28px;margin-top:20px;">
+        <h3>🗑️ Come verranno usati?</h3>
+        <p style="margin-top:10px;">Per quanto tempo saranno conservati? Posso cancellarli in seguito? Il GDPR mi dà questi diritti — verificali.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 22: LOGOUT (S21) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Buona abitudine</div>
+      <h2 class="h-big reveal">Disconnessione<br>e <em class="teal">logout</em></h2>
+      <p class="lead reveal d1">Una delle pratiche di sicurezza più semplici ed efficaci — spesso ignorata. Richiede pochi secondi e protegge da accessi non autorizzati.</p>
+      <div class="note teal reveal d2">
+        <div class="lbl">📌 Quando è particolarmente importante</div>
+        <p>Su <b>dispositivi condivisi</b> (computer dell'aula, PC di un ufficio, device di un amico). Su <b>reti pubbliche</b> (Wi-Fi bar, aeroporto). Dopo ogni accesso a servizi sensibili (banca, email, SPID).</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:36px;margin-bottom:16px;">Al termine di ogni sessione</h3>
+      <div class="check-row"><span class="ck">1️⃣</span><div class="tx"><b>Effettua il logout</b> dal servizio — non chiudere solo la scheda</div></div>
+      <div class="check-row"><span class="ck">2️⃣</span><div class="tx"><b>Chiudi la sessione</b> — svuota cache e cookie se su dispositivo altrui</div></div>
+      <div class="check-row"><span class="ck">3️⃣</span><div class="tx"><b>Verifica</b> che non siano rimasti account aperti in altre schede</div></div>
+      <div class="check-row"><span class="ck">4️⃣</span><div class="tx"><b>Non salvare</b> le password nel browser su dispositivi condivisi</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 23: CONTROLLO USO INTERNET (S22) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="center">
+    <div class="tape teal reveal">Strumenti</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">Il controllo dell'uso di <em class="teal">Internet</em></h2>
+    <p class="lead reveal d1">Esistono strumenti per monitorare e limitare l'accesso alla rete — utili in contesti familiari, scolastici e aziendali.</p>
+    <div class="grid2 reveal d2" style="margin-top:18px;gap:22px;">
+      <div class="card" style="border-color:var(--teal-2);">
+        <span class="card-ic" style="font-size:44px;display:block;margin-bottom:8px;">👨‍👩‍👧</span>
+        <h3>Parental control</h3>
+        <p>Sistemi per proteggere i minori da contenuti inappropriati, controllare il tempo di utilizzo e limitare l'accesso a determinate categorie di siti.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);">
+        <span class="card-ic" style="font-size:44px;display:block;margin-bottom:8px;">🚧</span>
+        <h3>Filtri web</h3>
+        <p>Bloccano categorie di siti (giochi d'azzardo, contenuti per adulti, malware noti) a livello di rete o di dispositivo. Usati da scuole e aziende.</p>
+      </div>
+      <div class="card" style="border-color:var(--sky);">
+        <span class="card-ic" style="font-size:44px;display:block;margin-bottom:8px;">🏢</span>
+        <h3>Monitoraggio aziendale</h3>
+        <p>Le organizzazioni possono registrare il traffico di rete per proteggere i dati aziendali e prevenire attacchi informatici.</p>
+      </div>
+      <div class="card" style="border-color:var(--sky);">
+        <span class="card-ic" style="font-size:44px;display:block;margin-bottom:8px;">⏱️</span>
+        <h3>Gestione del tempo</h3>
+        <p>App e funzioni integrate nei sistemi operativi (Screen Time, Digital Wellbeing) che mostrano e limitano il tempo trascorso su app e siti.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 24: PARENTAL CONTROL (S23) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Famiglia</div>
+      <h2 class="h-big reveal">Parental<br><em class="teal">Control</em></h2>
+      <p class="lead reveal d1">Sistemi pensati per aiutare genitori e tutori a proteggere i minori online, garantendo un utilizzo sicuro e appropriato di Internet.</p>
+      <div class="note reveal d2">
+        <div class="lbl">📌 Non è sorveglianza totale</div>
+        <p>Il parental control è uno strumento di protezione, non di controllo. Va accompagnato da educazione digitale — il dialogo con i minori è altrettanto importante dei filtri tecnici.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:36px;margin-bottom:16px;">Cosa permette di fare</h3>
+      <div class="check-row"><span class="ck">🚫</span><div class="tx">Bloccare l'accesso a categorie di siti (violenza, contenuti per adulti)</div></div>
+      <div class="check-row"><span class="ck">⏰</span><div class="tx">Limitare il tempo di utilizzo giornaliero o per fasce orarie</div></div>
+      <div class="check-row"><span class="ck">🛡️</span><div class="tx">Proteggere da download non autorizzati e app inappropriate</div></div>
+      <div class="check-row"><span class="ck">📍</span><div class="tx">Alcuni sistemi permettono la localizzazione del dispositivo</div></div>
+      <div class="check-row"><span class="ck">📊</span><div class="tx">Report sull'utilizzo: tempo trascorso, siti visitati, app usate</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 25: MONITORAGGIO AZIENDALE (S24) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Lavoro</div>
+      <h2 class="h-big reveal">Monitoraggio<br>in ambito<br><em class="teal">aziendale</em></h2>
+      <p class="lead reveal d1">Le organizzazioni usano strumenti di controllo della rete per ragioni di sicurezza informatica e compliance. È legale e comunicato ai dipendenti.</p>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:36px;margin-bottom:16px;">Perché le aziende lo usano</h3>
+      <div class="check-row"><span class="ck">🛡️</span><div class="tx">Proteggere dati aziendali riservati da fuoriuscite</div></div>
+      <div class="check-row"><span class="ck">🦠</span><div class="tx">Prevenire infezioni da malware che entrano via web</div></div>
+      <div class="check-row"><span class="ck">📋</span><div class="tx">Verificare il rispetto delle policy interne sull'uso della rete</div></div>
+      <div class="note teal" style="margin-top:20px;">
+        <div class="lbl">⚖️ Limiti legali</div>
+        <p>I controlli aziendali devono rispettare il <b>GDPR</b> e lo <b>Statuto dei Lavoratori</b>. I dipendenti devono essere informati preventivamente di cosa viene monitorato e perché.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 26: RIEPILOGO (S25) -->
+<section class="slide">
+  <div class="deck-tab">AFFIDABILITÀ · W6</div>
+  <div class="center">
+    <div class="tape teal reveal">Conclusione</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">Riepilogo del <em class="teal">modulo</em></h2>
+    <p class="lead reveal d1">Per navigare in sicurezza e valutare correttamente le informazioni online:</p>
+    <div class="grid2 reveal d2" style="margin-top:18px;gap:16px;">
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">🔒</span><div class="tx"><b>Riconosci i siti sicuri</b> — HTTPS, lucchetto, dominio corretto</div></div>
+        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">🎯</span><div class="tx"><b>Capisci lo scopo</b> — informativo, commerciale, opinione?</div></div>
+        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">🧑‍💼</span><div class="tx"><b>Verifica autore e fonti</b> — chi ha scritto? Cita prove?</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">🛡️</span><div class="tx"><b>Proteggi i tuoi dati</b> — no a documenti, IBAN e OTP via rete</div></div>
+        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">🛒</span><div class="tx"><b>Acquisti con attenzione</b> — siti noti, recensioni, HTTPS</div></div>
+        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">🔓</span><div class="tx"><b>Fai sempre logout</b> — su dispositivi condivisi e reti pubbliche</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 27: CLOSING -->
+<section class="slide closing">
+  <div class="center" style="align-items:center;text-align:center;">
+    <div class="eyebrow reveal" style="color:var(--gold);">Fine Modulo W6</div>
+    <h2 class="h-mega reveal" style="margin-top:10px;">Informati! <em class="hot">🔍</em></h2>
+    <p class="lead reveal d1" style="color:#f4ece0;max-width:1100px;text-align:center;margin-top:20px;">Ora sai valutare le informazioni online, riconoscere siti affidabili, proteggere i tuoi dati e navigare con spirito critico. La competenza digitale si esercita ogni giorno — ogni clic è un'occasione per applicarla.</p>
+    <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+      <a class="chip" href="00-indice.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">↩ Indice del corso</a>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;});}
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'web-affidabilita-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>
