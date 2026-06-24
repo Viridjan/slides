@@ -40,26 +40,53 @@ Three steps per its SKILL.md: (1) confirm requirements + outline and recommend a
 
 ---
 
-## Active courses in `output/slides/`
+## Active courses — all files in repo root
 
-All 19 decks live in a single flat folder `output/slides/`. All share the **Warm Study Zine** design system — locked CSS tokens and a `SlidePresentation` JS class that must stay identical across every file.
+All 20 decks are flat HTML files in the **repo root** (same level as CLAUDE.md). The index is `00-indice.html`. `index.html` is just a meta-refresh redirect to it.
 
-### Naming convention: `inf-secNN-topic.html`
+### Naming convention: `{series}{NN}-{topic}.html`
 
-| Range | Course |
-|-------|--------|
-| `inf-sec00-indice` | Course index (update when adding modules) |
-| `inf-sec01` – `inf-sec10` | Informatica (01-componenti → 10-presentazioni) |
-| `inf-sec11` – `inf-sec13` | Prerequisiti sicurezza (reti, navigazione, ricerca) |
-| `inf-sec14` – `inf-sec18` | Sicurezza Digitale C1–C5 |
+| Series prefix | Course | Example |
+|---------------|--------|---------|
+| `web` | Reti e Web | `web01-reti.html`, `web05-firma.html` |
+| `sec` | Sicurezza Digitale | `sec01-introduzione.html` |
+| `inf` | Informatica (hardware/strumenti) | `inf01-componenti.html` |
+| `id` | Identità digitale e account | `id01-identita.html` |
 
-New decks get the next available number. All cross-deck `href` links must use the `inf-secNN-topic.html` form — no folder prefixes, no old-style names.
+New decks get the next available number within their series. All cross-deck `href` links use bare filenames — no folder prefixes.
 
-**Index maintenance rule:** `inf-sec00-indice.html` has one `<div class="section-group">` per topic section. Add new modules there. Card CSS classes: `.pre` (sky), `.sec` (red), `.inf` (gold).
+### Current deck inventory
+
+| File | Series/Num | Title |
+|------|-----------|-------|
+| `web01-reti.html` | M1 | Reti Informatiche e Internet |
+| `web02-navigazione.html` | M2 | Navigazione e Indirizzi Web |
+| `web03-ricerca.html` | M4 | Ricerca e Gestione delle Informazioni |
+| `web04-email.html` | M5 | La Posta Elettronica |
+| `web05-firma.html` | W5 | La Firma Email |
+| `sec01-introduzione.html` | C1 | Introduzione alla Sicurezza Digitale |
+| `sec02-minacce.html` | C2 | Minacce e Vulnerabilità |
+| `sec03-privacy.html` | C3 | Privacy, Anonimato e Pseudonimia |
+| `sec04-professioni.html` | C4 | Professioni nella Sicurezza |
+| `sec05-assessment.html` | C5 | Assessment, Compliance e Dati Personali |
+| `inf01-componenti.html` | 01 | Dentro il computer |
+| `inf02-internet.html` | 02 | Sempre connessi |
+| `inf03-documenti.html` | 04 | Mettere tutto per iscritto |
+| `inf04-excel-basi.html` | 05.1 | Le basi del foglio di calcolo |
+| `inf05-excel-avanzato.html` | 05.2 | Analizzare e condividere |
+| `inf06-branding.html` | 06 | Farsi riconoscere |
+| `inf07-social.html` | 07 | I social giusti |
+| `inf08-presentazioni.html` | 08 | Dillo con una slide |
+| `id01-identita.html` | 03.1 | La tua identità online |
+| `id02-account.html` | 03.2 | Difendi i tuoi account |
+
+**Index maintenance:** `00-indice.html` has one `<div class="section-group">` per topic section. Card CSS classes: `.pre` (sky left-border, web series), `.sec` (red, sicurezza), `.inf` (gold, informatica + id).
+
+**Navigation chips:** Every closing slide must have a "Prossimo →" chip to the next deck in sequence plus a fallback "↩ Indice del corso" chip to `00-indice.html`. When adding a deck, update the previous deck's closing chip to point to it.
 
 ### Warm Study Zine — locked design tokens
 
-These CSS variables are identical in every deck and must not be changed:
+These CSS variables are **identical in every deck** and must not be changed:
 
 ```css
 :root {
@@ -74,12 +101,20 @@ These CSS variables are identical in every deck and must not be changed:
 ```
 
 Every deck also includes:
-- **Inline editor** — hover top-left hotzone or press `E`; edits saved to `localStorage` under a per-deck key.
+- **Inline editor** — hover top-left hotzone or press `E`; edits saved to `localStorage` under a per-deck key (e.g. `'web-firma-edits'`).
 - **`numberPages()`** — auto-fills `.page-num` spans; no manual slide numbers.
 - **`.reveal` animation** — staggered entrance on `.slide.visible`; use `.d1/.d2/.d3` for manual delay overrides.
-- **Closing slide** uses `.closing` class (tinted background) and `<a class="chip" href="next.html">` for cross-deck navigation.
+- **Closing slide** uses `.closing` class (accent-colored background).
 
-Use **fictional domains** in URL examples (e.g. `www.sitofinto.it`), never real Italian domain names like `scuola.it`.
+### Overflow prevention (1920×1080 stage)
+
+Slide padding is 96px top+bottom → **888px usable height**. These combinations reliably overflow and must be avoided or fixed:
+
+- `tape + h-sec + lead + grid3 + grid2` (5 cards with `.ic` emoji) ≈ 1030–1090px → **remove the lead paragraph** and tighten inter-element margins to 14–18px
+- `tape + h-sec + lead + grid3 + grid3` (6 cards with `.ic`) ≈ 1090px → keep lead but reduce `.ic` to 40px and card padding to `18px 24px`
+- When a slide has 5+ cards, either remove the intro lead or use a split/two-column layout
+
+Use **fictional domains** in URL examples (e.g. `www.azienda.it`), never real Italian domain names.
 
 ## Source materials
 
