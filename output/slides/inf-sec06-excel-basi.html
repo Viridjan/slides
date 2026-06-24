@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Informatica · Modulo 6 — Brand identity</title>
+<title>Informatica · Modulo 5.1 — Fogli di calcolo: le basi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -38,16 +38,17 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
 .tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
 .tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}
 .eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
-.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
-.h-big{font-family:var(--font-display);font-weight:900;font-size:88px;line-height:.92;letter-spacing:-2px;}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:142px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
 .h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
 em.hot{font-style:italic;color:var(--red);}
 .lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
 .body{font-size:28px;line-height:1.5;color:var(--ink-soft);}
-.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 32px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
-.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:9px;line-height:1;}
-.card p{font-size:24px;line-height:1.4;color:var(--ink-soft);}
-.card .ic{font-size:48px;line-height:1;display:block;margin-bottom:8px;}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:30px 34px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:10px;line-height:1;}
+.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:50px;line-height:1;display:block;margin-bottom:8px;}
+.card .mono{font-family:var(--font-mono);font-size:23px;color:var(--teal);font-weight:700;}
 .chips{display:flex;gap:16px;flex-wrap:wrap;}
 .chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
 .chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
@@ -65,36 +66,36 @@ em.hot{font-style:italic;color:var(--red);}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
-.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
 .stack>*+*{margin-top:24px;}
 .illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
 .illu svg{width:100%;height:auto;display:block;}
 .illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
-.steps{counter-reset:st;display:flex;flex-direction:column;gap:14px;}
-.step{display:flex;align-items:flex-start;gap:20px;background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:16px 24px;box-shadow:4px 5px 0 rgba(28,23,20,.12);}
-.step::before{counter-increment:st;content:counter(st);font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:42px;line-height:1;}
-.step .t{font-size:26px;line-height:1.35;color:var(--ink-soft);padding-top:3px;}
-.step .t b{color:var(--ink);}
-.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:25px;}
-.cmp th{font-family:var(--font-display);font-weight:900;font-size:30px;text-align:left;padding:14px 22px;color:var(--paper);background:var(--teal);}
-.cmp th:first-child{background:var(--ink);border-radius:12px 0 0 0;}
-.cmp th:last-child{border-radius:0 12px 0 0;}
-.cmp td{padding:12px 22px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.3;}
-.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2);font-family:var(--font-display);font-size:28px;}
+/* spreadsheet grid */
+.sheet{width:100%;border-collapse:collapse;font-family:var(--font-mono);}
+.sheet td,.sheet th{border:1px solid var(--line);height:54px;text-align:center;font-size:22px;color:var(--ink-soft);background:#fff;}
+.sheet th{background:var(--paper-2);color:var(--ink);font-weight:700;}
+.sheet .rowh{background:var(--paper-2);color:var(--ink);font-weight:700;width:50px;}
+.sheet .sel{background:var(--gold);color:var(--ink);font-weight:700;outline:3px solid var(--red);outline-offset:-3px;}
+.fbar{display:flex;align-items:center;gap:12px;font-family:var(--font-mono);font-size:24px;background:#fff;border:2px solid var(--ink);border-radius:10px;padding:14px 20px;margin-bottom:16px;width:100%;}
+.fbar .ref{background:var(--paper-2);padding:6px 14px;border-radius:6px;font-weight:700;color:var(--ink);}
+.fbar .eq{color:var(--red);font-weight:700;}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:26px;}
+.cmp th{font-family:var(--font-display);font-weight:900;font-size:33px;text-align:left;padding:16px 24px;color:var(--paper);}
+.cmp th.a{background:var(--sky);border-radius:12px 0 0 0;}.cmp th.b{background:var(--red);border-radius:0 12px 0 0;}
+.cmp th:first-child{background:var(--ink);}
+.cmp td{padding:13px 24px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.32;}
+.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2);}
 .cmp tr:last-child td{border-bottom:none;}
-.ok{color:var(--teal);font-weight:700;}.no{color:var(--red);font-weight:700;}
 .title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
 .title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
 .title-left .tape{position:absolute;top:84px;left:90px;}
 .title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
 .title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
 @keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
-.section{background:var(--teal);}.section::before{opacity:.12;}.section *{color:var(--paper);}
-.section .big-n{font-family:var(--font-display);font-weight:900;font-size:120px;line-height:.85;color:var(--gold);}
 .agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(4,auto);grid-template-columns:1fr 1fr;gap:18px 60px;margin-top:16px;}
 .agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:15px 4px;}
-.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:46px;color:var(--red);min-width:72px;}
-.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink);}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:72px;}
+.agenda-item .t{font-size:28px;font-weight:600;color:var(--ink);}
 .closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing .gold{color:var(--gold);}
 .edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
 .edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
@@ -112,189 +113,188 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <section class="slide title-slide active">
     <div class="title-left">
       <div class="tape reveal">Corso di Informatica</div>
-      <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo 06 — Brand identity</div>
-      <h1 class="h-mega reveal" contenteditable="true">Farsi<br><em class="hot">riconoscere</em></h1>
-      <p class="lead reveal" style="margin-top:30px;" contenteditable="true">Cos'è l'identità di un marchio (e la tua), gli elementi che la compongono e come definire il pubblico.</p>
-      <div class="chips reveal" style="margin-top:46px;"><span class="chip">Modulo 6 / 8</span><span class="chip alt">Brand</span><span class="chip alt">~40 min</span></div>
+      <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo 05.1 — Fogli di calcolo</div>
+      <h1 class="h-mega reveal" contenteditable="true">Le <em class="hot">basi</em><br>del foglio</h1>
+      <p class="lead reveal" style="margin-top:30px;" contenteditable="true">Excel e Google Sheets: celle, fogli, formattazione e le prime formule per mettere i dati in ordine.</p>
+      <div class="chips reveal" style="margin-top:46px;"><span class="chip">Modulo 5.1 / 8</span><span class="chip alt">Basi</span><span class="chip alt">~30 min</span></div>
     </div>
-    <div class="title-right"><div style="position:relative;z-index:2;font-size:230px;line-height:1;">✨</div></div>
+    <div class="title-right"><div style="position:relative;z-index:2;font-size:230px;line-height:1;">📊</div></div>
   </section>
 
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M6</div>
+    <div class="deck-tab">INFORMATICA · M5.1</div>
     <div class="center">
       <div class="tape teal reveal">In questo modulo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
-      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Brand identity</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Identity vs image</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Gli elementi del brand</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Vision e mission</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Self-branding</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Il target di pubblico</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Profilazione</span></div></div>
+      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Cos'è un foglio di calcolo</span></div><div class="agenda-item"><span class="n">02</span><span class="t">A cosa serve nel salone</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Celle e riferimenti</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Più fogli e inserire dati</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Formattazione</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Le formule</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Le funzioni più utili</span></div></div>
     </div>
     <div class="page-num"></div>
   </section>
 
 <section class="slide">
-    <div class="deck-tab">INFORMATICA · M6</div>
+    <div class="deck-tab">INFORMATICA · M5.1</div>
     <div class="split">
       <div class="col stack">
-        <div class="tape teal reveal">Il cuore</div>
-        <h2 class="h-big reveal">La <em class="hot">brand identity</em></h2>
-        <p class="lead reveal d1">È il cuore dell'immagine di un'attività: <b>come un marchio si presenta al mondo</b> e cerca di farsi riconoscere in mezzo a tanti altri.</p>
-        <p class="body reveal d2">Va <b>molto oltre il logo</b>: comprende i colori, il tono della comunicazione, lo stile grafico e — soprattutto — i <b>valori</b> fondamentali. È ciò che crea una connessione emotiva e costruisce fiducia.</p>
-        <div class="analogy reveal d3"><span class="big">In breve:</span> la personalità del marchio, non solo il suo aspetto.</div>
+        <div class="tape reveal">Punto di partenza</div>
+        <h2 class="h-big reveal">Cos'è un <em class="hot">foglio di calcolo</em>?</h2>
+        <p class="lead reveal d1">È un programma con un'interfaccia a <b>celle</b> — una griglia di righe e colonne — per organizzare, calcolare e analizzare i dati in tabelle.</p>
+        <p class="body reveal d2">I due più usati sono <b>Excel</b> (di Microsoft, parte di Office) e <b>Google Sheets</b> (di Google, gratuito e online). Fanno cose molto simili: cambiano i dettagli, non i concetti.</p>
+        <div class="analogy reveal d3"><span class="big">In breve:</span> un quaderno a quadretti, ma che sa fare i conti da solo.</div>
       </div>
-      <div class="col" style="gap:20px;">
-        <div class="card reveal d2"><span class="ic">🎨</span><h3>Aspetto</h3><p>Logo, colori, stile grafico.</p></div>
-        <div class="card reveal d3"><span class="ic">💬</span><h3>Voce</h3><p>Tono e modo di comunicare.</p></div>
-        <div class="card reveal d4"><span class="ic">❤️</span><h3>Valori</h3><p>In cosa crede il marchio.</p></div>
+      <div class="col" style="gap:22px;">
+        <div class="card reveal d2" style="border-color:var(--teal);"><span class="ic">📊</span><h3>Excel</h3><p>Lo standard installato sul PC. Potentissimo, parte del pacchetto Office.</p></div>
+        <div class="card reveal d3" style="border-color:var(--gold-deep);"><span class="ic">🌐</span><h3>Google Sheets</h3><p>Funziona nel browser, è gratis, si salva da solo online e permette di collaborare in tempo reale.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
 
 <section class="slide">
-    <div class="deck-tab">INFORMATICA · M6</div>
+    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape gold reveal">Nel salone</div>
+      <h2 class="h-big reveal">A cosa serve, in <em class="hot">pratica</em></h2>
+      <p class="lead reveal d1">Tante attività quotidiane di un salone diventano più ordinate con un foglio di calcolo. Qualche esempio:</p>
+      <div class="grid4 reveal d2" style="margin-top:6px;">
+        <div class="card"><span class="ic">📦</span><h3 style="font-size:32px;">Inventario</h3><p>Tenere il conto dei materiali a disposizione.</p></div>
+        <div class="card"><span class="ic">📅</span><h3 style="font-size:32px;">Prenotazioni</h3><p>Un foglio per ogni settimana o mese.</p></div>
+        <div class="card"><span class="ic">💶</span><h3 style="font-size:32px;">Spese</h3><p>Monitorare entrate e uscite del negozio.</p></div>
+        <div class="card"><span class="ic">👥</span><h3 style="font-size:32px;">Clienti</h3><p>Organizzare l'anagrafica e le statistiche.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:8px;">
+        <div class="lbl">💡 Il vantaggio</div>
+        <p>I dati restano <b>ordinati</b> e i calcoli si fanno da soli: meno errori, meno tempo perso, decisioni più informate.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+<section class="slide">
+    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape teal reveal">Concetti base</div>
+        <h2 class="h-big reveal">Celle e <em class="hot">riferimenti</em></h2>
+        <p class="lead reveal d1">La <b>cella</b> è l'unità di base della griglia. Ogni cella ha un <b>indirizzo</b> unico: una <b>lettera</b> (colonna) e un <b>numero</b> (riga).</p>
+        <div class="stack reveal d2" style="margin-top:2px;">
+          <p class="body">• <b>Cella</b> → es. <span style="font-family:var(--font-mono);color:var(--teal);font-weight:700;">B2</span>: colonna B, riga 2</p>
+          <p class="body">• <b>Foglio di calcolo</b> → l'intera griglia di celle</p>
+          <p class="body">• <b>Intervallo</b> → più celle insieme, es. <span style="font-family:var(--font-mono);color:var(--teal);font-weight:700;">A1:A5</span></p>
+        </div>
+      </div>
+      <div class="illu reveal d2" style="place-items:stretch;">
+        <table class="sheet">
+          <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+          <tr><td class="rowh">1</td><td></td><td></td><td></td></tr>
+          <tr><td class="rowh">2</td><td></td><td class="sel">B2</td><td></td></tr>
+          <tr><td class="rowh">3</td><td></td><td></td><td></td></tr>
+        </table>
+        <div class="illu-cap">La cella selezionata è B2</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+<section class="slide">
+    <div class="deck-tab">INFORMATICA · M5.1</div>
     <div class="center">
-      <div class="tape reveal">Due facce</div>
-      <h2 class="h-sec reveal" style="margin-top:20px;">Identity <span style="color:var(--ink-faint)">vs</span> Image</h2>
-      <div class="grid2 reveal d1" style="margin-top:30px;">
-        <div class="card" style="border-color:var(--teal);">
-          <span class="ic">🪞</span><h3>Brand Identity</h3>
-          <p>Come <b>TU vuoi</b> che il marchio venga percepito. È la tua intenzione, ciò che progetti e comunichi.</p>
-        </div>
-        <div class="card" style="border-color:var(--red);">
-          <span class="ic">👀</span><h3>Brand Image</h3>
-          <p>Come <b>GLI ALTRI</b> ti percepiscono <b>davvero</b> in questo momento. È il risultato, nella testa del pubblico.</p>
-        </div>
-      </div>
-      <div class="note reveal d2" style="margin-top:30px;">
-        <div class="lbl">🎯 L'obiettivo</div>
-        <p>Una buona campagna promozionale punta a far <b>coincidere identity e image</b>: che gli altri ti vedano esattamente come vuoi essere visto.</p>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-<section class="slide">
-    <div class="deck-tab">INFORMATICA · M6</div>
-    <div class="col stack" style="justify-content:center;height:100%;">
-      <div class="tape gold reveal">Brand identity · Elementi (1)</div>
-      <h2 class="h-big reveal">Di cosa è <em class="hot">fatta</em></h2>
-      <div class="grid3 reveal d1" style="margin-top:8px;">
-        <div class="card"><span class="ic">🔷</span><h3>Logo</h3><p>Riconoscibile e facilmente associabile ai concetti guida del marchio.</p></div>
-        <div class="card"><span class="ic">🚶</span><h3>Behavior</h3><p>I tuoi <b>comportamenti</b> raccontano: attenzione all'ambiente, volontariato, quartiere…</p></div>
-        <div class="card"><span class="ic">🗣️</span><h3>Linguaggio</h3><p>Indica chi sono i tuoi interlocutori e come scegli di parlare con loro.</p></div>
-      </div>
-      <div class="note reveal d2" style="margin-top:8px;">
-        <div class="lbl">💡 Coerenza</div>
-        <p>Logo, comportamenti e linguaggio devono raccontare la <b>stessa storia</b>: è la coerenza che rende un marchio credibile.</p>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-<section class="slide">
-    <div class="deck-tab">INFORMATICA · M6</div>
-    <div class="col stack" style="justify-content:center;height:100%;">
-      <div class="tape teal reveal">Brand identity · Elementi (2)</div>
-      <h2 class="h-big reveal">Vision &amp; <em class="hot">mission</em></h2>
-      <div class="grid2 reveal d1" style="margin-top:8px;gap:40px;">
+      <div class="tape reveal">Concetti base</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">Più fogli, e cosa scriverci</h2>
+      <div class="grid2 reveal d1" style="margin-top:26px;">
         <div class="card" style="border-color:var(--sky);">
-          <span class="ic">🔭</span><h3>Vision</h3>
-          <p>Come il marchio “<b>vede</b>” il suo mondo. Es. la vision di Chiara Ferragni: <i>il brand della condivisione, della gioia, dei valori e dell'ottimismo, nel reale e nel digitale.</i></p>
+          <span class="ic">🗂️</span><h3>Più pagine in un file</h3>
+          <p>Un file può contenere <b>più fogli</b>: ad esempio uno per ogni settimana del mese, tutti dentro lo stesso documento. Si passa dall'uno all'altro con le linguette in basso.</p>
         </div>
-        <div class="card" style="border-color:var(--gold-deep);">
-          <span class="ic">🎯</span><h3>Mission</h3>
-          <p>Gli <b>obiettivi</b> di narrazione che il marchio vuole raggiungere, e il modo in cui ci arriva attraverso cultura, design e comunicazione.</p>
+        <div class="card" style="border-color:var(--teal);">
+          <span class="ic">⌨️</span><h3>Inserire i dati</h3>
+          <p>Clicchi su una cella (si evidenzia, e il suo indirizzo appare in alto) e scrivi: <b>testo, numeri, date</b> o <b>formule</b>. Premi Invio per confermare.</p>
         </div>
       </div>
       <div class="note reveal d2" style="margin-top:26px;">
-        <div class="lbl">💡 Cultura, design, comunicazione</div>
-        <p>Sono gli strumenti con cui il brand sceglie cosa offrire e quale <b>storia</b> raccontare in ogni momento. Servono a creare una connessione emotiva e duratura.</p>
+        <div class="lbl">💡 Buona abitudine</div>
+        <p>Dai un nome chiaro a ogni foglio (es. “Gennaio”, “Clienti”, “Magazzino”): ritrovare le cose sarà molto più veloce.</p>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
 
 <section class="slide">
-    <div class="deck-tab">INFORMATICA · M6</div>
-    <div class="split">
-      <div class="illu reveal d1" style="background:var(--teal);border-color:var(--ink);">
-        <svg viewBox="0 0 240 250" role="img" aria-label="Persona come brand" style="max-width:300px;margin:0 auto;">
-          <circle cx="120" cy="92" r="44" fill="#e6c14a" stroke="#f4ece0" stroke-width="5"/>
-          <path d="M52 220 a68 68 0 0 1 136 0 z" fill="#e6533b" stroke="#f4ece0" stroke-width="5"/>
-          <circle cx="120" cy="92" r="60" fill="none" stroke="#f4ece0" stroke-width="3" stroke-dasharray="4 10"/>
-        </svg>
-        <div class="illu-cap" style="color:#cdbfa8;">Anche tu sei un marchio</div>
-      </div>
-      <div class="col stack">
-        <div class="tape reveal">Self-branding</div>
-        <h2 class="h-big reveal">Il marchio sei <em class="hot">tu</em></h2>
-        <p class="lead reveal d1">Professionista, studente o appassionato: il <b>self-branding</b> ti aiuta a comunicare chi sei e cosa offri, costruendo una reputazione positiva e <b>autentica</b>.</p>
-        <p class="body reveal d2">La chiave è la <b>coerenza nel tempo</b>: presenza online, modi e azioni devono rispecchiare i valori che vuoi proiettare. Ricorda: <b>sei un brand anche per strada, a scuola o a un aperitivo!</b></p>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-<section class="slide">
-    <div class="deck-tab">INFORMATICA · M6</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape gold reveal">A chi parli</div>
-        <h2 class="h-big reveal">Il <em class="hot">target</em> di pubblico</h2>
-        <p class="lead reveal d1">È il gruppo specifico di persone a cui ti rivolgi: individui con <b>caratteristiche, interessi e bisogni comuni</b>, più propensi a interessarsi ai tuoi servizi.</p>
-        <p class="body reveal d2">Definire il target significa capire <b>chi sono</b> i potenziali clienti, <b>cosa li motiva</b> e <b>come raggiungerli</b>. Diventa la guida di tutte le decisioni di marketing.</p>
-        <div class="analogy reveal d3"><span class="big">Perché:</span> parlare a tutti significa non parlare a nessuno.</div>
-      </div>
-      <div class="illu reveal d2">
-        <svg viewBox="0 0 240 240" role="img" aria-label="Bersaglio del target">
-          <circle cx="120" cy="120" r="100" fill="#fbf5ec" stroke="#1c1714" stroke-width="5"/>
-          <circle cx="120" cy="120" r="72" fill="#3f7e8c"/>
-          <circle cx="120" cy="120" r="44" fill="#f4ece0"/>
-          <circle cx="120" cy="120" r="18" fill="#e6533b"/>
-          <path d="M188 52 l-58 58" stroke="#1c1714" stroke-width="6" stroke-linecap="round"/>
-          <path d="M188 52 l-16 4 l12 12 z" fill="#1c1714"/>
-        </svg>
-        <div class="illu-cap">Mira al pubblico giusto</div>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-<section class="slide">
-    <div class="deck-tab">INFORMATICA · M6</div>
+    <div class="deck-tab">INFORMATICA · M5.1</div>
     <div class="col stack" style="justify-content:center;height:100%;">
-      <div class="tape teal reveal">Definire il target · Profilazione</div>
-      <h2 class="h-big reveal">Come <em class="hot">profilare</em> i clienti</h2>
-      <div class="grid2 reveal d1" style="margin-top:6px;gap:14px 30px;">
-        <div class="step"><div class="t"><b>Analizza il servizio</b> — quali caratteristiche distintive ha, e a chi è utile</div></div>
-        <div class="step"><div class="t"><b>Ricerca di mercato</b> — sondaggi e analisi per capire i potenziali clienti</div></div>
-        <div class="step"><div class="t"><b>Buying persona</b> — crea figure-tipo del cliente ideale</div></div>
-        <div class="step"><div class="t"><b>Interessi e comportamenti</b> — stili di vita di chi potrebbe essere interessato</div></div>
+      <div class="tape gold reveal">Celle · Formattazione</div>
+      <h2 class="h-big reveal">Rendere i dati <em class="hot">leggibili</em></h2>
+      <p class="lead reveal d1">Come in Word, puoi formattare il contenuto delle celle per renderlo chiaro e professionale.</p>
+      <div class="grid4 reveal d2" style="margin-top:6px;">
+        <div class="card"><span class="ic">🎨</span><h3 style="font-size:30px;">Stile testo</h3><p>Colore, dimensione, grassetto, bordi e sfondo.</p></div>
+        <div class="card"><span class="ic">↔️</span><h3 style="font-size:30px;">Allineamento</h3><p>Orizzontale e verticale dentro la cella.</p></div>
+        <div class="card"><span class="ic">↩️</span><h3 style="font-size:30px;">Testo lungo</h3><p>Va a capo nella cella, o prosegue in orizzontale.</p></div>
+        <div class="card"><span class="ic">⬜</span><h3 style="font-size:30px;">Unire celle</h3><p>Più celle in una sola, utile per i <b>titoli</b>.</p></div>
       </div>
-      <div class="note reveal d2" style="margin-top:8px;">
-        <div class="lbl">👤 La buying persona</div>
-        <p>Una persona “fittizia” che riassume il cliente ideale: nome, età, interessi, abitudini. Aiuta a immaginare <b>per chi</b> stai creando ogni contenuto.</p>
+      <div class="analogy reveal d3" style="margin-top:8px;align-self:flex-start;"><span class="big">Perché:</span> una buona organizzazione visiva riduce gli errori.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+<section class="slide">
+    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape teal reveal">Il superpotere</div>
+        <h2 class="h-big reveal">Le <em class="hot">formule</em></h2>
+        <p class="lead reveal d1">Sono lo strumento più potente: <b>automatizzano i calcoli</b>. Ogni formula inizia con il simbolo <b style="font-family:var(--font-mono);color:var(--red);">=</b> e può usare i riferimenti alle celle.</p>
+        <p class="body reveal d2">Esempio: <span style="font-family:var(--font-mono);color:var(--teal);font-weight:700;">=A1+B1</span> somma il contenuto delle celle A1 e B1. La magia: se <b>cambi i dati</b>, il risultato si <b>aggiorna da solo</b>.</p>
+        <div class="note reveal d3">
+          <div class="lbl">💡 Niente calcolatrice</div>
+          <p>Imposti la formula una volta e il foglio ricalcola tutto in automatico ad ogni modifica.</p>
+        </div>
+      </div>
+      <div class="illu reveal d2" style="place-items:stretch;">
+        <div class="fbar"><span class="ref">C1</span><span class="eq">=</span><span>A1 + B1</span></div>
+        <table class="sheet">
+          <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+          <tr><td class="rowh">1</td><td>20</td><td>15</td><td class="sel">35</td></tr>
+        </table>
+        <div class="illu-cap">=A1+B1 → 35, sempre aggiornato</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+<section class="slide">
+    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">Formule · Funzioni</div>
+      <h2 class="h-big reveal">Le funzioni più <em class="hot">utili</em></h2>
+      <p class="lead reveal d1">Le funzioni sono operazioni <b>già pronte</b>: invece di scrivere calcoli complessi, le richiami per nome.</p>
+      <div class="grid3 reveal d2" style="margin-top:6px;">
+        <div class="card"><h3 style="font-size:34px;">SOMMA</h3><p class="mono">=SOMMA(A1:A10)</p><p>Aggiunge tutti i valori di un intervallo.</p></div>
+        <div class="card"><h3 style="font-size:34px;">MEDIA</h3><p class="mono">=MEDIA(A1:A10)</p><p>Calcola il valore medio.</p></div>
+        <div class="card"><h3 style="font-size:34px;">MIN / MAX</h3><p class="mono">=MAX(A1:A10)</p><p>Trovano il valore più piccolo o più grande.</p></div>
+        <div class="card"><h3 style="font-size:34px;">CONTA</h3><p class="mono">=CONTA.NUMERI(A:A)</p><p>Conta quante celle contengono numeri.</p></div>
+        <div class="card" style="border-color:var(--teal);"><h3 style="font-size:34px;">CONTA.SE</h3><p class="mono">=CONTA.SE(...)</p><p>Conta solo le celle che rispettano una condizione.</p></div>
+        <div class="card" style="border-color:var(--gold-deep);"><span class="ic">💡</span><p>Inizia da queste: coprono la gran parte dei bisogni quotidiani.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
 
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M6</div>
+    <div class="deck-tab">INFORMATICA · M5.1</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape teal reveal">Verifica veloce</div>
       <h2 class="h-sec reveal">Hai capito tutto?</h2>
       <p class="lead reveal d1" style="margin-bottom:6px;">Prova a rispondere a mente:</p>
-      <div class="grid2 reveal d2" style="gap:24px 40px;"><div class="card"><h3 style="font-size:32px;">1.</h3><p>Che differenza c'è tra brand identity e brand image?</p></div><div class="card"><h3 style="font-size:32px;">2.</h3><p>Cosa significa "sei sempre un brand"?</p></div><div class="card"><h3 style="font-size:32px;">3.</h3><p>Quali sono alcuni elementi della brand identity?</p></div><div class="card"><h3 style="font-size:32px;">4.</h3><p>Cos'è una buying persona e a cosa serve?</p></div></div>
+      <div class="grid2 reveal d2" style="gap:24px 40px;"><div class="card"><h3 style="font-size:32px;">1.</h3><p>Cosa identifica l'indirizzo di una cella, come "B2"?</p></div><div class="card"><h3 style="font-size:32px;">2.</h3><p>Con quale simbolo inizia sempre una formula?</p></div><div class="card"><h3 style="font-size:32px;">3.</h3><p>A cosa serve la funzione SOMMA?</p></div><div class="card"><h3 style="font-size:32px;">4.</h3><p>Perché conviene dare un nome chiaro a ogni foglio?</p></div></div>
     </div>
     <div class="page-num"></div>
   </section>
 
   <section class="slide closing">
     <div class="center" style="align-items:center;text-align:center;">
-      <div class="eyebrow reveal gold">Fine Modulo 06</div>
-      <h2 class="h-mega reveal" style="margin-top:10px;">In vetrina! ✨</h2>
-      <p class="lead reveal d1" style="color:var(--paper);max-width:1100px;text-align:center;margin-top:20px;">Hai un'identità chiara. Nel <span class="gold">prossimo modulo</span> la porti dove sono le persone: i <b>Social</b>.</p>
-      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;"><a class="chip" href="07-social.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → M7 · Social</a></div>
+      <div class="eyebrow reveal gold">Fine Modulo 05.1</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Basi pronte! 📊</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1100px;text-align:center;margin-top:20px;">Sai usare celle e formule. Nel <span class="gold">prossimo modulo</span> facciamo parlare i dati: tabelle, filtri e pivot.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;"><a class="chip" href="inf-sec07-excel-avanzato.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → M5.2 · Avanzato</a></div>
     </div>
   </section>
 
@@ -326,7 +326,7 @@ class SlidePresentation{
 const deck=new SlidePresentation();
 const editor={isActive:false,
   toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
-  key(){return 'inf-m6-edits';},
+  key(){return 'inf-m51-edits';},
   save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
   load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
 document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});

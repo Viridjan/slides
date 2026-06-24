@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Informatica · Modulo 5.1 — Fogli di calcolo: le basi</title>
+<title>Informatica · Modulo 5.2 — Fogli di calcolo: analizzare e condividere</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -113,188 +113,148 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <section class="slide title-slide active">
     <div class="title-left">
       <div class="tape reveal">Corso di Informatica</div>
-      <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo 05.1 — Fogli di calcolo</div>
-      <h1 class="h-mega reveal" contenteditable="true">Le <em class="hot">basi</em><br>del foglio</h1>
-      <p class="lead reveal" style="margin-top:30px;" contenteditable="true">Excel e Google Sheets: celle, fogli, formattazione e le prime formule per mettere i dati in ordine.</p>
-      <div class="chips reveal" style="margin-top:46px;"><span class="chip">Modulo 5.1 / 8</span><span class="chip alt">Basi</span><span class="chip alt">~30 min</span></div>
+      <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo 05.2 — Fogli di calcolo</div>
+      <h1 class="h-mega reveal" contenteditable="true">Analizzare e<br><em class="hot">condividere</em></h1>
+      <p class="lead reveal" style="margin-top:30px;" contenteditable="true">Tabelle, ordinamento e filtri, tabelle pivot, funzioni avanzate e la collaborazione in tempo reale.</p>
+      <div class="chips reveal" style="margin-top:46px;"><span class="chip">Modulo 5.2 / 8</span><span class="chip alt">Avanzato</span><span class="chip alt">~30 min</span></div>
     </div>
-    <div class="title-right"><div style="position:relative;z-index:2;font-size:230px;line-height:1;">📊</div></div>
+    <div class="title-right"><div style="position:relative;z-index:2;font-size:230px;line-height:1;">📈</div></div>
   </section>
 
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="deck-tab">INFORMATICA · M5.2</div>
     <div class="center">
       <div class="tape teal reveal">In questo modulo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
-      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Cos'è un foglio di calcolo</span></div><div class="agenda-item"><span class="n">02</span><span class="t">A cosa serve nel salone</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Celle e riferimenti</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Più fogli e inserire dati</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Formattazione</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Le formule</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Le funzioni più utili</span></div></div>
+      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Tabelle, ordinamento e filtri</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Le tabelle pivot</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Funzioni avanzate</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Trovare nuove funzioni</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Condividere e automatizzare</span></div></div>
     </div>
     <div class="page-num"></div>
   </section>
 
 <section class="slide">
-    <div class="deck-tab">INFORMATICA · M5.1</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Punto di partenza</div>
-        <h2 class="h-big reveal">Cos'è un <em class="hot">foglio di calcolo</em>?</h2>
-        <p class="lead reveal d1">È un programma con un'interfaccia a <b>celle</b> — una griglia di righe e colonne — per organizzare, calcolare e analizzare i dati in tabelle.</p>
-        <p class="body reveal d2">I due più usati sono <b>Excel</b> (di Microsoft, parte di Office) e <b>Google Sheets</b> (di Google, gratuito e online). Fanno cose molto simili: cambiano i dettagli, non i concetti.</p>
-        <div class="analogy reveal d3"><span class="big">In breve:</span> un quaderno a quadretti, ma che sa fare i conti da solo.</div>
-      </div>
-      <div class="col" style="gap:22px;">
-        <div class="card reveal d2" style="border-color:var(--teal);"><span class="ic">📊</span><h3>Excel</h3><p>Lo standard installato sul PC. Potentissimo, parte del pacchetto Office.</p></div>
-        <div class="card reveal d3" style="border-color:var(--gold-deep);"><span class="ic">🌐</span><h3>Google Sheets</h3><p>Funziona nel browser, è gratis, si salva da solo online e permette di collaborare in tempo reale.</p></div>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-<section class="slide">
-    <div class="deck-tab">INFORMATICA · M5.1</div>
-    <div class="col stack" style="justify-content:center;height:100%;">
-      <div class="tape gold reveal">Nel salone</div>
-      <h2 class="h-big reveal">A cosa serve, in <em class="hot">pratica</em></h2>
-      <p class="lead reveal d1">Tante attività quotidiane di un salone diventano più ordinate con un foglio di calcolo. Qualche esempio:</p>
-      <div class="grid4 reveal d2" style="margin-top:6px;">
-        <div class="card"><span class="ic">📦</span><h3 style="font-size:32px;">Inventario</h3><p>Tenere il conto dei materiali a disposizione.</p></div>
-        <div class="card"><span class="ic">📅</span><h3 style="font-size:32px;">Prenotazioni</h3><p>Un foglio per ogni settimana o mese.</p></div>
-        <div class="card"><span class="ic">💶</span><h3 style="font-size:32px;">Spese</h3><p>Monitorare entrate e uscite del negozio.</p></div>
-        <div class="card"><span class="ic">👥</span><h3 style="font-size:32px;">Clienti</h3><p>Organizzare l'anagrafica e le statistiche.</p></div>
-      </div>
-      <div class="note reveal d3" style="margin-top:8px;">
-        <div class="lbl">💡 Il vantaggio</div>
-        <p>I dati restano <b>ordinati</b> e i calcoli si fanno da soli: meno errori, meno tempo perso, decisioni più informate.</p>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-<section class="slide">
-    <div class="deck-tab">INFORMATICA · M5.1</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape teal reveal">Concetti base</div>
-        <h2 class="h-big reveal">Celle e <em class="hot">riferimenti</em></h2>
-        <p class="lead reveal d1">La <b>cella</b> è l'unità di base della griglia. Ogni cella ha un <b>indirizzo</b> unico: una <b>lettera</b> (colonna) e un <b>numero</b> (riga).</p>
-        <div class="stack reveal d2" style="margin-top:2px;">
-          <p class="body">• <b>Cella</b> → es. <span style="font-family:var(--font-mono);color:var(--teal);font-weight:700;">B2</span>: colonna B, riga 2</p>
-          <p class="body">• <b>Foglio di calcolo</b> → l'intera griglia di celle</p>
-          <p class="body">• <b>Intervallo</b> → più celle insieme, es. <span style="font-family:var(--font-mono);color:var(--teal);font-weight:700;">A1:A5</span></p>
-        </div>
-      </div>
-      <div class="illu reveal d2" style="place-items:stretch;">
-        <table class="sheet">
-          <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
-          <tr><td class="rowh">1</td><td></td><td></td><td></td></tr>
-          <tr><td class="rowh">2</td><td></td><td class="sel">B2</td><td></td></tr>
-          <tr><td class="rowh">3</td><td></td><td></td><td></td></tr>
-        </table>
-        <div class="illu-cap">La cella selezionata è B2</div>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-<section class="slide">
-    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="deck-tab">INFORMATICA · M5.2</div>
     <div class="center">
-      <div class="tape reveal">Concetti base</div>
-      <h2 class="h-sec reveal" style="margin-top:20px;">Più fogli, e cosa scriverci</h2>
-      <div class="grid2 reveal d1" style="margin-top:26px;">
-        <div class="card" style="border-color:var(--sky);">
-          <span class="ic">🗂️</span><h3>Più pagine in un file</h3>
-          <p>Un file può contenere <b>più fogli</b>: ad esempio uno per ogni settimana del mese, tutti dentro lo stesso documento. Si passa dall'uno all'altro con le linguette in basso.</p>
-        </div>
-        <div class="card" style="border-color:var(--teal);">
-          <span class="ic">⌨️</span><h3>Inserire i dati</h3>
-          <p>Clicchi su una cella (si evidenzia, e il suo indirizzo appare in alto) e scrivi: <b>testo, numeri, date</b> o <b>formule</b>. Premi Invio per confermare.</p>
-        </div>
+      <div class="tape gold reveal">Organizzare i dati</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">Tabelle, ordinamento e filtri</h2>
+      <div class="grid3 reveal d1" style="margin-top:26px;">
+        <div class="card"><span class="ic">📋</span><h3>Tabelle</h3><p>Organizzano grandi quantità di dati. Usa <b>intestazioni</b> chiare e colori alternati per leggere meglio.</p></div>
+        <div class="card"><span class="ic">🔤</span><h3>Ordinamento</h3><p>Riordina i dati in ordine alfabetico, numerico o per data, con un clic.</p></div>
+        <div class="card"><span class="ic">🔎</span><h3>Filtri</h3><p>Mostrano solo le righe che rispettano una condizione: es. solo i clienti di Roma, o i prodotti sopra un certo prezzo.</p></div>
       </div>
       <div class="note reveal d2" style="margin-top:26px;">
-        <div class="lbl">💡 Buona abitudine</div>
-        <p>Dai un nome chiaro a ogni foglio (es. “Gennaio”, “Clienti”, “Magazzino”): ritrovare le cose sarà molto più veloce.</p>
+        <div class="lbl">💡 Insieme sono potentissimi</div>
+        <p>Filtra per categoria, ordina per data e leggi al volo ciò che ti serve — senza toccare i dati originali.</p>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
 
 <section class="slide">
-    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="deck-tab">INFORMATICA · M5.2</div>
+    <div class="split">
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 280 220" role="img" aria-label="Dati riassunti in un grafico">
+          <line x1="50" y1="40" x2="50" y2="180" stroke="#1c1714" stroke-width="5"/>
+          <line x1="50" y1="180" x2="250" y2="180" stroke="#1c1714" stroke-width="5"/>
+          <rect x="74" y="120" width="36" height="60" fill="#3f7e8c"/>
+          <rect x="124" y="86" width="36" height="94" fill="#e6c14a"/>
+          <rect x="174" y="54" width="36" height="126" fill="#e6533b"/>
+        </svg>
+        <div class="illu-cap">Una pivot riassume i dati in sintesi</div>
+      </div>
+      <div class="col stack">
+        <div class="tape teal reveal">Strumento avanzato</div>
+        <h2 class="h-big reveal">Le <em class="hot">tabelle pivot</em></h2>
+        <p class="lead reveal d1">Riassumono <b>automaticamente</b> grandi quantità di dati, senza modificare quelli originali. Servono per creare statistiche e report al volo.</p>
+        <p class="body reveal d2">Con una pivot puoi vedere, ad esempio, le <b>vendite mese per mese</b>, il <b>numero di clienti per categoria</b> o gli incassi per servizio — riorganizzando i dati a piacere.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+<section class="slide">
+    <div class="deck-tab">INFORMATICA · M5.2</div>
     <div class="col stack" style="justify-content:center;height:100%;">
-      <div class="tape gold reveal">Celle · Formattazione</div>
-      <h2 class="h-big reveal">Rendere i dati <em class="hot">leggibili</em></h2>
-      <p class="lead reveal d1">Come in Word, puoi formattare il contenuto delle celle per renderlo chiaro e professionale.</p>
+      <div class="tape reveal">Per saperne di più</div>
+      <h2 class="h-big reveal">Funzioni <em class="hot">avanzate</em></h2>
+      <p class="lead reveal d1">Quando i fogli crescono, esistono funzioni più potenti. Non servono subito: tienile come “prossimo livello”.</p>
       <div class="grid4 reveal d2" style="margin-top:6px;">
-        <div class="card"><span class="ic">🎨</span><h3 style="font-size:30px;">Stile testo</h3><p>Colore, dimensione, grassetto, bordi e sfondo.</p></div>
-        <div class="card"><span class="ic">↔️</span><h3 style="font-size:30px;">Allineamento</h3><p>Orizzontale e verticale dentro la cella.</p></div>
-        <div class="card"><span class="ic">↩️</span><h3 style="font-size:30px;">Testo lungo</h3><p>Va a capo nella cella, o prosegue in orizzontale.</p></div>
-        <div class="card"><span class="ic">⬜</span><h3 style="font-size:30px;">Unire celle</h3><p>Più celle in una sola, utile per i <b>titoli</b>.</p></div>
+        <div class="card"><h3 style="font-size:30px;">FILTER</h3><p>Estrae solo i dati che rispettano una condizione, aggiornandosi da solo.</p></div>
+        <div class="card"><h3 style="font-size:30px;">CERCA.VERT</h3><p>Cerca un valore dentro una tabella (la “storica” ricerca).</p></div>
+        <div class="card"><h3 style="font-size:30px;">INDEX + MATCH</h3><p>Ricerche più flessibili, anche su tabelle complesse.</p></div>
+        <div class="card"><h3 style="font-size:30px;">ARRAYFORMULA</h3><p>Applica una formula a un'intera colonna in un colpo solo.</p></div>
       </div>
-      <div class="analogy reveal d3" style="margin-top:8px;align-self:flex-start;"><span class="big">Perché:</span> una buona organizzazione visiva riduce gli errori.</div>
+      <div class="note reveal d3" style="margin-top:8px;">
+        <div class="lbl">💡 Tranquilli</div>
+        <p>Nomi spaventosi, idea semplice: <b>cercare</b> e <b>filtrare</b> dati in automatico. Le incontrerai quando il foglio diventa grande.</p>
+      </div>
     </div>
     <div class="page-num"></div>
   </section>
 
 <section class="slide">
-    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="deck-tab">INFORMATICA · M5.2</div>
     <div class="split">
       <div class="col stack">
-        <div class="tape teal reveal">Il superpotere</div>
-        <h2 class="h-big reveal">Le <em class="hot">formule</em></h2>
-        <p class="lead reveal d1">Sono lo strumento più potente: <b>automatizzano i calcoli</b>. Ogni formula inizia con il simbolo <b style="font-family:var(--font-mono);color:var(--red);">=</b> e può usare i riferimenti alle celle.</p>
-        <p class="body reveal d2">Esempio: <span style="font-family:var(--font-mono);color:var(--teal);font-weight:700;">=A1+B1</span> somma il contenuto delle celle A1 e B1. La magia: se <b>cambi i dati</b>, il risultato si <b>aggiorna da solo</b>.</p>
-        <div class="note reveal d3">
-          <div class="lbl">💡 Niente calcolatrice</div>
-          <p>Imposti la formula una volta e il foglio ricalcola tutto in automatico ad ogni modifica.</p>
-        </div>
+        <div class="tape gold reveal">Metodo</div>
+        <h2 class="h-big reveal">Non serve <em class="hot">impararle a memoria</em></h2>
+        <p class="lead reveal d1">Nessuno ricorda tutte le formule. Il programma stesso ti aiuta: mentre scrivi <b>suggerisce le funzioni</b> e mostra come usarle.</p>
+        <p class="body reveal d2">E quando non sai come fare una cosa, spesso basta <b>descrivere il problema online</b> (“come sommare solo le celle rosse”) per trovare subito la funzione giusta. Saper cercare vale più che sapere a memoria.</p>
+        <div class="analogy reveal d3"><span class="big">Regola:</span> impara il concetto, cerca la sintassi.</div>
       </div>
       <div class="illu reveal d2" style="place-items:stretch;">
-        <div class="fbar"><span class="ref">C1</span><span class="eq">=</span><span>A1 + B1</span></div>
-        <table class="sheet">
-          <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
-          <tr><td class="rowh">1</td><td>20</td><td>15</td><td class="sel">35</td></tr>
-        </table>
-        <div class="illu-cap">=A1+B1 → 35, sempre aggiornato</div>
+        <div class="fbar"><span class="eq">=</span><span>SOM</span></div>
+        <div style="font-family:var(--font-mono);font-size:22px;">
+          <div style="background:var(--gold);padding:10px 16px;border-radius:8px 8px 0 0;border:2px solid var(--ink);border-bottom:none;">SOMMA</div>
+          <div style="padding:10px 16px;border:2px solid var(--ink);border-top:1px solid var(--line);color:var(--ink-faint);">SOMMA.SE</div>
+          <div style="padding:10px 16px;border:2px solid var(--ink);border-top:1px solid var(--line);border-radius:0 0 8px 8px;color:var(--ink-faint);">SOMMA.PIÙ.SE</div>
+        </div>
+        <div class="illu-cap">Il programma suggerisce mentre scrivi</div>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
 
 <section class="slide">
-    <div class="deck-tab">INFORMATICA · M5.1</div>
-    <div class="col stack" style="justify-content:center;height:100%;">
-      <div class="tape reveal">Formule · Funzioni</div>
-      <h2 class="h-big reveal">Le funzioni più <em class="hot">utili</em></h2>
-      <p class="lead reveal d1">Le funzioni sono operazioni <b>già pronte</b>: invece di scrivere calcoli complessi, le richiami per nome.</p>
-      <div class="grid3 reveal d2" style="margin-top:6px;">
-        <div class="card"><h3 style="font-size:34px;">SOMMA</h3><p class="mono">=SOMMA(A1:A10)</p><p>Aggiunge tutti i valori di un intervallo.</p></div>
-        <div class="card"><h3 style="font-size:34px;">MEDIA</h3><p class="mono">=MEDIA(A1:A10)</p><p>Calcola il valore medio.</p></div>
-        <div class="card"><h3 style="font-size:34px;">MIN / MAX</h3><p class="mono">=MAX(A1:A10)</p><p>Trovano il valore più piccolo o più grande.</p></div>
-        <div class="card"><h3 style="font-size:34px;">CONTA</h3><p class="mono">=CONTA.NUMERI(A:A)</p><p>Conta quante celle contengono numeri.</p></div>
-        <div class="card" style="border-color:var(--teal);"><h3 style="font-size:34px;">CONTA.SE</h3><p class="mono">=CONTA.SE(...)</p><p>Conta solo le celle che rispettano una condizione.</p></div>
-        <div class="card" style="border-color:var(--gold-deep);"><span class="ic">💡</span><p>Inizia da queste: coprono la gran parte dei bisogni quotidiani.</p></div>
+    <div class="deck-tab">INFORMATICA · M5.2</div>
+    <div class="center">
+      <div class="tape teal reveal">Lavorare meglio</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">Condividere e automatizzare</h2>
+      <div class="grid2 reveal d1" style="margin-top:26px;">
+        <div class="card" style="border-color:var(--gold-deep);">
+          <span class="ic">🤝</span><h3>Collaborazione in tempo reale</h3>
+          <p>Con Google Sheets puoi condividere un foglio dando il permesso di <b>modificare, commentare o solo vedere</b>. Si può anche pubblicare via link — <b>occhio ai dati sensibili!</b></p>
+        </div>
+        <div class="card" style="border-color:var(--teal);">
+          <span class="ic">⚙️</span><h3>Macro e automazioni</h3>
+          <p>Le <b>macro</b> registrano azioni ripetitive per rifarle con un clic. Strumenti come Apps Script vanno oltre: utili per velocizzare il lavoro, anche senza essere programmatori esperti.</p>
+        </div>
+      </div>
+      <div class="note red reveal d2" style="margin-top:26px;">
+        <div class="lbl">⚠️ Attenzione alla privacy</div>
+        <p>Prima di condividere o pubblicare un foglio, controlla che non contenga dati personali dei clienti (ricorda il GDPR del Modulo 3).</p>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
 
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="deck-tab">INFORMATICA · M5.2</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape teal reveal">Verifica veloce</div>
       <h2 class="h-sec reveal">Hai capito tutto?</h2>
       <p class="lead reveal d1" style="margin-bottom:6px;">Prova a rispondere a mente:</p>
-      <div class="grid2 reveal d2" style="gap:24px 40px;"><div class="card"><h3 style="font-size:32px;">1.</h3><p>Cosa identifica l'indirizzo di una cella, come "B2"?</p></div><div class="card"><h3 style="font-size:32px;">2.</h3><p>Con quale simbolo inizia sempre una formula?</p></div><div class="card"><h3 style="font-size:32px;">3.</h3><p>A cosa serve la funzione SOMMA?</p></div><div class="card"><h3 style="font-size:32px;">4.</h3><p>Perché conviene dare un nome chiaro a ogni foglio?</p></div></div>
+      <div class="grid2 reveal d2" style="gap:24px 40px;"><div class="card"><h3 style="font-size:32px;">1.</h3><p>Che differenza c'è tra ordinare e filtrare i dati?</p></div><div class="card"><h3 style="font-size:32px;">2.</h3><p>A cosa serve una tabella pivot?</p></div><div class="card"><h3 style="font-size:32px;">3.</h3><p>Perché non serve imparare tutte le funzioni a memoria?</p></div><div class="card"><h3 style="font-size:32px;">4.</h3><p>A cosa fare attenzione quando condividi un foglio?</p></div></div>
     </div>
     <div class="page-num"></div>
   </section>
 
   <section class="slide closing">
     <div class="center" style="align-items:center;text-align:center;">
-      <div class="eyebrow reveal gold">Fine Modulo 05.1</div>
-      <h2 class="h-mega reveal" style="margin-top:10px;">Basi pronte! 📊</h2>
-      <p class="lead reveal d1" style="color:var(--paper);max-width:1100px;text-align:center;margin-top:20px;">Sai usare celle e formule. Nel <span class="gold">prossimo modulo</span> facciamo parlare i dati: tabelle, filtri e pivot.</p>
-      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;"><a class="chip" href="05.2-excel.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → M5.2 · Avanzato</a></div>
+      <div class="eyebrow reveal gold">Fine Modulo 05.2</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Conti fatti! 📈</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1100px;text-align:center;margin-top:20px;">Ora sai analizzare e condividere i dati. Nel <span class="gold">prossimo modulo</span> costruiamo l'immagine dell'attività: il <b>Branding</b>.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;"><a class="chip" href="inf-sec08-branding.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → M6 · Branding</a></div>
     </div>
   </section>
 
@@ -326,7 +286,7 @@ class SlidePresentation{
 const deck=new SlidePresentation();
 const editor={isActive:false,
   toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
-  key(){return 'inf-m51-edits';},
+  key(){return 'inf-m52-edits';},
   save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
   load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
 document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
