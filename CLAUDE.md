@@ -72,16 +72,14 @@ New decks get the next available number within their series. All cross-deck `hre
 | `sec03-privacy.html` | C3 | Privacy, Anonimato e Pseudonimia |
 | `sec04-professioni.html` | C4 | Professioni nella Sicurezza |
 | `sec05-assessment.html` | C5 | Assessment, Compliance e Dati Personali |
-| `inf01-componenti.html` | 01 | Dentro il computer |
-| `inf02-internet.html` | 02 | Sempre connessi |
+| `inf01-componenti.html` | 01 | Dentro il computer + connessioni (USB/WiFi/Bluetooth/5G) |
 | `inf03-documenti.html` | 04 | Mettere tutto per iscritto |
 | `inf04-excel-basi.html` | 05.1 | Le basi del foglio di calcolo |
 | `inf05-excel-avanzato.html` | 05.2 | Analizzare e condividere |
 | `inf06-branding.html` | 06 | Farsi riconoscere |
 | `inf07-social.html` | 07 | I social giusti |
 | `inf08-presentazioni.html` | 08 | Dillo con una slide |
-| `id01-identita.html` | 03.1 | La tua identità online |
-| `id02-account.html` | 03.2 | Difendi i tuoi account |
+| `id01-identita.html` | 03.1 | Identità online, PEC, SPID, dati sensibili |
 
 **Index maintenance:** `00-indice.html` has one `<div class="section-group">` per topic section. Card CSS classes: `.pre` (sky left-border, web series), `.sec` (red, sicurezza), `.inf` (gold, informatica + id).
 
