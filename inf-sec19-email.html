@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · La Posta Elettronica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;}.slide:last-child{break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal-2);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal-2);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:142px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+em.teal{font-style:italic;color:var(--teal-2);}
+em.gold{font-style:italic;color:var(--gold-deep);}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 32px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:10px;line-height:1;}
+.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:50px;line-height:1;display:block;margin-bottom:8px;}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:24px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.teal{background:var(--teal-2);}.note.teal *{color:#fff !important;}.note.teal .lbl{color:var(--gold) !important;}
+.note.red{background:#f3b6aa;}
+.note.dark{background:var(--ink);}.note.dark *{color:var(--paper) !important;}.note.dark .lbl{color:var(--gold) !important;}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:26px;line-height:1.4;color:var(--ink);}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal-2);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:22px;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal-2);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#2d7060,#0e2e28);right:-160px;top:-120px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-30px,44px) scale(1.04);}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:16px 60px;margin-top:16px;}
+.agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:14px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--teal-2);min-width:72px;}
+.agenda-item .t{font-size:28px;font-weight:600;color:var(--ink);}
+.closing{background:var(--teal-2);}.closing::before{opacity:.10;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing em.hot{color:var(--gold);}
+.mono-box{background:var(--ink);color:var(--gold);font-family:var(--font-mono);font-size:30px;padding:18px 28px;border-radius:10px;border:2px solid var(--teal-2);display:inline-block;}
+.mono-box.small{font-size:24px;}
+.check-row{display:flex;align-items:flex-start;gap:20px;padding:14px 0;border-bottom:1px dashed var(--line);}
+.check-row .ck{font-size:28px;min-width:36px;}
+.check-row .tx{font-size:27px;line-height:1.4;color:var(--ink-soft);}
+.email-part{display:flex;align-items:center;gap:28px;padding:18px 0;border-bottom:2px dashed var(--line);}
+.email-part .ep-label{font-family:var(--font-mono);font-weight:700;font-size:24px;color:var(--teal-2);min-width:220px;text-transform:uppercase;letter-spacing:1px;}
+.email-part .ep-desc{font-size:26px;color:var(--ink-soft);line-height:1.3;}
+.compare-col{display:flex;flex-direction:column;gap:16px;}
+.cmp-tag{font-family:var(--font-mono);font-size:20px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+.cmp-ok{color:#2e7d4f;}.cmp-bad{color:var(--red);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--teal-2);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--teal-2);z-index:1000;transition:width .35s var(--ease);}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- === SLIDE 1: TITLE === -->
+<section class="slide title-slide active">
+  <div class="title-left">
+    <div class="tape teal reveal">Informatica · Comunicazione</div>
+    <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo 5 — Posta Elettronica</div>
+    <h1 class="h-big reveal" contenteditable="true">La <em class="teal">Posta</em><br>Elettronica</h1>
+    <p class="lead reveal" style="margin-top:26px;" contenteditable="true">Indirizzi email, struttura di un messaggio, comunicazione professionale, allegati, sicurezza e netiquette digitale.</p>
+    <div class="chips reveal" style="margin-top:40px;"><span class="chip">Modulo 5</span><span class="chip alt">Comunicazione</span><span class="chip alt">~45 min</span></div>
+  </div>
+  <div class="title-right">
+    <div style="position:relative;z-index:2;text-align:center;">
+      <svg viewBox="0 0 200 200" width="220" role="img" aria-label="Busta email stilizzata con simbolo chiocciola">
+        <rect x="20" y="50" width="160" height="110" rx="10" fill="rgba(244,236,224,.15)" stroke="rgba(244,236,224,.5)" stroke-width="3"/>
+        <polyline points="20,50 100,115 180,50" fill="none" stroke="rgba(244,236,224,.7)" stroke-width="3"/>
+        <line x1="20" y1="160" x2="70" y2="110" stroke="rgba(244,236,224,.4)" stroke-width="2"/>
+        <line x1="180" y1="160" x2="130" y2="110" stroke="rgba(244,236,224,.4)" stroke-width="2"/>
+        <text x="100" y="46" text-anchor="middle" font-family="Fraunces" font-size="52" font-weight="900" fill="#e6c14a">@</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- === SLIDE 2: AGENDA === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="center">
+    <div class="tape teal reveal">In questo modulo</div>
+    <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
+    <div class="agenda-list reveal d1">
+      <div class="agenda-item"><span class="n">01</span><span class="t">Cos'è la posta elettronica</span></div>
+      <div class="agenda-item"><span class="n">02</span><span class="t">Anatomia di un indirizzo email</span></div>
+      <div class="agenda-item"><span class="n">03</span><span class="t">Piattaforme email principali</span></div>
+      <div class="agenda-item"><span class="n">04</span><span class="t">Parti di un'email</span></div>
+      <div class="agenda-item"><span class="n">05</span><span class="t">Destinatario, CC e CCN</span></div>
+      <div class="agenda-item"><span class="n">06</span><span class="t">L'oggetto del messaggio</span></div>
+      <div class="agenda-item"><span class="n">07</span><span class="t">Come iniziare e strutturare il testo</span></div>
+      <div class="agenda-item"><span class="n">08</span><span class="t">Tono, errori comuni, allegati</span></div>
+      <div class="agenda-item"><span class="n">09</span><span class="t">La firma elettronica</span></div>
+      <div class="agenda-item"><span class="n">10</span><span class="t">Sicurezza, netiquette, esercitazione</span></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 3: INTRODUZIONE === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">Introduzione</div>
+      <h2 class="h-big reveal">La posta<br><em class="teal">elettronica</em></h2>
+      <p class="lead reveal d1">La posta elettronica (email) è uno degli strumenti di comunicazione più utilizzati al mondo. Permette di inviare messaggi, documenti, immagini e altri file a persone situate ovunque.</p>
+      <div class="stack reveal d2">
+        <div class="note teal">
+          <div class="lbl">📧 Dove si usa</div>
+          <p>È utilizzata sia in ambito <b>personale</b> sia <b>professionale</b> e rappresenta uno dei principali strumenti di comunicazione aziendale.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">📊 In numeri</div>
+          <p>Nel 2024 vengono inviate circa <b>350 miliardi</b> di email ogni giorno nel mondo. È lo strumento digitale più usato dopo la messaggistica istantanea.</p>
+        </div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 240 240" style="max-width:220px;margin:0 auto;" role="img" aria-label="Email che viaggia da computer a computer">
+        <rect x="10" y="20" width="90" height="60" rx="8" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <rect x="20" y="30" width="70" height="8" rx="3" fill="#d8c9b4"/>
+        <rect x="20" y="44" width="50" height="6" rx="3" fill="#d8c9b4"/>
+        <rect x="20" y="56" width="60" height="6" rx="3" fill="#d8c9b4"/>
+        <!-- envelope flying -->
+        <rect x="88" y="100" width="64" height="44" rx="6" fill="#fbf5ec" stroke="#1f5249" stroke-width="2.5"/>
+        <polyline points="88,100 120,124 152,100" fill="none" stroke="#1f5249" stroke-width="2.5"/>
+        <text x="120" y="92" text-anchor="middle" font-size="22">✈️</text>
+        <!-- arrow -->
+        <line x1="120" y1="80" x2="120" y2="96" stroke="#d98a2b" stroke-width="2.5"/>
+        <polygon points="116,92 120,100 124,92" fill="#d98a2b"/>
+        <rect x="140" y="160" width="90" height="60" rx="8" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <rect x="150" y="170" width="70" height="8" rx="3" fill="#d8c9b4"/>
+        <rect x="150" y="184" width="50" height="6" rx="3" fill="#d8c9b4"/>
+        <rect x="150" y="196" width="60" height="6" rx="3" fill="#d8c9b4"/>
+        <line x1="120" y1="148" x2="148" y2="168" stroke="#d98a2b" stroke-width="2.5" stroke-dasharray="6"/>
+      </svg>
+      <div class="illu-cap">Mittente → Internet → Destinatario</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 4: INDIRIZZO EMAIL === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="center">
+    <div class="tape teal reveal">Anatomia</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Cos'è un <em class="teal">indirizzo email</em></h2>
+    <p class="lead reveal d1">Un indirizzo email identifica univocamente una casella di posta elettronica — come un indirizzo postale, ma nel mondo digitale.</p>
+    <div class="reveal d2" style="margin-top:30px;background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;padding:48px 60px;box-shadow:9px 10px 0 rgba(28,23,20,.14);">
+      <div style="text-align:center;margin-bottom:36px;">
+        <span style="font-family:var(--font-mono);font-size:64px;font-weight:700;color:var(--ink);letter-spacing:2px;">
+          <span style="color:var(--teal-2);">nome.cognome</span><span style="color:var(--red);font-size:78px;">@</span><span style="color:var(--gold-deep);">gmail.com</span>
+        </span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 60px 1fr;align-items:start;gap:0 20px;">
+        <div style="text-align:center;padding:20px 24px;background:rgba(31,82,73,.1);border-radius:12px;border:2px solid var(--teal-2);">
+          <div style="font-family:var(--font-mono);font-size:22px;font-weight:700;color:var(--teal-2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Nome utente</div>
+          <div style="font-size:24px;color:var(--ink-soft);">Identifica la persona o la casella all'interno del provider</div>
+        </div>
+        <div style="text-align:center;padding-top:24px;">
+          <div style="font-size:52px;color:var(--red);font-weight:900;font-family:var(--font-display);">@</div>
+          <div style="font-size:18px;font-family:var(--font-mono);color:var(--ink-faint);margin-top:4px;">chiocciola</div>
+        </div>
+        <div style="text-align:center;padding:20px 24px;background:rgba(217,138,43,.1);border-radius:12px;border:2px solid var(--gold-deep);">
+          <div style="font-family:var(--font-mono);font-size:22px;font-weight:700;color:var(--gold-deep);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Dominio del provider</div>
+          <div style="font-size:24px;color:var(--ink-soft);">Il servizio email che gestisce la casella di posta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 5: PIATTAFORME === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="center">
+    <div class="tape teal reveal">Provider</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Le principali <em class="teal">piattaforme email</em></h2>
+    <p class="lead reveal d1">I servizi più diffusi. Ogni piattaforma offre funzionalità simili ma con caratteristiche differenti.</p>
+    <div class="grid3 reveal d2" style="margin-top:26px;">
+      <div class="card" style="text-align:center;border-color:#4285f4;">
+        <span class="ic">🔵</span>
+        <h3>Gmail</h3>
+        <p>Servizio Google. 15 GB gratuiti. Integrazione con Google Drive, Calendar e Meet. Il più usato al mondo con oltre 1,8 miliardi di utenti.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:#0078d4;">
+        <span class="ic">🔷</span>
+        <h3>Outlook</h3>
+        <p>Servizio Microsoft. Integrazione con Office 365 e Teams. Standard in molte aziende e istituzioni. Ottima gestione del calendario.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--red);">
+        <span class="ic">🟣</span>
+        <h3>Yahoo Mail</h3>
+        <p>Uno dei servizi storici. 1 TB di spazio gratuito. Semplice da usare. Ancora molto diffuso, soprattutto tra utenti di lunga data.</p>
+      </div>
+    </div>
+    <div class="grid2 reveal d3" style="margin-top:20px;gap:20px;">
+      <div class="card" style="text-align:center;border-color:#6d4aff;">
+        <span class="ic">🔒</span>
+        <h3>Proton Mail</h3>
+        <p>Email cifrata end-to-end. Nessun accesso ai contenuti nemmeno da parte del provider. Ideale per chi privilegia la <b>privacy</b>.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--gold-deep);">
+        <span class="ic">🇮🇹</span>
+        <h3>Libero Mail</h3>
+        <p>Servizio italiano tra i più diffusi in Italia. Interfaccia in italiano, integrazione con portale Libero. Molto usato in ambito personale.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 6: PARTI DI UN'EMAIL === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">Struttura</div>
+      <h2 class="h-big reveal">Le parti<br>di un'<em class="teal">email</em></h2>
+      <p class="lead reveal d1">Ogni elemento ha una funzione precisa. Conoscerli aiuta a scrivere messaggi chiari ed efficaci.</p>
+      <div class="col reveal d2" style="margin-top:8px;">
+        <div class="email-part"><span class="ep-label">📬 Destinatario</span><span class="ep-desc">Chi riceve il messaggio — l'indirizzo del ricevente</span></div>
+        <div class="email-part"><span class="ep-label">📋 Oggetto</span><span class="ep-desc">Titolo sintetico del messaggio — visibile in anteprima</span></div>
+        <div class="email-part"><span class="ep-label">📝 Corpo</span><span class="ep-desc">Il testo principale del messaggio</span></div>
+        <div class="email-part"><span class="ep-label">📎 Allegati</span><span class="ep-desc">File aggiuntivi allegati al messaggio</span></div>
+        <div class="email-part" style="border:none;"><span class="ep-label">✍️ Firma</span><span class="ep-desc">Identità del mittente — nome, ruolo, contatti</span></div>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 230 280" style="max-width:210px;margin:0 auto;" role="img" aria-label="Mockup schematico di una finestra email">
+        <rect x="10" y="10" width="210" height="260" rx="10" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+        <rect x="10" y="10" width="210" height="32" rx="10" fill="#1f5249"/>
+        <rect x="10" y="30" width="210" height="12" fill="#1f5249"/>
+        <text x="115" y="31" text-anchor="middle" font-family="Space Mono" font-size="12" fill="#e6c14a">Nuova email</text>
+        <text x="22" y="62" font-family="Space Grotesk" font-size="11" fill="#6b5f54" font-weight="700">A:</text>
+        <rect x="42" y="50" width="162" height="20" rx="4" fill="#fff" stroke="#d8c9b4" stroke-width="1.5"/>
+        <text x="50" y="64" font-family="Space Mono" font-size="10" fill="#1f5249">destinatario@email.it</text>
+        <text x="22" y="92" font-family="Space Grotesk" font-size="11" fill="#6b5f54" font-weight="700">Oggetto:</text>
+        <rect x="78" y="80" width="126" height="20" rx="4" fill="#fff" stroke="#d8c9b4" stroke-width="1.5"/>
+        <text x="86" y="94" font-family="Space Mono" font-size="10" fill="#1c1714">Richiesta informazioni</text>
+        <line x1="22" y1="108" x2="208" y2="108" stroke="#d8c9b4" stroke-width="1.5"/>
+        <rect x="22" y="116" width="186" height="96" rx="4" fill="#fff" stroke="#d8c9b4" stroke-width="1"/>
+        <text x="32" y="134" font-family="Space Grotesk" font-size="10" fill="#3a322c">Gentile Sig. Rossi,</text>
+        <text x="32" y="150" font-family="Space Grotesk" font-size="10" fill="#6b5f54">Mi permetto di contattarla</text>
+        <text x="32" y="164" font-family="Space Grotesk" font-size="10" fill="#6b5f54">per richiedere informazioni</text>
+        <text x="32" y="178" font-family="Space Grotesk" font-size="10" fill="#6b5f54">riguardo al corso...</text>
+        <text x="32" y="198" font-family="Space Grotesk" font-size="10" fill="#1c1714" font-weight="700">Cordiali saluti,</text>
+        <text x="32" y="210" font-family="Space Grotesk" font-size="10" fill="#1c1714">Mario Rossi</text>
+        <line x1="22" y1="220" x2="208" y2="220" stroke="#d8c9b4" stroke-width="1"/>
+        <text x="32" y="238" font-size="12">📎</text>
+        <rect x="50" y="226" width="70" height="18" rx="4" fill="#e6c14a" opacity=".4" stroke="#d8c9b4" stroke-width="1"/>
+        <text x="58" y="238" font-family="Space Mono" font-size="9" fill="#3a322c">documento.pdf</text>
+        <rect x="160" y="248" width="44" height="14" rx="7" fill="#1f5249"/>
+        <text x="182" y="258" text-anchor="middle" font-family="Space Grotesk" font-size="9" fill="#fff" font-weight="700">Invia</text>
+      </svg>
+      <div class="illu-cap">Finestra di composizione email</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 7: DESTINATARIO === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="center">
+    <div class="tape teal reveal">Il campo A:</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Il campo <em class="teal">Destinatario</em></h2>
+    <p class="lead reveal d1">Nel campo destinatario si inserisce l'indirizzo della persona che riceverà il messaggio. È il campo più importante — un errore qui e il messaggio non arriva.</p>
+    <div class="grid2 reveal d2" style="margin-top:28px;">
+      <div class="col stack">
+        <div class="check-row"><span class="ck">✅</span><div class="tx"><b>Verifica l'indirizzo prima di inviare.</b> Un errore di battitura manda il messaggio a una persona sbagliata — potenziale problema di privacy.</div></div>
+        <div class="check-row"><span class="ck">📋</span><div class="tx"><b>Puoi inserire più destinatari.</b> Separa gli indirizzi con una virgola o premi Invio dopo ognuno. Tutti i destinatari nel campo A: vedono gli altri.</div></div>
+        <div class="check-row"><span class="ck">🔍</span><div class="tx"><b>Il completamento automatico aiuta.</b> Se hai già scritto a quella persona, il client suggerisce l'indirizzo. Verifica sempre che sia corretto prima di confermare.</div></div>
+      </div>
+      <div class="col stack">
+        <div class="note red">
+          <div class="lbl">⚠️ Errore frequente</div>
+          <p>Inviare un messaggio confidenziale all'indirizzo sbagliato è un incidente di privacy. Alcune aziende hanno obblighi legali (GDPR) in caso di invio accidentale di dati personali.</p>
+        </div>
+        <div class="note teal">
+          <div class="lbl">💡 Buona pratica</div>
+          <p>Per email importanti o riservate, inserisci l'indirizzo <b>per ultimo</b> — dopo aver scritto e riletto tutto il messaggio. Così eviti invii accidentali.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 8: CC E CCN === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="center">
+    <div class="tape teal reveal">Campi speciali</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;"><em class="teal">CC</em> e <em class="hot">CCN</em></h2>
+    <p class="lead reveal d1">Due campi aggiuntivi per gestire la distribuzione del messaggio con diversi livelli di visibilità.</p>
+    <div class="grid2 reveal d2" style="margin-top:28px;gap:32px;">
+      <div class="card" style="border-color:var(--teal-2);padding:40px;">
+        <div style="font-family:var(--font-mono);font-size:48px;font-weight:700;color:var(--teal-2);margin-bottom:16px;">CC</div>
+        <h3>Copia Conoscenza</h3>
+        <p style="margin-top:14px;">Permette di inviare una copia del messaggio ad altri destinatari. <b>Tutti i destinatari vedono chi è in CC</b> — inclusi gli altri in CC e i destinatari principali.</p>
+        <p style="margin-top:14px;">Uso tipico: informare un responsabile o un collega di una comunicazione senza che sia il destinatario principale.</p>
+        <div style="margin-top:20px;font-family:var(--font-mono);font-size:22px;color:var(--teal-2);">👁️ Visibile a tutti</div>
+      </div>
+      <div class="card" style="border-color:var(--red);padding:40px;">
+        <div style="font-family:var(--font-mono);font-size:48px;font-weight:700;color:var(--red);margin-bottom:16px;">CCN</div>
+        <h3>Copia Conoscenza Nascosta</h3>
+        <p style="margin-top:14px;">I destinatari inseriti in CCN ricevono il messaggio ma <b>non sono visibili agli altri</b> — né al destinatario principale, né a chi è in CC.</p>
+        <p style="margin-top:14px;">Uso tipico: newsletter, comunicazioni a molte persone senza esporne gli indirizzi, o per discrezione.</p>
+        <div style="margin-top:20px;font-family:var(--font-mono);font-size:22px;color:var(--red);">🔒 Nascosto agli altri</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 9: OGGETTO === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="center">
+    <div class="tape teal reveal">Visibilità</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">L'importanza dell'<em class="teal">oggetto</em></h2>
+    <p class="lead reveal d1">L'oggetto è la prima cosa che il destinatario legge. Deve descrivere sinteticamente il contenuto — è il titolo del messaggio.</p>
+    <div class="grid2 reveal d2" style="margin-top:28px;gap:36px;">
+      <div class="card" style="border-color:#2e7d4f;">
+        <div class="cmp-tag cmp-ok">✅ Corretto</div>
+        <div class="mono-box" style="margin:14px 0;display:block;font-size:28px;border-color:#2e7d4f;">Richiesta informazioni sul<br>corso di informatica</div>
+        <p>Specifica, chiara, permette al destinatario di capire subito di cosa si tratta e di stabilire la priorità del messaggio nella sua casella.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <div class="cmp-tag cmp-bad">❌ Scorretto</div>
+        <div class="mono-box" style="margin:14px 0;display:block;font-size:36px;border-color:var(--red);">Ciao</div>
+        <p>Vago, non informativo. Il destinatario non sa cosa aspettarsi. Aumenta il rischio che il messaggio venga ignorato o finisca nello spam.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:24px;">
+      <div class="lbl">💡 Regola pratica</div>
+      <p>Un buon oggetto risponde alla domanda: <b>"Di cosa parla questo messaggio?"</b> in massimo 6-8 parole. Aumenta le probabilità che il messaggio venga letto rapidamente.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 10: COME INIZIARE === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="center">
+    <div class="tape teal reveal">Apertura</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Come <em class="teal">iniziare</em> un'email</h2>
+    <p class="lead reveal d1">È buona norma utilizzare una formula di saluto. La scelta dipende dal livello di formalità richiesto dal contesto.</p>
+    <div class="grid3 reveal d2" style="margin-top:26px;">
+      <div class="card" style="border-color:var(--teal-2);">
+        <h3>Formale</h3>
+        <p style="margin-top:12px;font-size:22px;color:var(--ink-faint);">Per professori, datori di lavoro, clienti, uffici pubblici.</p>
+        <div style="margin-top:18px;display:flex;flex-direction:column;gap:10px;">
+          <div class="mono-box small">Gentile Sig. Rossi,</div>
+          <div class="mono-box small">Egregio Professore,</div>
+          <div class="mono-box small">Spettabile Ufficio,</div>
+        </div>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <h3>Semi-formale</h3>
+        <p style="margin-top:12px;font-size:22px;color:var(--ink-faint);">Per colleghi, conoscenti, contesti lavorativi informali.</p>
+        <div style="margin-top:18px;display:flex;flex-direction:column;gap:10px;">
+          <div class="mono-box small">Buongiorno,</div>
+          <div class="mono-box small">Salve,</div>
+          <div class="mono-box small">Buon pomeriggio,</div>
+        </div>
+      </div>
+      <div class="card" style="border-color:var(--sky);">
+        <h3>Informale</h3>
+        <p style="margin-top:12px;font-size:22px;color:var(--ink-faint);">Solo per amici, familiari, colleghi con cui si ha confidenza.</p>
+        <div style="margin-top:18px;display:flex;flex-direction:column;gap:10px;">
+          <div class="mono-box small">Ciao Marco,</div>
+          <div class="mono-box small">Ehi,</div>
+          <div class="mono-box small">Hey,</div>
+        </div>
+      </div>
+    </div>
+    <div class="note teal reveal d3" style="margin-top:22px;">
+      <div class="lbl">📌 Regola d'oro</div>
+      <p>In dubbio, usa il formale. È sempre meglio essere più formali del necessario che risultare maleducati. Si può sempre passare a un registro più informale quando il rapporto lo permette.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 11: STRUTTURA CORPO === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">Composizione</div>
+      <h2 class="h-big reveal">Struttura del<br><em class="teal">corpo</em><br>del messaggio</h2>
+      <p class="lead reveal d1">Una struttura chiara facilita la comprensione e rende il messaggio più professionale ed efficace.</p>
+      <div class="note teal reveal d2">
+        <div class="lbl">💡 Principio base</div>
+        <p>Scrivi solo quello che serve. Un'email ben strutturata non supera mai i 3-4 paragrafi. Se hai bisogno di più spazio, usa un allegato.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="card" style="border-color:var(--teal-2);">
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:10px;">
+          <div style="font-family:var(--font-display);font-weight:900;font-size:52px;color:var(--teal-2);line-height:1;">1</div>
+          <h3>Introduzione</h3>
+        </div>
+        <p>Saluto e breve presentazione di sé (se necessario). Motivo del contatto in una frase.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:10px;">
+          <div style="font-family:var(--font-display);font-weight:900;font-size:52px;color:var(--gold-deep);line-height:1;">2</div>
+          <h3>Motivo del contatto</h3>
+        </div>
+        <p>Spiegazione chiara e sintetica del tema o della richiesta. Un paragrafo al massimo.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:10px;">
+          <div style="font-family:var(--font-display);font-weight:900;font-size:52px;color:var(--red);line-height:1;">3</div>
+          <h3>Richiesta e conclusione</h3>
+        </div>
+        <p>Cosa si chiede o ci si aspetta. Formula di chiusura (Cordiali saluti, In attesa di una risposta…) + firma.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 12: SCRIVERE CHIARO === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="center">
+    <div class="tape teal reveal">Qualità</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Scrivere in modo <em class="teal">chiaro</em></h2>
+    <p class="lead reveal d1">Le email devono essere leggibili, corrette e dirette. Frasi troppo lunghe o complesse creano confusione e rallentano la comunicazione.</p>
+    <div class="grid4 reveal d2" style="margin-top:28px;">
+      <div class="card" style="text-align:center;border-color:var(--teal-2);">
+        <span class="ic">🎯</span>
+        <h3>Chiara</h3>
+        <p>Un concetto per frase. Evita perifrasi inutili. Il destinatario capisce subito cosa vuoi.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--gold-deep);">
+        <span class="ic">✂️</span>
+        <h3>Sintetica</h3>
+        <p>Elimina tutto il superfluo. Se una parola non aggiunge significato, toglila.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--sky);">
+        <span class="ic">📖</span>
+        <h3>Corretta</h3>
+        <p>Grammatica e punteggiatura curate. Errori tipografici danneggiano la credibilità di chi scrive.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:#2e7d4f;">
+        <span class="ic">👁️</span>
+        <h3>Leggibile</h3>
+        <p>Usa paragrafi brevi, lascia spazio bianco. Un blocco compatto di testo scoraggia la lettura.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">📝 Prima di inviare</div>
+      <p>Rileggi sempre l'email <b>ad alta voce</b> — se ci sono frasi che devi rileggere due volte per capirle, semplificale. L'email deve fluire naturalmente.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 13: TONO === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Stile</div>
+      <h2 class="h-big reveal">Il tono della<br><em class="teal">comunicazione</em></h2>
+      <p class="lead reveal d1">Il tono deve essere adeguato al contesto. In ambito professionale, un tono inappropriato può danneggiare la reputazione e i rapporti lavorativi.</p>
+      <div class="note teal reveal d2">
+        <div class="lbl">✅ In ambito professionale</div>
+        <p>Mantieni sempre un tono <b>educato</b>, <b>formale</b> e <b>rispettoso</b>. Non usare mai abbreviazioni tipiche dei messaggi (cmq, nn, xché…) in email formali.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="card" style="border-color:#2e7d4f;">
+        <h3 style="color:#2e7d4f;">✅ Tono adeguato</h3>
+        <p style="margin-top:12px;font-style:italic;font-size:24px;color:var(--ink-soft);">"La contatto per richiedere informazioni riguardo al corso. Sarei grato se potesse fornirmi i dettagli necessari."</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <h3 style="color:var(--red);">❌ Tono inadeguato</h3>
+        <p style="margin-top:12px;font-style:italic;font-size:24px;color:var(--ink-soft);">"Ciao!! ho bisogno di info sul corso asap, cmq fatemi sapere presto grazie"</p>
+      </div>
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">📌 Contesto determina il tono</div>
+        <p>Con un collega con cui si ha confidenza si può usare un registro più informale. Con clienti, superiori o sconosciuti: sempre formale.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 14: ERRORI COMUNI === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="center">
+    <div class="tape reveal">Attenzione</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;"><em class="hot">Errori comuni</em> da evitare</h2>
+    <p class="lead reveal d1">Una rilettura prima dell'invio è sempre consigliata. Questi sono gli errori più frequenti nelle email, specialmente in contesti professionali.</p>
+    <div class="grid3 reveal d2" style="margin-top:24px;">
+      <div class="card" style="border-color:var(--red);">
+        <span class="ic">📝</span>
+        <h3>Errori grammaticali</h3>
+        <p>Apostrofi mancanti, accenti sbagliati, concordanza errata. Danneggiano la credibilità e la professionalità di chi scrive.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <span class="ic">🔠</span>
+        <h3>Maiuscole eccessive</h3>
+        <p>SCRIVERE IN MAIUSCOLO equivale a urlare. Va usato solo per acronimi o sigle, mai per enfatizzare parole nel testo.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <span class="ic">😠</span>
+        <h3>Linguaggio aggressivo</h3>
+        <p>Tono infastidito, risentito o scortese. Le email restano tracciate — possono essere inoltrate a terzi o usate come documenti.</p>
+      </div>
+    </div>
+    <div class="grid2 reveal d3" style="margin-top:20px;gap:20px;">
+      <div class="card" style="border-color:var(--red);">
+        <span class="ic">❓</span>
+        <h3>Oggetto poco chiaro o assente</h3>
+        <p>Un oggetto vago ("Ciao", "Info", "Domanda") rende difficile per il destinatario capire la priorità e trovare il messaggio in archivio.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <span class="ic">📎</span>
+        <h3>Allegati dimenticati</h3>
+        <p>Scrivere "allego il documento" e poi non allegarlo è uno degli errori più diffusi. Verifica gli allegati prima di cliccare Invia.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 15: GLI ALLEGATI === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="center">
+    <div class="tape teal reveal">File</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Gli <em class="teal">allegati</em></h2>
+    <p class="lead reveal d1">Le email permettono di inviare file di vario tipo insieme al messaggio. È importante verificare che gli allegati siano corretti prima dell'invio.</p>
+    <div class="grid4 reveal d2" style="margin-top:24px;">
+      <div class="card" style="text-align:center;">
+        <span class="ic">📄</span>
+        <h3>Documenti</h3>
+        <p>Word (.docx), testi semplici (.txt). Modificabili dal destinatario. Usati per bozze e documenti di lavoro.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">📕</span>
+        <h3>PDF</h3>
+        <p>Formato universale, non modificabile. Ideale per documenti ufficiali, curricula, moduli, contratti.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">🖼️</span>
+        <h3>Immagini</h3>
+        <p>JPG, PNG, GIF, SVG. Foto, screenshot, loghi. Attenzione alla dimensione del file — le immagini ad alta risoluzione pesano molto.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">📊</span>
+        <h3>Fogli di calcolo</h3>
+        <p>Excel (.xlsx), CSV. Dati, tabelle, statistiche. I formati Excel potrebbero non aprirsi correttamente su tutti i dispositivi.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">⚠️ Limiti di dimensione</div>
+      <p>La maggior parte dei provider email accetta allegati fino a <b>25 MB</b>. Per file più grandi usa servizi cloud (Google Drive, OneDrive, Dropbox) e condividi il <b>link</b> anziché il file direttamente.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 16: QUANDO USARE ALLEGATI === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Strategia</div>
+      <h2 class="h-big reveal">Quando usare<br>gli <em class="teal">allegati</em></h2>
+      <p class="lead reveal d1">Gli allegati sono utili per condividere documenti che non possono essere inseriti direttamente nel corpo dell'email. Ma non sono sempre la scelta migliore.</p>
+      <div class="note teal reveal d2">
+        <div class="lbl">📌 Regola pratica</div>
+        <p>Se il documento supera 1-2 pagine, allegalo. Se è breve e non serve firma o formato specifico, incollalo nel corpo dell'email — è più immediato.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="card" style="border-color:#2e7d4f;">
+        <h3>✅ Usa l'allegato quando</h3>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px;">
+          <div class="check-row" style="border:none;padding:6px 0;"><span class="ck" style="font-size:22px;">✓</span><div class="tx" style="font-size:23px;">Il file deve mantenere la formattazione (PDF)</div></div>
+          <div class="check-row" style="border:none;padding:6px 0;"><span class="ck" style="font-size:22px;">✓</span><div class="tx" style="font-size:23px;">Il destinatario deve modificarlo (Word, Excel)</div></div>
+          <div class="check-row" style="border:none;padding:6px 0;"><span class="ck" style="font-size:22px;">✓</span><div class="tx" style="font-size:23px;">È un documento ufficiale (contratto, modulo)</div></div>
+        </div>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <h3>🔗 Usa il link cloud quando</h3>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px;">
+          <div class="check-row" style="border:none;padding:6px 0;"><span class="ck" style="font-size:22px;">→</span><div class="tx" style="font-size:23px;">Il file supera i 25 MB</div></div>
+          <div class="check-row" style="border:none;padding:6px 0;"><span class="ck" style="font-size:22px;">→</span><div class="tx" style="font-size:23px;">Più persone devono collaborarlo</div></div>
+          <div class="check-row" style="border:none;padding:6px 0;"><span class="ck" style="font-size:22px;">→</span><div class="tx" style="font-size:23px;">Il documento si aggiorna spesso</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 17: LA FIRMA === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="split">
+    <div class="col stack">
+      <div class="tape teal reveal">Identità</div>
+      <h2 class="h-big reveal">La firma<br><em class="teal">elettronica</em></h2>
+      <p class="lead reveal d1">La firma aiuta il destinatario a identificare chi ha scritto e come contattarlo. Una firma professionale comunica cura e organizzazione.</p>
+      <div class="note teal reveal d2">
+        <div class="lbl">✅ Cosa include una firma professionale</div>
+        <p><b>Nome e Cognome</b> — per esteso<br><b>Ruolo / qualifica</b><br><b>Azienda / Istituzione</b><br><b>Email</b> (sì, anche nella firma)<br><b>Telefono</b> (opzionale)<br><b>Link profilo</b> (LinkedIn, sito, opzionale)</p>
+      </div>
+    </div>
+    <div class="illu reveal d1">
+      <svg viewBox="0 0 240 200" style="max-width:220px;margin:0 auto;" role="img" aria-label="Esempio di firma email professionale">
+        <line x1="20" y1="30" x2="220" y2="30" stroke="#d8c9b4" stroke-width="2" stroke-dasharray="6"/>
+        <text x="20" y="60" font-family="Fraunces" font-size="18" fill="#1c1714" font-weight="700">Mario Rossi</text>
+        <text x="20" y="80" font-family="Space Grotesk" font-size="14" fill="#1f5249">Sviluppatore Web</text>
+        <text x="20" y="98" font-family="Space Grotesk" font-size="13" fill="#6b5f54">Azienda Esempio S.r.l.</text>
+        <line x1="20" y1="110" x2="200" y2="110" stroke="#d8c9b4" stroke-width="1.5"/>
+        <text x="20" y="130" font-family="Space Mono" font-size="12" fill="#3a322c">📧 mario.rossi@azienda.it</text>
+        <text x="20" y="150" font-family="Space Mono" font-size="12" fill="#3a322c">📱 +39 333 000 0000</text>
+        <text x="20" y="170" font-family="Space Mono" font-size="12" fill="#1f5249">🔗 linkedin.com/in/mariorossi</text>
+        <!-- bracket annotation -->
+        <rect x="206" y="28" width="3" height="146" fill="#d98a2b"/>
+        <text x="214" y="105" font-family="Space Mono" font-size="10" fill="#d98a2b" transform="rotate(90,214,105)">firma professionale</text>
+      </svg>
+      <div class="illu-cap">Firma professionale completa</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 18: RISPONDERE === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="center">
+    <div class="tape teal reveal">Conversazioni</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;"><em class="teal">Rispondere</em> a un'email</h2>
+    <p class="lead reveal d1">Rispondere correttamente a un'email è importante quanto scriverla. Una buona risposta mantiene il contesto e risolve ogni punto sollevato.</p>
+    <div class="grid2 reveal d2" style="margin-top:26px;">
+      <div class="col stack">
+        <div class="check-row"><span class="ck">📖</span><div class="tx"><b>Leggi attentamente il messaggio originale</b> prima di rispondere. Non dare risposte affrettate senza capire bene la richiesta.</div></div>
+        <div class="check-row"><span class="ck">✅</span><div class="tx"><b>Rispondi a tutte le domande.</b> Se l'email contiene più domande, assicurati di rispondere a ciascuna — anche se alcune ti sembrano ovvie.</div></div>
+        <div class="check-row"><span class="ck">🔗</span><div class="tx"><b>Mantieni il contesto.</b> Rispondendo "sopra" il messaggio originale il destinatario può rileggere la conversazione precedente senza cercare le email precedenti.</div></div>
+        <div class="check-row" style="border:none;"><span class="ck">⏱️</span><div class="tx"><b>Risposta nei tempi.</b> In ambito professionale una risposta entro 24 ore è considerata la norma. Oltre 48 ore può essere percepito come scortesia.</div></div>
+      </div>
+      <div class="col stack">
+        <div class="note teal">
+          <div class="lbl">↩️ Rispondi vs Rispondi a tutti</div>
+          <p><b>Rispondi</b> → solo al mittente.<br><b>Rispondi a tutti</b> → al mittente e a tutti i destinatari in CC.<br><br>Usa "Rispondi a tutti" solo quando la tua risposta è utile a tutti. Evita di intasare le caselle altrui con risposte che riguardano solo il mittente.</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">✉️ Inoltro</div>
+          <p>Inoltrare (<b>Forward</b>) significa inviare il messaggio a una terza persona. Attenzione: stai condividendo l'intera conversazione, inclusi eventuali contenuti confidenziali.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 19: EMAIL SOSPETTE === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="center">
+    <div class="tape reveal">Sicurezza</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Riconoscere email <em class="hot">sospette</em></h2>
+    <p class="lead reveal d1">Queste caratteristiche sono comuni nelle email di phishing — tentativi di truffa che imitano comunicazioni ufficiali per rubare dati o denaro.</p>
+    <div class="grid2 reveal d2" style="margin-top:22px;">
+      <div class="col stack">
+        <div class="check-row"><span class="ck">⚠️</span><div class="tx"><b>Errori grammaticali evidenti</b> — messaggi con molti errori o costruzioni innaturali sono spesso generati automaticamente o tradotti male.</div></div>
+        <div class="check-row"><span class="ck">🚨</span><div class="tx"><b>Urgenza esagerata</b> — "Il tuo account verrà chiuso entro 24 ore!", "Azione immediata richiesta!" — creare panico per spingere all'azione impulsiva.</div></div>
+        <div class="check-row"><span class="ck">🔗</span><div class="tx"><b>Link sospetti</b> — passa il mouse sul link senza cliccare. L'URL reale appare in basso. Se non corrisponde al sito ufficiale, è phishing.</div></div>
+        <div class="check-row" style="border:none;"><span class="ck">👤</span><div class="tx"><b>Mittente sconosciuto o strano</b> — l'indirizzo del mittente contiene errori o un dominio strano (banca-italia.xyz anziché bancaditalia.it).</div></div>
+      </div>
+      <div class="col stack">
+        <div class="note red">
+          <div class="lbl">⚠️ Mai fare queste cose</div>
+          <p>• Non cliccare link in email non attese<br>• Non aprire allegati da mittenti sconosciuti<br>• Non inserire password o dati bancari su pagine raggiunte via email<br>• Non rispondere a richieste di dati personali via email</p>
+        </div>
+        <div class="note teal">
+          <div class="lbl">✅ Se sei in dubbio</div>
+          <p>Contatta direttamente l'organizzazione mittente tramite i contatti ufficiali sul loro sito — <b>non</b> quelli indicati nell'email sospetta. Le banche e le istituzioni non chiedono mai password via email.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 20: SICUREZZA === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="center">
+    <div class="tape teal reveal">Protezione</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Buone pratiche di <em class="teal">sicurezza</em></h2>
+    <p class="lead reveal d1">Per utilizzare la posta elettronica in sicurezza. Abitudini semplici che riducono drasticamente i rischi.</p>
+    <div class="grid4 reveal d2" style="margin-top:26px;">
+      <div class="card" style="text-align:center;border-color:var(--teal-2);">
+        <span class="ic">🔐</span>
+        <h3>Password robusta</h3>
+        <p>Almeno 12 caratteri, maiuscole, minuscole, numeri e simboli. Non usare la stessa password per più servizi.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--gold-deep);">
+        <span class="ic">📱</span>
+        <h3>Autenticazione a due fattori</h3>
+        <p>Attiva il 2FA — un secondo codice (SMS o app) viene richiesto oltre alla password. Anche se la password viene rubata, l'account è protetto.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--red);">
+        <span class="ic">📎</span>
+        <h3>Allegati sospetti</h3>
+        <p>Non aprire allegati non attesi, anche se il mittente sembra noto. I file .exe, .zip, .docm possono contenere malware.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--sky);">
+        <span class="ic">🔍</span>
+        <h3>Verifica il mittente</h3>
+        <p>Prima di rispondere o cliccare, controlla l'indirizzo completo del mittente — non solo il nome visualizzato, che può essere falsificato.</p>
+      </div>
+    </div>
+    <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">Ricorda:</span> la email è come una cartolina postale — visibile a tutti nella catena di consegna. Per contenuti sensibili usa canali cifrati.</div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 21: NETIQUETTE === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="center">
+    <div class="tape teal reveal">Buone maniere digitali</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;"><em class="teal">Netiquette</em> nelle email</h2>
+    <p class="lead reveal d1">La netiquette è l'insieme delle regole di buona educazione online. Applicarla nelle email migliora le relazioni professionali e personali.</p>
+    <div class="grid3 reveal d2" style="margin-top:26px;">
+      <div class="card" style="text-align:center;border-color:var(--teal-2);">
+        <span class="ic">😊</span>
+        <h3>Essere cortesi</h3>
+        <p>Un saluto all'inizio e una formula di chiusura alla fine. La cortesia non costa nulla e costruisce rapporti migliori.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--gold-deep);">
+        <span class="ic">🤝</span>
+        <h3>Rispettare i destinatari</h3>
+        <p>Non inviare email inutili o catene. Non usare CC o "Rispondi a tutti" quando non necessario. Il tempo degli altri è prezioso.</p>
+      </div>
+      <div class="card" style="text-align:center;border-color:var(--sky);">
+        <span class="ic">🎙️</span>
+        <h3>Tono appropriato</h3>
+        <p>Evita linguaggio offensivo, ironia ambigua o sarcasmo. Senza tono di voce e mimica, i messaggi scritti si prestano facilmente a fraintendimenti.</p>
+      </div>
+    </div>
+    <div class="note teal reveal d3" style="margin-top:22px;">
+      <div class="lbl">📌 Regola d'oro della netiquette</div>
+      <p>Prima di inviare un'email chiediti: <b>"Sarei a disagio se questa email fosse letta dal mio responsabile o resa pubblica?"</b> Se la risposta è sì, riscrivila o non inviarla. Le email restano e possono essere inoltrate.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 22: ESERCITAZIONE === -->
+<section class="slide">
+  <div class="deck-tab">EMAIL · M5</div>
+  <div class="center">
+    <div class="tape teal reveal">Pratica</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;"><em class="teal">Esercitazione</em> pratica</h2>
+    <p class="lead reveal d1">Scrivi un'email formale per richiedere informazioni su un corso di formazione. Applica tutte le regole viste in questo modulo.</p>
+    <div class="grid2 reveal d2" style="margin-top:24px;gap:32px;">
+      <div class="card" style="border-color:var(--teal-2);padding:36px 40px;">
+        <h3>L'email deve contenere</h3>
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:12px;">
+          <div class="check-row" style="border:none;padding:6px 0;"><span class="ck">1️⃣</span><div class="tx" style="font-size:25px;"><b>Oggetto appropriato</b> — descrittivo e chiaro</div></div>
+          <div class="check-row" style="border:none;padding:6px 0;"><span class="ck">2️⃣</span><div class="tx" style="font-size:25px;"><b>Saluto iniziale</b> — formula formale corretta</div></div>
+          <div class="check-row" style="border:none;padding:6px 0;"><span class="ck">3️⃣</span><div class="tx" style="font-size:25px;"><b>Presentazione</b> — chi sei e perché scrivi</div></div>
+          <div class="check-row" style="border:none;padding:6px 0;"><span class="ck">4️⃣</span><div class="tx" style="font-size:25px;"><b>Richiesta di informazioni</b> — chiara e specifica</div></div>
+          <div class="check-row" style="border:none;padding:6px 0;"><span class="ck">5️⃣</span><div class="tx" style="font-size:25px;"><b>Ringraziamento finale</b> e formula di chiusura</div></div>
+          <div class="check-row" style="border:none;padding:6px 0;"><span class="ck">6️⃣</span><div class="tx" style="font-size:25px;"><b>Firma</b> — nome, cognome, contatto</div></div>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="note teal">
+          <div class="lbl">📋 Dopo l'esercitazione</div>
+          <p>Confronta il tuo elaborato con quello dei compagni. Verifica: hai usato il tono corretto? L'oggetto è chiaro? Hai risposto a tutti i punti richiesti?</p>
+        </div>
+        <div class="note" style="background:var(--paper-2);">
+          <div class="lbl">🎯 Criteri di valutazione</div>
+          <p>✓ Correttezza grammaticale<br>✓ Chiarezza e sintesi<br>✓ Tono formale adeguato<br>✓ Struttura completa<br>✓ Firma professionale</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 23: CLOSING === -->
+<section class="slide closing">
+  <div class="center" style="align-items:center;text-align:center;">
+    <div class="eyebrow reveal" style="color:var(--gold);">Fine Modulo 5</div>
+    <h2 class="h-mega reveal" style="margin-top:10px;">Inviato! <em class="hot">📧</em></h2>
+    <p class="lead reveal d1" style="color:#f4ece0;max-width:1100px;text-align:center;margin-top:20px;">Sai comporre, inviare e gestire email in modo <b>professionale</b>, riconoscere messaggi sospetti e rispettare la netiquette digitale. La comunicazione scritta online è una competenza fondamentale per il mondo del lavoro.</p>
+    <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+      <a class="chip" href="inf-sec00-indice.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">↩ Indice del corso</a>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;}); }
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'inf-sec-email-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>
