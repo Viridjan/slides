@@ -129,7 +129,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <section class="slide title-slide active">
     <div class="title-left">
       <div class="tape reveal">Corso di Informatica</div>
-      <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo 03.1 — Sicurezza</div>
+      <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo 02 — Sicurezza</div>
       <h1 class="h-mega reveal" contenteditable="true">La tua<br><em class="hot">identità</em> online</h1>
       <p class="lead reveal" style="margin-top:30px;" contenteditable="true">Identità privata e professionale, email, PEC, SPID e come comunicare bene sul lavoro.</p>
       <div class="chips reveal" style="margin-top:46px;"><span class="chip">Modulo 3.1 / 8</span><span class="chip alt">Identità</span><span class="chip alt">~30 min</span></div>
@@ -138,7 +138,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M3.1</div>
+    <div class="deck-tab">INFORMATICA · M2</div>
     <div class="center">
       <div class="tape teal reveal">In questo modulo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
@@ -148,7 +148,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
 <section class="slide">
-    <div class="deck-tab">INFORMATICA · M3.1</div>
+    <div class="deck-tab">INFORMATICA · M2</div>
     <div class="center">
       <div class="tape reveal">Identità digitale</div>
       <h2 class="h-sec reveal" style="margin-top:20px;">Privata <span style="color:var(--ink-faint)">vs</span> professionale</h2>
@@ -172,7 +172,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
 <section class="slide">
-    <div class="deck-tab">INFORMATICA · M3.1</div>
+    <div class="deck-tab">INFORMATICA · M2</div>
     <div class="split">
       <div class="col stack">
         <div class="tape gold reveal">Identità distinte</div>
@@ -201,7 +201,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
 
 <section class="slide">
-    <div class="deck-tab">INFORMATICA · M3.1</div>
+    <div class="deck-tab">INFORMATICA · M2</div>
     <div class="center">
       <div class="tape reveal">Identità · Strumenti ufficiali</div>
       <h2 class="h-sec reveal" style="margin-top:20px;">PEC e SPID</h2>
@@ -226,7 +226,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
 
 <section class="slide">
-    <div class="deck-tab">INFORMATICA · M3.1</div>
+    <div class="deck-tab">INFORMATICA · M2</div>
     <div class="center">
       <div class="tape teal reveal">Sul lavoro</div>
       <h2 class="h-sec reveal" style="margin-top:20px;">Parli anche per l'azienda</h2>
@@ -245,7 +245,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
 <section class="slide">
-    <div class="deck-tab">INFORMATICA · M3.1</div>
+    <div class="deck-tab">INFORMATICA · M2</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape gold reveal">Privacy · GDPR</div>
       <h2 class="h-big reveal">I <em class="hot">dati sensibili</em></h2>
@@ -264,7 +264,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M3.1</div>
+    <div class="deck-tab">INFORMATICA · M2</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape teal reveal">Verifica veloce</div>
       <h2 class="h-sec reveal">Hai capito tutto?</h2>
@@ -276,7 +276,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <section class="slide closing">
     <div class="center" style="align-items:center;text-align:center;">
-      <div class="eyebrow reveal gold">Fine Modulo 03.1</div>
+      <div class="eyebrow reveal gold">Fine Modulo 02</div>
       <h2 class="h-mega reveal" style="margin-top:10px;">Identità a posto! 🪪</h2>
       <p class="lead reveal d1" style="color:var(--paper);max-width:1100px;text-align:center;margin-top:20px;">Ora sai presentarti bene online e gestire la tua identità digitale con consapevolezza. Nel <span class="gold">prossimo modulo</span> impari a creare documenti professionali.</p>
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;"><a class="chip" href="inf03-documenti.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → M4 · Documenti professionali</a><a class="chip alt" href="00-indice.html" style="color:#f4ece0;border-color:rgba(244,236,224,.4);text-decoration:none;cursor:pointer;">↩ Indice del corso</a></div>
@@ -322,7 +322,7 @@ const editor={isActive:false,
     document.getElementById('editHint').classList.toggle('show',this.isActive);
     document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));
     if(this.isActive)this.load();},
-  key(){return 'inf-m31-edits';},
+  key(){return 'inf-identita-edits';},
   save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);
     localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';
     setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},

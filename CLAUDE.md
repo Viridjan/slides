@@ -50,8 +50,7 @@ All 20 decks are flat HTML files in the **repo root** (same level as CLAUDE.md).
 |---------------|--------|---------|
 | `web` | Reti e Web | `web01-reti.html`, `web05-firma.html` |
 | `sec` | Sicurezza Digitale | `sec01-introduzione.html` |
-| `inf` | Informatica (hardware/strumenti) | `inf01-componenti.html` |
-| `id` | Identità digitale e account | `id01-identita.html` |
+| `inf` | Informatica (hardware/strumenti/identità) | `inf01-componenti.html` |
 
 New decks get the next available number within their series. All cross-deck `href` links use bare filenames — no folder prefixes.
 
@@ -79,7 +78,7 @@ New decks get the next available number within their series. All cross-deck `hre
 | `inf06-branding.html` | 06 | Farsi riconoscere |
 | `inf07-social.html` | 07 | I social giusti |
 | `inf08-presentazioni.html` | 08 | Dillo con una slide |
-| `id01-identita.html` | 03.1 | Identità online, PEC, SPID, dati sensibili |
+| `inf02-identita.html` | 02 | Identità online, PEC, SPID, dati sensibili |
 
 **Index maintenance:** `00-indice.html` has one `<div class="section-group">` per topic section. Card CSS classes: `.pre` (sky left-border, web series), `.sec` (red, sicurezza), `.inf` (gold, informatica + id).
 
