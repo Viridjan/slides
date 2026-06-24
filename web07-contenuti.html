@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · Gestione e Archiviazione dei Contenuti Digitali</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;}.slide:last-child{break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--gold-deep);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--gold-deep);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal-2);}.tape.dark{background:var(--teal);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--gold-deep);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:142px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+em.warm{font-style:italic;color:var(--gold-deep);}
+em.teal{font-style:italic;color:var(--teal-2);}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 32px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:10px;line-height:1;}
+.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:24px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.teal{background:var(--teal-2);}.note.teal *{color:#fff !important;}.note.teal .lbl{color:var(--gold) !important;}
+.note.dark{background:var(--teal);}.note.dark *{color:var(--paper) !important;}.note.dark .lbl{color:var(--gold) !important;}
+.note.red{background:#f3b6aa;}
+.note.sky{background:rgba(63,126,140,.12);border-color:var(--sky);}
+.note.warm{background:#fde8cc;border-color:var(--gold-deep);}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:26px;line-height:1.4;color:var(--ink);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:18px;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.check-row{display:flex;align-items:flex-start;gap:20px;padding:12px 0;border-bottom:1px dashed var(--line);}
+.check-row:last-child{border-bottom:none;}
+.check-row .ck{font-size:26px;min-width:36px;line-height:1.3;}
+.check-row .tx{font-size:27px;line-height:1.4;color:var(--ink-soft);}
+.fmt-pill{background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-weight:700;font-size:26px;padding:14px 26px;border-radius:8px;text-align:center;letter-spacing:1px;}
+.fmt-pill.doc{background:var(--teal-2);}
+.fmt-pill.img{background:var(--sky);}
+.fmt-pill.av{background:var(--red);}
+.fmt-pill.sheet{background:#2e7d4f;}
+.kbd{display:inline-flex;align-items:center;justify-content:center;background:#fbf5ec;border:3px solid var(--ink);border-bottom:5px solid var(--ink);border-radius:8px;font-family:var(--font-mono);font-weight:700;font-size:28px;padding:10px 20px;min-width:60px;box-shadow:2px 2px 0 rgba(0,0,0,.2);}
+.kbd-group{display:flex;align-items:center;gap:10px;}
+.kbd-label{font-size:26px;color:var(--ink-faint);font-family:var(--font-mono);}
+.folder-tree{font-family:var(--font-mono);font-size:28px;line-height:1.8;color:var(--ink);}
+.folder-tree .folder{color:var(--gold-deep);font-weight:700;}
+.folder-tree .file{color:var(--ink-soft);}
+.cloud-card{background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:26px 22px;text-align:center;box-shadow:5px 6px 0 rgba(28,23,20,.12);}
+.cloud-card .ci{font-size:44px;display:block;margin-bottom:10px;}
+.cloud-card h3{font-family:var(--font-display);font-weight:900;font-size:34px;margin-bottom:6px;}
+.cloud-card p{font-size:22px;color:var(--ink-faint);}
+.section-banner{font-family:var(--font-mono);font-size:20px;letter-spacing:3px;font-weight:700;text-transform:uppercase;color:var(--gold-deep);background:rgba(217,138,43,.1);border:1px solid rgba(217,138,43,.3);border-radius:6px;padding:8px 18px;display:inline-block;margin-bottom:12px;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--gold-deep);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#e8a050,#7a3d08);right:-140px;top:-120px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-28px,40px) scale(1.04);}}
+.closing{background:var(--gold-deep);}.closing::before{opacity:.10;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing em.hot{color:var(--gold);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--gold-deep);}
+body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--gold-deep);z-index:1000;transition:width .35s var(--ease);}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- SLIDE 1: TITLE -->
+<section class="slide title-slide active">
+  <div class="title-left">
+    <div class="tape reveal">Web · Strumenti</div>
+    <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo W7 — Contenuti Digitali</div>
+    <h1 class="h-big reveal" contenteditable="true">Gestire e<br><em class="warm">Archiviare</em><br>Contenuti</h1>
+    <p class="lead reveal" style="margin-top:24px;" contenteditable="true">Visualizzare, salvare, copiare, scaricare e organizzare le informazioni trovate online — competenze operative fondamentali.</p>
+    <div class="chips reveal" style="margin-top:36px;"><span class="chip">Web · W7</span><span class="chip alt">Archiviazione</span><span class="chip alt">~55 min</span></div>
+  </div>
+  <div class="title-right">
+    <div style="position:relative;z-index:2;text-align:center;">
+      <svg viewBox="0 0 200 200" width="220" role="img" aria-label="Cartella con documenti digitali">
+        <rect x="20" y="60" width="160" height="110" rx="10" fill="rgba(244,236,224,.15)" stroke="rgba(244,236,224,.4)" stroke-width="2.5"/>
+        <path d="M20 80 Q20 60 40 60 L80 60 Q90 60 95 70 L120 70 Q140 70 140 80 Z" fill="rgba(244,236,224,.25)" stroke="rgba(244,236,224,.4)" stroke-width="2"/>
+        <rect x="36" y="90" width="50" height="65" rx="5" fill="rgba(244,236,224,.2)" stroke="rgba(244,236,224,.3)" stroke-width="1.5"/>
+        <rect x="95" y="90" width="50" height="65" rx="5" fill="rgba(244,236,224,.15)" stroke="rgba(244,236,224,.3)" stroke-width="1.5"/>
+        <rect x="44" y="100" width="34" height="5" rx="2" fill="rgba(230,193,74,.6)"/>
+        <rect x="44" y="111" width="26" height="4" rx="2" fill="rgba(244,236,224,.4)"/>
+        <rect x="103" y="100" width="34" height="5" rx="2" fill="rgba(244,236,224,.4)"/>
+        <rect x="103" y="111" width="22" height="4" rx="2" fill="rgba(244,236,224,.3)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 2: S1 – INTRODUZIONE -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape gold reveal">Panoramica</div>
+      <h2 class="h-big reveal">Gestione dei<br><em class="warm">contenuti</em><br>digitali</h2>
+      <p class="lead reveal d1">Ogni giorno consultiamo, scarichiamo e condividiamo grandi quantità di informazioni provenienti dal Web. Per usarle efficacemente occorrono le tecniche giuste.</p>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:36px;margin-bottom:14px;">In questo modulo imparerai a</h3>
+      <div class="check-row"><span class="ck">👁️</span><div class="tx"><b>Visualizzare</b> contenuti in diversi formati</div></div>
+      <div class="check-row"><span class="ck">💾</span><div class="tx"><b>Salvare</b> pagine web e documenti</div></div>
+      <div class="check-row"><span class="ck">📂</span><div class="tx"><b>Organizzare</b> file in cartelle logiche</div></div>
+      <div class="check-row"><span class="ck">🗄️</span><div class="tx"><b>Archiviare</b> informazioni in modo efficace</div></div>
+      <div class="check-row"><span class="ck">📤</span><div class="tx"><b>Condividere</b> contenuti rispettando le regole</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 3: S2 – COSA SONO I CONTENUTI DIGITALI -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="center">
+    <div class="tape gold reveal">Definizione</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">Cosa sono i <em class="warm">contenuti digitali</em></h2>
+    <p class="lead reveal d1">Qualsiasi informazione disponibile in formato elettronico — leggibile, modificabile e trasmissibile tramite dispositivi digitali.</p>
+    <div class="grid3 reveal d2" style="margin-top:18px;gap:22px;">
+      <div class="card" style="border-color:var(--teal-2);padding:24px 28px;">
+        <span style="font-size:40px;display:block;margin-bottom:8px;">📄</span>
+        <h3>Documenti</h3>
+        <p>Testi, fogli di calcolo, presentazioni, PDF, moduli. Il formato più diffuso nella comunicazione professionale.</p>
+      </div>
+      <div class="card" style="border-color:var(--sky);padding:24px 28px;">
+        <span style="font-size:40px;display:block;margin-bottom:8px;">🖼️</span>
+        <h3>Immagini e video</h3>
+        <p>Fotografie, grafici, illustrazioni, filmati, animazioni. Contenuti visivi e audiovisivi di ogni tipo.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);padding:24px 28px;">
+        <span style="font-size:40px;display:block;margin-bottom:8px;">🌐</span>
+        <h3>Contenuti web</h3>
+        <p>Pagine web, email, post social, podcast, newsletter. Contenuti nati e distribuiti prevalentemente online.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:16px;">
+      <div class="lbl">📌 Perché è importante</div>
+      <p>Ogni tipo di contenuto ha caratteristiche specifiche — formato, dimensione, licenza d'uso. Conoscere queste differenze permette di gestirli correttamente.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 4: S3 – VISUALIZZARE CONTENUTI DIGITALI -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="center">
+    <div class="tape gold reveal">Strumenti</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">Come si <em class="warm">visualizzano</em> i contenuti</h2>
+    <p class="lead reveal d1">Ogni formato richiede uno strumento adeguato. Il browser copre la maggior parte dei casi, ma alcuni contenuti richiedono applicazioni specifiche.</p>
+    <div class="grid2 reveal d2" style="margin-top:18px;gap:24px;">
+      <div class="card" style="border-color:var(--gold-deep);">
+        <h3>🌐 Browser web</h3>
+        <p>Chrome, Firefox, Edge, Safari. Visualizzano pagine web, immagini, video online, molti PDF e documenti condivisi nel cloud.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <h3>📋 Visualizzatori PDF</h3>
+        <p>Adobe Acrobat Reader, Foxit, anteprima del browser. Per documenti PDF con layout preciso, moduli e firme digitali.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);">
+        <h3>🎬 App multimediali</h3>
+        <p>VLC, Windows Media Player, Foto. Per video, audio e immagini che il browser non apre o non riproduce correttamente.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);">
+        <h3>💼 Suite di produttività</h3>
+        <p>Microsoft Office, LibreOffice, Google Workspace. Per editare documenti, fogli di calcolo e presentazioni.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 5: S4 – FORMATI DI FILE -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="center">
+    <div class="tape gold reveal">Formati</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">I formati di file più <em class="warm">comuni</em></h2>
+    <p class="lead reveal d1">L'estensione del file (le lettere dopo il punto) indica il formato e quindi il programma necessario per aprirlo.</p>
+    <div class="reveal d2" style="margin-top:20px;display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;gap:16px;align-items:center;">
+        <span style="font-family:var(--font-mono);font-size:24px;color:var(--ink-faint);min-width:140px;">Documenti</span>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <span class="fmt-pill doc">.PDF</span><span class="fmt-pill doc">.DOCX</span><span class="fmt-pill doc">.TXT</span><span class="fmt-pill sheet">.XLSX</span><span class="fmt-pill sheet">.CSV</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;align-items:center;">
+        <span style="font-family:var(--font-mono);font-size:24px;color:var(--ink-faint);min-width:140px;">Immagini</span>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <span class="fmt-pill img">.JPG</span><span class="fmt-pill img">.PNG</span><span class="fmt-pill img">.SVG</span><span class="fmt-pill img">.WEBP</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;align-items:center;">
+        <span style="font-family:var(--font-mono);font-size:24px;color:var(--ink-faint);min-width:140px;">Video / Audio</span>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <span class="fmt-pill av">.MP4</span><span class="fmt-pill av">.MOV</span><span class="fmt-pill av">.MP3</span><span class="fmt-pill av">.WAV</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;align-items:center;">
+        <span style="font-family:var(--font-mono);font-size:24px;color:var(--ink-faint);min-width:140px;">Compressi</span>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <span class="fmt-pill">.ZIP</span><span class="fmt-pill">.RAR</span><span class="fmt-pill">.7Z</span>
+        </div>
+      </div>
+    </div>
+    <div class="note warm reveal d3" style="margin-top:18px;">
+      <div class="lbl">💡 Tip pratico</div>
+      <p>Se un file non si apre, controlla l'estensione e cerca il programma adatto. Mai aprire file con estensioni sconosciute scaricati da fonti non affidabili.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 6: S5 – COMPRENDERE IL TIPO DI CONTENUTO -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape gold reveal">Prima di salvare</div>
+      <h2 class="h-big reveal">Capire cosa<br>si sta <em class="warm">salvando</em></h2>
+      <p class="lead reveal d1">Prima di scaricare o archiviare un file è buona pratica valutarlo brevemente. Evita di riempire lo storage di contenuti inutili o duplicati.</p>
+      <div class="note warm reveal d2">
+        <div class="lbl">🎯 Quattro domande rapide</div>
+        <p>Rispondere prima di salvare richiede 30 secondi e fa risparmiare ore di organizzazione in seguito.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">📦</span><div class="tx"><b>Che tipo di contenuto è?</b> (documento, immagine, video…)</div></div>
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">📏</span><div class="tx"><b>Quanto pesa?</b> Un file da 2 GB occupa molto spazio</div></div>
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">🔍</span><div class="tx"><b>Da dove proviene?</b> La fonte è affidabile?</div></div>
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">🎯</span><div class="tx"><b>Mi serve davvero?</b> O ho già qualcosa di simile?</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 7: S6 – VISUALIZZARE INFO SUL WEB -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="section-banner reveal">Sezione — Visualizzare</div>
+      <div class="tape gold reveal">Browser</div>
+      <h2 class="h-big reveal">Visualizzare<br>informazioni<br>sul <em class="warm">Web</em></h2>
+      <p class="lead reveal d1">Il browser è il principale strumento di accesso alle informazioni online. Permette di accedere a contenuti di ogni tipo senza installare programmi aggiuntivi.</p>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="grid2" style="gap:16px;">
+        <div class="card" style="padding:20px 22px;border-color:var(--gold-deep);">
+          <h3 style="font-size:30px;">📰 Articoli</h3>
+          <p style="font-size:22px;">Testi, giornali, blog, enciclopedie online</p>
+        </div>
+        <div class="card" style="padding:20px 22px;border-color:var(--sky);">
+          <h3 style="font-size:30px;">🖼️ Immagini</h3>
+          <p style="font-size:22px;">Foto, grafici, infografiche, mappe</p>
+        </div>
+        <div class="card" style="padding:20px 22px;border-color:var(--red);">
+          <h3 style="font-size:30px;">🎬 Video</h3>
+          <p style="font-size:22px;">Streaming, tutorial, conferenze, webinar</p>
+        </div>
+        <div class="card" style="padding:20px 22px;border-color:var(--teal-2);">
+          <h3 style="font-size:30px;">📋 Documenti</h3>
+          <p style="font-size:22px;">PDF, fogli Google, Drive, SharePoint</p>
+        </div>
+      </div>
+      <div class="note warm" style="margin-top:18px;">
+        <div class="lbl">📌 Dipende dal dispositivo</div>
+        <p>La resa visiva varia tra PC, tablet e smartphone. Su schermi piccoli, alcuni contenuti richiedono zoom o rotazione.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 8: S7 – MODALITÀ LETTURA -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape gold reveal">Leggibilità</div>
+      <h2 class="h-big reveal">Modalità<br><em class="warm">lettura</em></h2>
+      <p class="lead reveal d1">La maggior parte dei browser moderni include una modalità lettura che trasforma qualsiasi pagina in un testo pulito e leggibile.</p>
+      <div class="note warm reveal d2">
+        <div class="lbl">🔧 Come attivarla</div>
+        <p>In Firefox e Safari: icona libro sulla barra URL. In Edge: icona libro a destra dell'URL. In Chrome: alcune estensioni la replicano (es. Mercury Reader).</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:36px;margin-bottom:14px;">Vantaggi</h3>
+      <div class="check-row"><span class="ck">🚫</span><div class="tx"><b>Rimuove pubblicità</b> e banner distraenti</div></div>
+      <div class="check-row"><span class="ck">📖</span><div class="tx"><b>Migliora la leggibilità</b> del testo con font chiari e spaziatura ottimale</div></div>
+      <div class="check-row"><span class="ck">🎯</span><div class="tx"><b>Facilita la concentrazione</b> su articoli lunghi</div></div>
+      <div class="check-row"><span class="ck">🌙</span><div class="tx"><b>Modalità scura</b> disponibile in molti browser per la lettura notturna</div></div>
+      <div class="check-row"><span class="ck">🔊</span><div class="tx"><b>Lettura ad alta voce</b> — alcuni browser leggono l'articolo in automatico</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 9: S8 – ZOOM E ACCESSIBILITÀ -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape gold reveal">Accessibilità</div>
+      <h2 class="h-big reveal">Zoom e<br><em class="warm">accessibilità</em></h2>
+      <p class="lead reveal d1">Gli strumenti di zoom consentono di adattare la visualizzazione alle proprie esigenze. Sono fondamentali per l'accessibilità digitale.</p>
+      <div class="note warm reveal d2">
+        <div class="lbl">💡 Regola base</div>
+        <p>Un contenuto digitale ben progettato deve essere leggibile e usabile da chiunque, incluse persone con difficoltà visive. Lo zoom è il minimo.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="card" style="border-color:var(--gold-deep);padding:24px 28px;">
+        <h3>⌨️ Tastiera</h3>
+        <p style="margin-top:8px;">Nel browser: <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">Ctrl +</code> per ingrandire, <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">Ctrl -</code> per ridurre, <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">Ctrl 0</code> per resettare.</p>
+      </div>
+      <div class="card" style="border-color:var(--sky);padding:24px 28px;margin-top:18px;">
+        <h3>🖱️ Trackpad / Touch</h3>
+        <p style="margin-top:8px;">Pinch-to-zoom su tablet e smartphone. Su PC con trackpad: pizzico con due dita.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);padding:24px 28px;margin-top:18px;">
+        <h3>⚙️ Impostazioni di sistema</h3>
+        <p style="margin-top:8px;">Windows e macOS offrono ingrandimento di sistema che funziona su tutta l'interfaccia, non solo nel browser.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 10: S9 – PERCHÉ SALVARE UNA PAGINA WEB -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="section-banner reveal">Sezione — Salvare Pagine Web</div>
+      <div class="tape teal reveal">Conservazione</div>
+      <h2 class="h-big reveal">Perché salvare<br>una pagina<br><em class="warm">web</em></h2>
+      <p class="lead reveal d1">Le pagine web non sono permanenti. Un articolo può essere modificato, spostato o eliminato in qualsiasi momento dal suo autore.</p>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:36px;margin-bottom:14px;">Quando è utile salvare</h3>
+      <div class="check-row"><span class="ck">📴</span><div class="tx"><b>Consultarla offline</b> — senza connessione internet</div></div>
+      <div class="check-row"><span class="ck">📦</span><div class="tx"><b>Conservarne una copia</b> — nel caso la pagina venga rimossa</div></div>
+      <div class="check-row"><span class="ck">🗂️</span><div class="tx"><b>Archiviare informazioni</b> — per ricerche o documentazione</div></div>
+      <div class="check-row"><span class="ck">📤</span><div class="tx"><b>Condividere il contenuto</b> — inviare via email o chat</div></div>
+      <div class="note warm" style="margin-top:18px;">
+        <div class="lbl">⚠️ Attenzione</div>
+        <p>Salvare una copia per uso personale è generalmente lecito. Ridistribuirla o pubblicarla altrove richiede il rispetto del copyright.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 11: S10 – SALVATAGGIO TRAMITE BROWSER -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Procedura</div>
+      <h2 class="h-big reveal">Salvare una<br>pagina con<br>il <em class="warm">browser</em></h2>
+      <p class="lead reveal d1">I browser moderni permettono di salvare una pagina web completa sul proprio dispositivo — inclusi testi, immagini e struttura grafica.</p>
+      <div class="note warm reveal d2">
+        <div class="lbl">📌 Nota</div>
+        <p>Il salvataggio completo genera un file HTML e una cartella con le risorse. Il file .pdf è spesso più pratico per l'archiviazione.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="card" style="border-color:var(--gold-deep);padding:28px 32px;">
+        <h3>🔑 Percorso rapido</h3>
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:14px;">
+          <div class="kbd-group"><span class="kbd">Ctrl</span><span style="font-size:28px;color:var(--ink-faint);">+</span><span class="kbd">S</span><span class="kbd-label">→ Salva pagina</span></div>
+          <div style="margin-top:4px;font-size:24px;color:var(--ink-faint);">oppure</div>
+          <code style="font-family:var(--font-mono);font-size:26px;background:var(--paper-2);padding:12px 18px;border-radius:8px;">File → Salva pagina con nome</code>
+        </div>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);padding:28px 32px;margin-top:18px;">
+        <h3>📋 Formati di salvataggio</h3>
+        <p style="margin-top:10px;">Pagina web completa · Solo HTML · Archivio web singolo (.mhtml). Scegli in base all'uso previsto.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 12: S11 – SALVARE COME PDF -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">PDF</div>
+      <h2 class="h-big reveal">Salvare come<br><em class="warm">PDF</em></h2>
+      <p class="lead reveal d1">Trasformare una pagina web in PDF è uno dei metodi più pratici per archiviare e condividere informazioni trovate online.</p>
+      <div class="note warm reveal d2">
+        <div class="lbl">🎯 Perché il PDF è spesso la scelta migliore</div>
+        <p>Mantiene il layout originale, si apre su qualsiasi dispositivo, non richiede connessione internet, è facilmente allegabile a email.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="card" style="border-color:var(--gold-deep);padding:28px 32px;">
+        <h3>🔑 Percorso</h3>
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:12px;">
+          <div class="kbd-group"><span class="kbd">Ctrl</span><span style="font-size:28px;color:var(--ink-faint);">+</span><span class="kbd">P</span><span class="kbd-label">→ Stampa</span></div>
+          <code style="font-family:var(--font-mono);font-size:24px;background:var(--paper-2);padding:12px 18px;border-radius:8px;">Destinazione → Salva come PDF</code>
+        </div>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);padding:28px 32px;margin-top:18px;">
+        <h3>⚙️ Opzioni utili</h3>
+        <p style="margin-top:10px;">Prima di salvare puoi scegliere l'intervallo di pagine, eliminare le intestazioni/piè di pagina, e impostare il layout orizzontale o verticale.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 13: S12 – SEGNALIBRI -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Bookmark</div>
+      <h2 class="h-big reveal">I <em class="warm">segnalibri</em><br>del browser</h2>
+      <p class="lead reveal d1">Quando non è necessario scaricare una copia, un segnalibro è la soluzione più rapida per conservare un riferimento a una pagina web.</p>
+      <div class="note warm reveal d2">
+        <div class="lbl">💡 Differenza con il salvataggio</div>
+        <p>Il segnalibro salva solo il link, non il contenuto. Se la pagina viene rimossa, il segnalibro non la recupera. Per contenuti importanti, salva sempre una copia locale o PDF.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="card" style="border-color:var(--gold-deep);padding:28px 32px;">
+        <h3>🔑 Aggiungere un segnalibro</h3>
+        <div style="margin-top:16px;">
+          <div class="kbd-group"><span class="kbd">Ctrl</span><span style="font-size:28px;color:var(--ink-faint);">+</span><span class="kbd">D</span><span class="kbd-label">→ Aggiungi ai preferiti</span></div>
+        </div>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);padding:28px 32px;margin-top:18px;">
+        <h3>📁 Organizzarli in cartelle</h3>
+        <p style="margin-top:10px;">Crea cartelle tematiche nella barra dei preferiti: Lavoro, Studio, Ricette, Shopping… I segnalibri non organizzati diventano rapidamente ingestibili.</p>
+      </div>
+      <div class="card" style="border-color:var(--sky);padding:28px 32px;margin-top:18px;">
+        <h3>☁️ Sincronizzazione</h3>
+        <p style="margin-top:10px;">Accedendo con un account (Google, Microsoft…) i segnalibri si sincronizzano su tutti i dispositivi.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 14: S13 – QUANDO STAMPARE -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="section-banner reveal">Sezione — Stampare</div>
+      <div class="tape reveal">Stampa</div>
+      <h2 class="h-big reveal">Quando<br><em class="warm">stampare</em><br>una pagina</h2>
+      <p class="lead reveal d1">La stampa fisica ha ancora senso in alcuni contesti specifici. In molti altri casi, un PDF è la scelta più pratica ed ecologica.</p>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:36px;margin-bottom:14px;">Quando la stampa è utile</h3>
+      <div class="check-row"><span class="ck">📋</span><div class="tx"><b>Documentazione cartacea</b> richiesta da uffici o burocrazia</div></div>
+      <div class="check-row"><span class="ck">📚</span><div class="tx"><b>Studio con annotazioni</b> a mano su carta</div></div>
+      <div class="check-row"><span class="ck">🗂️</span><div class="tx"><b>Archivio cartaceo</b> per fascicoli fisici di lavoro</div></div>
+      <div class="check-row"><span class="ck">🤝</span><div class="tx"><b>Distribuzione in riunioni</b> a persone senza dispositivi</div></div>
+      <div class="note red" style="margin-top:16px;">
+        <div class="lbl">⚠️ Non tutte le pagine sono stampabili</div>
+        <p>Alcune pagine web risultano incomprensibili su carta: menu, pubblicità, elementi interattivi diventano rumore visivo. Usa sempre l'anteprima prima di stampare.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 15: S14 – ANTEPRIMA DI STAMPA -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape reveal">Anteprima</div>
+      <h2 class="h-big reveal">Anteprima<br>di <em class="warm">stampa</em></h2>
+      <p class="lead reveal d1">Prima di inviare alla stampante, l'anteprima permette di vedere esattamente come apparirà il documento su carta — evitando sprechi di inchiostro e carta.</p>
+      <div class="note warm reveal d2">
+        <div class="lbl">🔑 Come aprirla</div>
+        <p><kbd style="font-family:var(--font-mono);background:var(--paper-2);padding:4px 12px;border-radius:4px;font-size:26px;">Ctrl+P</kbd> apre sempre la finestra di stampa con l'anteprima integrata. Controlla prima di premere "Stampa".</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:36px;margin-bottom:14px;">Cosa verificare nell'anteprima</h3>
+      <div class="check-row"><span class="ck">📐</span><div class="tx"><b>Impaginazione</b> — il testo rientra nei margini?</div></div>
+      <div class="check-row"><span class="ck">📄</span><div class="tx"><b>Numero di pagine</b> — sono davvero necessarie tutte?</div></div>
+      <div class="check-row"><span class="ck">🖼️</span><div class="tx"><b>Immagini</b> — sono visibili e di qualità accettabile?</div></div>
+      <div class="check-row"><span class="ck">📋</span><div class="tx"><b>Intestazioni e piè di pagina</b> — aggiungono valore o sono superflui?</div></div>
+      <div class="check-row"><span class="ck">🔄</span><div class="tx"><b>Orientamento</b> — verticale o orizzontale è più adatto?</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 16: S15 – PDF INVECE DELLA STAMPA -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="center">
+    <div class="tape reveal">Confronto</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;"><em class="warm">PDF</em> vs <em class="hot">Stampa fisica</em></h2>
+    <div class="grid2 reveal d1" style="margin-top:20px;gap:28px;">
+      <div class="card" style="border-color:#2e7d4f;">
+        <h3 style="color:#2e7d4f;">📄 Salva come PDF</h3>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px;">
+          <div class="check-row" style="border:none;padding:4px 0;"><span class="ck">✅</span><div class="tx" style="font-size:24px;">Nessun consumo di carta e inchiostro</div></div>
+          <div class="check-row" style="border:none;padding:4px 0;"><span class="ck">✅</span><div class="tx" style="font-size:24px;">Archiviazione digitale semplice</div></div>
+          <div class="check-row" style="border:none;padding:4px 0;"><span class="ck">✅</span><div class="tx" style="font-size:24px;">Facilmente condivisibile via email</div></div>
+          <div class="check-row" style="border:none;padding:4px 0;"><span class="ck">✅</span><div class="tx" style="font-size:24px;">Ricercabile — puoi cercare testo al suo interno</div></div>
+          <div class="check-row" style="border:none;padding:4px 0;"><span class="ck">✅</span><div class="tx" style="font-size:24px;">Accessibile ovunque con un dispositivo</div></div>
+        </div>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <h3 style="color:var(--gold-deep);">🖨️ Stampa fisica</h3>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px;">
+          <div class="check-row" style="border:none;padding:4px 0;"><span class="ck">✅</span><div class="tx" style="font-size:24px;">Annotazioni a mano libera</div></div>
+          <div class="check-row" style="border:none;padding:4px 0;"><span class="ck">✅</span><div class="tx" style="font-size:24px;">Leggibile senza dispositivi o batteria</div></div>
+          <div class="check-row" style="border:none;padding:4px 0;"><span class="ck">✅</span><div class="tx" style="font-size:24px;">Documenti ufficiali che richiedono carta</div></div>
+          <div class="check-row" style="border:none;padding:4px 0;"><span class="ck">❌</span><div class="tx" style="font-size:24px;color:var(--red);">Costa carta, inchiostro, energia</div></div>
+          <div class="check-row" style="border:none;padding:4px 0;"><span class="ck">❌</span><div class="tx" style="font-size:24px;color:var(--red);">Non aggiornabile se il contenuto cambia</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 17: S16 – DOWNLOAD DI FILE -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="section-banner reveal">Sezione — Scaricare File</div>
+      <div class="tape gold reveal">Download</div>
+      <h2 class="h-big reveal">Scaricare<br>file dal <em class="warm">Web</em></h2>
+      <p class="lead reveal d1">Il download trasferisce un file da un server remoto al proprio dispositivo. Una volta scaricato, il file è disponibile anche senza connessione internet.</p>
+      <div class="note warm reveal d2">
+        <div class="lbl">💡 Come funziona</div>
+        <p>Il browser riceve il file dal server e lo salva nella cartella Download predefinita (o quella scelta). La velocità dipende dalla connessione e dalla dimensione del file.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="grid2" style="gap:16px;">
+        <div class="card" style="padding:22px 24px;border-color:var(--gold-deep);text-align:center;">
+          <span style="font-size:44px;display:block;margin-bottom:8px;">📄</span>
+          <h3 style="font-size:30px;">Documenti</h3>
+          <p style="font-size:20px;">PDF, Word, Excel</p>
+        </div>
+        <div class="card" style="padding:22px 24px;border-color:var(--sky);text-align:center;">
+          <span style="font-size:44px;display:block;margin-bottom:8px;">🖼️</span>
+          <h3 style="font-size:30px;">Immagini</h3>
+          <p style="font-size:20px;">JPG, PNG, SVG</p>
+        </div>
+        <div class="card" style="padding:22px 24px;border-color:var(--red);text-align:center;">
+          <span style="font-size:44px;display:block;margin-bottom:8px;">🎬</span>
+          <h3 style="font-size:30px;">Video</h3>
+          <p style="font-size:20px;">MP4, MOV, AVI</p>
+        </div>
+        <div class="card" style="padding:22px 24px;border-color:var(--teal-2);text-align:center;">
+          <span style="font-size:44px;display:block;margin-bottom:8px;">⚙️</span>
+          <h3 style="font-size:30px;">Software</h3>
+          <p style="font-size:20px;">Installer, app</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 18: S17 – CARTELLA DI DESTINAZIONE -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape gold reveal">Organizzazione</div>
+      <h2 class="h-big reveal">Scegliere la<br>cartella di<br><em class="warm">destinazione</em></h2>
+      <p class="lead reveal d1">Salvare tutti i file nella cartella Download senza organizzarli è la causa principale del "non trovo più niente". Una struttura logica risolve il problema.</p>
+      <div class="note warm reveal d2">
+        <div class="lbl">💡 Principio guida</div>
+        <p>Organizza per <b>contesto d'uso</b>, non per tipo di file. Tutti i documenti di un progetto nella stessa cartella è più utile che avere una cartella "PDF" separata da "Word".</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:34px;margin-bottom:16px;">Struttura di esempio</h3>
+      <div class="illu" style="padding:32px 36px;">
+        <div class="folder-tree">
+          <div>📁 <span class="folder">Documenti</span></div>
+          <div style="margin-left:30px;">├─ 📁 <span class="folder">Lavoro</span></div>
+          <div style="margin-left:60px;">├─ 📁 <span class="folder">2025</span></div>
+          <div style="margin-left:60px;">└─ 📁 <span class="folder">Clienti</span></div>
+          <div style="margin-left:30px;">├─ 📁 <span class="folder">Studio</span></div>
+          <div style="margin-left:60px;">├─ 📁 <span class="folder">Corso_Informatica</span></div>
+          <div style="margin-left:60px;">└─ 📁 <span class="folder">Riferimenti</span></div>
+          <div style="margin-left:30px;">└─ 📁 <span class="folder">Personale</span></div>
+        </div>
+        <div class="illu-cap">Struttura gerarchica per contesto</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 19: S18 – VERIFICARE LA PROVENIENZA -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="center">
+    <div class="tape reveal">Sicurezza</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">Verificare la <em class="hot">provenienza</em> dei file</h2>
+    <p class="lead reveal d1">Non tutti i file disponibili per il download sono sicuri. Prima di scaricare qualsiasi cosa, una verifica rapida può evitare problemi seri.</p>
+    <div class="grid2 reveal d2" style="margin-top:18px;gap:22px;">
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:20px 24px;"><span class="ck">🌐</span><div class="tx"><b>Affidabilità del sito</b> — conosci e ti fidi di chi offre il download?</div></div>
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:20px 24px;"><span class="ck">📏</span><div class="tx"><b>Dimensione del file</b> — una foto da 500 MB o un PDF da 2 KB sono sospetti</div></div>
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:20px 24px;"><span class="ck">🔤</span><div class="tx"><b>Estensione</b> — .exe e .bat sono eseguibili: attenzione da fonti sconosciute</div></div>
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:20px 24px;"><span class="ck">🛡️</span><div class="tx"><b>Avvisi del browser</b> — Chrome e Firefox segnalano file potenzialmente pericolosi</div></div>
+    </div>
+    <div class="note red reveal d3" style="margin-top:16px;">
+      <div class="lbl">🚨 Segnale di allerta massimo</div>
+      <p>Se un sito ti chiede di disabilitare l'antivirus o ignorare gli avvisi del browser per procedere con il download, <b>non farlo</b>. È quasi certamente un tentativo di installare malware.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 20: S19 – SALVARE NEL CLOUD -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="center">
+    <div class="tape gold reveal">Cloud Storage</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">Salvare nel <em class="warm">cloud</em></h2>
+    <p class="lead reveal d1">Invece di salvare i file solo sul dispositivo locale, è possibile archiviarli su server remoti — accessibili da qualsiasi dispositivo con connessione internet.</p>
+    <div class="grid4 reveal d2" style="margin-top:18px;">
+      <div class="cloud-card" style="border-color:#4285f4;">
+        <span class="ci">🔵</span>
+        <h3>Google Drive</h3>
+        <p>15 GB gratuiti. Integrato con Gmail e Google Docs. Collaborazione in tempo reale.</p>
+      </div>
+      <div class="cloud-card" style="border-color:#0078d4;">
+        <span class="ci">🔷</span>
+        <h3>OneDrive</h3>
+        <p>5 GB gratuiti. Integrato con Windows e Office 365. Sincronizzazione automatica.</p>
+      </div>
+      <div class="cloud-card" style="border-color:#0061fe;">
+        <span class="ci">📦</span>
+        <h3>Dropbox</h3>
+        <p>2 GB gratuiti. Storico del cloud storage. Ottima integrazione con app di terze parti.</p>
+      </div>
+      <div class="cloud-card" style="border-color:var(--ink-faint);">
+        <span class="ci">🍎</span>
+        <h3>iCloud</h3>
+        <p>5 GB gratuiti. Integrato con Apple. Sincronizza automaticamente foto, contatti e documenti sui device Apple.</p>
+      </div>
+    </div>
+    <div class="note warm reveal d3" style="margin-top:16px;">
+      <div class="lbl">💡 Vantaggio principale</div>
+      <p>I file nel cloud sono accessibili da PC, tablet e smartphone — e sono al sicuro anche se il dispositivo si rompe o viene perso.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 21: S20 – COPIARE TESTO DA UNA PAGINA WEB -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="section-banner reveal">Sezione — Copiare Contenuti</div>
+      <div class="tape teal reveal">Testo</div>
+      <h2 class="h-big reveal">Copiare testo<br>da una pagina<br><em class="warm">web</em></h2>
+      <p class="lead reveal d1">La copia di testo è l'operazione più frequente nella gestione dei contenuti online. Funziona in quasi tutti i browser e applicazioni.</p>
+      <div class="note warm reveal d2">
+        <div class="lbl">⚠️ Rispetta il copyright</div>
+        <p>Copiare per uso personale e studio è generalmente accettabile. Pubblicare testi altrui senza citare la fonte o senza autorizzazione è plagio.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:36px;margin-bottom:18px;">Procedura</h3>
+      <div class="card" style="border-color:var(--gold-deep);padding:26px 30px;">
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;align-items:center;gap:16px;"><span style="font-size:28px;min-width:36px;">1️⃣</span><span style="font-size:26px;">Seleziona il testo con il mouse (click e trascina)</span></div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <span style="font-size:28px;min-width:36px;">2️⃣</span>
+            <div class="kbd-group"><span class="kbd">Ctrl</span><span style="font-size:24px;">+</span><span class="kbd">C</span><span class="kbd-label">Copia</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <span style="font-size:28px;min-width:36px;">3️⃣</span>
+            <div>Vai nel documento di destinazione</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <span style="font-size:28px;min-width:36px;">4️⃣</span>
+            <div class="kbd-group"><span class="kbd">Ctrl</span><span style="font-size:24px;">+</span><span class="kbd">V</span><span class="kbd-label">Incolla</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 22: S21 – COPIARE IMMAGINI -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Immagini</div>
+      <h2 class="h-big reveal">Copiare<br><em class="warm">immagini</em></h2>
+      <p class="lead reveal d1">Le immagini presenti nelle pagine web possono essere copiate, scaricate o inserite direttamente in documenti. Ogni metodo ha il suo scopo.</p>
+      <div class="note red reveal d2">
+        <div class="lbl">⚖️ Copyright e licenze</div>
+        <p>La maggior parte delle immagini online è protetta da copyright. Prima di usarle pubblicamente o commercialmente, verifica la licenza. Usa Google Immagini con filtro "Creative Commons" o siti come Unsplash, Pexels o Pixabay per immagini libere.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">🖱️</span><div class="tx"><b>Click destro → Salva immagine come</b> — download diretto sul dispositivo</div></div>
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">📋</span><div class="tx"><b>Click destro → Copia immagine</b> — incollabile direttamente in documenti</div></div>
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">🔗</span><div class="tx"><b>Copia indirizzo immagine</b> — ottieni il link diretto al file originale</div></div>
+      <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">🖼️</span><div class="tx"><b>Trascina nell'applicazione</b> — funziona con Word, Docs e molte altre app</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 23: S22 – COPIARE IN UN DOCUMENTO -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Documenti</div>
+      <h2 class="h-big reveal">Copiare<br>contenuti in<br>un <em class="warm">documento</em></h2>
+      <p class="lead reveal d1">Raccogliere informazioni da fonti diverse in un unico documento è una delle attività più comuni — per studio, ricerca o lavoro.</p>
+      <div class="note warm reveal d2">
+        <div class="lbl">📌 Cita sempre le fonti</div>
+        <p>Quando inserisci testi o immagini provenienti da altre fonti, indica sempre l'origine — l'URL della pagina, il nome del sito, la data di accesso. È onestà intellettuale e in molti contesti è un obbligo.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:34px;margin-bottom:16px;">Dove puoi incollare</h3>
+      <div class="check-row"><span class="ck">📝</span><div class="tx"><b>Word / LibreOffice Writer</b> — documenti formali, relazioni, rapporti</div></div>
+      <div class="check-row"><span class="ck">📊</span><div class="tx"><b>Excel / Google Sheets</b> — dati, tabelle, confronti</div></div>
+      <div class="check-row"><span class="ck">🎨</span><div class="tx"><b>PowerPoint / Google Slides</b> — presentazioni con contenuti da web</div></div>
+      <div class="check-row"><span class="ck">📓</span><div class="tx"><b>Note (OneNote, Notion, Evernote)</b> — raccolta rapida di appunti e riferimenti</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 24: S23 – COPIARE IN UN'EMAIL -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape teal reveal">Email</div>
+      <h2 class="h-big reveal">Copiare<br>contenuti<br>in un'<em class="warm">email</em></h2>
+      <p class="lead reveal d1">Inviare via email contenuti trovati online è una pratica quotidiana. Farlo bene richiede attenzione al formato e alla quantità di informazioni incluse.</p>
+      <div class="note warm reveal d2">
+        <div class="lbl">💡 Consiglio pratico</div>
+        <p>Per condividere un articolo lungo, è spesso più efficace inviare il link alla pagina piuttosto che copiarne l'intero contenuto. Il destinatario accederà alla versione aggiornata.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:34px;margin-bottom:16px;">Cosa puoi trasferire in un'email</h3>
+      <div class="check-row"><span class="ck">📝</span><div class="tx"><b>Testo</b> — seleziona, copia, incolla nel corpo dell'email</div></div>
+      <div class="check-row"><span class="ck">🖼️</span><div class="tx"><b>Immagini</b> — come allegato o inline nel corpo (alcuni client email)</div></div>
+      <div class="check-row"><span class="ck">🔗</span><div class="tx"><b>Link</b> — copia l'URL dalla barra degli indirizzi e incollalo</div></div>
+      <div class="check-row"><span class="ck">📎</span><div class="tx"><b>Allegati scaricati</b> — PDF e file salvati localmente tramite il pulsante "Allega"</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 25: S24 – CONTENUTI MULTIMEDIALI -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="center">
+    <div class="section-banner reveal">Sezione — Contenuti Multimediali</div>
+    <div class="tape gold reveal">Multimedia</div>
+    <h2 class="h-sec reveal" style="margin-top:12px;">I contenuti <em class="warm">multimediali</em></h2>
+    <p class="lead reveal d1">I file multimediali richiedono modalità di gestione specifiche — dimensioni maggiori, formati proprietari, strumenti di riproduzione dedicati.</p>
+    <div class="grid2 reveal d2" style="margin-top:18px;gap:22px;">
+      <div class="card" style="border-color:var(--sky);">
+        <h3>🖼️ Immagini</h3>
+        <p>JPG, PNG, SVG, WEBP. Relativamente leggere. Modificabili con editor grafici. Possono contenere metadati (luogo, data, dispositivo).</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <h3>🎬 Video</h3>
+        <p>MP4, MOV, AVI. Molto pesanti — un filmato HD da 10 minuti può superare 1 GB. Richiedono player dedicati o streaming.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);">
+        <h3>🎵 Audio</h3>
+        <p>MP3, WAV, FLAC. Dimensioni variabili: un brano in MP3 pesa circa 5-8 MB, lo stesso in WAV non compresso 50+ MB.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <h3>✨ Animazioni / GIF</h3>
+        <p>GIF, WebP animato, APNG. Spesso usate per illustrare concetti o come elemento comunicativo nelle chat e nei documenti.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 26: S25 – OCR E TESTO DA IMMAGINI -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape gold reveal">OCR</div>
+      <h2 class="h-big reveal">Estrarre testo<br>da <em class="warm">immagini</em></h2>
+      <p class="lead reveal d1">Le immagini possono contenere testo, grafici o dati. La tecnologia OCR (Optical Character Recognition) converte il testo presente nelle immagini in testo modificabile.</p>
+      <div class="note warm reveal d2">
+        <div class="lbl">📌 OCR: Optical Character Recognition</div>
+        <p>Software che "legge" le immagini e riconosce i caratteri scritti, trasformandoli in testo copiabile e ricercabile.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:34px;margin-bottom:16px;">Strumenti OCR disponibili</h3>
+      <div class="check-row"><span class="ck">📱</span><div class="tx"><b>Google Lens</b> — punta la fotocamera su testo scritto o stampato, lo seleziona e copia</div></div>
+      <div class="check-row"><span class="ck">📄</span><div class="tx"><b>Adobe Acrobat</b> — converte PDF scansionati in documenti modificabili</div></div>
+      <div class="check-row"><span class="ck">🌐</span><div class="tx"><b>Google Drive</b> — apri un'immagine con Google Documenti per estrarne il testo automaticamente</div></div>
+      <div class="check-row"><span class="ck">🖥️</span><div class="tx"><b>Microsoft OneNote</b> — funzione "Copia testo dall'immagine" integrata</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 27: S26 – SCREENSHOT -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape gold reveal">Screenshot</div>
+      <h2 class="h-big reveal">Catturare lo<br><em class="warm">schermo</em></h2>
+      <p class="lead reveal d1">Uno screenshot cattura esattamente ciò che appare sullo schermo in quel momento — il metodo più veloce per archiviare qualsiasi contenuto visivo.</p>
+      <div class="note warm reveal d2">
+        <div class="lbl">💡 Quando è la scelta giusta</div>
+        <p>Quando non è possibile copiare il testo (es. PDF protetto, immagine con testo, video in pausa) o quando serve documentare esattamente ciò che vedi, errori inclusi.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:34px;margin-bottom:16px;">Come fare uno screenshot</h3>
+      <div class="check-row"><span class="ck">💻</span><div class="tx"><b>Windows:</b> <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">Win+Shift+S</code> per selezione, <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">PrtSc</code> per schermo intero</div></div>
+      <div class="check-row"><span class="ck">🍎</span><div class="tx"><b>Mac:</b> <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">Cmd+Shift+4</code> per selezione, <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">Cmd+Shift+3</code> schermo intero</div></div>
+      <div class="check-row"><span class="ck">📱</span><div class="tx"><b>Smartphone Android/iOS:</b> tasto volume giù + power simultaneamente</div></div>
+      <div class="check-row"><span class="ck">🌐</span><div class="tx"><b>Browser Chrome:</b> estensione "GoFullPage" per catturare pagine intere inclusa la parte sotto il fold</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 28: S27 – INFORMAZIONI SUI SOCIAL -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="section-banner reveal">Sezione — Social Network</div>
+      <div class="tape reveal">Social</div>
+      <h2 class="h-big reveal">Contenuti<br>dai <em class="hot">social</em><br>network</h2>
+      <p class="lead reveal d1">I social network sono diventati fonti di informazioni, notizie e contenuti multimediali. Gestirli correttamente richiede alcune attenzioni specifiche.</p>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="note" style="background:var(--paper-2);">
+        <div class="lbl">📋 Cosa si trova sui social</div>
+        <p>
+          📝 Post di testo e thread<br>
+          🖼️ Immagini e fotografie<br>
+          🎬 Video e Reels/Shorts<br>
+          🔗 Link a contenuti esterni<br>
+          📊 Sondaggi e infografiche
+        </p>
+      </div>
+      <div class="note teal" style="margin-top:18px;">
+        <div class="lbl">⚠️ Attenzione alla qualità</div>
+        <p>I social favoriscono la viralità, non l'accuratezza. Un contenuto molto condiviso non è necessariamente vero o attendibile. Verifica sempre prima di ri-condividere.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 29: S28 – CONDIVIDERE UN CONTENUTO SOCIAL -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="center">
+    <div class="tape reveal">Condivisione</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">Come si <em class="hot">condivide</em> un contenuto social</h2>
+    <p class="lead reveal d1">Le piattaforme offrono diverse funzioni di condivisione, ognuna con uno scopo preciso. Scegliere quella giusta evita fraintendimenti.</p>
+    <div class="grid3 reveal d2" style="margin-top:18px;gap:22px;">
+      <div class="card" style="border-color:var(--teal-2);padding:24px 28px;text-align:center;">
+        <span style="font-size:44px;display:block;margin-bottom:10px;">🔁</span>
+        <h3>Condividi / Repost</h3>
+        <p>Ripubblica il contenuto originale sul tuo profilo, mantenendo la paternità dell'autore. Il post originale viene mostrato ai tuoi follower.</p>
+      </div>
+      <div class="card" style="border-color:var(--sky);padding:24px 28px;text-align:center;">
+        <span style="font-size:44px;display:block;margin-bottom:10px;">🔗</span>
+        <h3>Copia link</h3>
+        <p>Copia l'URL diretto al post. Utile per inviarlo via email, chat o includere in un documento. Chi lo riceve vede il post originale.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);padding:24px 28px;text-align:center;">
+        <span style="font-size:44px;display:block;margin-bottom:10px;">🔧</span>
+        <h3>Incorpora (Embed)</h3>
+        <p>Inserisce il post in un sito web o blog mostrando il contenuto originale con aggiornamenti in tempo reale. Richiede accesso HTML.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 30: S29 – ARCHIVIARE DA SOCIAL -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape reveal">Archivio</div>
+      <h2 class="h-big reveal">Archiviare<br>contenuti dai<br><em class="hot">social</em></h2>
+      <p class="lead reveal d1">I contenuti sui social possono essere rimossi dall'autore in qualsiasi momento. Se un'informazione è importante, conservane una copia personale.</p>
+      <div class="note red reveal d2">
+        <div class="lbl">⚠️ I contenuti social non sono permanenti</div>
+        <p>Post, storie, video possono essere cancellati senza preavviso. Non fare affidamento sul social come unica fonte per informazioni critiche.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:34px;margin-bottom:16px;">Metodi di archiviazione</h3>
+      <div class="check-row"><span class="ck">📸</span><div class="tx"><b>Screenshot</b> — il metodo più rapido. Include testo, immagini e contesto visivo del post</div></div>
+      <div class="check-row"><span class="ck">📄</span><div class="tx"><b>Salva come PDF</b> — Ctrl+P dalla pagina del post. Conserva link e testo formattato</div></div>
+      <div class="check-row"><span class="ck">🔗</span><div class="tx"><b>Copia il link</b> — archivialo nei segnalibri o in un documento di riferimento</div></div>
+      <div class="check-row"><span class="ck">⭐</span><div class="tx"><b>Salva / Preferiti nativi</b> — Instagram, Twitter/X, LinkedIn offrono funzioni di salvataggio interne alla piattaforma</div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 31: S30 – PRIVACY E COPYRIGHT -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="center">
+    <div class="tape reveal">Regole</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;"><em class="hot">Privacy</em> e <em class="hot">Copyright</em> sui social</h2>
+    <p class="lead reveal d1">Copiare e condividere contenuti dai social richiede rispetto di tre principi fondamentali.</p>
+    <div class="grid3 reveal d2" style="margin-top:20px;gap:22px;">
+      <div class="card" style="border-color:var(--red);padding:26px 30px;">
+        <h3>🛡️ Privacy delle persone</h3>
+        <p>Non condividere foto, video o informazioni personali di altri senza il loro consenso esplicito — anche se il post è pubblico. Il GDPR tutela i dati personali.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);padding:26px 30px;">
+        <h3>©️ Copyright</h3>
+        <p>Foto, illustrazioni, video e musica sono protetti automaticamente dal diritto d'autore. L'autore ha diritto esclusivo di riproduzione — anche sui social.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);padding:26px 30px;">
+        <h3>📋 Termini della piattaforma</h3>
+        <p>Ogni social ha regole proprie sull'uso dei contenuti. Usare un contenuto per scopi commerciali richiede quasi sempre autorizzazione esplicita dell'autore.</p>
+      </div>
+    </div>
+    <div class="note warm reveal d3" style="margin-top:16px;">
+      <div class="lbl">✅ La regola pratica</div>
+      <p>Condividi tramite le funzioni native della piattaforma (repost, share) mantenendo la paternità originale — è sempre la scelta più sicura e rispettosa.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 32: S31 – ORGANIZZARE I CONTENUTI ARCHIVIATI -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="split even">
+    <div class="col stack">
+      <div class="tape gold reveal">Organizzazione</div>
+      <h2 class="h-big reveal">Organizzare<br>l'<em class="warm">archivio</em><br>digitale</h2>
+      <p class="lead reveal d1">Raccogliere contenuti senza organizzarli è inutile — quando servono, non si trovano più. Un sistema semplice ma coerente fa la differenza.</p>
+      <div class="note warm reveal d2">
+        <div class="lbl">🎯 Obiettivo</div>
+        <p>Poter ritrovare qualsiasi contenuto salvato in meno di 30 secondi, anche a distanza di mesi. Se il sistema è troppo complicato, non viene seguito.</p>
+      </div>
+    </div>
+    <div class="col stack reveal d1">
+      <h3 style="font-family:var(--font-display);font-size:34px;margin-bottom:16px;">Tre pilastri dell'organizzazione</h3>
+      <div class="card" style="border-color:var(--gold-deep);padding:22px 26px;">
+        <h3>📁 Cartelle tematiche</h3>
+        <p style="margin-top:8px;">Organizza per argomento o progetto, non per tipo di file. Tutti i file di un progetto insieme.</p>
+      </div>
+      <div class="card" style="border-color:var(--teal-2);padding:22px 26px;margin-top:14px;">
+        <h3>🏷️ Nomi significativi</h3>
+        <p style="margin-top:8px;">Usa nomi descrittivi: <code style="font-family:var(--font-mono);font-size:22px;">2025-01-articolo-gdpr.pdf</code> invece di <code style="font-family:var(--font-mono);font-size:22px;">download(3).pdf</code></p>
+      </div>
+      <div class="card" style="border-color:var(--sky);padding:22px 26px;margin-top:14px;">
+        <h3>☁️ Backup periodici</h3>
+        <p style="margin-top:8px;">Copia i file importanti su cloud o disco esterno. Un dispositivo rotto o smarrito non deve significare perdita di dati.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 33: S32 – RIEPILOGO -->
+<section class="slide">
+  <div class="deck-tab">CONTENUTI · W7</div>
+  <div class="center">
+    <div class="tape gold reveal">Conclusione</div>
+    <h2 class="h-sec reveal" style="margin-top:14px;">Riepilogo del <em class="warm">modulo</em></h2>
+    <p class="lead reveal d1">Le competenze operative apprese in questo modulo:</p>
+    <div class="grid2 reveal d2" style="margin-top:16px;gap:14px;">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">👁️</span><div class="tx"><b>Visualizzare</b> contenuti digitali con gli strumenti giusti</div></div>
+        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">💾</span><div class="tx"><b>Salvare pagine web</b> come HTML, PDF o segnalibri</div></div>
+        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">🖨️</span><div class="tx"><b>Stampare documenti</b> verificando l'anteprima</div></div>
+        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">⬇️</span><div class="tx"><b>Scaricare file</b> in modo sicuro e organizzato</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">📋</span><div class="tx"><b>Copiare contenuti</b> dal web rispettando copyright e fonti</div></div>
+        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">📸</span><div class="tx"><b>Usare screenshot e OCR</b> per contenuti multimediali</div></div>
+        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">📱</span><div class="tx"><b>Gestire contenuti da social</b> rispettando privacy e regole</div></div>
+        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">🗂️</span><div class="tx"><b>Organizzare l'archivio</b> con cartelle, nomi chiari e backup</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- SLIDE 34: CLOSING -->
+<section class="slide closing">
+  <div class="center" style="align-items:center;text-align:center;">
+    <div class="eyebrow reveal" style="color:var(--gold);">Fine Modulo W7</div>
+    <h2 class="h-mega reveal" style="margin-top:10px;">Archiviato! <em class="hot">🗂️</em></h2>
+    <p class="lead reveal d1" style="color:#f4ece0;max-width:1100px;text-align:center;margin-top:20px;">Sai visualizzare, salvare, copiare e organizzare qualsiasi contenuto digitale — da pagine web, documenti, immagini e social network. Queste competenze sono la base della gestione quotidiana dell'informazione digitale.</p>
+    <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+      <a class="chip" href="00-indice.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">↩ Indice del corso</a>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;});}
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'web-contenuti-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>
