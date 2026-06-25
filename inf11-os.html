@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · Modulo 11 — Sistemi Operativi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;background:#fff;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}.slide:last-child{break-after:auto;page-break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+code{font-family:var(--font-mono);}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}.d5{transition-delay:.68s !important;}.d6{transition-delay:.80s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}.tape.sky{background:var(--sky);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--sky);}em.gold{font-style:italic;color:var(--gold-deep);}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:28px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:7px;line-height:1;}
+.card p{font-size:24px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:44px;line-height:1;display:block;margin-bottom:7px;}
+.card.sky{border-color:var(--sky);}.card.sky h3{color:var(--sky);}
+.card.teal{border-color:var(--teal);}.card.teal h3{color:var(--teal);}
+.card.gold{border-color:var(--gold-deep);}.card.gold h3{color:var(--gold-deep);}
+.card.red{border-color:var(--red);}.card.red h3{color:var(--red);}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.chip.red{background:var(--red);color:#fff;}.chip.sky{background:var(--sky);color:#fff;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.sky{background:#d4eaee;border-color:var(--sky);}
+.note.red{background:#f3b6aa;border-color:var(--red);}
+.note.teal{background:#c0d4d1;border-color:var(--teal);}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:7px;}
+.note p{font-size:25px;line-height:1.4;color:var(--ink);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.stack>*+*{margin-top:20px;}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:24px;}
+.cmp th{font-family:var(--font-display);font-weight:900;font-size:30px;text-align:left;padding:14px 20px;color:var(--paper);}
+.cmp th:nth-child(1){background:var(--ink);border-radius:12px 0 0 0;}
+.cmp th:nth-child(2){background:var(--sky);}
+.cmp th:nth-child(3){background:var(--teal);}
+.cmp th:nth-child(4){background:var(--gold-deep);}
+.cmp th:nth-child(5){background:var(--red);border-radius:0 12px 0 0;}
+.cmp td{padding:11px 20px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.3;}
+.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2);}
+.cmp tr:last-child td{border-bottom:none;}
+.os-badge{display:inline-block;font-family:var(--font-mono);font-size:20px;font-weight:700;padding:6px 16px;border-radius:6px;border:2px solid currentColor;letter-spacing:1px;}
+.badge-win{color:var(--sky);border-color:var(--sky);}
+.badge-mac{color:var(--teal);border-color:var(--teal);}
+.badge-lin{color:var(--gold-deep);border-color:var(--gold-deep);}
+.badge-and{color:var(--red);border-color:var(--red);}
+.layers{display:flex;flex-direction:column;gap:0;}
+.layer{padding:22px 30px;font-weight:700;font-size:28px;display:flex;align-items:center;gap:20px;}
+.layer:first-child{border-radius:14px 14px 0 0;}.layer:last-child{border-radius:0 0 14px 14px;}
+.layer-apps{background:var(--sky);color:#fff;}
+.layer-gui{background:var(--teal);color:var(--paper);}
+.layer-kernel{background:var(--ink);color:var(--paper);}
+.layer-hw{background:var(--paper-2);color:var(--ink);border:2px solid var(--ink);}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(4,auto);grid-template-columns:1fr 1fr;gap:16px 60px;margin-top:16px;}
+.agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:13px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--teal);min-width:72px;}
+.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink);}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing .gold{color:var(--gold);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;bottom:0;left:0;height:4px;background:var(--teal);transition:width .4s var(--ease);z-index:9999;}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+  <!-- ===== SLIDE 1 · TITLE ===== -->
+  <section class="slide title-slide">
+    <div class="title-left">
+      <span class="tape teal">Informatica · M11</span>
+      <div class="eyebrow reveal" style="margin-top:40px;color:var(--teal);">Modulo 11</div>
+      <h1 class="h-big reveal" contenteditable="false" style="margin-top:10px;font-size:110px;">Sistemi<br><em style="font-style:italic;color:var(--teal);">Operativi</em></h1>
+      <p class="lead reveal d1" contenteditable="false" style="margin-top:24px;">Windows, macOS, Linux, Android: come funzionano, in cosa differiscono, quale scegliere.</p>
+      <div class="chips reveal d2" style="margin-top:40px;">
+        <span class="chip" style="background:var(--teal);">Modulo 11</span>
+        <span class="chip alt">6 lezioni</span><span class="chip alt">~70 min</span>
+      </div>
+    </div>
+    <div class="title-right">
+      <div style="font-size:170px;line-height:1;text-align:center;" class="reveal">🖥️</div>
+    </div>
+    <div class="deck-tab">OS · M11</div>
+  </section>
+
+  <!-- ===== SLIDE 2 · AGENDA ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M11</div>
+    <div class="tape teal reveal">Programma</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Cosa vedremo</h2>
+    <div class="agenda-list reveal d1">
+      <div class="agenda-item"><span class="n">01</span><span class="t" contenteditable="false">Cos'è un sistema operativo — kernel e GUI</span></div>
+      <div class="agenda-item"><span class="n">02</span><span class="t" contenteditable="false">Windows — storia, caratteristiche, pro e contro</span></div>
+      <div class="agenda-item"><span class="n">03</span><span class="t" contenteditable="false">macOS — ecosistema Apple, usi tipici</span></div>
+      <div class="agenda-item"><span class="n">04</span><span class="t" contenteditable="false">Linux — open source, distribuzioni, server</span></div>
+      <div class="agenda-item"><span class="n">05</span><span class="t" contenteditable="false">Android — il mobile OS più diffuso al mondo</span></div>
+      <div class="agenda-item"><span class="n">06</span><span class="t" contenteditable="false">Confronto completo — quale scegliere e perché</span></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 3 · COS'È UN OS ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M11</div>
+    <div class="split">
+      <div>
+        <div class="tape teal reveal">Sistema Operativo</div>
+        <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Il software che gestisce tutto il resto</h2>
+        <p class="lead reveal d1" contenteditable="false">Il <strong>sistema operativo</strong> (OS) è il software fondamentale che <em class="sky">fa funzionare il dispositivo</em>: gestisce l'hardware, coordina i programmi e permette all'utente di interagire con la macchina.</p>
+        <p class="lead reveal d2" contenteditable="false" style="margin-top:18px;">Senza OS, il computer è un insieme di circuiti che non sa cosa fare. È il <strong>tramite</strong> tra le applicazioni che usi e i componenti fisici del dispositivo.</p>
+        <div class="note teal reveal d3" style="margin-top:26px;">
+          <div class="lbl">💡 Analogia</div>
+          <p contenteditable="false">L'OS è come il <strong>gestore di un hotel</strong>: le camere (hardware) ci sono, ma serve qualcuno che assegni le stanze, gestisca i servizi e faccia comunicare i reparti.</p>
+        </div>
+      </div>
+      <div class="col" style="gap:16px;justify-content:center;">
+        <div class="card reveal d1" style="font-size:22px;line-height:1.5;">
+          <span class="ic">💾</span>
+          <h3 contenteditable="false">Cosa gestisce</h3>
+          <p contenteditable="false">• Memoria RAM e CPU<br>• File e cartelle (file system)<br>• Periferiche (mouse, tastiera, stampante)<br>• Applicazioni e processi<br>• Utenti e permessi<br>• Sicurezza e aggiornamenti</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 4 · KERNEL E GUI ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M11</div>
+    <div class="tape teal reveal">Architettura</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Tre strati: hardware, kernel, interfaccia</h2>
+    <div class="split even" style="margin-top:36px;">
+      <div class="layers reveal d1">
+        <div class="layer layer-apps">
+          <span style="font-size:36px;">📦</span>
+          <div>
+            <div style="font-size:26px;font-weight:700;" contenteditable="false">Applicazioni</div>
+            <div style="font-size:20px;font-weight:400;opacity:.85;" contenteditable="false">Word, Chrome, giochi, qualunque app</div>
+          </div>
+        </div>
+        <div class="layer layer-gui">
+          <span style="font-size:36px;">🖱️</span>
+          <div>
+            <div style="font-size:26px;font-weight:700;" contenteditable="false">Interfaccia grafica (GUI)</div>
+            <div style="font-size:20px;font-weight:400;opacity:.85;" contenteditable="false">Finestre, menu, icone — ciò che vedi</div>
+          </div>
+        </div>
+        <div class="layer layer-kernel">
+          <span style="font-size:36px;">⚙️</span>
+          <div>
+            <div style="font-size:26px;font-weight:700;" contenteditable="false">Kernel</div>
+            <div style="font-size:20px;font-weight:400;opacity:.85;" contenteditable="false">Nucleo dell'OS — parla direttamente con l'hardware</div>
+          </div>
+        </div>
+        <div class="layer layer-hw">
+          <span style="font-size:36px;">🔌</span>
+          <div>
+            <div style="font-size:26px;font-weight:700;" contenteditable="false">Hardware</div>
+            <div style="font-size:20px;font-weight:400;opacity:.85;" contenteditable="false">CPU, RAM, disco, scheda video...</div>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="gap:20px;justify-content:center;">
+        <div class="note teal reveal d1">
+          <div class="lbl">⚙️ Kernel</div>
+          <p contenteditable="false">È il componente più basso dell'OS. Gestisce direttamente memoria, CPU e periferiche. Non si vede mai: lavora in background ogni microsecondo.</p>
+        </div>
+        <div class="note sky reveal d2">
+          <div class="lbl">🖥️ GUI</div>
+          <p contenteditable="false">L'interfaccia grafica che l'utente vede e usa. È separata dal kernel: su Linux puoi sostituire la GUI senza cambiare il kernel.</p>
+        </div>
+        <div class="note reveal d3">
+          <div class="lbl">💻 CLI</div>
+          <p contenteditable="false">Alternativa alla GUI: il <strong>terminale</strong>. Comandi testuali, meno intuitivo ma molto più potente per operazioni automatizzate e server.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 5 · OS DIFFUSI ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M11</div>
+    <div class="tape teal reveal">Panoramica</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">I principali sistemi operativi</h2>
+    <div class="grid3 reveal d1" style="margin-top:36px;">
+      <div class="card sky">
+        <span class="ic">🪟</span>
+        <h3 contenteditable="false">Windows</h3>
+        <p contenteditable="false"><span class="os-badge badge-win">Desktop</span><br><br>Sviluppato da Microsoft. ~73% dei PC desktop mondiali. Standard de facto in uffici e aziende. Compatibile con la stragrande maggioranza del software commerciale.</p>
+      </div>
+      <div class="card teal">
+        <span class="ic">🍎</span>
+        <h3 contenteditable="false">macOS</h3>
+        <p contenteditable="false"><span class="os-badge badge-mac">Desktop</span><br><br>Sviluppato da Apple. Esclusivo su hardware Apple (Mac). ~15% dei PC. Preferito in ambienti creativi: design, video, musica, sviluppo software.</p>
+      </div>
+      <div class="card gold">
+        <span class="ic">🐧</span>
+        <h3 contenteditable="false">Linux</h3>
+        <p contenteditable="false"><span class="os-badge badge-lin">Desktop / Server</span><br><br>Open source. ~3% desktop, ma domina server (~96%) e supercomputer (100% dei top 500). Centinaia di distribuzioni. Gratis.</p>
+      </div>
+      <div class="card red">
+        <span class="ic">🤖</span>
+        <h3 contenteditable="false">Android</h3>
+        <p contenteditable="false"><span class="os-badge badge-and">Mobile</span><br><br>Sviluppato da Google, basato su Linux. ~72% degli smartphone mondiali. Open source (AOSP). Usato da Samsung, Xiaomi, Google, Motorola e molti altri.</p>
+      </div>
+      <div class="card teal">
+        <span class="ic">📱</span>
+        <h3 contenteditable="false">iOS / iPadOS</h3>
+        <p contenteditable="false"><span class="os-badge badge-mac">Mobile Apple</span><br><br>Sistema mobile di Apple. ~28% degli smartphone. Esclusivo su iPhone e iPad. Ecosistema molto chiuso ma stabile e aggiornato a lungo.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🖥️</span>
+        <h3 contenteditable="false">Linux Server</h3>
+        <p contenteditable="false"><span class="os-badge badge-lin">Server / Cloud</span><br><br>Il 96% dei server web gira su Linux. AWS, Google Cloud, Azure: tutti basati su Linux. Robusto, sicuro, gratuito, gestibile da remoto via terminale.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 6 · WINDOWS: STORIA E CARATTERISTICHE ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M11</div>
+    <div class="tape sky reveal">Windows</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Microsoft Windows: evoluzione e caratteristiche</h2>
+    <div class="split even" style="margin-top:32px;">
+      <div>
+        <p class="body reveal" style="margin-bottom:18px;color:var(--ink-soft);" contenteditable="false">Windows esiste dal 1985. Ogni versione ha segnato un'epoca:</p>
+        <div class="stack reveal d1">
+          <div class="card sky" style="padding:16px 24px;">
+            <div style="display:flex;align-items:center;gap:18px;">
+              <span style="font-family:var(--font-mono);font-size:28px;font-weight:700;color:var(--sky);min-width:60px;">95</span>
+              <p style="font-size:22px;" contenteditable="false">Prima vera GUI intuitiva per il grande pubblico. Rivoluzionò il mercato PC.</p>
+            </div>
+          </div>
+          <div class="card sky" style="padding:16px 24px;">
+            <div style="display:flex;align-items:center;gap:18px;">
+              <span style="font-family:var(--font-mono);font-size:28px;font-weight:700;color:var(--sky);min-width:60px;">XP</span>
+              <p style="font-size:22px;" contenteditable="false">Il più amato. Stabile, veloce, compatibile. Usato nelle aziende fino al 2014.</p>
+            </div>
+          </div>
+          <div class="card sky" style="padding:16px 24px;">
+            <div style="display:flex;align-items:center;gap:18px;">
+              <span style="font-family:var(--font-mono);font-size:28px;font-weight:700;color:var(--sky);min-width:60px;">7</span>
+              <p style="font-size:22px;" contenteditable="false">Elegante e stabile. Riabilitò Microsoft dopo l'insuccesso di Vista.</p>
+            </div>
+          </div>
+          <div class="card sky" style="padding:16px 24px;">
+            <div style="display:flex;align-items:center;gap:18px;">
+              <span style="font-family:var(--font-mono);font-size:28px;font-weight:700;color:var(--sky);min-width:60px;">10</span>
+              <p style="font-size:22px;" contenteditable="false">Start menu classico, aggiornamenti automatici, gratuito da 7/8. Longevo.</p>
+            </div>
+          </div>
+          <div class="card sky" style="padding:16px 24px;">
+            <div style="display:flex;align-items:center;gap:18px;">
+              <span style="font-family:var(--font-mono);font-size:28px;font-weight:700;color:var(--sky);min-width:60px;">11</span>
+              <p style="font-size:22px;" contenteditable="false">Design arrotondato, integrazione con Teams, requisiti hardware più elevati.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="gap:18px;justify-content:center;">
+        <div class="card sky reveal d1">
+          <span class="ic">✅</span>
+          <h3 contenteditable="false">Pro</h3>
+          <p contenteditable="false">Enorme compatibilità software e hardware. Standard per gaming. Interfaccia familiare. Ottimo supporto aziendale e scolastico.</p>
+        </div>
+        <div class="card red reveal d2">
+          <span class="ic">⚠️</span>
+          <h3 contenteditable="false">Contro</h3>
+          <p contenteditable="false">Licenza a pagamento (100–200 €). Target principale per malware. Aggiornamenti invasivi. Raccolta dati telemetrici da parte di Microsoft.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 7 · macOS ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M11</div>
+    <div class="tape teal reveal">macOS</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">macOS: hardware e software di Apple, insieme</h2>
+    <div class="split even" style="margin-top:32px;">
+      <div class="col" style="gap:18px;justify-content:center;">
+        <div class="card teal reveal d1">
+          <span class="ic">🔗</span>
+          <h3 contenteditable="false">Integrazione hardware/software</h3>
+          <p contenteditable="false">Apple progetta chip, OS e app insieme. Il risultato è un sistema ottimizzato che spreca pochissime risorse e scalda raramente. I Mac con chip Apple Silicon (M1–M4) sono tra i computer più efficienti in circolazione.</p>
+        </div>
+        <div class="card teal reveal d2">
+          <span class="ic">🌿</span>
+          <h3 contenteditable="false">Stabilità e manutenzione</h3>
+          <p contenteditable="false">Aggiornamenti gratuiti per 5–7 anni. Raro che "si inceppi" nel tempo. Gestione della memoria superiore a Windows per carichi di lavoro creativi prolungati.</p>
+        </div>
+        <div class="card teal reveal d3">
+          <span class="ic">📱</span>
+          <h3 contenteditable="false">Ecosistema Apple</h3>
+          <p contenteditable="false">Handoff, AirDrop, iCloud, Continuity Camera: iPhone, iPad e Mac si integrano in modo trasparente. Funzionalità impossibili da replicare fuori dall'ecosistema Apple.</p>
+        </div>
+      </div>
+      <div class="col" style="gap:18px;justify-content:center;">
+        <div class="card reveal d1">
+          <span class="ic">🎯</span>
+          <h3 contenteditable="false">Usi tipici</h3>
+          <p contenteditable="false">Grafica e design (Adobe, Affinity), montaggio video (Final Cut Pro), musica (Logic Pro), sviluppo software (Xcode), ambienti universitari e creativi.</p>
+        </div>
+        <div class="note red reveal d2">
+          <div class="lbl">⚠️ Limiti</div>
+          <p contenteditable="false"><strong>Costo elevato</strong>: MacBook Air parte da ~1.300 €. <strong>Hardware chiuso</strong>: non puoi aggiornare RAM o disco. <strong>Software</strong>: alcuni programmi Windows-only non girano su Mac (o solo con Parallels a pagamento).</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 8 · LINUX ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M11</div>
+    <div class="tape gold reveal">Linux</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Linux: libero, potente, ovunque</h2>
+    <div class="split even" style="margin-top:32px;">
+      <div class="col" style="gap:18px;justify-content:center;">
+        <div class="card gold reveal d1">
+          <span class="ic">🐧</span>
+          <h3 contenteditable="false">Cos'è Linux</h3>
+          <p contenteditable="false">Un OS open source creato da Linus Torvalds nel 1991. Il codice sorgente è pubblico, modificabile e redistribuibile. Non è un unico OS: esistono centinaia di <strong>distribuzioni</strong> (distro), ognuna con scopi diversi.</p>
+        </div>
+        <div class="note teal reveal d2">
+          <div class="lbl">📦 Distribuzioni popolari</div>
+          <p contenteditable="false"><strong>Ubuntu / Mint</strong> — per principianti, GUI simile a Windows.<br><strong>Fedora</strong> — aggiornata, preferita dagli sviluppatori.<br><strong>Debian</strong> — stabile, base di molte distro.<br><strong>Arch Linux</strong> — per esperti, massima personalizzazione.<br><strong>openSUSE</strong> — equilibrio tra stabilità e novità.</p>
+        </div>
+      </div>
+      <div class="col" style="gap:18px;justify-content:center;">
+        <div class="card gold reveal d1">
+          <span class="ic">✅</span>
+          <h3 contenteditable="false">Pro</h3>
+          <p contenteditable="false"><strong>Gratuito</strong>. <strong>Sicuro</strong>: pochi malware, permessi granulari. <strong>Veloce</strong>: gira bene anche su hardware vecchio. <strong>Server</strong>: domina il mercato cloud e server.</p>
+        </div>
+        <div class="card red reveal d2">
+          <span class="ic">⚠️</span>
+          <h3 contenteditable="false">Contro</h3>
+          <p contenteditable="false"><strong>Curva di apprendimento</strong>: il terminale è spesso necessario. <strong>Software</strong>: Adobe, Office (nativo), alcuni giochi non disponibili. <strong>Driver</strong>: hardware di nicchia a volte non supportato.</p>
+        </div>
+        <div class="note gold reveal d3">
+          <div class="lbl">🌍 Linux nel mondo</div>
+          <p contenteditable="false">Android è Linux. I server Amazon, Google e Meta girano su Linux. Il 100% dei supercomputer nel Top500 usa Linux. L'80% dei telefonini del mondo gira su un kernel Linux.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 9 · OPEN SOURCE ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M11</div>
+    <div class="tape gold reveal">Open Source</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Software libero vs open source vs proprietario</h2>
+    <div class="grid3 reveal d1" style="margin-top:36px;">
+      <div class="card gold">
+        <span class="ic">🔓</span>
+        <h3 contenteditable="false">Software Libero</h3>
+        <p contenteditable="false">Le <strong>4 libertà</strong> garantite (definizione Free Software Foundation):<br><br>0 — Eseguire il programma.<br>1 — Studiare come funziona.<br>2 — Ridistribuirlo.<br>3 — Modificarlo e redistribuire le modifiche.<br><br>Linux, Firefox, VLC sono software libero.</p>
+      </div>
+      <div class="card sky">
+        <span class="ic">👁️</span>
+        <h3 contenteditable="false">Open Source</h3>
+        <p contenteditable="false">Il codice sorgente è pubblico e leggibile. Non sempre garantisce tutte e 4 le libertà. Focus tecnico (collaborazione, qualità) più che etico.<br><br>Quasi tutto il software libero è anche open source. Ma non tutto l'open source è "libero" nel senso politico-filosofico.</p>
+      </div>
+      <div class="card red">
+        <span class="ic">🔒</span>
+        <h3 contenteditable="false">Software Proprietario</h3>
+        <p contenteditable="false">Il codice sorgente è segreto. Devi pagare una licenza per usarlo. Non puoi modificarlo o ridistribuirlo. La casa produttrice decide tutto.<br><br>Windows, macOS, Microsoft Office, Adobe Photoshop sono software proprietari.</p>
+      </div>
+    </div>
+    <div class="note reveal d2" style="margin-top:28px;">
+      <div class="lbl">💡 Perché importa</div>
+      <p contenteditable="false">Linux e open source hanno costruito internet: Apache, MySQL, Python, Git, il kernel stesso. Il software libero non è "roba da hacker" — è l'infrastruttura su cui gira il mondo digitale.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 10 · ANDROID ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M11</div>
+    <div class="tape red reveal">Android</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Android: il mobile OS più diffuso al mondo</h2>
+    <div class="split even" style="margin-top:32px;">
+      <div class="col" style="gap:18px;justify-content:center;">
+        <div class="card red reveal d1">
+          <span class="ic">🤖</span>
+          <h3 contenteditable="false">Cos'è Android</h3>
+          <p contenteditable="false">OS mobile sviluppato da Google, acquisita Android Inc. nel 2005. Basato sul kernel Linux. Il codice base (AOSP) è open source, ma i servizi Google (Gmail, Maps, Play Store) sono proprietari.</p>
+        </div>
+        <div class="card reveal d2">
+          <span class="ic">🏭</span>
+          <h3 contenteditable="false">Ecosistema produttori</h3>
+          <p contenteditable="false">Ogni produttore personalizza Android con la propria interfaccia: <strong>Samsung</strong> (One UI), <strong>Xiaomi</strong> (MIUI/HyperOS), <strong>Google</strong> (Pixel UI), <strong>OnePlus</strong> (OxygenOS). Questo porta varietà ma anche <strong>frammentazione</strong>.</p>
+        </div>
+      </div>
+      <div class="col" style="gap:18px;justify-content:center;">
+        <div class="card red reveal d1">
+          <span class="ic">✅</span>
+          <h3 contenteditable="false">Pro</h3>
+          <p contenteditable="false"><strong>Scelta</strong>: da 80 € a 1.500 € di fascia. <strong>Personalizzazione</strong>: launcher, widget, file manager, default app. <strong>Sideloading</strong>: installi app da fonti esterne al Play Store.</p>
+        </div>
+        <div class="card reveal d2">
+          <span class="ic">⚠️</span>
+          <h3 contenteditable="false">Contro</h3>
+          <p contenteditable="false"><strong>Frammentazione</strong>: migliaia di modelli con versioni diverse. <strong>Aggiornamenti</strong>: i produttori economici aggiornano poco. <strong>Malware</strong>: più esposto di iOS per il sideloading e lo store meno controllato.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 11 · CONFRONTO GENERALE ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M11</div>
+    <div class="tape reveal">Confronto</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;" contenteditable="false">Tabella comparativa</h2>
+    <table class="cmp reveal d1" style="margin-top:24px;">
+      <thead>
+        <tr>
+          <th>Caratteristica</th>
+          <th>🪟 Windows</th>
+          <th>🍎 macOS</th>
+          <th>🐧 Linux</th>
+          <th>🤖 Android</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Costo</td>
+          <td contenteditable="false">100–200 € (licenza)</td>
+          <td contenteditable="false">Incluso nel Mac (hardware costoso)</td>
+          <td contenteditable="false">Gratuito</td>
+          <td contenteditable="false">Incluso nel dispositivo</td>
+        </tr>
+        <tr>
+          <td>Open source</td>
+          <td contenteditable="false">No</td>
+          <td contenteditable="false">Parziale (Darwin kernel)</td>
+          <td contenteditable="false">Sì (kernel + distro)</td>
+          <td contenteditable="false">Parziale (AOSP sì, servizi Google no)</td>
+        </tr>
+        <tr>
+          <td>Aggiornamenti</td>
+          <td contenteditable="false">Automatici, a volte invasivi</td>
+          <td contenteditable="false">Gratuiti, 5–7 anni</td>
+          <td contenteditable="false">Sempre gratuiti, frequenti</td>
+          <td contenteditable="false">Variabili: Google ~5 anni, altri meno</td>
+        </tr>
+        <tr>
+          <td>Uso principale</td>
+          <td contenteditable="false">Ufficio, gaming, scuola</td>
+          <td contenteditable="false">Creativi, sviluppo, università</td>
+          <td contenteditable="false">Server, sviluppo, utenti esperti</td>
+          <td contenteditable="false">Smartphone, tablet, IoT</td>
+        </tr>
+        <tr>
+          <td>Sicurezza</td>
+          <td contenteditable="false">Target principale malware</td>
+          <td contenteditable="false">Buona, Gatekeeper + SIP</td>
+          <td contenteditable="false">Ottima, permessi granulari</td>
+          <td contenteditable="false">Variabile per frammentazione</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 12 · GESTIONE APP E FILE SYSTEM ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M11</div>
+    <div class="tape reveal">App e File System</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;" contenteditable="false">Come si installano le app e come sono organizzati i file</h2>
+    <div class="grid2 reveal d1" style="margin-top:30px;align-items:start;">
+      <div class="stack">
+        <p class="body" style="font-weight:700;font-size:26px;margin-bottom:4px;" contenteditable="false">Installazione applicazioni</p>
+        <div class="card sky" style="padding:18px 24px;">
+          <h3 contenteditable="false">🪟 Windows — Setup (.exe / .msi)</h3>
+          <p contenteditable="false">Scarichi un installer, lo esegui, clicchi "Avanti". Rapido ma rischioso: il file può venire da qualsiasi fonte. Windows Store disponibile ma poco usato.</p>
+        </div>
+        <div class="card teal" style="padding:18px 24px;">
+          <h3 contenteditable="false">🍎 macOS — .dmg / App Store</h3>
+          <p contenteditable="false">App Store ufficiale o .dmg firmati da Apple (Gatekeeper blocca i non firmati). Più sicuro di Windows ma meno aperto.</p>
+        </div>
+        <div class="card gold" style="padding:18px 24px;">
+          <h3 contenteditable="false">🐧 Linux — Package manager</h3>
+          <p contenteditable="false"><code>apt install</code>, <code>dnf install</code>, <code>pacman -S</code>: il terminale scarica, installa e aggiorna tutto dai repository ufficiali. Estremamente sicuro.</p>
+        </div>
+        <div class="card red" style="padding:18px 24px;">
+          <h3 contenteditable="false">🤖 Android — Play Store / APK</h3>
+          <p contenteditable="false">Play Store è il canale ufficiale. APK (sideloading) permette di installare da fonti terze, ma aumenta il rischio malware.</p>
+        </div>
+      </div>
+      <div class="stack">
+        <p class="body" style="font-weight:700;font-size:26px;margin-bottom:4px;" contenteditable="false">File system</p>
+        <div class="card sky" style="padding:18px 24px;">
+          <h3 contenteditable="false">🪟 NTFS</h3>
+          <p contenteditable="false">File di grandi dimensioni, permessi per utente, journaling (recupero dopo crash). Standard Windows dalla versione NT in poi.</p>
+        </div>
+        <div class="card teal" style="padding:18px 24px;">
+          <h3 contenteditable="false">🍎 APFS</h3>
+          <p contenteditable="false">Apple File System, ottimizzato per SSD e flash. Snapshot (backup istantanei), crittografia nativa, cloni di file a costo zero.</p>
+        </div>
+        <div class="card gold" style="padding:18px 24px;">
+          <h3 contenteditable="false">🐧 ext4 / btrfs</h3>
+          <p contenteditable="false">ext4 è lo standard Linux: robusto e veloce. btrfs è il futuro: snapshot, compressione trasparente, correzione errori. F2FS usato da Android per flash storage.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 13 · SICUREZZA E AGGIORNAMENTI ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M11</div>
+    <div class="tape reveal">Sicurezza</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Come ogni OS gestisce sicurezza e aggiornamenti</h2>
+    <div class="grid4 reveal d1" style="margin-top:36px;">
+      <div class="card sky">
+        <span class="ic">🪟</span>
+        <h3 contenteditable="false">Windows</h3>
+        <p contenteditable="false"><strong>UAC</strong> (richiesta permessi admin). <strong>Windows Defender</strong> incluso. Aggiornamenti ogni "Patch Tuesday". Target principale malware per la sua diffusione. Telemetria inviata a Microsoft.</p>
+      </div>
+      <div class="card teal">
+        <span class="ic">🍎</span>
+        <h3 contenteditable="false">macOS</h3>
+        <p contenteditable="false"><strong>Gatekeeper</strong> blocca app non firmate. <strong>SIP</strong> (System Integrity Protection) protegge i file di sistema. <strong>Sandboxing</strong> sull'App Store. Aggiornamenti rapidi e coerenti.</p>
+      </div>
+      <div class="card gold">
+        <span class="ic">🐧</span>
+        <h3 contenteditable="false">Linux</h3>
+        <p contenteditable="false"><strong>Permessi Unix</strong>: ogni file ha proprietario e permessi rwx. <strong>sudo</strong> per operazioni privilegiate. Aggiornamenti di sicurezza pubblicati rapidamente dalla community. Pochissimi malware.</p>
+      </div>
+      <div class="card red">
+        <span class="ic">🤖</span>
+        <h3 contenteditable="false">Android</h3>
+        <p contenteditable="false"><strong>Sandbox per app</strong>: ogni app è isolata. <strong>Play Protect</strong> scansiona le app. <strong>Patch di sicurezza mensili</strong> — ma i produttori economici ritardano. Rischio sideloading.</p>
+      </div>
+    </div>
+    <div class="note red reveal d2" style="margin-top:28px;">
+      <div class="lbl">🚨 Aggiornamenti: non rimandare mai</div>
+      <p contenteditable="false">Le vulnerabilità sfruttate dagli attacchi più gravi sono spesso già note e corrette da patch disponibili. Il problema è che gli utenti non aggiornano. <strong>WannaCry (2017)</strong> ha infettato 200.000 PC usando una vulnerabilità per cui Microsoft aveva rilasciato la patch 60 giorni prima.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 14 · PRIVACY, GUI, PERSONALIZZAZIONE ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M11</div>
+    <div class="tape reveal">Privacy e Interfaccia</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;" contenteditable="false">Raccolta dati, GUI e personalizzazione a confronto</h2>
+    <table class="cmp reveal d1" style="margin-top:28px;">
+      <thead>
+        <tr>
+          <th>Aspetto</th>
+          <th>🪟 Windows</th>
+          <th>🍎 macOS</th>
+          <th>🐧 Linux</th>
+          <th>🤖 Android</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dati raccolti</td>
+          <td contenteditable="false">Telemetria attiva di default (navigazione, errori, app usate)</td>
+          <td contenteditable="false">Minimale, disattivabile nelle impostazioni privacy</td>
+          <td contenteditable="false">Nessuno (a meno che la distro non abbia opt-in)</td>
+          <td contenteditable="false">Molto (Google lega dati di posizione, uso, account)</td>
+        </tr>
+        <tr>
+          <td>Interfaccia grafica</td>
+          <td contenteditable="false">Taskbar, Start menu, Explorer. Personalizzabile ma nei limiti di Microsoft</td>
+          <td contenteditable="false">Dock, Finder, menu bar top. Design coerente, poco modificabile</td>
+          <td contenteditable="false">GNOME, KDE, XFCE, i3… puoi cambiare tutto, incluso il desktop manager</td>
+          <td contenteditable="false">Launcher sostituibile, widget liberi, temi</td>
+        </tr>
+        <tr>
+          <td>Personalizzazione</td>
+          <td contenteditable="false">Media — sfondo, colori, dimensioni icone</td>
+          <td contenteditable="false">Bassa — Apple vuole coerenza visiva</td>
+          <td contenteditable="false">Massima — puoi ricostruire l'intera esperienza da zero</td>
+          <td contenteditable="false">Alta — launcher, icone, tema, widget</td>
+        </tr>
+        <tr>
+          <td>Prestazioni RAM</td>
+          <td contenteditable="false">~4–8 GB solo per il sistema a riposo</td>
+          <td contenteditable="false">Ottima compressione memoria, efficiente su M-chip</td>
+          <td contenteditable="false">~300 MB–1 GB con GUI leggera (XFCE, i3)</td>
+          <td contenteditable="false">Ottimizzato per mobile, gestione aggressiva</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 15 · USI E MITI ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M11</div>
+    <div class="split even">
+      <div class="stack">
+        <div class="tape reveal">Usi tipici</div>
+        <h2 class="h-sec reveal" contenteditable="false" style="margin-top:20px;">Chi usa cosa</h2>
+        <table class="cmp reveal d1" style="margin-top:16px;font-size:22px;">
+          <thead>
+            <tr>
+              <th style="background:var(--ink);">Contesto</th>
+              <th style="background:var(--sky);font-size:26px;padding:10px 16px;">🪟</th>
+              <th style="background:var(--teal);font-size:26px;padding:10px 16px;">🍎</th>
+              <th style="background:var(--gold-deep);font-size:26px;padding:10px 16px;">🐧</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td contenteditable="false">Gaming</td><td contenteditable="false">⭐⭐⭐</td><td contenteditable="false">⭐</td><td contenteditable="false">⭐⭐</td></tr>
+            <tr><td contenteditable="false">Ufficio / Office</td><td contenteditable="false">⭐⭐⭐</td><td contenteditable="false">⭐⭐⭐</td><td contenteditable="false">⭐⭐</td></tr>
+            <tr><td contenteditable="false">Grafica / Video</td><td contenteditable="false">⭐⭐</td><td contenteditable="false">⭐⭐⭐</td><td contenteditable="false">⭐⭐</td></tr>
+            <tr><td contenteditable="false">Sviluppo software</td><td contenteditable="false">⭐⭐</td><td contenteditable="false">⭐⭐⭐</td><td contenteditable="false">⭐⭐⭐</td></tr>
+            <tr><td contenteditable="false">Server / Cloud</td><td contenteditable="false">⭐</td><td contenteditable="false">⭐</td><td contenteditable="false">⭐⭐⭐</td></tr>
+            <tr><td contenteditable="false">Scuola</td><td contenteditable="false">⭐⭐⭐</td><td contenteditable="false">⭐⭐</td><td contenteditable="false">⭐</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="stack">
+        <div class="tape red reveal">Miti da sfatare</div>
+        <h2 class="h-sec reveal" contenteditable="false" style="margin-top:20px;">Luoghi comuni sbagliati</h2>
+        <div class="stack reveal d1">
+          <div class="note red">
+            <div class="lbl">❌ "Linux è solo per hacker"</div>
+            <p contenteditable="false">Ubuntu è usato da milioni di persone comuni. ChromeOS (Google) è Linux. Android è Linux. La difficoltà dipende dalla distro scelta.</p>
+          </div>
+          <div class="note teal">
+            <div class="lbl">❌ "I Mac non prendono virus"</div>
+            <p contenteditable="false">Falso. I malware per macOS esistono e crescono. La minore diffusione li rende meno bersagliati, non immuni. Xprotect di Apple non è infallibile.</p>
+          </div>
+          <div class="note sky">
+            <div class="lbl">❌ "Windows è lento"</div>
+            <p contenteditable="false">Windows 10/11 su SSD è veloce. Il rallentamento viene da hardware vecchio, troppi programmi in avvio automatico o mancanza di manutenzione.</p>
+          </div>
+          <div class="note">
+            <div class="lbl">❌ "Android è insicuro"</div>
+            <p contenteditable="false">Android con aggiornamenti regolari e Play Store è sicuro. Il rischio aumenta con dispositivi non aggiornati e APK da fonti sconosciute.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 16 · QUALE SCEGLIERE ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M11</div>
+    <div class="tape reveal">Conclusione</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Non esiste il "migliore": dipende da te</h2>
+    <div class="grid4 reveal d1" style="margin-top:36px;">
+      <div class="card sky">
+        <span class="ic">🪟</span>
+        <h3 contenteditable="false">Scegli Windows se...</h3>
+        <p contenteditable="false">Usi software specifici solo Windows (gestionali aziendali, alcuni CAD, giochi). Lavori in un contesto scolastico o aziendale con infrastruttura Microsoft. Vuoi la massima compatibilità hardware.</p>
+      </div>
+      <div class="card teal">
+        <span class="ic">🍎</span>
+        <h3 contenteditable="false">Scegli macOS se...</h3>
+        <p contenteditable="false">Hai già iPhone/iPad e vuoi l'ecosistema integrato. Lavori con grafica, video, musica o sviluppo software. Vuoi un sistema stabile che "funziona e basta" per anni.</p>
+      </div>
+      <div class="card gold">
+        <span class="ic">🐧</span>
+        <h3 contenteditable="false">Scegli Linux se...</h3>
+        <p contenteditable="false">Vuoi imparare come funziona un OS. Hai hardware vecchio da far rivivere. Lavori su server o sviluppo. Vuoi il massimo controllo sulla tua macchina e zero spese.</p>
+      </div>
+      <div class="card red">
+        <span class="ic">🤖</span>
+        <h3 contenteditable="false">Scegli Android se...</h3>
+        <p contenteditable="false">Vuoi ampia scelta di dispositivi a ogni fascia di prezzo. Tieni alla personalizzazione del telefono. Non sei vincolato all'ecosistema Apple. Vuoi installare app da fonti esterne al Play Store.</p>
+      </div>
+    </div>
+    <div class="note reveal d2" style="margin-top:26px;">
+      <div class="lbl">💡 Il consiglio finale</div>
+      <p contenteditable="false">Prova. Ubuntu ha una versione live che puoi usare da chiavetta USB senza installare nulla. macOS puoi provarlo nei negozi Apple. Nessuna scelta è permanente — e conoscere più sistemi è una competenza professionale.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 17 · CLOSING ===== -->
+  <section class="slide closing">
+    <div class="deck-tab">OS · M11</div>
+    <div class="center" style="align-items:center;text-align:center;">
+      <div class="eyebrow reveal gold">Fine Modulo 11 🖥️</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;" contenteditable="false">Conosci<br><em class="gold">il tuo OS.</em></h2>
+      <p class="lead reveal d1" contenteditable="false" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">
+        Ogni sistema operativo nasce con obiettivi diversi. Capire come funzionano ti rende un utente consapevole — e ti apre le porte a <span class="gold">carriere tecniche</span> in qualsiasi settore.
+      </p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="00-indice.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">↩ Indice del corso</a>
+        <span class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);">Bravi! 👏</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;});}
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'inf-os-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>

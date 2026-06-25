@@ -80,6 +80,7 @@ New decks get the next available number within their series. All cross-deck `hre
 | `inf08-presentazioni.html` | 08 | Dillo con una slide |
 | `inf09-vr-ar.html` | 09 | VR, AR e Metaverso |
 | `inf10-societa.html` | 10 | Tecnologia e Società |
+| `inf11-os.html` | 11 | Sistemi Operativi (Windows, macOS, Linux, Android) |
 | `inf02-identita.html` | 02 | Identità online, PEC, SPID, dati sensibili |
 
 **Index maintenance:** `00-indice.html` has one `<div class="section-group">` per topic section. Card CSS classes: `.pre` (sky left-border, web series), `.sec` (red, sicurezza), `.inf` (gold, informatica + id).
