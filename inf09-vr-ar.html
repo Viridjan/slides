@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · Modulo 9 — VR, AR e Metaverso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;background:#fff;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}.slide:last-child{break-after:auto;page-break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+code{font-family:var(--font-mono);}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}.d5{transition-delay:.68s !important;}.d6{transition-delay:.80s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}.tape.sky{background:var(--sky);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--sky);}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:28px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 32px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:8px;line-height:1;}
+.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.card.sky{border-color:var(--sky);}.card.sky h3{color:var(--sky);}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.chip.red{background:var(--red);color:#fff;}.chip.sky{background:var(--sky);color:#fff;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:24px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.sky{background:#d4eaee;border-color:var(--sky);}
+.note.red{background:#f3b6aa;}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:26px;line-height:1.4;color:var(--ink);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:22px;}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:26px;}
+.cmp th{font-family:var(--font-display);font-weight:900;font-size:33px;text-align:left;padding:16px 24px;color:var(--paper);}
+.cmp th.a{background:var(--sky);border-radius:12px 0 0 0;}.cmp th.b{background:var(--teal);border-radius:0 12px 0 0;}
+.cmp th:first-child{background:var(--ink);}
+.cmp td{padding:13px 24px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.32;}
+.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2);}
+.cmp tr:last-child td{border-bottom:none;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--sky);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--teal),var(--teal-2));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.vr-icon{font-size:180px;line-height:1;text-align:center;animation:float 6s ease-in-out infinite alternate;}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(4,auto);grid-template-columns:1fr 1fr;gap:18px 60px;margin-top:16px;}
+.agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:15px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--sky);min-width:72px;}
+.agenda-item .t{font-size:28px;font-weight:600;color:var(--ink);}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing .gold{color:var(--gold);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;bottom:0;left:0;height:4px;background:var(--sky);transition:width .4s var(--ease);z-index:9999;}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+  <!-- ============ SLIDE 1 · TITLE ============ -->
+  <section class="slide title-slide">
+    <div class="title-left">
+      <span class="tape sky">Informatica · M9</span>
+      <div class="eyebrow reveal" style="margin-top:40px;color:var(--sky);">Modulo 9</div>
+      <h1 class="h-mega reveal" contenteditable="false" style="margin-top:10px;">VR, AR<br><em style="font-style:italic;color:var(--sky);">e Metaverso</em></h1>
+      <p class="lead reveal d1" contenteditable="false" style="margin-top:28px;">Realtà virtuale, aumentata e il mondo che verrà: dai visori alle piattaforme social 3D.</p>
+      <div class="chips reveal d2" style="margin-top:46px;">
+        <span class="chip sky">Modulo 9</span><span class="chip alt">3 temi principali</span><span class="chip alt">~50 min</span>
+      </div>
+    </div>
+    <div class="title-right">
+      <div class="vr-icon reveal" contenteditable="false">🥽</div>
+    </div>
+    <div class="deck-tab">VR/AR · M9</div>
+  </section>
+
+  <!-- ============ SLIDE 2 · AGENDA ============ -->
+  <section class="slide">
+    <div class="deck-tab">VR/AR · M9</div>
+    <div class="tape reveal">Cosa vedremo</div>
+    <h2 class="h-sec reveal" style="margin-top:32px;" contenteditable="false">Tre mondi da esplorare</h2>
+    <div class="agenda-list reveal d1">
+      <div class="agenda-item"><span class="n">01</span><span class="t" contenteditable="false">Realtà Virtuale (VR) — hardware, funzionamento, usi</span></div>
+      <div class="agenda-item"><span class="n">02</span><span class="t" contenteditable="false">Realtà Aumentata (AR) — overlay digitale sul reale</span></div>
+      <div class="agenda-item"><span class="n">03</span><span class="t" contenteditable="false">VR vs AR — il confronto</span></div>
+      <div class="agenda-item"><span class="n">04</span><span class="t" contenteditable="false">Il Metaverso — cos'è e dove siamo</span></div>
+      <div class="agenda-item"><span class="n">05</span><span class="t" contenteditable="false">Opportunità e criticità</span></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 3 · COS'È LA VR ============ -->
+  <section class="slide">
+    <div class="deck-tab">VR/AR · M9</div>
+    <div class="split">
+      <div>
+        <div class="tape sky reveal">Realtà Virtuale</div>
+        <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Immersi in un mondo digitale</h2>
+        <p class="lead reveal d1" contenteditable="false">La <strong>Realtà Virtuale</strong> sostituisce completamente la visione del mondo reale con un ambiente 3D generato dal computer.</p>
+        <p class="lead reveal d2" contenteditable="false" style="margin-top:20px;">Indossando un <em class="sky">visore (HMD)</em>, l'utente si trova "dentro" la scena: può guardarsi intorno a 360°, camminare nello spazio virtuale e interagire con oggetti digitali.</p>
+      </div>
+      <div class="col" style="gap:22px;">
+        <div class="note sky reveal d1">
+          <div class="lbl">🔑 Parola chiave</div>
+          <p contenteditable="false"><strong>Immersione</strong>: la sensazione di essere fisicamente presenti in un luogo che non esiste.</p>
+        </div>
+        <div class="note reveal d2">
+          <div class="lbl">📅 Storia</div>
+          <p contenteditable="false">Il termine "Virtual Reality" fu coniato da Jaron Lanier nel 1987. Il primo visore consumer moderno fu l'Oculus Rift, lanciato nel 2016.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 4 · COME FUNZIONA LA VR ============ -->
+  <section class="slide">
+    <div class="deck-tab">VR/AR · M9</div>
+    <div class="tape reveal">Hardware</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Come funziona un sistema VR</h2>
+    <div class="grid4 reveal d1" style="margin-top:36px;">
+      <div class="card sky">
+        <span class="ic">🥽</span>
+        <h3 contenteditable="false">Visore (HMD)</h3>
+        <p contenteditable="false">Due schermi ad alta risoluzione, uno per occhio, creano la percezione della profondità. Il tracking della testa aggiorna la scena in tempo reale.</p>
+      </div>
+      <div class="card sky">
+        <span class="ic">🕹️</span>
+        <h3 contenteditable="false">Controller</h3>
+        <p contenteditable="false">Tracciati nello spazio 3D. Permettono di afferrare, puntare, premere. Alcuni modelli trasmettono anche il feedback aptico (vibrazione).</p>
+      </div>
+      <div class="card sky">
+        <span class="ic">📡</span>
+        <h3 contenteditable="false">Sensori e telecamere</h3>
+        <p contenteditable="false">Rilevano la posizione e l'orientamento di testa e mani nell'ambiente fisico (inside-out o outside-in tracking).</p>
+      </div>
+      <div class="card sky">
+        <span class="ic">💻</span>
+        <h3 contenteditable="false">PC / console / standalone</h3>
+        <p contenteditable="false">Elabora il rendering 3D. I visori standalone (es. Meta Quest) hanno tutto integrato; altri richiedono un PC potente via cavo.</p>
+      </div>
+    </div>
+    <div class="note sky reveal d2" style="margin-top:28px;">
+      <div class="lbl">⚡ Come funziona</div>
+      <p contenteditable="false">I sensori campionano la posizione &gt;1000 volte al secondo. Il motore grafico ridisegna la scena a 90+ fps per mantenere la fluidità ed evitare il <strong>motion sickness</strong>.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 5 · APPLICAZIONI VR ============ -->
+  <section class="slide">
+    <div class="deck-tab">VR/AR · M9</div>
+    <div class="tape reveal">Usi reali</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Dove si usa la VR</h2>
+    <div class="grid3 reveal d1" style="margin-top:36px;">
+      <div class="card">
+        <span class="ic">🎮</span>
+        <h3 contenteditable="false">Intrattenimento</h3>
+        <p contenteditable="false">Videogiochi in prima persona, esperienze cinematografiche a 360°, concerti virtuali. Il settore gaming è il più grande.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🏥</span>
+        <h3 contenteditable="false">Medicina e terapia</h3>
+        <p contenteditable="false">Simulazione chirurgica per chirurghi in formazione. Terapia dell'esposizione per fobie e PTSD. Riabilitazione motoria gamificata.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🏗️</span>
+        <h3 contenteditable="false">Architettura e design</h3>
+        <p contenteditable="false">Walkthrough virtuali di edifici prima della costruzione. Permette al cliente di "camminare" nel progetto e richiedere modifiche.</p>
+      </div>
+      <div class="card">
+        <span class="ic">✈️</span>
+        <h3 contenteditable="false">Simulatori professionali</h3>
+        <p contenteditable="false">Piloti, astronauti e vigili del fuoco si addestrano in ambienti VR che riproducono situazioni di emergenza senza rischi reali.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🎓</span>
+        <h3 contenteditable="false">Formazione aziendale</h3>
+        <p contenteditable="false">Onboarding immersivo, simulazioni di vendita, training su macchinari pericolosi. Riduce costi e aumenta la ritenzione.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🌍</span>
+        <h3 contenteditable="false">Turismo virtuale</h3>
+        <p contenteditable="false">Visite a musei, città e siti naturali inaccessibili. Utile per persone con mobilità ridotta o per il pre-viaggio.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 6 · VANTAGGI E LIMITI VR ============ -->
+  <section class="slide">
+    <div class="deck-tab">VR/AR · M9</div>
+    <div class="split even">
+      <div class="stack">
+        <div class="tape sky reveal">Vantaggi</div>
+        <h2 class="h-sec reveal" contenteditable="false" style="margin-top:20px;">Perché funziona</h2>
+        <div class="stack reveal d1">
+          <div class="card sky">
+            <h3 contenteditable="false">🎯 Immersione totale</h3>
+            <p contenteditable="false">Elimina le distrazioni esterne. L'utente è completamente concentrato sull'esperienza.</p>
+          </div>
+          <div class="card sky">
+            <h3 contenteditable="false">🧠 Apprendimento esperienziale</h3>
+            <p contenteditable="false">Fare è più efficace del leggere. La VR permette di sbagliare e riprovare in sicurezza.</p>
+          </div>
+          <div class="card sky">
+            <h3 contenteditable="false">💰 Costi di simulazione ridotti</h3>
+            <p contenteditable="false">Una simulazione VR si ripete infinite volte. Un simulatore fisico è costoso e si usura.</p>
+          </div>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="tape red reveal">Limiti</div>
+        <h2 class="h-sec reveal" contenteditable="false" style="margin-top:20px;">Cosa frena l'adozione</h2>
+        <div class="stack reveal d1">
+          <div class="card">
+            <h3 contenteditable="false">💸 Costo hardware</h3>
+            <p contenteditable="false">Un visore di qualità parte da 300 €. I sistemi professionali superano i 1.000 €.</p>
+          </div>
+          <div class="card">
+            <h3 contenteditable="false">🤢 Motion sickness</h3>
+            <p contenteditable="false">Nausea da discrepanza tra movimento percepito e assenza di movimento fisico reale. Colpisce ~30% degli utenti.</p>
+          </div>
+          <div class="card">
+            <h3 contenteditable="false">👁️ Affaticamento visivo</h3>
+            <p contenteditable="false">Sessioni lunghe causano stanchezza agli occhi e al collo. Consigliati max 30 min consecutivi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 7 · COS'È LA AR ============ -->
+  <section class="slide">
+    <div class="deck-tab">VR/AR · M9</div>
+    <div class="split">
+      <div>
+        <div class="tape gold reveal">Realtà Aumentata</div>
+        <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Il digitale si sovrappone al reale</h2>
+        <p class="lead reveal d1" contenteditable="false">La <strong>Realtà Aumentata</strong> non sostituisce il mondo fisico: lo <em class="sky">arricchisce</em> aggiungendo layer digitali visibili attraverso uno schermo o degli occhiali.</p>
+        <p class="lead reveal d2" contenteditable="false" style="margin-top:20px;">L'utente vede l'ambiente circostante <strong>più</strong> informazioni, oggetti o animazioni virtuali posizionati con precisione nello spazio.</p>
+        <div class="note reveal d3" style="margin-top:28px;">
+          <div class="lbl">🔑 Differenza chiave</div>
+          <p contenteditable="false">VR = vedi <strong>solo</strong> il virtuale. AR = vedi il reale <strong>più</strong> elementi virtuali.</p>
+        </div>
+      </div>
+      <div style="display:grid;place-items:center;">
+        <div style="font-size:220px;line-height:1;text-align:center;" class="reveal d1">📱</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 8 · COME FUNZIONA LA AR ============ -->
+  <section class="slide">
+    <div class="deck-tab">VR/AR · M9</div>
+    <div class="tape gold reveal">Come funziona</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">I componenti della AR</h2>
+    <div class="grid4 reveal d1" style="margin-top:36px;">
+      <div class="card">
+        <span class="ic">📷</span>
+        <h3 contenteditable="false">Fotocamera</h3>
+        <p contenteditable="false">Acquisisce il mondo reale in tempo reale. È il "sensore" principale: senza di essa l'AR non può vedere su cosa sovrapporre il digitale.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🧭</span>
+        <h3 contenteditable="false">GPS e sensori</h3>
+        <p contenteditable="false">Giroscopio, accelerometro e GPS geolocalizzano il dispositivo. Permettono di ancorare gli oggetti virtuali a posizioni precise nel mondo.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🤖</span>
+        <h3 contenteditable="false">Computer Vision / IA</h3>
+        <p contenteditable="false">Algoritmi riconoscono superfici, volti, oggetti. Permettono di "agganciare" elementi digitali a superfici reali in modo stabile.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🖥️</span>
+        <h3 contenteditable="false">Display</h3>
+        <p contenteditable="false">Schermo del telefono, tablet o smart glasses (es. Apple Vision Pro, HoloLens). Mostra il mix reale+virtuale in tempo reale.</p>
+      </div>
+    </div>
+    <div class="note sky reveal d2" style="margin-top:28px;">
+      <div class="lbl">📱 Come usarla oggi</div>
+      <p contenteditable="false">Non serve hardware dedicato: framework come <strong>ARCore</strong> (Android) e <strong>ARKit</strong> (iOS) portano la AR su qualunque smartphone moderno tramite la sola fotocamera.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 9 · APPLICAZIONI AR ============ -->
+  <section class="slide">
+    <div class="deck-tab">VR/AR · M9</div>
+    <div class="tape gold reveal">Usi reali</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">La AR nella vita quotidiana</h2>
+    <div class="grid3 reveal d1" style="margin-top:36px;">
+      <div class="card">
+        <span class="ic">🎮</span>
+        <h3 contenteditable="false">Gaming e social</h3>
+        <p contenteditable="false"><strong>Pokémon GO</strong> è l'esempio più famoso: creature virtuali nel mondo reale. I <strong>filtri Instagram/Snapchat</strong> applicano maschere AR al volto in tempo reale.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🛠️</span>
+        <h3 contenteditable="false">Manutenzione industriale</h3>
+        <p contenteditable="false">Un tecnico indossa smart glasses: vede il macchinario reale più istruzioni di montaggio sovrapposte, senza dover consultare un manuale cartaceo.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🏥</span>
+        <h3 contenteditable="false">Medicina</h3>
+        <p contenteditable="false">Chirurghi vedono modelli 3D degli organi sovrapposti al paziente. Vene e arterie appaiono direttamente sulla pelle per trovare il punto di iniezione.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🛋️</span>
+        <h3 contenteditable="false">Shopping e arredamento</h3>
+        <p contenteditable="false">App come <strong>IKEA Place</strong> permettono di posizionare virtualmente un mobile in casa prima di acquistarlo. L'ecommerce AR riduce i resi del 30%.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🎓</span>
+        <h3 contenteditable="false">Istruzione</h3>
+        <p contenteditable="false">Libri di testo "animati": puntare il telefono su una figura fa partire un modello 3D. Anatomia, geometria spaziale e chimica diventano tangibili.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🗺️</span>
+        <h3 contenteditable="false">Navigazione</h3>
+        <p contenteditable="false">Google Maps Live View sovrappone frecce di navigazione sulla vista della fotocamera. Nessuna ambiguità tra mappa 2D e il mondo reale.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 10 · VR vs AR CONFRONTO ============ -->
+  <section class="slide">
+    <div class="deck-tab">VR/AR · M9</div>
+    <div class="tape reveal">A confronto</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">VR vs AR: le differenze</h2>
+    <table class="cmp reveal d1" style="margin-top:36px;">
+      <thead>
+        <tr>
+          <th style="background:var(--ink);">Caratteristica</th>
+          <th class="a">Realtà Virtuale (VR)</th>
+          <th class="b">Realtà Aumentata (AR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td contenteditable="false">Mondo percepito</td>
+          <td contenteditable="false">Completamente virtuale — il reale è escluso</td>
+          <td contenteditable="false">Reale + elementi digitali sovrapposti</td>
+        </tr>
+        <tr>
+          <td contenteditable="false">Hardware necessario</td>
+          <td contenteditable="false">Visore dedicato (Meta Quest, PS VR…)</td>
+          <td contenteditable="false">Smartphone, tablet o smart glasses</td>
+        </tr>
+        <tr>
+          <td contenteditable="false">Interazione</td>
+          <td contenteditable="false">Controller, guanti, body tracking</td>
+          <td contenteditable="false">Touch screen, gesti, voce</td>
+        </tr>
+        <tr>
+          <td contenteditable="false">Uso tipico</td>
+          <td contenteditable="false">Gaming, training immersivo, simulazioni</td>
+          <td contenteditable="false">Navigazione, filtri social, manutenzione</td>
+        </tr>
+        <tr>
+          <td contenteditable="false">Costo di accesso</td>
+          <td contenteditable="false">Medio-alto (300–1500 €)</td>
+          <td contenteditable="false">Basso (smartphone già disponibile)</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 11 · COS'È IL METAVERSO ============ -->
+  <section class="slide">
+    <div class="deck-tab">VR/AR · M9</div>
+    <div class="split">
+      <div>
+        <div class="tape teal reveal">Metaverso</div>
+        <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Un internet da abitare</h2>
+        <p class="lead reveal d1" contenteditable="false">Il <strong>Metaverso</strong> è la visione di un internet tridimensionale, persistente e condiviso, in cui le persone — rappresentate da <em class="sky">avatar</em> — lavorano, giocano, socializzano e comprano.</p>
+        <p class="lead reveal d2" contenteditable="false" style="margin-top:20px;">Non è un singolo prodotto: è un <strong>insieme di ambienti virtuali interconnessi</strong>. Come il web è fatto di molti siti, il metaverso è fatto di molti "mondi".</p>
+        <div class="note reveal d3" style="margin-top:28px;">
+          <div class="lbl">📖 Origine</div>
+          <p contenteditable="false">Il termine nasce nel romanzo <em>Snow Crash</em> di Neal Stephenson (1992), che immaginava un universo virtuale parallelo al mondo reale.</p>
+        </div>
+      </div>
+      <div style="display:grid;place-items:center;">
+        <div style="font-size:200px;line-height:1;" class="reveal d1">🌐</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 12 · CARATTERISTICHE METAVERSO ============ -->
+  <section class="slide">
+    <div class="deck-tab">VR/AR · M9</div>
+    <div class="tape teal reveal">Caratteristiche</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Cosa definisce un metaverso</h2>
+    <div class="grid3 reveal d1" style="margin-top:36px;">
+      <div class="card">
+        <span class="ic">🧑‍🤝‍🧑</span>
+        <h3 contenteditable="false">Avatar</h3>
+        <p contenteditable="false">Rappresentazione digitale dell'utente. Può essere fedele alle sembianze reali o completamente fantasiosa. Porta l'identità nel virtuale.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🔄</span>
+        <h3 contenteditable="false">Persistenza</h3>
+        <p contenteditable="false">Il mondo continua ad esistere anche quando l'utente non è connesso. Gli oggetti che costruisci restano lì. Come il mondo reale.</p>
+      </div>
+      <div class="card">
+        <span class="ic">💰</span>
+        <h3 contenteditable="false">Economia digitale</h3>
+        <p contenteditable="false">Valute virtuali, NFT, terreni digitali comprabili. Alcuni utenti guadagnano denaro reale creando e vendendo oggetti nel metaverso.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🤝</span>
+        <h3 contenteditable="false">Socializzazione</h3>
+        <p contenteditable="false">Concerti, riunioni, eventi, chat vocali spaziali. Meta Horizon, VRChat e Roblox puntano sulla dimensione sociale come valore principale.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🔗</span>
+        <h3 contenteditable="false">Interoperabilità</h3>
+        <p contenteditable="false">L'obiettivo (ancora non raggiunto) è portare avatar e oggetti da un mondo all'altro, come i siti web condividono link. Oggi ogni piattaforma è chiusa.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🥽</span>
+        <h3 contenteditable="false">Accesso multiplo</h3>
+        <p contenteditable="false">Si entra via visore VR per l'esperienza completa, ma anche via PC, smartphone o console. L'immersività è opzionale.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 13 · PIATTAFORME METAVERSO ============ -->
+  <section class="slide">
+    <div class="deck-tab">VR/AR · M9</div>
+    <div class="tape teal reveal">Piattaforme</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Dove esiste il metaverso oggi</h2>
+    <div class="grid3 reveal d1" style="margin-top:36px;">
+      <div class="card">
+        <span class="ic">🌐</span>
+        <h3 contenteditable="false">VRChat</h3>
+        <p contenteditable="false">Mondo virtuale social puro. Avatar personalizzati, stanze create dagli utenti, accessibile con o senza visore VR. Comunità molto creativa.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🎮</span>
+        <h3 contenteditable="false">Roblox</h3>
+        <p contenteditable="false">Piattaforma di giochi creati dagli utenti, molto popolare tra i giovani. Ha una sua valuta (Robux) e un'economia interna che genera milioni di dollari.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🏢</span>
+        <h3 contenteditable="false">Meta Horizon Worlds</h3>
+        <p contenteditable="false">Il metaverso di Meta (Facebook). Ottimizzato per visori Quest, punta su riunioni di lavoro e eventi sociali. Ancora in sviluppo.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🎵</span>
+        <h3 contenteditable="false">Fortnite (eventi)</h3>
+        <p contenteditable="false">Ha ospitato concerti virtuali con Travis Scott (27 M spettatori) e Ariana Grande. Il gioco si evolve verso spazio metaverso multifunzione.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🏘️</span>
+        <h3 contenteditable="false">Second Life</h3>
+        <p contenteditable="false">Il metaverso "originale" (2003). Ancora attivo con una sua economia. Dimostra che questi spazi possono sopravvivere decenni.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🏫</span>
+        <h3 contenteditable="false">Spatial e Gather</h3>
+        <p contenteditable="false">Piattaforme professionali per riunioni e uffici virtuali. Usate da aziende per team distribuiti: più coinvolgenti di una videochiamata piatta.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 14 · OPPORTUNITÀ E CRITICITÀ METAVERSO ============ -->
+  <section class="slide">
+    <div class="deck-tab">VR/AR · M9</div>
+    <div class="split even">
+      <div class="stack">
+        <div class="tape teal reveal">Opportunità</div>
+        <h2 class="h-sec reveal" contenteditable="false" style="margin-top:20px;">Cosa rende il metaverso utile</h2>
+        <div class="stack reveal d1">
+          <div class="card">
+            <h3 contenteditable="false">🎓 Formazione immersiva</h3>
+            <p contenteditable="false">Corsi in aula virtuale, simulazioni pratiche, affiancamento remoto in contesti 3D.</p>
+          </div>
+          <div class="card">
+            <h3 contenteditable="false">💼 Lavoro a distanza potenziato</h3>
+            <p contenteditable="false">Riunioni con senso di presenza reale. Collaborazione su oggetti 3D condivisi (prototipi, edifici, circuiti).</p>
+          </div>
+          <div class="card">
+            <h3 contenteditable="false">🌍 Inclusione geografica</h3>
+            <p contenteditable="false">Partecipare a eventi, visitare luoghi, frequentare corsi senza barriere fisiche o economiche di spostamento.</p>
+          </div>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="tape red reveal">Criticità</div>
+        <h2 class="h-sec reveal" contenteditable="false" style="margin-top:20px;">Problemi aperti</h2>
+        <div class="stack reveal d1">
+          <div class="card">
+            <h3 contenteditable="false">🔐 Privacy e sorveglianza</h3>
+            <p contenteditable="false">I visori raccolgono dati biometrici (movimenti oculari, gesti, voce). Più invasivi di qualunque social esistente.</p>
+          </div>
+          <div class="card">
+            <h3 contenteditable="false">🧠 Dipendenza e identità</h3>
+            <p contenteditable="false">Il confine tra identità reale e avatar sfuma. Rischio di preferire il virtuale al reale, specie per i più giovani.</p>
+          </div>
+          <div class="card">
+            <h3 contenteditable="false">⚖️ Proprietà dei dati</h3>
+            <p contenteditable="false">Chi possiede il "terreno" virtuale su cui costruisci? Piattaforme chiuse possono cancellare mondi interi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 15 · CLOSING ============ -->
+  <section class="slide closing">
+    <div class="deck-tab" style="background:var(--sky);">VR/AR · M9</div>
+    <div class="center" style="align-items:center;text-align:center;">
+      <div class="eyebrow reveal gold">Fine Modulo 9 🥽</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;" contenteditable="false">Nel futuro,<br><em class="gold">ci siamo già.</em></h2>
+      <p class="lead reveal d1" contenteditable="false" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">
+        VR, AR e Metaverso non sono fantascienza: sono tecnologie già disponibili che cambiano formazione, lavoro e socialità. Nel prossimo modulo vedremo come la <span class="gold">digitalizzazione cambia la società</span>.
+      </p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="inf10-societa.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → M10 · Tecnologia e Società</a>
+        <a href="00-indice.html" class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);text-decoration:none;">↩ Indice del corso</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;});}
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'inf-vr-ar-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>

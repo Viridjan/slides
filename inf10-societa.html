@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · Modulo 10 — Tecnologia e Società</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;background:#fff;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}.slide:last-child{break-after:auto;page-break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+code{font-family:var(--font-mono);}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}.d5{transition-delay:.68s !important;}.d6{transition-delay:.80s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}.tape.sky{background:var(--sky);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--sky);}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:28px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 32px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:8px;line-height:1;}
+.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.card.red{border-color:var(--red);}.card.red h3{color:var(--red);}
+.card.teal{border-color:var(--teal);}.card.teal h3{color:var(--teal);}
+.card.sky{border-color:var(--sky);}.card.sky h3{color:var(--sky);}
+.card.gold{border-color:var(--gold-deep);}.card.gold h3{color:var(--gold-deep);}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.chip.red{background:var(--red);color:#fff;}.chip.sky{background:var(--sky);color:#fff;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:24px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa;border-color:var(--red);}
+.note.sky{background:#d4eaee;border-color:var(--sky);}
+.note.teal{background:#c0d4d1;border-color:var(--teal);}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:26px;line-height:1.4;color:var(--ink);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:22px;}
+.steps{counter-reset:st;display:flex;flex-direction:column;gap:14px;}
+.step{display:flex;align-items:flex-start;gap:20px;background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:16px 24px;box-shadow:4px 5px 0 rgba(28,23,20,.12);}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:42px;line-height:1;}
+.step .t{font-size:26px;line-height:1.35;color:var(--ink-soft);padding-top:3px;}
+.step .t b{color:var(--ink);}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:26px;}
+.cmp th{font-family:var(--font-display);font-weight:900;font-size:33px;text-align:left;padding:16px 24px;color:var(--paper);}
+.cmp th.a{background:var(--red);border-radius:12px 0 0 0;}.cmp th.b{background:var(--teal);border-radius:0 12px 0 0;}
+.cmp th:first-child{background:var(--ink);}
+.cmp td{padding:13px 24px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.32;}
+.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2);}
+.cmp tr:last-child td{border-bottom:none;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal-2);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(4,auto);grid-template-columns:1fr 1fr;gap:18px 60px;margin-top:16px;}
+.agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:15px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:72px;}
+.agenda-item .t{font-size:28px;font-weight:600;color:var(--ink);}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing .gold{color:var(--gold);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;bottom:0;left:0;height:4px;background:var(--red);transition:width .4s var(--ease);z-index:9999;}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+  <!-- ============ SLIDE 1 · TITLE ============ -->
+  <section class="slide title-slide">
+    <div class="title-left">
+      <span class="tape">Informatica · M10</span>
+      <div class="eyebrow reveal" style="margin-top:40px;">Modulo 10</div>
+      <h1 class="h-mega reveal" contenteditable="false" style="margin-top:10px;">Tecnologia<br><em style="font-style:italic;color:var(--red);">e Società</em></h1>
+      <p class="lead reveal d1" contenteditable="false" style="margin-top:28px;">Benessere digitale, dipendenze, smart working e ricadute sociali della digitalizzazione.</p>
+      <div class="chips reveal d2" style="margin-top:46px;">
+        <span class="chip">Modulo 10</span><span class="chip alt">5 temi</span><span class="chip alt">~60 min</span>
+      </div>
+    </div>
+    <div class="title-right">
+      <div style="font-size:180px;line-height:1;text-align:center;" class="reveal">🧠</div>
+    </div>
+    <div class="deck-tab">SOCIETÀ · M10</div>
+  </section>
+
+  <!-- ============ SLIDE 2 · AGENDA ============ -->
+  <section class="slide">
+    <div class="deck-tab">SOCIETÀ · M10</div>
+    <div class="tape reveal">Cosa vedremo</div>
+    <h2 class="h-sec reveal" style="margin-top:32px;" contenteditable="false">Cinque temi, un filo comune</h2>
+    <div class="agenda-list reveal d1">
+      <div class="agenda-item"><span class="n">01</span><span class="t" contenteditable="false">Benessere digitale — salute mentale e uso consapevole</span></div>
+      <div class="agenda-item"><span class="n">02</span><span class="t" contenteditable="false">Dipendenze digitali — riconoscerle e prevenirle</span></div>
+      <div class="agenda-item"><span class="n">03</span><span class="t" contenteditable="false">Ambienti inclusivi — empatia, accessibilità, adattività</span></div>
+      <div class="agenda-item"><span class="n">04</span><span class="t" contenteditable="false">Smart Working — strumenti, vantaggi, rischi</span></div>
+      <div class="agenda-item"><span class="n">05</span><span class="t" contenteditable="false">Ricadute sociali della digitalizzazione</span></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 3 · BENESSERE DIGITALE ============ -->
+  <section class="slide">
+    <div class="deck-tab">SOCIETÀ · M10</div>
+    <div class="split">
+      <div>
+        <div class="tape reveal">Benessere digitale</div>
+        <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">La tecnologia e il nostro umore</h2>
+        <p class="lead reveal d1" contenteditable="false">La tecnologia migliora moltissimi aspetti della vita quotidiana: ci connette, ci informa, ci aiuta a lavorare. Ma un uso <em class="hot">scorretto o eccessivo</em> può influenzare il benessere psicologico.</p>
+        <p class="lead reveal d2" contenteditable="false" style="margin-top:20px;">Il <strong>digital wellbeing</strong> è la capacità di usare gli strumenti digitali in modo <em class="sky">consapevole</em>, mantenendo il controllo e preservando le relazioni reali.</p>
+        <div class="note reveal d3" style="margin-top:28px;">
+          <div class="lbl">💡 Principio base</div>
+          <p contenteditable="false">La tecnologia dovrebbe lavorare <strong>per te</strong>, non il contrario. Se senti che è la tecnologia a controllare i tuoi tempi e le tue emozioni, è il momento di riprendere il controllo.</p>
+        </div>
+      </div>
+      <div class="col" style="gap:22px;justify-content:center;">
+        <div class="card teal reveal d1">
+          <span class="ic">✅</span>
+          <h3 contenteditable="false">Uso sano</h3>
+          <p contenteditable="false">Scelgo quando e quanto usare il dispositivo. La tecnologia arricchisce la mia giornata.</p>
+        </div>
+        <div class="card red reveal d2">
+          <span class="ic">⚠️</span>
+          <h3 contenteditable="false">Uso problematico</h3>
+          <p contenteditable="false">Il dispositivo mi distrae continuamente. Mi sento ansioso se non controllo le notifiche.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 4 · INCLUSIONE E ISOLAMENTO ============ -->
+  <section class="slide">
+    <div class="deck-tab">SOCIETÀ · M10</div>
+    <div class="tape reveal">Due facce</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Inclusione vs Isolamento</h2>
+    <div class="grid2 reveal d1" style="margin-top:36px;">
+      <div class="stack">
+        <div class="card teal">
+          <span class="ic">🌍</span>
+          <h3 contenteditable="false">La tecnologia include</h3>
+          <p contenteditable="false">Permette di comunicare, studiare e lavorare abbattendo barriere geografiche. Chi ha mobilità ridotta o vive in zone remote può partecipare alla vita sociale e professionale come chiunque altro.</p>
+        </div>
+        <div class="card teal">
+          <span class="ic">🤝</span>
+          <h3 contenteditable="false">Comunità digitali</h3>
+          <p contenteditable="false">Forum, gruppi, Discord: chi si sente diverso o solo trova comunità di persone con gli stessi interessi. La rete può essere un luogo di appartenenza autentica.</p>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="card red">
+          <span class="ic">🚪</span>
+          <h3 contenteditable="false">La tecnologia isola</h3>
+          <p contenteditable="false">L'uso eccessivo riduce le interazioni faccia a faccia. Si può essere "connessi" con 500 persone online e sentirsi completamente soli nella vita reale.</p>
+        </div>
+        <div class="card red">
+          <span class="ic">😰</span>
+          <h3 contenteditable="false">Effetti psicologici</h3>
+          <p contenteditable="false">Stress, ansia, insonnia (luce blu che altera il ritmo circadiano), difficoltà di concentrazione, FOMO (Fear Of Missing Out) — paura di perdersi eventi e aggiornamenti.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 5 · DIPENDENZE DIGITALI ============ -->
+  <section class="slide">
+    <div class="deck-tab">SOCIETÀ · M10</div>
+    <div class="split">
+      <div>
+        <div class="tape red reveal">Dipendenze digitali</div>
+        <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Quando l'uso diventa incontrollato</h2>
+        <p class="lead reveal d1" contenteditable="false">Una <strong>dipendenza digitale</strong> si manifesta quando l'uso della tecnologia diventa compulsivo, interferisce con la vita quotidiana e genera disagio quando viene interrotto.</p>
+        <div class="stack reveal d2" style="margin-top:28px;">
+          <div class="note red">
+            <div class="lbl">⚠️ Segnali di allarme</div>
+            <p contenteditable="false"><strong>Perdita del controllo</strong> — non riesci a smettere anche volendo. <strong>Isolamento</strong> — rinunci ad uscire per stare online. <strong>Calo del rendimento</strong> — lavoro o studio ne risentono. <strong>Irritabilità</strong> — sei nervoso quando non puoi usare il dispositivo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="gap:18px;justify-content:center;">
+        <div class="card reveal d1">
+          <span class="ic">📱</span>
+          <h3 contenteditable="false">Social network</h3>
+          <p contenteditable="false">Scroll infinito progettato per tenere l'utente incollato. Like e commenti attivano la dopamina.</p>
+        </div>
+        <div class="card reveal d2">
+          <span class="ic">🎮</span>
+          <h3 contenteditable="false">Videogiochi</h3>
+          <p contenteditable="false">Loop di ricompensa, achievement, eventi limitati. Il gaming disorder è riconosciuto dall'OMS dal 2018.</p>
+        </div>
+        <div class="card reveal d3">
+          <span class="ic">🛒</span>
+          <h3 contenteditable="false">Shopping e gambling online</h3>
+          <p contenteditable="false">Acquisti impulsivi e gioco d'azzardo online amplificati dalla frizione quasi-zero del pagamento digitale.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 6 · STRATEGIE PREVENZIONE ============ -->
+  <section class="slide">
+    <div class="deck-tab">SOCIETÀ · M10</div>
+    <div class="tape reveal">Prevenzione</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Come mantenere il controllo</h2>
+    <div class="grid4 reveal d1" style="margin-top:36px;">
+      <div class="card teal">
+        <span class="ic">⏱️</span>
+        <h3 contenteditable="false">Screen time consapevole</h3>
+        <p contenteditable="false">Usa le funzioni native (iOS Screen Time, Android Digital Wellbeing) per vedere quanto tempo passi su ogni app. Spesso i dati sorprendono.</p>
+      </div>
+      <div class="card teal">
+        <span class="ic">🔕</span>
+        <h3 contenteditable="false">Notifiche ridotte al minimo</h3>
+        <p contenteditable="false">Ogni notifica è un'interruzione progettata per riportarti sull'app. Tieni attive solo quelle essenziali (telefonate, messaggi urgenti).</p>
+      </div>
+      <div class="card teal">
+        <span class="ic">🌿</span>
+        <h3 contenteditable="false">Pause regolari</h3>
+        <p contenteditable="false">Regola del 20-20-20: ogni 20 minuti, guarda un punto a 20 piedi (~6 m) per 20 secondi. Pausa di 5 min ogni ora. Niente schermo nell'ora prima di dormire.</p>
+      </div>
+      <div class="card teal">
+        <span class="ic">🏃</span>
+        <h3 contenteditable="false">Attività offline</h3>
+        <p contenteditable="false">Sport, hobby, passeggiate, incontri di persona. Non come "punizione" al digitale, ma come reintegro dell'equilibrio. Il corpo e le relazioni reali nutrono diversamente.</p>
+      </div>
+    </div>
+    <div class="note reveal d2" style="margin-top:28px;">
+      <div class="lbl">💡 Zona senza schermo</div>
+      <p contenteditable="false">Prova la regola: <strong>nessun telefono a tavola</strong> e <strong>nessun dispositivo in camera da letto</strong>. Sembrano piccoli gesti, ma hanno un impatto misurabile sulla qualità del sonno e sulla qualità delle conversazioni.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 7 · EMPATHY ENVIRONMENT ============ -->
+  <section class="slide">
+    <div class="deck-tab">SOCIETÀ · M10</div>
+    <div class="split">
+      <div>
+        <div class="tape sky reveal">Empathy Environment</div>
+        <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Progettare con empatia</h2>
+        <p class="lead reveal d1" contenteditable="false">Un <strong>Empathy Environment</strong> è un sistema digitale progettato tenendo al centro le <em class="sky">esperienze, le emozioni e i bisogni</em> degli utenti — inclusi quelli che normalmente vengono esclusi.</p>
+        <p class="lead reveal d2" contenteditable="false" style="margin-top:20px;">Non è solo estetica: è scegliere attivamente di non lasciare indietro nessuno, costruendo interfacce che riducono ansia, evitano pattern manipolativi e rispettano le differenze.</p>
+        <div class="note sky reveal d3" style="margin-top:28px;">
+          <div class="lbl">🔑 Principi fondamentali</div>
+          <p contenteditable="false"><strong>Essere accessibili</strong> — funziona per tutti i corpi e le menti. <strong>Rispettare le differenze</strong> — linguaggio inclusivo, icone non stereotipate. <strong>Favorire il dialogo</strong> — l'utente capisce cosa sta facendo. <strong>Evitare i dark pattern</strong> — nessun trucco per far fare all'utente cose che non vuole.</p>
+        </div>
+      </div>
+      <div class="col" style="gap:24px;justify-content:center;">
+        <div class="card sky reveal d1">
+          <span class="ic">🧩</span>
+          <h3 contenteditable="false">Dark pattern: il contrario</h3>
+          <p contenteditable="false">Abbonamenti impossibili da cancellare, bottoni "accetta tutto" enormi e "rifiuta" microscopico, cookie banner ingannevoli: questi sono il contrario di un empathy environment.</p>
+        </div>
+        <div class="card sky reveal d2">
+          <span class="ic">💬</span>
+          <h3 contenteditable="false">Messaggi di errore umani</h3>
+          <p contenteditable="false">"Error 403" vs "Non hai i permessi per vedere questa pagina — contatta il tuo amministratore". Il secondo è empatico. Il primo scarica il problema sull'utente.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 8 · ACCESSIBILITÀ ============ -->
+  <section class="slide">
+    <div class="deck-tab">SOCIETÀ · M10</div>
+    <div class="tape sky reveal">Accessibilità</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Progettare per tutti</h2>
+    <div class="grid4 reveal d1" style="margin-top:36px;">
+      <div class="card sky">
+        <span class="ic">🦾</span>
+        <h3 contenteditable="false">Disabilità motorie</h3>
+        <p contenteditable="false">Tastiera e comandi vocali al posto del mouse. Bottoni grandi, aree di tocco ampie. Nessuna azione che richieda click veloci o gesti complessi.</p>
+      </div>
+      <div class="card sky">
+        <span class="ic">👁️</span>
+        <h3 contenteditable="false">Disabilità visive</h3>
+        <p contenteditable="false">Screen reader (es. VoiceOver, NVDA) leggono il testo ad alta voce. Alt text sulle immagini. Contrasto minimo 4.5:1. Zoom fino al 200% senza perdere informazioni.</p>
+      </div>
+      <div class="card sky">
+        <span class="ic">👂</span>
+        <h3 contenteditable="false">Disabilità uditive</h3>
+        <p contenteditable="false">Sottotitoli su tutti i video (automatici o manuali). Notifiche visive oltre a quelle sonore. Trascrizioni dei contenuti audio.</p>
+      </div>
+      <div class="card sky">
+        <span class="ic">🧠</span>
+        <h3 contenteditable="false">Difficoltà cognitive</h3>
+        <p contenteditable="false">Linguaggio semplice, istruzioni brevi, icone chiare. Evitare troppe opzioni simultanee. Struttura coerente e prevedibile in tutta l'interfaccia.</p>
+      </div>
+    </div>
+    <div class="note sky reveal d2" style="margin-top:28px;">
+      <div class="lbl">📋 Standard WCAG</div>
+      <p contenteditable="false">Le <strong>Web Content Accessibility Guidelines</strong> (WCAG) definiscono 3 livelli: A (minimo), AA (raccomandato — obbligatorio in molti paesi per siti PA), AAA (ottimo). In Italia il D.Lgs. 82/2005 e la Legge 4/2004 (Legge Stanca) impongono l'accessibilità per la PA.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 9 · AMBIENTI ADATTIVI ============ -->
+  <section class="slide">
+    <div class="deck-tab">SOCIETÀ · M10</div>
+    <div class="tape sky reveal">Ambienti adattivi</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Sistemi che si adattano all'utente</h2>
+    <p class="lead reveal d1" contenteditable="false" style="margin-bottom:28px;">I moderni sistemi operativi e le piattaforme includono funzioni di adattività: non devono essere attivate dallo sviluppatore ma rispettate. Progettare bene significa <em class="sky">non romperle</em>.</p>
+    <div class="grid3 reveal d2">
+      <div class="card">
+        <span class="ic">🌙</span>
+        <h3 contenteditable="false">Modalità scura e luminosità</h3>
+        <p contenteditable="false">iOS/Android e Windows/macOS offrono dark mode automatica. Riduce l'affaticamento visivo notturno. Le app ben scritte seguono il tema di sistema senza configurazione.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🔤</span>
+        <h3 contenteditable="false">Dimensione dei caratteri</h3>
+        <p contenteditable="false">Tutte le principali piattaforme permettono di scalare il testo di sistema. Un'app accessibile usa unità relative (em, rem, sp) anziché pixel fissi.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🎙️</span>
+        <h3 contenteditable="false">Controllo vocale e TTS</h3>
+        <p contenteditable="false">Siri, Google Assistant, Alexa permettono di usare il dispositivo a mani libere. Il Text-to-Speech legge testi ad alta voce per chi ha difficoltà di lettura o visive.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🌍</span>
+        <h3 contenteditable="false">Traduzione automatica</h3>
+        <p contenteditable="false">Browser e app traducono in tempo reale. Un sito multilingua include utenti che altrimenti sarebbero esclusi per barriere linguistiche.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🤖</span>
+        <h3 contenteditable="false">IA e personalizzazione</h3>
+        <p contenteditable="false">Sistemi di raccomandazione (Netflix, Spotify, YouTube) adattano i contenuti al gusto individuale. L'IA personalizza anche percorsi di apprendimento e assistenza.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🎨</span>
+        <h3 contenteditable="false">Alto contrasto e filtri colore</h3>
+        <p contenteditable="false">Modalità per daltonici, filtri di colore, inversione display. iOS e Windows le includono di serie: bastano pochi tap per attivarle.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 10 · COS'È LO SMART WORKING ============ -->
+  <section class="slide">
+    <div class="deck-tab">SOCIETÀ · M10</div>
+    <div class="split">
+      <div>
+        <div class="tape gold reveal">Smart Working</div>
+        <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Lavorare ovunque, lavorare meglio?</h2>
+        <p class="lead reveal d1" contenteditable="false">Lo <strong>Smart Working</strong> (in Italia anche "lavoro agile") è una modalità di lavoro <em class="sky">flessibile per luogo e orario</em> basata sull'autonomia del lavoratore, non sulla presenza in ufficio.</p>
+        <p class="lead reveal d2" contenteditable="false" style="margin-top:20px;">Non è semplicemente "lavorare da casa": include la libertà di scegliere dove e come organizzare il proprio tempo, con obiettivi concordati con il datore di lavoro.</p>
+        <div class="note reveal d3" style="margin-top:28px;">
+          <div class="lbl">📋 In Italia</div>
+          <p contenteditable="false">Regolato dalla <strong>Legge 81/2017</strong> (Lavoro agile). Il lavoratore può alternare sede aziendale e lavoro da remoto. Richiede accordo scritto individuale.</p>
+        </div>
+      </div>
+      <div class="col" style="gap:22px;justify-content:center;">
+        <div class="card gold reveal d1">
+          <span class="ic">🏠</span>
+          <h3 contenteditable="false">Da casa (WFH)</h3>
+          <p contenteditable="false">Work From Home — la forma più comune. Studio dedicato, connessione stabile, orari flessibili.</p>
+        </div>
+        <div class="card gold reveal d2">
+          <span class="ic">☕</span>
+          <h3 contenteditable="false">Nomade digitale</h3>
+          <p contenteditable="false">Cambia sede ogni settimana o mese. Co-working, caffè, biblioteche. Richiede organizzazione e disciplina.</p>
+        </div>
+        <div class="card gold reveal d3">
+          <span class="ic">🏢</span>
+          <h3 contenteditable="false">Ibrido</h3>
+          <p contenteditable="false">2-3 giorni in ufficio, il resto da remoto. Il modello preferito dalla maggioranza dei lavoratori del settore tech.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 11 · STRUMENTI SMART WORKING ============ -->
+  <section class="slide">
+    <div class="deck-tab">SOCIETÀ · M10</div>
+    <div class="tape gold reveal">Strumenti</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Il kit dello smart worker</h2>
+    <div class="grid3 reveal d1" style="margin-top:36px;">
+      <div class="card">
+        <span class="ic">📹</span>
+        <h3 contenteditable="false">Videoconferenze</h3>
+        <p contenteditable="false"><strong>Zoom, Microsoft Teams, Google Meet</strong>. Sostituiscono le riunioni fisiche. Funzioni chiave: condivisione schermo, registrazione, lavagna virtuale, breakout room.</p>
+      </div>
+      <div class="card">
+        <span class="ic">☁️</span>
+        <h3 contenteditable="false">Cloud e collaborazione</h3>
+        <p contenteditable="false"><strong>Google Drive, OneDrive, Dropbox</strong>. Documenti condivisi modificabili da più persone simultaneamente. Nessun allegato da mandare avanti e indietro.</p>
+      </div>
+      <div class="card">
+        <span class="ic">💬</span>
+        <h3 contenteditable="false">Chat aziendali</h3>
+        <p contenteditable="false"><strong>Slack, Microsoft Teams, Discord</strong>. Canali tematici, thread, integrazione con altri strumenti. Più efficaci dell'email per comunicazioni rapide e informali.</p>
+      </div>
+      <div class="card">
+        <span class="ic">📋</span>
+        <h3 contenteditable="false">Gestione progetti</h3>
+        <p contenteditable="false"><strong>Trello, Asana, Notion, Jira</strong>. Task assegnati a persone, scadenze, avanzamento visibile a tutto il team. Sostituiscono le riunioni di aggiornamento quotidiane.</p>
+      </div>
+      <div class="card">
+        <span class="ic">📧</span>
+        <h3 contenteditable="false">Email e calendario condiviso</h3>
+        <p contenteditable="false"><strong>Gmail / Outlook + Google Calendar / Outlook Calendar</strong>. Appuntamenti condivisi, disponibilità visibile, inviti automatici alle riunioni.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🔐</span>
+        <h3 contenteditable="false">Accesso sicuro</h3>
+        <p contenteditable="false"><strong>VPN, autenticazione a due fattori (2FA), password manager</strong>. Essenziali per accedere alle risorse aziendali da reti non controllate.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 12 · VANTAGGI E SVANTAGGI SW ============ -->
+  <section class="slide">
+    <div class="deck-tab">SOCIETÀ · M10</div>
+    <div class="split even">
+      <div class="stack">
+        <div class="tape gold reveal">Vantaggi</div>
+        <h2 class="h-sec reveal" contenteditable="false" style="margin-top:20px;">Cosa funziona</h2>
+        <div class="stack reveal d1">
+          <div class="card gold">
+            <h3 contenteditable="false">⏰ Flessibilità oraria</h3>
+            <p contenteditable="false">Possibilità di lavorare negli orari più produttivi per sé. Chi rende di più la mattina presto, chi la sera.</p>
+          </div>
+          <div class="card gold">
+            <h3 contenteditable="false">🚆 Meno spostamenti</h3>
+            <p contenteditable="false">Ore di pendolarismo risparmiate ogni settimana. Beneficio per stress, portafoglio e ambiente.</p>
+          </div>
+          <div class="card gold">
+            <h3 contenteditable="false">⚖️ Work-life balance</h3>
+            <p contenteditable="false">Più tempo per famiglia, sport, hobby. Studi mostrano produttività uguale o superiore per la maggioranza dei lavoratori da remoto.</p>
+          </div>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="tape red reveal">Rischi</div>
+        <h2 class="h-sec reveal" contenteditable="false" style="margin-top:20px;">Cosa non funziona</h2>
+        <div class="stack reveal d1">
+          <div class="card red">
+            <h3 contenteditable="false">🏠 Confine vita/lavoro sfumato</h3>
+            <p contenteditable="false">Senza un orario fisso, si tende a lavorare troppo. L'"always on" è una delle principali cause di burnout da remoto.</p>
+          </div>
+          <div class="card red">
+            <h3 contenteditable="false">🤝 Isolamento e comunicazione</h3>
+            <p contenteditable="false">Meno interazioni spontanee. I nuovi dipendenti faticano a integrarsi. La cultura aziendale si trasmette peggio a distanza.</p>
+          </div>
+          <div class="card red">
+            <h3 contenteditable="false">🔒 Cybersecurity domestica</h3>
+            <p contenteditable="false">Le reti di casa sono meno sicure di quelle aziendali. Dispositivi condivisi con familiari, router non aggiornati, WiFi senza password.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 13 · SICUREZZA SMART WORKING ============ -->
+  <section class="slide">
+    <div class="deck-tab">SOCIETÀ · M10</div>
+    <div class="tape red reveal">Sicurezza</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Proteggere i dati aziendali da casa</h2>
+    <div class="grid2 reveal d1" style="margin-top:36px;align-items:start;">
+      <div class="stack">
+        <div class="card">
+          <span class="ic">🔐</span>
+          <h3 contenteditable="false">VPN aziendale obbligatoria</h3>
+          <p contenteditable="false">La VPN cripta tutto il traffico tra il tuo dispositivo e i server aziendali. Rende inutilizzabile qualunque intercettazione sulla rete domestica o pubblica.</p>
+        </div>
+        <div class="card">
+          <span class="ic">📱</span>
+          <h3 contenteditable="false">Autenticazione multi-fattore (MFA)</h3>
+          <p contenteditable="false">Password + codice OTP su telefono. Se la password è rubata, l'attaccante non ha comunque accesso. Attiva MFA su tutti gli account aziendali.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🔄</span>
+          <h3 contenteditable="false">Aggiornamenti e patch</h3>
+          <p contenteditable="false">Sistemi non aggiornati hanno vulnerabilità note e pubblicamente sfruttabili. Gli aggiornamenti automatici sono la difesa passiva più semplice ed efficace.</p>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="card">
+          <span class="ic">💾</span>
+          <h3 contenteditable="false">Backup regolari</h3>
+          <p contenteditable="false">Dati aziendali solo su cloud aziendale o drive condiviso, non sul desktop locale. Un ransomware che colpisce il PC non blocca il lavoro del team.</p>
+        </div>
+        <div class="card">
+          <span class="ic">📶</span>
+          <h3 contenteditable="false">WiFi sicuro a casa</h3>
+          <p contenteditable="false">Usa WPA3 o WPA2 sul router. Cambia la password di default del router. Crea una rete ospiti separata per dispositivi personali e IoT.</p>
+        </div>
+        <div class="note red" style="margin-top:0;">
+          <div class="lbl">🚨 Mai su WiFi pubblico</div>
+          <p contenteditable="false">Aeroporti, bar, hotel: reti non cifrate e potenzialmente controllate da malintenzionati. Usa sempre la VPN aziendale se costretto a usare reti pubbliche.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 14 · CAMBIAMENTI NELLA SOCIETÀ ============ -->
+  <section class="slide">
+    <div class="deck-tab">SOCIETÀ · M10</div>
+    <div class="tape teal reveal">Ricadute sociali</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">La digitalizzazione cambia tutto</h2>
+    <div class="grid3 reveal d1" style="margin-top:36px;">
+      <div class="card">
+        <span class="ic">💼</span>
+        <h3 contenteditable="false">Lavoro</h3>
+        <p contenteditable="false">Automazione sostituisce lavori ripetitivi, ne crea di nuovi (data analyst, cybersecurity, AI trainer). Il 65% dei lavori del 2030 non esiste ancora. La formazione continua è necessaria.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🏫</span>
+        <h3 contenteditable="false">Scuola e formazione</h3>
+        <p contenteditable="false">E-learning, MOOC, piattaforme come Coursera e Khan Academy. L'istruzione universitaria di qualità è accessibile globalmente. Ma il divario digitale esclude chi non ha dispositivi o connessione.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🏛️</span>
+        <h3 contenteditable="false">Pubblica Amministrazione</h3>
+        <p contenteditable="false">SPID, CIE, fascicolo sanitario elettronico, dichiarazione dei redditi precompilata. La PA digitale promette efficienza, ma richiede cittadini alfabetizzati digitalmente.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🛒</span>
+        <h3 contenteditable="false">Commercio</h3>
+        <p contenteditable="false">E-commerce, delivery, pagamenti digitali. Piccole attività locali competono o collaborano con piattaforme globali. Il salone può prenotare online, vendere prodotti, fare marketing social.</p>
+      </div>
+      <div class="card">
+        <span class="ic">❤️</span>
+        <h3 contenteditable="false">Relazioni sociali</h3>
+        <p contenteditable="false">Social network amplificano le relazioni ma le trasformano. Le amicizie online sono reali — ma diversi studi mostrano che la qualità delle relazioni conta più della quantità di contatti.</p>
+      </div>
+      <div class="card">
+        <span class="ic">⚖️</span>
+        <h3 contenteditable="false">Divario digitale</h3>
+        <p contenteditable="false">Non tutti hanno accesso uguale a dispositivi, connessione e competenze. Chi resta escluso dalla digitalizzazione è escluso da opportunità di lavoro, salute e partecipazione civica.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 15 · OPPORTUNITÀ E SFIDE FUTURE ============ -->
+  <section class="slide">
+    <div class="deck-tab">SOCIETÀ · M10</div>
+    <div class="split">
+      <div>
+        <div class="tape teal reveal">Sguardo al futuro</div>
+        <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Opportunità e responsabilità</h2>
+        <p class="lead reveal d1" contenteditable="false">Le nuove tecnologie offrono opportunità straordinarie, ma richiedono <em class="sky">competenze digitali</em>, <strong>spirito critico</strong> e attenzione agli aspetti etici.</p>
+        <p class="lead reveal d2" contenteditable="false" style="margin-top:20px;">La <strong>formazione continua</strong> non è opzionale: le competenze richieste cambiano ogni 3-5 anni. Chi si ferma, resta indietro.</p>
+        <div class="note teal reveal d3" style="margin-top:28px;">
+          <div class="lbl">🎯 Le 3 competenze del futuro</div>
+          <p contenteditable="false"><strong>1. Digital literacy</strong> — saper usare gli strumenti e valutare le informazioni.<br><strong>2. Critical thinking</strong> — non accettare acriticamente ciò che la tecnologia propone.<br><strong>3. Adattabilità</strong> — imparare nuovi strumenti è una competenza in sé.</p>
+        </div>
+      </div>
+      <div class="col" style="gap:22px;justify-content:center;">
+        <div class="card sky reveal d1">
+          <span class="ic">🤖</span>
+          <h3 contenteditable="false">Intelligenza Artificiale</h3>
+          <p contenteditable="false">Già presente in salute, lavoro, creatività. Non sostituisce l'umano — ma chi sa usarla bene ha un vantaggio enorme su chi la ignora.</p>
+        </div>
+        <div class="card sky reveal d2">
+          <span class="ic">🌱</span>
+          <h3 contenteditable="false">Sostenibilità digitale</h3>
+          <p contenteditable="false">I data center consumano circa il 2% dell'energia mondiale — quanto l'aviazione. Il futuro digitale deve essere anche sostenibile.</p>
+        </div>
+        <div class="card sky reveal d3">
+          <span class="ic">🤝</span>
+          <h3 contenteditable="false">Etica e governance</h3>
+          <p contenteditable="false">Chi decide come funziona l'IA? Chi è responsabile degli errori algoritmici? Sono domande per le quali servono cittadini informati, non solo tecnici.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 16 · CLOSING ============ -->
+  <section class="slide closing">
+    <div class="deck-tab">SOCIETÀ · M10</div>
+    <div class="center" style="align-items:center;text-align:center;">
+      <div class="eyebrow reveal gold">Fine Modulo 10 🎓</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;" contenteditable="false">Informati,<br><em class="gold">consapevoli, liberi.</em></h2>
+      <p class="lead reveal d1" contenteditable="false" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">
+        La tecnologia non è buona né cattiva: dipende da come la usiamo. Con le competenze giuste, possiamo usarla per <span class="gold">migliorare la nostra vita</span> senza esserne controllati.
+      </p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="00-indice.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">↩ Indice del corso</a>
+        <span class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);">Bravi! 👏</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;});}
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'inf-societa-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>
