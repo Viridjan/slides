@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · Modulo 12 — Concetti fondamentali degli OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;background:#fff;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}.slide:last-child{break-after:auto;page-break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+code{font-family:var(--font-mono);}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}.d5{transition-delay:.68s !important;}.d6{transition-delay:.80s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.teal{background:var(--teal);}.tape.sky{background:var(--sky);}.tape.gold{background:var(--gold-deep);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:7px;line-height:1;}
+.card p{font-size:24px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:44px;line-height:1;display:block;margin-bottom:7px;}
+.card.teal{border-color:var(--teal);}.card.teal h3{color:var(--teal);}
+.card.sky{border-color:var(--sky);}.card.sky h3{color:var(--sky);}
+.card.gold{border-color:var(--gold-deep);}.card.gold h3{color:var(--gold-deep);}
+.card.red{border-color:var(--red);}.card.red h3{color:var(--red);}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.sky{background:#d4eaee;border-color:var(--sky);}
+.note.red{background:#f3b6aa;border-color:var(--red);}
+.note.teal{background:#c0d4d1;border-color:var(--teal);}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:7px;}
+.note p{font-size:25px;line-height:1.4;color:var(--ink);}
+.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.split.t3{grid-template-columns:1fr 1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.stack>*+*{margin-top:20px;}
+.steps{display:flex;flex-direction:column;gap:12px;}
+.step{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:14px 20px;box-shadow:4px 5px 0 rgba(28,23,20,.10);}
+.step .n{font-family:var(--font-display);font-weight:900;font-size:36px;color:var(--teal);line-height:1.1;}
+.step .t{font-size:25px;line-height:1.35;color:var(--ink-soft);padding-top:2px;}
+.step .t b{color:var(--ink);}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:24px;}
+.cmp th{font-family:var(--font-display);font-weight:900;font-size:28px;text-align:left;padding:13px 18px;color:var(--paper);}
+.cmp th:nth-child(1){background:var(--ink);border-radius:12px 0 0 0;}
+.cmp th:nth-child(2){background:var(--red);}
+.cmp th:nth-child(3){background:var(--gold-deep);}
+.cmp th:nth-child(4){background:var(--teal);border-radius:0 12px 0 0;}
+.cmp td{padding:10px 18px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.3;}
+.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2);}
+.cmp tr:last-child td{border-bottom:none;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:110px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal-2);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(4,auto);grid-template-columns:1fr 1fr;gap:15px 60px;margin-top:16px;}
+.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:13px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--teal);min-width:68px;}
+.agenda-item .t{font-size:26px;font-weight:600;color:var(--ink);}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .gold{color:var(--gold);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;bottom:0;left:0;height:4px;background:var(--teal);transition:width .4s var(--ease);z-index:9999;}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+  <!-- ===== SLIDE 1 · TITLE ===== -->
+  <section class="slide title-slide">
+    <div class="title-left">
+      <span class="tape teal">Informatica · M12</span>
+      <div class="eyebrow reveal" style="color:var(--teal);margin-top:40px;">Modulo 12</div>
+      <h1 class="h-sec reveal" contenteditable="false" style="margin-top:10px;font-size:86px;line-height:.9;">OS: concetti<br><em style="font-style:italic;color:var(--teal);">fondamentali</em></h1>
+      <p class="lead reveal d1" contenteditable="false" style="margin-top:24px;">Driver, installazioni, aggiornamenti, licenze software, store, account, backup e come identificare il tuo sistema operativo.</p>
+      <div class="chips reveal d2" style="margin-top:38px;">
+        <span class="chip" style="background:var(--teal);">Modulo 12</span>
+        <span class="chip alt">Parte 2 di OS</span><span class="chip alt">~45 min</span>
+      </div>
+    </div>
+    <div class="title-right">
+      <div style="font-size:170px;line-height:1;text-align:center;" class="reveal">⚙️</div>
+    </div>
+    <div class="deck-tab">OS · M12</div>
+  </section>
+
+  <!-- ===== SLIDE 2 · AGENDA ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M12</div>
+    <div class="tape teal reveal">Argomenti</div>
+    <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Cosa vedremo</h2>
+    <div class="agenda-list reveal d1">
+      <div class="agenda-item"><span class="n">01</span><span class="t" contenteditable="false">OS vs Applicazioni — chi fa cosa</span></div>
+      <div class="agenda-item"><span class="n">02</span><span class="t" contenteditable="false">Installazione — come si installano i programmi</span></div>
+      <div class="agenda-item"><span class="n">03</span><span class="t" contenteditable="false">Driver — il ponte tra OS e hardware</span></div>
+      <div class="agenda-item"><span class="n">04</span><span class="t" contenteditable="false">Aggiornamenti OS e applicazioni</span></div>
+      <div class="agenda-item"><span class="n">05</span><span class="t" contenteditable="false">Licenze software — proprietario, open source, libero</span></div>
+      <div class="agenda-item"><span class="n">06</span><span class="t" contenteditable="false">Store digitali — vantaggi e differenze</span></div>
+      <div class="agenda-item"><span class="n">07</span><span class="t" contenteditable="false">Account, permessi e sicurezza utente</span></div>
+      <div class="agenda-item"><span class="n">08</span><span class="t" contenteditable="false">Backup, ripristino e come riconoscere l'OS</span></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 3 · OS vs APPLICAZIONI ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M12</div>
+    <div class="tape teal reveal">OS vs App</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Il sistema operativo non è un programma come gli altri</h2>
+    <div class="split even" style="margin-top:34px;">
+      <div class="stack">
+        <div class="card teal reveal d1">
+          <span class="ic">🏗️</span>
+          <h3 contenteditable="false">Sistema Operativo</h3>
+          <p contenteditable="false">Il fondamento: gestisce hardware, memoria, processi e periferiche. <strong>Esempi</strong>: Windows, macOS, Linux, Android.<br><br>Gira sempre in background, anche quando non si vede nulla sullo schermo.</p>
+        </div>
+        <div class="card sky reveal d2">
+          <span class="ic">📦</span>
+          <h3 contenteditable="false">Applicazioni</h3>
+          <p contenteditable="false">Programmi che svolgono compiti specifici usando le risorse che l'OS mette a disposizione. <strong>Esempi</strong>: Word, Chrome, VLC, Spotify.<br><br>Non possono girare senza un OS sottostante.</p>
+        </div>
+      </div>
+      <div class="col" style="justify-content:center;gap:0;">
+        <div class="note teal reveal d1" style="margin-bottom:20px;">
+          <div class="lbl">🔄 Come collaborano</div>
+          <p contenteditable="false">Quando avvii un'app, l'OS:<br><br>
+          1 — La carica nella <strong>RAM</strong><br>
+          2 — Le assegna <strong>tempo CPU</strong><br>
+          3 — Gestisce l'accesso a <strong>disco e rete</strong><br>
+          4 — Controlla <strong>permessi e errori</strong><br><br>
+          L'utente vede solo l'app. L'OS è invisibile, ma presente.</p>
+        </div>
+        <div class="note reveal">
+          <div class="lbl">💡 Analogia</div>
+          <p contenteditable="false">L'OS è il <strong>palazzo</strong>. Le app sono gli <strong>inquilini</strong>. Il palazzo fornisce elettricità, acqua, ascensore — le app usano queste risorse senza preoccuparsene.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 4 · INSTALLAZIONE ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M12</div>
+    <div class="tape teal reveal">Installazione</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Installare un programma: cosa succede davvero</h2>
+    <div class="split even" style="margin-top:30px;">
+      <div>
+        <div class="steps reveal d1">
+          <div class="step"><span class="n">1</span><div class="t"><b>Copia dei file</b> — i file del programma vengono copiati nelle cartelle del sistema (es. <code>C:\Program Files</code> su Windows, <code>/usr/bin</code> su Linux).</div></div>
+          <div class="step"><span class="n">2</span><div class="t"><b>Registrazione nel sistema</b> — il programma viene "annunciato" all'OS: icone nel menu, associazioni file, servizi in avvio.</div></div>
+          <div class="step"><span class="n">3</span><div class="t"><b>Librerie aggiuntive</b> — se l'app ha dipendenze (DLL su Windows, shared libraries su Linux), vengono installate anch'esse.</div></div>
+          <div class="step"><span class="n">4</span><div class="t"><b>Impostazioni di sistema</b> — chiavi di registro (Windows) o file di configurazione scritti nelle cartelle utente.</div></div>
+        </div>
+      </div>
+      <div class="stack">
+        <p style="font-family:var(--font-display);font-weight:900;font-size:34px;color:var(--teal);" contenteditable="false">Formati per OS</p>
+        <div class="card sky reveal d1" style="padding:18px 24px;">
+          <h3 contenteditable="false">🪟 Windows</h3>
+          <p contenteditable="false"><code>.exe</code> (installer eseguibile) e <code>.msi</code> (Windows Installer). Esegui il file, segui la procedura guidata.</p>
+        </div>
+        <div class="card teal reveal d2" style="padding:18px 24px;">
+          <h3 contenteditable="false">🍎 macOS</h3>
+          <p contenteditable="false"><code>.pkg</code> (installer guidato) e <code>.dmg</code> (immagine disco: trascini l'app nella cartella Applicazioni).</p>
+        </div>
+        <div class="card gold reveal d3" style="padding:18px 24px;">
+          <h3 contenteditable="false">🐧 Linux — package manager</h3>
+          <p contenteditable="false"><code>apt install</code>, <code>dnf install</code>, <code>pacman -S</code>, <code>zypper in</code>: un comando, il sistema scarica e installa tutto in sicurezza dai repository ufficiali.</p>
+        </div>
+        <div class="card red reveal d4" style="padding:18px 24px;">
+          <h3 contenteditable="false">🤖 Android</h3>
+          <p contenteditable="false">Play Store (consigliato) oppure file <code>.apk</code> manuale (sideloading — più rischio).</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 5 · DRIVER ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M12</div>
+    <div class="split even">
+      <div>
+        <div class="tape teal reveal">Driver</div>
+        <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Il ponte tra OS e hardware</h2>
+        <p class="lead reveal d1" contenteditable="false">Un <strong>driver</strong> è un software che traduce i comandi generici dell'OS in istruzioni specifiche per un componente hardware. Senza il driver corretto, l'hardware non funziona — o funziona in modo limitato.</p>
+        <div class="note teal reveal d2" style="margin-top:26px;">
+          <div class="lbl">⚙️ Perché aggiornarli</div>
+          <p contenteditable="false">Un driver aggiornato può: migliorare le <strong>prestazioni</strong> (es. driver GPU per giochi nuovi), correggere <strong>errori</strong> e crash, aumentare la <strong>sicurezza</strong> (vulnerabilità nei driver sono bersagli reali), abilitare <strong>nuove funzionalità</strong> (es. nuova risoluzione).</p>
+        </div>
+        <div class="note red reveal d3" style="margin-top:16px;">
+          <div class="lbl">⚠️ Attenzione</div>
+          <p contenteditable="false">Scarica driver solo dal sito ufficiale del produttore (NVIDIA, AMD, Intel, HP…) o dal Windows Update. Siti terzi distribuiscono spesso malware mascherati da driver.</p>
+        </div>
+      </div>
+      <div class="stack" style="justify-content:center;">
+        <p style="font-family:var(--font-display);font-weight:900;font-size:30px;color:var(--teal);margin-bottom:4px;" contenteditable="false">Esempi di periferiche</p>
+        <div class="card reveal d1" style="padding:18px 24px;">
+          <p contenteditable="false">🖨️ <strong>Stampante</strong> — senza driver stampa solo testo grezzo o niente<br>
+          🖥️ <strong>Scheda video</strong> — senza driver, risoluzione minima e no accelerazione 3D<br>
+          🔊 <strong>Scheda audio</strong> — senza driver, nessun suono<br>
+          📷 <strong>Webcam</strong> — senza driver, non rilevata da Teams/Zoom<br>
+          🖱️ <strong>Tastiera/mouse speciali</strong> — tasti extra non funzionanti<br>
+          📶 <strong>Adattatore WiFi</strong> — senza driver, nessuna rete wireless</p>
+        </div>
+        <div class="note reveal d2">
+          <div class="lbl">💡 Su Linux</div>
+          <p contenteditable="false">La maggior parte dei driver è già integrata nel kernel. Hardware comune funziona subito, senza installazione manuale — al contrario di Windows dove molti driver vanno cercati.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 6 · AGGIORNAMENTI ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M12</div>
+    <div class="tape teal reveal">Aggiornamenti</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Aggiornare OS e applicazioni: non rimandare</h2>
+    <div class="split even" style="margin-top:30px;">
+      <div class="stack">
+        <div class="card teal reveal d1">
+          <span class="ic">🖥️</span>
+          <h3 contenteditable="false">Aggiornamenti del sistema operativo</h3>
+          <p contenteditable="false">Includono: <strong>patch di sicurezza</strong> (correggono vulnerabilità già sfruttate dagli attaccanti), <strong>bugfix</strong> (crash, freeze, errori), <strong>nuove funzionalità</strong>, supporto per hardware recente. Vanno installati appena disponibili — soprattutto quelli di sicurezza.</p>
+        </div>
+        <div class="card sky reveal d2">
+          <span class="ic">📦</span>
+          <h3 contenteditable="false">Aggiornamenti delle applicazioni</h3>
+          <p contenteditable="false">Un OS aggiornato ma con app obsolete rimane <strong>vulnerabile</strong>. Browser, lettori PDF, plugin e suite Office sono bersagli frequenti. Le vulnerabilità nei browser sono tra le più sfruttate per attacchi.</p>
+        </div>
+      </div>
+      <div class="col" style="gap:18px;justify-content:center;">
+        <div class="note red reveal d1">
+          <div class="lbl">🚨 WannaCry 2017</div>
+          <p contenteditable="false">Il ransomware che ha infettato 200.000 sistemi in 150 paesi sfruttava una vulnerabilità di Windows per cui Microsoft aveva rilasciato la patch <strong>60 giorni prima</strong>. Chi aveva aggiornato era immune. Chi no, ha perso tutti i file.</p>
+        </div>
+        <div class="note reveal d2">
+          <div class="lbl">✅ Buone pratiche</div>
+          <p contenteditable="false">
+          • Abilita <strong>aggiornamenti automatici</strong> sull'OS<br>
+          • Aggiorna le app tramite store ufficiale<br>
+          • Non rimandare oltre 1 settimana le patch di sicurezza<br>
+          • Verifica che i driver siano aggiornati, specie GPU e rete
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 7 · LICENZE SOFTWARE ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M12</div>
+    <div class="tape gold reveal">Licenze software</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Proprietario, Open Source, Software Libero</h2>
+    <div class="split t3" style="margin-top:30px;gap:30px;align-items:start;height:auto;">
+      <div class="stack reveal d1">
+        <div class="card red">
+          <span class="ic">🔒</span>
+          <h3 contenteditable="false">Software Proprietario</h3>
+          <p contenteditable="false">Codice sorgente segreto. Licenza d'uso a pagamento con condizioni definite dal produttore. Non puoi modificarlo né ridistribuirlo.<br><br><strong>Esempi</strong>: Windows, macOS, Microsoft Office, Adobe Photoshop.</p>
+        </div>
+      </div>
+      <div class="stack reveal d2">
+        <div class="card gold">
+          <span class="ic">👁️</span>
+          <h3 contenteditable="false">Open Source</h3>
+          <p contenteditable="false">Codice sorgente pubblico e leggibile. Focus sulla <strong>collaborazione tecnica</strong>: chiunque può contribuire, studiare, spesso modificare. Non sempre garantisce tutte le libertà.<br><br><strong>Esempi</strong>: Android (AOSP), Chromium, VS Code.</p>
+        </div>
+      </div>
+      <div class="stack reveal d3">
+        <div class="card teal">
+          <span class="ic">🔓</span>
+          <h3 contenteditable="false">Software Libero</h3>
+          <p contenteditable="false">Le <strong>4 libertà</strong> (FSF):<br>0 — Eseguire<br>1 — Studiare<br>2 — Ridistribuire<br>3 — Modificare e ridistribuire<br><br>Focus sulla <strong>libertà dell'utente</strong>, non solo sul codice aperto. <strong>Gratis</strong> ≠ libero.<br><br><strong>Esempi</strong>: Linux, Firefox, LibreOffice, VLC.</p>
+        </div>
+      </div>
+    </div>
+    <div class="note reveal d4" style="margin-top:22px;">
+      <div class="lbl">🔁 Come si sovrappongono</div>
+      <p contenteditable="false">Quasi tutto il software libero è anche open source. Non tutto l'open source è "libero" nel senso politico (alcune licenze open source limitano usi commerciali). Molti software appartengono a entrambe le categorie: Linux, Firefox, Git, Python.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 8 · STORE DIGITALI ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M12</div>
+    <div class="tape teal reveal">App Store</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Gli store digitali: installazione sicura e centralizzata</h2>
+    <div class="split even" style="margin-top:30px;">
+      <div class="grid2 reveal d1" style="align-content:start;">
+        <div class="card sky" style="padding:20px 24px;">
+          <span class="ic" style="font-size:36px;">🪟</span>
+          <h3 contenteditable="false">Microsoft Store</h3>
+          <p contenteditable="false">Integrato in Windows 10/11. App verificate da Microsoft. Aggiornamenti automatici. Supporta anche app desktop tradizionali (Win32) dal 2021.</p>
+        </div>
+        <div class="card teal" style="padding:20px 24px;">
+          <span class="ic" style="font-size:36px;">🍎</span>
+          <h3 contenteditable="false">Apple App Store</h3>
+          <p contenteditable="false">Lo store più controllato: ogni app è revisionata da Apple. Sandboxing obbligatorio. Privacy label obbligatorie. Standard di sicurezza più alti.</p>
+        </div>
+        <div class="card red" style="padding:20px 24px;">
+          <span class="ic" style="font-size:36px;">🤖</span>
+          <h3 contenteditable="false">Google Play Store</h3>
+          <p contenteditable="false">Milioni di app. Play Protect scansiona per malware. Meno restrittivo di Apple: qualche app malevola riesce a passare, ma viene rimossa velocemente.</p>
+        </div>
+        <div class="card gold" style="padding:20px 24px;">
+          <span class="ic" style="font-size:36px;">🐧</span>
+          <h3 contenteditable="false">Snap Store / Flathub</h3>
+          <p contenteditable="false">Store per Linux. Snap (Ubuntu/Canonical) e Flatpak/Flathub (community): app sandboxed e aggiornabili su qualsiasi distro, indipendentemente dal package manager.</p>
+        </div>
+      </div>
+      <div class="col" style="gap:18px;justify-content:center;">
+        <div class="note teal reveal d1">
+          <div class="lbl">✅ Vantaggi degli store</div>
+          <p contenteditable="false">• App <strong>verificate</strong> (riduzione malware)<br>• <strong>Aggiornamenti automatici</strong><br>• <strong>Disinstallazione pulita</strong><br>• <strong>Un unico posto</strong> per cercare e gestire<br>• <strong>Rollback</strong> a versione precedente se un aggiornamento rompe qualcosa</p>
+        </div>
+        <div class="note red reveal d2">
+          <div class="lbl">⚠️ Fuori dagli store</div>
+          <p contenteditable="false">Software non distribuito tramite store (es. software aziendale, tool professionali) va scaricato <strong>solo dal sito ufficiale del produttore</strong>. Mai da siti di download generici.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 9 · ACCOUNT E PERMESSI ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M12</div>
+    <div class="tape teal reveal">Account e Permessi</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Utenti, privilegi e perché importano per la sicurezza</h2>
+    <div class="split even" style="margin-top:30px;">
+      <div class="stack">
+        <div class="card teal reveal d1">
+          <span class="ic">👑</span>
+          <h3 contenteditable="false">Amministratore</h3>
+          <p contenteditable="false">Può fare tutto: installare software, modificare impostazioni di sistema, accedere a tutti i file. Su Windows: "Amministratore". Su Linux/macOS: <code>root</code> / <code>sudo</code>. <strong>Da non usare per il lavoro quotidiano</strong>.</p>
+        </div>
+        <div class="card sky reveal d2">
+          <span class="ic">🧑</span>
+          <h3 contenteditable="false">Utente standard</h3>
+          <p contenteditable="false">Può usare le app installate, gestire i propri file, cambiare le proprie impostazioni. Non può installare software di sistema o modificare configurazioni globali. <strong>Consigliato per uso quotidiano</strong>.</p>
+        </div>
+        <div class="card reveal d3">
+          <span class="ic">👤</span>
+          <h3 contenteditable="false">Ospite</h3>
+          <p contenteditable="false">Accesso minimo: usa il computer temporaneamente. Nessun file personale salvato tra una sessione e l'altra. Ideale per prestare il PC a qualcuno senza rischi.</p>
+        </div>
+      </div>
+      <div class="col" style="gap:18px;justify-content:center;">
+        <div class="note reveal d1">
+          <div class="lbl">🛡️ Principio del minimo privilegio</div>
+          <p contenteditable="false">Ogni utente (e ogni app) dovrebbe avere solo i permessi strettamente necessari. Un malware che gira come utente standard fa molto meno danno di uno che gira come amministratore.</p>
+        </div>
+        <div class="note teal reveal d2">
+          <div class="lbl">👨‍👩‍👧 Account separati</div>
+          <p contenteditable="false">Su un PC condiviso (famiglia, ufficio) ogni persona dovrebbe avere il proprio account:<br><br>• <strong>Impostazioni personali</strong> separate<br>• <strong>Documenti</strong> accessibili solo a se stessi<br>• <strong>Password e sessioni</strong> distinte<br>• Nessuna contaminazione tra profili</p>
+        </div>
+        <div class="note sky reveal d3">
+          <div class="lbl">📱 Su Android / iOS</div>
+          <p contenteditable="false">Le app chiedono <strong>permessi</strong> espliciti (fotocamera, posizione, microfono, contatti). Concedili solo se l'app ne ha bisogno per funzionare. Un torcia-app non ha bisogno dei tuoi contatti.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 10 · BACKUP E RIPRISTINO ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M12</div>
+    <div class="tape reveal">Backup e Ripristino</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Un backup è utile solo se si può ripristinare</h2>
+    <div class="split even" style="margin-top:30px;">
+      <div class="stack">
+        <div class="card teal reveal d1">
+          <span class="ic">💾</span>
+          <h3 contenteditable="false">Cos'è un backup</h3>
+          <p contenteditable="false">Una copia dei propri dati in un luogo diverso dall'originale. Protegge da: <strong>guasti hardware</strong>, <strong>ransomware</strong> (i dati cifrati non lo sono nel backup), <strong>furto</strong>, <strong>cancellazione accidentale</strong>, <strong>errori software</strong>.</p>
+        </div>
+        <div class="card reveal d2">
+          <span class="ic">📍</span>
+          <h3 contenteditable="false">Dove fare il backup</h3>
+          <p contenteditable="false">
+          🔌 <strong>Disco esterno</strong> — veloce, economico, fisicamente separato<br>
+          🏠 <strong>NAS</strong> (Network Attached Storage) — server casalingo automatico<br>
+          ☁️ <strong>Cloud</strong> — Google Drive, OneDrive, iCloud, Backblaze — accesso ovunque<br><br>
+          La regola <strong>3-2-1</strong>: 3 copie, su 2 supporti diversi, 1 fuori sede.</p>
+        </div>
+      </div>
+      <div class="col" style="gap:18px;justify-content:center;">
+        <div class="card sky reveal d1">
+          <span class="ic">🔄</span>
+          <h3 contenteditable="false">Ripristino</h3>
+          <p contenteditable="false">Recuperare documenti, impostazioni o l'intero sistema dal backup. Strumenti nativi:<br><br>
+          🪟 <strong>Windows</strong>: Cronologia file, Punto di ripristino, Backup e ripristino<br>
+          🍎 <strong>macOS</strong>: Time Machine (backup automatico ogni ora su disco esterno)<br>
+          🤖 <strong>Android</strong>: Backup Google One<br>
+          🐧 <strong>Linux</strong>: <code>rsync</code>, Déjà Dup, Timeshift</p>
+        </div>
+        <div class="note red reveal d2">
+          <div class="lbl">⚠️ Il backup non testato non esiste</div>
+          <p contenteditable="false">Un backup non verificato potrebbe essere corrotto, incompleto o su un disco già guasto. Prova a ripristinare un file di test <strong>almeno una volta ogni 3 mesi</strong>. Il momento peggiore per scoprire che il backup non funziona è dopo un disastro.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 11 · IDENTIFICARE L'OS ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M12</div>
+    <div class="tape teal reveal">Riconoscere l'OS</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Come sapere quale sistema operativo usi</h2>
+    <div class="grid4 reveal d1" style="margin-top:36px;">
+      <div class="card sky">
+        <span class="ic">🪟</span>
+        <h3 contenteditable="false">Windows</h3>
+        <p contenteditable="false"><strong>Metodo 1</strong>:<br>Start → Impostazioni → Sistema → Informazioni sul sistema<br><br><strong>Metodo 2</strong>:<br>Tasto Win + Pausa/Break<br><br><strong>Da terminale</strong>:<br><code>winver</code></p>
+      </div>
+      <div class="card teal">
+        <span class="ic">🍎</span>
+        <h3 contenteditable="false">macOS</h3>
+        <p contenteditable="false"><strong>Metodo 1</strong>:<br>Menu Apple (🍎) → Informazioni su questo Mac<br><br>Mostra versione (es. Ventura 13.6), chip (Intel o Apple Silicon), RAM e spazio disco.<br><br><strong>Da terminale</strong>:<br><code>sw_vers</code></p>
+      </div>
+      <div class="card gold">
+        <span class="ic">🐧</span>
+        <h3 contenteditable="false">Linux</h3>
+        <p contenteditable="false"><strong>GUI</strong>:<br>Impostazioni → Informazioni (varia per distro)<br><br><strong>Terminale</strong>:<br><code>uname -a</code> — versione kernel<br><code>cat /etc/os-release</code> — distro e versione<br><code>lsb_release -a</code> — info complete</p>
+      </div>
+      <div class="card red">
+        <span class="ic">🤖</span>
+        <h3 contenteditable="false">Android</h3>
+        <p contenteditable="false"><strong>Metodo</strong>:<br>Impostazioni → Informazioni sul telefono → Versione Android<br><br>Qui trovi anche:<br>• Livello patch sicurezza<br>• Versione kernel Linux<br>• Versione UI del produttore (es. One UI 6.1)</p>
+      </div>
+    </div>
+    <div class="note reveal d2" style="margin-top:26px;">
+      <div class="lbl">💡 A cosa serve saperlo</div>
+      <p contenteditable="false">Sai se il tuo sistema riceve ancora aggiornamenti di sicurezza (es. Windows 10 termina supporto ottobre 2025). Puoi verificare la compatibilità con un nuovo software. Serve a chi ti supporta tecnicamente per darti istruzioni precise.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 12 · RIEPILOGO ===== -->
+  <section class="slide">
+    <div class="deck-tab">OS · M12</div>
+    <div class="tape teal reveal">Riepilogo</div>
+    <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">I concetti fondamentali degli OS</h2>
+    <div class="grid3 reveal d1" style="margin-top:32px;">
+      <div class="card teal" style="padding:22px 26px;">
+        <h3 contenteditable="false">📦 OS vs App</h3>
+        <p contenteditable="false">L'OS gestisce le risorse. Le app le usano. Senza OS, nessuna app può girare.</p>
+      </div>
+      <div class="card teal" style="padding:22px 26px;">
+        <h3 contenteditable="false">💿 Installazione</h3>
+        <p contenteditable="false">Ogni OS ha il suo metodo: .exe su Windows, dmg su Mac, package manager su Linux, APK su Android.</p>
+      </div>
+      <div class="card teal" style="padding:22px 26px;">
+        <h3 contenteditable="false">🔌 Driver</h3>
+        <p contenteditable="false">Traduttori tra OS e hardware. Tenerli aggiornati migliora prestazioni e sicurezza.</p>
+      </div>
+      <div class="card sky" style="padding:22px 26px;">
+        <h3 contenteditable="false">🔄 Aggiornamenti</h3>
+        <p contenteditable="false">OS e app vanno aggiornati regolarmente. Le patch di sicurezza non si rimandano.</p>
+      </div>
+      <div class="card gold" style="padding:22px 26px;">
+        <h3 contenteditable="false">📜 Licenze</h3>
+        <p contenteditable="false">Proprietario (chiuso), Open Source (codice aperto), Libero (4 libertà utente). Non sono la stessa cosa.</p>
+      </div>
+      <div class="card sky" style="padding:22px 26px;">
+        <h3 contenteditable="false">🏪 Store</h3>
+        <p contenteditable="false">Microsoft Store, App Store, Play Store, Flathub: installazione sicura, verificata e aggiornamenti automatici.</p>
+      </div>
+      <div class="card sky" style="padding:22px 26px;">
+        <h3 contenteditable="false">👤 Account</h3>
+        <p contenteditable="false">Account separati per ogni utente. Usa account standard per il lavoro quotidiano, non da amministratore.</p>
+      </div>
+      <div class="card" style="padding:22px 26px;">
+        <h3 contenteditable="false">💾 Backup</h3>
+        <p contenteditable="false">Regola 3-2-1: 3 copie, 2 supporti, 1 fuori sede. Testa il ripristino periodicamente.</p>
+      </div>
+      <div class="card" style="padding:22px 26px;">
+        <h3 contenteditable="false">🔍 Riconoscere l'OS</h3>
+        <p contenteditable="false">Impostazioni → Informazioni su tutti i sistemi. Sai se sei aggiornato e supportato.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ===== SLIDE 13 · CLOSING ===== -->
+  <section class="slide closing">
+    <div class="deck-tab">OS · M12</div>
+    <div class="center" style="align-items:center;text-align:center;">
+      <div class="eyebrow reveal gold">Fine Modulo 12 ⚙️</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;" contenteditable="false">Utente<br><em class="gold">consapevole.</em></h2>
+      <p class="lead reveal d1" contenteditable="false" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">
+        Capire come funziona il sistema operativo non è roba da tecnici: è la base per usare qualsiasi dispositivo in modo <span class="gold">sicuro, efficiente e libero</span>.
+      </p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="00-indice.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">↩ Indice del corso</a>
+        <span class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);">Bravi! 👏</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;});}
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'inf-os-concetti-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}});
+</script>
+</body>
+</html>
