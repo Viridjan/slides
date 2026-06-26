@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mappa Concettuale · Corso di Informatica</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,900&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --bg:#241d17;
+  --font-d:"Fraunces",Georgia,serif; --font-b:"Space Grotesk",sans-serif; --font-m:"Space Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);}
+
+/* ── HEADER ── */
+#hdr{
+  position:fixed;top:0;left:0;right:0;z-index:200;height:52px;
+  background:rgba(22,59,53,.96);
+  display:flex;align-items:center;padding:0 20px;gap:16px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(8px);
+}
+#hdr a{font-family:var(--font-m);font-size:13px;color:var(--paper);text-decoration:none;opacity:.7;white-space:nowrap;}
+#hdr a:hover{opacity:1;}
+#hdr h1{font-family:var(--font-d);font-weight:900;font-size:20px;color:var(--gold);flex:1;text-align:center;}
+.zc{display:flex;gap:6px;}
+.zc button{
+  width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.06);color:var(--paper);font-size:17px;cursor:pointer;
+  font-family:var(--font-m);transition:background .15s;
+}
+.zc button:hover{background:rgba(255,255,255,.15);}
+
+/* ── VIEWPORT ── */
+#vp{
+  position:fixed;top:52px;left:0;right:0;bottom:0;
+  overflow:hidden;cursor:grab;
+  background:var(--bg);
+  background-image:radial-gradient(rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:30px 30px;
+}
+#vp.drag{cursor:grabbing;}
+
+/* ── CANVAS ── */
+#cv{position:absolute;top:0;left:0;width:3200px;height:1180px;transform-origin:0 0;}
+
+/* ── SVG edges ── */
+#svg{position:absolute;top:0;left:0;width:3200px;height:1180px;pointer-events:none;overflow:visible;}
+
+/* ── NODE LAYER ── */
+#nl{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;}
+
+/* ── NODES ── */
+.node{
+  position:absolute;transform:translate(-50%,-50%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border-radius:12px;border:2.5px solid transparent;text-align:center;
+  font-family:var(--font-b);user-select:none;pointer-events:auto;
+  box-shadow:4px 5px 0 rgba(0,0,0,.28);
+  transition:transform .13s ease,box-shadow .13s ease;
+}
+.node:hover{transform:translate(-50%,-50%) scale(1.08);box-shadow:7px 9px 0 rgba(0,0,0,.32);z-index:50!important;}
+.node[data-href]{cursor:pointer;}
+.node[data-href]:active{transform:translate(-50%,-50%) scale(.96);}
+
+/* ROOT */
+.n-root{width:300px;height:84px;background:var(--teal);border-color:var(--gold);}
+.n-root .nt{font-family:var(--font-d);font-weight:900;font-size:21px;color:var(--paper);}
+.n-root .ns{font-family:var(--font-m);font-size:12px;color:var(--gold);margin-top:3px;opacity:.85;}
+
+/* AREA HUBS */
+.n-area{width:250px;height:64px;}
+.n-area .nt{font-family:var(--font-d);font-weight:900;font-size:19px;}
+.na-web{background:var(--sky);border-color:#2c5f6b;}.na-web .nt{color:#fff;}
+.na-sec{background:var(--red);border-color:#b33e2b;}.na-sec .nt{color:#fff;}
+.na-inf{background:var(--teal-2);border-color:var(--teal);}.na-inf .nt{color:#fff;}
+
+/* DECK NODES */
+.n-deck{width:228px;height:52px;padding:0 11px;}
+.n-deck .ntg{font-family:var(--font-m);font-size:10px;letter-spacing:.5px;text-transform:uppercase;opacity:.55;margin-bottom:2px;}
+.n-deck .nt{font-size:13px;font-weight:600;line-height:1.25;}
+.nd-web{background:#d4eaee;border-color:var(--sky);color:var(--ink);}
+.nd-sec{background:#f8d5ce;border-color:var(--red);color:var(--ink);}
+.nd-inf{background:#c2d5d2;border-color:var(--teal-2);color:var(--ink);}
+.nd-qz {background:#f0dc9a;border-color:var(--gold-deep);color:var(--ink);}
+
+/* QUIZ nodes — same as deck but tinted */
+.n-quiz{width:228px;height:52px;padding:0 11px;}
+.n-quiz .ntg{font-family:var(--font-m);font-size:10px;letter-spacing:.5px;text-transform:uppercase;opacity:.55;margin-bottom:2px;}
+.n-quiz .nt{font-size:13px;font-weight:600;line-height:1.25;}
+
+/* ── TOOLTIP ── */
+#tip{
+  position:fixed;z-index:300;pointer-events:none;
+  background:var(--ink);color:var(--paper);
+  border-radius:10px;padding:11px 15px;
+  font-family:var(--font-b);font-size:12.5px;line-height:1.5;
+  max-width:270px;opacity:0;transition:opacity .15s;
+  box-shadow:4px 6px 0 rgba(0,0,0,.4);
+}
+#tip.on{opacity:1;}
+#tip .tt{font-family:var(--font-d);font-weight:700;font-size:14px;color:var(--gold);margin-bottom:5px;}
+#tip .ti::before{content:"→ ";opacity:.45;}
+#tip .ti{font-size:12px;}
+
+/* ── LEGEND ── */
+#leg{
+  position:fixed;bottom:16px;left:16px;z-index:100;
+  background:rgba(22,59,53,.88);border-radius:10px;padding:10px 14px;
+  display:flex;flex-direction:column;gap:5px;
+  backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.08);
+}
+.li{display:flex;align-items:center;gap:8px;font-family:var(--font-b);font-size:12px;color:var(--paper);}
+.ld{width:13px;height:13px;border-radius:3px;flex-shrink:0;}
+
+/* ── HINT ── */
+#hint{
+  position:fixed;bottom:16px;right:16px;z-index:100;
+  font-family:var(--font-m);font-size:11px;color:var(--paper);opacity:.35;text-align:right;line-height:1.7;
+}
+</style>
+</head>
+<body>
+
+<div id="hdr">
+  <a href="00-indice.html">↩ Indice</a>
+  <h1>Mappa Concettuale del Corso</h1>
+  <div class="zc">
+    <button id="bZI" title="Zoom in (+)">+</button>
+    <button id="bZO" title="Zoom out (−)">−</button>
+    <button id="bFit" title="Adatta (0)">⊙</button>
+  </div>
+</div>
+
+<div id="vp">
+  <div id="cv">
+    <svg id="svg" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div id="nl"></div>
+  </div>
+</div>
+
+<div id="tip"></div>
+
+<div id="leg">
+  <div class="li"><div class="ld" style="background:#3f7e8c"></div>Reti e Web</div>
+  <div class="li"><div class="ld" style="background:#e6533b"></div>Sicurezza Digitale</div>
+  <div class="li"><div class="ld" style="background:#1f5249"></div>Informatica</div>
+  <div class="li"><div class="ld" style="background:#d98a2b"></div>Quiz macroarea</div>
+</div>
+
+<div id="hint">Trascina · Scroll = zoom · Clic = apri modulo</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════════════════════════════════════════════
+
+const N = [
+  // ROOT
+  { id:'root', type:'root', label:'Corso di Informatica', sub:'Percorso completo',
+    x:1600, y:110, href:'00-indice.html' },
+
+  // AREA HUBS
+  { id:'web', type:'area', cls:'web', label:'🌐 Reti e Web',         x:370,  y:280 },
+  { id:'sec', type:'area', cls:'sec', label:'🔐 Sicurezza Digitale', x:1600, y:280 },
+  { id:'inf', type:'area', cls:'inf', label:'💻 Informatica',        x:2750, y:280 },
+
+  // WEB — left col x=170, right col x=490
+  { id:'web01',  type:'deck', cls:'web', tag:'W01', label:'Reti Informatiche',  x:170, y:460, href:'web01-reti.html',
+    topics:["Cos'è una rete","LAN / WAN / MAN","Client e Server","Internet vs WWW","Come funziona una richiesta web"] },
+  { id:'web02',  type:'deck', cls:'web', tag:'W02', label:'Navigazione e URL',  x:170, y:540, href:'web02-navigazione.html',
+    topics:["HTTP / HTTPS","Anatomia di un URL","Protocolli di rete","Cos'è un hyperlink"] },
+  { id:'web02b', type:'deck', cls:'web', tag:'W02b',label:'Domini e Estensioni',x:170, y:620, href:'web02b-domini.html',
+    topics:["ccTLD geografici (es. .it .de)","gTLD tematici (.com .org)","Come funziona un registrar","Scegliere un dominio"] },
+  { id:'web03',  type:'deck', cls:'web', tag:'W03', label:'Ricerca e Informazioni',x:170,y:700,href:'web03-ricerca.html',
+    topics:["Motori di ricerca","Parole chiave vs frasi","Operatori avanzati","Valutare i risultati","Traduzione automatica"] },
+  { id:'web04',  type:'deck', cls:'web', tag:'W04', label:'Posta Elettronica',  x:490, y:460, href:'web04-email.html',
+    topics:["Indirizzo email professionale","A / CC / CCN","Struttura del messaggio","Allegati sicuri","Netiquette"] },
+  { id:'web05',  type:'deck', cls:'web', tag:'W05', label:'Firma Email',        x:490, y:540, href:'web05-firma.html',
+    topics:["Cosa includere","Formattazione","Disclaimer legale","Configurare su Outlook / Gmail"] },
+  { id:'web06',  type:'deck', cls:'web', tag:'W06', label:'Affidabilità Fonti', x:490, y:620, href:'web06-affidabilita.html',
+    topics:["HTTPS ≠ affidabile","Chi è l'autore","Data di pubblicazione","Acquisti online sicuri","Parental Control"] },
+  { id:'web07',  type:'deck', cls:'web', tag:'W07', label:'Gestione Contenuti', x:490, y:700, href:'web07-contenuti.html',
+    topics:["Formati di file","Salvare pagine / PDF","Segnalibri","Cloud vs locale","Collaborazione nel cloud"] },
+  // QUIZ web
+  { id:'qz-web', type:'deck', cls:'qz',  tag:'QUIZ',label:'Quiz · Reti e Web', x:330, y:820, href:'quiz-reti-web.html',
+    topics:["20 domande","Macroarea Reti e Web"] },
+
+  // SEC — left col x=1370, right col x=1720
+  { id:'sec01', type:'deck', cls:'sec', tag:'C01', label:'Introduzione Sicurezza', x:1370, y:460, href:'sec01-introduzione.html',
+    topics:["Triade CID","Impronta digitale","Superficie di attacco","Password e 2FA","10 buone abitudini"] },
+  { id:'sec02', type:'deck', cls:'sec', tag:'C02', label:'Minacce e Vulnerabilità',x:1370, y:540, href:'sec02-minacce.html',
+    topics:["Tipi di malware","Ransomware","Phishing e varianti","Man-in-the-Middle","Botnet / DDoS","Zero-Day"] },
+  { id:'sec03', type:'deck', cls:'sec', tag:'C03', label:'Privacy e Anonimato',   x:1370, y:620, href:'sec03-privacy.html',
+    topics:["GDPR e diritti","Come veniamo tracciati","Metadati","TOR","Browser privacy-friendly","Diritto all'oblio"] },
+  { id:'sec04', type:'deck', cls:'sec', tag:'C04', label:'Professioni Sicurezza', x:1720, y:460, href:'sec04-professioni.html',
+    topics:["Security Analyst / SOC","Penetration Tester","Incident Responder","CISO","Percorsi di formazione"] },
+  { id:'sec05', type:'deck', cls:'sec', tag:'C05', label:'Assessment e Compliance',x:1720,y:540, href:'sec05-assessment.html',
+    topics:["Vulnerability Assessment","Punteggio CVSS","VA vs Pen Test","GDPR e normative","Dati personali in rete"] },
+  // QUIZ sec
+  { id:'qz-sec', type:'deck', cls:'qz', tag:'QUIZ', label:'Quiz · Sicurezza',    x:1600, y:680, href:'quiz-sicurezza.html',
+    topics:["20 domande","Macroarea Sicurezza Digitale"] },
+
+  // INF — left col x=2510, right col x=2900
+  { id:'inf01', type:'deck', cls:'inf', tag:'I01', label:'Hardware e Componenti',  x:2510, y:460, href:'inf01-componenti.html',
+    topics:["CPU / RAM / Disco","Scheda madre / GPU","Periferiche I/O","USB / WiFi / Bluetooth","Software e S.O."] },
+  { id:'inf02', type:'deck', cls:'inf', tag:'I02', label:'Identità Digitale',      x:2510, y:540, href:'inf02-identita.html',
+    topics:["Identità privata vs professionale","PEC","SPID","Account aziendale","Dati sensibili GDPR"] },
+  { id:'inf03', type:'deck', cls:'inf', tag:'I03', label:'Documenti Professionali',x:2510, y:620, href:'inf03-documenti.html',
+    topics:["Scheda cliente","Curriculum vitae","Listino prezzi","Formattazione Word"] },
+  { id:'inf04', type:'deck', cls:'inf', tag:'I04', label:'Excel — Basi',           x:2510, y:700, href:'inf04-excel-basi.html',
+    topics:["Celle e riferimenti","Formule","SOMMA MEDIA MIN MAX","Formattazione dati"] },
+  { id:'inf05', type:'deck', cls:'inf', tag:'I05', label:'Excel — Avanzato',       x:2510, y:780, href:'inf05-excel-avanzato.html',
+    topics:["Tabelle e filtri","Tabelle pivot","Funzioni avanzate","Condivisione fogli","Automazione"] },
+  { id:'inf06', type:'deck', cls:'inf', tag:'I06', label:'Brand Identity',         x:2510, y:860, href:'inf06-branding.html',
+    topics:["Brand vs image","Vision e mission","Personal branding","Target e clienti"] },
+  { id:'inf07', type:'deck', cls:'inf', tag:'I07', label:'Social Media',           x:2900, y:460, href:'inf07-social.html',
+    topics:["Quale social per chi","Instagram / Facebook / TikTok","Contenuti: video / foto / testo","Promozione per un salone"] },
+  { id:'inf08', type:'deck', cls:'inf', tag:'I08', label:'Presentazioni',          x:2900, y:540, href:'inf08-presentazioni.html',
+    topics:["Una idea per slide","Gerarchia visiva","Colori e font","Prepararsi a presentare","Errori comuni"] },
+  { id:'inf09', type:'deck', cls:'inf', tag:'I09', label:'VR, AR e Metaverso',     x:2900, y:620, href:'inf09-vr-ar.html',
+    topics:["Realtà virtuale (HMD, controller)","Realtà aumentata (AR)","VR vs AR","Metaverso e piattaforme","Opportunità e criticità"] },
+  { id:'inf10', type:'deck', cls:'inf', tag:'I10', label:'Tecnologia e Società',   x:2900, y:700, href:'inf10-societa.html',
+    topics:["Benessere digitale","Accessibilità WCAG","Smart Working sicuro","Cambiamenti sociali","Divario digitale"] },
+  { id:'inf11', type:'deck', cls:'inf', tag:'I11', label:'Sistemi Operativi',      x:2900, y:780, href:'inf11-os.html',
+    topics:["Windows / macOS / Linux / Android","Kernel e GUI","File system (NTFS/APFS/ext4)","Sicurezza per OS","Come scegliere"] },
+  { id:'inf12', type:'deck', cls:'inf', tag:'I12', label:'OS — Concetti',          x:2900, y:860, href:'inf12-os-concetti.html',
+    topics:["Driver e periferiche","Installazione programmi","Licenze (proprietario/open/libero)","Backup 3-2-1","Account e permessi"] },
+  // QUIZ inf
+  { id:'qz-inf', type:'deck', cls:'qz', tag:'QUIZ', label:'Quiz · Informatica',   x:2750, y:990, href:'quiz-informatica.html',
+    topics:["20 domande","Macroarea Informatica"] },
+];
+
+const E = [
+  ['root','web'],['root','sec'],['root','inf'],
+  // web
+  ['web','web01'],['web','web02'],['web','web02b'],['web','web03'],
+  ['web','web04'],['web','web05'],['web','web06'],['web','web07'],
+  ['web','qz-web'],
+  // sec
+  ['sec','sec01'],['sec','sec02'],['sec','sec03'],
+  ['sec','sec04'],['sec','sec05'],['sec','qz-sec'],
+  // inf
+  ['inf','inf01'],['inf','inf02'],['inf','inf03'],['inf','inf04'],['inf','inf05'],['inf','inf06'],
+  ['inf','inf07'],['inf','inf08'],['inf','inf09'],['inf','inf10'],['inf','inf11'],['inf','inf12'],
+  ['inf','qz-inf'],
+];
+
+const COL = { web:'#3f7e8c', sec:'#e6533b', inf:'#163b35', qz:'#d98a2b', root:'#e6c14a' };
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  RENDER
+// ══════════════════════════════════════════════════════════════════════════════
+
+const nm = {};
+N.forEach(n => nm[n.id] = n);
+
+const svg = document.getElementById('svg');
+const nl  = document.getElementById('nl');
+
+// SVG edges
+E.forEach(([a, b]) => {
+  const n1 = nm[a], n2 = nm[b];
+  const color = n2.cls ? COL[n2.cls] : COL.root;
+  const thick  = n1.type === 'root' ? 2.8 : 1.8;
+  const opac   = n1.type === 'root' ? .75 : .50;
+  const x1=n1.x, y1=n1.y, x2=n2.x, y2=n2.y;
+  const midY=(y1+y2)/2;
+  const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+  p.setAttribute('d',`M${x1},${y1} C${x1},${midY} ${x2},${midY} ${x2},${y2}`);
+  p.setAttribute('stroke', color);
+  p.setAttribute('stroke-width', thick);
+  p.setAttribute('fill','none');
+  p.setAttribute('stroke-opacity', opac);
+  p.setAttribute('stroke-linecap','round');
+  svg.appendChild(p);
+});
+
+// HTML nodes
+N.forEach(n => {
+  const d = document.createElement('div');
+  d.style.left = n.x + 'px';
+  d.style.top  = n.y + 'px';
+
+  if(n.type === 'root') {
+    d.className = 'node n-root';
+    d.innerHTML = `<div class="nt">🎓 ${n.label}</div><div class="ns">${n.sub}</div>`;
+  } else if(n.type === 'area') {
+    d.className = `node n-area na-${n.cls}`;
+    d.innerHTML = `<div class="nt">${n.label}</div>`;
+  } else {
+    const isQz = n.cls === 'qz';
+    d.className = `node ${isQz ? 'n-quiz nd-qz' : `n-deck nd-${n.cls}`}`;
+    d.innerHTML = `<div class="ntg">${n.tag}</div><div class="nt">${n.label}</div>`;
+  }
+
+  if(n.href) {
+    d.dataset.href = n.href;
+    d.addEventListener('click', () => window.open(n.href, '_blank'));
+  }
+  if(n.topics?.length) {
+    d.addEventListener('mouseenter', e => showTip(e, n));
+    d.addEventListener('mousemove',  moveTip);
+    d.addEventListener('mouseleave', hideTip);
+  }
+  nl.appendChild(d);
+});
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  TOOLTIP
+// ══════════════════════════════════════════════════════════════════════════════
+
+const tip = document.getElementById('tip');
+
+function showTip(e, n) {
+  tip.innerHTML = `<div class="tt">${n.label}</div>${n.topics.map(t=>`<div class="ti">${t}</div>`).join('')}`;
+  tip.classList.add('on');
+  posTip(e);
+}
+function moveTip(e){ posTip(e); }
+function hideTip(){ tip.classList.remove('on'); }
+function posTip(e){
+  const mx=e.clientX, my=e.clientY;
+  const tw=276, th=tip.offsetHeight||100;
+  const rx = mx+18+tw > innerWidth  ? mx-tw-10 : mx+18;
+  const ry = my-10+th > innerHeight ? my-th-10 : my-10;
+  tip.style.left=rx+'px'; tip.style.top=ry+'px';
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  PAN / ZOOM
+// ══════════════════════════════════════════════════════════════════════════════
+
+const vp = document.getElementById('vp');
+const cv = document.getElementById('cv');
+const CW=3200, CH=1180;
+let sc=1, tx=0, ty=0, drag=false, sx=0, sy=0, stx=0, sty=0;
+
+function applyT(anim=false){
+  cv.style.transition = anim ? 'transform .28s ease' : '';
+  cv.style.transform = `translate(${tx}px,${ty}px) scale(${sc})`;
+}
+
+function fit(anim=false){
+  const vw=innerWidth, vh=innerHeight-52;
+  sc = Math.min(vw/CW, vh/CH) * 0.9;
+  tx = (vw - CW*sc)/2;
+  ty = (vh - CH*sc)/2;
+  applyT(anim);
+}
+fit();
+
+// Drag
+vp.addEventListener('mousedown', e=>{
+  if(e.button!==0 || e.target.closest('.node')) return;
+  drag=true; sx=e.clientX; sy=e.clientY; stx=tx; sty=ty;
+  vp.classList.add('drag');
+});
+window.addEventListener('mousemove', e=>{
+  if(!drag) return;
+  tx=stx+(e.clientX-sx); ty=sty+(e.clientY-sy); applyT();
+});
+window.addEventListener('mouseup', ()=>{ drag=false; vp.classList.remove('drag'); });
+
+// Wheel zoom
+vp.addEventListener('wheel', e=>{
+  e.preventDefault();
+  cv.style.transition='';
+  const f=e.deltaY<0?1.12:.88;
+  const ox=e.clientX, oy=e.clientY-52;
+  const ns=Math.max(.1,Math.min(3,sc*f));
+  tx=ox-(ox-tx)*(ns/sc); ty=oy-(oy-ty)*(ns/sc); sc=ns; applyT();
+},{passive:false});
+
+// Zoom fn
+function zoom(f,anim=true){
+  const ns=Math.max(.1,Math.min(3,sc*f));
+  const cx=innerWidth/2, cy=(innerHeight-52)/2;
+  tx=cx-(cx-tx)*(ns/sc); ty=cy-(cy-ty)*(ns/sc); sc=ns; applyT(anim);
+}
+
+document.getElementById('bZI').onclick  = ()=>zoom(1.25);
+document.getElementById('bZO').onclick  = ()=>zoom(.8);
+document.getElementById('bFit').onclick = ()=>fit(true);
+
+// Touch
+let ta=[], pd=0, ps=1, ptx=0, pty=0, tox=0, toy=0;
+vp.addEventListener('touchstart',e=>{
+  e.preventDefault(); ta=[...e.touches];
+  if(ta.length===1){tox=ta[0].clientX;toy=ta[0].clientY;stx=tx;sty=ty;}
+  else{pd=Math.hypot(ta[0].clientX-ta[1].clientX,ta[0].clientY-ta[1].clientY);ps=sc;ptx=tx;pty=ty;}
+},{passive:false});
+vp.addEventListener('touchmove',e=>{
+  e.preventDefault(); const t=[...e.touches];
+  if(t.length===1){tx=stx+(t[0].clientX-tox);ty=sty+(t[0].clientY-toy);applyT();}
+  else if(t.length===2){
+    const d=Math.hypot(t[0].clientX-t[1].clientX,t[0].clientY-t[1].clientY);
+    const ns=Math.max(.1,Math.min(3,ps*(d/pd)));
+    const mx=(t[0].clientX+t[1].clientX)/2,my=(t[0].clientY+t[1].clientY)/2-52;
+    tx=mx-(mx-ptx)*(ns/ps);ty=my-(my-pty)*(ns/ps);sc=ns;applyT();
+  }
+},{passive:false});
+
+// Keyboard
+window.addEventListener('keydown',e=>{
+  if(e.key==='+'||e.key==='=') zoom(1.2);
+  else if(e.key==='-') zoom(.83);
+  else if(e.key==='0') fit(true);
+  else if(e.key==='ArrowLeft'){tx+=50;applyT();}
+  else if(e.key==='ArrowRight'){tx-=50;applyT();}
+  else if(e.key==='ArrowUp'){ty+=50;applyT();}
+  else if(e.key==='ArrowDown'){ty-=50;applyT();}
+});
+
+window.addEventListener('resize', ()=>fit(false));
+</script>
+</body>
+</html>
