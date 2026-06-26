@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · Modulo 13 — Software Google</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.slide.visible .reveal:nth-child(5){transition-delay:.37s}.slide.visible .reveal:nth-child(6){transition-delay:.45s}
+.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}.d4{transition-delay:.56s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep)}.tape.teal{background:var(--teal)}.tape.sky{background:var(--sky)}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:92px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var(--sky)}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1120px;}
+.body{font-size:28px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1.05;}
+.card p{font-size:24px;line-height:1.36;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa}.note.sky{background:#d9edf2}.note.teal{background:var(--teal)}.note.teal *{color:var(--paper)!important}.note.teal .lbl{color:var(--gold)!important}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.36;color:var(--ink);}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.chip.red{background:var(--red);color:#fff}
+.col{display:flex;flex-direction:column}.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.stack>*+*{margin-top:22px}
+.tight-slide .h-big{font-size:78px}.tight-slide .h-sec{font-size:64px}.tight-slide .lead{font-size:28px;line-height:1.34}.tight-slide .body{font-size:24px;line-height:1.35}.tight-slide .stack>*+*{margin-top:12px}.tight-slide .grid2{gap:18px}.tight-slide .grid3{gap:16px}.tight-slide .card{padding:18px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12)}.tight-slide .card h3{font-size:30px;margin-bottom:6px}.tight-slide .card p{font-size:21px;line-height:1.28}.tight-slide .card .ic{font-size:34px}.tight-slide .note{padding:18px 22px}.tight-slide .note p{font-size:22px;line-height:1.3}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate}@keyframes float{to{transform:translate(-34px,46px) scale(1.04)}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}
+.app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.app{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:22px;box-shadow:6px 7px 0 rgba(28,23,20,.12)}.app .logo{width:58px;height:58px;border-radius:14px;display:grid;place-items:center;color:#fff;font-weight:900;font-family:var(--font-mono);font-size:26px;margin-bottom:12px}.blue{background:#4285f4}.green{background:#34a853}.yellow{background:#fbbc04;color:var(--ink)!important}.red{background:#ea4335}.teal-bg{background:var(--teal)}.sky-bg{background:var(--sky)}
+.app h3{font-family:var(--font-display);font-weight:900;font-size:30px;margin-bottom:6px}.app p{font-size:21px;line-height:1.3;color:var(--ink-soft)}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}.flow .card::after{content:"→";position:absolute;right:-23px;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:42px;color:var(--red)}.flow .card:last-child::after{display:none}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:24px}.cmp th{font-family:var(--font-display);font-weight:900;font-size:31px;text-align:left;padding:14px 20px;color:var(--paper);background:var(--teal)}.cmp th:first-child{background:var(--ink);border-radius:12px 0 0 0}.cmp th:last-child{border-radius:0 12px 0 0}.cmp td{padding:12px 20px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.3}.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2)}.cmp tr:last-child td{border-bottom:none}
+.g-logo{width:360px;height:360px;border-radius:42px;background:#fbf5ec;border:5px solid var(--ink);box-shadow:12px 14px 0 rgba(0,0,0,.18);display:grid;place-items:center;font-family:var(--font-display);font-weight:900;font-size:220px;color:#4285f4;position:relative}.g-logo::before{content:"";position:absolute;inset:28px;border-radius:28px;border:28px solid transparent;border-top-color:#ea4335;border-right-color:#4285f4;border-bottom-color:#34a853;border-left-color:#fbbc04}
+.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer}.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease}.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto}.edit-toggle.active{background:var(--red)}body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px}.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px}.edit-hint.show{display:block}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+  <section class="slide title-slide active">
+    <div class="title-left">
+      <div class="tape reveal">Corso di Informatica</div>
+      <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">Modulo 13 — Strumenti cloud</div>
+      <h1 class="h-mega reveal" contenteditable="true">Software<br><em class="hot">Google</em></h1>
+      <p class="lead reveal" style="margin-top:30px;" contenteditable="true">Drive, Documenti, Fogli, Presentazioni, Gmail e gli strumenti più usati per lavorare, studiare e collaborare online.</p>
+      <div class="chips reveal" style="margin-top:46px;"><span class="chip">20 slide</span><span class="chip alt">Cloud</span><span class="chip alt">~50 min</span></div>
+    </div>
+    <div class="title-right"><div class="g-logo reveal">G</div></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="center">
+      <div class="tape teal reveal">In questo modulo</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
+      <div class="agenda-list reveal d1">
+        <div class="agenda-item"><span class="n">01</span><span class="t">Account Google e cloud</span></div>
+        <div class="agenda-item"><span class="n">02</span><span class="t">Google Drive</span></div>
+        <div class="agenda-item"><span class="n">03</span><span class="t">Google Docs</span></div>
+        <div class="agenda-item"><span class="n">04</span><span class="t">Google Sheets</span></div>
+        <div class="agenda-item"><span class="n">05</span><span class="t">Google Slides</span></div>
+        <div class="agenda-item"><span class="n">06</span><span class="t">Gmail, Calendar, Meet</span></div>
+        <div class="agenda-item"><span class="n">07</span><span class="t">Google Forms e Classroom</span></div>
+        <div class="agenda-item"><span class="n">08</span><span class="t">Google Photos e Chrome</span></div>
+        <div class="agenda-item"><span class="n">09</span><span class="t">Condivisione e permessi</span></div>
+        <div class="agenda-item"><span class="n">10</span><span class="t">Sicurezza e buone abitudini</span></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Definizione</div>
+        <h2 class="h-big reveal">Cos'è la suite <em class="hot">Google</em></h2>
+        <p class="lead reveal d1">È un insieme di applicazioni online collegate allo stesso account: file, email, calendario, riunioni, documenti e collaborazione.</p>
+        <p class="body reveal d2">Molti strumenti funzionano nel browser, salvano automaticamente sul cloud e permettono a più persone di lavorare sullo stesso materiale.</p>
+      </div>
+      <div class="app-grid reveal d1">
+        <div class="app"><div class="logo blue">D</div><h3>Drive</h3><p>Archivio cloud</p></div>
+        <div class="app"><div class="logo blue">Doc</div><h3>Docs</h3><p>Documenti di testo</p></div>
+        <div class="app"><div class="logo green">Sh</div><h3>Sheets</h3><p>Fogli di calcolo</p></div>
+        <div class="app"><div class="logo yellow">Sl</div><h3>Slides</h3><p>Presentazioni</p></div>
+        <div class="app"><div class="logo red">@</div><h3>Gmail</h3><p>Email</p></div>
+        <div class="app"><div class="logo blue">Cal</div><h3>Calendar</h3><p>Agenda</p></div>
+        <div class="app"><div class="logo green">M</div><h3>Meet</h3><p>Riunioni</p></div>
+        <div class="app"><div class="logo teal-bg">F</div><h3>Forms</h3><p>Moduli e quiz</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape gold reveal">Identità</div>
+        <h2 class="h-big reveal">Account <em class="hot">Google</em></h2>
+        <p class="lead reveal d1">È la chiave di accesso ai servizi Google: Gmail, Drive, YouTube, Calendar, Meet, Classroom e sincronizzazione di Chrome.</p>
+        <div class="note reveal d2"><div class="lbl">Attenzione</div><p>Proteggere l'account significa proteggere email, documenti, foto, contatti e file condivisi.</p></div>
+      </div>
+      <div class="grid2 reveal d1">
+        <div class="card"><span class="ic">🔑</span><h3>Password</h3><p>Deve essere unica, lunga e non riutilizzata su altri siti.</p></div>
+        <div class="card"><span class="ic">📱</span><h3>2FA</h3><p>La verifica in due passaggi riduce il rischio di furto dell'account.</p></div>
+        <div class="card"><span class="ic">👤</span><h3>Profilo</h3><p>Nome, immagine, informazioni personali e preferenze.</p></div>
+        <div class="card"><span class="ic">☁️</span><h3>Spazio</h3><p>Lo spazio cloud viene condiviso tra Drive, Gmail e Foto.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape teal reveal">Cloud storage</div>
+        <h2 class="h-big reveal">Google <em class="hot">Drive</em></h2>
+        <p class="lead reveal d1">Drive è lo spazio cloud dove salvare, organizzare e condividere file e cartelle online.</p>
+        <p class="body reveal d2">Può contenere file Google nativi, come Documenti e Fogli, ma anche PDF, immagini, video, ZIP e file di Office.</p>
+      </div>
+      <div class="flow reveal d1">
+        <div class="card"><span class="ic">⬆️</span><h3>Carica</h3><p>Importi file dal computer.</p></div>
+        <div class="card"><span class="ic">🗂️</span><h3>Organizza</h3><p>Usi cartelle e nomi chiari.</p></div>
+        <div class="card"><span class="ic">🔗</span><h3>Condividi</h3><p>Invii link o inviti persone.</p></div>
+        <div class="card"><span class="ic">🔄</span><h3>Sincronizza</h3><p>Ritrovi i file da più dispositivi.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="center">
+      <div class="tape reveal">Permessi</div>
+      <h2 class="h-sec reveal">Condividere non significa cedere il controllo</h2>
+      <table class="cmp reveal d1" style="margin-top:22px;">
+        <tr><th>Ruolo</th><th>Cosa può fare</th><th>Quando usarlo</th></tr>
+        <tr><td>Visualizzatore</td><td>Può leggere o scaricare, ma non modifica.</td><td>Materiale definitivo, consegne, dispense.</td></tr>
+        <tr><td>Commentatore</td><td>Può lasciare commenti senza cambiare direttamente il contenuto.</td><td>Revisioni e feedback.</td></tr>
+        <tr><td>Editor</td><td>Può modificare file e contenuto.</td><td>Lavoro di gruppo reale.</td></tr>
+        <tr><td>Proprietario</td><td>Controlla permessi, spostamenti e cancellazione.</td><td>Chi gestisce il documento.</td></tr>
+      </table>
+      <div class="note red reveal d2" style="margin-top:22px;"><div class="lbl">Regola pratica</div><p>Non dare permesso di modifica se basta far leggere. Meno permessi significa meno errori e meno rischi.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape sky reveal">Testi</div>
+        <h2 class="h-big reveal">Google <em class="hot">Docs</em></h2>
+        <p class="lead reveal d1">Google Documenti serve per creare testi online: relazioni, lettere, schede, appunti, verbali e documenti condivisi.</p>
+        <div class="note reveal d2"><div class="lbl">Punto forte</div><p>Più persone possono scrivere nello stesso documento, vedere le modifiche in tempo reale e recuperare versioni precedenti.</p></div>
+      </div>
+      <div class="grid2 reveal d1">
+        <div class="card"><span class="ic">✍️</span><h3>Scrittura</h3><p>Titoli, paragrafi, elenchi, tabelle e immagini.</p></div>
+        <div class="card"><span class="ic">💬</span><h3>Commenti</h3><p>Domande e correzioni senza alterare il testo.</p></div>
+        <div class="card"><span class="ic">📝</span><h3>Suggerimenti</h3><p>Modifiche proposte, da accettare o rifiutare.</p></div>
+        <div class="card"><span class="ic">🕓</span><h3>Cronologia</h3><p>Recupero di versioni precedenti del documento.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape gold reveal">Dati</div>
+        <h2 class="h-big reveal">Google <em class="hot">Sheets</em></h2>
+        <p class="lead reveal d1">Google Fogli è un foglio di calcolo online: organizza dati in celle, righe, colonne e formule.</p>
+        <p class="body reveal d2">È utile per budget, registri, liste clienti, turni, presenze, grafici e raccolta dati da Moduli.</p>
+      </div>
+      <div class="grid2 reveal d1">
+        <div class="card"><span class="ic">🔢</span><h3>Celle</h3><p>Ogni dato sta in una posizione: A1, B2, C3.</p></div>
+        <div class="card"><span class="ic">🧮</span><h3>Formule</h3><p>Calcoli automatici: somme, medie, percentuali.</p></div>
+        <div class="card"><span class="ic">🔎</span><h3>Filtri</h3><p>Mostri solo i dati che ti interessano.</p></div>
+        <div class="card"><span class="ic">📊</span><h3>Grafici</h3><p>Trasformi tabelle in visualizzazioni leggibili.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">Presentazioni</div>
+      <h2 class="h-big reveal">Google <em class="hot">Slides</em></h2>
+      <p class="lead reveal d1">Google Presentazioni serve per creare slide online, lavorare in gruppo e presentare da browser.</p>
+      <div class="grid3 reveal d2">
+        <div class="card"><span class="ic">🧱</span><h3>Layout</h3><p>Struttura della slide: titolo, contenuto, immagine, confronto.</p></div>
+        <div class="card"><span class="ic">🎨</span><h3>Temi</h3><p>Colori, font e stile coerenti in tutta la presentazione.</p></div>
+        <div class="card"><span class="ic">▶️</span><h3>Presenta</h3><p>Modalità a schermo intero per spiegare il lavoro.</p></div>
+      </div>
+      <div class="note sky reveal d3" style="margin-top:8px;"><div class="lbl">Regola</div><p>Una slide efficace non è un documento incollato: deve aiutare chi ascolta a seguire il discorso.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="center">
+      <div class="tape teal reveal">Comunicazione</div>
+      <h2 class="h-sec reveal">Gmail: email e organizzazione</h2>
+      <div class="grid3 reveal d1" style="margin-top:22px;">
+        <div class="card"><span class="ic">✉️</span><h3>Email</h3><p>Messaggi con destinatario, oggetto, testo e allegati.</p></div>
+        <div class="card"><span class="ic">🏷️</span><h3>Etichette</h3><p>Organizzano i messaggi senza doverli duplicare in cartelle diverse.</p></div>
+        <div class="card"><span class="ic">🧰</span><h3>Filtri</h3><p>Regole automatiche per archiviare, etichettare o evidenziare email.</p></div>
+        <div class="card"><span class="ic">📎</span><h3>Allegati</h3><p>File inviati via email; per file grandi conviene usare Drive.</p></div>
+        <div class="card"><span class="ic">🚫</span><h3>Spam</h3><p>Messaggi indesiderati o sospetti, spesso pubblicitari o pericolosi.</p></div>
+        <div class="card"><span class="ic">🎣</span><h3>Phishing</h3><p>Email false che provano a rubare password, codici o dati personali.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape gold reveal">Agenda</div>
+        <h2 class="h-big reveal">Google <em class="hot">Calendar</em></h2>
+        <p class="lead reveal d1">Calendar è l'agenda online per appuntamenti, lezioni, scadenze, turni e riunioni.</p>
+        <div class="note reveal d2"><div class="lbl">Funzione utile</div><p>Un evento può contenere orario, luogo, invitati, promemoria, link Meet e allegati Drive.</p></div>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><h3>Evento</h3><p>Un impegno con data e orario.</p></div>
+        <div class="card reveal d2"><h3>Promemoria</h3><p>Una notifica prima della scadenza.</p></div>
+        <div class="card reveal d3"><h3>Calendario condiviso</h3><p>Un'agenda visibile a più persone, utile per team e classi.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape sky reveal">Videoriunioni</div>
+        <h2 class="h-big reveal">Google <em class="hot">Meet</em></h2>
+        <p class="lead reveal d1">Meet permette di fare videoconferenze con link di accesso, microfono, videocamera, chat e condivisione schermo.</p>
+        <p class="body reveal d2">È spesso integrato con Calendar: l'evento crea automaticamente il link della riunione.</p>
+      </div>
+      <div class="grid2 reveal d1">
+        <div class="card"><span class="ic">🎙️</span><h3>Microfono</h3><p>Si attiva solo quando serve parlare.</p></div>
+        <div class="card"><span class="ic">📷</span><h3>Videocamera</h3><p>Mostra il volto o resta disattivata se non richiesta.</p></div>
+        <div class="card"><span class="ic">🖥️</span><h3>Schermo</h3><p>Condivide una finestra, una scheda o tutto il desktop.</p></div>
+        <div class="card"><span class="ic">💬</span><h3>Chat</h3><p>Serve per link, domande rapide e messaggi durante la call.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape teal reveal">Raccolta dati</div>
+        <h2 class="h-big reveal">Google <em class="hot">Forms</em></h2>
+        <p class="lead reveal d1">Google Moduli serve per creare questionari, sondaggi, iscrizioni e quiz con raccolta automatica delle risposte.</p>
+        <div class="note reveal d2"><div class="lbl">Collegamento</div><p>Le risposte possono essere esportate in Google Sheets per analisi, filtri e grafici.</p></div>
+      </div>
+      <div class="grid2 reveal d1">
+        <div class="card"><span class="ic">☑️</span><h3>Scelta multipla</h3><p>Una risposta tra opzioni predefinite.</p></div>
+        <div class="card"><span class="ic">🧾</span><h3>Risposta breve</h3><p>Nome, email, codice, dato singolo.</p></div>
+        <div class="card"><span class="ic">⭐</span><h3>Scala</h3><p>Valutazioni da 1 a 5 o simili.</p></div>
+        <div class="card"><span class="ic">✅</span><h3>Quiz</h3><p>Domande con punteggio e risposte corrette.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Scuola digitale</div>
+        <h2 class="h-big reveal">Google <em class="hot">Classroom</em></h2>
+        <p class="lead reveal d1">Classroom organizza corsi, materiali, compiti, consegne e comunicazioni tra docenti e studenti.</p>
+        <p class="body reveal d2">Non sostituisce lo studio: rende più ordinata la distribuzione dei materiali e la raccolta delle consegne.</p>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><h3>Stream</h3><p>Bacheca con comunicazioni e aggiornamenti.</p></div>
+        <div class="card reveal d2"><h3>Lavori del corso</h3><p>Materiali, compiti, quiz e scadenze.</p></div>
+        <div class="card reveal d3"><h3>Consegna</h3><p>Lo studente allega o crea file, poi invia il lavoro.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="center">
+      <div class="tape gold reveal">Altri strumenti comuni</div>
+      <h2 class="h-sec reveal">Photos, Chrome, Keep, Maps, YouTube</h2>
+      <div class="grid3 reveal d1" style="margin-top:22px;">
+        <div class="card"><span class="ic">🖼️</span><h3>Photos</h3><p>Backup, album e ricerca di immagini e video.</p></div>
+        <div class="card"><span class="ic">🌐</span><h3>Chrome</h3><p>Browser web con schede, preferiti, cronologia ed estensioni.</p></div>
+        <div class="card"><span class="ic">🗒️</span><h3>Keep</h3><p>Note veloci, liste e promemoria sincronizzati.</p></div>
+        <div class="card"><span class="ic">🗺️</span><h3>Maps</h3><p>Mappe, percorsi, luoghi, recensioni e navigazione.</p></div>
+        <div class="card"><span class="ic">▶️</span><h3>YouTube</h3><p>Video, canali, playlist e contenuti formativi.</p></div>
+        <div class="card"><span class="ic">🔎</span><h3>Search</h3><p>Motore di ricerca: utile, ma va usato con spirito critico.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="center">
+      <div class="tape teal reveal">Collaborazione</div>
+      <h2 class="h-sec reveal">Il flusso di lavoro tipico</h2>
+      <div class="flow reveal d1" style="margin-top:28px;">
+        <div class="card"><span class="ic">📁</span><h3>1. Drive</h3><p>Creo una cartella di progetto.</p></div>
+        <div class="card"><span class="ic">📝</span><h3>2. Docs</h3><p>Scrivo il documento principale.</p></div>
+        <div class="card"><span class="ic">📊</span><h3>3. Sheets</h3><p>Raccolgo dati, liste o budget.</p></div>
+        <div class="card"><span class="ic">🎞️</span><h3>4. Slides</h3><p>Presento il risultato finale.</p></div>
+      </div>
+      <div class="note reveal d2" style="margin-top:34px;"><div class="lbl">Metodo</div><p>Il vantaggio non è usare tanti strumenti: è usare lo strumento giusto nel punto giusto del lavoro.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="center">
+      <div class="tape reveal">Formati</div>
+      <h2 class="h-sec reveal">File Google, Office e PDF</h2>
+      <table class="cmp reveal d1" style="margin-top:22px;">
+        <tr><th>Tipo</th><th>Caratteristica</th><th>Quando usarlo</th></tr>
+        <tr><td>File Google</td><td>Docs, Sheets e Slides vivono online e si modificano nel browser.</td><td>Lavoro collaborativo e modifiche continue.</td></tr>
+        <tr><td>File Office</td><td>DOCX, XLSX, PPTX sono formati Microsoft Office.</td><td>Compatibilità con chi usa Word, Excel o PowerPoint.</td></tr>
+        <tr><td>PDF</td><td>Formato stabile, pensato per lettura e stampa.</td><td>Inviare una versione finale non da modificare.</td></tr>
+        <tr><td>Download</td><td>Esporta una copia in un formato scelto.</td><td>Consegne, invii via email, archiviazione locale.</td></tr>
+      </table>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape gold reveal">Sicurezza</div>
+        <h2 class="h-big reveal">Buone abitudini</h2>
+        <p class="lead reveal d1">Gli strumenti cloud sono comodi, ma richiedono attenzione: un link sbagliato o una password debole possono esporre molti dati.</p>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><h3>Controlla i link</h3><p>Prima di inviare, verifica chi può aprire e con quale ruolo.</p></div>
+        <div class="card reveal d2"><h3>Nomina bene i file</h3><p>Un nome chiaro rende il lavoro ritrovabile anche dopo mesi.</p></div>
+        <div class="card reveal d3"><h3>Non mescolare tutto</h3><p>Separa account personale, scuola e lavoro quando possibile.</p></div>
+        <div class="card reveal d4"><h3>Attiva la 2FA</h3><p>È una delle protezioni più importanti per l'account.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape teal reveal">Verifica veloce</div>
+      <h2 class="h-sec reveal">È tutto chiaro?</h2>
+      <p class="lead reveal d1" style="margin-bottom:6px;">Prova a rispondere a mente:</p>
+      <div class="grid2 reveal d2" style="gap:22px 34px;">
+        <div class="card"><h3 style="font-size:32px;">1.</h3><p>Qual è la differenza tra Drive e Docs?</p></div>
+        <div class="card"><h3 style="font-size:32px;">2.</h3><p>Quando conviene usare Sheets invece di Docs?</p></div>
+        <div class="card"><h3 style="font-size:32px;">3.</h3><p>Che differenza c'è tra visualizzatore, commentatore ed editor?</p></div>
+        <div class="card"><h3 style="font-size:32px;">4.</h3><p>Perché per file finali spesso si esporta in PDF?</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:18px;"><div class="lbl">Bonus</div><p>Immagina un lavoro di gruppo: quali strumenti Google useresti dall'inizio alla consegna?</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide closing">
+    <div class="deck-tab">GOOGLE · M13</div>
+    <div class="center" style="align-items:center;text-align:center;">
+      <div class="eyebrow reveal gold">Fine Modulo 13</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;" contenteditable="true">Un ecosistema,<br><em class="gold">non app isolate.</em></h2>
+      <p class="lead reveal d1" contenteditable="true" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora sai distinguere i principali strumenti Google, scegliere quello giusto e usarlo con attenzione a condivisione, permessi e sicurezza.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="00-indice.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">↩ Indice del corso</a>
+        <span class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);">20 slide completate</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;});}
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1)}prev(){this.show(this.i-1)}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next()}else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev()}else if(e.key==='Home'){this.show(0)}else if(e.key==='End'){this.show(this.slides.length-1)}})}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev()}x0=null},{passive:true})}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700)},{passive:true})}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load()},key(){return 'inf13-google-workspace-edits'},save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500)},load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid]})}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false')});editor.load();
+const toggleBtn=document.getElementById('editToggle'),hotzone=document.querySelector('.edit-hotzone');let hideT=null;toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show')});hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show')},400)});toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show')},400)});addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle()}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save()}});
+</script>
+</body>
+</html>
