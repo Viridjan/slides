@@ -65,6 +65,30 @@ em.hot{font-style:italic;color:var(--red);}
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
 .stack>*+*{margin-top:22px;}
+.tight-slide .h-big{font-size:78px;}
+.tight-slide .h-sec{font-size:64px;}
+.tight-slide .lead{font-size:28px;line-height:1.34;}
+.tight-slide .body{font-size:24px;line-height:1.35;}
+.tight-slide .split{height:auto;}
+.tight-slide .stack>*+*{margin-top:12px;}
+.tight-slide .grid2{gap:18px;}
+.tight-slide .grid3{gap:16px;}
+.tight-slide .grid4{gap:16px;}
+.tight-slide .card,.tight-slide .role-card,.tight-slide .net-device{padding:18px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12);}
+.tight-slide .card h3,.tight-slide .net-device h3{font-size:30px;margin-bottom:6px;}
+.tight-slide .card p,.tight-slide .net-device p{font-size:21px;line-height:1.28;}
+.tight-slide .card .ic{font-size:34px;margin-bottom:5px;}
+.tight-slide .role-card .title{font-size:30px;}
+.tight-slide .role-card .en{font-size:17px;}
+.tight-slide .role-card .desc{font-size:20px;line-height:1.28;margin-top:6px;}
+.tight-slide .role-card .sal{font-size:18px;margin-top:6px;}
+.tight-slide .note{padding:18px 22px;}
+.tight-slide .note .lbl{font-size:19px;margin-bottom:6px;}
+.tight-slide .note p{font-size:22px;line-height:1.3;}
+.tight-slide .agenda-item{padding:7px 0 !important;}
+.tight-slide .agenda-item span:first-child{font-size:28px !important;min-width:42px !important;}
+.tight-slide .agenda-item b{font-size:23px !important;}
+.tight-slide .agenda-item div span{font-size:20px !important;}
 .illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
 .illu svg{width:100%;height:auto;display:block;}
 .illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
@@ -270,7 +294,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 </section>
 
 <!-- === SLIDE 6: INCIDENT RESPONDER === -->
-<section class="slide">
+<section class="slide tight-slide">
   <div class="deck-tab">SICUREZZA · C4</div>
   <div class="split even">
     <div class="col stack">
@@ -331,7 +355,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 </section>
 
 <!-- === SLIDE 8: CISO === -->
-<section class="slide">
+<section class="slide tight-slide">
   <div class="deck-tab">SICUREZZA · C4</div>
   <div class="split">
     <div class="col stack">
@@ -508,7 +532,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 </section>
 
 <!-- === SLIDE 12: COME VIAGGIANO I DATI === -->
-<section class="slide">
+<section class="slide tight-slide">
   <div class="deck-tab">SICUREZZA · C4</div>
   <div class="split even">
     <div class="col stack">
@@ -701,7 +725,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <div class="deck-tab">SICUREZZA · C4</div>
   <div class="col stack" style="justify-content:center;height:100%;">
     <div class="tape teal reveal">Verifica veloce</div>
-    <h2 class="h-sec reveal">Hai capito tutto?</h2>
+    <h2 class="h-sec reveal">È tutto chiaro?</h2>
     <p class="lead reveal d1" style="margin-bottom:6px;">Prova a rispondere a mente:</p>
     <div class="grid2 reveal d2" style="gap:24px 40px;">
       <div class="card"><h3 style="font-size:32px;">1.</h3><p>Qual è la differenza tra un SOC Analyst e un Penetration Tester? Uno è difensivo, l'altro offensivo — spiega.</p></div>

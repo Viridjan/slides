@@ -70,6 +70,20 @@ em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
 .stack>*+*{margin-top:22px;}
+.tight-slide .h-sec{font-size:64px;}
+.tight-slide .lead{font-size:28px;line-height:1.34;}
+.tight-slide .body{font-size:24px;line-height:1.35;}
+.tight-slide .split{height:auto;}
+.tight-slide .grid2{gap:18px;}
+.tight-slide .grid3{gap:16px;}
+.tight-slide .stack>*+*{margin-top:12px;}
+.tight-slide .card{padding:18px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12);}
+.tight-slide .card h3{font-size:30px;margin-bottom:6px;}
+.tight-slide .card p{font-size:21px;line-height:1.28;}
+.tight-slide .card .ic{font-size:34px;margin-bottom:5px;}
+.tight-slide .note{padding:18px 22px;}
+.tight-slide .note .lbl{font-size:19px;margin-bottom:6px;}
+.tight-slide .note p{font-size:22px;line-height:1.3;}
 .steps{counter-reset:st;display:flex;flex-direction:column;gap:14px;}
 .step{display:flex;align-items:flex-start;gap:20px;background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:16px 24px;box-shadow:4px 5px 0 rgba(28,23,20,.12);}
 .step::before{counter-increment:st;content:counter(st);font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:42px;line-height:1;}
@@ -337,7 +351,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <!-- ============ SLIDE 9 · AMBIENTI ADATTIVI ============ -->
-  <section class="slide">
+  <section class="slide tight-slide">
     <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="tape sky reveal">Ambienti adattivi</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Sistemi che si adattano all'utente</h2>
@@ -497,7 +511,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <!-- ============ SLIDE 13 · SICUREZZA SMART WORKING ============ -->
-  <section class="slide">
+  <section class="slide tight-slide">
     <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="tape red reveal">Sicurezza</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Proteggere i dati aziendali da casa</h2>
@@ -540,7 +554,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <!-- ============ SLIDE 14 · CAMBIAMENTI NELLA SOCIETÀ ============ -->
-  <section class="slide">
+  <section class="slide tight-slide">
     <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="tape teal reveal">Ricadute sociali</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">La digitalizzazione cambia tutto</h2>
