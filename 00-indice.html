@@ -35,9 +35,8 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
 .section-label::after{content:"";flex:1;height:1px;background:rgba(216,201,180,.15);}
 
 /* Module cards */
-.module-grid{display:grid;gap:16px;}
-.module-grid.cols2{grid-template-columns:1fr 1fr;}
-.module-grid.cols3{grid-template-columns:1fr 1fr 1fr;}
+.module-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+.module-grid.cols2,.module-grid.cols3{grid-template-columns:repeat(2,minmax(0,1fr));}
 
 .module-card{
   display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:28px;
