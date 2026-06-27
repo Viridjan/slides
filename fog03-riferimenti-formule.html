@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fogli di calcolo · F03 — Riferimenti, range e formule robuste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.slide.visible .reveal:nth-child(5){transition-delay:.37s}.slide.visible .reveal:nth-child(6){transition-delay:.45s}
+.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}.d4{transition-delay:.56s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep)}.tape.teal{background:var(--teal)}.tape.sky{background:var(--sky)}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:132px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:88px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:70px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var(--sky)}
+.lead{font-size:32px;line-height:1.42;color:var(--ink-soft);max-width:1120px;}
+.body{font-size:27px;line-height:1.46;color:var(--ink-soft);}
+.mono{font-family:var(--font-mono);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:25px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1.05;}
+.card p{font-size:24px;line-height:1.34;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa}.note.sky{background:#d9edf2}.note.teal{background:var(--teal)}.note.teal *{color:var(--paper)!important}.note.teal .lbl{color:var(--gold)!important}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.36;color:var(--ink);}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.col{display:flex;flex-direction:column}.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}.stack>*+*{margin-top:22px}
+.tight-slide .h-big{font-size:76px}.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px;line-height:1.34}.tight-slide .body{font-size:24px;line-height:1.32}.tight-slide .stack>*+*{margin-top:12px}.tight-slide .grid2{gap:18px}.tight-slide .grid3{gap:16px}.tight-slide .card{padding:18px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12)}.tight-slide .card h3{font-size:30px}.tight-slide .card p{font-size:21px;line-height:1.25}.tight-slide .note{padding:18px 22px}.tight-slide .note p{font-size:22px;line-height:1.28}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate}@keyframes float{to{transform:translate(-34px,46px) scale(1.04)}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}
+.formula{font-family:var(--font-mono);font-size:30px;line-height:1.4;background:#fff;border:2px solid var(--ink);border-radius:12px;padding:18px 24px;box-shadow:5px 6px 0 rgba(28,23,20,.12);color:var(--ink);}
+.formula b{color:var(--red)}.formula .ok{color:var(--teal);font-weight:700}.formula .muted{color:var(--ink-faint)}
+.sheet{width:100%;border-collapse:collapse;font-family:var(--font-mono);background:#fff;border:2px solid var(--ink);box-shadow:7px 8px 0 rgba(28,23,20,.12);}
+.sheet td,.sheet th{border:1px solid var(--line);height:58px;text-align:center;font-size:22px;color:var(--ink-soft);background:#fff;padding:8px;}
+.sheet th{background:var(--paper-2);color:var(--ink);font-weight:700}.sheet .rowh{background:var(--paper-2);color:var(--ink);font-weight:700;width:54px}.sheet .sel{background:var(--gold);color:var(--ink);font-weight:700;outline:3px solid var(--red);outline-offset:-3px}.sheet .head{background:#d9edf2;color:var(--ink);font-weight:700}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:24px}.cmp th{font-family:var(--font-display);font-weight:900;font-size:31px;text-align:left;padding:14px 20px;color:var(--paper);background:var(--teal)}.cmp th:first-child{background:var(--ink);border-radius:12px 0 0 0}.cmp th:last-child{border-radius:0 12px 0 0}.cmp td{padding:12px 20px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.3}.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2)}.cmp tr:last-child td{border-bottom:none}
+.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+  <section class="slide title-slide active">
+    <div class="title-left">
+      <div class="tape reveal">Fogli di calcolo</div>
+      <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="true">F03 — Formule robuste</div>
+      <h1 class="h-mega reveal" contenteditable="true">Riferimenti,<br><em class="hot">range</em><br>e LET</h1>
+      <p class="lead reveal" style="margin-top:30px;" contenteditable="true">Come scrivere formule più chiare: riferimenti relativi e assoluti, intervalli, nomi, tabelle e variabili locali.</p>
+      <div class="chips reveal" style="margin-top:46px;"><span class="chip">F03</span><span class="chip alt">Formule</span><span class="chip alt">~45 min</span></div>
+    </div>
+    <div class="title-right"><div style="position:relative;z-index:2;font-size:230px;line-height:1;">🧮</div></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="center">
+      <div class="tape teal reveal">In questo modulo</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
+      <div class="agenda-list reveal d1">
+        <div class="agenda-item"><span class="n">01</span><span class="t">Formule semplici</span></div>
+        <div class="agenda-item"><span class="n">02</span><span class="t">SOMMA, MEDIA, MIN/MAX</span></div>
+        <div class="agenda-item"><span class="n">03</span><span class="t">CONTA.NUMERI e CONTA.SE</span></div>
+        <div class="agenda-item"><span class="n">04</span><span class="t">Riferimenti relativi e assoluti</span></div>
+        <div class="agenda-item"><span class="n">05</span><span class="t">Riferimenti misti</span></div>
+        <div class="agenda-item"><span class="n">06</span><span class="t">Range e intervalli</span></div>
+        <div class="agenda-item"><span class="n">07</span><span class="t">Nomi, tabelle e colonne</span></div>
+        <div class="agenda-item"><span class="n">08</span><span class="t">Riferimenti strutturati</span></div>
+        <div class="agenda-item"><span class="n">09</span><span class="t">LET e formule leggibili</span></div>
+        <div class="agenda-item"><span class="n">10</span><span class="t">Errori e buone abitudini</span></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="center">
+      <div class="tape reveal">Formule semplici</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Le funzioni base da conoscere</h2>
+      <p class="lead reveal d1">Le formule semplici risolvono la maggior parte dei calcoli quotidiani: sommare, fare medie, trovare estremi e contare dati.</p>
+      <div class="grid3 reveal d2" style="margin-top:22px;">
+        <div class="card"><h3>SOMMA</h3><p class="mono">=SOMMA(A1:A10)</p><p>Aggiunge valori.</p></div>
+        <div class="card"><h3>MEDIA</h3><p class="mono">=MEDIA(A1:A10)</p><p>Calcola il valore medio.</p></div>
+        <div class="card"><h3>MIN / MAX</h3><p class="mono">=MAX(A1:A10)</p><p>Trova minimo o massimo.</p></div>
+        <div class="card"><h3>CONTA.NUMERI</h3><p class="mono">=CONTA.NUMERI(A:A)</p><p>Conta celle numeriche.</p></div>
+        <div class="card"><h3>CONTA.SE</h3><p class="mono">=CONTA.SE(...)</p><p>Conta solo se una condizione è vera.</p></div>
+        <div class="card"><span class="ic">💡</span><p>Prima capisci queste. Poi le formule avanzate diventano combinazioni più leggibili.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape gold reveal">SOMMA · 1</div>
+        <h2 class="h-big reveal">A cosa serve <em class="hot">SOMMA</em></h2>
+        <p class="lead reveal d1">SOMMA aggiunge tutti i numeri presenti in un intervallo. È la funzione più usata per totali, incassi, spese e quantità.</p>
+        <div class="formula reveal d2">=SOMMA(<b>B2:B6</b>)</div>
+      </div>
+      <table class="sheet reveal d1">
+        <tr><th></th><th>A</th><th>B</th></tr>
+        <tr><th class="rowh">1</th><td>Voce</td><td>Importo</td></tr>
+        <tr><th class="rowh">2</th><td>Creme</td><td>120</td></tr>
+        <tr><th class="rowh">3</th><td>Shampoo</td><td>80</td></tr>
+        <tr><th class="rowh">4</th><td>Colori</td><td>150</td></tr>
+        <tr><th class="rowh">5</th><td>Gel</td><td>45</td></tr>
+        <tr><th class="rowh">6</th><td>Accessori</td><td>35</td></tr>
+      </table>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="center">
+      <div class="tape gold reveal">SOMMA · 2</div>
+      <h2 class="h-sec reveal">Sintassi ed esempi</h2>
+      <div class="grid2 reveal d1" style="margin-top:24px;">
+        <div class="card"><h3>Range continuo</h3><p class="mono">=SOMMA(B2:B6)</p><p>Somma tutte le celle da B2 a B6.</p></div>
+        <div class="card"><h3>Celle separate</h3><p class="mono">=SOMMA(B2;B4;B6)</p><p>Somma solo le celle indicate.</p></div>
+        <div class="card"><h3>Range multipli</h3><p class="mono">=SOMMA(B2:B6;D2:D6)</p><p>Somma due intervalli diversi.</p></div>
+        <div class="card"><h3>Colonna intera</h3><p class="mono">=SOMMA(B:B)</p><p>Utile se la colonna contiene solo valori coerenti.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">SOMMA · 3</div>
+        <h2 class="h-big reveal">Esempio: totale vendite</h2>
+        <p class="lead reveal d1">Se ogni riga è una vendita, SOMMA restituisce il totale del periodo.</p>
+        <div class="formula reveal d2">=SOMMA(<b>Vendite[Importo]</b>)</div>
+        <p class="body reveal d3">Con una tabella nominata, il range cresce quando aggiungi nuove righe.</p>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><h3>Risultato</h3><p>120 + 80 + 150 + 45 + 35 = <b>430</b></p></div>
+        <div class="card reveal d2"><h3>Quando usarla</h3><p>Totali di incassi, spese, ore lavorate, quantità vendute, giacenze.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape gold reveal">SOMMA · 4</div>
+        <h2 class="h-big reveal">Errori da evitare</h2>
+        <div class="card reveal d1"><h3>Numeri scritti come testo</h3><p>Se una cella contiene <span class="mono">"120 €"</span> come testo, potrebbe non essere sommata correttamente.</p></div>
+        <div class="card reveal d2"><h3>Range incompleto</h3><p><span class="mono">=SOMMA(B2:B6)</span> ignora una nuova riga B7.</p></div>
+      </div>
+      <div class="note red reveal d1">
+        <div class="lbl">Soluzione pratica</div>
+        <p>Usa tabelle o range dinamici quando i dati crescono. Controlla sempre che i numeri siano davvero numeri, non testo.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape teal reveal">MEDIA · 1</div>
+        <h2 class="h-big reveal">A cosa serve <em class="hot">MEDIA</em></h2>
+        <p class="lead reveal d1">MEDIA somma i valori e divide per quanti valori numerici ci sono. Serve per trovare un valore rappresentativo.</p>
+        <div class="formula reveal d2">=MEDIA(<b>B2:B6</b>)</div>
+      </div>
+      <div class="grid2 reveal d1">
+        <div class="card"><h3>Prezzo medio</h3><p>Quanto spendono in media i clienti?</p></div>
+        <div class="card"><h3>Voto medio</h3><p>Qual è la media delle valutazioni?</p></div>
+        <div class="card"><h3>Tempo medio</h3><p>Quanto dura mediamente un servizio?</p></div>
+        <div class="card"><h3>Vendita media</h3><p>Quanto vale una vendita tipica?</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="center">
+      <div class="tape teal reveal">MEDIA · 2</div>
+      <h2 class="h-sec reveal">Sintassi ed esempi</h2>
+      <div class="grid2 reveal d1" style="margin-top:24px;">
+        <div class="card"><h3>Base</h3><p class="mono">=MEDIA(B2:B6)</p><p>Media dei numeri nell'intervallo.</p></div>
+        <div class="card"><h3>Celle separate</h3><p class="mono">=MEDIA(B2;B4;B6)</p><p>Media solo di alcuni valori.</p></div>
+        <div class="card"><h3>Con colonna tabella</h3><p class="mono">=MEDIA(Vendite[Importo])</p><p>Più leggibile e più stabile.</p></div>
+        <div class="card"><h3>Celle vuote</h3><p>Le celle vuote non vengono contate nel denominatore.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape teal reveal">MEDIA · 3</div>
+        <h2 class="h-big reveal">Esempio: scontrino medio</h2>
+        <p class="lead reveal d1">Se hai una lista di importi, MEDIA ti dice quanto vale in media una vendita.</p>
+        <div class="formula reveal d2">=MEDIA(<b>B2:B6</b>)</div>
+        <p class="body reveal d3">Con i valori 120, 80, 150, 45, 35 il risultato è <b>86</b>.</p>
+      </div>
+      <div class="note reveal d1">
+        <div class="lbl">Come leggerla</div>
+        <p>La media è utile, ma può essere distorta da valori molto alti o molto bassi. Non racconta tutto da sola.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape teal reveal">MEDIA · 4</div>
+        <h2 class="h-big reveal">Errori da evitare</h2>
+        <div class="card reveal d1"><h3>Media di categorie diverse</h3><p>Mescolare servizi da 10 minuti e trattamenti da 2 ore può dare una media poco utile.</p></div>
+        <div class="card reveal d2"><h3>Zeri non voluti</h3><p>Uno zero conta nella media. Una cella vuota no. La differenza cambia il risultato.</p></div>
+      </div>
+      <div class="note red reveal d1">
+        <div class="lbl">Controllo</div>
+        <p>Prima di fidarti della media, guarda anche minimo e massimo: capisci subito se ci sono valori fuori scala.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape sky reveal">MIN / MAX · 1</div>
+        <h2 class="h-big reveal">A cosa servono <em class="hot">MIN</em> e <em class="hot">MAX</em></h2>
+        <p class="lead reveal d1">MIN trova il valore più piccolo. MAX trova il valore più grande. Sono utili per scoprire estremi e anomalie.</p>
+        <div class="formula reveal d2">=MIN(B2:B6)<br>=MAX(B2:B6)</div>
+      </div>
+      <div class="grid2 reveal d1">
+        <div class="card"><h3>MIN</h3><p>Prezzo più basso, voto minimo, durata più breve.</p></div>
+        <div class="card"><h3>MAX</h3><p>Incasso più alto, voto massimo, quantità più grande.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="center">
+      <div class="tape sky reveal">MIN / MAX · 2</div>
+      <h2 class="h-sec reveal">Sintassi ed esempi</h2>
+      <div class="grid2 reveal d1" style="margin-top:24px;">
+        <div class="card"><h3>Minimo</h3><p class="mono">=MIN(B2:B6)</p><p>Restituisce il valore più piccolo.</p></div>
+        <div class="card"><h3>Massimo</h3><p class="mono">=MAX(B2:B6)</p><p>Restituisce il valore più grande.</p></div>
+        <div class="card"><h3>Con tabella</h3><p class="mono">=MAX(Vendite[Importo])</p><p>Leggibile e dinamico.</p></div>
+        <div class="card"><h3>Più range</h3><p class="mono">=MIN(B2:B6;D2:D6)</p><p>Cerca il minimo in più intervalli.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape sky reveal">MIN / MAX · 3</div>
+        <h2 class="h-big reveal">Esempio: controllare anomalie</h2>
+        <p class="lead reveal d1">Se un importo massimo è molto più alto del solito, può essere un cliente importante oppure un errore di inserimento.</p>
+        <div class="formula reveal d2">=MAX(<b>Vendite[Importo]</b>)</div>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><h3>Valore atteso</h3><p>Incassi tra 20 e 150 euro.</p></div>
+        <div class="card reveal d2"><h3>Possibile errore</h3><p>Un valore da 1500 euro merita controllo: forse manca una virgola.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape sky reveal">MIN / MAX · 4</div>
+        <h2 class="h-big reveal">Errori da evitare</h2>
+        <div class="card reveal d1"><h3>Testo ignorato</h3><p>MIN e MAX lavorano sui numeri. Valori scritti come testo possono falsare il controllo.</p></div>
+        <div class="card reveal d2"><h3>Estremo senza contesto</h3><p>Il massimo dice qual è il valore più alto, non spiega perché è alto.</p></div>
+      </div>
+      <div class="note reveal d1">
+        <div class="lbl">Abbinamento utile</div>
+        <p>Usa MIN, MAX e MEDIA insieme: hai subito una prima fotografia della distribuzione dei dati.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape gold reveal">CONTA.NUMERI · 1</div>
+        <h2 class="h-big reveal">Contare le celle numeriche</h2>
+        <p class="lead reveal d1">CONTA.NUMERI conta quante celle contengono numeri. Non somma i valori: conta le presenze numeriche.</p>
+        <div class="formula reveal d2">=CONTA.NUMERI(<b>B:B</b>)</div>
+      </div>
+      <div class="grid2 reveal d1">
+        <div class="card"><h3>Conta vendite</h3><p>Quanti importi sono stati registrati?</p></div>
+        <div class="card"><h3>Conta voti</h3><p>Quanti voti numerici sono presenti?</p></div>
+        <div class="card"><h3>Conta misure</h3><p>Quanti valori sono stati inseriti?</p></div>
+        <div class="card"><h3>Non conta testo</h3><p>Nomi, note e celle vuote non vengono conteggiati.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="center">
+      <div class="tape gold reveal">CONTA.NUMERI · 2</div>
+      <h2 class="h-sec reveal">Sintassi ed esempi</h2>
+      <div class="grid2 reveal d1" style="margin-top:24px;">
+        <div class="card"><h3>Intervallo</h3><p class="mono">=CONTA.NUMERI(B2:B100)</p><p>Conta i numeri nell'intervallo.</p></div>
+        <div class="card"><h3>Colonna intera</h3><p class="mono">=CONTA.NUMERI(B:B)</p><p>Conta tutti i numeri della colonna B.</p></div>
+        <div class="card"><h3>Più range</h3><p class="mono">=CONTA.NUMERI(B:B;D:D)</p><p>Conta numeri in più colonne.</p></div>
+        <div class="card"><h3>Con tabella</h3><p class="mono">=CONTA.NUMERI(Vendite[Importo])</p><p>Conta gli importi inseriti.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">CONTA.NUMERI · 3</div>
+        <h2 class="h-big reveal">Esempio: quante vendite?</h2>
+        <p class="lead reveal d1">Se ogni importo corrisponde a una vendita, CONTA.NUMERI ti dice quante vendite sono state registrate.</p>
+        <div class="formula reveal d2">=CONTA.NUMERI(<b>Vendite[Importo]</b>)</div>
+      </div>
+      <div class="note reveal d1">
+        <div class="lbl">Differenza da SOMMA</div>
+        <p>SOMMA risponde "quanto in totale?". CONTA.NUMERI risponde "quanti valori numerici ci sono?".</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape gold reveal">CONTA.NUMERI · 4</div>
+        <h2 class="h-big reveal">Errori da evitare</h2>
+        <div class="card reveal d1"><h3>Codici numerici</h3><p>Un codice cliente come 00123 può essere contato come numero, anche se non è un valore da analizzare.</p></div>
+        <div class="card reveal d2"><h3>Numeri come testo</h3><p>Se un importo è salvato come testo, CONTA.NUMERI potrebbe non contarlo.</p></div>
+      </div>
+      <div class="note red reveal d1">
+        <div class="lbl">Controllo</div>
+        <p>Usa il formato celle e l'allineamento per capire se il programma sta trattando i dati come numeri o come testo.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape teal reveal">CONTA.SE · 1</div>
+        <h2 class="h-big reveal">Contare con una <em class="hot">condizione</em></h2>
+        <p class="lead reveal d1">CONTA.SE conta solo le celle che rispettano una regola: uguale a un testo, maggiore di un numero, contenente un valore specifico.</p>
+        <div class="formula reveal d2">=CONTA.SE(<b>A2:A100</b>;"Roma")</div>
+      </div>
+      <div class="grid2 reveal d1">
+        <div class="card"><h3>Clienti di Roma</h3><p>Conta quante righe hanno città Roma.</p></div>
+        <div class="card"><h3>Vendite alte</h3><p>Conta quanti importi superano 100 euro.</p></div>
+        <div class="card"><h3>Stato pagato</h3><p>Conta quante fatture risultano "Pagato".</p></div>
+        <div class="card"><h3>Presenze</h3><p>Conta quante celle contengono "Presente".</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="center">
+      <div class="tape teal reveal">CONTA.SE · 2</div>
+      <h2 class="h-sec reveal">Sintassi ed esempi</h2>
+      <div class="grid2 reveal d1" style="margin-top:24px;">
+        <div class="card"><h3>Uguale a testo</h3><p class="mono">=CONTA.SE(C:C;"Pagato")</p><p>Conta le celle con testo Pagato.</p></div>
+        <div class="card"><h3>Maggiore di</h3><p class="mono">=CONTA.SE(B:B;"&gt;100")</p><p>Conta valori superiori a 100.</p></div>
+        <div class="card"><h3>Minore o uguale</h3><p class="mono">=CONTA.SE(B:B;"&lt;=50")</p><p>Conta valori fino a 50.</p></div>
+        <div class="card"><h3>Con cella criterio</h3><p class="mono">=CONTA.SE(C:C;E1)</p><p>Usa il criterio scritto in E1.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape teal reveal">CONTA.SE · 3</div>
+        <h2 class="h-big reveal">Esempio: fatture pagate</h2>
+        <p class="lead reveal d1">Se una colonna contiene lo stato della fattura, CONTA.SE conta quante righe hanno lo stato richiesto.</p>
+        <div class="formula reveal d2">=CONTA.SE(<b>Fatture[Stato]</b>;"Pagato")</div>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><h3>Risultato</h3><p>Numero di fatture pagate.</p></div>
+        <div class="card reveal d2"><h3>Uso pratico</h3><p>Dashboard rapide: pagate, aperte, in ritardo, annullate.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape teal reveal">CONTA.SE · 4</div>
+        <h2 class="h-big reveal">Errori da evitare</h2>
+        <div class="card reveal d1"><h3>Criterio scritto male</h3><p><span class="mono">"pagato"</span> e <span class="mono">"Pagato "</span> possono non essere equivalenti se ci sono spazi nascosti.</p></div>
+        <div class="card reveal d2"><h3>Più condizioni</h3><p>CONTA.SE gestisce una condizione. Per più condizioni serve <span class="mono">CONTA.PIÙ.SE</span>.</p></div>
+      </div>
+      <div class="note red reveal d1">
+        <div class="lbl">Regola pratica</div>
+        <p>Standardizza i valori testuali con menu a tendina: eviti varianti come "pagata", "Pagato", "OK", "saldato".</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Coordinate</div>
+        <h2 class="h-big reveal">Ogni cella ha un <em class="hot">indirizzo</em></h2>
+        <p class="lead reveal d1">Un foglio di calcolo è una griglia: le colonne usano lettere, le righe usano numeri. La cella <b>B3</b> è l'incrocio tra colonna B e riga 3.</p>
+        <p class="body reveal d2">Le formule non usano solo valori: usano indirizzi. Questo permette di aggiornare i risultati quando cambiano i dati.</p>
+      </div>
+      <table class="sheet reveal d1">
+        <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+        <tr><th class="rowh">1</th><td>Prodotto</td><td>Prezzo</td><td>IVA</td></tr>
+        <tr><th class="rowh">2</th><td>Crema</td><td>20</td><td>22%</td></tr>
+        <tr><th class="rowh">3</th><td>Shampoo</td><td class="sel">12</td><td>22%</td></tr>
+        <tr><th class="rowh">4</th><td>Gel</td><td>8</td><td>22%</td></tr>
+      </table>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="center">
+      <div class="tape gold reveal">Copiare formule</div>
+      <h2 class="h-sec reveal">Riferimenti relativi e assoluti</h2>
+      <table class="cmp reveal d1" style="margin-top:22px;">
+        <tr><th>Tipo</th><th>Esempio</th><th>Cosa succede quando copi</th></tr>
+        <tr><td>Relativo</td><td class="mono">B2</td><td>Si sposta insieme alla formula: copiando in basso diventa <span class="mono">B3</span>, poi <span class="mono">B4</span>.</td></tr>
+        <tr><td>Assoluto</td><td class="mono">$B$2</td><td>Resta bloccato su colonna B e riga 2, anche se copi la formula altrove.</td></tr>
+        <tr><td>Misto</td><td class="mono">$B2</td><td>Blocca solo la colonna B, ma lascia cambiare la riga.</td></tr>
+        <tr><td>Misto</td><td class="mono">B$2</td><td>Blocca solo la riga 2, ma lascia cambiare la colonna.</td></tr>
+      </table>
+      <div class="note reveal d2" style="margin-top:22px;"><div class="lbl">Idea chiave</div><p>Il simbolo <b>$</b> non indica denaro: indica cosa deve restare fermo quando la formula viene copiata.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape teal reveal">Esempio</div>
+        <h2 class="h-big reveal">Quando serve <em class="hot">$B$1</em></h2>
+        <p class="lead reveal d1">Se l'aliquota IVA è scritta in una sola cella, tutte le formule devono puntare sempre lì.</p>
+        <div class="formula reveal d2">=B3*(1+<b>$B$1</b>)</div>
+        <p class="body reveal d3">Copiando la formula in basso, il prezzo cambia da <span class="mono">B3</span> a <span class="mono">B4</span>, ma l'IVA resta sempre <span class="mono">$B$1</span>.</p>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><h3>Senza dollari</h3><p><span class="mono">=B3*(1+B1)</span><br>Copiando in basso diventa <span class="mono">=B4*(1+B2)</span>: errore.</p></div>
+        <div class="card reveal d2"><h3>Con dollari</h3><p><span class="mono">=B3*(1+$B$1)</span><br>Copiando in basso diventa <span class="mono">=B4*(1+$B$1)</span>: corretto.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape sky reveal">Intervalli</div>
+        <h2 class="h-big reveal">Range: più celle in una volta</h2>
+        <p class="lead reveal d1">Un range è un intervallo di celle. Si scrive indicando la prima e l'ultima cella separate dai due punti.</p>
+        <div class="formula reveal d2">=SOMMA(<b>B2:B10</b>)</div>
+        <p class="body reveal d3">Significa: somma tutte le celle da B2 a B10, estremi inclusi.</p>
+      </div>
+      <div class="grid2 reveal d1">
+        <div class="card"><h3>Colonna</h3><p><span class="mono">B:B</span><br>tutta la colonna B.</p></div>
+        <div class="card"><h3>Riga</h3><p><span class="mono">2:2</span><br>tutta la riga 2.</p></div>
+        <div class="card"><h3>Blocco</h3><p><span class="mono">A2:D20</span><br>rettangolo di celle.</p></div>
+        <div class="card"><h3>Più range</h3><p><span class="mono">SOMMA(B2:B5;D2:D5)</span><br>due intervalli separati.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape gold reveal">Chiarezza</div>
+        <h2 class="h-big reveal">Nominare celle e range</h2>
+        <p class="lead reveal d1">Puoi dare un nome a una cella o a un intervallo: la formula diventa più leggibile e meno fragile.</p>
+        <div class="formula reveal d2">=Prezzo*(1+<b>AliquotaIVA</b>)</div>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><h3>Prima</h3><p><span class="mono">=B3*(1+$B$1)</span><br>Funziona, ma devi ricordare cosa contiene B1.</p></div>
+        <div class="card reveal d2"><h3>Dopo</h3><p><span class="mono">=B3*(1+AliquotaIVA)</span><br>La formula racconta cosa sta facendo.</p></div>
+        <div class="note reveal d3"><div class="lbl">Nomi buoni</div><p>Usa nomi senza spazi, chiari e stabili: <span class="mono">AliquotaIVA</span>, <span class="mono">SogliaSconto</span>, <span class="mono">Listino2026</span>.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="center">
+      <div class="tape teal reveal">Tabelle</div>
+      <h2 class="h-sec reveal">Nominare le colonne</h2>
+      <p class="lead reveal d1">La prima riga di una tabella deve contenere intestazioni chiare. Non scrivere "dato1", "varie" o "colonna nuova".</p>
+      <table class="sheet reveal d2" style="margin-top:18px;">
+        <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr>
+        <tr><th class="rowh">1</th><td class="head">Data</td><td class="head">Cliente</td><td class="head">Servizio</td><td class="head">Importo</td></tr>
+        <tr><th class="rowh">2</th><td>12/03</td><td>Rossi</td><td>Taglio</td><td>25</td></tr>
+        <tr><th class="rowh">3</th><td>13/03</td><td>Bianchi</td><td>Colore</td><td>55</td></tr>
+      </table>
+      <div class="note reveal d3" style="margin-top:20px;"><div class="lbl">Perché conta</div><p>Le intestazioni permettono filtri, tabelle pivot, riferimenti strutturati e formule più leggibili.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Riferimenti strutturati</div>
+        <h2 class="h-big reveal">Usare i nomi delle colonne</h2>
+        <p class="lead reveal d1">In una tabella, puoi riferirti a una colonna con il suo nome invece che con lettere e numeri.</p>
+        <div class="formula reveal d2">=SOMMA(<b>Vendite[Importo]</b>)</div>
+        <p class="body reveal d3">La formula somma la colonna <b>Importo</b> della tabella <b>Vendite</b>. Se aggiungi righe, la tabella si espande.</p>
+      </div>
+      <div class="grid2 reveal d1">
+        <div class="card"><h3>Più chiaro</h3><p><span class="mono">Vendite[Importo]</span> dice cosa stai sommando.</p></div>
+        <div class="card"><h3>Più stabile</h3><p>Se la tabella cresce, il riferimento include anche le nuove righe.</p></div>
+        <div class="card"><h3>Più controllabile</h3><p>Riduce formule misteriose come <span class="mono">=SOMMA(D2:D487)</span>.</p></div>
+        <div class="card"><h3>Più professionale</h3><p>Aiuta chi apre il file dopo di te a capirlo rapidamente.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="center">
+      <div class="tape gold reveal">Variabili locali</div>
+      <h2 class="h-sec reveal">La funzione LET</h2>
+      <p class="lead reveal d1">LET permette di dare un nome temporaneo a parti della formula. È utile quando una formula ripete più volte lo stesso calcolo.</p>
+      <div class="grid2 reveal d2" style="margin-top:20px;">
+        <div class="card">
+          <h3>Senza LET</h3>
+          <p class="mono">=SE((B2-C2)/B2&gt;0,2;"OK";"BASSO")</p>
+          <p>La percentuale è dentro la formula, difficile da leggere.</p>
+        </div>
+        <div class="card">
+          <h3>Con LET</h3>
+          <p class="mono">=LET(margine;(B2-C2)/B2;SE(margine&gt;0,2;"OK";"BASSO"))</p>
+          <p>Il nome <b>margine</b> spiega cosa stai calcolando.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split even">
+      <div class="col stack">
+        <div class="tape sky reveal">Lettura</div>
+        <h2 class="h-big reveal">LET come mini scaletta</h2>
+        <p class="lead reveal d1">Pensa a LET come a una formula con appunti interni: prima assegni nomi, poi usi quei nomi nel risultato finale.</p>
+        <div class="formula reveal d2">=LET(<br><span class="muted">prezzo;</span> B2;<br><span class="muted">sconto;</span> C2;<br><span class="muted">netto;</span> prezzo*(1-sconto);<br><span class="ok">netto</span><br>)</div>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><h3>Quando usarla</h3><p>Quando la formula è lunga, ripetitiva o difficile da spiegare.</p></div>
+        <div class="card reveal d2"><h3>Quando evitarla</h3><p>Per formule semplici come <span class="mono">=B2*C2</span>: aggiungere nomi sarebbe rumore.</p></div>
+        <div class="note reveal d3"><div class="lbl">Nota compatibilità</div><p>LET è disponibile nelle versioni moderne di Excel e in Google Sheets. In file vecchi o ambienti datati può non funzionare.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="center">
+      <div class="tape reveal">Altri riferimenti utili</div>
+      <h2 class="h-sec reveal">Fogli, file e funzioni collegate</h2>
+      <div class="grid3 reveal d1" style="margin-top:22px;">
+        <div class="card"><h3>Altro foglio</h3><p><span class="mono">=Foglio2!B3</span><br>legge B3 da un altro foglio della stessa cartella.</p></div>
+        <div class="card"><h3>INDIRETTO</h3><p>Costruisce un riferimento partendo da testo. Potente, ma fragile se rinomini fogli o celle.</p></div>
+        <div class="card"><h3>MATRICI</h3><p>Funzioni come <span class="mono">FILTRA</span>, <span class="mono">UNICI</span>, <span class="mono">ORDINA</span> restituiscono più celle.</p></div>
+        <div class="card"><h3>Convalida dati</h3><p>Limita cosa si può inserire in una cella: lista, numero, data, testo.</p></div>
+        <div class="card"><h3>Blocca intervalli</h3><p>Proteggi formule e celle importanti per evitare modifiche accidentali.</p></div>
+        <div class="card"><h3>Commenti</h3><p>Usali per spiegare formule particolari senza appesantire il foglio.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="center">
+      <div class="tape red reveal">Errori comuni</div>
+      <h2 class="h-sec reveal">Cosa rompe le formule</h2>
+      <div class="grid3 reveal d1" style="margin-top:22px;">
+        <div class="card"><span class="ic">🔁</span><h3>Copia sbagliata</h3><p>Un riferimento relativo cambia quando doveva restare fermo.</p></div>
+        <div class="card"><span class="ic">🔤</span><h3>Intestazioni vaghe</h3><p>Colonne chiamate "dato", "varie" o "x" rendono impossibile capire il file.</p></div>
+        <div class="card"><span class="ic">🧱</span><h3>Range rigidi</h3><p><span class="mono">A2:A100</span> ignora i dati nuovi alla riga 101.</p></div>
+        <div class="card"><span class="ic">🧩</span><h3>Formule troppo lunghe</h3><p>Se non riesci a rileggerla, spezzala con LET o colonne di supporto.</p></div>
+        <div class="card"><span class="ic">🧨</span><h3>Celle unite</h3><p>Complicano filtri, ordinamenti, formule e importazioni.</p></div>
+        <div class="card"><span class="ic">📋</span><h3>Dati misti</h3><p>Numeri salvati come testo producono risultati strani.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape teal reveal">Metodo</div>
+        <h2 class="h-big reveal">Regole per formule robuste</h2>
+        <p class="lead reveal d1">Una formula buona non è solo corretta: è anche leggibile, copiabile e facile da controllare.</p>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><h3>1. Blocca ciò che è fisso</h3><p>Aliquote, soglie e parametri vanno in celle nominate o riferimenti assoluti.</p></div>
+        <div class="card reveal d2"><h3>2. Usa tabelle vere</h3><p>Intestazioni chiare e riferimenti strutturati riducono errori.</p></div>
+        <div class="card reveal d3"><h3>3. Dai nomi leggibili</h3><p><span class="mono">AliquotaIVA</span> è meglio di <span class="mono">$B$1</span> se il file deve essere compreso da altri.</p></div>
+        <div class="card reveal d4"><h3>4. Documenta le formule difficili</h3><p>LET, commenti o celle di supporto rendono il foglio più mantenibile.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape teal reveal">Verifica veloce</div>
+      <h2 class="h-sec reveal">È tutto chiaro?</h2>
+      <p class="lead reveal d1" style="margin-bottom:6px;">Prova a rispondere a mente:</p>
+      <div class="grid2 reveal d2" style="gap:22px 34px;">
+        <div class="card"><h3 style="font-size:32px;">1.</h3><p>Che differenza c'è tra <span class="mono">B2</span> e <span class="mono">$B$2</span>?</p></div>
+        <div class="card"><h3 style="font-size:32px;">2.</h3><p>Quando conviene nominare una cella come <span class="mono">AliquotaIVA</span>?</p></div>
+        <div class="card"><h3 style="font-size:32px;">3.</h3><p>Perché le intestazioni delle tabelle devono essere chiare?</p></div>
+        <div class="card"><h3 style="font-size:32px;">4.</h3><p>A cosa serve LET in una formula lunga?</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:18px;"><div class="lbl">Bonus</div><p>Riscrivi una formula lunga usando nomi di celle, tabella e LET: riesci a leggerla come una frase?</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide closing">
+    <div class="deck-tab">FOGLI · F03</div>
+    <div class="center" style="align-items:center;text-align:center;">
+      <div class="eyebrow reveal gold">Fine F03</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;" contenteditable="true">Formule<br><em class="gold">più leggibili.</em></h2>
+      <p class="lead reveal d1" contenteditable="true" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora sai usare riferimenti, intervalli, nomi e LET per costruire fogli più solidi e più facili da correggere.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="00-indice.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">↩ Indice del corso</a>
+        <span class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);">37 slide completate</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;});}
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1)}prev(){this.show(this.i-1)}
+  keys(){addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next()}else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev()}else if(e.key==='Home'){this.show(0)}else if(e.key==='End'){this.show(this.slides.length-1)}})}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev()}x0=null},{passive:true})}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock)return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700)},{passive:true})}
+}
+new SlidePresentation();
+</script>
+</body>
+</html>
