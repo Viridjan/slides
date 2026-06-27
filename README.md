@@ -15,7 +15,7 @@ index.html
 - `web*.html` — Reti e Web modules
 - `sec*.html` — Sicurezza Digitale modules
 - `inf*.html` — Informatica modules
-- `sma*.html` — Smartphones modules
+- `s*.html` — Smartphones modules
 - `fog*.html` — Fogli di calcolo modules
 - `quiz-*.html` — macroarea quizzes, 20 multiple-choice questions each
 - `mappa-concettuale.mmd` — Mermaid concept map
