@@ -4,9 +4,9 @@ This file gives repo-specific guidance to coding agents working in this folder.
 
 ## What this repo is
 
-This repository is a **static course slide library**. The main content is a set
-of standalone HTML slide decks in the repo root, plus source materials in
-`corsi/`.
+This repository is a **static course slide library** for the Italian
+**Educazione digitale** course. The main content is a set of standalone HTML
+slide decks in the repo root, plus source materials in `corsi/`.
 
 There is no build system, package manager, lint step, or app framework. Most
 work is direct editing of self-contained `.html` files.
@@ -95,6 +95,8 @@ Published decks are root-level files named by series:
 | `web` | Reti e Web | `web01-reti.html` |
 | `sec` | Sicurezza Digitale | `sec01-introduzione.html` |
 | `inf` | Informatica | `inf01-componenti.html` |
+| `sma` | Smartphones | `sma01-smartphone-computer.html` |
+| `fog` | Fogli di calcolo | `fog03-riferimenti-formule.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
 
 For new published decks, use the next available number in the relevant series
@@ -131,17 +133,51 @@ update that chip too.
 | File | Title |
 | --- | --- |
 | `inf01-componenti.html` | Dentro il computer |
-| `inf02-identita.html` | La tua identità online |
-| `inf03-documenti.html` | Mettere tutto per iscritto |
-| `inf04-excel-basi.html` | Le basi del foglio di calcolo |
-| `inf05-excel-avanzato.html` | Analizzare e condividere |
-| `inf06-branding.html` | Farsi riconoscere |
-| `inf07-social.html` | I social giusti |
-| `inf08-presentazioni.html` | Dillo con una slide |
-| `inf09-vr-ar.html` | VR, AR e Metaverso |
-| `inf10-societa.html` | Tecnologia e Società |
+| `inf11-hard-disk-filesystem.html` | Hard disk e file system |
 | `inf11-os.html` | Sistemi Operativi |
 | `inf12-os-concetti.html` | OS: concetti fondamentali |
+| `inf02-identita.html` | La tua identità online |
+| `inf13-google-workspace.html` | Software Google |
+| `inf10-societa.html` | Tecnologia e Società |
+| `inf09-vr-ar.html` | VR, AR e Metaverso |
+| `inf06-branding.html` | Farsi riconoscere |
+| `inf07-social.html` | I social giusti |
+
+### Smartphones
+
+| File | Title |
+| --- | --- |
+| `sma01-smartphone-computer.html` | Lo smartphone è un computer |
+| `sma02-connessioni-reti-mobili.html` | Connessioni e reti mobili |
+| `sma03-android-ios.html` | Android e iOS |
+| `sma04-app-permessi.html` | App e permessi |
+| `sma05-privacy-telefono.html` | Privacy sul telefono |
+| `sma06-sicurezza-smartphone.html` | Sicurezza dello smartphone |
+| `sma07-file-telefono.html` | Gestione dei file sul telefono |
+| `sma08-fotocamera-contenuti.html` | Fotocamera e contenuti |
+| `sma09-benessere-digitale.html` | Benessere digitale |
+| `sma10-accessibilita-uso-pratico.html` | Accessibilità e uso pratico |
+| `sma11-manutenzione-scelta.html` | Manutenzione e scelta |
+
+### Editor di testo
+
+| File | Title |
+| --- | --- |
+| `inf03-documenti.html` | Mettere tutto per iscritto |
+
+### Fogli di calcolo
+
+| File | Title |
+| --- | --- |
+| `inf04-excel-basi.html` | Le basi del foglio di calcolo |
+| `inf05-excel-avanzato.html` | Analizzare e condividere |
+| `fog03-riferimenti-formule.html` | Riferimenti e formule robuste |
+
+### Presentazioni
+
+| File | Title |
+| --- | --- |
+| `inf08-presentazioni.html` | Dillo con una slide |
 
 ### Quizzes
 
@@ -151,14 +187,6 @@ update that chip too.
 | `quiz-sicurezza.html` | Sicurezza Digitale, 20 questions |
 | `quiz-informatica.html` | Informatica, 20 questions |
 
-### Supplemental / draft material
-
-`inf11-hard-disk-filesystem.html` exists as a standalone 20-slide deck about
-hard disks, file systems, compression, and symbolic links. It is not part of the
-current numbered path in `00-indice.html` if the OS modules occupy `inf11` and
-`inf12`. Before publishing it, choose a non-conflicting number and update the
-index and navigation chips.
-
 ## Index maintenance
 
 `00-indice.html` uses one `<div class="section-group">` per course section.
@@ -166,7 +194,11 @@ Card color classes:
 
 - `.pre` for Reti e Web
 - `.sec` for Sicurezza Digitale
-- `.inf` for Informatica
+- `.inf` for Informatica and the other course sections that use the gold theme
+
+Sections start collapsed. Opening one section closes the others. The course
+header title is `Educazione digitale`; do not reintroduce the old "Indice del
+corso" badge or the difficulty legend under the title.
 
 When adding a published deck:
 

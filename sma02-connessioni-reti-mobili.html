@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smartphones · S02 — Connessioni e reti mobili</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg)}.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg)}.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);font-family:var(--font-body);color:var(--ink);padding:96px 110px}.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30}@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px}.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint)}.page-num b{color:var(--red);font-size:30px}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}.slide.visible .reveal{opacity:1;transform:none}.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase}.tape.teal{background:var(--teal)}.tape.gold{background:var(--gold-deep)}.tape.sky{background:var(--sky)}.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red)}.h-mega{font-family:var(--font-display);font-weight:900;font-size:132px;line-height:.86;letter-spacing:-4px}.h-big{font-family:var(--font-display);font-weight:900;font-size:88px;line-height:.92;letter-spacing:-2px}.h-sec{font-family:var(--font-display);font-weight:900;font-size:70px;line-height:.95;letter-spacing:-1.5px}em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var(--sky)}.lead{font-size:32px;line-height:1.42;color:var(--ink-soft);max-width:1120px}.body{font-size:27px;line-height:1.46;color:var(--ink-soft)}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.phone-art{width:330px;height:620px;border:8px solid var(--ink);border-radius:48px;background:#fbf5ec;box-shadow:16px 18px 0 rgba(0,0,0,.18);display:grid;place-items:center;font-size:132px;position:relative}.phone-art::before{content:"";position:absolute;top:18px;width:88px;height:10px;border-radius:99px;background:var(--ink)}.phone-art::after{content:"";position:absolute;bottom:22px;width:72px;height:72px;border:5px solid var(--ink);border-radius:50%;opacity:.18}
+.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .card{padding:20px 24px}.tight-slide .card h3{font-size:30px}.tight-slide .card p,.tight-slide .card li{font-size:21px;line-height:1.28}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <div class="tape reveal">Smartphones</div>
+      <div class="eyebrow reveal" style="margin-top:40px;">S02 — Reti mobili</div>
+      <h1 class="h-mega reveal">Connessioni e reti mobili</h1>
+      <p class="lead reveal" style="margin-top:30px;">WiFi, Bluetooth, NFC, reti cellulari, SIM, hotspot, roaming e sicurezza.</p>
+      <div class="chips reveal" style="margin-top:46px;"><span class="chip">S02</span><span class="chip alt">Smartphones</span></div>
+    </div>
+    <div class="title-right"><div class="phone-art reveal">📱</div></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="center">
+      <div class="tape teal reveal">In questo capitolo</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Cosa vedremo</h2>
+      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">WiFi</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Bluetooth</span></div><div class="agenda-item"><span class="n">03</span><span class="t">NFC</span></div><div class="agenda-item"><span class="n">04</span><span class="t">5G</span></div><div class="agenda-item"><span class="n">05</span><span class="t">SIM</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Hotspot</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Sempre connessi</span></div><div class="agenda-item"><span class="n">08</span><span class="t">WiFi</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Reti WiFi pubbliche</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Bluetooth</span></div></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">Sempre connessi</h2>
+        <p class="lead reveal d1">Lo smartphone usa più tecnologie di rete contemporaneamente.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📱</span>
+        <h3>Sempre connessi</h3>
+        <ul><li>Lo smartphone usa più tecnologie di rete contemporaneamente.</li><li>Può collegarsi a Internet via WiFi o rete mobile.</li><li>Può comunicare con accessori vicini tramite Bluetooth o NFC.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">WiFi</h2>
+        <p class="lead reveal d1">Il WiFi collega il telefono a un router locale.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🔋</span>
+        <h3>WiFi</h3>
+        <ul><li>Il WiFi collega il telefono a un router locale.</li><li>È ideale in casa, scuola, ufficio o luoghi con rete affidabile.</li><li>La qualità dipende da distanza, muri, interferenze e router.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">Reti WiFi pubbliche</h2>
+        <p class="lead reveal d1">Le reti pubbliche sono comode, ma meno controllabili.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📡</span>
+        <h3>Reti WiFi pubbliche</h3>
+        <ul><li>Le reti pubbliche sono comode, ma meno controllabili.</li><li>Evita operazioni sensibili su reti sconosciute.</li><li>HTTPS, VPN affidabile e hotspot personale riducono il rischio.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">Bluetooth</h2>
+        <p class="lead reveal d1">Bluetooth collega dispositivi vicini: cuffie, smartwatch, auto, tastiere.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🔐</span>
+        <h3>Bluetooth</h3>
+        <ul><li>Bluetooth collega dispositivi vicini: cuffie, smartwatch, auto, tastiere.</li><li>Consuma poco e non richiede Internet.</li><li>Disattivalo o limita associazioni quando non serve.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">NFC</h2>
+        <p class="lead reveal d1">NFC funziona a distanza molto breve.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">☁️</span>
+        <h3>NFC</h3>
+        <ul><li>NFC funziona a distanza molto breve.</li><li>Serve per pagamenti contactless, biglietti, badge e pairing rapido.</li><li>La vicinanza fisica è una forma di protezione, ma il telefono va comunque bloccato.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">Reti cellulari</h2>
+        <p class="lead reveal d1">3G, 4G e 5G collegano il telefono tramite antenne degli operatori.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🧭</span>
+        <h3>Reti cellulari</h3>
+        <ul><li>3G, 4G e 5G collegano il telefono tramite antenne degli operatori.</li><li>Copertura e velocità cambiano per zona, operatore e congestione.</li><li>Il telefono passa automaticamente tra celle mentre ti muovi.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">3G, 4G, 5G</h2>
+        <p class="lead reveal d1">3G ha reso Internet mobile realmente utilizzabile.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📷</span>
+        <h3>3G, 4G, 5G</h3>
+        <ul><li>3G ha reso Internet mobile realmente utilizzabile.</li><li>4G ha portato streaming, mappe e social fluidi.</li><li>5G aumenta velocità e riduce latenza, ma richiede copertura e dispositivi compatibili.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">SIM</h2>
+        <p class="lead reveal d1">La SIM contiene l’identità della linea mobile.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🛡️</span>
+        <h3>SIM</h3>
+        <ul><li>La SIM contiene l’identità della linea mobile.</li><li>Permette all’operatore di associare telefono, numero e piano dati.</li><li>Una SIM rubata o duplicata può diventare un rischio serio.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">eSIM</h2>
+        <p class="lead reveal d1">L’eSIM è integrata nel telefono e si configura con un profilo digitale.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🧩</span>
+        <h3>eSIM</h3>
+        <ul><li>L’eSIM è integrata nel telefono e si configura con un profilo digitale.</li><li>È utile per cambiare operatore o aggiungere piani viaggio.</li><li>Richiede attenzione nella gestione di QR code e credenziali.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">Hotspot</h2>
+        <p class="lead reveal d1">Lo smartphone può condividere la connessione mobile con altri dispositivi.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">⚙️</span>
+        <h3>Hotspot</h3>
+        <ul><li>Lo smartphone può condividere la connessione mobile con altri dispositivi.</li><li>È utile per laptop e tablet fuori casa.</li><li>Consuma batteria e dati: usa password forte e spegnilo quando non serve.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">Roaming</h2>
+        <p class="lead reveal d1">Roaming significa usare la rete di un operatore estero.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📁</span>
+        <h3>Roaming</h3>
+        <ul><li>Roaming significa usare la rete di un operatore estero.</li><li>In UE molte tariffe includono roaming regolato, ma non sempre illimitato.</li><li>Fuori UE controlla costi prima di attivare dati mobili.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">Consumo dati</h2>
+        <p class="lead reveal d1">Video, cloud backup e aggiornamenti consumano molti dati.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">💡</span>
+        <h3>Consumo dati</h3>
+        <ul><li>Video, cloud backup e aggiornamenti consumano molti dati.</li><li>Mappe, messaggistica e pagine web consumano meno.</li><li>Controlla statistiche dati nelle impostazioni per capire quali app pesano di più.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">Modalità aereo</h2>
+        <p class="lead reveal d1">Disattiva radio cellulari, WiFi e Bluetooth, poi puoi riattivare quelli consentiti.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🔎</span>
+        <h3>Modalità aereo</h3>
+        <ul><li>Disattiva radio cellulari, WiFi e Bluetooth, poi puoi riattivare quelli consentiti.</li><li>Serve in aereo, ma anche per risparmiare batteria o interrompere connessioni.</li><li>Non spegne il telefono: le app offline restano usabili.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">Localizzazione assistita</h2>
+        <p class="lead reveal d1">Il telefono usa rete mobile e WiFi per aiutare il GPS.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">✅</span>
+        <h3>Localizzazione assistita</h3>
+        <ul><li>Il telefono usa rete mobile e WiFi per aiutare il GPS.</li><li>Questo accelera il primo rilevamento della posizione.</li><li>La precisione aumenta, ma aumentano anche dati potenzialmente tracciabili.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">VPN</h2>
+        <p class="lead reveal d1">Una VPN crea un tunnel cifrato verso un server intermedio.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">⚠️</span>
+        <h3>VPN</h3>
+        <ul><li>Una VPN crea un tunnel cifrato verso un server intermedio.</li><li>Può proteggere su reti pubbliche, se il provider VPN è affidabile.</li><li>Non rende anonimi in modo assoluto e non sostituisce buone abitudini.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Reti mobili</div>
+        <h2 class="h-big reveal">Problemi comuni</h2>
+        <p class="lead reveal d1">Se Internet non funziona, controlla modalità aereo, segnale, dati mobili e APN.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🧰</span>
+        <h3>Problemi comuni</h3>
+        <ul><li>Se Internet non funziona, controlla modalità aereo, segnale, dati mobili e APN.</li><li>Riavviare il telefono risolve spesso problemi temporanei.</li><li>Se il problema resta, distingue tra telefono, SIM, operatore e router.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape teal reveal">Verifica veloce</div>
+      <h2 class="h-sec reveal">È tutto chiaro?</h2>
+      <p class="lead reveal d1">Prova a rispondere a mente prima di passare al capitolo successivo.</p>
+      <div class="grid2 reveal d2">
+        <div class="card"><h3>1.</h3><p>Qual è l’idea più importante di questo capitolo?</p></div>
+        <div class="card"><h3>2.</h3><p>Quale impostazione o comportamento puoi controllare subito sul tuo telefono?</p></div>
+        <div class="card"><h3>3.</h3><p>Quale rischio pratico riduci applicando queste regole?</p></div>
+        <div class="card"><h3>4.</h3><p>Come spiegheresti questo argomento a una persona poco esperta?</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide closing">
+    <div class="deck-tab">SMARTPHONES · S02</div>
+    <div class="center" style="align-items:center;text-align:center;">
+      <div class="eyebrow reveal gold">Fine S02</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Connessioni mobili<br><em class="gold">in pratica.</em></h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora hai una mappa operativa del capitolo: concetti chiave, rischi e controlli da applicare sullo smartphone.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="00-indice.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">↩ Indice del corso</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<script>
+class SlidePresentation{constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0)}scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`}numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`})}show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on)});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%'}next(){this.show(this.i+1)}prev(){this.show(this.i-1)}keys(){addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next()}else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev()}else if(e.key==='Home'){this.show(0)}else if(e.key==='End'){this.show(this.slides.length-1)}})}touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev()}x0=null},{passive:true})}wheel(){let lock=false;addEventListener('wheel',e=>{if(lock)return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700)},{passive:true})}}new SlidePresentation();
+</script>
+</body>
+</html>

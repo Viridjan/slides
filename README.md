@@ -1,6 +1,6 @@
 # Slides
 
-Static HTML slide decks for an Italian digital-literacy / informatics course.
+Static HTML slide decks for the Italian **Educazione digitale** course.
 
 Open the course from:
 
@@ -15,6 +15,8 @@ index.html
 - `web*.html` — Reti e Web modules
 - `sec*.html` — Sicurezza Digitale modules
 - `inf*.html` — Informatica modules
+- `sma*.html` — Smartphones modules
+- `fog*.html` — Fogli di calcolo modules
 - `quiz-*.html` — macroarea quizzes, 20 multiple-choice questions each
 - `mappa-concettuale.mmd` — Mermaid concept map
 - `corsi/` — original PPTX/PDF/source material
@@ -80,17 +82,43 @@ Edits saved this way are local to the browser and do not modify the HTML file.
 ### Informatica
 
 - Dentro il computer
-- La tua identità online
-- Mettere tutto per iscritto
-- Le basi del foglio di calcolo
-- Analizzare e condividere
-- Farsi riconoscere
-- I social giusti
-- Dillo con una slide
-- VR, AR e Metaverso
-- Tecnologia e Società
+- Hard disk e file system
 - Sistemi Operativi
 - OS: concetti fondamentali
+- La tua identità online
+- Software Google
+- Tecnologia e Società
+- VR, AR e Metaverso
+- Farsi riconoscere
+- I social giusti
+
+### Smartphones
+
+- Lo smartphone è un computer
+- Connessioni e reti mobili
+- Android e iOS
+- App e permessi
+- Privacy sul telefono
+- Sicurezza dello smartphone
+- Gestione dei file sul telefono
+- Fotocamera e contenuti
+- Benessere digitale
+- Accessibilità e uso pratico
+- Manutenzione e scelta
+
+### Editor di testo
+
+- Mettere tutto per iscritto
+
+### Fogli di calcolo
+
+- Le basi del foglio di calcolo
+- Analizzare e condividere
+- Riferimenti e formule robuste
+
+### Presentazioni
+
+- Dillo con una slide
 
 ## Quizzes
 

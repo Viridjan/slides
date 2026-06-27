@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smartphones · S06 — Sicurezza dello smartphone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg)}.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg)}.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);font-family:var(--font-body);color:var(--ink);padding:96px 110px}.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30}@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px}.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint)}.page-num b{color:var(--red);font-size:30px}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}.slide.visible .reveal{opacity:1;transform:none}.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase}.tape.teal{background:var(--teal)}.tape.gold{background:var(--gold-deep)}.tape.sky{background:var(--sky)}.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red)}.h-mega{font-family:var(--font-display);font-weight:900;font-size:132px;line-height:.86;letter-spacing:-4px}.h-big{font-family:var(--font-display);font-weight:900;font-size:88px;line-height:.92;letter-spacing:-2px}.h-sec{font-family:var(--font-display);font-weight:900;font-size:70px;line-height:.95;letter-spacing:-1.5px}em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var(--sky)}.lead{font-size:32px;line-height:1.42;color:var(--ink-soft);max-width:1120px}.body{font-size:27px;line-height:1.46;color:var(--ink-soft)}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.phone-art{width:330px;height:620px;border:8px solid var(--ink);border-radius:48px;background:#fbf5ec;box-shadow:16px 18px 0 rgba(0,0,0,.18);display:grid;place-items:center;font-size:132px;position:relative}.phone-art::before{content:"";position:absolute;top:18px;width:88px;height:10px;border-radius:99px;background:var(--ink)}.phone-art::after{content:"";position:absolute;bottom:22px;width:72px;height:72px;border:5px solid var(--ink);border-radius:50%;opacity:.18}
+.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .card{padding:20px 24px}.tight-slide .card h3{font-size:30px}.tight-slide .card p,.tight-slide .card li{font-size:21px;line-height:1.28}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <div class="tape reveal">Smartphones</div>
+      <div class="eyebrow reveal" style="margin-top:40px;">S06 — Sicurezza</div>
+      <h1 class="h-mega reveal">Sicurezza dello smartphone</h1>
+      <p class="lead reveal" style="margin-top:30px;">Blocco schermo, 2FA, furto, phishing, SIM swap, malware e app non sicure.</p>
+      <div class="chips reveal" style="margin-top:46px;"><span class="chip">S06</span><span class="chip alt">Smartphones</span></div>
+    </div>
+    <div class="title-right"><div class="phone-art reveal">📱</div></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="center">
+      <div class="tape teal reveal">In questo capitolo</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Cosa vedremo</h2>
+      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">PIN</span></div><div class="agenda-item"><span class="n">02</span><span class="t">2FA</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Phishing</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Furto</span></div><div class="agenda-item"><span class="n">05</span><span class="t">SIM swap</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Malware</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Il telefono come chiave</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Blocco schermo</span></div><div class="agenda-item"><span class="n">09</span><span class="t">PIN vs biometria</span></div><div class="agenda-item"><span class="n">10</span><span class="t">2FA</span></div></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">Il telefono come chiave</h2>
+        <p class="lead reveal d1">Lo smartphone apre email, banca, social, cloud e sistemi di lavoro.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📱</span>
+        <h3>Il telefono come chiave</h3>
+        <ul><li>Lo smartphone apre email, banca, social, cloud e sistemi di lavoro.</li><li>Perderlo può significare perdere accesso a molti account.</li><li>La sicurezza del telefono è sicurezza della tua identità digitale.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">Blocco schermo</h2>
+        <p class="lead reveal d1">PIN, password, impronta o riconoscimento volto impediscono accesso immediato.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🔋</span>
+        <h3>Blocco schermo</h3>
+        <ul><li>PIN, password, impronta o riconoscimento volto impediscono accesso immediato.</li><li>Un blocco debole protegge poco.</li><li>Evita PIN ovvi come 0000, 1234, date di nascita.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">PIN vs biometria</h2>
+        <p class="lead reveal d1">La biometria è comoda ma non sostituisce un buon codice.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📡</span>
+        <h3>PIN vs biometria</h3>
+        <ul><li>La biometria è comoda ma non sostituisce un buon codice.</li><li>Dopo riavvio o tentativi falliti serve il PIN/password.</li><li>Usa biometria per comodità, codice forte per sicurezza.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">2FA</h2>
+        <p class="lead reveal d1">La verifica in due passaggi aggiunge un secondo fattore oltre alla password.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🔐</span>
+        <h3>2FA</h3>
+        <ul><li>La verifica in due passaggi aggiunge un secondo fattore oltre alla password.</li><li>Può usare app autenticatore, notifica, SMS o chiave fisica.</li><li>App autenticatore è spesso preferibile agli SMS.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">Codici OTP</h2>
+        <p class="lead reveal d1">Gli OTP cambiano nel tempo e valgono per poco.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">☁️</span>
+        <h3>Codici OTP</h3>
+        <ul><li>Gli OTP cambiano nel tempo e valgono per poco.</li><li>Non vanno mai comunicati a telefono, chat o email.</li><li>Chi chiede un OTP sta probabilmente tentando un furto account.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">Trova dispositivo</h2>
+        <p class="lead reveal d1">Android e iPhone permettono di localizzare, bloccare o cancellare da remoto.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🧭</span>
+        <h3>Trova dispositivo</h3>
+        <ul><li>Android e iPhone permettono di localizzare, bloccare o cancellare da remoto.</li><li>La funzione va attivata prima del furto o smarrimento.</li><li>Verifica di conoscere account e password associati.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">Furto o smarrimento</h2>
+        <p class="lead reveal d1">Blocca SIM, cambia password principali e usa cancellazione remota se necessario.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📷</span>
+        <h3>Furto o smarrimento</h3>
+        <ul><li>Blocca SIM, cambia password principali e usa cancellazione remota se necessario.</li><li>Avvisa banca e servizi sensibili se il telefono era sbloccato.</li><li>Avere backup aggiornato riduce il danno.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">SIM swap</h2>
+        <p class="lead reveal d1">Un attaccante trasferisce il tuo numero su una SIM controllata da lui.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🛡️</span>
+        <h3>SIM swap</h3>
+        <ul><li>Un attaccante trasferisce il tuo numero su una SIM controllata da lui.</li><li>Può ricevere SMS OTP e tentare accessi ai servizi.</li><li>Proteggi account operatore e limita uso SMS come secondo fattore.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">Phishing SMS</h2>
+        <p class="lead reveal d1">SMS falsi imitano banche, corrieri, poste o servizi pubblici.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🧩</span>
+        <h3>Phishing SMS</h3>
+        <ul><li>SMS falsi imitano banche, corrieri, poste o servizi pubblici.</li><li>Usano urgenza, link corti e minacce di blocco account.</li><li>Non aprire link da messaggi sospetti: entra dal sito ufficiale.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">Phishing WhatsApp</h2>
+        <p class="lead reveal d1">Messaggi da contatti compromessi possono sembrare affidabili.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">⚙️</span>
+        <h3>Phishing WhatsApp</h3>
+        <ul><li>Messaggi da contatti compromessi possono sembrare affidabili.</li><li>Attenzione a richieste di codici, soldi, votazioni o link strani.</li><li>Verifica con una chiamata se la richiesta è urgente o insolita.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">Chiamate fraudolente</h2>
+        <p class="lead reveal d1">Il vishing usa telefonate per ottenere dati o autorizzazioni.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📁</span>
+        <h3>Chiamate fraudolente</h3>
+        <ul><li>Il vishing usa telefonate per ottenere dati o autorizzazioni.</li><li>Banche e servizi seri non chiedono password o codici completi.</li><li>Riaggancia e richiama il numero ufficiale.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">Malware mobile</h2>
+        <p class="lead reveal d1">Malware può rubare dati, mostrare pubblicità, intercettare SMS o controllare accessibilità.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">💡</span>
+        <h3>Malware mobile</h3>
+        <ul><li>Malware può rubare dati, mostrare pubblicità, intercettare SMS o controllare accessibilità.</li><li>Il rischio cresce con APK esterni e permessi eccessivi.</li><li>Installare meno app riduce superficie di attacco.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">APK non sicuri</h2>
+        <p class="lead reveal d1">APK da siti casuali possono contenere codice modificato.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🔎</span>
+        <h3>APK non sicuri</h3>
+        <ul><li>APK da siti casuali possono contenere codice modificato.</li><li>App “premium gratis” sono un segnale di rischio.</li><li>Scarica solo da store o sito ufficiale dello sviluppatore.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">Aggiornamenti sicurezza</h2>
+        <p class="lead reveal d1">Le patch chiudono vulnerabilità note.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">✅</span>
+        <h3>Aggiornamenti sicurezza</h3>
+        <ul><li>Le patch chiudono vulnerabilità note.</li><li>Un telefono non aggiornato è più esposto nel tempo.</li><li>Valuta supporto aggiornamenti quando acquisti un nuovo modello.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">WiFi e sicurezza</h2>
+        <p class="lead reveal d1">Su reti pubbliche evita operazioni sensibili se non necessario.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">⚠️</span>
+        <h3>WiFi e sicurezza</h3>
+        <ul><li>Su reti pubbliche evita operazioni sensibili se non necessario.</li><li>Controlla che i siti usino HTTPS.</li><li>Disattiva connessione automatica a reti sconosciute.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Sicurezza</div>
+        <h2 class="h-big reveal">Checklist sicurezza</h2>
+        <p class="lead reveal d1">Blocco schermo forte.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🧰</span>
+        <h3>Checklist sicurezza</h3>
+        <ul><li>Blocco schermo forte.</li><li>2FA sugli account principali.</li><li>Trova dispositivo attivo.</li><li>Aggiornamenti installati.</li><li>App solo da fonti affidabili.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape teal reveal">Verifica veloce</div>
+      <h2 class="h-sec reveal">È tutto chiaro?</h2>
+      <p class="lead reveal d1">Prova a rispondere a mente prima di passare al capitolo successivo.</p>
+      <div class="grid2 reveal d2">
+        <div class="card"><h3>1.</h3><p>Qual è l’idea più importante di questo capitolo?</p></div>
+        <div class="card"><h3>2.</h3><p>Quale impostazione o comportamento puoi controllare subito sul tuo telefono?</p></div>
+        <div class="card"><h3>3.</h3><p>Quale rischio pratico riduci applicando queste regole?</p></div>
+        <div class="card"><h3>4.</h3><p>Come spiegheresti questo argomento a una persona poco esperta?</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide closing">
+    <div class="deck-tab">SMARTPHONES · S06</div>
+    <div class="center" style="align-items:center;text-align:center;">
+      <div class="eyebrow reveal gold">Fine S06</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Sicurezza smartphone<br><em class="gold">in pratica.</em></h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora hai una mappa operativa del capitolo: concetti chiave, rischi e controlli da applicare sullo smartphone.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="00-indice.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">↩ Indice del corso</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<script>
+class SlidePresentation{constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0)}scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`}numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`})}show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on)});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%'}next(){this.show(this.i+1)}prev(){this.show(this.i-1)}keys(){addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next()}else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev()}else if(e.key==='Home'){this.show(0)}else if(e.key==='End'){this.show(this.slides.length-1)}})}touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev()}x0=null},{passive:true})}wheel(){let lock=false;addEventListener('wheel',e=>{if(lock)return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700)},{passive:true})}}new SlidePresentation();
+</script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smartphones · S05 — Privacy sul telefono</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg)}.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg)}.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);font-family:var(--font-body);color:var(--ink);padding:96px 110px}.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30}@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px}.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint)}.page-num b{color:var(--red);font-size:30px}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}.slide.visible .reveal{opacity:1;transform:none}.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase}.tape.teal{background:var(--teal)}.tape.gold{background:var(--gold-deep)}.tape.sky{background:var(--sky)}.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red)}.h-mega{font-family:var(--font-display);font-weight:900;font-size:132px;line-height:.86;letter-spacing:-4px}.h-big{font-family:var(--font-display);font-weight:900;font-size:88px;line-height:.92;letter-spacing:-2px}.h-sec{font-family:var(--font-display);font-weight:900;font-size:70px;line-height:.95;letter-spacing:-1.5px}em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var(--sky)}.lead{font-size:32px;line-height:1.42;color:var(--ink-soft);max-width:1120px}.body{font-size:27px;line-height:1.46;color:var(--ink-soft)}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.phone-art{width:330px;height:620px;border:8px solid var(--ink);border-radius:48px;background:#fbf5ec;box-shadow:16px 18px 0 rgba(0,0,0,.18);display:grid;place-items:center;font-size:132px;position:relative}.phone-art::before{content:"";position:absolute;top:18px;width:88px;height:10px;border-radius:99px;background:var(--ink)}.phone-art::after{content:"";position:absolute;bottom:22px;width:72px;height:72px;border:5px solid var(--ink);border-radius:50%;opacity:.18}
+.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .card{padding:20px 24px}.tight-slide .card h3{font-size:30px}.tight-slide .card p,.tight-slide .card li{font-size:21px;line-height:1.28}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <div class="tape reveal">Smartphones</div>
+      <div class="eyebrow reveal" style="margin-top:40px;">S05 — Privacy</div>
+      <h1 class="h-mega reveal">Privacy sul telefono</h1>
+      <p class="lead reveal" style="margin-top:30px;">Tracciamento, metadati, posizione, cloud, condivisione dati e impostazioni privacy.</p>
+      <div class="chips reveal" style="margin-top:46px;"><span class="chip">S05</span><span class="chip alt">Smartphones</span></div>
+    </div>
+    <div class="title-right"><div class="phone-art reveal">📱</div></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="center">
+      <div class="tape teal reveal">In questo capitolo</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Cosa vedremo</h2>
+      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Privacy</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Tracciamento</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Posizione</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Foto</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Cloud</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Dati</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Il telefono sa molto</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Dati raccolti</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Tracciamento pubblicitario</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Posizione</span></div></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">Il telefono sa molto</h2>
+        <p class="lead reveal d1">Lo smartphone contiene comunicazioni, foto, posizione, contatti, app, ricerche e abitudini.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📱</span>
+        <h3>Il telefono sa molto</h3>
+        <ul><li>Lo smartphone contiene comunicazioni, foto, posizione, contatti, app, ricerche e abitudini.</li><li>È spesso il dispositivo più personale che possediamo.</li><li>La privacy va gestita nelle impostazioni, non solo a parole.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">Dati raccolti</h2>
+        <p class="lead reveal d1">App e sistema possono raccogliere identificatori, posizione, uso app e dati tecnici.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🔋</span>
+        <h3>Dati raccolti</h3>
+        <ul><li>App e sistema possono raccogliere identificatori, posizione, uso app e dati tecnici.</li><li>Alcuni dati servono al funzionamento, altri alla pubblicità.</li><li>La differenza va capita prima di accettare tutto.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">Tracciamento pubblicitario</h2>
+        <p class="lead reveal d1">Gli identificatori pubblicitari collegano attività tra app e servizi.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📡</span>
+        <h3>Tracciamento pubblicitario</h3>
+        <ul><li>Gli identificatori pubblicitari collegano attività tra app e servizi.</li><li>Puoi limitarli o reimpostarli nelle impostazioni privacy.</li><li>Ridurre il tracciamento non elimina la pubblicità, ma limita la profilazione.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">Posizione</h2>
+        <p class="lead reveal d1">La posizione può rivelare casa, lavoro, scuola, abitudini e spostamenti.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🔐</span>
+        <h3>Posizione</h3>
+        <ul><li>La posizione può rivelare casa, lavoro, scuola, abitudini e spostamenti.</li><li>Concedila solo ad app che ne hanno bisogno.</li><li>Preferisci “solo mentre usi l’app” quando possibile.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">Cronologia posizione</h2>
+        <p class="lead reveal d1">Alcuni servizi salvano gli spostamenti nel tempo.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">☁️</span>
+        <h3>Cronologia posizione</h3>
+        <ul><li>Alcuni servizi salvano gli spostamenti nel tempo.</li><li>Può essere utile per mappe e ricordi, ma molto sensibile.</li><li>Controlla cronologia, cancellazione automatica e account collegati.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">Foto e metadati</h2>
+        <p class="lead reveal d1">Le foto possono contenere data, modello dispositivo e posizione GPS.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🧭</span>
+        <h3>Foto e metadati</h3>
+        <ul><li>Le foto possono contenere data, modello dispositivo e posizione GPS.</li><li>Prima di condividere immagini pubbliche, valuta se rimuovere metadati.</li><li>Screenshot e immagini di documenti possono mostrare dati personali nascosti.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">Cloud e sincronizzazione</h2>
+        <p class="lead reveal d1">Il cloud copia dati su server remoti per backup e accesso da più dispositivi.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📷</span>
+        <h3>Cloud e sincronizzazione</h3>
+        <ul><li>Il cloud copia dati su server remoti per backup e accesso da più dispositivi.</li><li>È comodo, ma richiede fiducia nel servizio e nell’account.</li><li>Proteggi account e controlla cosa viene sincronizzato.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">Backup foto</h2>
+        <p class="lead reveal d1">Backup automatico salva foto anche se perdi il telefono.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🛡️</span>
+        <h3>Backup foto</h3>
+        <ul><li>Backup automatico salva foto anche se perdi il telefono.</li><li>Può però caricare immagini private senza pensarci.</li><li>Controlla qualità, rete usata e cartelle incluse.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">Contatti</h2>
+        <p class="lead reveal d1">La rubrica contiene dati anche di altre persone.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🧩</span>
+        <h3>Contatti</h3>
+        <ul><li>La rubrica contiene dati anche di altre persone.</li><li>Sincronizzarla su cloud o app va fatto con attenzione.</li><li>Non tutte le app hanno bisogno di leggere tutti i contatti.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">Messaggistica</h2>
+        <p class="lead reveal d1">Le chat contengono testi, foto, vocali, documenti e metadati.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">⚙️</span>
+        <h3>Messaggistica</h3>
+        <ul><li>Le chat contengono testi, foto, vocali, documenti e metadati.</li><li>Backup non cifrati possono indebolire la protezione della chat.</li><li>Controlla impostazioni di backup e dispositivi collegati.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">Browser mobile</h2>
+        <p class="lead reveal d1">Il browser conserva cronologia, cookie, cache e login.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📁</span>
+        <h3>Browser mobile</h3>
+        <ul><li>Il browser conserva cronologia, cookie, cache e login.</li><li>Modalità privata non rende anonimi: evita solo la cronologia locale.</li><li>Cancella dati o usa profili separati quando serve.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">App social</h2>
+        <p class="lead reveal d1">Social e app video raccolgono interazioni, interessi e tempo di visione.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">💡</span>
+        <h3>App social</h3>
+        <ul><li>Social e app video raccolgono interazioni, interessi e tempo di visione.</li><li>Il feed è ottimizzato per trattenere attenzione.</li><li>Privacy e benessere digitale sono collegati.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">Permessi periodici</h2>
+        <p class="lead reveal d1">Controllare permessi una volta non basta.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🔎</span>
+        <h3>Permessi periodici</h3>
+        <ul><li>Controllare permessi una volta non basta.</li><li>Le app cambiano funzioni e richieste nel tempo.</li><li>Fai una revisione periodica: posizione, microfono, fotocamera, contatti.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">Condivisione involontaria</h2>
+        <p class="lead reveal d1">Una foto può mostrare indirizzi, targhe, badge, schermi o documenti.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">✅</span>
+        <h3>Condivisione involontaria</h3>
+        <ul><li>Una foto può mostrare indirizzi, targhe, badge, schermi o documenti.</li><li>Prima di inviare, guarda l’immagine come la vedrebbe un estraneo.</li><li>Ritaglia o oscura dati non necessari.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">Privacy dei minori</h2>
+        <p class="lead reveal d1">I dati dei minori richiedono attenzione maggiore.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">⚠️</span>
+        <h3>Privacy dei minori</h3>
+        <ul><li>I dati dei minori richiedono attenzione maggiore.</li><li>Foto, scuola, posizione e routine non vanno pubblicati con leggerezza.</li><li>Chiedi sempre: questa informazione potrà creare problemi in futuro?</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Privacy</div>
+        <h2 class="h-big reveal">Checklist privacy</h2>
+        <p class="lead reveal d1">Riduci permessi non necessari.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🧰</span>
+        <h3>Checklist privacy</h3>
+        <ul><li>Riduci permessi non necessari.</li><li>Limita posizione continua.</li><li>Proteggi account cloud con 2FA.</li><li>Controlla backup e condivisioni attive.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape teal reveal">Verifica veloce</div>
+      <h2 class="h-sec reveal">È tutto chiaro?</h2>
+      <p class="lead reveal d1">Prova a rispondere a mente prima di passare al capitolo successivo.</p>
+      <div class="grid2 reveal d2">
+        <div class="card"><h3>1.</h3><p>Qual è l’idea più importante di questo capitolo?</p></div>
+        <div class="card"><h3>2.</h3><p>Quale impostazione o comportamento puoi controllare subito sul tuo telefono?</p></div>
+        <div class="card"><h3>3.</h3><p>Quale rischio pratico riduci applicando queste regole?</p></div>
+        <div class="card"><h3>4.</h3><p>Come spiegheresti questo argomento a una persona poco esperta?</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide closing">
+    <div class="deck-tab">SMARTPHONES · S05</div>
+    <div class="center" style="align-items:center;text-align:center;">
+      <div class="eyebrow reveal gold">Fine S05</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Privacy telefono<br><em class="gold">in pratica.</em></h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora hai una mappa operativa del capitolo: concetti chiave, rischi e controlli da applicare sullo smartphone.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="00-indice.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">↩ Indice del corso</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<script>
+class SlidePresentation{constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0)}scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`}numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`})}show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on)});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%'}next(){this.show(this.i+1)}prev(){this.show(this.i-1)}keys(){addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next()}else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev()}else if(e.key==='Home'){this.show(0)}else if(e.key==='End'){this.show(this.slides.length-1)}})}touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev()}x0=null},{passive:true})}wheel(){let lock=false;addEventListener('wheel',e=>{if(lock)return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700)},{passive:true})}}new SlidePresentation();
+</script>
+</body>
+</html>
