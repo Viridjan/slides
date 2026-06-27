@@ -22,6 +22,8 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
 .page-header{display:block;margin-bottom:64px;padding-bottom:40px;border-bottom:2px solid rgba(216,201,180,.2);}
 .header-left .badge{display:inline-block;font-family:var(--font-mono);font-size:18px;letter-spacing:2px;padding:8px 18px;border:2px solid var(--gold);color:var(--gold);border-radius:6px;margin-bottom:16px;}
 .header-left h1{font-family:var(--font-display);font-weight:900;font-size:80px;line-height:.88;letter-spacing:-2px;color:var(--paper);}
+.difficulty-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;font-family:var(--font-mono);font-size:12px;color:rgba(244,236,224,.48);}
+.difficulty-legend span{padding:5px 9px;border:1px solid rgba(216,201,180,.16);border-radius:999px;background:rgba(244,236,224,.04);}
 
 /* Section group */
 .section-group{margin-bottom:22px;}
@@ -39,7 +41,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
 .module-grid.cols2,.module-grid.cols3{grid-template-columns:repeat(2,minmax(0,1fr));}
 
 .module-card{
-  display:grid;grid-template-columns:180px 1fr;grid-template-areas:"num title" "topics desc";align-items:start;gap:8px 24px;
+  display:grid;grid-template-columns:180px 1fr;grid-template-areas:"num title" "difficulty desc" "topics desc";align-items:start;gap:8px 24px;
   background:rgba(244,236,224,.04);border:1px solid rgba(216,201,180,.12);border-radius:16px;
   padding:28px 32px;text-decoration:none;color:var(--paper);
   transition:background .25s ease, border-color .25s ease, transform .2s ease, box-shadow .2s ease;
@@ -66,6 +68,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
 .module-card.pre .card-tag{color:rgba(63,126,140,.8);}
 .module-card.sec .card-tag{color:rgba(230,83,59,.7);}
 .card-title{grid-area:title;font-family:var(--font-display);font-weight:900;font-size:36px;line-height:1;margin-bottom:2px;}
+.card-difficulty{grid-area:difficulty;justify-self:center;font-family:var(--font-mono);font-size:13px;line-height:1;padding:6px 10px;border:1px solid rgba(216,201,180,.22);border-radius:999px;color:var(--gold);background:rgba(230,193,74,.08);letter-spacing:1px;white-space:nowrap;}
 .card-desc{grid-area:desc;font-size:18px;color:rgba(244,236,224,.55);line-height:1.32;max-width:680px;}
 
 .card-arrow{display:none;}
@@ -87,6 +90,13 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
     <div class="header-left">
       <div class="badge">INDICE DEL CORSO</div>
       <h1>Informatica</h1>
+      <div class="difficulty-legend" aria-label="Legenda difficoltà">
+        <span>★☆☆☆☆ base</span>
+        <span>★★☆☆☆ facile</span>
+        <span>★★★☆☆ intermedio</span>
+        <span>★★★★☆ avanzato</span>
+        <span>★★★★★ specialistico</span>
+      </div>
     </div>
   </header>
 
@@ -100,6 +110,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">RETI E WEB · W01</div>
           <div class="card-title">Reti Informatiche e Internet</div>
+          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Cos'è una rete, tipologie LAN/WAN/MAN, come si connettono i dispositivi, cos'è Internet, differenza con il Web, client e server, vantaggi e rischi.</div>
           <div class="card-topics">
             <span class="topic">LAN / WAN</span>
@@ -116,6 +127,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">RETI E WEB · W02a</div>
           <div class="card-title">Navigazione e Indirizzi Web</div>
+          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Come funziona la navigazione: protocolli HTTP e HTTPS, struttura degli URL, indirizzi IP e hyperlink. Differenza tra sicurezza e affidabilità HTTPS.</div>
           <div class="card-topics">
             <span class="topic">HTTP / HTTPS</span>
@@ -132,6 +144,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">RETI E WEB · W02b</div>
           <div class="card-title">Domini e Indirizzi Internet</div>
+          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Struttura interna di un dominio, estensioni geografiche (ccTLD) e tematiche (gTLD): come leggere e interpretare qualsiasi indirizzo web.</div>
           <div class="card-topics">
             <span class="topic">TLD / SLD</span>
@@ -148,6 +161,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">RETI E WEB · W03</div>
           <div class="card-title">Ricerca e Gestione delle Informazioni</div>
+          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Link e hyperlink, motori di ricerca, tecniche di ricerca efficace, operatori avanzati, moduli online, enciclopedie e strumenti di traduzione automatica.</div>
           <div class="card-topics">
             <span class="topic">Motori di ricerca</span>
@@ -164,6 +178,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">RETI E WEB · W04</div>
           <div class="card-title">La Posta Elettronica</div>
+          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Indirizzi email, struttura di un messaggio, piattaforme, A/CC/CCN, oggetto, tono professionale, allegati, risposta, sicurezza e netiquette.</div>
           <div class="card-topics">
             <span class="topic">Email</span>
@@ -180,6 +195,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">RETI E WEB · W05</div>
           <div class="card-title">La Firma Email</div>
+          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Cos'è una firma email, informazioni essenziali, formattazione, errori comuni, disclaimer legali e configurazione in Gmail e Outlook.</div>
           <div class="card-topics">
             <span class="topic">Firma</span>
@@ -196,6 +212,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">RETI E WEB · W06</div>
           <div class="card-title">Navigare con Spirito Critico</div>
+          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Valutare l'affidabilità delle informazioni online, riconoscere siti sicuri, HTTPS, tipologie di siti, autori e fonti, dati personali e strumenti di controllo.</div>
           <div class="card-topics">
             <span class="topic">Fake news</span>
@@ -212,6 +229,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">RETI E WEB · W07</div>
           <div class="card-title">Gestire e Archiviare Contenuti</div>
+          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Visualizzare, salvare, stampare e scaricare file dal web. Copiare contenuti da pagine, documenti e immagini. Organizzare l'archivio digitale nel cloud.</div>
           <div class="card-topics">
             <span class="topic">Download</span>
@@ -236,6 +254,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">SICUREZZA · C01</div>
           <div class="card-title">Introduzione alla Sicurezza Digitale</div>
+          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Il modello CID (Confidenzialità, Integrità, Disponibilità), impronta digitale, superficie di attacco e prime misure di protezione: password e 2FA.</div>
           <div class="card-topics">
             <span class="topic">Modello CID</span>
@@ -252,6 +271,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">SICUREZZA · C02</div>
           <div class="card-title">Minacce e Vulnerabilità</div>
+          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Malware (virus, trojan, ransomware, spyware), phishing e social engineering, attacchi di rete (MITM, DDoS), vulnerabilità software e Zero-Day.</div>
           <div class="card-topics">
             <span class="topic">Malware</span>
@@ -268,6 +288,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">SICUREZZA · C03</div>
           <div class="card-title">Privacy, Anonimato e Pseudonimia</div>
+          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Differenza tra privacy, anonimato e pseudonimia. Dati che lasciamo online, tracciamento, GDPR e strumenti per proteggere l'identità digitale.</div>
           <div class="card-topics">
             <span class="topic">Privacy</span>
@@ -284,6 +305,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">SICUREZZA · C04</div>
           <div class="card-title">Professioni nella Sicurezza Informatica</div>
+          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Figure professionali nel settore: Security Analyst, Penetration Tester, Incident Responder, SOC Analyst, CISO. Competenze, certificazioni e percorsi di carriera.</div>
           <div class="card-topics">
             <span class="topic">Penetration testing</span>
@@ -300,6 +322,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">SICUREZZA · C05</div>
           <div class="card-title">Assessment, Compliance e Dati Personali</div>
+          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Vulnerability Assessment, CVSS scoring, VA vs Penetration Test, framework di compliance (GDPR, NIS2, ISO 27001, PCI DSS) e controllo dei dati personali in rete.</div>
           <div class="card-topics">
             <span class="topic">Vulnerability Assessment</span>
@@ -324,6 +347,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">INFORMATICA · I01</div>
           <div class="card-title">Dentro il computer</div>
+          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Hardware, software, componenti interni (CPU, RAM, disco, scheda madre) e come i dispositivi comunicano: USB, WiFi, Bluetooth, Ethernet, 3G/4G/5G.</div>
           <div class="card-topics">
             <span class="topic">CPU / RAM</span>
@@ -335,91 +359,29 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="inf02-identita.html">
+      <a class="module-card inf" href="inf11-hard-disk-filesystem.html">
         <div class="card-num">I02</div>
         <div class="card-body">
           <div class="card-tag">INFORMATICA · I02</div>
-          <div class="card-title">La tua identità online</div>
-          <div class="card-desc">Identità privata e professionale online, PEC, SPID, account aziendale e gestione responsabile dei dati sensibili dei clienti secondo il GDPR.</div>
+          <div class="card-title">Hard disk e file system</div>
+          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
+          <div class="card-desc">Dischi, partizioni, formattazione, FAT32, exFAT, NTFS, Btrfs, ext4, APFS, organizzazione dei file, compressione e link simbolici.</div>
           <div class="card-topics">
-            <span class="topic">PEC</span>
-            <span class="topic">SPID</span>
-            <span class="topic">GDPR</span>
-            <span class="topic">Identità digitale</span>
-          </div>
-        </div>
-        <div class="card-arrow">→</div>
-      </a>
-
-      <a class="module-card inf" href="inf06-branding.html">
-        <div class="card-num">I03</div>
-        <div class="card-body">
-          <div class="card-tag">INFORMATICA · I03</div>
-          <div class="card-title">Farsi riconoscere</div>
-          <div class="card-desc">Cos'è l'identità di un marchio, gli elementi che la compongono (logo, colori, font, tono), vision e mission, personal branding e come definire il pubblico.</div>
-          <div class="card-topics">
-            <span class="topic">Brand identity</span>
-            <span class="topic">Logo</span>
-            <span class="topic">Target</span>
-            <span class="topic">Personal branding</span>
-          </div>
-        </div>
-        <div class="card-arrow">→</div>
-      </a>
-
-      <a class="module-card inf" href="inf07-social.html">
-        <div class="card-num">I04</div>
-        <div class="card-body">
-          <div class="card-tag">INFORMATICA · I04</div>
-          <div class="card-title">I social giusti</div>
-          <div class="card-desc">Gestire la presenza sui social, scegliere le piattaforme in base al pubblico, pubblicare contenuti efficaci e promuovere un'attività professionale.</div>
-          <div class="card-topics">
-            <span class="topic">Social media</span>
-            <span class="topic">Piattaforme</span>
-            <span class="topic">Audience</span>
-            <span class="topic">Promozione</span>
-          </div>
-        </div>
-        <div class="card-arrow">→</div>
-      </a>
-
-      <a class="module-card inf" href="inf09-vr-ar.html">
-        <div class="card-num">I05</div>
-        <div class="card-body">
-          <div class="card-tag">INFORMATICA · I05</div>
-          <div class="card-title">VR, AR e Metaverso</div>
-          <div class="card-desc">Realtà virtuale e aumentata: hardware, funzionamento e applicazioni reali. Il metaverso: cos'è, piattaforme esistenti, opportunità e problemi aperti.</div>
-          <div class="card-topics">
-            <span class="topic">Realtà virtuale</span>
-            <span class="topic">Realtà aumentata</span>
-            <span class="topic">Metaverso</span>
-            <span class="topic">VR vs AR</span>
-          </div>
-        </div>
-        <div class="card-arrow">→</div>
-      </a>
-
-      <a class="module-card inf" href="inf10-societa.html">
-        <div class="card-num">I06</div>
-        <div class="card-body">
-          <div class="card-tag">INFORMATICA · I06</div>
-          <div class="card-title">Tecnologia e Società</div>
-          <div class="card-desc">Benessere digitale, dipendenze, ambienti inclusivi e accessibili (WCAG), smart working sicuro e ricadute sociali della digitalizzazione.</div>
-          <div class="card-topics">
-            <span class="topic">Benessere digitale</span>
-            <span class="topic">Accessibilità</span>
-            <span class="topic">Smart Working</span>
-            <span class="topic">Divario digitale</span>
+            <span class="topic">File system</span>
+            <span class="topic">FAT32 / NTFS</span>
+            <span class="topic">Compressione</span>
+            <span class="topic">Link simbolici</span>
           </div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
       <a class="module-card inf" href="inf11-os.html">
-        <div class="card-num">I07</div>
+        <div class="card-num">I03</div>
         <div class="card-body">
-          <div class="card-tag">INFORMATICA · I07</div>
+          <div class="card-tag">INFORMATICA · I03</div>
           <div class="card-title">Sistemi Operativi</div>
+          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Windows, macOS, Linux e Android: come funzionano, kernel e GUI, file system (NTFS/APFS/ext4), sicurezza per OS e confronto completo per scegliere.</div>
           <div class="card-topics">
             <span class="topic">Windows</span>
@@ -432,10 +394,11 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
       </a>
 
       <a class="module-card inf" href="inf12-os-concetti.html">
-        <div class="card-num">I08</div>
+        <div class="card-num">I04</div>
         <div class="card-body">
-          <div class="card-tag">INFORMATICA · I08</div>
+          <div class="card-tag">INFORMATICA · I04</div>
           <div class="card-title">OS: concetti fondamentali</div>
+          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Driver e periferiche, installazione programmi per OS, aggiornamenti, licenze (proprietario / open source / libero), store, account, permessi e backup.</div>
           <div class="card-topics">
             <span class="topic">Driver</span>
@@ -447,11 +410,29 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="inf13-google-workspace.html">
-        <div class="card-num">I09</div>
+      <a class="module-card inf" href="inf02-identita.html">
+        <div class="card-num">I05</div>
         <div class="card-body">
-          <div class="card-tag">INFORMATICA · I09</div>
+          <div class="card-tag">INFORMATICA · I05</div>
+          <div class="card-title">La tua identità online</div>
+          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
+          <div class="card-desc">Identità privata e professionale online, PEC, SPID, account aziendale e gestione responsabile dei dati sensibili dei clienti secondo il GDPR.</div>
+          <div class="card-topics">
+            <span class="topic">PEC</span>
+            <span class="topic">SPID</span>
+            <span class="topic">GDPR</span>
+            <span class="topic">Identità digitale</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="module-card inf" href="inf13-google-workspace.html">
+        <div class="card-num">I06</div>
+        <div class="card-body">
+          <div class="card-tag">INFORMATICA · I06</div>
           <div class="card-title">Software Google</div>
+          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Drive, Docs, Sheets, Slides, Gmail, Calendar, Meet, Forms e Classroom: gli strumenti Google più comuni per lavorare e collaborare nel cloud.</div>
           <div class="card-topics">
             <span class="topic">Google Drive</span>
@@ -463,25 +444,69 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-arrow">→</div>
       </a>
 
-    </div>
-  </div>
-
-  <!-- PRESENTAZIONI -->
-  <div class="section-group">
-    <div class="section-label">Presentazioni</div>
-    <div class="module-grid cols2">
-
-      <a class="module-card inf" href="inf08-presentazioni.html">
-        <div class="card-num">P01</div>
+      <a class="module-card inf" href="inf10-societa.html">
+        <div class="card-num">I07</div>
         <div class="card-body">
-          <div class="card-tag">PRESENTAZIONI · P01</div>
-          <div class="card-title">Dillo con una slide</div>
-          <div class="card-desc">PowerPoint, Google Slides e alternative: principi di design per slide efficaci, gerarchia visiva, colori, font, struttura e preparazione alla presentazione.</div>
+          <div class="card-tag">INFORMATICA · I07</div>
+          <div class="card-title">Tecnologia e Società</div>
+          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
+          <div class="card-desc">Benessere digitale, dipendenze, ambienti inclusivi e accessibili (WCAG), smart working sicuro e ricadute sociali della digitalizzazione.</div>
           <div class="card-topics">
-            <span class="topic">PowerPoint</span>
-            <span class="topic">Google Slides</span>
-            <span class="topic">Design slide</span>
-            <span class="topic">Storytelling</span>
+            <span class="topic">Benessere digitale</span>
+            <span class="topic">Accessibilità</span>
+            <span class="topic">Smart Working</span>
+            <span class="topic">Divario digitale</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="module-card inf" href="inf09-vr-ar.html">
+        <div class="card-num">I08</div>
+        <div class="card-body">
+          <div class="card-tag">INFORMATICA · I08</div>
+          <div class="card-title">VR, AR e Metaverso</div>
+          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
+          <div class="card-desc">Realtà virtuale e aumentata: hardware, funzionamento e applicazioni reali. Il metaverso: cos'è, piattaforme esistenti, opportunità e problemi aperti.</div>
+          <div class="card-topics">
+            <span class="topic">Realtà virtuale</span>
+            <span class="topic">Realtà aumentata</span>
+            <span class="topic">Metaverso</span>
+            <span class="topic">VR vs AR</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="module-card inf" href="inf06-branding.html">
+        <div class="card-num">I09</div>
+        <div class="card-body">
+          <div class="card-tag">INFORMATICA · I09</div>
+          <div class="card-title">Farsi riconoscere</div>
+          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
+          <div class="card-desc">Cos'è l'identità di un marchio, gli elementi che la compongono (logo, colori, font, tono), vision e mission, personal branding e come definire il pubblico.</div>
+          <div class="card-topics">
+            <span class="topic">Brand identity</span>
+            <span class="topic">Logo</span>
+            <span class="topic">Target</span>
+            <span class="topic">Personal branding</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="module-card inf" href="inf07-social.html">
+        <div class="card-num">I10</div>
+        <div class="card-body">
+          <div class="card-tag">INFORMATICA · I10</div>
+          <div class="card-title">I social giusti</div>
+          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
+          <div class="card-desc">Gestire la presenza sui social, scegliere le piattaforme in base al pubblico, pubblicare contenuti efficaci e promuovere un'attività professionale.</div>
+          <div class="card-topics">
+            <span class="topic">Social media</span>
+            <span class="topic">Piattaforme</span>
+            <span class="topic">Audience</span>
+            <span class="topic">Promozione</span>
           </div>
         </div>
         <div class="card-arrow">→</div>
@@ -500,6 +525,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">EDITOR DI TESTO · T01</div>
           <div class="card-title">Mettere tutto per iscritto</div>
+          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">I documenti che servono davvero sul lavoro: la scheda cliente, un curriculum che fa notare e un listino prezzi fatto bene con Word o Writer.</div>
           <div class="card-topics">
             <span class="topic">Curriculum</span>
@@ -524,6 +550,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">FOGLI · F01</div>
           <div class="card-title">Le basi del foglio di calcolo</div>
+          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Excel e Google Sheets: celle, riferimenti, fogli multipli, formattazione e le prime formule per mettere i dati in ordine — SOMMA, MEDIA, MIN, MAX.</div>
           <div class="card-topics">
             <span class="topic">Excel</span>
@@ -540,6 +567,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">FOGLI · F02</div>
           <div class="card-title">Analizzare e condividere</div>
+          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Tabelle, ordinamento e filtri, tabelle pivot, funzioni avanzate (CERCA.VERT, SE) e collaborazione in tempo reale su fogli condivisi.</div>
           <div class="card-topics">
             <span class="topic">Pivot</span>
@@ -556,6 +584,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">FOGLI · F03</div>
           <div class="card-title">Riferimenti e formule robuste</div>
+          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Riferimenti assoluti, relativi e misti, range, celle nominate, intestazioni di tabella, riferimenti strutturati, LET e buone pratiche per formule leggibili.</div>
           <div class="card-topics">
             <span class="topic">Riferimenti</span>
@@ -570,9 +599,34 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
     </div>
   </div>
 
-  <!-- QUIZ DI MACROAREA -->
+  <!-- PRESENTAZIONI -->
   <div class="section-group">
-    <div class="section-label">Quiz di Macroarea</div>
+    <div class="section-label">Presentazioni</div>
+    <div class="module-grid cols2">
+
+      <a class="module-card inf" href="inf08-presentazioni.html">
+        <div class="card-num">P01</div>
+        <div class="card-body">
+          <div class="card-tag">PRESENTAZIONI · P01</div>
+          <div class="card-title">Dillo con una slide</div>
+          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
+          <div class="card-desc">PowerPoint, Google Slides e alternative: principi di design per slide efficaci, gerarchia visiva, colori, font, struttura e preparazione alla presentazione.</div>
+          <div class="card-topics">
+            <span class="topic">PowerPoint</span>
+            <span class="topic">Google Slides</span>
+            <span class="topic">Design slide</span>
+            <span class="topic">Storytelling</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section-group">
+    <div class="section-label">Quiz</div>
     <div class="module-grid cols3">
 
       <a class="module-card pre" href="quiz-reti-web.html">
@@ -580,6 +634,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">QUIZ · Q01 · 20 DOMANDE</div>
           <div class="card-title">Reti e Web</div>
+          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Verifica su reti, navigazione, domini, ricerca, email, affidabilità e gestione dei contenuti. 20 domande a risposta multipla.</div>
           <div class="card-topics">
             <span class="topic">Internet</span>
@@ -596,6 +651,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">QUIZ · Q02 · 20 DOMANDE</div>
           <div class="card-title">Sicurezza Digitale</div>
+          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Verifica su triade CID, malware, phishing, privacy, professioni, assessment e compliance. 20 domande a risposta multipla.</div>
           <div class="card-topics">
             <span class="topic">CID</span>
@@ -612,6 +668,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
         <div class="card-body">
           <div class="card-tag">QUIZ · Q03 · 20 DOMANDE</div>
           <div class="card-title">Informatica</div>
+          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Verifica su componenti, identità digitale, documenti, fogli di calcolo, branding, social e presentazioni. 20 domande a risposta multipla.</div>
           <div class="card-topics">
             <span class="topic">Hardware</span>
