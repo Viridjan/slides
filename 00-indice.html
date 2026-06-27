@@ -19,24 +19,20 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
 .page{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:64px 60px 100px;}
 
 /* Header */
-.page-header{display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;margin-bottom:64px;padding-bottom:40px;border-bottom:2px solid rgba(216,201,180,.2);}
+.page-header{display:block;margin-bottom:64px;padding-bottom:40px;border-bottom:2px solid rgba(216,201,180,.2);}
 .header-left .badge{display:inline-block;font-family:var(--font-mono);font-size:18px;letter-spacing:2px;padding:8px 18px;border:2px solid var(--gold);color:var(--gold);border-radius:6px;margin-bottom:16px;}
 .header-left h1{font-family:var(--font-display);font-weight:900;font-size:80px;line-height:.88;letter-spacing:-2px;color:var(--paper);}
-.header-left h1 em{font-style:italic;color:var(--red);}
 .header-left p{margin-top:16px;font-size:24px;color:rgba(244,236,224,.6);max-width:720px;line-height:1.5;}
-.header-right{text-align:right;}
-.header-right .stat{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
-.header-right .stat-n{font-family:var(--font-display);font-weight:900;font-size:72px;color:var(--gold);line-height:1;}
-.header-right .stat-l{font-family:var(--font-mono);font-size:18px;color:rgba(244,236,224,.5);letter-spacing:1px;}
 
 /* Section group */
-.section-group{margin-bottom:48px;}
-.section-label{font-family:var(--font-mono);font-size:18px;letter-spacing:3px;text-transform:uppercase;color:rgba(244,236,224,.4);margin-bottom:20px;display:flex;align-items:center;gap:16px;cursor:pointer;user-select:none;}
-.section-label::before{content:"▾";font-size:18px;color:rgba(244,236,224,.35);transition:transform .2s ease,color .2s ease;}
-.section-label::after{content:"";flex:1;height:1px;background:rgba(216,201,180,.15);}
-.section-label:hover,.section-label:focus{color:rgba(244,236,224,.7);outline:none;}
+.section-group{margin-bottom:22px;}
+.section-label{font-family:var(--font-mono);font-size:18px;letter-spacing:3px;text-transform:uppercase;color:rgba(244,236,224,.72);margin-bottom:16px;display:flex;align-items:center;gap:16px;cursor:pointer;user-select:none;background:rgba(244,236,224,.06);border:1px solid rgba(216,201,180,.16);border-left:4px solid var(--gold-deep);border-radius:12px;padding:16px 18px;box-shadow:0 10px 28px rgba(0,0,0,.16);transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease;}
+.section-label::before{content:"▾";font-size:20px;color:var(--gold);transition:transform .2s ease,color .2s ease;}
+.section-label::after{content:"";flex:1;height:1px;background:rgba(216,201,180,.18);}
+.section-label:hover,.section-label:focus{color:var(--paper);background:rgba(244,236,224,.10);border-color:rgba(216,201,180,.32);outline:none;transform:translateY(-1px);}
 .section-label:hover::before,.section-label:focus::before{color:var(--gold);}
-.section-group.collapsed .section-label::before{transform:rotate(-90deg);}
+.section-group.collapsed .section-label{color:rgba(244,236,224,.48);background:rgba(244,236,224,.035);border-left-color:rgba(216,201,180,.26);box-shadow:none;}
+.section-group.collapsed .section-label::before{transform:rotate(-90deg);color:rgba(244,236,224,.36);}
 .section-group.collapsed .module-grid{display:none;}
 
 /* Module cards */
@@ -81,9 +77,8 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
 .topic{font-family:var(--font-mono);font-size:14px;padding:5px 12px;border-radius:20px;border:1px solid rgba(216,201,180,.2);color:rgba(244,236,224,.4);}
 
 /* Footer */
-.page-footer{margin-top:64px;padding-top:32px;border-top:1px solid rgba(216,201,180,.12);display:flex;justify-content:space-between;align-items:center;}
-.footer-brand{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:28px;color:rgba(244,236,224,.3);}
-.footer-note{font-family:var(--font-mono);font-size:16px;color:rgba(244,236,224,.25);}
+.page-footer{margin-top:64px;padding-top:32px;border-top:1px solid rgba(216,201,180,.12);display:flex;justify-content:flex-end;align-items:center;}
+.footer-author{font-family:var(--font-mono);font-size:16px;color:rgba(244,236,224,.38);letter-spacing:1px;}
 </style>
 </head>
 <body>
@@ -92,14 +87,8 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
   <header class="page-header">
     <div class="header-left">
       <div class="badge">INDICE DEL CORSO</div>
-      <h1>Infor<em>matica</em></h1>
+      <h1>Informatica</h1>
       <p>Raccolta di moduli didattici. Clicca su un argomento per aprire il deck corrispondente nel browser.</p>
-    </div>
-    <div class="header-right">
-      <div class="stat">
-        <div class="stat-n">25</div>
-        <div class="stat-l">MODULI</div>
-      </div>
     </div>
   </header>
 
@@ -616,25 +605,31 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
   </div>
 
   <footer class="page-footer">
-    <div class="footer-brand">Informatica</div>
-    <div class="footer-note">Frecce per navigare i deck · E per modificare i testi</div>
+    <div class="footer-author">Francesco Binetti</div>
   </footer>
 
 </div>
 <script>
-document.querySelectorAll('.section-group').forEach((group,index)=>{
+const sectionGroups=[...document.querySelectorAll('.section-group')];
+const closeGroup=group=>{
+  group.classList.add('collapsed');
+  group.querySelector('.section-label')?.setAttribute('aria-expanded','false');
+};
+const openGroup=group=>{
+  sectionGroups.forEach(closeGroup);
+  group.classList.remove('collapsed');
+  group.querySelector('.section-label')?.setAttribute('aria-expanded','true');
+};
+sectionGroups.forEach(group=>{
   const label=group.querySelector('.section-label');
   if(!label)return;
-  const key=`indice-section-${index}-collapsed`;
+  group.classList.add('collapsed');
   label.setAttribute('role','button');
   label.setAttribute('tabindex','0');
-  label.setAttribute('aria-expanded',String(localStorage.getItem(key)!=='1'));
-  if(localStorage.getItem(key)==='1')group.classList.add('collapsed');
+  label.setAttribute('aria-expanded','false');
   const toggle=()=>{
-    group.classList.toggle('collapsed');
-    const collapsed=group.classList.contains('collapsed');
-    label.setAttribute('aria-expanded',String(!collapsed));
-    localStorage.setItem(key,collapsed?'1':'0');
+    if(group.classList.contains('collapsed'))openGroup(group);
+    else closeGroup(group);
   };
   label.addEventListener('click',toggle);
   label.addEventListener('keydown',event=>{
