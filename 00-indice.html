@@ -31,8 +31,13 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
 
 /* Section group */
 .section-group{margin-bottom:48px;}
-.section-label{font-family:var(--font-mono);font-size:18px;letter-spacing:3px;text-transform:uppercase;color:rgba(244,236,224,.4);margin-bottom:20px;display:flex;align-items:center;gap:16px;}
+.section-label{font-family:var(--font-mono);font-size:18px;letter-spacing:3px;text-transform:uppercase;color:rgba(244,236,224,.4);margin-bottom:20px;display:flex;align-items:center;gap:16px;cursor:pointer;user-select:none;}
+.section-label::before{content:"▾";font-size:18px;color:rgba(244,236,224,.35);transition:transform .2s ease,color .2s ease;}
 .section-label::after{content:"";flex:1;height:1px;background:rgba(216,201,180,.15);}
+.section-label:hover,.section-label:focus{color:rgba(244,236,224,.7);outline:none;}
+.section-label:hover::before,.section-label:focus::before{color:var(--gold);}
+.section-group.collapsed .section-label::before{transform:rotate(-90deg);}
+.section-group.collapsed .module-grid{display:none;}
 
 /* Module cards */
 .module-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
@@ -616,5 +621,29 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
   </footer>
 
 </div>
+<script>
+document.querySelectorAll('.section-group').forEach((group,index)=>{
+  const label=group.querySelector('.section-label');
+  if(!label)return;
+  const key=`indice-section-${index}-collapsed`;
+  label.setAttribute('role','button');
+  label.setAttribute('tabindex','0');
+  label.setAttribute('aria-expanded',String(localStorage.getItem(key)!=='1'));
+  if(localStorage.getItem(key)==='1')group.classList.add('collapsed');
+  const toggle=()=>{
+    group.classList.toggle('collapsed');
+    const collapsed=group.classList.contains('collapsed');
+    label.setAttribute('aria-expanded',String(!collapsed));
+    localStorage.setItem(key,collapsed?'1':'0');
+  };
+  label.addEventListener('click',toggle);
+  label.addEventListener('keydown',event=>{
+    if(event.key==='Enter'||event.key===' '){
+      event.preventDefault();
+      toggle();
+    }
+  });
+});
+</script>
 </body>
 </html>
