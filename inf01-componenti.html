@@ -1203,6 +1203,7 @@ addEventListener('keydown',e=>{
   const onEditable=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';
   if((e.key==='e'||e.key==='E')&&!onEditable){editor.toggle();}
   if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}
+  if((e.key==='i'||e.key==='I')&&!onEditable){location.href='00-indice.html';}
 });
 </script>
 </body>
