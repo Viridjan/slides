@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fogli di calcolo · F02 — CERCA.ORIZZ, CONFRONTA e INDICE</title>
+<title>Fogli di calcolo · F02 — Analizzare, condividere e cercare dati</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -67,10 +67,10 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   <section class="slide title-slide active visible">
     <div class="title-left">
       <div class="tape reveal">Fogli di calcolo</div>
-      <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="false">F02 — Ricerca dati</div>
-      <h1 class="h-mega reveal" contenteditable="false">CERCA.ORIZZ,<br><em class="hot">CONFRONTA</em><br>e INDICE</h1>
-      <p class="lead reveal" style="margin-top:30px;" contenteditable="false">Tre funzioni per trovare dati in tabelle: ricerca orizzontale, posizione di un valore e recupero preciso da righe e colonne.</p>
-      <div class="chips reveal" style="margin-top:46px;"><span class="chip">F02</span><span class="chip alt">Ricerca</span></div>
+      <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="false">F02 — Analisi e ricerca dati</div>
+      <h1 class="h-mega reveal" contenteditable="false">Analizzare,<br><em class="hot">condividere</em><br>e cercare</h1>
+      <p class="lead reveal" style="margin-top:30px;" contenteditable="false">Tabelle, filtri, pivot, collaborazione e funzioni di ricerca: CERCA.ORIZZ, CONFRONTA e INDICE.</p>
+      <div class="chips reveal" style="margin-top:46px;"><span class="chip">F02</span><span class="chip alt">Avanzato</span></div>
     </div>
     <div class="title-right"><div style="position:relative;z-index:2;font-size:220px;line-height:1;">🔎</div></div>
   </section>
@@ -81,15 +81,99 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <div class="tape teal reveal">In questo modulo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
       <div class="agenda-list reveal d1">
-        <div class="agenda-item"><span class="n">01</span><span class="t">CERCA.ORIZZ: cercare in una riga</span></div>
-        <div class="agenda-item"><span class="n">02</span><span class="t">Sintassi ed esempio pratico</span></div>
-        <div class="agenda-item"><span class="n">03</span><span class="t">Errori tipici di CERCA.ORIZZ</span></div>
-        <div class="agenda-item"><span class="n">04</span><span class="t">CONFRONTA: trovare una posizione</span></div>
-        <div class="agenda-item"><span class="n">05</span><span class="t">Corrispondenza esatta e approssimata</span></div>
-        <div class="agenda-item"><span class="n">06</span><span class="t">INDICE: recuperare il valore giusto</span></div>
-        <div class="agenda-item"><span class="n">07</span><span class="t">INDICE + CONFRONTA insieme</span></div>
-        <div class="agenda-item"><span class="n">08</span><span class="t">Checklist per formule robuste</span></div>
+        <div class="agenda-item"><span class="n">01</span><span class="t">Tabelle, ordinamento e filtri</span></div>
+        <div class="agenda-item"><span class="n">02</span><span class="t">Tabelle pivot</span></div>
+        <div class="agenda-item"><span class="n">03</span><span class="t">Funzioni avanzate e suggerimenti</span></div>
+        <div class="agenda-item"><span class="n">04</span><span class="t">Condivisione e automazioni</span></div>
+        <div class="agenda-item"><span class="n">05</span><span class="t">CERCA.ORIZZ</span></div>
+        <div class="agenda-item"><span class="n">06</span><span class="t">CONFRONTA</span></div>
+        <div class="agenda-item"><span class="n">07</span><span class="t">INDICE</span></div>
+        <div class="agenda-item"><span class="n">08</span><span class="t">INDICE + CONFRONTA</span></div>
       </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F02</div>
+    <div class="center">
+      <div class="tape gold reveal">Organizzare i dati</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">Tabelle, ordinamento e filtri</h2>
+      <div class="grid3 reveal d1" style="margin-top:26px;">
+        <div class="card"><span class="ic">📋</span><h3>Tabelle</h3><p>Organizzano grandi quantità di dati. Usa <b>intestazioni</b> chiare e colori alternati per leggere meglio.</p></div>
+        <div class="card"><span class="ic">🔤</span><h3>Ordinamento</h3><p>Riordina i dati in ordine alfabetico, numerico o per data, senza riscrivere la tabella.</p></div>
+        <div class="card"><span class="ic">🔎</span><h3>Filtri</h3><p>Mostrano solo le righe che rispettano una condizione: una categoria, una città, un prezzo minimo.</p></div>
+      </div>
+      <div class="note reveal d2" style="margin-top:26px;"><div class="lbl">Insieme sono potentissimi</div><p>Filtra per categoria, ordina per data e leggi al volo ciò che ti serve senza toccare i dati originali.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F02</div>
+    <div class="split">
+      <table class="sheet reveal d1">
+        <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr>
+        <tr><th class="rowh">1</th><td class="head">Mese</td><td class="head">Categoria</td><td class="head">Vendite</td><td class="head">Totale</td></tr>
+        <tr><th class="rowh">2</th><td>Gennaio</td><td>Prodotti</td><td>42</td><td>1200</td></tr>
+        <tr><th class="rowh">3</th><td>Gennaio</td><td>Servizi</td><td>31</td><td>1850</td></tr>
+        <tr><th class="rowh">4</th><td>Febbraio</td><td>Prodotti</td><td>51</td><td>1480</td></tr>
+        <tr><th class="rowh">5</th><td>Febbraio</td><td>Servizi</td><td>29</td><td>1760</td></tr>
+      </table>
+      <div class="col stack">
+        <div class="tape teal reveal">Strumento avanzato</div>
+        <h2 class="h-big reveal">Le <em class="hot">tabelle pivot</em></h2>
+        <p class="lead reveal d1">Riassumono automaticamente grandi quantità di dati, senza modificare quelli originali. Servono per creare statistiche e report al volo.</p>
+        <p class="body reveal d2">Con una pivot puoi vedere vendite mese per mese, clienti per categoria o incassi per servizio, riorganizzando i dati a piacere.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F02</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">Per saperne di più</div>
+      <h2 class="h-big reveal">Funzioni <em class="hot">avanzate</em></h2>
+      <p class="lead reveal d1">Quando i fogli crescono, esistono funzioni più potenti. Non servono tutte subito: sono strumenti da aggiungere quando il problema lo richiede.</p>
+      <div class="grid3 reveal d2" style="margin-top:6px;">
+        <div class="card"><h3>FILTER</h3><p>Estrae solo i dati che rispettano una condizione, aggiornandosi da solo.</p></div>
+        <div class="card"><h3>CERCA.VERT</h3><p>Cerca un valore dentro una tabella verticale.</p></div>
+        <div class="card"><h3>ARRAYFORMULA</h3><p>Applica una formula a un'intera colonna in un colpo solo.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:8px;"><div class="lbl">Idea semplice</div><p>Nomi spaventosi, obiettivo pratico: <b>cercare</b>, <b>filtrare</b> e <b>ripetere calcoli</b> in automatico.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F02</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">Metodo</div>
+        <h2 class="h-big reveal">Non serve <em class="hot">impararle a memoria</em></h2>
+        <p class="lead reveal d1">Nessuno ricorda tutte le formule. Il programma stesso ti aiuta: mentre scrivi suggerisce le funzioni e mostra come usarle.</p>
+        <p class="body reveal d2">Quando non sai come fare una cosa, descrivi il problema online: “come sommare solo celle sopra una soglia”. Saper cercare vale più che sapere tutto a memoria.</p>
+      </div>
+      <div class="card reveal d2">
+        <h3>Suggerimento formula</h3>
+        <div class="formula" style="box-shadow:none;margin-top:14px;">=SOM</div>
+        <p style="margin-top:18px;"><b>SOMMA</b><br>SOMMA.SE<br>SOMMA.PIÙ.SE</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">FOGLI · F02</div>
+    <div class="center">
+      <div class="tape teal reveal">Lavorare meglio</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">Condividere e automatizzare</h2>
+      <div class="grid2 reveal d1" style="margin-top:26px;">
+        <div class="card" style="border-color:var(--gold-deep);"><span class="ic">🤝</span><h3>Collaborazione in tempo reale</h3><p>Con Google Sheets puoi condividere un foglio dando permesso di <b>modificare, commentare o solo vedere</b>.</p></div>
+        <div class="card" style="border-color:var(--teal);"><span class="ic">⚙️</span><h3>Macro e automazioni</h3><p>Le macro registrano azioni ripetitive per rifarle con un clic. Apps Script può automatizzare flussi più complessi.</p></div>
+      </div>
+      <div class="note red reveal d2" style="margin-top:26px;"><div class="lbl">Attenzione alla privacy</div><p>Prima di condividere o pubblicare un foglio, controlla che non contenga dati personali dei clienti.</p></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -392,9 +476,9 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <h2 class="h-sec reveal">È tutto chiaro?</h2>
       <p class="lead reveal d1" style="margin-bottom:6px;">Prova a rispondere a mente:</p>
       <div class="grid2 reveal d2" style="gap:24px 40px;">
-        <div class="card"><h3 style="font-size:32px;">1.</h3><p>Quando ha senso usare CERCA.ORIZZ invece di una ricerca verticale?</p></div>
-        <div class="card"><h3 style="font-size:32px;">2.</h3><p>Che cosa restituisce CONFRONTA: il valore o la posizione?</p></div>
-        <div class="card"><h3 style="font-size:32px;">3.</h3><p>Perché INDICE da solo non cerca nulla?</p></div>
+        <div class="card"><h3 style="font-size:32px;">1.</h3><p>Che differenza c'è tra ordinare e filtrare i dati?</p></div>
+        <div class="card"><h3 style="font-size:32px;">2.</h3><p>A cosa serve una tabella pivot?</p></div>
+        <div class="card"><h3 style="font-size:32px;">3.</h3><p>Che cosa restituisce CONFRONTA: il valore o la posizione?</p></div>
         <div class="card"><h3 style="font-size:32px;">4.</h3><p>Perché INDICE + CONFRONTA è più robusto quando le colonne cambiano ordine?</p></div>
       </div>
     </div>
@@ -405,11 +489,11 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
     <div class="center" style="align-items:center;text-align:center;">
       <div class="eyebrow reveal gold">Fine F02</div>
       <h2 class="h-mega reveal" style="margin-top:10px;" contenteditable="false">Dati<br><em class="gold">trovati.</em></h2>
-      <p class="lead reveal d1" contenteditable="false" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora sai cercare dati in orizzontale, trovare posizioni e recuperare valori con formule più flessibili.</p>
+      <p class="lead reveal d1" contenteditable="false" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora sai analizzare, condividere e cercare dati con strumenti più potenti: filtri, pivot, automazioni e formule di ricerca.</p>
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a href="fog03-riferimenti-formule.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → F03 · Formule robuste</a>
         <a href="00-indice.html" class="chip alt" style="color:#f4ece0;border-color:rgba(244,236,224,.4);text-decoration:none;">↩ Indice del corso</a>
-        <span class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);">21 slide completate</span>
+        <span class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);">26 slide completate</span>
       </div>
     </div>
   </section>
