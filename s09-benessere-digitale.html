@@ -9,13 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
-*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg)}.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg)}.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);font-family:var(--font-body);color:var(--ink);padding:96px 110px}.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30}@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg)}.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg)}.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);font-family:var(--font-body);color:var(--ink);padding:96px 110px}.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30}
 .deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px}.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint)}.page-num b{color:var(--red);font-size:30px}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
 .reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}.slide.visible .reveal{opacity:1;transform:none}.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}
 .tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase}.tape.teal{background:var(--teal)}.tape.gold{background:var(--gold-deep)}.tape.sky{background:var(--sky)}.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red)}.h-mega{font-family:var(--font-display);font-weight:900;font-size:132px;line-height:.86;letter-spacing:-4px}.h-big{font-family:var(--font-display);font-weight:900;font-size:88px;line-height:.92;letter-spacing:-2px}.h-sec{font-family:var(--font-display);font-weight:900;font-size:70px;line-height:.95;letter-spacing:-1.5px}em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var(--sky)}.lead{font-size:32px;line-height:1.42;color:var(--ink-soft);max-width:1120px}.body{font-size:27px;line-height:1.46;color:var(--ink-soft)}
 .title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.phone-art{width:330px;height:620px;border:8px solid var(--ink);border-radius:48px;background:#fbf5ec;box-shadow:16px 18px 0 rgba(0,0,0,.18);display:grid;place-items:center;position:relative}.phone-art::before{content:"";position:absolute;top:18px;width:88px;height:10px;border-radius:99px;background:var(--ink)}.phone-art::after{content:"";position:absolute;bottom:22px;width:72px;height:72px;border:5px solid var(--ink);border-radius:50%;opacity:.18}
-.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:start;height:100%}.split.even{grid-template-columns:1fr 1fr}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
-.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .card{padding:20px 24px}.tight-slide .card h3{font-size:30px}.tight-slide .card p,.tight-slide .card li{font-size:21px;line-height:1.28}
+.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13)}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
 .title-slide .lead,.title-slide .chips{display:none;}
 </style>
 </head>
@@ -28,7 +28,7 @@
       <div class="tape reveal">Smartphones</div>
       <div class="eyebrow reveal" style="margin-top:40px;">S09 — Benessere</div>
       <h1 class="h-mega reveal">Benessere digitale</h1>
-      <p class="lead reveal" style="margin-top:30px;">Tempo sullo schermo, notifiche, distrazione, sonno, dipendenza e abitudini sane.</p>
+      <p class="lead reveal" style="margin-top:30px;">Uso consapevole, tempo schermo, notifiche, dipendenza, sonno e bambini.</p>
       <div class="chips reveal" style="margin-top:46px;"><span class="chip">S09</span><span class="chip alt">Smartphones</span></div>
     </div>
     <div class="title-right"><div class="phone-art reveal"></div></div>
@@ -39,266 +39,187 @@
     <div class="center">
       <div class="tape teal reveal">In questo capitolo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa vedremo</h2>
-      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Screen time</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Notifiche</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Sonno</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Focus</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Social</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Abitudini</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Uso consapevole</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Tempo sullo schermo</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Notifiche</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Modalità non disturbare</span></div></div>
+      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Uso consapevole</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Tempo sullo schermo</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Notifiche</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Autoplay</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Non disturbare e focus</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Notte e sonno</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Dipendenza e social</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Messaggistica</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Bambini e adolescenti</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Segnali e abitudini</span></div></div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S09</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Benessere</div>
         <h2 class="h-big reveal">Uso consapevole</h2>
-        <p class="lead reveal d1">Il problema non è usare lo smartphone, ma usarlo senza controllo.</p>
+        <p class="lead reveal d1">Il telefono è uno strumento: la differenza tra uso utile e uso compulsivo sta nell'intenzione con cui lo prendi in mano.</p>
+        <div class="note reveal d2"><div class="lbl">Il design persuasivo</div><p>App come TikTok, Instagram e YouTube sono progettate per massimizzare il tempo di utilizzo. Notifiche, scroll infinito, like e autoplay non sono casuali: sono meccanismi di engagement studiati per mantenere l'attenzione il più a lungo possibile.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📱</span>
+        <span class="ic">🧠</span>
         <h3>Uso consapevole</h3>
-        <ul><li>Il problema non è usare lo smartphone, ma usarlo senza controllo.</li><li>Notifiche, feed e autoplay sono progettati per trattenere attenzione.</li><li>Benessere digitale significa scegliere quando e come usarlo.</li></ul>
+        <ul><li>Uso consapevole significa sapere perché prendi il telefono in mano, non solo come lo usi.</li><li>La "sessione di 5 minuti" che diventa un'ora non è debolezza: è il risultato del design persuasivo delle app.</li><li>Prima di sbloccare il telefono, chiediti: cosa voglio fare? Aiuta a distinguere scelta da abitudine automatica.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S09</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Benessere</div>
         <h2 class="h-big reveal">Tempo sullo schermo</h2>
-        <p class="lead reveal d1">Screen Time e Digital Wellbeing mostrano quanto usi app e categorie.</p>
+        <p class="lead reveal d1">I dati di Screen Time e Digital Wellbeing mostrano dove va davvero il tuo tempo — spesso diverso da dove pensi.</p>
+        <div class="note reveal d2"><div class="lbl">Come usare i dati</div><p>iOS: Impostazioni → Tempo di utilizzo → Riepilogo app. Android: Impostazioni → Benessere digitale → Dashboard. Guarda le prime 5 app per tempo: sono quelle che vuoi usare o quelle in cui finisci per caso?</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🔋</span>
+        <span class="ic">⏱️</span>
         <h3>Tempo sullo schermo</h3>
-        <ul><li>Screen Time e Digital Wellbeing mostrano quanto usi app e categorie.</li><li>I dati reali spesso sorprendono.</li><li>Misurare è il primo passo per cambiare abitudini.</li></ul>
+        <ul><li>La media globale di utilizzo smartphone è 4–5 ore al giorno: spesso sottostimata di un terzo dalle persone stesse.</li><li>Screen Time (iOS) e Digital Wellbeing (Android) registrano tempo per app, sessioni e sblocchi al giorno.</li><li>Puoi impostare limiti per categoria (social, giochi) o per singola app: dopo il limite l'app si blocca con avviso.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S09</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Benessere</div>
         <h2 class="h-big reveal">Notifiche</h2>
-        <p class="lead reveal d1">Ogni notifica interrompe attenzione e memoria di lavoro.</p>
+        <p class="lead reveal d1">Ogni notifica interrompe il flusso di attenzione: ridurle selettivamente migliora concentrazione e riduce lo stress.</p>
+        <div class="note reveal d2"><div class="lbl">Disattivazione selettiva</div><p>Regola: disabilita tutte le notifiche per default, poi riabilita solo quelle che ti danno informazioni che non puoi aspettare. Ridurre del 70% le notifiche non cambia la qualità delle comunicazioni importanti.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📡</span>
+        <span class="ic">🔔</span>
         <h3>Notifiche</h3>
-        <ul><li>Ogni notifica interrompe attenzione e memoria di lavoro.</li><li>Non tutte le notifiche hanno lo stesso valore.</li><li>Mantieni attive solo quelle davvero utili.</li></ul>
+        <ul><li>Una notifica in media interrompe per 23 minuti prima di tornare alla piena concentrazione sul compito originale.</li><li>La maggior parte delle notifiche social non richiede risposta immediata: possono aspettare ore senza conseguenze.</li><li>Spegni le notifiche delle app di intrattenimento (YouTube, TikTok, giochi): ti richiedono senza mai darti nulla di urgente.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S09</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Benessere</div>
-        <h2 class="h-big reveal">Modalità non disturbare</h2>
-        <p class="lead reveal d1">Silenzia notifiche in fasce orarie o situazioni specifiche.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🔐</span>
-        <h3>Modalità non disturbare</h3>
-        <ul><li>Silenzia notifiche in fasce orarie o situazioni specifiche.</li><li>È utile per studio, lavoro, sonno e conversazioni.</li><li>Puoi consentire eccezioni per contatti importanti.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S09</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Benessere</div>
-        <h2 class="h-big reveal">Focus mode</h2>
-        <p class="lead reveal d1">Blocca temporaneamente app distraenti.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">☁️</span>
-        <h3>Focus mode</h3>
-        <ul><li>Blocca temporaneamente app distraenti.</li><li>Aiuta a creare sessioni di lavoro o studio più pulite.</li><li>Funziona meglio se pianificata, non solo usata quando sei già distratto.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S09</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Benessere</div>
-        <h2 class="h-big reveal">Uso notturno</h2>
-        <p class="lead reveal d1">Schermo e contenuti stimolanti disturbano il sonno.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🧭</span>
-        <h3>Uso notturno</h3>
-        <ul><li>Schermo e contenuti stimolanti disturbano il sonno.</li><li>La luce blu è solo una parte del problema: anche notifiche e feed mantengono attivi.</li><li>Crea una fascia senza telefono prima di dormire.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S09</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Benessere</div>
-        <h2 class="h-big reveal">Camera da letto</h2>
-        <p class="lead reveal d1">Tenere il telefono lontano dal letto riduce uso automatico.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">📷</span>
-        <h3>Camera da letto</h3>
-        <ul><li>Tenere il telefono lontano dal letto riduce uso automatico.</li><li>Una sveglia separata può aiutare.</li><li>La ricarica fuori camera è una regola semplice e forte.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S09</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Benessere</div>
-        <h2 class="h-big reveal">Dipendenza da app</h2>
-        <p class="lead reveal d1">Scroll infinito, like e notifiche creano ricompense variabili.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🛡️</span>
-        <h3>Dipendenza da app</h3>
-        <ul><li>Scroll infinito, like e notifiche creano ricompense variabili.</li><li>Non è solo mancanza di volontà: è design persuasivo.</li><li>Ridurre frizione di accesso aiuta più della sola forza di volontà.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S09</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Benessere</div>
-        <h2 class="h-big reveal">Social media</h2>
-        <p class="lead reveal d1">I social possono informare, collegare e ispirare.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🧩</span>
-        <h3>Social media</h3>
-        <ul><li>I social possono informare, collegare e ispirare.</li><li>Possono anche creare confronto continuo e perdita di tempo.</li><li>Segui intenzionalmente, elimina account o pagine che peggiorano l’esperienza.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S09</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Benessere</div>
         <h2 class="h-big reveal">Autoplay</h2>
-        <p class="lead reveal d1">Autoplay riduce la decisione consapevole.</p>
+        <p class="lead reveal d1">L'autoplay è progettato per toglierti il controllo della durata della sessione: disattivarlo ti restituisce la scelta.</p>
+        <div class="note reveal d2"><div class="lbl">Dove disattivarlo</div><p>YouTube: Impostazioni → Autoplay → Off. Netflix: profilo → Impostazioni → Riproduzione automatica. Instagram: non ha un'opzione diretta — considera un limite di tempo nell'app. TikTok usa swipe esplicito, ma ogni video parte automaticamente per design.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">⚙️</span>
+        <span class="ic">▶️</span>
         <h3>Autoplay</h3>
-        <ul><li>Autoplay riduce la decisione consapevole.</li><li>Disattivarlo restituisce controllo.</li><li>È particolarmente importante su video brevi e piattaforme streaming.</li></ul>
+        <ul><li>L'autoplay del video successivo elimina il momento di pausa e scelta tra un contenuto e l'altro.</li><li>Gli algoritmi scelgono il prossimo video per massimizzare il tempo sulla piattaforma, non per il tuo beneficio.</li><li>Disattivare l'autoplay non riduce la qualità dei contenuti: ti ridà la scelta di quando smettere.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S09</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Benessere</div>
+        <h2 class="h-big reveal">Non disturbare e focus</h2>
+        <p class="lead reveal d1">Le modalità silenziosa e focus bloccano le interruzioni durante momenti in cui vuoi restare concentrato.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🔕</span>
+        <h3>Non disturbare e focus</h3>
+        <ul><li>Non disturbare blocca tutte le notifiche tranne quelle di contatti designati come prioritari.</li><li>iOS Focus permette profili personalizzati (Lavoro, Sonno, Guida) con regole diverse per ogni contesto.</li><li>Android permette eccezioni: chiamate da contatti preferiti passano anche con non disturbare attivo.</li><li>Programmalo automaticamente: lavoro 9–18, sonno 23–7 — non devi ricordarti di attivarlo ogni giorno.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S09</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Benessere</div>
+        <h2 class="h-big reveal">Notte e sonno</h2>
+        <p class="lead reveal d1">Schermo prima di dormire e telefono in camera disturbano il sonno: la luce blu e le notifiche ritardano il riposo.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🌙</span>
+        <h3>Notte e sonno</h3>
+        <ul><li>La luce blu dello schermo riduce la produzione di melatonina: lo schermo attivo dopo le 21 ritarda il sonno.</li><li>Modalità notte (filtro luce calda) riduce la luce blu ma non la stimolazione cognitiva dei contenuti.</li><li>Tenere il telefono in camera da letto aumenta i risvegli notturni e la tentazione di controllarlo di notte.</li><li>Alternativa: sveglia separata, telefono a caricare fuori dalla camera — o in modalità "Riposo" senza notifiche.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S09</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Benessere</div>
+        <h2 class="h-big reveal">Dipendenza e social</h2>
+        <p class="lead reveal d1">I social usano meccanismi di rinforzo variabile mutuati dalla psicologia comportamentale per creare abitudine.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📱</span>
+        <h3>Dipendenza e social</h3>
+        <ul><li>Il rinforzo variabile (a volte trovi contenuto interessante, a volte no) è più efficace nel creare abitudine di un rinforzo costante — stessa logica delle slot machine.</li><li>I like attivano la dopamina: aspettare di vedere le reazioni genera la stessa tensione di un gioco d'azzardo.</li><li>Lo scroll infinito rimuove la fine naturale della sessione: nessun capitolo che finisce, nessun segnale di stop.</li><li>Ridurre i social non richiede di eliminarli: basta usarli in momenti designati, non come riempitivo dei vuoti.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S09</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Benessere</div>
         <h2 class="h-big reveal">Messaggistica</h2>
-        <p class="lead reveal d1">Chat di gruppo possono diventare una fonte costante di interruzioni.</p>
+        <p class="lead reveal d1">Rispondere subito a ogni messaggio non è necessario: comunicare i propri tempi riduce ansia in chi invia e in chi aspetta.</p>
+        <div class="note reveal d2"><div class="lbl">Aspettative di risposta</div><p>Non rispondere subito non è scortesia: è autonomia. Comunicare i propri tempi (es. "rispondo la sera") riduce ansia in chi riceve e in chi aspetta. Silenzia i gruppi non urgenti per default e consulta quando vuoi.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📁</span>
+        <span class="ic">💬</span>
         <h3>Messaggistica</h3>
-        <ul><li>Chat di gruppo possono diventare una fonte costante di interruzioni.</li><li>Silenzia gruppi non urgenti.</li><li>Stabilisci aspettative realistiche sui tempi di risposta.</li></ul>
+        <ul><li>La notifica di "visto" ha creato aspettative di risposta immediata che generano ansia sociale.</li><li>Disattivare le conferme di lettura (WhatsApp: Impostazioni → Privacy → Conferme di lettura) riduce la pressione su entrambi i lati.</li><li>I gruppi di lavoro e famiglia tendono a moltiplicarsi: silenzia quelli non urgenti per ridurre il rumore di fondo.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S09</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Benessere</div>
-        <h2 class="h-big reveal">Telefono a tavola</h2>
-        <p class="lead reveal d1">La presenza fisica del telefono riduce qualità dell’attenzione.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">💡</span>
-        <h3>Telefono a tavola</h3>
-        <ul><li>La presenza fisica del telefono riduce qualità dell’attenzione.</li><li>Metterlo via migliora conversazioni e presenza.</li><li>È una regola semplice per famiglia, amici e lavoro.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S09</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Benessere</div>
-        <h2 class="h-big reveal">Studio e lavoro</h2>
-        <p class="lead reveal d1">Usa blocchi di tempo senza telefono visibile.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🔎</span>
-        <h3>Studio e lavoro</h3>
-        <ul><li>Usa blocchi di tempo senza telefono visibile.</li><li>Metti il telefono in un’altra stanza se possibile.</li><li>Controlla messaggi in finestre dedicate invece che continuamente.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S09</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Benessere</div>
         <h2 class="h-big reveal">Bambini e adolescenti</h2>
-        <p class="lead reveal d1">Servono regole chiare e condivise, non solo divieti.</p>
+        <p class="lead reveal d1">Gli strumenti di controllo parentale aiutano a gestire l'uso del telefono, ma il dialogo è più efficace delle sole restrizioni.</p>
+        <div class="note reveal d2"><div class="lbl">Strumenti pratici</div><p>iOS Screen Time: limiti per app, blocco contenuti, richiesta approvazione. Android Family Link: posizione, tempi di utilizzo, app autorizzate. Importante: discuti con loro il perché delle regole, non solo imponile.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">✅</span>
+        <span class="ic">👶</span>
         <h3>Bambini e adolescenti</h3>
-        <ul><li>Servono regole chiare e condivise, non solo divieti.</li><li>Contenuti, tempi e contesto contano quanto il numero di ore.</li><li>Screen Time su iOS e Family Link su Android permettono limiti, monitoraggio e approvazione app.</li></ul>
+        <ul><li>Il cervello adolescente è più vulnerabile al design persuasivo: il sistema di controllo degli impulsi è ancora in sviluppo fino ai 25 anni.</li><li>I limiti di tempo imposti dall'esterno funzionano meno dei limiti scelti: coinvolgi il ragazzo nella decisione.</li><li>Il modello adulto conta: i bambini osservano quanto gli adulti usano il telefono e lo replicano.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S09</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Benessere</div>
-        <h2 class="h-big reveal">Segnali di allarme</h2>
-        <p class="lead reveal d1">Controllo compulsivo, sonno ridotto, irritabilità senza telefono.</p>
+        <h2 class="h-big reveal">Segnali e abitudini</h2>
+        <p class="lead reveal d1">Riconoscere i segnali di uso problematico e costruire piccole abitudini sono i due strumenti più efficaci per il benessere digitale.</p>
       </div>
       <div class="card reveal d1">
-        <span class="ic">⚠️</span>
-        <h3>Segnali di allarme</h3>
-        <ul><li>Controllo compulsivo, sonno ridotto, irritabilità senza telefono.</li><li>Uso che interferisce con studio, lavoro o relazioni.</li><li>In questi casi serve ridurre accesso e chiedere supporto se necessario.</li></ul>
+        <span class="ic">🌿</span>
+        <h3>Segnali e abitudini</h3>
+        <ul><li>Segnali di allarme: uso per evitare emozioni negative, sonno ridotto cronicamente, relazioni reali che ne soffrono, tentativi falliti di ridurre l'uso.</li><li>Abitudini utili: telefono giù durante i pasti, prima ora del mattino senza schermo, notifiche disattivate di notte.</li><li>La regola del posto fisico: il telefono ha un posto dove stare (non in tasca a tavola, non sul comodino).</li><li>Se il problema è significativo, parlarne con un professionista è la risposta giusta — non una debolezza.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S09</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Benessere</div>
-        <h2 class="h-big reveal">Abitudini pratiche</h2>
-        <p class="lead reveal d1">Disattiva notifiche inutili.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🧰</span>
-        <h3>Abitudini pratiche</h3>
-        <ul><li>Disattiva notifiche inutili.</li><li>Tieni home screen pulita.</li><li>Usa modalità focus.</li><li>Stabilisci zone e orari senza telefono.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S09</div>
     <div class="col stack" style="justify-content:center;height:100%;">
@@ -306,7 +227,7 @@
       <h2 class="h-sec reveal">È tutto chiaro?</h2>
       <p class="lead reveal d1">Prova a rispondere a mente prima di passare al capitolo successivo.</p>
       <div class="grid2 reveal d2">
-        <div class="card"><h3>1.</h3><p>Qual è l’idea più importante di questo capitolo?</p></div>
+        <div class="card"><h3>1.</h3><p>Qual è l'idea più importante di questo capitolo?</p></div>
         <div class="card"><h3>2.</h3><p>Quale impostazione o comportamento puoi controllare subito sul tuo telefono?</p></div>
         <div class="card"><h3>3.</h3><p>Quale rischio pratico riduci applicando queste regole?</p></div>
         <div class="card"><h3>4.</h3><p>Come spiegheresti questo argomento a una persona poco esperta?</p></div>
@@ -319,10 +240,10 @@
     <div class="deck-tab">SMARTPHONES · S09</div>
     <div class="center" style="align-items:center;text-align:center;">
       <div class="eyebrow reveal gold">Fine S09</div>
-      <h2 class="h-mega reveal" style="margin-top:10px;">Benessere digitale<br><em class="gold">in pratica.</em></h2>
-      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora hai una mappa operativa del capitolo: concetti chiave, rischi e controlli da applicare sullo smartphone.</p>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Benessere<br><em class="gold">digitale.</em></h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora hai gli strumenti per usare lo smartphone con più intenzione e meno rumore di fondo.</p>
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
-        <a href="s10-accessibilita-uso-pratico.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → S10 · Accessibilità e uso pratico</a>
+        <a href="s10-accessibilita-uso-pratico.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → S10 · Accessibilità</a>
         <a href="00-indice.html" class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);text-decoration:none;">↩ Indice del corso</a>
       </div>
     </div>

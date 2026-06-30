@@ -9,13 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
-*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg)}.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg)}.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);font-family:var(--font-body);color:var(--ink);padding:96px 110px}.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30}@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg)}.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg)}.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);font-family:var(--font-body);color:var(--ink);padding:96px 110px}.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30}
 .deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px}.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint)}.page-num b{color:var(--red);font-size:30px}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
 .reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}.slide.visible .reveal{opacity:1;transform:none}.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}
 .tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase}.tape.teal{background:var(--teal)}.tape.gold{background:var(--gold-deep)}.tape.sky{background:var(--sky)}.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red)}.h-mega{font-family:var(--font-display);font-weight:900;font-size:132px;line-height:.86;letter-spacing:-4px}.h-big{font-family:var(--font-display);font-weight:900;font-size:88px;line-height:.92;letter-spacing:-2px}.h-sec{font-family:var(--font-display);font-weight:900;font-size:70px;line-height:.95;letter-spacing:-1.5px}em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var(--sky)}.lead{font-size:32px;line-height:1.42;color:var(--ink-soft);max-width:1120px}.body{font-size:27px;line-height:1.46;color:var(--ink-soft)}
 .title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.phone-art{width:330px;height:620px;border:8px solid var(--ink);border-radius:48px;background:#fbf5ec;box-shadow:16px 18px 0 rgba(0,0,0,.18);display:grid;place-items:center;position:relative}.phone-art::before{content:"";position:absolute;top:18px;width:88px;height:10px;border-radius:99px;background:var(--ink)}.phone-art::after{content:"";position:absolute;bottom:22px;width:72px;height:72px;border:5px solid var(--ink);border-radius:50%;opacity:.18}
-.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:start;height:100%}.split.even{grid-template-columns:1fr 1fr}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
-.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .card{padding:20px 24px}.tight-slide .card h3{font-size:30px}.tight-slide .card p,.tight-slide .card li{font-size:21px;line-height:1.28}
+.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13)}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
 .title-slide .lead,.title-slide .chips{display:none;}
 </style>
 </head>
@@ -28,7 +28,7 @@
       <div class="tape reveal">Smartphones</div>
       <div class="eyebrow reveal" style="margin-top:40px;">S08 — Contenuti</div>
       <h1 class="h-mega reveal">Fotocamera e contenuti</h1>
-      <p class="lead reveal" style="margin-top:30px;">Foto, video, risoluzione, compressione, screenshot, QR code e condivisione responsabile.</p>
+      <p class="lead reveal" style="margin-top:30px;">Risoluzione, formati, scanner, QR, condivisione responsabile, geotag e galleria.</p>
       <div class="chips reveal" style="margin-top:46px;"><span class="chip">S08</span><span class="chip alt">Smartphones</span></div>
     </div>
     <div class="title-right"><div class="phone-art reveal"></div></div>
@@ -39,266 +39,185 @@
     <div class="center">
       <div class="tape teal reveal">In questo capitolo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa vedremo</h2>
-      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Foto</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Video</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Screenshot</span></div><div class="agenda-item"><span class="n">04</span><span class="t">QR code</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Compressione</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Condivisione</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Contenuti digitali</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Risoluzione</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Peso dei file</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Compressione</span></div></div>
+      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Contenuti digitali</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Risoluzione e peso</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Compressione</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Formati foto e video</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Fotocamera computazionale</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Scanner e QR</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Screenshot e registrazione</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Galleria e pulizia</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Condivisione responsabile</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Volti, consenso e geotag</span></div></div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S08</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Contenuti</div>
         <h2 class="h-big reveal">Contenuti digitali</h2>
-        <p class="lead reveal d1">Lo smartphone è una fotocamera, videocamera, scanner e studio di pubblicazione.</p>
+        <p class="lead reveal d1">Lo smartphone produce diversi tipi di contenuto digitale: ognuno ha peso, qualità e usi diversi.</p>
+        <div class="note reveal d2"><div class="lbl">Tipi di file creati</div><p>Foto (JPEG, HEIC), video (MP4, MOV), screenshot (PNG), audio (AAC, MP3), documenti scansionati (PDF). Ogni tipo ha caratteristiche diverse di peso, qualità e compatibilità con altri dispositivi.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📱</span>
+        <span class="ic">📸</span>
         <h3>Contenuti digitali</h3>
-        <ul><li>Lo smartphone è una fotocamera, videocamera, scanner e studio di pubblicazione.</li><li>Ogni contenuto creato diventa un file digitale.</li><li>Capire formato e peso aiuta a gestirlo meglio.</li></ul>
+        <ul><li>La fotocamera crea foto e video; lo schermo genera screenshot e registrazioni; il microfono registra audio.</li><li>Lo scanner dell'app trasforma documenti cartacei in PDF digitali leggibili e condivisibili.</li><li>Ogni tipo di file ha un formato ottimale per il suo uso: JPEG per foto condivise, PNG per screenshot nitidi, MP4 per video compatibili.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S08</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Contenuti</div>
-        <h2 class="h-big reveal">Risoluzione</h2>
-        <p class="lead reveal d1">La risoluzione indica quanti pixel compongono immagine o video.</p>
+        <h2 class="h-big reveal">Risoluzione e peso</h2>
+        <p class="lead reveal d1">Risoluzione più alta significa più dettaglio ma anche file più pesanti: la scelta dipende dall'uso del contenuto.</p>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🔋</span>
-        <h3>Risoluzione</h3>
-        <ul><li>La risoluzione indica quanti pixel compongono immagine o video.</li><li>Più pixel possono dare più dettaglio, ma aumentano peso del file.</li><li>Non sempre più megapixel significa foto migliore.</li></ul>
+        <span class="ic">🔍</span>
+        <h3>Risoluzione e peso</h3>
+        <ul><li>Una foto a 12 MP pesa 3–5 MB in JPEG; a 48 MP può pesare 15–25 MB in RAW.</li><li>Video 1080p: circa 100–200 MB al minuto. Video 4K: 300–500 MB al minuto.</li><li>Per i social o WhatsApp, l'alta risoluzione è inutile: vengono comunque compressi dalla piattaforma.</li><li>Usa la risoluzione più alta solo per stampe grandi o archivio professionale; per uso quotidiano va bene quella predefinita.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S08</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Contenuti</div>
-        <h2 class="h-big reveal">Peso dei file</h2>
-        <p class="lead reveal d1">Foto e video occupano spazio in base a risoluzione, durata, compressione e formato.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">📡</span>
-        <h3>Peso dei file</h3>
-        <ul><li>Foto e video occupano spazio in base a risoluzione, durata, compressione e formato.</li><li>Video 4K pesa molto più di Full HD.</li><li>Inviare file pesanti può consumare dati e spazio cloud.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S08</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Contenuti</div>
         <h2 class="h-big reveal">Compressione</h2>
-        <p class="lead reveal d1">La compressione riduce peso dei file.</p>
+        <p class="lead reveal d1">La compressione riduce il peso del file: lossy scarta dati definitivamente, lossless li mantiene tutti.</p>
+        <div class="note reveal d2"><div class="lbl">Lossy vs lossless</div><p>Lossy (JPEG, MP4): riduce il peso rimuovendo dati non percepibili — non recuperabili. Lossless (PNG, RAW): mantiene tutto, pesa molto di più. Per uso quotidiano lossy va bene; per archivio professionale o stampa considera RAW.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🔐</span>
+        <span class="ic">🗜️</span>
         <h3>Compressione</h3>
-        <ul><li>La compressione riduce peso dei file.</li><li>Può essere con perdita, sacrificando parte della qualità.</li><li>È utile per invio rapido, ma conserva originali quando servono.</li></ul>
+        <ul><li>JPEG comprime le foto riducendo dettagli che l'occhio percepisce poco: risultato visivamente simile, peso molto minore.</li><li>MP4 comprime il video frame per frame: qualità vicina all'originale con dimensioni gestibili.</li><li>HEIC (default iPhone) offre stessa qualità di JPEG al 50% del peso, ma non sempre è compatibile con tutti i software.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S08</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Contenuti</div>
-        <h2 class="h-big reveal">Formati foto</h2>
-        <p class="lead reveal d1">JPEG è compatibile e leggero.</p>
+        <h2 class="h-big reveal">Formati foto e video</h2>
+        <p class="lead reveal d1">Ogni formato ha usi ideali: scegliere quello giusto evita problemi di compatibilità e qualità.</p>
       </div>
       <div class="card reveal d1">
-        <span class="ic">☁️</span>
-        <h3>Formati foto</h3>
-        <ul><li>JPEG è compatibile e leggero.</li><li>HEIC/HEIF è efficiente ma non sempre compatibile.</li><li>PNG è utile per grafica e screenshot, meno per foto grandi.</li></ul>
+        <span class="ic">🎞️</span>
+        <h3>Formati foto e video</h3>
+        <ul><li>JPEG: universale, compatibile ovunque, buona qualità per foto condivise. Limite: ogni salvataggio aumenta la compressione.</li><li>HEIC/HEIF: più efficiente di JPEG ma non supportato da tutti i sistemi — iOS lo converte automaticamente all'invio.</li><li>MP4 (H.264/H.265): standard video universale, compatibile con tutti i dispositivi e piattaforme.</li><li>MOV: formato nativo Apple, qualità alta ma meno compatibile su Android e PC senza codec aggiuntivi.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S08</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Contenuti</div>
-        <h2 class="h-big reveal">Formati video</h2>
-        <p class="lead reveal d1">MP4 è molto compatibile.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🧭</span>
-        <h3>Formati video</h3>
-        <ul><li>MP4 è molto compatibile.</li><li>Codec diversi cambiano qualità e dimensione.</li><li>Quando invii video, alcune app li ricomprimono automaticamente.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S08</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Contenuti</div>
         <h2 class="h-big reveal">Fotocamera computazionale</h2>
-        <p class="lead reveal d1">Il software migliora scatti con HDR, modalità notte, ritratto e stabilizzazione.</p>
+        <p class="lead reveal d1">La fotocamera moderna elabora decine di fotogrammi per costruire la foto finale: il risultato è ottimizzato, non registrato.</p>
+        <div class="note reveal d2"><div class="lbl">Come funziona</div><p>Notte: scatta più fotogrammi in rapida successione e li combina via software. HDR: espone a livelli diversi e unisce. Ritratto: simula profondità di campo con AI. La foto finale è costruita algoritmicamente, non "scattata" in senso tradizionale.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🤖</span>
+        <h3>Fotocamera computazionale</h3>
+        <ul><li>La modalità notte combina più scatti brevi in un'unica immagine luminosa senza mosso da tremore.</li><li>HDR (High Dynamic Range) unisce esposizioni diverse per preservare dettagli nelle ombre e nelle luci.</li><li>La modalità ritratto usa AI per isolare il soggetto e simulare sfondo sfocato (bokeh) senza ottiche speciali.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S08</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Contenuti</div>
+        <h2 class="h-big reveal">Scanner e QR</h2>
+        <p class="lead reveal d1">Lo scanner dell'app trasforma documenti cartacei in PDF; i QR code si leggono con la fotocamera ma nascondono rischi.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📄</span>
+        <h3>Scanner e QR</h3>
+        <ul><li>iOS: scanner integrato nell'app Note (fotocamera → Scansiona). Android: Google Drive → + → Scansiona. Microsoft Lens è un'ottima alternativa gratuita.</li><li>I PDF scansionati sono compatti, condivisibili e cercabili se salvati con OCR attivo.</li><li>I QR code possono nascondere URL pericolosi (QRshing): leggi sempre l'URL completo in anteprima prima di aprirlo.</li><li>Attenzione ai QR incollati sopra quelli originali (parchimetri, ristoranti): verifichi che non siano stati sostituiti.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">SMARTPHONES · S08</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Contenuti</div>
+        <h2 class="h-big reveal">Screenshot e registrazione</h2>
+        <p class="lead reveal d1">Screenshot e registrazioni schermo catturano tutto quello che vedi: sono strumenti utili ma richiedono attenzione alla privacy.</p>
       </div>
       <div class="card reveal d1">
         <span class="ic">📷</span>
-        <h3>Fotocamera computazionale</h3>
-        <ul><li>Il software migliora scatti con HDR, modalità notte, ritratto e stabilizzazione.</li><li>La foto finale è spesso il risultato di più immagini combinate.</li><li>Il telefono interpreta la scena, non registra solo luce.</li></ul>
+        <h3>Screenshot e registrazione</h3>
+        <ul><li>Screenshot: Android (vol giù + accensione), iOS (laterale + volume su) — salvato in galleria come PNG.</li><li>Registrazione schermo: iOS (Control Center → Registra). Android: tendina rapida → Registra schermo. Utile per tutorial, segnalazioni bug, dimostrazioni.</li><li>Attenzione: screenshot e registrazioni catturano notifiche, messaggi privati e dati visibili in quel momento.</li><li>App bancarie e streaming bloccano la registrazione schermo per protezione DRM e sicurezza.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S08</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Contenuti</div>
-        <h2 class="h-big reveal">Screenshot</h2>
-        <p class="lead reveal d1">Lo screenshot cattura ciò che appare sullo schermo.</p>
+        <h2 class="h-big reveal">Galleria e pulizia</h2>
+        <p class="lead reveal d1">Una galleria organizzata è più facile da navigare e da condividere; la pulizia periodica libera spazio e riduce il disordine.</p>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🛡️</span>
-        <h3>Screenshot</h3>
-        <ul><li>Lo screenshot cattura ciò che appare sullo schermo.</li><li>Può contenere dati personali, notifiche, nomi e account.</li><li>Prima di inviarlo, ritaglia o oscura ciò che non serve.</li></ul>
+        <span class="ic">🗃️</span>
+        <h3>Galleria e pulizia</h3>
+        <ul><li>Crea album tematici (vacanze, lavoro, ricevute) per trovare subito le foto senza scorrere tutta la galleria.</li><li>Google Foto e iCloud offrono strumenti di pulizia automatica: duplicati, foto mosse, screenshot vecchi.</li><li>Elimina subito le foto sfocate, i video test e gli screenshot inutili: ci vogliono 5 secondi, non ore.</li><li>Prima di cancellare dalla galleria, verifica che il cloud sia aggiornato o fai un backup locale.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S08</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Contenuti</div>
-        <h2 class="h-big reveal">Registrazione schermo</h2>
-        <p class="lead reveal d1">Registra video dell’interazione con il telefono.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🧩</span>
-        <h3>Registrazione schermo</h3>
-        <ul><li>Registra video dell’interazione con il telefono.</li><li>È utile per tutorial o assistenza.</li><li>Attenzione a password, chat, notifiche e dati visibili.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S08</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Contenuti</div>
-        <h2 class="h-big reveal">Scanner documenti</h2>
-        <p class="lead reveal d1">Molte app trasformano foto in PDF leggibili.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">⚙️</span>
-        <h3>Scanner documenti</h3>
-        <ul><li>Molte app trasformano foto in PDF leggibili.</li><li>Correzione prospettiva e contrasto migliorano il risultato.</li><li>Per documenti sensibili usa app affidabili e controlla dove vengono caricati.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S08</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Contenuti</div>
-        <h2 class="h-big reveal">QR code</h2>
-        <p class="lead reveal d1">Un QR code può aprire link, WiFi, pagamenti o contatti.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">📁</span>
-        <h3>QR code</h3>
-        <ul><li>Un QR code può aprire link, WiFi, pagamenti o contatti.</li><li>È comodo ma può nascondere destinazioni pericolose.</li><li>Controlla l’URL prima di confermare azioni sensibili.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S08</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Contenuti</div>
         <h2 class="h-big reveal">Condivisione responsabile</h2>
-        <p class="lead reveal d1">Prima di pubblicare, pensa a persone, luoghi e dati visibili.</p>
+        <p class="lead reveal d1">Prima di inviare un contenuto, valuta cosa rivela: posizione, persone presenti, dati personali visibili.</p>
+        <div class="note reveal d2"><div class="lbl">Checklist pre-invio</div><p>Il contenuto rivela la posizione? Ci sono altre persone riconoscibili? Contiene dati personali (targa, indirizzo, documento)? Una volta inviato il controllo è perso — vale per foto, video e screenshot.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">💡</span>
+        <span class="ic">📤</span>
         <h3>Condivisione responsabile</h3>
-        <ul><li>Prima di pubblicare, pensa a persone, luoghi e dati visibili.</li><li>Una foto condivisa può essere salvata, inoltrata e riusata.</li><li>Il controllo si perde rapidamente dopo l’invio.</li></ul>
+        <ul><li>Condividere una foto significa condividere tutto ciò che contiene: sfondo, persone, dettagli ambientali.</li><li>Una volta inviata, la copia esce dal tuo controllo: può essere salvata, ridistribuita o modificata.</li><li>I social ridimensionano le foto ma spesso conservano i metadati (posizione, dispositivo, data) nel file originale.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S08</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Contenuti</div>
-        <h2 class="h-big reveal">Volti e consenso</h2>
-        <p class="lead reveal d1">Le persone nelle foto hanno diritto alla propria immagine.</p>
+        <h2 class="h-big reveal">Volti, consenso e geotag</h2>
+        <p class="lead reveal d1">Pubblicare volti richiede consenso; il geotag rivela la posizione anche in foto che sembrano anonime.</p>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🔎</span>
-        <h3>Volti e consenso</h3>
-        <ul><li>Le persone nelle foto hanno diritto alla propria immagine.</li><li>Chiedi consenso prima di pubblicare foto riconoscibili.</li><li>Con minori e contesti scolastici serve attenzione massima.</li></ul>
+        <span class="ic">📍</span>
+        <h3>Volti, consenso e geotag</h3>
+        <ul><li>In Italia il diritto all'immagine è tutelato dall'art. 10 c.c.: pubblicare foto riconoscibili senza consenso è illecito.</li><li>Con minori serve sempre consenso esplicito dei genitori, anche per foto in ambienti scolastici o sportivi.</li><li>Il geotag EXIF registra coordinate GPS precise nella foto: rivela casa, lavoro o scuola senza che tu te ne accorga.</li><li>Rimozione geotag: iOS → condividi → Opzioni → disattiva Posizione. Android: Google Foto → Modifica → Rimuovi posizione. O usa Scrambled Exif per rimuovere tutti i metadati.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S08</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Contenuti</div>
-        <h2 class="h-big reveal">Geotag</h2>
-        <p class="lead reveal d1">Alcune foto salvano coordinate GPS.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">✅</span>
-        <h3>Geotag</h3>
-        <ul><li>Alcune foto salvano coordinate GPS.</li><li>Pubblicarle può rivelare casa, scuola, lavoro o routine.</li><li>Puoi disattivare posizione per fotocamera o rimuovere dati prima della condivisione.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S08</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Contenuti</div>
-        <h2 class="h-big reveal">Organizzare la galleria</h2>
-        <p class="lead reveal d1">Album, ricerche e pulizia periodica rendono la galleria utile anziché caotica.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">⚠️</span>
-        <h3>Organizzare la galleria</h3>
-        <ul><li>Crea album per eventi, viaggi o periodi: è più facile ritrovare e proteggere i ricordi.</li><li>Le funzioni di ricerca riconoscono persone, luoghi e oggetti automaticamente.</li><li>Elimina duplicati e video inutili prima del backup per non sprecare spazio cloud.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S08</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Contenuti</div>
-        <h2 class="h-big reveal">Pulizia contenuti</h2>
-        <p class="lead reveal d1">Elimina duplicati, foto mosse e video inutili.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🧰</span>
-        <h3>Pulizia contenuti</h3>
-        <ul><li>Elimina duplicati, foto mosse e video inutili.</li><li>Organizza album o cartelle per eventi importanti.</li><li>Meno confusione rende più facile trovare e proteggere ciò che conta.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S08</div>
     <div class="col stack" style="justify-content:center;height:100%;">
@@ -306,7 +225,7 @@
       <h2 class="h-sec reveal">È tutto chiaro?</h2>
       <p class="lead reveal d1">Prova a rispondere a mente prima di passare al capitolo successivo.</p>
       <div class="grid2 reveal d2">
-        <div class="card"><h3>1.</h3><p>Qual è l’idea più importante di questo capitolo?</p></div>
+        <div class="card"><h3>1.</h3><p>Qual è l'idea più importante di questo capitolo?</p></div>
         <div class="card"><h3>2.</h3><p>Quale impostazione o comportamento puoi controllare subito sul tuo telefono?</p></div>
         <div class="card"><h3>3.</h3><p>Quale rischio pratico riduci applicando queste regole?</p></div>
         <div class="card"><h3>4.</h3><p>Come spiegheresti questo argomento a una persona poco esperta?</p></div>
@@ -319,8 +238,8 @@
     <div class="deck-tab">SMARTPHONES · S08</div>
     <div class="center" style="align-items:center;text-align:center;">
       <div class="eyebrow reveal gold">Fine S08</div>
-      <h2 class="h-mega reveal" style="margin-top:10px;">Fotocamera contenuti<br><em class="gold">in pratica.</em></h2>
-      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora hai una mappa operativa del capitolo: concetti chiave, rischi e controlli da applicare sullo smartphone.</p>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Contenuti<br><em class="gold">consapevoli.</em></h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora sai come gestire, proteggere e condividere i contenuti prodotti con lo smartphone.</p>
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a href="s09-benessere-digitale.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → S09 · Benessere digitale</a>
         <a href="00-indice.html" class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);text-decoration:none;">↩ Indice del corso</a>

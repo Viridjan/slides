@@ -9,13 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
-*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg)}.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg)}.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);font-family:var(--font-body);color:var(--ink);padding:96px 110px}.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30}@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg)}.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg)}.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);font-family:var(--font-body);color:var(--ink);padding:96px 110px}.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30}
 .deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px}.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint)}.page-num b{color:var(--red);font-size:30px}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
 .reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}.slide.visible .reveal{opacity:1;transform:none}.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}
 .tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase}.tape.teal{background:var(--teal)}.tape.gold{background:var(--gold-deep)}.tape.sky{background:var(--sky)}.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red)}.h-mega{font-family:var(--font-display);font-weight:900;font-size:132px;line-height:.86;letter-spacing:-4px}.h-big{font-family:var(--font-display);font-weight:900;font-size:88px;line-height:.92;letter-spacing:-2px}.h-sec{font-family:var(--font-display);font-weight:900;font-size:70px;line-height:.95;letter-spacing:-1.5px}em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var(--sky)}.lead{font-size:32px;line-height:1.42;color:var(--ink-soft);max-width:1120px}.body{font-size:27px;line-height:1.46;color:var(--ink-soft)}
 .title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.phone-art{width:330px;height:620px;border:8px solid var(--ink);border-radius:48px;background:#fbf5ec;box-shadow:16px 18px 0 rgba(0,0,0,.18);display:grid;place-items:center;position:relative}.phone-art::before{content:"";position:absolute;top:18px;width:88px;height:10px;border-radius:99px;background:var(--ink)}.phone-art::after{content:"";position:absolute;bottom:22px;width:72px;height:72px;border:5px solid var(--ink);border-radius:50%;opacity:.18}
-.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:start;height:100%}.split.even{grid-template-columns:1fr 1fr}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
-.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .card{padding:20px 24px}.tight-slide .card h3{font-size:30px}.tight-slide .card p,.tight-slide .card li{font-size:21px;line-height:1.28}
+.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13)}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
 .title-slide .lead,.title-slide .chips{display:none;}
 </style>
 </head>
@@ -28,7 +28,7 @@
       <div class="tape reveal">Smartphones</div>
       <div class="eyebrow reveal" style="margin-top:40px;">S10 — Accessibilità</div>
       <h1 class="h-mega reveal">Accessibilità e uso pratico</h1>
-      <p class="lead reveal" style="margin-top:30px;">Dimensione testo, contrasto, lettura schermo, comandi vocali, sottotitoli e autonomia.</p>
+      <p class="lead reveal" style="margin-top:30px;">Testo, contrasto, dark mode, voce, sottotitoli, pagamenti, mappe ed emergenze.</p>
       <div class="chips reveal" style="margin-top:46px;"><span class="chip">S10</span><span class="chip alt">Smartphones</span></div>
     </div>
     <div class="title-right"><div class="phone-art reveal"></div></div>
@@ -39,266 +39,186 @@
     <div class="center">
       <div class="tape teal reveal">In questo capitolo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa vedremo</h2>
-      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Accessibilità</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Testo</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Contrasto</span></div><div class="agenda-item"><span class="n">04</span><span class="t">VoiceOver</span></div><div class="agenda-item"><span class="n">05</span><span class="t">TalkBack</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Sottotitoli</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Telefono adattabile</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Dimensione testo</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Contrasto</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Dark mode</span></div></div>
+      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Telefono adattabile</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Testo e contrasto</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Dark mode</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Zoom e ingrandimento</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Lettura schermo</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Controllo vocale</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Accessibilità uditiva</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Modalità semplificata</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Autonomia quotidiana</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Emergenze e traduzione</span></div></div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S10</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Accessibilità</div>
         <h2 class="h-big reveal">Telefono adattabile</h2>
-        <p class="lead reveal d1">Lo smartphone può adattarsi a vista, udito, movimento e attenzione.</p>
+        <p class="lead reveal d1">Il telefono include centinaia di opzioni di adattamento: non sono solo per chi ha una disabilità, ma per chiunque voglia usarlo meglio.</p>
+        <div class="note reveal d2"><div class="lbl">Dove si trovano</div><p>iOS: Impostazioni → Accessibilità. Android: Impostazioni → Accessibilità. Le funzioni sono organizzate per tipo: Vista, Udito, Motricità, Interazione. Vale la pena esplorarle anche senza una necessità specifica.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📱</span>
+        <span class="ic">⚙️</span>
         <h3>Telefono adattabile</h3>
-        <ul><li>Lo smartphone può adattarsi a vista, udito, movimento e attenzione.</li><li>Le funzioni di accessibilità non sono solo per disabilità permanenti.</li><li>Sono utili anche in situazioni temporanee o ambienti difficili.</li></ul>
+        <ul><li>Le funzioni di accessibilità migliorano l'esperienza per tutti: testo più grande, contrasto alto, voce — utili anche senza disabilità.</li><li>Molte funzioni sono spente per default: esplorarle richiede 10 minuti ma può cambiare il modo di usare il telefono.</li><li>L'accessibilità è anche un indicatore di qualità: le app ben fatte sono accessibili per tutti.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S10</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Dimensione testo</h2>
-        <p class="lead reveal d1">Aumentare il testo migliora leggibilità.</p>
+        <h2 class="h-big reveal">Testo e contrasto</h2>
+        <p class="lead reveal d1">Aumentare la dimensione del testo e il contrasto rende tutto più leggibile, anche in condizioni di luce difficile.</p>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🔋</span>
-        <h3>Dimensione testo</h3>
-        <ul><li>Aumentare il testo migliora leggibilità.</li><li>App ben progettate rispettano le impostazioni di sistema.</li><li>Se un’app si rompe con testo grande, è progettata male.</li></ul>
+        <span class="ic">🔠</span>
+        <h3>Testo e contrasto</h3>
+        <ul><li>Dimensione testo: iOS → Impostazioni → Accessibilità → Testo più grande. Android → Impostazioni → Display → Dimensione testo. La maggior parte delle app la rispetta automaticamente.</li><li>Contrasto aumentato (iOS: Aumenta contrasto; Android: Testo ad alto contrasto) migliora la leggibilità in piena luce solare.</li><li>Testo in grassetto rende la lettura più facile: Impostazioni → Accessibilità → Testo in grassetto.</li><li>Queste impostazioni si applicano all'intero sistema, non solo a un'app.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S10</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Contrasto</h2>
-        <p class="lead reveal d1">Alto contrasto aiuta in luce forte o con difficoltà visive.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">📡</span>
-        <h3>Contrasto</h3>
-        <ul><li>Alto contrasto aiuta in luce forte o con difficoltà visive.</li><li>Colori troppo simili rendono pulsanti e testi poco leggibili.</li><li>Il contrasto è una questione pratica, non solo estetica.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S10</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Accessibilità</div>
         <h2 class="h-big reveal">Dark mode</h2>
-        <p class="lead reveal d1">Riduce abbagliamento in ambienti scuri.</p>
+        <p class="lead reveal d1">La dark mode riduce la luminosità dello sfondo: su schermi OLED risparmia batteria reale oltre a ridurre l'affaticamento visivo.</p>
+        <div class="note reveal d2"><div class="lbl">Quando conviene</div><p>Dark mode + schermo OLED: risparmio batteria reale (pixel neri = pixel spenti). Su LCD non c'è beneficio energetico. Attivala automaticamente al tramonto: Impostazioni → Display → Automatico in base alla luce.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🔐</span>
+        <span class="ic">🌑</span>
         <h3>Dark mode</h3>
-        <ul><li>Riduce abbagliamento in ambienti scuri.</li><li>Può aiutare comfort visivo e batteria su schermi OLED.</li><li>Non sostituisce contrasto corretto e pause visive.</li></ul>
+        <ul><li>La dark mode inverte lo sfondo da chiaro a scuro: riduce la luce emessa dello schermo in ambienti bui.</li><li>Su iPhone e molti Android con schermo OLED, i pixel neri sono spenti: risparmio energetico misurabile.</li><li>Non tutte le app rispettano la dark mode: alcune mostrano uno sfondo bianco anche con sistema in dark.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S10</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Zoom</h2>
-        <p class="lead reveal d1">Zoom e lente permettono di ingrandire parti dello schermo.</p>
+        <h2 class="h-big reveal">Zoom e ingrandimento</h2>
+        <p class="lead reveal d1">Lo zoom dello schermo ingrandisce qualsiasi contenuto al volo, senza cambiare la dimensione del testo nelle impostazioni.</p>
+        <div class="note reveal d2"><div class="lbl">Come attivarlo</div><p>iOS: Impostazioni → Accessibilità → Zoom → attiva "Gesto zoom" (doppio tap con tre dita). Android: Impostazioni → Accessibilità → Magnificazione. Con gesto attivo puoi ingrandire qualsiasi schermata senza entrare nelle impostazioni.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">☁️</span>
-        <h3>Zoom</h3>
-        <ul><li>Zoom e lente permettono di ingrandire parti dello schermo.</li><li>Sono utili per testi piccoli, dettagli e app non ottimizzate.</li><li>Vanno provati prima di quando servono davvero.</li></ul>
+        <span class="ic">🔎</span>
+        <h3>Zoom e ingrandimento</h3>
+        <ul><li>Lo zoom di accessibilità ingrandisce tutto lo schermo, non solo il testo: foto, mappe, pagine web.</li><li>Diverso dallo zoom browser o dalla dimensione testo: agisce a livello di sistema operativo su tutto ciò che vedi.</li><li>La lente di ingrandimento (iOS: Controllo accesso; Android: Accessibilità) usa la fotocamera come lente.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S10</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Accessibilità</div>
         <h2 class="h-big reveal">Lettura schermo</h2>
-        <p class="lead reveal d1">VoiceOver su iOS e TalkBack su Android leggono contenuti ad alta voce.</p>
+        <p class="lead reveal d1">TalkBack (Android) e VoiceOver (iOS) leggono ad alta voce tutto ciò che è sullo schermo.</p>
+        <div class="note reveal d2"><div class="lbl">Gesti diversi</div><p>TalkBack e VoiceOver cambiano completamente i gesti: tap singolo seleziona, doppio tap attiva, swipe naviga. Prova 5 minuti con occhi chiusi: è un modo efficace per capire quanto un'app sia realmente accessibile.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🧭</span>
+        <span class="ic">🔊</span>
         <h3>Lettura schermo</h3>
-        <ul><li>VoiceOver su iOS e TalkBack su Android leggono contenuti ad alta voce.</li><li>Permettono uso del telefono senza vedere lo schermo.</li><li>Richiedono gesture specifiche e un po’ di pratica.</li></ul>
+        <ul><li>VoiceOver (iOS) e TalkBack (Android) leggono testo, pulsanti, notifiche e descrizioni delle immagini.</li><li>Indispensabili per chi ha difficoltà visive, utili per chi guida o ha le mani occupate.</li><li>Le app ben sviluppate includono etichette per ogni elemento: le app mal fatte diventano inutilizzabili con screen reader.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S10</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Comandi vocali</h2>
-        <p class="lead reveal d1">Permettono dettatura, chiamate, messaggi e controllo di funzioni.</p>
+        <h2 class="h-big reveal">Controllo vocale</h2>
+        <p class="lead reveal d1">Comandi vocali e dettatura permettono di usare il telefono e scrivere testi senza toccare lo schermo.</p>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📷</span>
-        <h3>Comandi vocali</h3>
-        <ul><li>Permettono dettatura, chiamate, messaggi e controllo di funzioni.</li><li>Sono utili quando mani o vista sono impegnate.</li><li>Attenzione a privacy e ambienti condivisi.</li></ul>
+        <span class="ic">🎙️</span>
+        <h3>Controllo vocale</h3>
+        <ul><li>Controllo vocale (iOS: Accessibilità → Controllo vocale; Android: Controllo vocale in Accessibilità) esegue comandi parlati: "apri Chrome", "scorri verso il basso", "tocca Invia".</li><li>La dettatura converte il parlato in testo in qualsiasi campo di testo: tocca il microfono sulla tastiera o usa il tasto dedicato.</li><li>Funziona offline su molti dispositivi moderni: la trascrizione avviene nel telefono senza inviare audio al cloud.</li><li>Utile non solo per disabilità: ideale con le mani occupate, alla guida (con vivavoce), o per appunti veloci.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S10</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Dettatura</h2>
-        <p class="lead reveal d1">Trasforma voce in testo.</p>
+        <h2 class="h-big reveal">Accessibilità uditiva</h2>
+        <p class="lead reveal d1">Sottotitoli automatici e notifiche visive rendono il telefono utilizzabile anche senza audio o in ambienti rumorosi.</p>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🛡️</span>
-        <h3>Dettatura</h3>
-        <ul><li>Trasforma voce in testo.</li><li>Utile per messaggi, note e ricerca.</li><li>Rileggi sempre: nomi, punteggiatura e termini tecnici possono essere sbagliati.</li></ul>
+        <span class="ic">👂</span>
+        <h3>Accessibilità uditiva</h3>
+        <ul><li>Sottotitoli automatici in tempo reale: Android → Accessibilità → Sottotitoli istantanei. iOS → Accessibilità → Sottotitoli e sottotitoli codificati.</li><li>Notifiche visive (lampo LED o lampeggio schermo) segnalano chiamate e notifiche senza suono.</li><li>Mono audio combina i canali stereo in uno: utile con un solo auricolare o per chi ha difficoltà uditive asimmetriche.</li><li>Bilancio audio L/R: Impostazioni → Accessibilità → Audio/Visivo → permette di spostare il bilanciamento stereo.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S10</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Sottotitoli</h2>
-        <p class="lead reveal d1">Sottotitoli automatici aiutano chi non sente bene o è in un luogo rumoroso.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🧩</span>
-        <h3>Sottotitoli</h3>
-        <ul><li>Sottotitoli automatici aiutano chi non sente bene o è in un luogo rumoroso.</li><li>Sono utili anche per studiare contenuti video.</li><li>La qualità varia: non sostituiscono sempre una trascrizione accurata.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S10</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Notifiche visive</h2>
-        <p class="lead reveal d1">Flash, vibrazione e banner aiutano quando l’audio non è accessibile.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">⚙️</span>
-        <h3>Notifiche visive</h3>
-        <ul><li>Flash, vibrazione e banner aiutano quando l’audio non è accessibile.</li><li>Personalizzare segnali evita perdita di informazioni.</li><li>Riduci però notifiche inutili per non creare sovraccarico.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S10</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Accessibilità</div>
         <h2 class="h-big reveal">Modalità semplificata</h2>
-        <p class="lead reveal d1">Alcuni telefoni offrono home semplificate con icone grandi.</p>
+        <p class="lead reveal d1">Alcune versioni Android offrono un'interfaccia semplificata con icone grandi e menu ridotti.</p>
+        <div class="note reveal d2"><div class="lbl">Opzioni disponibili</div><p>Android Samsung: Impostazioni → Display → Modalità facile. Launcher alternativi: Simple Launcher, Necta Launcher. iOS non ha una modalità semplificata ufficiale, ma si può aumentare testo, ridurre motion e abilitare Accesso assistito.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📁</span>
+        <span class="ic">📐</span>
         <h3>Modalità semplificata</h3>
-        <ul><li>Alcuni telefoni offrono home semplificate con icone grandi.</li><li>Sono utili per anziani o utenti con poca esperienza.</li><li>Meno opzioni può significare più autonomia.</li></ul>
+        <ul><li>La modalità facile riduce il numero di opzioni visibili, aumenta le icone e semplifica i menu.</li><li>Utile per chi si avvicina ai telefoni per la prima volta, per anziani o per chi preferisce un'interfaccia meno densa.</li><li>Molte funzioni avanzate restano disponibili nelle impostazioni, ma non sono visibili nell'interfaccia principale.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S10</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Emergency SOS</h2>
-        <p class="lead reveal d1">Funzioni di emergenza chiamano contatti o servizi con gesture rapide.</p>
+        <h2 class="h-big reveal">Autonomia quotidiana</h2>
+        <p class="lead reveal d1">Pagamenti contactless, mappe e navigazione vocale rendono il telefono uno strumento di autonomia nella vita di tutti i giorni.</p>
       </div>
       <div class="card reveal d1">
-        <span class="ic">💡</span>
-        <h3>Emergency SOS</h3>
-        <ul><li>Funzioni di emergenza chiamano contatti o servizi con gesture rapide.</li><li>Vanno configurate prima.</li><li>Controlla anche cartella clinica, contatti emergenza e blocco schermo.</li></ul>
+        <span class="ic">🗺️</span>
+        <h3>Autonomia quotidiana</h3>
+        <ul><li>Pagamenti NFC (Google Pay, Apple Pay): avvicina il telefono al POS, autentica con biometria — più veloce della carta.</li><li>Mappe con navigazione passo-passo funzionano offline (scarica le mappe in anticipo): Google Maps → Offline, Apple Maps → offline automatico.</li><li>Navigazione vocale descrive il percorso a voce: utile a piedi, in bici o con disabilità visive parziali.</li><li>Accessibilità percorsi: Google Maps e Apple Maps filtrano tragitti con ascensori, rampe e mezzi accessibili.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S10</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Pagamenti e autonomia</h2>
-        <p class="lead reveal d1">Wallet digitali, biglietti e documenti semplificano molte attività.</p>
+        <h2 class="h-big reveal">Emergenze e traduzione</h2>
+        <p class="lead reveal d1">Emergency SOS e la cartella medica possono salvare vite; la traduzione in tempo reale abbatte le barriere linguistiche.</p>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🔎</span>
-        <h3>Pagamenti e autonomia</h3>
-        <ul><li>Wallet digitali, biglietti e documenti semplificano molte attività.</li><li>Serve però protezione forte del telefono.</li><li>La comodità non deve eliminare consapevolezza.</li></ul>
+        <span class="ic">🚨</span>
+        <h3>Emergenze e traduzione</h3>
+        <ul><li>Emergency SOS: tieni premuto il tasto laterale (iOS) o il pulsante accensione 5 volte (Android) per chiamare i soccorsi e avvisare i contatti.</li><li>Cartella clinica (app Salute iOS, Google Fit Android): gruppo sanguigno, farmaci, allergie — visibili dalla schermata di blocco senza sbloccare il telefono.</li><li>Traduzione in tempo reale: Google Traduttore modalità "Conversazione" gestisce turni alternati senza toccare il tasto.</li><li>Traduzione offline: scarica i pacchetti lingua per usarla senza connessione all'estero o in zone senza rete.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S10</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Mappe e orientamento</h2>
-        <p class="lead reveal d1">Mappe, trasporti e navigazione aumentano autonomia.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">✅</span>
-        <h3>Mappe e orientamento</h3>
-        <ul><li>Mappe, trasporti e navigazione aumentano autonomia.</li><li>Scaricare mappe offline può aiutare in zone senza rete.</li><li>Controlla batteria e sicurezza fisica mentre cammini.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S10</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Traduzione</h2>
-        <p class="lead reveal d1">Traduzione testo, voce e immagini aiuta in viaggio e studio.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">⚠️</span>
-        <h3>Traduzione</h3>
-        <ul><li>Traduzione testo, voce e immagini aiuta in viaggio e studio.</li><li>È potente ma non perfetta.</li><li>Per documenti ufficiali serve verifica umana.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="deck-tab">SMARTPHONES · S10</div>
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Accessibilità per tutti</h2>
-        <p class="lead reveal d1">Progettare per casi difficili migliora l’esperienza di tutti.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🧰</span>
-        <h3>Accessibilità per tutti</h3>
-        <ul><li>Progettare per casi difficili migliora l’esperienza di tutti.</li><li>Testo leggibile, pulsanti grandi e feedback chiari aiutano ogni utente.</li><li>Lo smartphone migliore è quello che riesci a usare bene.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
+
   <section class="slide">
     <div class="deck-tab">SMARTPHONES · S10</div>
     <div class="col stack" style="justify-content:center;height:100%;">
@@ -306,7 +226,7 @@
       <h2 class="h-sec reveal">È tutto chiaro?</h2>
       <p class="lead reveal d1">Prova a rispondere a mente prima di passare al capitolo successivo.</p>
       <div class="grid2 reveal d2">
-        <div class="card"><h3>1.</h3><p>Qual è l’idea più importante di questo capitolo?</p></div>
+        <div class="card"><h3>1.</h3><p>Qual è l'idea più importante di questo capitolo?</p></div>
         <div class="card"><h3>2.</h3><p>Quale impostazione o comportamento puoi controllare subito sul tuo telefono?</p></div>
         <div class="card"><h3>3.</h3><p>Quale rischio pratico riduci applicando queste regole?</p></div>
         <div class="card"><h3>4.</h3><p>Come spiegheresti questo argomento a una persona poco esperta?</p></div>
@@ -319,8 +239,8 @@
     <div class="deck-tab">SMARTPHONES · S10</div>
     <div class="center" style="align-items:center;text-align:center;">
       <div class="eyebrow reveal gold">Fine S10</div>
-      <h2 class="h-mega reveal" style="margin-top:10px;">Accessibilità mobile<br><em class="gold">in pratica.</em></h2>
-      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora hai una mappa operativa del capitolo: concetti chiave, rischi e controlli da applicare sullo smartphone.</p>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Telefono<br><em class="gold">per tutti.</em></h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Le funzioni di accessibilità rendono lo smartphone più utile per tutti, non solo per chi ha esigenze specifiche.</p>
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a href="s11-manutenzione-scelta.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → S11 · Manutenzione e scelta</a>
         <a href="00-indice.html" class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);text-decoration:none;">↩ Indice del corso</a>
