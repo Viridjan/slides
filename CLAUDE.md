@@ -95,7 +95,7 @@ Published decks are root-level files named by series:
 | `web` | Reti e Web | `web01-reti.html` |
 | `sec` | Sicurezza Digitale | `sec01-introduzione.html` |
 | `inf` | Informatica | `inf01-componenti.html` |
-| `s` | Smartphones | `s01-smartphone-computer.html` |
+| `sma` | Smartphones | `sma01-smartphone-computer.html` |
 | `fog` | Fogli di calcolo | `fog03-riferimenti-formule.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
 
@@ -111,12 +111,12 @@ update that chip too.
 | --- | --- |
 | `web01-reti.html` | Reti Informatiche e Internet |
 | `web02-navigazione.html` | Navigazione e Indirizzi Web |
-| `web02b-domini.html` | Domini e Indirizzi Internet |
 | `web03-ricerca.html` | Ricerca e Gestione delle Informazioni |
 | `web04-email.html` | La Posta Elettronica |
 | `web05-firma.html` | La Firma Email |
 | `web06-affidabilita.html` | Navigare con Spirito Critico |
 | `web07-contenuti.html` | Gestire e Archiviare Contenuti |
+| `web08-domini.html` | Domini e Indirizzi Internet |
 
 ### Sicurezza Digitale
 
@@ -130,54 +130,46 @@ update that chip too.
 
 ### Informatica
 
+Navigation chain: inf01 → inf02 → inf03 → inf04 → inf05 → inf06 → inf07 → inf08 → inf09 → inf10 → inf11 → inf12 → inf13 → inf14
+
 | File | Title |
 | --- | --- |
 | `inf01-componenti.html` | Dentro il computer |
-| `inf11-hard-disk-filesystem.html` | Hard disk e file system |
-| `inf11-os.html` | Sistemi Operativi |
-| `inf12-os-concetti.html` | OS: concetti fondamentali |
 | `inf02-identita.html` | La tua identità online |
-| `inf13-google-workspace.html` | Software Google |
-| `inf10-societa.html` | Tecnologia e Società |
-| `inf09-vr-ar.html` | VR, AR e Metaverso |
+| `inf03-documenti.html` | Mettere tutto per iscritto |
+| `inf04-excel-basi.html` | Le basi del foglio di calcolo |
+| `inf05-excel-avanzato.html` | Analizzare e condividere |
 | `inf06-branding.html` | Farsi riconoscere |
 | `inf07-social.html` | I social giusti |
+| `inf08-presentazioni.html` | Dillo con una slide |
+| `inf09-vr-ar.html` | VR, AR e Metaverso |
+| `inf10-societa.html` | Tecnologia e Società |
+| `inf11-hard-disk-filesystem.html` | Hard disk e file system |
+| `inf12-os.html` | Sistemi Operativi |
+| `inf13-os-concetti.html` | OS: concetti fondamentali |
+| `inf14-google-workspace.html` | Software Google |
 
 ### Smartphones
 
 | File | Title |
 | --- | --- |
-| `s01-smartphone-computer.html` | Lo smartphone è un computer |
-| `s02-connessioni-reti-mobili.html` | Connessioni e reti mobili |
-| `s03-android-ios.html` | Android e iOS |
-| `s04-app-permessi.html` | App e permessi |
-| `s05-privacy-telefono.html` | Privacy sul telefono |
-| `s06-sicurezza-smartphone.html` | Sicurezza dello smartphone |
-| `s07-file-telefono.html` | Gestione dei file sul telefono |
-| `s08-fotocamera-contenuti.html` | Fotocamera e contenuti |
-| `s09-benessere-digitale.html` | Benessere digitale |
-| `s10-accessibilita-uso-pratico.html` | Accessibilità e uso pratico |
-| `s11-manutenzione-scelta.html` | Manutenzione e scelta |
+| `sma01-smartphone-computer.html` | Lo smartphone è un computer |
+| `sma02-connessioni-reti-mobili.html` | Connessioni e reti mobili |
+| `sma03-android-ios.html` | Android e iOS |
+| `sma04-app-permessi.html` | App e permessi |
+| `sma05-privacy-telefono.html` | Privacy sul telefono |
+| `sma06-sicurezza-smartphone.html` | Sicurezza dello smartphone |
+| `sma07-file-telefono.html` | Gestione dei file sul telefono |
+| `sma08-fotocamera-contenuti.html` | Fotocamera e contenuti |
+| `sma09-benessere-digitale.html` | Benessere digitale |
+| `sma10-accessibilita-uso-pratico.html` | Accessibilità e uso pratico |
+| `sma11-manutenzione-scelta.html` | Manutenzione e scelta |
 
-### Editor di testo
-
-| File | Title |
-| --- | --- |
-| `inf03-documenti.html` | Mettere tutto per iscritto |
-
-### Fogli di calcolo
+### Fogli di calcolo (supplementary)
 
 | File | Title |
 | --- | --- |
-| `inf04-excel-basi.html` | Le basi del foglio di calcolo |
-| `inf05-excel-avanzato.html` | Analizzare e condividere |
 | `fog03-riferimenti-formule.html` | Riferimenti e formule robuste |
-
-### Presentazioni
-
-| File | Title |
-| --- | --- |
-| `inf08-presentazioni.html` | Dillo con una slide |
 
 ### Quizzes
 

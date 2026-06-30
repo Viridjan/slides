@@ -99,10 +99,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 <section class="slide title-slide active visible">
   <div class="title-left">
     <div class="tape sky reveal">Informatica · Basi</div>
-    <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="false">Modulo M2.2 — Struttura dei Domini</div>
+    <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="false">Modulo W08 — Struttura dei Domini</div>
     <h1 class="h-big reveal" contenteditable="false">Domini e<br>Estensioni<br><em class="sky">Internet</em></h1>
     <p class="lead reveal" style="margin-top:26px;" contenteditable="false">Struttura interna di un dominio, estensioni geografiche (ccTLD) e tematiche (gTLD): come leggere e interpretare qualsiasi indirizzo web.</p>
-    <div class="chips reveal" style="margin-top:40px;"><span class="chip">Modulo M2.2</span><span class="chip alt">Basi</span></div>
+    <div class="chips reveal" style="margin-top:40px;"><span class="chip">Modulo W08</span><span class="chip alt">Basi</span></div>
   </div>
   <div class="title-right">
     <div style="position:relative;z-index:2;text-align:center;">
@@ -233,7 +233,188 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <div class="page-num"></div>
 </section>
 
-<!-- === SLIDE 5: QUIZ === -->
+<!-- === SLIDE 5: DNS === -->
+<section class="slide">
+  <div class="deck-tab">DOMINI · M2.2</div>
+  <div class="split">
+    <div class="col">
+      <div class="tape sky reveal">DNS</div>
+      <h2 class="h-sec reveal" style="margin-top:16px;">Il DNS — <em class="hot">traduttore</em><br>di indirizzi</h2>
+      <p class="lead reveal d1" style="margin-top:16px;max-width:760px;">Il <b>Domain Name System</b> è la rubrica telefonica di Internet: trasforma nomi leggibili in numeri che i computer capiscono.</p>
+      <div class="stack reveal d2" style="margin-top:24px;">
+        <div class="card" style="padding:18px 26px;">
+          <h3 style="font-size:30px;">① Richiesta</h3>
+          <p>Scrivi <code style="background:var(--paper-2);padding:2px 6px;border-radius:4px;">www.negozio.it</code> nel browser. Il computer non sa dove si trova quel sito.</p>
+        </div>
+        <div class="card" style="padding:18px 26px;">
+          <h3 style="font-size:30px;">② Il server DNS risponde</h3>
+          <p>Un server DNS (es. quello del tuo operatore) cerca il dominio e restituisce l'indirizzo IP corrispondente.</p>
+        </div>
+        <div class="card" style="padding:18px 26px;">
+          <h3 style="font-size:30px;">③ Connessione</h3>
+          <p>Il browser si collega direttamente all'IP e carica la pagina. Tutto in meno di un secondo.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col" style="gap:18px;">
+      <div style="text-align:center;font-family:var(--font-mono);font-size:20px;color:var(--ink-faint);letter-spacing:1px;text-transform:uppercase;">Hai digitato</div>
+      <div class="url-box" style="text-align:center;font-size:38px;padding:16px 24px;">www.negozio.it</div>
+      <div style="text-align:center;font-size:44px;color:var(--ink-faint);">↓</div>
+      <div style="text-align:center;background:var(--paper-2);border:2px solid var(--line);border-radius:12px;padding:16px 24px;font-family:var(--font-mono);font-size:22px;color:var(--ink-soft);box-shadow:5px 6px 0 rgba(28,23,20,.1);">🌐 Server DNS</div>
+      <div style="text-align:center;font-size:44px;color:var(--ink-faint);">↓</div>
+      <div style="text-align:center;font-family:var(--font-mono);font-size:20px;color:var(--ink-faint);letter-spacing:1px;text-transform:uppercase;">Indirizzo IP trovato</div>
+      <div class="url-box" style="text-align:center;font-size:42px;padding:16px 24px;background:var(--teal-2);">93.184.216.34</div>
+      <div class="note">
+        <div class="lbl">💡 IP — Internet Protocol</div>
+        <p>Ogni sito corrisponde a un numero univoco. Il DNS ti evita di ricordare <b>142.250.74.46</b> invece di <b>google.com</b>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 6: REGISTRAZIONE === -->
+<section class="slide">
+  <div class="deck-tab">DOMINI · M2.2</div>
+  <div class="center">
+    <div class="tape sky reveal">Registrazione</div>
+    <h2 class="h-sec reveal" style="margin-top:16px;">Come si <em class="hot">registra</em> un dominio</h2>
+    <p class="lead reveal d1" style="margin-top:14px;">Un dominio non si crea: si <b>registra</b> tramite un <b>registrar</b> accreditato, per un periodo definito, pagando un canone annuo.</p>
+    <div class="grid3 reveal d2" style="margin-top:20px;">
+      <div class="card">
+        <span class="ic">🏪</span>
+        <h3>Registrar</h3>
+        <p>Aziende autorizzate a vendere domini: <b>Aruba</b>, <b>GoDaddy</b>, <b>Namecheap</b>, <b>Register.it</b>. Confronta i prezzi prima di scegliere.</p>
+      </div>
+      <div class="card">
+        <span class="ic">📋</span>
+        <h3>WHOIS</h3>
+        <p>Registro pubblico che mostra chi ha registrato un dominio: nome, email, data di registrazione e scadenza. Utile per verificare la legittimità di un sito.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🔄</span>
+        <h3>Scadenza e rinnovo</h3>
+        <p>I domini si registrano per <b>1 anno</b> (o più) e vanno rinnovati. Se scadono, chiunque può prenderli. Costo tipico: <b>~10–15 €/anno</b> per <b>.it</b>.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:18px;">
+      <div class="lbl">⚠️ Attenzione alla scadenza</div>
+      <p>Molti siti truffaldini usano <b>domini appena registrati</b> (pochi giorni) o sfruttano nomi scaduti. Un dominio vecchio e ben mantenuto è un segnale di affidabilità.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 7: SOTTODOMINI === -->
+<section class="slide">
+  <div class="deck-tab">DOMINI · M2.2</div>
+  <div class="center">
+    <div class="tape sky reveal">Sottodomini</div>
+    <h2 class="h-sec reveal" style="margin-top:16px;"><em class="hot">Sottodomini</em>: sezioni speciali</h2>
+    <p class="lead reveal d1" style="margin-top:14px;">Un <b>sottodominio</b> è un prefisso aggiunto davanti al dominio principale. Il proprietario può crearne quanti ne vuole, gratuitamente.</p>
+    <div class="grid3 reveal d2" style="margin-top:20px;">
+      <div class="card" style="text-align:center;">
+        <span class="ic">📧</span>
+        <h3 style="font-family:var(--font-mono);font-size:30px;color:var(--teal);">mail.accademia.it</h3>
+        <p>Posta elettronica dell'accademia. Separato dal sito principale, può usare un server di posta dedicato.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">🛒</span>
+        <h3 style="font-family:var(--font-mono);font-size:30px;color:var(--teal);">shop.accademia.it</h3>
+        <p>Negozio online. Stesso dominio, ma piattaforma e-commerce separata con il suo database.</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="ic">📅</span>
+        <h3 style="font-family:var(--font-mono);font-size:30px;color:var(--teal);">prenotazioni.accademia.it</h3>
+        <p>Sistema di booking. Un sottodominio = un servizio dedicato, gestibile in modo indipendente.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:18px;">
+      <div class="lbl">📁 Sottodominio vs cartella</div>
+      <p><b>blog.accademia.it</b> (sottodominio) è tecnicamente un sito separato · <b>accademia.it/blog</b> (cartella) è una sezione dello stesso sito. Dall'esterno sembrano simili, ma funzionano diversamente.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 8: URL SOSPETTO === -->
+<section class="slide">
+  <div class="deck-tab">DOMINI · M2.2</div>
+  <div class="center">
+    <div class="tape reveal">Sicurezza</div>
+    <h2 class="h-sec reveal" style="margin-top:16px;">Come leggere un URL <em class="hot">sospetto</em></h2>
+    <p class="lead reveal d1" style="margin-top:14px;"><b>Regola d'oro:</b> il dominio reale è l'ultimo blocco <b>prima del TLD</b>. Tutto ciò che sta a sinistra può essere falsificato facilmente.</p>
+    <div class="grid3 reveal d2" style="margin-top:20px;">
+      <div class="card" style="border-color:#2e7d4f;">
+        <div style="font-family:var(--font-mono);font-weight:700;font-size:20px;letter-spacing:1px;text-transform:uppercase;color:#2e7d4f;margin-bottom:10px;">✅ Legittimo</div>
+        <div class="url-box" style="font-size:26px;padding:12px 18px;margin-bottom:12px;">login.<b style="color:var(--gold);">paypal</b>.com</div>
+        <p>Dominio reale: <b>paypal</b> · TLD: <b>.com</b> · Sottodominio: <b>login</b>. Tutto corretto: PayPal gestisce il sottodominio <code style="background:var(--paper-2);padding:2px 5px;border-radius:4px;">login</code>.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <div style="font-family:var(--font-mono);font-weight:700;font-size:20px;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:10px;">❌ Truffa</div>
+        <div class="url-box" style="font-size:22px;padding:12px 18px;margin-bottom:12px;">login.paypal.<b style="color:var(--red);">secure-info.ru</b></div>
+        <p>Dominio reale: <b style="color:var(--red);">secure-info</b> · TLD: <b style="color:var(--red);">.ru</b> (Russia). Il nome "paypal" è solo un sottodominio ingannevole.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <div style="font-family:var(--font-mono);font-weight:700;font-size:20px;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:10px;">❌ Truffa</div>
+        <div class="url-box" style="font-size:22px;padding:12px 18px;margin-bottom:12px;">bancaintesa.<b style="color:var(--red);">cliente-accesso.xyz</b></div>
+        <p>Dominio reale: <b style="color:var(--red);">cliente-accesso</b> · TLD: <b style="color:var(--red);">.xyz</b>. Il nome "bancaintesa" è solo un prefisso decorativo.</p>
+      </div>
+    </div>
+    <div class="note red reveal d3" style="margin-top:18px;">
+      <div class="lbl">⚠️ Trucco pratico</div>
+      <p>Trova il TLD (es. <b>.com</b>, <b>.it</b>, <b>.ru</b>) — la parola immediatamente prima è il dominio reale. Ignora tutto ciò che sta a sinistra: può essere qualsiasi cosa.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 9: PRATICA === -->
+<section class="slide">
+  <div class="deck-tab">DOMINI · M2.2</div>
+  <div class="center">
+    <div class="tape teal reveal">Esercizio</div>
+    <h2 class="h-sec reveal" style="margin-top:16px;">Pratica guidata —<br>Leggi questi <em class="hot">URL</em></h2>
+    <p class="lead reveal d1" style="margin-top:14px;">Per ciascun indirizzo identifica il dominio reale e il TLD. Poi decidi: <b>legittimo o truffa?</b></p>
+    <div class="grid2 reveal d2" style="margin-top:20px;gap:20px;">
+      <div class="card">
+        <div class="url-box" style="font-size:24px;padding:10px 16px;margin-bottom:12px;">https://www.comune.milano.it/servizi</div>
+        <div class="chips" style="gap:10px;">
+          <span class="chip" style="background:var(--teal);font-size:20px;padding:10px 18px;">Dominio: milano</span>
+          <span class="chip" style="background:var(--teal);font-size:20px;padding:10px 18px;">TLD: .it</span>
+          <span class="chip" style="background:#2e7d4f;font-size:20px;padding:10px 18px;">✅ Legittimo</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="url-box" style="font-size:24px;padding:10px 16px;margin-bottom:12px;">http://amazon.offerte-oggi.club/login</div>
+        <div class="chips" style="gap:10px;">
+          <span class="chip" style="background:var(--ink-faint);font-size:20px;padding:10px 18px;">Dominio: offerte-oggi</span>
+          <span class="chip" style="background:var(--ink-faint);font-size:20px;padding:10px 18px;">TLD: .club</span>
+          <span class="chip" style="background:var(--red);font-size:20px;padding:10px 18px;">❌ Truffa</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="url-box" style="font-size:24px;padding:10px 16px;margin-bottom:12px;">https://support.google.com/accounts</div>
+        <div class="chips" style="gap:10px;">
+          <span class="chip" style="background:var(--teal);font-size:20px;padding:10px 18px;">Dominio: google</span>
+          <span class="chip" style="background:var(--teal);font-size:20px;padding:10px 18px;">TLD: .com</span>
+          <span class="chip" style="background:#2e7d4f;font-size:20px;padding:10px 18px;">✅ Legittimo</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="url-box" style="font-size:24px;padding:10px 16px;margin-bottom:12px;">https://google.com.verifica-account.net</div>
+        <div class="chips" style="gap:10px;">
+          <span class="chip" style="background:var(--ink-faint);font-size:20px;padding:10px 18px;">Dominio: verifica-account</span>
+          <span class="chip" style="background:var(--ink-faint);font-size:20px;padding:10px 18px;">TLD: .net</span>
+          <span class="chip" style="background:var(--red);font-size:20px;padding:10px 18px;">❌ Truffa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 10: QUIZ === -->
 <section class="slide">
   <div class="deck-tab">DOMINI · M2.2</div>
   <div class="col stack" style="justify-content:center;height:100%;">
@@ -256,7 +437,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 <!-- === SLIDE 6: CLOSING === -->
 <section class="slide closing">
   <div class="center" style="align-items:center;text-align:center;">
-    <div class="eyebrow reveal" style="color:var(--gold);">Fine Modulo M2.2</div>
+    <div class="eyebrow reveal" style="color:var(--gold);">Fine Modulo W08</div>
     <div class="h-mega reveal" style="margin-top:10px;color:#fff;">Orientati! 🧭</div>
     <p class="lead reveal d1" style="color:#f4ece0;max-width:1100px;text-align:center;margin-top:20px;">Conosci la struttura dei domini, le estensioni geografiche e tematiche. Sai leggere e interpretare qualsiasi indirizzo web in modo consapevole. Il prossimo modulo affronta la ricerca di informazioni online.</p>
     <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">

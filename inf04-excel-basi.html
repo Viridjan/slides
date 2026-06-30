@@ -213,7 +213,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
       <div class="note reveal d2" style="margin-top:26px;">
         <div class="lbl">💡 Buona abitudine</div>
-        <p>Dai un nome chiaro a ogni foglio (es. “Gennaio”, “Clienti”, “Magazzino”): ritrovare le cose sarà molto più veloce.</p>
+        <p>Dai un nome chiaro a ogni foglio (es. "Gennaio", "Clienti", "Magazzino"): ritrovare le cose sarà molto più veloce.</p>
       </div>
     </div>
     <div class="page-num"></div>
@@ -274,6 +274,184 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <div class="card"><h3 style="font-size:34px;">CONTA</h3><p class="mono">=CONTA.NUMERI(A:A)</p><p>Conta quante celle contengono numeri.</p></div>
         <div class="card" style="border-color:var(--teal);"><h3 style="font-size:34px;">CONTA.SE</h3><p class="mono">=CONTA.SE(...)</p><p>Conta solo le celle che rispettano una condizione.</p></div>
         <div class="card" style="border-color:var(--gold-deep);"><span class="ic">💡</span><p>Inizia da queste: coprono la gran parte dei bisogni quotidiani.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape teal reveal">Tipi di dati</div>
+        <h2 class="h-big reveal">Cosa puoi mettere in una <em class="hot">cella</em></h2>
+        <p class="lead reveal d1">Ogni cella può contenere un tipo di dato diverso. Il tipo determina cosa puoi farci — e gli errori più comuni nascono proprio qui.</p>
+        <div class="stack reveal d2" style="margin-top:2px;">
+          <p class="body">• <b>Testo</b> — allineato a sinistra; non si può sommare</p>
+          <p class="body">• <b>Numero</b> — allineato a destra; usabile nei calcoli</p>
+          <p class="body">• <b>Data</b> — è un numero speciale: 1 = 1 gen 1900</p>
+          <p class="body">• <b>VERO / FALSO</b> — usati nelle condizioni logiche</p>
+          <p class="body">• <b>Vuoto</b> — cella senza contenuto; attenzione nelle formule</p>
+        </div>
+        <div class="note red reveal d3" style="margin-top:6px;">
+          <div class="lbl">⚠️ Errore tipico</div>
+          <p>Scrivere "€ 50" come testo invece di 50: il foglio non riesce a sommarlo.</p>
+        </div>
+      </div>
+      <div class="illu reveal d2" style="place-items:stretch;align-self:center;">
+        <table class="sheet">
+          <tr><th></th><th>A</th><th>B</th></tr>
+          <tr><td class="rowh">1</td><td style="text-align:left;padding-left:12px;">Sofia</td><td style="text-align:right;padding-right:12px;">120</td></tr>
+          <tr><td class="rowh">2</td><td style="text-align:left;padding-left:12px;">Clienti</td><td style="text-align:right;padding-right:12px;">15/06/2025</td></tr>
+          <tr><td class="rowh">3</td><td style="text-align:left;padding-left:12px;">Nota</td><td style="text-align:center;">VERO</td></tr>
+          <tr><td class="rowh">4</td><td></td><td></td></tr>
+        </table>
+        <div class="illu-cap">Testo → sinistra &nbsp;·&nbsp; Numero → destra</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape gold reveal">Formato celle</div>
+      <h2 class="h-big reveal">Il formato <em class="hot">giusto</em> per ogni dato</h2>
+      <p class="lead reveal d1">Scegliere il formato corretto rende il foglio leggibile e professionale.</p>
+      <div class="grid2 reveal d2" style="margin-top:10px;">
+        <div class="card"><span class="ic">💶</span><h3>Valuta e numeri</h3><p>Formato <b>€ 1.250,00</b>: simbolo €, separatore migliaia e due decimali fissi.</p></div>
+        <div class="card"><span class="ic">📅</span><h3>Date e percentuali</h3><p>Formato data <b>GG/MM/AAAA</b>. Percentuale: scrivi 0,15 → appare <b>15%</b> in automatico.</p></div>
+        <div class="card"><span class="ic">✏️</span><h3>Stile testo</h3><p>Grassetto per intestazioni di colonna, corsivo per note, dimensione font per gerarchie visive.</p></div>
+        <div class="card" style="border-color:var(--teal);"><span class="ic">🎨</span><h3>Sfondo e bordi</h3><p>Righe alternate in colori diversi, bordi netti tra sezioni, sfondo giallo per i totali importanti.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape teal reveal">Funzione SE</div>
+        <h2 class="h-big reveal">Prendere <em class="hot">decisioni</em> automatiche</h2>
+        <p class="lead reveal d1">SE valuta una condizione: se è vera restituisce un valore, altrimenti un altro.</p>
+        <div class="card reveal d2" style="border-color:var(--teal);margin-top:4px;">
+          <p class="mono" style="font-size:24px;">=SE(condizione; se_vero; se_falso)</p>
+        </div>
+        <div class="stack reveal d3" style="margin-top:10px;">
+          <p class="body"><b>Esempio pratico:</b></p>
+          <p class="body" style="font-family:var(--font-mono);color:var(--teal);font-size:24px;">=SE(B2&gt;100; "Ottimo"; "Da migliorare")</p>
+          <p class="body">Se la spesa in B2 supera 100€ → scrive "Ottimo", altrimenti "Da migliorare".</p>
+        </div>
+        <div class="note reveal d3" style="margin-top:10px;">
+          <div class="lbl">💡 Caso pratico</div>
+          <p>Classifichi le clienti automaticamente per spesa: top, media, occasionale.</p>
+        </div>
+      </div>
+      <div class="illu reveal d2" style="place-items:stretch;align-self:center;">
+        <div class="fbar"><span class="ref">C2</span><span class="eq">=</span><span style="font-size:20px;">SE(B2&gt;100;"Ottimo";"Da migliorare")</span></div>
+        <table class="sheet">
+          <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+          <tr><td class="rowh">1</td><td style="font-weight:700;">Cliente</td><td style="font-weight:700;">Spesa €</td><td style="font-weight:700;">Valutazione</td></tr>
+          <tr><td class="rowh">2</td><td style="text-align:left;padding-left:8px;">Sofia</td><td>145</td><td class="sel">Ottimo</td></tr>
+          <tr><td class="rowh">3</td><td style="text-align:left;padding-left:8px;">Laura</td><td>65</td><td>Da migliorare</td></tr>
+        </table>
+        <div class="illu-cap">La funzione SE valuta ogni riga in automatico</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">CERCA.VERT</div>
+        <h2 class="h-big reveal">Cercare un valore in una <em class="hot">tabella</em></h2>
+        <p class="lead reveal d1">CERCA.VERT cerca un valore nella prima colonna di una tabella e restituisce il dato in un'altra colonna della stessa riga.</p>
+        <div class="card reveal d2" style="border-color:var(--teal);margin-top:4px;">
+          <p class="mono" style="font-size:21px;">=CERCA.VERT(valore; tabella; n_colonna; 0)</p>
+        </div>
+        <div class="stack reveal d3" style="margin-top:10px;">
+          <p class="body"><b>Esempio salone:</b> cerco "Sofia" → trovo il suo numero di telefono</p>
+          <p class="body" style="font-family:var(--font-mono);color:var(--teal);font-size:22px;margin-top:6px;">=CERCA.VERT("Sofia"; A2:C20; 3; 0)</p>
+        </div>
+        <div class="note reveal d3" style="margin-top:10px;">
+          <div class="lbl">💡 Alternativa moderna</div>
+          <p>In Google Sheets puoi usare <b>CERCA.X</b> (XLOOKUP): più semplice e senza limiti di direzione.</p>
+        </div>
+      </div>
+      <div class="illu reveal d2" style="place-items:stretch;align-self:center;">
+        <table class="sheet">
+          <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+          <tr><td class="rowh">1</td><td style="font-weight:700;">Nome</td><td style="font-weight:700;">Servizio</td><td style="font-weight:700;">Telefono</td></tr>
+          <tr><td class="rowh">2</td><td class="sel" style="text-align:left;padding-left:8px;">Sofia</td><td>Colore</td><td class="sel">333-1234</td></tr>
+          <tr><td class="rowh">3</td><td style="text-align:left;padding-left:8px;">Laura</td><td>Taglio</td><td>347-5678</td></tr>
+          <tr><td class="rowh">4</td><td style="text-align:left;padding-left:8px;">Giulia</td><td>Maschera</td><td>320-9012</td></tr>
+        </table>
+        <div class="illu-cap">Cerco "Sofia" → ottengo "333-1234"</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape gold reveal">Grafici</div>
+      <h2 class="h-big reveal">Visualizzare i dati con un <em class="hot">grafico</em></h2>
+      <p class="lead reveal d1">Seleziona i dati → menu <b>Inserisci</b> → <b>Grafico</b>. Il foglio crea il grafico e lo aggiorna in automatico quando i dati cambiano.</p>
+      <div class="grid3 reveal d2" style="margin-top:6px;">
+        <div class="card"><span class="ic">📊</span><h3 style="font-size:34px;">Barre</h3><p>Confrontare valori tra categorie diverse. Es.: incassi per tipo di servizio offerto.</p></div>
+        <div class="card"><span class="ic">🥧</span><h3 style="font-size:34px;">Torta</h3><p>Mostrare proporzioni sul totale. Es.: percentuale di clienti per servizio.</p></div>
+        <div class="card"><span class="ic">📈</span><h3 style="font-size:34px;">Linee</h3><p>Seguire l'andamento nel tempo. Es.: incassi mensili da gennaio a dicembre.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:12px;">
+        <div class="lbl">💡 Caso pratico</div>
+        <p>Un grafico a barre degli incassi mensili mostra subito i mesi migliori — senza leggere una colonna di numeri.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="center">
+      <div class="tape teal reveal">Stampa e condivisione</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Condividere il tuo lavoro</h2>
+      <div class="grid2 reveal d1" style="margin-top:26px;">
+        <div class="card" style="border-color:var(--teal);">
+          <span class="ic">🖨️</span><h3>Stampa</h3>
+          <p>Imposta l'<b>area di stampa</b>, scegli orientamento orizzontale per tabelle larghe, attiva le <b>intestazioni di riga e colonna</b> se vuoi le lettere A/B/C stampate.</p>
+        </div>
+        <div class="card" style="border-color:var(--gold-deep);">
+          <span class="ic">📄</span><h3>Esporta PDF</h3>
+          <p>File → <b>Scarica come PDF</b>. Ideale per inviare preventivi o report ai clienti: i dati restano fissi e non modificabili.</p>
+        </div>
+        <div class="card" style="border-color:var(--sky);">
+          <span class="ic">🔗</span><h3>Condividi link</h3>
+          <p><b>Google Sheets:</b> pulsante Condividi → crea link con permesso di <b>sola lettura</b>. Il cliente vede i dati ma non può cambiarli.</p>
+        </div>
+        <div class="card">
+          <span class="ic">✉️</span><h3>Invia via email</h3>
+          <p>In Google Sheets: <b>File → Email come allegato</b> per inviare direttamente il file come Excel o PDF senza uscire dal browser.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M5.1</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">Errori comuni</div>
+      <h2 class="h-big reveal">Capire gli <em class="hot">errori</em> del foglio</h2>
+      <p class="lead reveal d1">Quando una formula non funziona, il foglio mostra un codice di errore. Leggerlo è il primo passo per risolverlo.</p>
+      <div class="grid2 reveal d2" style="margin-top:8px;gap:20px 28px;">
+        <div class="card" style="background:#f3b6aa;border-color:var(--red);"><h3 style="font-size:34px;font-family:var(--font-mono);">#DIV/0!</h3><p>Divisione per zero o per una cella vuota. Controlla che il divisore non sia 0.</p></div>
+        <div class="card" style="background:#f3b6aa;border-color:var(--red);"><h3 style="font-size:34px;font-family:var(--font-mono);">#VALORE!</h3><p>Tipo di dato sbagliato: stai sommando testo invece di numeri. Controlla il formato delle celle.</p></div>
+        <div class="card" style="background:#f3b6aa;border-color:var(--red);"><h3 style="font-size:34px;font-family:var(--font-mono);">#RIF!</h3><p>Riferimento a una cella cancellata o spostata. Ricontrolla da dove proviene la formula.</p></div>
+        <div class="card" style="background:#f3b6aa;border-color:var(--red);"><h3 style="font-size:34px;font-family:var(--font-mono);">#NOME?</h3><p>Nome di funzione scritto male: es. <span style="font-family:var(--font-mono);">SOMAM</span> invece di <span style="font-family:var(--font-mono);">SOMMA</span>.</p></div>
       </div>
     </div>
     <div class="page-num"></div>

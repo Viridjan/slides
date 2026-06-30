@@ -46,10 +46,22 @@ Collect screenshots for these specific slides, then replace current text/icon/SV
 | `sec03-privacy.html` | line 635 | Google remove-content page. |
 | `sec03-privacy.html` | line 680 | ProtonMail, Signal, or alias email tool. |
 | `sec03-privacy.html` | line 782 | Have I Been Pwned email check. |
-| `s04-app-permessi.html` | whole deck | App permissions screens. |
-| `s05-privacy-telefono.html` | lines 77-247 | Ad tracking, location history, app social privacy, mobile browser, periodic permissions. |
-| `s06-sicurezza-smartphone.html` | whole deck | Lock screen, 2FA, app updates, Find My Device/iPhone. |
-| `s07-file-telefono.html` | whole deck | Files app, downloads, cloud folders. |
-| `s08-fotocamera-contenuti.html` | whole deck | Camera, gallery, share, edit screens. |
-| `s10-accessibilita-uso-pratico.html` | whole deck | Accessibility settings, zoom, text size. |
-| `s11-manutenzione-scelta.html` | whole deck | Storage, battery health, updates, device comparison/settings. |
+| `sma04-app-permessi.html` | whole deck | App permissions screens. |
+| `sma05-privacy-telefono.html` | lines 77-247 | Ad tracking, location history, app social privacy, mobile browser, periodic permissions. |
+| `sma06-sicurezza-smartphone.html` | whole deck | Lock screen, 2FA, app updates, Find My Device/iPhone. |
+| `sma07-file-telefono.html` | whole deck | Files app, downloads, cloud folders. |
+| `sma08-fotocamera-contenuti.html` | whole deck | Camera, gallery, share, edit screens. |
+| `sma10-accessibilita-uso-pratico.html` | whole deck | Accessibility settings, zoom, text size. |
+| `sma11-manutenzione-scelta.html` | whole deck | Storage, battery health, updates, device comparison/settings. |
+
+## Content Expansions — Needs Review
+
+Slides expanded by AI. Review content accuracy before using in class.
+
+| File | Was | Now | New topics added |
+| --- | --- | --- | --- |
+| `web08-domini.html` | 6 slides | 11 slides | DNS, registrazione domini, sottodomini, URL sospetti, pratica guidata |
+| `inf02-identita.html` | 9 slides | 15 slides | SPID livelli, PEC vs email, email professionale, digital footprint, reputazione online, netiquette |
+| `inf04-excel-basi.html` | 11 slides | 18 slides | Tipi di dati, formato celle, funzione SE, CERCA.VERT, grafici, stampa/condivisione, errori comuni |
+| `inf06-branding.html` | 11 slides | 17 slides | Logo e palette, tipografia, tono di voce, coerenza multicanale, brand da zero, prima/dopo |
+| `inf07-social.html` | 11 slides | 17 slides | Calendario editoriale, creare contenuti, hashtag, analytics/insights, gestire commenti, advertising |

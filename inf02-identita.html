@@ -153,7 +153,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="center">
       <div class="tape reveal">Identità digitale</div>
       <h2 class="h-sec reveal" style="margin-top:20px;">Privata <span style="color:var(--ink-faint)">vs</span> professionale</h2>
-      <p class="lead reveal d1" style="margin-top:6px;">Online abbiamo (almeno) due “versioni” di noi. Si distinguono per <b>contesto e scopo</b>, ed è bene tenerle separate.</p>
+      <p class="lead reveal d1" style="margin-top:6px;">Online abbiamo (almeno) due "versioni" di noi. Si distinguono per <b>contesto e scopo</b>, ed è bene tenerle separate.</p>
       <div class="grid2 reveal d2" style="margin-top:30px;">
         <div class="card" style="border-color:var(--sky);">
           <span class="ic">🏠</span><h3>Identità privata</h3>
@@ -252,13 +252,174 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <h2 class="h-big reveal">I <em class="hot">dati sensibili</em></h2>
       <p class="lead reveal d1">Nomi, recapiti e soprattutto <b>informazioni su salute e trattamenti</b> dei clienti sono dati sensibili: vanno gestiti secondo la legge europea sulla privacy (<b>GDPR</b>).</p>
       <div class="grid3 reveal d2" style="margin-top:6px;">
-        <div class="card"><span class="ic">🕶️</span><h3>Anonimizza</h3><p>In locale puoi tenerli completi; quando li condividi “fuori”, rendili anonimi (solo iniziali o codici).</p></div>
+        <div class="card"><span class="ic">🕶️</span><h3>Anonimizza</h3><p>In locale puoi tenerli completi; quando li condividi "fuori", rendili anonimi (solo iniziali o codici).</p></div>
         <div class="card"><span class="ic">👁️</span><h3>Solo chi deve</h3><p>Sii chiaro su <b>chi può vedere cosa</b>: i dati sensibili non sono per tutti.</p></div>
         <div class="card" style="border-color:var(--red);"><span class="ic">🤫</span><h3>Niente chiacchiere</h3><p>Anche due parole alla macchinetta del caffè sono una fuga di dati: può essere un <b>reato</b>.</p></div>
       </div>
       <div class="note red reveal d3" style="margin-top:8px;">
         <div class="lbl">⚠️ Responsabilità</div>
         <p>Essere responsabili di una fuga di dati sensibili ha conseguenze serie, legali ed economiche. Nel dubbio: meno si condivide, meglio è.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="center">
+      <div class="tape reveal">SPID · Come funziona</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">I tre livelli <span style="color:var(--ink-faint)">di SPID</span></h2>
+      <div class="grid3 reveal d1" style="margin-top:24px;">
+        <div class="card" style="border-color:var(--sky);">
+          <span class="ic">🔑</span><h3>Livello 1</h3>
+          <p>Solo <b>username e password</b>. Adatto per consultazioni semplici e a basso rischio.</p>
+        </div>
+        <div class="card" style="border-color:var(--gold-deep);">
+          <span class="ic">📱</span><h3>Livello 2</h3>
+          <p>Password + <b>codice OTP</b> via app o SMS. Il livello più usato per i servizi PA.</p>
+        </div>
+        <div class="card" style="border-color:var(--teal);">
+          <span class="ic">💳</span><h3>Livello 3</h3>
+          <p>Password + <b>smartcard</b> fisica. Solo per servizi ad altissima sicurezza.</p>
+        </div>
+      </div>
+      <div class="grid2 reveal d2" style="margin-top:22px;">
+        <div class="note">
+          <div class="lbl">🏢 Chi lo rilascia</div>
+          <p>Poste Italiane, TIM, Aruba, Namirial, Infocert e altri <b>identity provider</b> autorizzati dallo Stato.</p>
+        </div>
+        <div class="note">
+          <div class="lbl">✅ Cosa ci fai</div>
+          <p>INPS, Agenzia delle Entrate, Comune, fascicolo sanitario elettronico e centinaia di altri servizi online.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="center">
+      <div class="tape teal reveal">PEC · Valore legale</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">PEC <span style="color:var(--ink-faint)">vs</span> email normale</h2>
+      <table class="cmp reveal d1" style="margin-top:24px;">
+        <thead><tr>
+          <th></th>
+          <th class="a">Email normale</th>
+          <th class="b">PEC</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Prova di consegna</td><td>No — nessuna ricevuta ufficiale</td><td>Sì — <b>ricevuta con valore legale</b></td></tr>
+          <tr><td>Mittente verificato</td><td>Chiunque può fingere un indirizzo</td><td>Il mittente è certificato dallo Stato</td></tr>
+          <tr><td>Quando si usa</td><td>Comunicazioni ordinarie, newsletter</td><td>Contratti, ricorsi, PA, fatture</td></tr>
+          <tr><td>Costo</td><td>Gratuita (Gmail, Outlook ecc.)</td><td>~5–10 €/anno per privati</td></tr>
+        </tbody>
+      </table>
+      <div class="note red reveal d2" style="margin-top:24px;">
+        <div class="lbl">⚠️ Attenzione</div>
+        <p>La PEC <b>non serve</b> per comunicazioni ordinarie con i clienti. Usala solo dove è richiesta formalmente. Fornitori: Aruba PEC, Legalmail, Libero PEC.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="center">
+      <div class="tape gold reveal">Email professionale</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">La prima impressione <em class="hot">conta</em></h2>
+      <div class="grid2 reveal d1" style="margin-top:28px;">
+        <div class="card" style="border-color:var(--red);">
+          <span class="ic">😬</span><h3>beautysalon99@gmail.com</h3>
+          <p>Informale, poco credibile. Il cliente non capisce se sta scrivendo a un'attività seria o a un privato.</p>
+        </div>
+        <div class="card" style="border-color:var(--teal);">
+          <span class="ic">✅</span><h3>nome.cognome@studiobeauty.it</h3>
+          <p>Professionale, abbinata al dominio del salone. Trasmette <b>credibilità e serietà</b> fin dalla prima occhiata.</p>
+        </div>
+      </div>
+      <div class="note reveal d2" style="margin-top:26px;">
+        <div class="lbl">✍️ Firma email — cosa mettere</div>
+        <p><b>Nome e cognome · Ruolo · Telefono · Sito web</b> — no profili social personali, no foto di profilo informali.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">Digital Footprint</div>
+      <h2 class="h-big reveal">La tua <em class="hot">impronta</em> digitale</h2>
+      <p class="lead reveal d1">Tutto ciò che facciamo online lascia <b>tracce permanenti</b>. Non solo i post: anche cosa guardiamo, su cosa clicchiamo, dove siamo stati.</p>
+      <div class="grid2 reveal d2" style="margin-top:10px;">
+        <div class="card" style="border-color:var(--sky);">
+          <span class="ic">✏️</span><h3>Impronta attiva</h3>
+          <p>Quello che <b>scegliamo</b> di pubblicare: post, foto, profili, commenti, like visibili agli altri.</p>
+        </div>
+        <div class="card" style="border-color:var(--ink-faint);">
+          <span class="ic">👻</span><h3>Impronta passiva</h3>
+          <p>Quello che viene raccolto <b>senza che ce ne accorgiamo</b>: cookies, cronologia, app che tracciano posizione e abitudini.</p>
+        </div>
+      </div>
+      <div class="note red reveal d3" style="margin-top:16px;">
+        <div class="lbl">👁️ Chi può vederla</div>
+        <p>Datori di lavoro, clienti, ex colleghi — ma anche <b>truffatori</b>. Un profilo curato è il tuo biglietto da visita; uno trascurato può costarti opportunità.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="center">
+      <div class="tape teal reveal">Reputazione</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">Cosa trovano i <em class="hot">clienti</em>?</h2>
+      <p class="lead reveal d1" style="margin-top:6px;">Prima di prenotare, molti clienti <b>cercano il tuo nome su Google</b>. Quello che trovano forma la loro prima impressione ancor prima di incontrarti.</p>
+      <div class="grid3 reveal d2" style="margin-top:26px;">
+        <div class="card">
+          <span class="ic">🔍</span><h3>Cerca il tuo nome</h3>
+          <p>Apri una finestra in incognito e cerca il tuo nome. Cosa esce? Foto, commenti, profili vecchi?</p>
+        </div>
+        <div class="card" style="border-color:var(--sky);">
+          <span class="ic">🔒</span><h3>Privacy settings</h3>
+          <p>Imposta i post personali come <b>visibili solo agli amici</b>. Controlla le foto in cui sei taggato.</p>
+        </div>
+        <div class="card" style="border-color:var(--teal);">
+          <span class="ic">🗑️</span><h3>Rimuovere contenuti</h3>
+          <p>Puoi chiedere la rimozione a Google o alle piattaforme. Ci vuole tempo, ma si può fare.</p>
+        </div>
+      </div>
+      <div class="note reveal d3" style="margin-top:22px;">
+        <div class="lbl">💡 Regola d'oro</div>
+        <p>Prima di pubblicare qualcosa, chiediti: <b>mi va bene se lo vedesse un cliente o un datore di lavoro?</b></p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="deck-tab">INFORMATICA · M2</div>
+    <div class="center">
+      <div class="tape gold reveal">Netiquette</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">Comunicare bene <em class="hot">online</em></h2>
+      <div class="grid2 reveal d1" style="margin-top:28px;">
+        <div class="card">
+          <span class="ic">💬</span><h3>Tono formale vs informale</h3>
+          <p>Con i clienti: tono professionale, grammatica corretta. Con i colleghi stretti: più libero, ma mai volgare o trascurato.</p>
+        </div>
+        <div class="card" style="border-color:var(--sky);">
+          <span class="ic">📲</span><h3>WhatsApp professionale</h3>
+          <p>Separare il numero di lavoro da quello personale protegge la tua <b>privacy e i tuoi orari</b> liberi.</p>
+        </div>
+        <div class="card" style="border-color:var(--teal);">
+          <span class="ic">⏰</span><h3>Tempi di risposta</h3>
+          <p>Rispondi entro <b>24 ore lavorative</b>. Fuori orario usa la risposta automatica o rispondi il giorno dopo.</p>
+        </div>
+        <div class="card" style="border-color:var(--red);">
+          <span class="ic">🎙️</span><h3>No vocali lunghi</h3>
+          <p>In contesti professionali i messaggi vocali lunghi sono scomodi: preferisci testo scritto o una chiamata diretta.</p>
+        </div>
       </div>
     </div>
     <div class="page-num"></div>
