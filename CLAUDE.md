@@ -171,6 +171,8 @@ Navigation chain: inf01 → inf02 → inf03 → inf04 → inf05 → inf06 → in
 | File | Title |
 | --- | --- |
 | `iai01-concetti-generali.html` | Concetti generali |
+| `iai02-esercizio-generazione.html` | Esercizio di generazione |
+| `iai03-llm.html` | LLM — Large Language Models |
 
 ### Fogli di calcolo (supplementary)
 
