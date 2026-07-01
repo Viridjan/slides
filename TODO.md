@@ -65,3 +65,4 @@ Slides expanded by AI. Review content accuracy before using in class.
 | `inf04-excel-basi.html` | 11 slides | 18 slides | Tipi di dati, formato celle, funzione SE, CERCA.VERT, grafici, stampa/condivisione, errori comuni |
 | `inf06-branding.html` | 11 slides | 17 slides | Logo e palette, tipografia, tono di voce, coerenza multicanale, brand da zero, prima/dopo |
 | `inf07-social.html` | 11 slides | 17 slides | Calendario editoriale, creare contenuti, hashtag, analytics/insights, gestire commenti, advertising |
+| `iai01-concetti-generali.html` | 17 slides | 34 slides | Storia IA, IA debole vs AGI, ML/reti neurali/NLP, auto sfide, bot/troll farm, computer vision, deepfake detect, prompt engineering, IA quotidiano, bias, etica, futuro AGI, creatività |
