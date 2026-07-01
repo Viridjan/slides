@@ -97,7 +97,7 @@ Published decks are root-level files named by series:
 | `inf` | Informatica | `inf01-componenti.html` |
 | `sma` | Smartphones | `sma01-smartphone-computer.html` |
 | `fog` | Fogli di calcolo | `fog03-riferimenti-formule.html` |
-| `iai` | Intelligenza Artificiale | `iai01-concetti-generali.html` |
+| `iai` | Intelligenza Artificiale | `ia_01-concetti-generali.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
 
 For new published decks, use the next available number in the relevant series
@@ -170,9 +170,9 @@ Navigation chain: inf01 → inf02 → inf03 → inf04 → inf05 → inf06 → in
 
 | File | Title |
 | --- | --- |
-| `iai01-concetti-generali.html` | Concetti generali |
-| `iai02-esercizio-generazione.html` | Esercizio di generazione |
-| `iai03-llm.html` | LLM — Large Language Models |
+| `ia_01-concetti-generali.html` | Concetti generali |
+| `ia_02-esercizio-generazione.html` | Esercizio di generazione |
+| `ia_03-llm.html` | LLM — Large Language Models |
 
 ### Fogli di calcolo (supplementary)
 
