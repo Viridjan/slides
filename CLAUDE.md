@@ -97,6 +97,7 @@ Published decks are root-level files named by series:
 | `inf` | Informatica | `inf01-componenti.html` |
 | `sma` | Smartphones | `sma01-smartphone-computer.html` |
 | `fog` | Fogli di calcolo | `fog03-riferimenti-formule.html` |
+| `iai` | Intelligenza Artificiale | `iai01-concetti-generali.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
 
 For new published decks, use the next available number in the relevant series
@@ -164,6 +165,12 @@ Navigation chain: inf01 → inf02 → inf03 → inf04 → inf05 → inf06 → in
 | `sma09-benessere-digitale.html` | Benessere digitale |
 | `sma10-accessibilita-uso-pratico.html` | Accessibilità e uso pratico |
 | `sma11-manutenzione-scelta.html` | Manutenzione e scelta |
+
+### Intelligenza Artificiale
+
+| File | Title |
+| --- | --- |
+| `iai01-concetti-generali.html` | Concetti generali |
 
 ### Fogli di calcolo (supplementary)
 
