@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Design · GD_03 — Effetti Sonori e Audio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;background:#fff;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}.slide:last-child{break-after:auto;page-break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+code{font-family:var(--font-mono);}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}.d5{transition-delay:.68s !important;}.d6{transition-delay:.80s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}.tape.sky{background:var(--sky);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--sky);}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:28px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 32px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:8px;line-height:1;}
+.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.card.red{border-color:var(--red);}.card.red h3{color:var(--red);}
+.card.teal{border-color:var(--teal);}.card.teal h3{color:var(--teal);}
+.card.sky{border-color:var(--sky);}.card.sky h3{color:var(--sky);}
+.card.gold{border-color:var(--gold-deep);}.card.gold h3{color:var(--gold-deep);}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.chip.red{background:var(--red);color:#fff;}.chip.sky{background:var(--sky);color:#fff;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:24px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa;border-color:var(--red);}
+.note.sky{background:#d4eaee;border-color:var(--sky);}
+.note.teal{background:#c0d4d1;border-color:var(--teal);}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:26px;line-height:1.4;color:var(--ink);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.stack>*+*{margin-top:22px;}
+.tight-slide .h-sec{font-size:64px;}
+.tight-slide .lead{font-size:28px;line-height:1.34;}
+.tight-slide .body{font-size:24px;line-height:1.35;}
+.tight-slide .split{height:auto;}
+.tight-slide .grid2{gap:18px;}
+.tight-slide .grid3{gap:16px;}
+.tight-slide .stack>*+*{margin-top:12px;}
+.tight-slide .card{padding:18px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12);}
+.tight-slide .card h3{font-size:30px;margin-bottom:6px;}
+.tight-slide .card p{font-size:21px;line-height:1.28;}
+.tight-slide .card .ic{font-size:34px;margin-bottom:5px;}
+.tight-slide .note{padding:18px 22px;}
+.tight-slide .note .lbl{font-size:19px;margin-bottom:6px;}
+.tight-slide .note p{font-size:22px;line-height:1.3;}
+.steps{counter-reset:st;display:flex;flex-direction:column;gap:14px;}
+.step{display:flex;align-items:flex-start;gap:20px;background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:16px 24px;box-shadow:4px 5px 0 rgba(28,23,20,.12);}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:42px;line-height:1;}
+.step .t{font-size:26px;line-height:1.35;color:var(--ink-soft);padding-top:3px;}
+.step .t b{color:var(--ink);}
+.blockquote{border-left:6px solid var(--red);padding:20px 30px;background:#fbf5ec;border-radius:0 12px 12px 0;font-size:26px;line-height:1.5;color:var(--ink-soft);font-style:italic;}
+.blockquote b{color:var(--red);font-style:normal;}
+.err-label{display:inline-block;background:var(--red);color:#fff;font-family:var(--font-mono);font-weight:700;font-size:20px;padding:6px 16px;border-radius:20px;letter-spacing:1px;margin-bottom:10px;}
+.ok-label{display:inline-block;background:var(--teal);color:#fff;font-family:var(--font-mono);font-weight:700;font-size:20px;padding:6px 16px;border-radius:20px;letter-spacing:1px;margin-bottom:10px;}
+.flow-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.flow-box{background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 24px;font-size:26px;font-weight:600;text-align:center;min-width:180px;box-shadow:4px 4px 0 rgba(28,23,20,.12);}
+.flow-arrow{font-size:34px;color:var(--ink-faint);}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal-2);position:relative;overflow:hidden;display:grid;place-items:center;}.title-right>div,.title-right>svg{position:relative;z-index:2;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--sky),var(--teal));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .gold{color:var(--gold);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;bottom:0;left:0;height:4px;background:var(--red);transition:width .4s var(--ease);z-index:9999;}
+.title-slide .lead,.title-slide .chips{display:none;}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+  <!-- SLIDE 1 · TITLE -->
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <div class="eyebrow reveal" style="margin-top:40px;">Game Design</div>
+      <h1 class="h-mega reveal" style="margin-top:10px;">Effetti Sonori<br><em style="font-style:italic;color:var(--sky);">e Audio</em></h1>
+      <p class="lead reveal d1" contenteditable="false" style="margin-top:28px;">Cosa sono gli effetti sonori, come si progettano, e come si produce l'audio di un gioco — dalla registrazione al mixing finale.</p>
+      <div class="chips reveal d2" style="margin-top:46px;">
+        <span class="chip">GD_03</span><span class="chip alt">SFX &amp; Produzione</span>
+      </div>
+    </div>
+    <div class="title-right">
+      <div style="font-size:200px;line-height:1;text-align:center;" class="reveal">🔊</div>
+    </div>
+  </section>
+
+  <!-- SLIDE 2 · AGENDA -->
+  <section class="slide">
+    <div class="tape gold reveal">In questo modulo</div>
+    <h2 class="h-sec reveal" style="margin-top:32px;">Cosa vedremo</h2>
+    <div class="grid2 reveal d1" style="margin-top:28px;">
+      <div class="steps" style="counter-reset:st;">
+        <div class="step"><div class="t" contenteditable="false"><b>Cos'è un SFX</b> — il suono come feedback immediato</div></div>
+        <div class="step"><div class="t" contenteditable="false"><b>Categorie di effetti sonori</b> — foley, impatti, UI, ambientali</div></div>
+        <div class="step"><div class="t" contenteditable="false"><b>Voice SFX</b> — lingue inventate e parlato simulato</div></div>
+      </div>
+      <div class="steps" style="counter-reset:st 3;">
+        <div class="step"><div class="t" contenteditable="false"><b>Messaggi nascosti e il silenzio</b> — cosa dice l'audio quando non parla</div></div>
+        <div class="step"><div class="t" contenteditable="false"><b>Produzione audio</b> — DAW, onde sonore e sampling</div></div>
+        <div class="step"><div class="t" contenteditable="false"><b>Effetti e mixing</b> — dare forma e coerenza al suono</div></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 3 · COS'E UN SFX -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape sky reveal">Definizione</div>
+        <h2 class="h-big reveal" style="margin-top:18px;">Cos'è un <em class="hot">SFX</em></h2>
+        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Un <b>Sound Effect</b> è un suono breve legato a un'azione, un evento o un oggetto nel gioco. A differenza della musica (OST), lo SFX è <b>puntuale e informativo</b>: comunica che qualcosa è appena successo.</p>
+        <div class="note sky reveal d2" style="margin-top:20px;">
+          <div class="lbl">🔊 Feedback immediato</div>
+          <p contenteditable="false">Lo SFX conferma l'azione del giocatore. Premere un pulsante senza suono sembra "rotto" — il suono <em>chiude il ciclo di feedback</em>.</p>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><span class="ic">🎯</span><h3 contenteditable="false">Azione</h3><p contenteditable="false">Il salto, il colpo, il passo: ogni gesto del giocatore ha la sua conferma sonora.</p></div>
+        <div class="card sky reveal d2"><span class="ic">⚔️</span><h3 contenteditable="false">Evento</h3><p contenteditable="false">Un allarme, il level up, un errore: il gioco segnala cosa è cambiato nel mondo.</p></div>
+        <div class="card gold reveal d3"><span class="ic">🏆</span><h3 contenteditable="false">Ambiente</h3><p contenteditable="false">Vento, pioggia, folla: suoni che rendono vivo e credibile il luogo in cui ti trovi.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 4 · CATEGORIE DI SFX -->
+  <section class="slide">
+    <div class="tape red reveal">Tassonomia</div>
+    <h2 class="h-sec reveal" style="margin-top:24px;">Categorie di <em class="hot">SFX</em></h2>
+    <div class="grid2 reveal d1" style="margin-top:26px;">
+      <div class="card teal"><span class="ic">🦶</span><h3 contenteditable="false">Foley</h3><p contenteditable="false">Suoni quotidiani ricreati in studio: passi, vestiti, oggetti maneggiati. Il termine viene dal cinema, dal nome di Jack Foley.</p></div>
+      <div class="card red"><span class="ic">💥</span><h3 contenteditable="false">Impatti</h3><p contenteditable="false">Colpi, esplosioni, collisioni. Spesso esagerati rispetto alla realtà, per dare enfasi e peso all'azione.</p></div>
+      <div class="card sky"><span class="ic">🎛️</span><h3 contenteditable="false">UI / Interfaccia</h3><p contenteditable="false">Click, conferme, notifiche. Devono essere puliti e discreti: li sentirai migliaia di volte, non devono stancare.</p></div>
+      <div class="card gold"><span class="ic">🌧️</span><h3 contenteditable="false">Ambientali</h3><p contenteditable="false">Suoni di sottofondo che definiscono un luogo: un bosco, una città, una caverna. Costruiscono lo spazio con l'orecchio.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 5 · VOICE SFX -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">Voice SFX</div>
+        <h2 class="h-big reveal" style="margin-top:18px;">Lingue <em class="hot">inventate</em></h2>
+        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Molti giochi non usano voci reali ma <b>linguaggi inventati</b> (gibberish): suoni vocali senza significato letterale. Costano meno, non serve tradurli, e danno carattere ai personaggi.</p>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><span class="ic">🏠</span><h3 contenteditable="false">Simlish</h3><p contenteditable="false">In <b>The Sims</b>: lingua inventata da suoni improvvisati. Emotiva ma incomprensibile — il giocatore proietta il significato.</p></div>
+        <div class="card sky reveal d2"><span class="ic">🐾</span><h3 contenteditable="false">Animalese</h3><p contenteditable="false">In <b>Animal Crossing</b>: voci generate accelerando il parlato registrato. Ogni personaggio "parla" senza una vera lingua.</p></div>
+        <div class="card gold reveal d3"><span class="ic">🎮</span><h3 contenteditable="false">Banjo-Kazooie / Undertale</h3><p contenteditable="false">Grunt e beep sincronizzati col testo per simulare il parlato, dando a ogni personaggio una voce riconoscibile.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 6 · MESSAGGI NASCOSTI -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape red reveal">Dettagli nascosti</div>
+        <h2 class="h-big reveal" style="margin-top:18px;">Messaggi <em class="hot">nel suono</em></h2>
+        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Il sonoro può nascondere informazioni e sorprese: messaggi in codice, easter egg audio, suoni che rivelano meccaniche a chi sa ascoltare.</p>
+        <div class="note reveal d2" style="margin-top:20px;">
+          <div class="lbl">🔍 Esempi</div>
+          <p contenteditable="false">Spettrogrammi nascosti nella musica — codici visibili solo analizzando l'onda — messaggi al contrario, cambi di traccia che segnalano segreti vicini.</p>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="card teal reveal d1"><span class="ic">👂</span><h3 contenteditable="false">Diegesi audio</h3><p contenteditable="false">Un suono fuori posto avverte il giocatore attento: qualcosa in questo posto non è come sembra.</p></div>
+        <div class="card gold reveal d2"><span class="ic">🗝️</span><h3 contenteditable="false">Design della scoperta</h3><p contenteditable="false">Premiare chi ascolta con attenzione: il segreto sonoro trasforma l'orecchio in uno strumento di gioco.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 7 · IL SILENZIO -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape teal reveal">Assenza</div>
+        <h2 class="h-big reveal" style="margin-top:18px;">Il <em class="hot">silenzio</em></h2>
+        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Togliere il suono è una scelta di design potente. Il silenzio crea tensione, isola un momento, o dà peso a ciò che viene dopo.</p>
+      </div>
+      <div class="col stack">
+        <div class="note teal reveal d1">
+          <div class="lbl">🤫 Uso del silenzio</div>
+          <p contenteditable="false">Un boss che entra nel silenzio totale; la musica che si ferma di colpo prima di un evento; il silenzio dopo una morte. Il contrasto <em>amplifica</em> l'impatto del suono successivo.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 8 · LA DAW -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">Produzione</div>
+        <h2 class="h-big reveal" style="margin-top:18px;">La <em class="hot">DAW</em></h2>
+        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">La <b>Digital Audio Workstation</b> è il software dove si registra, monta e mixa l'audio. È lo studio di registrazione digitale: Ableton, Reaper, FL Studio, Audacity.</p>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><span class="ic">🎙️</span><h3 contenteditable="false">Registrazione</h3><p contenteditable="false">Catturare suoni reali col microfono: voci, oggetti, ambienti.</p></div>
+        <div class="card sky reveal d2"><span class="ic">🧩</span><h3 contenteditable="false">Editing</h3><p contenteditable="false">Tagliare, allineare, pulire: dal materiale grezzo al suono utilizzabile.</p></div>
+        <div class="card gold reveal d3"><span class="ic">🎚️</span><h3 contenteditable="false">Mixing</h3><p contenteditable="false">Bilanciare i livelli delle tracce perché ogni suono trovi il suo spazio.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 9 · ONDE E SAMPLING -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape sky reveal">Fondamenti</div>
+        <h2 class="h-big reveal" style="margin-top:18px;">Onde e <em class="hot">sampling</em></h2>
+        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Il suono è un'onda. Registrarlo digitalmente significa <b>campionarlo</b> (sampling): misurare l'ampiezza dell'onda migliaia di volte al secondo.</p>
+        <div class="note sky reveal d2" style="margin-top:20px;">
+          <div class="lbl">🌊 Sample rate</div>
+          <p contenteditable="false">44.100 campioni al secondo (<b>44.1 kHz</b>) è lo standard CD. Più campioni = più fedeltà, ma anche più spazio occupato.</p>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><span class="ic">📏</span><h3 contenteditable="false">Ampiezza = volume</h3><p contenteditable="false">L'altezza dell'onda determina quanto il suono è forte o debole.</p></div>
+        <div class="card sky reveal d2"><span class="ic">〰️</span><h3 contenteditable="false">Frequenza = altezza</h3><p contenteditable="false">Quanto il suono è acuto o grave: si misura in Hertz (Hz), oscillazioni al secondo.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 10 · EFFETTI -->
+  <section class="slide">
+    <div class="tape teal reveal">Effetti</div>
+    <h2 class="h-sec reveal" style="margin-top:24px;">Dare forma al <em class="hot">suono</em></h2>
+    <div class="grid2 reveal d1" style="margin-top:26px;">
+      <div class="card red"><span class="ic">🔥</span><h3 contenteditable="false">Overdrive / Distorsione</h3><p contenteditable="false">Satura il segnale per un suono sporco e aggressivo. Usato per impatti e armi.</p></div>
+      <div class="card teal"><span class="ic">🗜️</span><h3 contenteditable="false">Compressione</h3><p contenteditable="false">Riduce la differenza tra suoni forti e deboli. Rende il mix coeso e sempre udibile.</p></div>
+      <div class="card sky"><span class="ic">🌀</span><h3 contenteditable="false">Riverbero</h3><p contenteditable="false">Simula lo spazio: una caverna, una stanza. Colloca il suono in un ambiente.</p></div>
+      <div class="card gold"><span class="ic">⏱️</span><h3 contenteditable="false">Delay / Eco</h3><p contenteditable="false">Ripete il suono con un ritardo. Crea profondità e ritmo.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 11 · SEQUENCING E MIXING -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">Assemblaggio</div>
+        <h2 class="h-big reveal" style="margin-top:18px;">Sequencing e <em class="hot">mixing</em></h2>
+        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Mettere insieme i suoni nel tempo (<b>sequencing</b>) e bilanciarli tra loro (<b>mixing</b>) è ciò che trasforma tracce isolate in un paesaggio sonoro coerente.</p>
+      </div>
+      <div class="col">
+        <div class="steps reveal d1">
+          <div class="step"><div class="t" contenteditable="false"><b>Disporre i suoni</b> sulla timeline, nell'ordine e nel momento giusto.</div></div>
+          <div class="step"><div class="t" contenteditable="false"><b>Regolare i volumi</b> relativi: cosa deve emergere, cosa restare dietro.</div></div>
+          <div class="step"><div class="t" contenteditable="false"><b>Posizionare nello spazio stereo</b>: sinistra, destra, centro.</div></div>
+          <div class="step"><div class="t" contenteditable="false"><b>EQ</b> — tagliare le frequenze che si sovrappongono tra le tracce.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 12 · ATTIVITA -->
+  <section class="slide">
+    <div class="tape gold reveal">Attività</div>
+    <h2 class="h-sec reveal" style="margin-top:24px;">Progetta il <em class="hot">suono</em> di un'azione</h2>
+    <div class="steps reveal d1" style="margin-top:24px;">
+      <div class="step"><div class="t" contenteditable="false"><b>Scegli un'azione di gioco</b>: un salto, un colpo, la raccolta di un oggetto.</div></div>
+      <div class="step"><div class="t" contenteditable="false"><b>Elenca i suoni</b> che la compongono: quanti strati servono davvero?</div></div>
+      <div class="step"><div class="t" contenteditable="false">Sono suoni <b>reali (foley)</b> o <b>sintetici</b>? Come li otterresti?</div></div>
+      <div class="step"><div class="t" contenteditable="false">Quale <b>effetto</b> (riverbero, distorsione) la renderebbe più soddisfacente?</div></div>
+    </div>
+    <div class="note reveal d2" style="margin-top:22px;">
+      <div class="lbl">💡 Bonus</div>
+      <p contenteditable="false">Registra col telefono 3 suoni di casa e immagina a quale azione di gioco potrebbero servire.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 13 · CLOSING -->
+  <section class="slide closing">
+    <div class="center" style="align-items:center;text-align:center;">
+      <div class="eyebrow reveal gold">Fine GD_03 🔊</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Ogni suono<br><em class="gold">comunica.</em></h2>
+      <p class="lead reveal d1" contenteditable="false" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">
+        Un buon effetto sonoro non si nota — si sente. Chiude il ciclo di feedback, dà peso alle azioni, e costruisce un mondo che <span class="gold">vive anche a occhi chiusi</span>.
+      </p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="gd02-ost.html" class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);text-decoration:none;">← GD_02 · La Colonna Sonora</a>
+        <a href="gd04-feedback-sensoriale.html" class="chip" style="background:var(--paper);color:var(--ink);text-decoration:none;">→ GD_04 · Feedback Sensoriale</a>
+        <a href="00-indice.html" class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);text-decoration:none;">↩ Indice del corso</a>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+</div>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalita modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;});}
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'gd03-sfx-audio-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}if((e.key==='i'||e.key==='I')&&!onEd){location.href='00-indice.html';}});
+</script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+Informatica · Modulo 5.1 — Fogli di calcolo: le basi
+====================================================
+
+--- Slide 1 ---
+Modulo 05.1 — Fogli di calcolo 
+ Le basi 
+del foglio 
+ Excel e Google Sheets: celle, fogli, formattazione e le prime formule per mettere i dati in ordine. 
+ Modulo 5.1 / 8 Basi 
+ 
+ 📊
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa impareremo 
+ 01 Cos'è un foglio di calcolo 02 A cosa serve nel salone 03 Celle e riferimenti 04 Più fogli e inserire dati 05 Formattazione 06 Le formule 07 Le funzioni più utili
+
+--- Slide 3 ---
+Punto di partenza 
+ Cos'è un foglio di calcolo ? 
+ È un programma con un'interfaccia a celle — una griglia di righe e colonne — per organizzare, calcolare e analizzare i dati in tabelle. 
+ I due più usati sono Excel (di Microsoft, parte di Office) e Google Sheets (di Google, gratuito e online). Fanno cose molto simili: cambiano i dettagli, non i concetti. 
+ In breve: un quaderno a quadretti, ma che sa fare i conti da solo. 
+ 
+ 
+ 📊 Excel Lo standard installato sul PC. Potentissimo, parte del pacchetto Office. 
+ 🌐 Google Sheets Funziona nel browser, è gratis, si salva da solo online e permette di collaborare in tempo reale.
+
+--- Slide 4 ---
+Nel salone 
+ A cosa serve, in pratica 
+ Tante attività quotidiane di un salone diventano più ordinate con un foglio di calcolo. Qualche esempio: 
+ 
+ 📦 Inventario Tenere il conto dei materiali a disposizione. 
+ 📅 Prenotazioni Un foglio per ogni settimana o mese. 
+ 💶 Spese Monitorare entrate e uscite del negozio. 
+ 👥 Clienti Organizzare l'anagrafica e le statistiche. 
+ 
+ 
+ 💡 Il vantaggio 
+ I dati restano ordinati e i calcoli si fanno da soli: meno errori, meno tempo perso, decisioni più informate.
+
+--- Slide 5 ---
+Concetti base 
+ Celle e riferimenti 
+ La cella è l'unità di base della griglia. Ogni cella ha un indirizzo unico: una lettera (colonna) e un numero (riga). 
+ 
+ • Cella → es. B2 : colonna B, riga 2 
+ • Foglio di calcolo → l'intera griglia di celle 
+ • Intervallo → più celle insieme, es. A1:A5 
+ 
+ 
+ 
+ 
+ A B C 
+ 1 
+ 2 B2 
+ 3 
+ 
+ La cella selezionata è B2
+
+--- Slide 6 ---
+Concetti base 
+ Più fogli, e cosa scriverci 
+ 
+ 
+ 🗂️ Più pagine in un file 
+ Un file può contenere più fogli : ad esempio uno per ogni settimana del mese, tutti dentro lo stesso documento. Si passa dall'uno all'altro con le linguette in basso. 
+ 
+ 
+ ⌨️ Inserire i dati 
+ Clicchi su una cella (si evidenzia, e il suo indirizzo appare in alto) e scrivi: testo, numeri, date o formule . Premi Invio per confermare. 
+ 
+ 
+ 
+ 💡 Buona abitudine 
+ Dai un nome chiaro a ogni foglio (es. "Gennaio", "Clienti", "Magazzino"): ritrovare le cose sarà molto più veloce.
+
+--- Slide 7 ---
+Celle · Formattazione 
+ Rendere i dati leggibili 
+ Come in Word, puoi formattare il contenuto delle celle per renderlo chiaro e professionale. 
+ 
+ 🎨 Stile testo Colore, dimensione, grassetto, bordi e sfondo. 
+ ↔️ Allineamento Orizzontale e verticale dentro la cella. 
+ ↩️ Testo lungo Va a capo nella cella, o prosegue in orizzontale. 
+ ⬜ Unire celle Più celle in una sola, utile per i titoli . 
+ 
+ Perché: una buona organizzazione visiva riduce gli errori.
+
+--- Slide 8 ---
+Il superpotere 
+ Le formule 
+ Sono lo strumento più potente: automatizzano i calcoli . Ogni formula inizia con il simbolo = e può usare i riferimenti alle celle. 
+ Esempio: =A1+B1 somma il contenuto delle celle A1 e B1. La magia: se cambi i dati , il risultato si aggiorna da solo . 
+ 
+ 💡 Niente calcolatrice 
+ Imposti la formula una volta e il foglio ricalcola tutto in automatico ad ogni modifica. 
+ 
+ 
+ 
+ C1 = A1 + B1 
+ 
+ A B C 
+ 1 20 15 35 
+ 
+ =A1+B1 → 35, sempre aggiornato
+
+--- Slide 9 ---
+Formule · Funzioni 
+ Le funzioni più utili 
+ Le funzioni sono operazioni già pronte : invece di scrivere calcoli complessi, le richiami per nome. 
+ 
+ SOMMA =SOMMA(A1:A10) Aggiunge tutti i valori di un intervallo. 
+ MEDIA =MEDIA(A1:A10) Calcola il valore medio. 
+ MIN / MAX =MAX(A1:A10) Trovano il valore più piccolo o più grande. 
+ CONTA =CONTA.NUMERI(A:A) Conta quante celle contengono numeri. 
+ CONTA.SE =CONTA.SE(...) Conta solo le celle che rispettano una condizione. 
+ 💡 Inizia da queste: coprono la gran parte dei bisogni quotidiani.
+
+--- Slide 10 ---
+Tipi di dati 
+ Cosa puoi mettere in una cella 
+ Ogni cella può contenere un tipo di dato diverso. Il tipo determina cosa puoi farci — e gli errori più comuni nascono proprio qui. 
+ 
+ • Testo — allineato a sinistra; non si può sommare 
+ • Numero — allineato a destra; usabile nei calcoli 
+ • Data — è un numero speciale: 1 = 1 gen 1900 
+ • VERO / FALSO — usati nelle condizioni logiche 
+ • Vuoto — cella senza contenuto; attenzione nelle formule 
+ 
+ 
+ ⚠️ Errore tipico 
+ Scrivere "€ 50" come testo invece di 50: il foglio non riesce a sommarlo. 
+ 
+ 
+ 
+ 
+ A B 
+ 1 Sofia 120 
+ 2 Clienti 15/06/2025 
+ 3 Nota VERO 
+ 4 
+ 
+ Testo → sinistra · Numero → destra
+
+--- Slide 11 ---
+Formato celle 
+ Il formato giusto per ogni dato 
+ Scegliere il formato corretto rende il foglio leggibile e professionale. 
+ 
+ 💶 Valuta e numeri Formato € 1.250,00 : simbolo €, separatore migliaia e due decimali fissi. 
+ 📅 Date e percentuali Formato data GG/MM/AAAA . Percentuale: scrivi 0,15 → appare 15% in automatico. 
+ ✏️ Stile testo Grassetto per intestazioni di colonna, corsivo per note, dimensione font per gerarchie visive. 
+ 🎨 Sfondo e bordi Righe alternate in colori diversi, bordi netti tra sezioni, sfondo giallo per i totali importanti.
+
+--- Slide 12 ---
+Funzione SE 
+ Prendere decisioni automatiche 
+ SE valuta una condizione: se è vera restituisce un valore, altrimenti un altro. 
+ 
+ =SE(condizione; se_vero; se_falso) 
+ 
+ 
+ Esempio pratico: 
+ =SE(B2>100; "Ottimo"; "Da migliorare") 
+ Se la spesa in B2 supera 100€ → scrive "Ottimo", altrimenti "Da migliorare". 
+ 
+ 
+ 💡 Caso pratico 
+ Classifichi le clienti automaticamente per spesa: top, media, occasionale. 
+ 
+ 
+ 
+ C2 = SE(B2>100;"Ottimo";"Da migliorare") 
+ 
+ A B C 
+ 1 Cliente Spesa € Valutazione 
+ 2 Sofia 145 Ottimo 
+ 3 Laura 65 Da migliorare 
+ 
+ La funzione SE valuta ogni riga in automatico
+
+--- Slide 13 ---
+CERCA.VERT 
+ Cercare un valore in una tabella 
+ CERCA.VERT cerca un valore nella prima colonna di una tabella e restituisce il dato in un'altra colonna della stessa riga. 
+ 
+ =CERCA.VERT(valore; tabella; n_colonna; 0) 
+ 
+ 
+ Esempio salone: cerco "Sofia" → trovo il suo numero di telefono 
+ =CERCA.VERT("Sofia"; A2:C20; 3; 0) 
+ 
+ 
+ 💡 Alternativa moderna 
+ In Google Sheets puoi usare CERCA.X (XLOOKUP): più semplice e senza limiti di direzione. 
+ 
+ 
+ 
+ 
+ A B C 
+ 1 Nome Servizio Telefono 
+ 2 Sofia Colore 333-1234 
+ 3 Laura Taglio 347-5678 
+ 4 Giulia Maschera 320-9012 
+ 
+ Cerco "Sofia" → ottengo "333-1234"
+
+--- Slide 14 ---
+Grafici 
+ Visualizzare i dati con un grafico 
+ Seleziona i dati → menu Inserisci → Grafico . Il foglio crea il grafico e lo aggiorna in automatico quando i dati cambiano. 
+ 
+ 📊 Barre Confrontare valori tra categorie diverse. Es.: incassi per tipo di servizio offerto. 
+ 🥧 Torta Mostrare proporzioni sul totale. Es.: percentuale di clienti per servizio. 
+ 📈 Linee Seguire l'andamento nel tempo. Es.: incassi mensili da gennaio a dicembre. 
+ 
+ 
+ 💡 Caso pratico 
+ Un grafico a barre degli incassi mensili mostra subito i mesi migliori — senza leggere una colonna di numeri.
+
+--- Slide 15 ---
+Stampa e condivisione 
+ Condividere il tuo lavoro 
+ 
+ 
+ 🖨️ Stampa 
+ Imposta l' area di stampa , scegli orientamento orizzontale per tabelle larghe, attiva le intestazioni di riga e colonna se vuoi le lettere A/B/C stampate. 
+ 
+ 
+ 📄 Esporta PDF 
+ File → Scarica come PDF . Ideale per inviare preventivi o report ai clienti: i dati restano fissi e non modificabili. 
+ 
+ 
+ 🔗 Condividi link 
+ Google Sheets: pulsante Condividi → crea link con permesso di sola lettura . Il cliente vede i dati ma non può cambiarli. 
+ 
+ 
+ ✉️ Invia via email 
+ In Google Sheets: File → Email come allegato per inviare direttamente il file come Excel o PDF senza uscire dal browser.
+
+--- Slide 16 ---
+Errori comuni 
+ Capire gli errori del foglio 
+ Quando una formula non funziona, il foglio mostra un codice di errore. Leggerlo è il primo passo per risolverlo. 
+ 
+ #DIV/0! Divisione per zero o per una cella vuota. Controlla che il divisore non sia 0. 
+ #VALORE! Tipo di dato sbagliato: stai sommando testo invece di numeri. Controlla il formato delle celle. 
+ #RIF! Riferimento a una cella cancellata o spostata. Ricontrolla da dove proviene la formula. 
+ #NOME? Nome di funzione scritto male: es. SOMAM invece di SOMMA .
+
+--- Slide 17 ---
+Verifica veloce 
+ È tutto chiaro? 
+ Prova a rispondere a mente: 
+ 1. Cosa identifica l'indirizzo di una cella, come "B2"? 2. Con quale simbolo inizia sempre una formula? 3. A cosa serve la funzione SOMMA? 4. Perché conviene dare un nome chiaro a ogni foglio?
+
+--- Slide 18 ---
+Fine Modulo 05.1 
+ Basi pronte! 📊 
+ Sai usare celle e formule. Nel prossimo modulo facciamo parlare i dati: tabelle, filtri e pivot. 
+ Prossimo → M5.2 · Avanzato ↩ Indice del corso

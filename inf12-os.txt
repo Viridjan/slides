@@ -1,0 +1,556 @@
+Informatica · Modulo 11 — Sistemi Operativi
+===========================================
+
+--- Slide 1 ---
+Modulo 11 
+ Sistemi
+ Operativi 
+ Windows, macOS, Linux, Android: come funzionano, in cosa differiscono, quale scegliere. 
+ 
+ Modulo 11 
+ 6 lezioni 
+ 
+ 
+ 
+ 🖥️
+
+--- Slide 2 ---
+Programma 
+ Cosa vedremo 
+ 
+ 01 Cos'è un sistema operativo — kernel e GUI 
+ 02 Windows — storia, caratteristiche, pro e contro 
+ 03 macOS — ecosistema Apple, usi tipici 
+ 04 Linux — open source, distribuzioni, server 
+ 05 Android — il mobile OS più diffuso al mondo 
+ 06 Confronto completo — quale scegliere e perché
+
+--- Slide 3 ---
+Sistema Operativo 
+ Il software che gestisce tutto il resto 
+ Il sistema operativo (OS) è il software fondamentale che fa funzionare il dispositivo : gestisce l'hardware, coordina i programmi e permette all'utente di interagire con la macchina. 
+ Senza OS, il computer è un insieme di circuiti che non sa cosa fare. È il tramite tra le applicazioni che usi e i componenti fisici del dispositivo. 
+ 
+ 💡 Analogia 
+ L'OS è come il gestore di un hotel : le camere (hardware) ci sono, ma serve qualcuno che assegni le stanze, gestisca i servizi e faccia comunicare i reparti. 
+ 
+ 
+ 
+ 
+ 💾 
+ Cosa gestisce 
+ • Memoria RAM e CPU
+• File e cartelle (file system)
+• Periferiche (mouse, tastiera, stampante)
+• Applicazioni e processi
+• Utenti e permessi
+• Sicurezza e aggiornamenti
+
+--- Slide 4 ---
+Architettura 
+ Tre strati: hardware, kernel, interfaccia 
+ 
+ 
+ 
+ 📦 
+ 
+ Applicazioni 
+ Word, Chrome, giochi, qualunque app 
+ 
+ 
+ 
+ 🖱️ 
+ 
+ Interfaccia grafica (GUI) 
+ Finestre, menu, icone — ciò che vedi 
+ 
+ 
+ 
+ ⚙️ 
+ 
+ Kernel 
+ Nucleo dell'OS — parla direttamente con l'hardware 
+ 
+ 
+ 
+ 🔌 
+ 
+ Hardware 
+ CPU, RAM, disco, scheda video... 
+ 
+ 
+ 
+ 
+ 
+ ⚙️ Kernel 
+ È il componente più basso dell'OS. Gestisce direttamente memoria, CPU e periferiche. Non si vede mai: lavora in background ogni microsecondo. 
+ 
+ 
+ 🖥️ GUI 
+ L'interfaccia grafica che l'utente vede e usa. È separata dal kernel: su Linux puoi sostituire la GUI senza cambiare il kernel. 
+ 
+ 
+ 💻 CLI 
+ Alternativa alla GUI: il terminale . Comandi testuali, meno intuitivo ma molto più potente per operazioni automatizzate e server.
+
+--- Slide 5 ---
+Panoramica 
+ I principali sistemi operativi 
+ 
+ 
+ 🪟 
+ Windows 
+ Desktop 
+
+Sviluppato da Microsoft. ~73% dei PC desktop mondiali. Standard de facto in uffici e aziende. Compatibile con la stragrande maggioranza del software commerciale. 
+ 
+ 
+ 🍎 
+ macOS 
+ Desktop 
+
+Sviluppato da Apple. Esclusivo su hardware Apple (Mac). ~15% dei PC. Preferito in ambienti creativi: design, video, musica, sviluppo software. 
+ 
+ 
+ 🐧 
+ Linux 
+ Desktop / Server 
+
+Open source. ~3% desktop, ma domina server (~96%) e supercomputer (100% dei top 500). Centinaia di distribuzioni. Gratis. 
+ 
+ 
+ 🤖 
+ Android 
+ Mobile 
+
+Sviluppato da Google, basato su Linux. ~72% degli smartphone mondiali. Open source (AOSP). Usato da Samsung, Xiaomi, Google, Motorola e molti altri. 
+ 
+ 
+ 📱 
+ iOS / iPadOS 
+ Mobile Apple 
+
+Sistema mobile di Apple. ~28% degli smartphone. Esclusivo su iPhone e iPad. Ecosistema molto chiuso ma stabile e aggiornato a lungo. 
+ 
+ 
+ 🖥️ 
+ Linux Server 
+ Server / Cloud 
+
+Il 96% dei server web gira su Linux. AWS, Google Cloud, Azure: tutti basati su Linux. Robusto, sicuro, gratuito, gestibile da remoto via terminale.
+
+--- Slide 6 ---
+Windows 
+ Microsoft Windows: evoluzione e caratteristiche 
+ 
+ 
+ Windows esiste dal 1985. Ogni versione ha segnato un'epoca: 
+ 
+ 
+ 
+ 95 
+ Prima vera GUI intuitiva per il grande pubblico. Rivoluzionò il mercato PC. 
+ 
+ 
+ 
+ 
+ XP 
+ Il più amato. Stabile, veloce, compatibile. Usato nelle aziende fino al 2014. 
+ 
+ 
+ 
+ 
+ 7 
+ Elegante e stabile. Riabilitò Microsoft dopo l'insuccesso di Vista. 
+ 
+ 
+ 
+ 
+ 10 
+ Start menu classico, aggiornamenti automatici, gratuito da 7/8. Longevo. 
+ 
+ 
+ 
+ 
+ 11 
+ Design arrotondato, integrazione con Teams, requisiti hardware più elevati. 
+ 
+ 
+ 
+ 
+ 
+ 
+ ✅ 
+ Pro 
+ Enorme compatibilità software e hardware. Standard per gaming. Interfaccia familiare. Ottimo supporto aziendale e scolastico. 
+ 
+ 
+ ⚠️ 
+ Contro 
+ Licenza a pagamento (100–200 €). Target principale per malware. Aggiornamenti invasivi. Raccolta dati telemetrici da parte di Microsoft.
+
+--- Slide 7 ---
+macOS 
+ macOS: hardware e software di Apple, insieme 
+ 
+ 
+ 
+ 🔗 
+ Integrazione hardware/software 
+ Apple progetta chip, OS e app insieme. Il risultato è un sistema ottimizzato che spreca pochissime risorse e scalda raramente. I Mac con chip Apple Silicon (M1–M4) sono tra i computer più efficienti in circolazione. 
+ 
+ 
+ 🌿 
+ Stabilità e manutenzione 
+ Aggiornamenti gratuiti per 5–7 anni. Raro che "si inceppi" nel tempo. Gestione della memoria superiore a Windows per carichi di lavoro creativi prolungati. 
+ 
+ 
+ 📱 
+ Ecosistema Apple 
+ Handoff, AirDrop, iCloud, Continuity Camera: iPhone, iPad e Mac si integrano in modo trasparente. Funzionalità impossibili da replicare fuori dall'ecosistema Apple. 
+ 
+ 
+ 
+ 
+ 🎯 
+ Usi tipici 
+ Grafica e design (Adobe, Affinity), montaggio video (Final Cut Pro), musica (Logic Pro), sviluppo software (Xcode), ambienti universitari e creativi. 
+ 
+ 
+ ⚠️ Limiti 
+ Costo elevato : MacBook Air parte da ~1.300 €. Hardware chiuso : non puoi aggiornare RAM o disco. Software : alcuni programmi Windows-only non girano su Mac (o solo con Parallels a pagamento).
+
+--- Slide 8 ---
+Linux 
+ Linux: libero, potente, ovunque 
+ 
+ 
+ 
+ 🐧 
+ Cos'è Linux 
+ Un OS open source creato da Linus Torvalds nel 1991. Il codice sorgente è pubblico, modificabile e redistribuibile. Non è un unico OS: esistono centinaia di distribuzioni (distro), ognuna con scopi diversi. 
+ 
+ 
+ 📦 Distribuzioni popolari 
+ Ubuntu / Mint — per principianti, GUI simile a Windows.
+ Fedora — aggiornata, preferita dagli sviluppatori.
+ Debian — stabile, base di molte distro.
+ Arch Linux — per esperti, massima personalizzazione.
+ openSUSE — equilibrio tra stabilità e novità. 
+ 
+ 
+ 
+ 
+ ✅ 
+ Pro 
+ Gratuito . Sicuro : pochi malware, permessi granulari. Veloce : gira bene anche su hardware vecchio. Server : domina il mercato cloud e server. 
+ 
+ 
+ ⚠️ 
+ Contro 
+ Curva di apprendimento : il terminale è spesso necessario. Software : Adobe, Office (nativo), alcuni giochi non disponibili. Driver : hardware di nicchia a volte non supportato. 
+ 
+ 
+ 🌍 Linux nel mondo 
+ Android è Linux. I server Amazon, Google e Meta girano su Linux. Il 100% dei supercomputer nel Top500 usa Linux. L'80% dei telefonini del mondo gira su un kernel Linux.
+
+--- Slide 9 ---
+Open Source 
+ Software libero vs open source vs proprietario 
+ 
+ 
+ 🔓 
+ Software Libero 
+ Le 4 libertà garantite (definizione Free Software Foundation):
+
+0 — Eseguire il programma.
+1 — Studiare come funziona.
+2 — Ridistribuirlo.
+3 — Modificarlo e redistribuire le modifiche.
+
+Linux, Firefox, VLC sono software libero. 
+ 
+ 
+ 👁️ 
+ Open Source 
+ Il codice sorgente è pubblico e leggibile. Non sempre garantisce tutte e 4 le libertà. Focus tecnico (collaborazione, qualità) più che etico.
+
+Quasi tutto il software libero è anche open source. Ma non tutto l'open source è "libero" nel senso politico-filosofico. 
+ 
+ 
+ 🔒 
+ Software Proprietario 
+ Il codice sorgente è segreto. Devi pagare una licenza per usarlo. Non puoi modificarlo o ridistribuirlo. La casa produttrice decide tutto.
+
+Windows, macOS, Microsoft Office, Adobe Photoshop sono software proprietari. 
+ 
+ 
+ 
+ 💡 Perché importa 
+ Linux e open source hanno costruito internet: Apache, MySQL, Python, Git, il kernel stesso. Il software libero non è "roba da hacker" — è l'infrastruttura su cui gira il mondo digitale.
+
+--- Slide 10 ---
+Android 
+ Android: il mobile OS più diffuso al mondo 
+ 
+ 
+ 
+ 🤖 
+ Cos'è Android 
+ OS mobile sviluppato da Google, acquisita Android Inc. nel 2005. Basato sul kernel Linux. Il codice base (AOSP) è open source, ma i servizi Google (Gmail, Maps, Play Store) sono proprietari. 
+ 
+ 
+ 🏭 
+ Ecosistema produttori 
+ Ogni produttore personalizza Android con la propria interfaccia: Samsung (One UI), Xiaomi (MIUI/HyperOS), Google (Pixel UI), OnePlus (OxygenOS). Questo porta varietà ma anche frammentazione . 
+ 
+ 
+ 
+ 
+ ✅ 
+ Pro 
+ Scelta : da 80 € a 1.500 € di fascia. Personalizzazione : launcher, widget, file manager, default app. Sideloading : installi app da fonti esterne al Play Store. 
+ 
+ 
+ ⚠️ 
+ Contro 
+ Frammentazione : migliaia di modelli con versioni diverse. Aggiornamenti : i produttori economici aggiornano poco. Malware : più esposto di iOS per il sideloading e lo store meno controllato.
+
+--- Slide 11 ---
+Confronto 
+ Tabella comparativa 
+ 
+ 
+ 
+ Caratteristica 
+ 🪟 Windows 
+ 🍎 macOS 
+ 🐧 Linux 
+ 🤖 Android 
+ 
+ 
+ 
+ 
+ Costo 
+ 100–200 € (licenza) 
+ Incluso nel Mac (hardware costoso) 
+ Gratuito 
+ Incluso nel dispositivo 
+ 
+ 
+ Open source 
+ No 
+ Parziale (Darwin kernel) 
+ Sì (kernel + distro) 
+ Parziale (AOSP sì, servizi Google no) 
+ 
+ 
+ Aggiornamenti 
+ Automatici, a volte invasivi 
+ Gratuiti, 5–7 anni 
+ Sempre gratuiti, frequenti 
+ Variabili: Google ~5 anni, altri meno 
+ 
+ 
+ Uso principale 
+ Ufficio, gaming, scuola 
+ Creativi, sviluppo, università 
+ Server, sviluppo, utenti esperti 
+ Smartphone, tablet, IoT 
+ 
+ 
+ Sicurezza 
+ Target principale malware 
+ Buona, Gatekeeper + SIP 
+ Ottima, permessi granulari 
+ Variabile per frammentazione
+
+--- Slide 12 ---
+App e File System 
+ Come si installano le app e come sono organizzati i file 
+ 
+ 
+ Installazione applicazioni 
+ 
+ 🪟 Windows — Setup (.exe / .msi) 
+ Scarichi un installer, lo esegui, clicchi "Avanti". Rapido ma rischioso: il file può venire da qualsiasi fonte. Windows Store disponibile ma poco usato. 
+ 
+ 
+ 🍎 macOS — .dmg / App Store 
+ App Store ufficiale o .dmg firmati da Apple (Gatekeeper blocca i non firmati). Più sicuro di Windows ma meno aperto. 
+ 
+ 
+ 🐧 Linux — Package manager 
+ apt install , dnf install , pacman -S : il terminale scarica, installa e aggiorna tutto dai repository ufficiali. Estremamente sicuro. 
+ 
+ 
+ 🤖 Android — Play Store / APK 
+ Play Store è il canale ufficiale. APK (sideloading) permette di installare da fonti terze, ma aumenta il rischio malware. 
+ 
+ 
+ 
+ File system 
+ 
+ 🪟 NTFS 
+ File di grandi dimensioni, permessi per utente, journaling (recupero dopo crash). Standard Windows dalla versione NT in poi. 
+ 
+ 
+ 🍎 APFS 
+ Apple File System, ottimizzato per SSD e flash. Snapshot (backup istantanei), crittografia nativa, cloni di file a costo zero. 
+ 
+ 
+ 🐧 ext4 / btrfs 
+ ext4 è lo standard Linux: robusto e veloce. btrfs è il futuro: snapshot, compressione trasparente, correzione errori. F2FS usato da Android per flash storage.
+
+--- Slide 13 ---
+Sicurezza 
+ Come ogni OS gestisce sicurezza e aggiornamenti 
+ 
+ 
+ 🪟 
+ Windows 
+ UAC (richiesta permessi admin). Windows Defender incluso. Aggiornamenti ogni "Patch Tuesday". Target principale malware per la sua diffusione. Telemetria inviata a Microsoft. 
+ 
+ 
+ 🍎 
+ macOS 
+ Gatekeeper blocca app non firmate. SIP (System Integrity Protection) protegge i file di sistema. Sandboxing sull'App Store. Aggiornamenti rapidi e coerenti. 
+ 
+ 
+ 🐧 
+ Linux 
+ Permessi Unix : ogni file ha proprietario e permessi rwx. sudo per operazioni privilegiate. Aggiornamenti di sicurezza pubblicati rapidamente dalla community. Pochissimi malware. 
+ 
+ 
+ 🤖 
+ Android 
+ Sandbox per app : ogni app è isolata. Play Protect scansiona le app. Patch di sicurezza mensili — ma i produttori economici ritardano. Rischio sideloading. 
+ 
+ 
+ 
+ 🚨 Aggiornamenti: non rimandare mai 
+ Le vulnerabilità sfruttate dagli attacchi più gravi sono spesso già note e corrette da patch disponibili. Il problema è che gli utenti non aggiornano. WannaCry (2017) ha infettato 200.000 PC usando una vulnerabilità per cui Microsoft aveva rilasciato la patch 60 giorni prima.
+
+--- Slide 14 ---
+Privacy e Interfaccia 
+ Raccolta dati, GUI e personalizzazione a confronto 
+ 
+ 
+ 
+ Aspetto 
+ 🪟 Windows 
+ 🍎 macOS 
+ 🐧 Linux 
+ 🤖 Android 
+ 
+ 
+ 
+ 
+ Dati raccolti 
+ Telemetria attiva di default (navigazione, errori, app usate) 
+ Minimale, disattivabile nelle impostazioni privacy 
+ Nessuno (a meno che la distro non abbia opt-in) 
+ Molto (Google lega dati di posizione, uso, account) 
+ 
+ 
+ Interfaccia grafica 
+ Taskbar, Start menu, Explorer. Personalizzabile ma nei limiti di Microsoft 
+ Dock, Finder, menu bar top. Design coerente, poco modificabile 
+ GNOME, KDE, XFCE, i3… puoi cambiare tutto, incluso il desktop manager 
+ Launcher sostituibile, widget liberi, temi 
+ 
+ 
+ Personalizzazione 
+ Media — sfondo, colori, dimensioni icone 
+ Bassa — Apple vuole coerenza visiva 
+ Massima — puoi ricostruire l'intera esperienza da zero 
+ Alta — launcher, icone, tema, widget 
+ 
+ 
+ Prestazioni RAM 
+ ~4–8 GB solo per il sistema a riposo 
+ Ottima compressione memoria, efficiente su M-chip 
+ ~300 MB–1 GB con GUI leggera (XFCE, i3) 
+ Ottimizzato per mobile, gestione aggressiva
+
+--- Slide 15 ---
+Usi tipici 
+ Chi usa cosa 
+ 
+ 
+ 
+ Contesto 
+ 🪟 
+ 🍎 
+ 🐧 
+ 
+ 
+ 
+ Gaming ⭐⭐⭐ ⭐ ⭐⭐ 
+ Ufficio / Office ⭐⭐⭐ ⭐⭐⭐ ⭐⭐ 
+ Grafica / Video ⭐⭐ ⭐⭐⭐ ⭐⭐ 
+ Sviluppo software ⭐⭐ ⭐⭐⭐ ⭐⭐⭐ 
+ Server / Cloud ⭐ ⭐ ⭐⭐⭐ 
+ Scuola ⭐⭐⭐ ⭐⭐ ⭐ 
+ 
+ 
+ 
+ 
+ Miti da sfatare 
+ Luoghi comuni sbagliati 
+ 
+ 
+ ❌ "Linux è solo per hacker" 
+ Ubuntu è usato da milioni di persone comuni. ChromeOS (Google) è Linux. Android è Linux. La difficoltà dipende dalla distro scelta. 
+ 
+ 
+ ❌ "I Mac non prendono virus" 
+ Falso. I malware per macOS esistono e crescono. La minore diffusione li rende meno bersagliati, non immuni. Xprotect di Apple non è infallibile. 
+ 
+ 
+ ❌ "Windows è lento" 
+ Windows 10/11 su SSD è veloce. Il rallentamento viene da hardware vecchio, troppi programmi in avvio automatico o mancanza di manutenzione. 
+ 
+ 
+ ❌ "Android è insicuro" 
+ Android con aggiornamenti regolari e Play Store è sicuro. Il rischio aumenta con dispositivi non aggiornati e APK da fonti sconosciute.
+
+--- Slide 16 ---
+Conclusione 
+ Non esiste il "migliore": dipende da te 
+ 
+ 
+ 🪟 
+ Scegli Windows se... 
+ Usi software specifici solo Windows (gestionali aziendali, alcuni CAD, giochi). Lavori in un contesto scolastico o aziendale con infrastruttura Microsoft. Vuoi la massima compatibilità hardware. 
+ 
+ 
+ 🍎 
+ Scegli macOS se... 
+ Hai già iPhone/iPad e vuoi l'ecosistema integrato. Lavori con grafica, video, musica o sviluppo software. Vuoi un sistema stabile che "funziona e basta" per anni. 
+ 
+ 
+ 🐧 
+ Scegli Linux se... 
+ Vuoi imparare come funziona un OS. Hai hardware vecchio da far rivivere. Lavori su server o sviluppo. Vuoi il massimo controllo sulla tua macchina e zero spese. 
+ 
+ 
+ 🤖 
+ Scegli Android se... 
+ Vuoi ampia scelta di dispositivi a ogni fascia di prezzo. Tieni alla personalizzazione del telefono. Non sei vincolato all'ecosistema Apple. Vuoi installare app da fonti esterne al Play Store. 
+ 
+ 
+ 
+ 💡 Il consiglio finale 
+ Prova. Ubuntu ha una versione live che puoi usare da chiavetta USB senza installare nulla. macOS puoi provarlo nei negozi Apple. Nessuna scelta è permanente — e conoscere più sistemi è una competenza professionale.
+
+--- Slide 17 ---
+Fine Modulo 11 🖥️ 
+ Conosci
+ il tuo OS. 
+ 
+ Ogni sistema operativo nasce con obiettivi diversi. Capire come funzionano ti rende un utente consapevole — e ti apre le porte a carriere tecniche in qualsiasi settore.
+ 
+ 
+ Prossimo → M13 · Concetti fondamentali OS 
+ ↩ Indice del corso

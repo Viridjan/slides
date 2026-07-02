@@ -1,0 +1,397 @@
+Sicurezza Digitale · C5 — Assessment, Compliance e Dati
+=======================================================
+
+--- Slide 1 ---
+Sicurezza Digitale · Concetto 5 
+ Assessment,
+ Compliance 
+e Dati Personali 
+ Trovare le falle prima degli attaccanti, rispettare le normative e capire chi controlla i tuoi dati in rete. 
+ Concetto 5 / 5 Difensivo 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ✓ 
+ ✓ 
+ ○
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa impareremo 
+ 
+ 01 Cos'è un Vulnerability Assessment 
+ 02 Raccolta informazioni e OSINT 
+ 03 Scansione e individuazione vulnerabilità 
+ 04 Valutazione del rischio e report 
+ 05 VA vs Penetration Test 
+ 06 Cos'è la Compliance Digitale 
+ 07 Le principali normative 
+ 08 Dati personali scambiati in rete 
+ 09 Chi raccoglie i tuoi dati e perché 
+ 10 Come riprendere il controllo
+
+--- Slide 3 ---
+Trovare le falle 
+ Vulnerability
+ Assessment 
+ Processo sistematico di identificazione, classificazione e valutazione delle vulnerabilità presenti in un sistema informatico — prima che le trovino gli attaccanti. 
+ È un'analisi osservativa, non distruttiva. Non sfrutta le vulnerabilità trovate (quello è il Penetration Test). L'obiettivo è produrre un inventario ragionato dei rischi con le relative priorità di correzione. 
+ 
+ 
+ 📋 Output principale 
+ Un report dettagliato con elenco vulnerabilità, livello di criticità (CVSS score), possibile impatto, e raccomandazioni di remediation ordinate per priorità. 
+ 
+ Analogia: Ispezione medica — trova problemi prima che diventino emergenze. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ SISTEMA 
+ ANALIZZATO 
+ 
+ 
+ ! 
+ 
+ ! 
+ 
+ ! 
+ 
+ 
+ VA TOOL 
+ scanner 
+ 
+ 
+ 
+ 
+ 📄 Report vulnerabilità 
+ 
+ 
+ 
+ 
+ Scan → inventario falle → priorità
+
+--- Slide 4 ---
+Processo 
+ Le 5 fasi del Vulnerability Assessment 
+ 
+ 
+ 01 
+ Raccolta informazioni (Reconnaissance) 
+Identificare asset, servizi, tecnologie in uso. Comprende OSINT (Open Source Intelligence): informazioni pubblicamente disponibili su domini, indirizzi IP, dipendenti, tecnologie usate. 
+ 
+ 
+ 02 
+ Scansione dei sistemi 
+Strumenti automatici (Nmap, Nessus, OpenVAS) analizzano porte, servizi, versioni software. Identificano configurazioni errate e servizi non aggiornati. Tutto registrato. 
+ 
+ 
+ 03 
+ Individuazione vulnerabilità 
+Correlazione dei risultati della scansione con database di vulnerabilità (CVE, NVD). Ogni vulnerabilità riceve un CVSS score da 0 a 10 che ne misura la gravità. 
+ 
+ 
+ 04 
+ Valutazione del rischio 
+Calcolo del rischio effettivo: probabilità × impatto. Una vulnerabilità critica su un sistema non raggiungibile dall'esterno è meno urgente di una media su un sistema pubblico. 
+ 
+ 
+ 05 
+ Produzione del report 
+Documento strutturato con executive summary, elenco vulnerabilità ordinate per priorità, prove (screenshot, log), e raccomandazioni specifiche di remediation.
+
+--- Slide 5 ---
+Gravità vulnerabilità 
+ Il punteggio CVSS 
+ Common Vulnerability Scoring System — lo standard internazionale per misurare la gravità di una vulnerabilità. Da 0 (nessun rischio) a 10 (critico). 
+ 
+ 
+ 0.0–3.9 
+ Bassa 
+ Richiede accesso fisico, o ha impatto minimo. Può essere gestita nella normale manutenzione, senza urgenza. 
+ 
+ 
+ 4.0–6.9 
+ Media 
+ Sfruttabile in condizioni specifiche. Richiede attenzione nella prossima finestra di manutenzione. Monitorare. 
+ 
+ 
+ 7.0–8.9 
+ Alta 
+ Sfruttabile da remoto o senza autenticazione. Priorità elevata: patchare entro giorni, non settimane. 
+ 
+ 
+ 9.0–10.0 
+ Critica 
+ Remote Code Execution, accesso completo al sistema senza autenticazione. Intervento immediato. Stop and patch. 
+ 
+ 
+ 
+ 
+ 📌 CVE — Common Vulnerabilities and Exposures 
+ Database pubblico di vulnerabilità note. Ogni vulnerabilità ha un ID univoco: CVE-2024-1234 . Consultabile su nvd.nist.gov. 
+ 
+ 
+ 💡 Il rischio effettivo ≠ CVSS 
+ CVSS misura la gravità teorica. Il rischio effettivo dipende dal contesto: la vulnerabilità è su un sistema esposto? È già sfruttata in the wild? Esiste un exploit pubblico?
+
+--- Slide 6 ---
+Confronto 
+ VA vs Penetration Test 
+ Spesso confusi, ma con obiettivi e metodologie diverse. Non sono alternativi — sono complementari. 
+ 
+ 
+ 
+ Aspetto 
+ 🔍 Vulnerability Assessment 
+ ⚔️ Penetration Test 
+ 
+ 
+ Obiettivo 
+ Trovare e classificare le vulnerabilità 
+ Sfruttare le vulnerabilità per dimostrare l'impatto 
+ 
+ 
+ Approccio 
+ Automatizzato + manuale, non intrusivo 
+ Manuale, intrusivo, simula attaccante reale 
+ 
+ 
+ Ampiezza 
+ Tutto il perimetro — copertura ampia 
+ Scope limitato — profondità su target specifici 
+ 
+ 
+ Output 
+ Lista vulnerabilità con CVSS, raccomandazioni 
+ Dimostrazione del danno reale (accesso ottenuto) 
+ 
+ 
+ Frequenza 
+ Continua o periodica (trimestrale) 
+ Annuale o su cambiamenti infrastrutturali 
+ 
+ 
+ 
+ 
+ 💡 In pratica 
+ Inizia con il VA per avere la mappa completa. Poi usa il Pentest per validare le vulnerabilità più critiche e dimostrarne l'impatto reale al management.
+
+--- Slide 7 ---
+Normative 
+ Compliance
+ Digitale 
+ Adottare procedure, controlli e misure tecniche che garantiscono il rispetto delle normative applicabili ai sistemi informatici dell'organizzazione. 
+ Non è un obiettivo una tantum — è un processo continuo. Le leggi cambiano, i sistemi cambiano, e la compliance deve essere mantenuta nel tempo attraverso audit, aggiornamenti e formazione. 
+ 
+ 🛡️ Protezione dei dati — garantire sicurezza dei dati personali e aziendali 
+ ⬇️ Riduzione del rischio — identificare e mitigare i rischi normativi 
+ ✅ Conformità normativa — rispettare leggi, regolamenti e standard di settore 
+ 🔄 Continuità operativa — garantire che i sistemi critici restino disponibili 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ PLAN 
+ Pianifica 
+ 
+ CHECK 
+ Verifica 
+ 
+ ACT 
+ Correggi 
+ 
+ 
+ COMP- 
+ LIANCE 
+ 
+ 
+ 
+ 
+ 
+ 
+ Compliance è un ciclo continuo
+
+--- Slide 8 ---
+Quadro normativo 
+ Le principali normative 
+ Il panorama normativo della sicurezza digitale è ampio. Le più rilevanti per le organizzazioni europee: 
+ 
+ 
+ 🇪🇺 GDPR 
+ General Data Protection Regulation — Protezione dati personali nell'UE. Si applica a qualsiasi organizzazione che tratta dati di cittadini EU. In vigore dal 2018. 
+ Multa: €20M / 4% fatturato 
+ 
+ 
+ 🔒 NIS2 
+ Network and Information Security 2 — Direttiva UE 2022 per la sicurezza delle reti e dei sistemi informativi. Obbligatoria per settori critici: energia, trasporti, sanità, banche. 
+ In vigore: ottobre 2024 
+ 
+ 
+ 📋 ISO/IEC 27001 
+ Standard internazionale per i Sistemi di Gestione della Sicurezza delle Informazioni (ISMS). Certificazione volontaria molto richiesta. Definisce un framework completo di controlli. 
+ Standard globale 
+ 
+ 
+ 💳 PCI DSS 
+ Payment Card Industry Data Security Standard — Obbligatorio per chi gestisce pagamenti con carte di credito. Definisce 12 aree di controllo per la sicurezza dei dati di pagamento. 
+ Settore finanziario 
+ 
+ 
+ 
+ 💡 Non è solo burocrazia 
+ Le normative nascono da incidenti reali. GDPR dopo Cambridge Analytica. PCI DSS dopo massicce violazioni di dati delle carte. NIS2 dopo attacchi alle infrastrutture critiche europee. Le leggi fotografano il rischio del momento.
+
+--- Slide 9 ---
+Flusso di dati 
+ Dati personali scambiati in rete 
+ Ogni giorno condividiamo enormi quantità di dati personali attraverso i servizi digitali — spesso senza rendercene conto. 
+ 
+ 
+ 📱 
+ Social Network 
+ Nome, foto, luogo, interessi, relazioni, opinioni, spostamenti, routine quotidiana, eventi frequentati, conoscenti. 
+ Esposizione: alta 
+ 
+ 
+ 📧 
+ Email 
+ Contenuto dei messaggi, mittenti e destinatari, orari di invio, allegati, metadati. Gmail analizza i contenuti per pubblicità mirata. 
+ Esposizione: alta 
+ 
+ 
+ 📲 
+ App Mobile 
+ Posizione GPS, lista contatti, cronologia chiamate, microfono e fotocamera, abitudini d'uso, dati biometrici (se autorizzato). 
+ Esposizione: media-alta 
+ 
+ 
+ ☁️ 
+ Servizi Cloud 
+ Documenti, foto, audio, dati di backup, password (se su cloud), cronologia acquisti, preferenze, dati di utilizzo. 
+ Esposizione: media 
+ 
+ 
+ 
+ 💡 Le tre domande da porsi sempre 
+ Chi? A quale azienda sto cedendo questi dati. Cosa? Esattamente quali informazioni vengono raccolte (leggi la privacy policy). Perché? Per quale finalità vengono usate, e se la cedo gratuitamente — come viene monetizzata.
+
+--- Slide 10 ---
+Ecosistema del dato 
+ Chi raccoglie
+i tuoi dati 
+e perché 
+ I tuoi dati percorrono una catena lunga prima di arrivare agli inserzionisti. Capirla è il primo passo per riprendere il controllo. 
+ 
+ 1️⃣ Tu usi un'app o un sito e generi dati 
+ 2️⃣ Il servizio raccoglie i dati con cookie, SDK, API 
+ 3️⃣ Il data broker aggrega e arricchisce i profili 
+ 4️⃣ La piattaforma pubblicitaria vende accesso al tuo profilo 
+ 5️⃣ L'inserzionista ti mostra pubblicità personalizzata 
+ 
+ 
+ 
+ 
+ 💸 Quanto valgono i tuoi dati 
+ Il profilo medio di un utente europeo viene venduto a €0,02–€5 per impression pubblicitaria. Ma il tuo profilo completo su un data broker può valere €100–€500 all'anno. Tu non vedi un centesimo. 
+ 
+ 
+ 🔍 Data Broker: chi sono 
+ Aziende come Acxiom, Experian, Oracle Data Cloud aggregano dati da centinaia di fonti per costruire profili di 5.000+ attributi per persona. Spesso non ne hai mai sentito il nome. 
+ 
+ Regola: Se il prodotto è gratis, il prodotto sei tu.
+
+--- Slide 11 ---
+Azioni concrete 
+ Riprendere il controllo dei dati 
+ Non puoi azzerare la tua presenza digitale — ma puoi ridurre significativamente l'esposizione con azioni concrete. 
+ 
+ 
+ 🚫 
+ Opt-out dai data broker 
+ Molti data broker offrono un modulo di opt-out. Servizi come DeleteMe o Kanary automatizzano il processo (a pagamento). Richiede tempo ma riduce il profilo aggregato. 
+ 
+ 
+ 📋 
+ Diritto di accesso GDPR 
+ Richiedi a Google, Meta, LinkedIn tutti i dati che hanno su di te. È un tuo diritto — devono rispondere entro 30 giorni con un archivio scaricabile. Spesso sorprende quanto sanno. 
+ 
+ 
+ 🗑️ 
+ Cancella account inutilizzati 
+ Ogni account abbandonato è un archivio di dati dormiente che potrebbe essere violato. Usa JustDeleteMe.xyz per trovare le istruzioni di cancellazione di ogni servizio. 
+ 
+ 
+ 
+ 💡 Privacy come igiene digitale quotidiana 
+ Come lavarsi le mani, la privacy non si fa una volta. Controlla periodicamente le impostazioni delle app, revoca permessi non necessari, leggi (almeno) i titoli delle privacy policy prima di accettare. La consapevolezza è la prima difesa.
+
+--- Slide 12 ---
+Riepilogo 
+ I concetti chiave di questo modulo 
+ 
+ 
+ 🔍 
+ Vulnerability Assessment 
+ 5 fasi: raccolta info → scansione → individuazione → valutazione rischio → report. CVSS score da 0 a 10. Non è invasivo — è osservativo. 
+ 
+ 
+ ⚖️ 
+ Compliance Digitale 
+ Rispetto continuo di normative: GDPR (dati personali), NIS2 (infrastrutture critiche), ISO 27001 (ISMS), PCI DSS (pagamenti). Ciclo Plan-Check-Act. 
+ 
+ 
+ 📊 
+ Controllo dei Dati 
+ Social, email, app, cloud — ognuno raccoglie. La catena: utente → servizio → broker → inserzionista. Strumenti: opt-out, GDPR access request, cancellazione account. 
+ 
+ 
+ 
+ 
+ 🎯 VA vs Pentest — in sintesi 
+ VA = inventario completo delle vulnerabilità (ampio, periodico). Pentest = verifica dell'impatto reale su target specifici (in profondità, annuale). 
+ 
+ 
+ 💡 Il filo rosso del corso 
+ Sicurezza = consapevolezza + strumenti + processo continuo. Non esiste "sicuri per sempre" — esiste "più sicuri di ieri".
+
+--- Slide 13 ---
+Verifica finale 
+ Quiz del modulo 
+ Rispondi a mente: 
+ 
+ 1. Quali sono le 5 fasi di un Vulnerability Assessment? Elencale in ordine. 
+ 2. Cosa misura il CVSS score? Un punteggio 9.5 che urgenza richiede? 
+ 3. Qual è la differenza tra GDPR e NIS2? A chi si applica ciascuno? 
+ 4. Fai tre esempi di dati personali che condividi quotidianamente in rete senza pensarci. Chi li riceve? 
+ 
+ 
+ 🎯 Scenario pratico 
+ Sei responsabile sicurezza di una PMI italiana che vende online. Devi pianificare le attività di sicurezza del prossimo anno. Quale normativa devi rispettare? Cosa fai prima: VA o Pentest? Perché?
+
+--- Slide 14 ---
+Fine del Corso 
+ Bravi! 🎓 
+ Hai completato tutti e 5 i concetti del corso di Sicurezza Digitale . Dalla triade CID alle professioni, dalle reti al Vulnerability Assessment, dalla compliance al controllo dei dati personali. La sicurezza digitale non è un prodotto — è un modo di pensare . 
+ 
+ ← C1 · Introduzione 
+ ← C2 · Minacce 
+ ← C3 · Privacy 
+ ← C4 · Professioni 
+ ↩ Indice del corso 
+ 
+ Corso di Informatica · Sicurezza Digitale · 2024-2025

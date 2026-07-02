@@ -1,0 +1,226 @@
+Informatica · Modulo 11 — Hard Disk e File System
+=================================================
+
+--- Slide 1 ---
+Modulo 11 — Archiviazione 
+ Hard disk
+e file 
+ Come sono organizzati i dati: dischi, partizioni, file system, formati, file compressi e collegamenti simbolici. 
+ 20 slide Memoria
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa impareremo 
+ 
+ 01 Dove vivono i file 
+ 02 Hard disk e SSD 
+ 03 Partizioni e formattazione 
+ 04 File system 
+ 05 Cartelle, percorsi, metadata 
+ 06 FAT32, exFAT, NTFS 
+ 07 Btrfs, ext4, APFS 
+ 08 Compressione e archivi 
+ 09 Link simbolici e hard link 
+ 10 Buone abitudini
+
+--- Slide 3 ---
+Il problema 
+ Salvare non vuol dire capire 
+ Quando premi "Salva", il computer deve decidere dove mettere i dati, come ritrovarli e chi può leggerli. 
+ Il disco è il magazzino. Il file system è l'inventario. Le cartelle sono scaffali. I file sono gli oggetti. 
+ 
+ 
+ 📦 File Un contenitore di dati: testo, immagine, video, programma, archivio. 
+ 🗂️ Cartella Un modo per organizzare nomi e percorsi, non una scatola fisica. 
+ 🧭 Percorso L'indirizzo che porta a un file dentro l'albero delle cartelle. 
+ 🧾 Metadati Informazioni sul file: dimensione, date, permessi, proprietario.
+
+--- Slide 4 ---
+Dischi magnetici 
+ Hard Disk HDD 
+ Un HDD usa piatti magnetici che girano e una testina che legge e scrive dati. È economico e capiente, ma ha parti meccaniche. 
+ Idea chiave È ottimo per grandi archivi: foto, video, backup. È meno veloce e più delicato negli urti rispetto a un SSD. 
+ 
+ Piatti, tracce, settori e testina
+
+--- Slide 5 ---
+Memoria flash 
+ SSD: veloce, silenzioso, senza parti mobili 
+ 
+ ⚡ Veloce Tempi di accesso bassi: sistema operativo e programmi si avviano più rapidamente. 
+ 🔇 Silenzioso Non ci sono piatti che girano né testine da spostare. 
+ 🧮 Usura gestita Le celle flash hanno cicli di scrittura limitati, distribuiti dal controller. 
+ 
+ TRIM Il comando TRIM informa l'SSD quali blocchi non servono più, aiutandolo a mantenere prestazioni e durata.
+
+--- Slide 6 ---
+Unità di misura 
+ Bit, byte, KB, MB, GB, TB 
+ 
+ Unità Cosa significa Esempio pratico 
+ bit La più piccola informazione: 0 oppure 1. Serve alla logica digitale. 
+ byte 8 bit. Un carattere di testo semplice può occupare circa 1 byte. 
+ MB / GB Milioni / miliardi di byte circa. Foto, app, documenti, video brevi. 
+ TB Migliaia di GB circa. Archivi grandi, backup, video ad alta qualità. 
+ 
+ Nota: i produttori spesso usano multipli decimali; i sistemi operativi possono mostrare valori leggermente diversi.
+
+--- Slide 7 ---
+Prima del file system 
+ Partizioni e formattazione 
+ Un disco può essere diviso in partizioni: aree separate che il sistema vede come volumi distinti. 
+ Formattare significa preparare una partizione con un file system. Di solito cancella l'indice dei file e rende lo spazio riutilizzabile. 
+ 
+ 
+ Schema mentale 
+ Disco fisico
+└─ Partizione 1
+ └─ File system
+ └─ File e cartelle
+
+--- Slide 8 ---
+Il catalogo 
+ Cos'è un file system 
+ È il metodo con cui il sistema operativo organizza nomi, cartelle, posizione dei dati, permessi e spazio libero. 
+ 
+ 🏷️ Nomi Associa un nome leggibile a dati sparsi sul disco. 
+ 🧱 Blocchi Divide lo spazio in unità gestibili: cluster o blocchi. 
+ 🔐 Regole Può gestire permessi, quote, cifratura, snapshot e journaling.
+
+--- Slide 9 ---
+Albero delle cartelle 
+ Percorsi: dove si trova un file 
+ Un file non è solo "sul computer": ha un percorso. Il percorso racconta la strada dalla radice fino al nome del file. 
+ Windows: C:\Utenti\... Linux/macOS: /home/... 
+ 
+ 
+ / 
+
+ ├─ home
+
+ │ └─ sara
+
+ │ ├─ Documenti
+
+ │ │ └─ curriculum.pdf
+
+ │ └─ Foto
+
+ └─ programmi
+
+--- Slide 10 ---
+Informazioni nascoste 
+ Metadati e permessi 
+ 
+ 📏 Dimensione Quanti byte occupa il file e, a volte, quanto spazio reale usa su disco. 
+ 🕒 Date Creazione, modifica, ultimo accesso: utili per ricerca e backup. 
+ 🔑 Permessi Chi può leggere, modificare o eseguire un file. 
+ 
+ Attenzione Copiare un file tra file system diversi può perdere alcuni metadati: permessi, tag, date o attributi speciali.
+
+--- Slide 11 ---
+Compatibilità 
+ FAT32 ed exFAT 
+ 
+ Formato Punti forti Limiti 
+ FAT32 Molto compatibile: PC, TV, console, dispositivi vecchi. File singoli fino a circa 4 GB; pochi strumenti moderni di sicurezza. 
+ exFAT Buono per chiavette e dischi esterni tra Windows, macOS e Linux moderni. Meno robusto di file system pensati per dischi di sistema. 
+ 
+ Regola pratica: FAT32 per massima compatibilità vecchia; exFAT per trasferire file grandi su dispositivi esterni.
+
+--- Slide 12 ---
+Windows 
+ NTFS 
+ È il file system tipico dei dischi di sistema Windows. Gestisce permessi, file grandi, journaling e funzioni avanzate. 
+ È adatto a Windows, ma non è sempre la scelta migliore per chiavette da usare ovunque: alcuni sistemi lo leggono ma non lo scrivono senza supporto aggiuntivo. 
+ 
+ 
+ 🧾 Journaling Tiene traccia delle operazioni per recuperare meglio dopo spegnimenti improvvisi. 
+ 🔐 ACL Permessi dettagliati per utenti e gruppi. 
+ 📦 File grandi Niente limite pratico da 4 GB come FAT32. 
+ 🪟 Windows È la scelta naturale per il disco principale di un PC Windows.
+
+--- Slide 13 ---
+Linux e macOS 
+ Btrfs, ext4, APFS 
+ 
+ Btrfs File system moderno per Linux: snapshot, checksum, compressione trasparente, gestione avanzata dei volumi. 
+ ext4 Molto diffuso su Linux: stabile, semplice, affidabile. Spesso è la scelta conservativa. 
+ APFS File system Apple moderno per macOS, ottimizzato per SSD, snapshot e cifratura. 
+ 
+ Nota sul nome Si scrive Btrfs , spesso pronunciato "butter FS". Non è "BRTFS", anche se l'errore è comune.
+
+--- Slide 14 ---
+Metodo 
+ Organizzare i file 
+ Un buon archivio digitale non dipende solo dal disco: dipende da nomi, cartelle e regole coerenti. 
+ Se non riesci a ritrovare un file, per te è quasi come se fosse perso. 
+ 
+ 
+ 1. Nomi chiari 2026-06-25_preventivo_rossi.pdf è meglio di nuovo2_finale_OK.pdf . 
+ 2. Cartelle per progetto Raggruppa ciò che serve insieme: documenti, immagini, fatture, versioni. 
+ 3. Versioni controllate Usa date o numeri di versione. Evita dieci file "finale".
+
+--- Slide 15 ---
+Prestazioni 
+ Frammentazione, spazio libero e salute 
+ 
+ 🧩 Frammentazione Sugli HDD i pezzi di un file possono finire lontani. La testina deve muoversi di più. 
+ 🚫 Non deframmentare SSD Gli SSD non hanno testine: deframmentarli è inutile e aggiunge scritture. 
+ 📉 Spazio libero Tenere un po' di spazio libero aiuta aggiornamenti, cache, prestazioni e gestione dell'SSD. 
+ 
+ Per la salute del disco controlla segnali SMART, errori frequenti, rumori strani sugli HDD e backup aggiornati.
+
+--- Slide 16 ---
+Ridurre peso 
+ File compressi 
+ La compressione cerca ripetizioni e schemi nei dati per rappresentarli occupando meno spazio. 
+ Due famiglie Senza perdita : ZIP, PNG, FLAC. Puoi ricostruire l'originale. 
+ Con perdita : JPEG, MP3, video compressi. Perdi dettagli per risparmiare spazio. 
+ 
+ 
+ 📝 Testo Si comprime molto bene: contiene tante ripetizioni. 
+ 📷 Foto JPEG Spesso è già compressa: zippandola guadagni poco. 
+ 🎬 Video È già compresso con codec: ridurlo ancora può peggiorare la qualità. 
+ 📁 Cartelle Un archivio può impacchettare molti file in un solo contenitore.
+
+--- Slide 17 ---
+Archivi 
+ ZIP, 7z, RAR, TAR.GZ 
+ 
+ Formato Uso tipico Nota 
+ ZIP Inviare cartelle, allegati, materiale scolastico o lavorativo. Molto compatibile. 
+ 7z Compressione spesso più efficace. Richiede software compatibile. 
+ RAR Archivi compressi diffusi online. Formato proprietario; decompressione comune. 
+ TAR.GZ Mondo Linux/server: prima impacchetta, poi comprime. TAR non comprime da solo.
+
+--- Slide 18 ---
+Scorciatoie evolute 
+ Link simbolici e hard link 
+ Un collegamento può far apparire un file in un posto diverso senza copiarne davvero il contenuto. 
+ 
+ 
+ Link simbolico È un file speciale che punta a un percorso. Se sposti o cancelli la destinazione, il link si rompe. 
+ Hard link È un secondo nome per lo stesso contenuto sullo stesso file system. Il dato resta finché esiste almeno un nome. 
+ Collegamento Windows I classici file .lnk sono scorciatoie gestite da Windows, simili come idea ma diverse tecnicamente.
+
+--- Slide 19 ---
+Verifica veloce 
+ È tutto chiaro? 
+ Prova a rispondere a mente: 
+ 
+ 1. Qual è la differenza pratica tra HDD e SSD? 
+ 2. Perché FAT32 può essere un problema con file video grandi? 
+ 3. Cosa fa un file system oltre a salvare i byte? 
+ 4. Che differenza c'è tra link simbolico e hard link? 
+ 
+ Bonus Scegli il formato migliore per una chiavetta da usare tra Windows, macOS e Linux con file più grandi di 4 GB.
+
+--- Slide 20 ---
+Fine Modulo 11 
+ Archiviato,
+ ma con ordine. 
+ Ora sai leggere cosa c'è dietro un disco: supporto fisico, partizioni, file system, percorsi, compressione e collegamenti. 
+ 
+ Prossimo → M12 · Sistemi Operativi 
+ ↩ Indice del corso

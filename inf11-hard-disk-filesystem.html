@@ -48,7 +48,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
 .illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px}
 .agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}
 .cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:25px}.cmp th{font-family:var(--font-display);font-weight:900;font-size:32px;text-align:left;padding:15px 22px;color:var(--paper);background:var(--teal)}.cmp th:first-child{background:var(--ink);border-radius:12px 0 0 0}.cmp th:last-child{border-radius:0 12px 0 0}.cmp td{padding:13px 22px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.32}.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2)}.cmp tr:last-child td{border-bottom:none}
-.title-slide{padding:0;display:grid;grid-template-columns:1.3fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate}@keyframes float{to{transform:translate(-34px,46px) scale(1.04)}}
+.title-slide{padding:0;display:grid;grid-template-columns:1.3fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.title-right>div,.title-right>svg{position:relative;z-index:2;}.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate}@keyframes float{to{transform:translate(-34px,46px) scale(1.04)}}
 .disk{width:360px;height:360px;border-radius:50%;background:radial-gradient(circle at 50% 50%,#fbf5ec 0 12%,#d8c9b4 13% 20%,#3f7e8c 21% 34%,#f4ece0 35% 50%,#e6533b 51% 62%,#1c1714 63% 66%,#f4ece0 67%);border:8px solid var(--ink);box-shadow:12px 14px 0 rgba(0,0,0,.18);position:relative}.disk::after{content:"";position:absolute;width:170px;height:12px;background:var(--ink);right:-24px;top:160px;transform:rotate(-18deg);border-radius:10px}
 .tree{font-family:var(--font-mono);font-size:28px;line-height:1.55;background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 34px;box-shadow:7px 8px 0 rgba(28,23,20,.13);color:var(--ink-soft)}.tree b{color:var(--red)}
 .closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
@@ -62,7 +62,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
 
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="tape reveal">Corso di Informatica</div>
       <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="false">Modulo 11 — Archiviazione</div>
       <h1 class="h-mega reveal" contenteditable="false">Hard disk<br>e <em class="hot">file</em></h1>
       <p class="lead reveal" style="margin-top:30px;" contenteditable="false">Come sono organizzati i dati: dischi, partizioni, file system, formati, file compressi e collegamenti simbolici.</p>
@@ -72,7 +71,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="center">
       <div class="tape teal reveal">In questo modulo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
@@ -93,7 +91,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Il problema</div>
@@ -112,7 +109,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="split even">
       <div class="col stack">
         <div class="tape gold reveal">Dischi magnetici</div>
@@ -126,7 +122,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape teal reveal">Memoria flash</div>
       <h2 class="h-big reveal">SSD: veloce, silenzioso, <em class="hot">senza parti mobili</em></h2>
@@ -141,7 +136,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="center">
       <div class="tape reveal">Unità di misura</div>
       <h2 class="h-sec reveal">Bit, byte, KB, MB, GB, TB</h2>
@@ -158,7 +152,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="split">
       <div class="col stack">
         <div class="tape gold reveal">Prima del file system</div>
@@ -175,7 +168,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape teal reveal">Il catalogo</div>
       <h2 class="h-big reveal">Cos'è un <em class="hot">file system</em></h2>
@@ -190,7 +182,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="split even">
       <div class="col stack">
         <div class="tape reveal">Albero delle cartelle</div>
@@ -212,7 +203,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="center">
       <div class="tape gold reveal">Informazioni nascoste</div>
       <h2 class="h-sec reveal">Metadati e permessi</h2>
@@ -227,7 +217,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="center">
       <div class="tape reveal">Compatibilità</div>
       <h2 class="h-sec reveal">FAT32 ed exFAT</h2>
@@ -242,7 +231,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="split">
       <div class="col stack">
         <div class="tape teal reveal">Windows</div>
@@ -261,7 +249,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="center">
       <div class="tape gold reveal">Linux e macOS</div>
       <h2 class="h-sec reveal">Btrfs, ext4, APFS</h2>
@@ -276,7 +263,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Metodo</div>
@@ -294,7 +280,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="center">
       <div class="tape teal reveal">Prestazioni</div>
       <h2 class="h-sec reveal">Frammentazione, spazio libero e salute</h2>
@@ -309,7 +294,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="split even">
       <div class="col stack">
         <div class="tape gold reveal">Ridurre peso</div>
@@ -328,7 +312,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="center">
       <div class="tape reveal">Archivi</div>
       <h2 class="h-sec reveal">ZIP, 7z, RAR, TAR.GZ</h2>
@@ -344,7 +327,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="split">
       <div class="col stack">
         <div class="tape teal reveal">Scorciatoie evolute</div>
@@ -361,7 +343,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape teal reveal">Verifica veloce</div>
       <h2 class="h-sec reveal">È tutto chiaro?</h2>
@@ -378,7 +359,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide closing">
-    <div class="deck-tab">ARCHIVIAZIONE · M11</div>
     <div class="center" style="align-items:center;text-align:center;">
       <div class="eyebrow reveal gold">Fine Modulo 11</div>
       <h2 class="h-mega reveal" style="margin-top:10px;" contenteditable="false">Archiviato,<br><em class="gold">ma con ordine.</em></h2>

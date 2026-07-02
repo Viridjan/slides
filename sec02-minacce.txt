@@ -1,0 +1,602 @@
+Sicurezza Digitale · C2 — Minacce e Vulnerabilità della Rete
+============================================================
+
+--- Slide 1 ---
+Sicurezza Digitale · Concetto 2 
+ Minacce e
+ Vulnerabilità
+della Rete 
+ Virus, malware, ransomware, phishing e attacchi di rete: come funzionano, come si diffondono e come difendersi concretamente. 
+ Concetto 2 / 3 Intermedio
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa impareremo 
+ 
+ 01 Minacce e vulnerabilità: definizioni 
+ 02 Tipi di malware 
+ 03 Ransomware: il sequestro digitale 
+ 04 Phishing e sue varianti 
+ 05 Come riconoscere il phishing 
+ 06 Attacchi alle reti WiFi 
+ 07 Man-in-the-Middle e intercettazione 
+ 08 Botnet e attacchi DDoS 
+ 09 Come difendersi dal malware 
+ 10 Backup, antivirus e risposta agli incidenti
+
+--- Slide 3 ---
+Le basi 
+ Minacce vs Vulnerabilità 
+ Due concetti spesso confusi, ma fondamentalmente diversi. Capirli aiuta a capire dove e come difendersi. 
+ 
+ 
+ ⚠️ 
+ Minaccia (Threat) 
+ Tutto ciò che può causare danno: un hacker, un virus, una email truffaldina, un dipendente negligente. La minaccia è esterna — non possiamo controllarla, solo ridurre la nostra esposizione. 
+ Esempio: un gruppo di hacker che sviluppa ransomware. 
+ 
+ 
+ 🕳️ 
+ Vulnerabilità (Vulnerability) 
+ Un difetto nel nostro sistema che permette alla minaccia di fare danno: software non aggiornato, password debole, configurazione errata. Questa la controlliamo noi. 
+ Esempio: usare Windows XP senza aggiornamenti nel 2024. 
+ 
+ 
+ 
+ 💡 La formula del rischio 
+ Rischio = Minaccia × Vulnerabilità × Impatto. Non possiamo azzerare le minacce, ma possiamo ridurre le vulnerabilità e limitare l'impatto potenziale.
+
+--- Slide 4 ---
+Malware 
+ Il Bestiario del Malware 
+ Malware = Malicious Software . Software creato per danneggiare, rubare o spiare. Ne esistono molti tipi, ognuno con un obiettivo diverso. 
+ 
+ 
+ 🦠 
+ Virus 
+ Si attacca ad altri file e si diffonde quando li apri o li condividi. Come un virus biologico, ha bisogno di un "ospite" per spostarsi. 
+ 
+ 
+ 🪱 
+ Worm 
+ Si diffonde autonomamente nella rete senza bisogno di un file ospite. Può infettare migliaia di computer in pochi minuti sfruttando una vulnerabilità di rete. 
+ 
+ 
+ 🐴 
+ Trojan 
+ Si nasconde dentro un programma apparentemente legittimo. Lo installi pensando sia qualcosa di utile, ma in realtà apre una porta agli hacker nel tuo sistema. 
+ 
+ 
+ 
+ 
+ 👁️ 
+ Spyware 
+ Ti spia in silenzio: registra le tue digitazioni (keylogger), scatta screenshot, accede a webcam e microfono senza che tu te ne accorga. 
+ 
+ 
+ 🔐 
+ Ransomware 
+ Cifra tutti i tuoi file rendendoli inaccessibili, poi chiede un riscatto per restituire la chiave. Il più distruttivo in assoluto — trattato nella prossima slide. 
+ 
+ 
+ 📢 
+ Adware 
+ Mostra pubblicità indesiderate, spesso redirect del browser, toolbar non richieste. Meno pericoloso ma fastidioso e spesso vettore per altri malware.
+
+--- Slide 5 ---
+Il più pericoloso 
+ Ransomware:
+il sequestro
+digitale 
+ Cifra tutti i tuoi file — foto, documenti, lavoro — e chiede un riscatto in criptovaluta per restituirli. Spesso non li restituisce neanche dopo il pagamento. 
+ Un click su un allegato email sbagliato può cifrare in pochi minuti l'intero disco fisso, tutti i file di rete condivisi, tutti gli hard disk collegati via USB. 
+ 
+ 📊 Impatto reale 2023 
+ Il riscatto medio richiesto alle PMI italiane nel 2023 è stato di € 82.000 . Il 40% delle aziende colpite ha chiuso entro 12 mesi dall'attacco. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ! 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ⏰ 47:23:11 rimasti 
+ 
+ Schermata tipica di un ransomware
+
+--- Slide 6 ---
+Inganno digitale 
+ Phishing e le sue varianti 
+ Phishing = pescare. L'attaccante lancia "esche" digitali sperando che qualcuno abbocchi. È la tecnica di attacco più diffusa al mondo. 
+ 
+ 
+ 📧 
+ Phishing 
+ Email massiva che imita banche, Poste, Amazon. Inviata a milioni di persone — anche l'1% che ci casca è un successo. 
+ Alto rischio 
+ 
+ 
+ 🎯 
+ Spear Phishing 
+ Email personalizzata con il tuo nome, azienda, dettagli reali. Molto più convincente — studiato su misura per te. 
+ Altissimo rischio 
+ 
+ 
+ 📱 
+ Smishing 
+ Phishing via SMS. "Il tuo pacco è bloccato, clicca qui." Il link porta a un sito falso che ruba i dati della carta. 
+ Medio rischio 
+ 
+ 
+ 📞 
+ Vishing 
+ Phishing via telefono. Qualcuno si finge la banca o l'Agenzia delle Entrate e chiede dati personali o bonifici urgenti. 
+ Alto rischio 
+ 
+ 
+ 
+ 📊 Lo sapevi? 
+ Il 36% di tutte le violazioni di dati nel 2023 è iniziato con un attacco di phishing. È la porta d'ingresso più usata dagli hacker, proprio perché funziona.
+
+--- Slide 7 ---
+Segnali d'allarme 
+ Come riconoscere
+una email di phishing 
+ 
+ 🔴 Mittente sospetto 
+ support@amazon-sicurezza.com invece di @amazon.it 
+ 🔴 Urgenza artificiale 
+ "Il tuo account verrà bloccato entro 24 ore" 
+ 🔴 Link che non corrispondono 
+ Passa il mouse sul link — l'URL reale è diverso da quello mostrato 
+ 🔴 Allegati non richiesti 
+ Fattura.pdf.exe, documento.docm con macro 
+ 🟡 Errori grammaticali o tono strano 
+ Le banche vere usano i tuoi dati precisi e non fanno errori 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Da: amazon-sicurezza.net 
+ 
+ 
+ ! 
+ 
+ URGENTE: Account sospeso 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Clicca qui → amaz0n-login.ru 
+ 
+ ! 
+ 
+ 
+ 📎 fattura.pdf.exe 
+ 
+ ! 
+ 
+ 
+ Accedi subito → 
+ 
+ Anatomia di una email di phishing
+
+--- Slide 8 ---
+Reti wireless 
+ Attacchi alle Reti WiFi 
+ Le reti wireless sono comode ma esposte. Chi si connette alla tua rete può vedere il traffico, accedere ai dispositivi e intercettare dati sensibili. 
+ 
+ 
+ 📶 
+ Evil Twin (AP Gemello) 
+ L'attaccante crea una rete WiFi con lo stesso nome del tuo bar o hotel preferito. Ti connetti pensando sia quella legittima — in realtà passa tutto attraverso di lui. 
+ WiFi: "HotelMilano_Free" ← falsa! 
+ 
+ 
+ 🔓 
+ Reti aperte e non cifrate 
+ Il WiFi di bar, stazioni e aeroporti spesso non cifra il traffico. Chiunque nella stessa rete può "sniffare" — vedere le pagine che visiti, i dati che invii su HTTP. 
+ Soluzione: usa solo HTTPS, oppure attiva una VPN. 
+ 
+ 
+ 🏠 
+ Router di casa vulnerabile 
+ La password predefinita del router (spesso "admin" o "1234") non viene mai cambiata. L'attaccante si connette alla tua rete domestica e controlla tutti i dispositivi. 
+ Soluzione: cambia subito le credenziali del router. 
+ 
+ 
+ 
+ 🛡️ Regole per il WiFi pubblico 
+ Non fare operazioni bancarie su WiFi pubblico. Usa sempre HTTPS (🔒 nel browser). Se possibile, attiva una VPN per cifrare tutto il traffico.
+
+--- Slide 9 ---
+Intercettazione 
+ Attacco
+ Man-in-the-Middle 
+ L'attaccante si posiziona "in mezzo" alla comunicazione tra te e il server. Legge, e a volte modifica, tutto il traffico che passa — senza che tu te ne accorga. 
+ Immagina di mandare una lettera a qualcuno. Il postino la apre, la legge, eventualmente cambia il contenuto e la richiude. Tu e il destinatario non sapete nulla. 
+ 
+ 
+ ✅ Come difendersi 
+ Controlla sempre il lucchetto 🔒 nella barra del browser (HTTPS). Non ignorare gli avvisi di certificato SSL scaduto o non valido — segnalano spesso un MITM. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tu 
+ 
+ 
+ 
+ 
+ 
+ Server 
+ 
+ 
+ 👹 
+ hacker 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Legge tutto il traffico 
+ password, dati, messaggi 
+ 
+ Il postino che apre le lettere
+
+--- Slide 10 ---
+Attacchi di rete 
+ Botnet e
+ Attacchi DDoS 
+ Una botnet è una rete di dispositivi infetti controllati a distanza da un hacker — a tua insaputa. Il tuo computer potrebbe farne parte adesso. 
+ Le botnet vengono usate per lanciare attacchi DDoS (Distributed Denial of Service): migliaia di dispositivi bombardano un sito con richieste fino a farlo crashare. 
+ 
+ 📊 Scala reale 
+ La botnet Mirai nel 2016 ha usato 600.000 dispositivi IoT (telecamere, router, frigoriferi smart) per abbattere Netflix, Twitter e Reddit con un singolo attacco. 
+ 
+ Analogia: 10.000 persone che bloccano l'ingresso di un negozio. 
+ 
+ 
+ 
+ 
+ 
+ C&C 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ TARGET 💥 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Il botmaster comanda dall'ombra
+
+--- Slide 11 ---
+Minacce avanzate 
+ Vulnerabilità Zero-Day 
+ Una vulnerabilità "zero-day" è un difetto nel software che il produttore non conosce ancora . Non esiste patch. Non c'è modo di difendersi — finché non viene scoperta e corretta. 
+ 
+ 
+ 🕰️ 
+ Perché si chiama "zero-day"? 
+ Il produttore ha avuto zero giorni per prepararsi: la vulnerabilità viene sfruttata dagli attaccanti prima ancora che il vendor sappia che esiste. Il vantaggio è totalmente dell'attaccante. 
+ 
+ 
+ 💰 
+ Il mercato delle zero-day 
+ Le zero-day vengono comprate e vendute — legalmente da aziende di sicurezza (bug bounty) e illegalmente nel dark web. Una zero-day iOS può valere fino a 2,5 milioni di dollari . 
+ 
+ 
+ 
+ 
+ 🛡️ Come difendersi 
+ Contro le zero-day non esiste patch. L'unica difesa è la difesa in profondità : più strati di sicurezza, così che una sola vulnerabilità non basti a compromettere tutto. 
+ 
+ 
+ 📊 Esempio famoso 
+ WannaCry (2017): zero-day in Windows usata da NSA, rubata e pubblicata. Colpì 230.000 computer in 150 paesi in un solo weekend. Incluso il NHS britannico.
+
+--- Slide 12 ---
+Psicologia dell'attacco 
+ Ingegneria Sociale: le tecniche 
+ Il social engineering sfrutta le debolezze psicologiche umane — non quelle tecniche. Conoscere le tecniche è il primo passo per non caderne vittima. 
+ 
+ 
+ ⏰ 
+ Urgenza e paura 
+ "Il tuo account viene chiuso tra 2 ore." La fretta fa bypassare il pensiero critico. Un servizio legittimo non ti mette mai sotto pressione temporale artificiale. 
+ 
+ 
+ 🤝 
+ Pretexting 
+ L'attaccante crea uno scenario credibile: si finge un collega IT, un funzionario bancario, un cliente arrabbiato. Raccoglie informazioni nel tempo per costruire fiducia. 
+ 
+ 
+ 🎁 
+ Baiting 
+ Una chiavetta USB trovata "per caso" nel parcheggio dell'azienda. La curiosità fa sì che qualcuno la inserisca nel computer. Dentro c'è malware. 
+ 
+ 
+ 
+ ⚠️ Il principio fondamentale 
+ Se qualcosa crea urgenza, paura o curiosità artificiale , fermati. Un secondo di pausa per verificare vale più di qualsiasi tecnologia di sicurezza.
+
+--- Slide 13 ---
+Difesa attiva 
+ Come difendersi
+dal malware 
+ Nessuna singola soluzione è sufficiente. La difesa efficace è fatta di più strati che si completano a vicenda. 
+ 
+ 🛡️ Antivirus/EDR aggiornato 
+ Rileva malware noti e comportamenti sospetti in tempo reale 
+ 🔄 Sistema e app sempre aggiornati 
+ Chiude le vulnerabilità già note prima che vengano sfruttate 
+ 🧠 Non aprire allegati sospetti 
+ Il vettore n°1 di infezione è ancora l'allegato email 
+ 👤 Usa account standard (non admin) 
+ Un malware eredita i tuoi permessi — meno permessi, meno danni 
+ 🌐 Attiva il firewall 
+ Blocca le connessioni non autorizzate da e verso internet 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ✓ 
+ 
+ Firewall 
+ 
+ Antivirus 
+ 
+ Updates 
+ 
+ Backup 
+ 
+ 
+ Difesa in profondità 
+ più strati = più sicurezza 
+ 
+ Ogni strato copre le lacune degli altri
+
+--- Slide 14 ---
+La rete di sicurezza 
+ Il Backup : l'ultima linea di difesa 
+ Contro il ransomware, un buon backup è spesso l'unica vera soluzione. Se i tuoi dati sono copiati altrove, il sequestro non ha potere. 
+ 
+ 
+ 3 
+ Copie dei dati 
+ L'originale + due backup. Se una copia fallisce, ne hai ancora un'altra. 
+ 
+ 
+ 2 
+ Supporti diversi 
+ Hard disk esterno + cloud, oppure HD interno + NAS. Diversifica il rischio di guasto hardware. 
+ 
+ 
+ 1 
+ Copia offline/offsite 
+ Almeno una copia scollegata dalla rete. Un ransomware che cifra tutto non raggiunge un HD staccato. 
+ 
+ 
+ 
+ 💡 La regola 3-2-1 
+ 3 copie, 2 supporti diversi, 1 offsite/offline. Chi segue questa regola può ripristinare tutto in poche ore dopo un ransomware — senza pagare il riscatto.
+
+--- Slide 15 ---
+Strumenti di difesa 
+ Antivirus vs EDR 
+ Non tutti i software di protezione sono uguali. La differenza è cruciale. 
+ 
+ 
+ 🛡️ Antivirus classico 
+ Confronta i file con un database di malware noti ("firme"). Ottimo contro minacce conosciute, cieco contro nuovi malware o attacchi fileless. 
+ Windows Defender, Avast, Kaspersky 
+ 
+ 
+ ⚡ EDR 
+ Endpoint Detection & Response. Analizza il comportamento dei processi in tempo reale. Rileva anche minacce mai viste prima. 
+ CrowdStrike, SentinelOne, Defender ATP 
+ 
+ 
+ 
+ 💡 Per uso personale 
+ Windows Defender integrato in Windows 10/11 è ottimo per uso domestico. Tienilo attivo e aggiornato — è gratuito e più che sufficiente per il 95% delle minacce quotidiane. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Antivirus 
+ firma = lista 
+ 
+ 
+ malware A ✓ 
+ 
+ malware B ✓ 
+ 
+ 
+ NEW ??? 👻 
+ Non visto! 
+ 
+ 
+ EDR 
+ comportamento 
+ 
+ 
+ script run ✓ 
+ 
+ network conn ✓ 
+ 
+ NEW → BLOCCA 
+ Comportamento sospetto! 
+ 
+ Firma vs comportamento: approcci diversi
+
+--- Slide 16 ---
+Protezione rete 
+ Mettere in sicurezza
+la propria rete domestica 
+ La rete di casa è il perimetro della tua vita digitale. Configurarla bene protegge tutti i dispositivi collegati — smartphone, PC, smart TV, dispositivi IoT. 
+ 
+ 
+ 🔑 
+ Cambia le credenziali del router 
+ Admin/password predefinite sono note a tutti. Cambia username e password del pannello di gestione subito dopo l'installazione. 
+ 
+ 
+ 📡 
+ Usa WPA3 o WPA2 
+ Il protocollo di cifratura WiFi. WEP è rotto da anni — usalo solo come museo. WPA2 è minimo accettabile, WPA3 è il gold standard. 
+ 
+ 
+ 🕵️ 
+ Rete ospiti separata 
+ Crea una rete WiFi separata per gli ospiti e per i dispositivi IoT. Se un dispositivo viene compromesso, non raggiunge il resto della rete. 
+ 
+ 
+ 🔄 
+ Aggiorna il firmware 
+ Il router ha un sistema operativo che va aggiornato come qualsiasi altro software. Router con firmware vecchio sono buckets: facilissimi da attaccare. 
+ 
+ 
+ 
+ 💡 Check rapido 
+ Digita 192.168.1.1 nel browser. Sei nella dashboard del router — cambia le credenziali se non lo hai mai fatto. Ci vogliono 2 minuti.
+
+--- Slide 17 ---
+Tunnel sicuro 
+ VPN: rete
+ privata virtuale 
+ Una VPN cifra tutto il traffico internet tra il tuo dispositivo e un server remoto, rendendo impossibile per chiunque intercettare i dati nel mezzo. 
+ Particolarmente utile su WiFi pubblici, per aggirare censure geografiche, e per mascherare il tuo indirizzo IP dal sito che visiti. 
+ 
+ 
+ ✅ VPN consigliate (no log) 
+ Mullvad — massima privacy, pagamento anonimo. ProtonVPN — free plan disponibile, open source. Wireguard — protocollo moderno, molto veloce. 
+ 
+ 
+ ⚠️ Attenzione 
+ VPN gratuite sconosciute spesso vendono i tuoi dati . Una VPN non ti rende completamente anonimo — vedi Concetto 3. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 📱 Tu 
+ 
+ 
+ VPN cifrata 🔒 
+ 
+ 
+ 👹 
+ attaccante 
+ 
+ 
+ 
+ 
+ 
+ 
+ VPN 
+ SERVER 
+ 
+ 
+ 
+ 
+ 🌐 Internet 
+ 
+ 
+ Il tunnel VPN rende il traffico illeggibile
+
+--- Slide 18 ---
+Cosa fare se 
+ Sei stato attaccato? Cosa fare 
+ Scoprire di essere stati compromessi è stressante. Avere un piano in testa aiuta a limitare i danni e agire con lucidità. 
+ 
+ 1 Disconnetti dalla rete 
+ Stacca il cavo o disattiva il WiFi subito. Impedisci al malware di comunicare con l'attaccante o diffondersi in rete. 
+ 2 Non spegnere il PC 
+ Alcuni malware cancellano le tracce allo spegnimento. Lascia acceso per permettere l'analisi forense se necessaria. 
+ 3 Cambia le password dall'esterno 
+ Da un altro dispositivo, cambia subito le password di email, banca e account critici. Il dispositivo infetto non è attendibile. 
+ 4 Segnala e chiedi aiuto 
+ Denuncia alla Polizia Postale (commissariatodips.it). Per aziende: contatta un team di incident response professionista. 
+ 
+ 
+ ⚠️ Non pagare il riscatto 
+ Il pagamento non garantisce il ripristino dei dati — e finanzia il gruppo criminale. Con un buon backup, il riscatto diventa irrilevante.
+
+--- Slide 19 ---
+Verifica veloce 
+ È tutto chiaro? 
+ Prova a rispondere a mente: 
+ 
+ 1. Qual è la differenza tra un virus e un worm? Quale si diffonde più velocemente e perché? 
+ 2. Perché il ransomware è considerato la minaccia più distruttiva per le aziende? 
+ 3. Cosa devi controllare PRIMA di cliccare su un link in una email urgente? 
+ 4. Hai subito un attacco. Qual è la prima azione da compiere? E la seconda? 
+ 
+ 
+ 🎯 Scenario pratico 
+ Ti arriva un SMS: "Il tuo conto Intesa Sanpaolo è stato bloccato. Clicca qui per sbloccare: bit.ly/3xZ9q" . Cosa fai? Nomina tutti i segnali d'allarme che vedi.
+
+--- Slide 20 ---
+Fine Concetto 02 
+ Armati! 🛡️ 
+ Ora conosci le principali minacce della rete. Nel prossimo e ultimo concetto esploriamo la Privacy, l'Anonimato e il Pseudonimato : come proteggere la propria identità digitale. 
+ Prossimo → C3 · Privacy e Anonimato ↩ Indice del corso

@@ -1,0 +1,147 @@
+Smartphones · SMA06 — Sicurezza dello smartphone
+================================================
+
+--- Slide 1 ---
+S06 — Sicurezza 
+ Sicurezza dello smartphone 
+ Blocco schermo, 2FA, furto, SIM swap, phishing, malware e reti malevole. 
+ SMA06 Smartphones
+
+--- Slide 2 ---
+In questo capitolo 
+ Cosa vedremo 
+ 01 Il telefono come chiave 02 Blocco schermo 03 2FA e OTP 04 Furto e risposta 05 SIM swap 06 Phishing messaggi 07 Chiamate fraudolente 08 Malware e APK 09 Aggiornamenti sicurezza 10 Reti malevole
+
+--- Slide 3 ---
+Sicurezza 
+ Il telefono come chiave 
+ Lo smartphone apre email, banca, social e cloud: proteggere il telefono significa proteggere la tua identità digitale. 
+ Inventario degli accessi Elenca i servizi a cui il tuo telefono dà accesso: banca, email, lavoro, cloud, social. Sapere cosa rischi in caso di furto aiuta a stabilire le priorità di protezione. 
+ 
+ 
+ 📱 
+ Il telefono come chiave 
+ Perderlo o farselo rubare può significare perdere accesso a molti account contemporaneamente. Un telefono sbloccato in mani sbagliata può esporre email, banca, foto e documenti. La sicurezza del telefono non è tecnica: è protezione della tua vita digitale.
+
+--- Slide 4 ---
+Sicurezza 
+ Blocco schermo e biometria 
+ PIN, password, impronta e volto proteggono da accesso immediato; la biometria è comoda ma non sostituisce un codice forte. 
+ 
+ 
+ 🔋 
+ Blocco schermo e biometria 
+ Un blocco debole (0000, 1234, data di nascita) protegge poco: evita PIN ovvi. La biometria (impronta, volto) sblocca velocemente ma non funziona dopo riavvio o tentativi falliti — richiede il PIN. Usa biometria per comodità quotidiana, ma scegli un PIN/password forte come base. Imposta blocco automatico dopo 30–60 secondi di inattività: va nel cassetto = va bloccato.
+
+--- Slide 5 ---
+Sicurezza 
+ 2FA e codici OTP 
+ La verifica in due passaggi protegge gli account anche se la password viene rubata; i codici OTP non vanno mai comunicati a nessuno. 
+ 
+ 
+ 🔐 
+ 2FA e codici OTP 
+ 2FA aggiunge un secondo fattore: qualcosa che hai (telefono) oltre a qualcosa che sai (password). App autenticatore (Google Authenticator, Aegis) è più sicura degli SMS: non intercettabile via SIM swap. Gli OTP cambiano ogni 30 secondi e valgono per un solo accesso. Chi chiede un OTP per telefono, chat o email sta quasi certamente tentando un furto account.
+
+--- Slide 6 ---
+Sicurezza 
+ Furto e risposta 
+ Trova dispositivo va attivato prima del furto; in caso di smarrimento: blocca SIM, cambia password, usa cancellazione remota. 
+ 
+ 
+ 🧭 
+ Furto e risposta 
+ Android: Trova il mio dispositivo (findmydevice.google.com). iOS: Dov'è (icloud.com/find). Devono essere attivi prima dell'evento. In caso di furto con telefono sbloccato: cambia subito password email e banca da un altro dispositivo. Blocca la SIM chiamando l'operatore; avvisa banca e servizi sensibili. Il backup aggiornato riduce il danno: i dati si recuperano, il telefono no.
+
+--- Slide 7 ---
+Sicurezza 
+ SIM swap 
+ Un attaccante trasferisce il tuo numero su una SIM che controlla e può ricevere i tuoi SMS OTP. 
+ Come proteggersi Imposta un PIN SIM (Impostazioni → SIM) e un PIN account operatore. Evita SMS come secondo fattore per banca e email: usa app autenticatore. Segnale perso improvvisamente senza motivo? Chiama l'operatore subito. 
+ 
+ 
+ 🛡️ 
+ SIM swap 
+ L'attaccante convince l'operatore a portare il numero su una nuova SIM fingendosi te. Con il tuo numero può ricevere SMS OTP e tentare accessi a banca, email e account. Il segnale del tuo telefono sparisce: è il primo segnale di un SIM swap in corso.
+
+--- Slide 8 ---
+Sicurezza 
+ Phishing via messaggi 
+ SMS e WhatsApp falsificati imitano banche, corrieri e contatti fidati per rubare dati o codici. 
+ 
+ 
+ 🧩 
+ Phishing via messaggi 
+ SMS phishing (smishing): finto corriere, banca, Poste Italiane, INPS — usano urgenza e link corti che nascondono l'URL reale. WhatsApp phishing: messaggi da contatti compromessi che sembrano affidabili. Attenzione a richieste di codici, votazioni, link strani o "guarda questo". Regola: non aprire link da messaggi inaspettati — entra dal sito ufficiale o chiama il mittente. Verifica con una chiamata se una richiesta è urgente o insolita, anche da un numero noto.
+
+--- Slide 9 ---
+Sicurezza 
+ Chiamate fraudolente 
+ Il vishing usa telefonate per creare urgenza e ottenere dati, password o autorizzazioni. 
+ Tattica del vishing L'attaccante finge di essere banca, Polizia, Amazon o operatore. Crea urgenza ("la tua carta è bloccata"). Regola d'oro: riaggancia e richiama il numero ufficiale sul sito — mai il numero che ti hanno dato loro. 
+ 
+ 
+ 📁 
+ Chiamate fraudolente 
+ Il vishing (voice phishing) usa il telefono per ottenere dati personali, OTP o autorizzazioni bancarie. Banche e servizi seri non chiedono mai password complete, OTP o dati carta per telefono. Il numero chiamante può essere falsificato (spoofing): non fidarti del numero visualizzato.
+
+--- Slide 10 ---
+Sicurezza 
+ Malware e APK non sicuri 
+ Il malware mobile ruba dati e intercetta SMS; gli APK da fonti non ufficiali sono il vettore principale. 
+ 
+ 
+ 💡 
+ Malware e APK non sicuri 
+ Malware mobile può: rubare dati, mostrare pubblicità invasiva, intercettare SMS/OTP, usare accessibilità per controllare lo schermo. APK da siti casuali, Telegram o link possono contenere codice modificato nascosto nell'app "originale". App "premium gratis" e cloni di app famose sono segnali di rischio quasi certi. Scarica solo da: Play Store, sito ufficiale dello sviluppatore, F-Droid per app open source verificate.
+
+--- Slide 11 ---
+Sicurezza 
+ Aggiornamenti sicurezza 
+ Le patch chiudono vulnerabilità note: un telefono non aggiornato è esposto ad attacchi già documentati. 
+ Quando aggiornare Installa patch di sicurezza appena disponibili: le vulnerabilità note vengono sfruttate in pochi giorni dopo la pubblicazione. iOS: Impostazioni → Generali → Aggiornamento software. Android: Impostazioni → Info telefono → Aggiornamenti. 
+ 
+ 
+ ✅ 
+ Aggiornamenti sicurezza 
+ Gli aggiornamenti di sicurezza correggono vulnerabilità che attaccanti potrebbero già conoscere. Un telefono non aggiornato da mesi o anni è una superficie di attacco nota e non protetta. Valuta il supporto aggiornamenti come criterio di acquisto: è più importante del prezzo.
+
+--- Slide 12 ---
+Sicurezza 
+ Reti malevole 
+ L'evil twin imita reti WiFi note per intercettare traffico; la connessione automatica a reti aperte è il punto debole. 
+ Come prevenire Disattiva connessione automatica a reti WiFi aperte: Impostazioni → WiFi → Connetti automaticamente → Off. Per operazioni sensibili usa hotspot personale invece di WiFi pubblico. VPN su reti sconosciute aggiunge protezione. 
+ 
+ 
+ ⚠️ 
+ Reti malevole 
+ L'evil twin è un access point falso che imita reti note ("Bar WiFi", "Aeroporto Free") per intercettare traffico. Chi si connette può esporre dati non cifrati, sessioni attive e credenziali di login. Il telefono si connette automaticamente a reti con lo stesso nome già usato: questo è il vettore.
+
+--- Slide 13 ---
+Sicurezza 
+ Checklist sicurezza 
+ Cinque controlli che fanno la differenza reale sulla sicurezza quotidiana dello smartphone. 
+ 
+ 
+ 🧰 
+ Checklist sicurezza 
+ Blocco schermo con PIN forte (min. 6 cifre non ovvie) e blocco automatico entro 60 s. 2FA attivo su email, banca e account principali — app autenticatore, non SMS. Trova dispositivo attivo e account associato ricordato. Aggiornamenti di sistema e app installati entro una settimana dal rilascio. App solo da store ufficiali; permessi sensibili revisionati ogni 3 mesi.
+
+--- Slide 14 ---
+Verifica veloce 
+ È tutto chiaro? 
+ Prova a rispondere a mente prima di passare al capitolo successivo. 
+ 
+ 1. Qual è l'idea più importante di questo capitolo? 
+ 2. Quale impostazione o comportamento puoi controllare subito sul tuo telefono? 
+ 3. Quale rischio pratico riduci applicando queste regole? 
+ 4. Come spiegheresti questo argomento a una persona poco esperta?
+
+--- Slide 15 ---
+Fine S06 
+ Sicurezza mobile
+ in pratica. 
+ Ora hai una mappa operativa del capitolo: concetti chiave, rischi e controlli da applicare sullo smartphone. 
+ 
+ Prossimo → SMA07 · Gestione dei file 
+ ↩ Indice del corso

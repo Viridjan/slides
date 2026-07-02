@@ -1,0 +1,142 @@
+Game Design · GD_01 — Introduzione al gioco
+===========================================
+
+--- Slide 1 ---
+Game Design 
+ La Colonna
+ Sonora 
+ Come la musica dei videogiochi è passata da traccia fissa a sistema reattivo — e come può diventare essa stessa una meccanica. 
+ 
+ GD_02 Audio & Musica 
+ 
+ 
+ 
+ 🎧
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa vedremo 
+ 
+ 
+ OST statica — la traccia fissa e i limiti hardware degli anni '90 
+ OST procedurale random — musica che si ricombina a strati (STEMS) 
+ OST a feedback — la musica reagisce allo stato del gameplay 
+ 
+ 
+ Musica come meccanica — quando il ritmo è il gioco stesso 
+ Diegetico vs non-diegetico — da dove viene il suono 
+ Attività — analizza la colonna sonora di un gioco
+
+--- Slide 3 ---
+Definizione 
+ Cos'è una OST 
+ La Original Soundtrack è la musica composta per un'opera. Nel gioco non è sottofondo: guida l'emozione, segnala lo stato, scandisce il ritmo dell'azione. 
+ 
+ 🎧 Il ruolo della musica 
+ La musica dice al giocatore come sentirsi prima ancora che capisca cosa sta succedendo sullo schermo. 
+ 
+ 
+ 
+ 🎬 Emozione Tensione, trionfo, malinconia: la traccia costruisce lo stato d'animo della scena. 
+ 🚦 Segnale Un cambio di musica comunica un cambio di stato: nemico in arrivo, boss, pericolo. 
+ 🥁 Ritmo Scandisce il tempo dell'azione, dà energia o calma al momento di gioco.
+
+--- Slide 4 ---
+Livello 1 
+ OST statica 
+ La traccia suona uguale ogni volta. Parte, va in loop, non sa cosa sta facendo il giocatore. 
+ 
+ 🎸 Bobby Prince 
+ Compositore di Wolfenstein 3D (1992) e DOOM (1993). Riff metal in MIDI, loop fissi caricati per livello. 
+ 
+ 
+ 
+ 🔁 Loop fisso Stessa traccia dall'inizio alla fine del livello. Semplice, economica, prevedibile. 
+ 🚫 Nessuna reazione La musica non sa se stai combattendo o esplorando: suona identica in ogni situazione.
+
+--- Slide 5 ---
+Vincolo 
+ Limiti hardware 
+ Negli anni '80–'90 la musica doveva stare in pochi kilobyte e in pochi canali audio. Il vincolo tecnico ha plasmato un'estetica. 
+ 
+ 🎛️ 8-bit / NES Solo 5 canali audio. Melodie iconiche nate dal vincolo: meno note, più memorabilità. 
+ 🎹 SNES Chip SPC700, 8 canali con campioni. Salto di qualità: Koji Kondo, Nobuo Uematsu. 
+ 💾 Il vincolo crea stile Il "chiptune" oggi è un'estetica ricercata, non più un limite subìto.
+
+--- Slide 6 ---
+Livello 2 
+ OST procedurale random 
+ La musica non è una traccia unica: è composta di strati ricombinati in tempo reale. Ogni sessione suona diversa. 
+ 
+ 
+ 
+ 🎧 Mick Gordon · DOOM (2016) 
+ La colonna sonora è costruita a STEMS : tracce separate — batteria, basso, sintetizzatori, chitarre — miscelate dinamicamente dal motore di gioco invece di essere un unico file audio. 
+ 
+ 🎲 Varietà infinita La stessa libreria di strati genera combinazioni sempre nuove: la musica non stanca.
+
+--- Slide 7 ---
+Come funziona 
+ Gli STEMS 
+ Uno stem è una singola traccia strumentale isolata. Il gioco tiene N stems allineati sullo stesso tempo e accende o spegne i livelli in base al contesto. 
+ 
+ 🥁 Layering Pochi nemici → solo basso e atmosfera. Più nemici → entrano batteria e chitarre. 
+ 🎚️ Mix dinamico Nessuna transizione brusca: i volumi salgono e scendono, la musica "respira" col gioco. 
+ 
+ 
+ 💡 Perché conta 
+ La musica resta sempre sincronizzata all'intensità reale del momento — senza che il compositore debba scrivere una traccia per ogni possibile situazione.
+
+--- Slide 8 ---
+Livello 3 
+ OST a feedback 
+ Il salto finale: la musica non reagisce solo all'atmosfera, ma allo stato preciso del gameplay . 
+ 
+ 
+ 🎮 DOOM Eternal Mick Gordon lega gli stem a eventi di gioco: entrare in un'arena, uccisioni, boss. La traccia si costruisce mentre giochi. 
+ 🔗 Musica = HUD Il suono diventa informazione: capisci lo stato della battaglia dall'orecchio, non solo dagli occhi.
+
+--- Slide 9 ---
+Livello 4 
+ Musica come meccanica 
+ Il caso estremo: la musica non accompagna il gioco — è il gioco. Il ritmo detta le regole. 
+ 
+ 🎵 Beat Saber Colpisci i blocchi a tempo. La traccia genera il livello. 
+ 🎸 Guitar Hero Premi i tasti sulle note. Sbagli il ritmo → sbagli il gioco. 
+ 💀 Crypt of the NecroDancer Ti muovi solo a tempo di musica. Un roguelike ritmico.
+
+--- Slide 10 ---
+Origine del suono 
+ Diegetico vs non-diegetico 
+ 
+ 🔊 Diegetico Il suono esiste nel mondo di gioco: la radio in-game, lo stereo di un'auto, un NPC che suona. Anche i personaggi lo sentono. 
+ 🎼 Non-diegetico La colonna sonora "dall'esterno": solo il giocatore la sente. La musica di tensione che parte quando arriva il nemico. 
+ 
+ 
+ 🎲 Design intent 
+ Spostare un suono da non-diegetico a diegetico (o viceversa) cambia chi sa cosa — uno strumento narrativo potente.
+
+--- Slide 11 ---
+Attività 
+ Analizza una OST 
+ 
+ Scegli un gioco che conosci bene. 
+ La musica è statica, a strati o a feedback ? Come lo capisci? 
+ Trova un suono diegetico e uno non-diegetico . 
+ La musica è mai una meccanica ? Cosa succederebbe togliendola? 
+ 
+ 
+ 💡 Bonus 
+ Guarda un video di DOOM Eternal a volume alto: prova a indovinare l'evento di gioco dal cambio di musica, senza guardare lo schermo.
+
+--- Slide 12 ---
+Fine GD_02 🎧 
+ Non sottofondo.
+ Sistema. 
+ 
+ Da traccia fissa a strumento reattivo: la musica migliore di un gioco è quella che sa cosa stai facendo .
+ 
+ 
+ ← GD_01 · Introduzione 
+ → GD_03 · SFX e Audio 
+ ↩ Indice del corso

@@ -98,7 +98,7 @@ em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--
 .title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
 .title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
 .title-left .tape{position:absolute;top:84px;left:90px;}
-.title-right{background:var(--teal-2);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right{background:var(--teal-2);position:relative;overflow:hidden;display:grid;place-items:center;}.title-right>div,.title-right>svg{position:relative;z-index:2;}
 .title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--sky),var(--teal));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
 @keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
 .closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .gold{color:var(--gold);}
@@ -119,7 +119,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- SLIDE 1 · TITLE -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <span class="tape teal">IA · IA_03</span>
       <div class="eyebrow reveal" style="margin-top:40px;">Intelligenza Artificiale</div>
       <h1 class="h-mega reveal" style="margin-top:10px;"><em style="font-style:italic;color:var(--sky);">LLM</em><br>spiegati</h1>
       <p class="lead reveal d1" contenteditable="false" style="margin-top:28px;">Cos'è un Large Language Model, come funziona davvero — e perché molte cose che "sa" sull'IA sono sbagliate.</p>
@@ -130,12 +129,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="title-right">
       <div style="font-size:200px;line-height:1;text-align:center;" class="reveal">🧠</div>
     </div>
-    <div class="deck-tab">IA · IA_03</div>
   </section>
 
   <!-- SLIDE 2 · AGENDA -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_03</div>
     <div class="tape teal reveal">In questo modulo</div>
     <h2 class="h-sec reveal" style="margin-top:32px;">Cosa vedremo</h2>
     <div class="grid2 reveal d1" style="margin-top:28px;">
@@ -155,7 +152,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- SLIDE 3 · COSA SONO GLI LLM -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_03</div>
     <div class="split">
       <div class="col stack">
         <div class="tape sky reveal">Definizione</div>
@@ -189,7 +185,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- SLIDE 4 · CASO STUDIO -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_03</div>
     <div class="center">
       <div class="tape red reveal">Caso studio</div>
       <h2 class="h-big reveal" style="margin-top:16px;">Questo testo è <em class="hot">corretto</em>?</h2>
@@ -206,7 +201,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- SLIDE 5 · ERRORE 1 -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_03</div>
     <div class="split">
       <div class="col stack">
         <div class="tape red reveal">Errore 1 / 4</div>
@@ -237,7 +231,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- SLIDE 6 · ERRORE 2 -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_03</div>
     <div class="split">
       <div class="col stack">
         <div class="tape red reveal">Errore 2 / 4</div>
@@ -267,7 +260,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- SLIDE 7 · ERRORE 3 -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_03</div>
     <div class="split">
       <div class="col stack">
         <div class="tape red reveal">Errore 3 / 4</div>
@@ -298,7 +290,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- SLIDE 8 · ERRORE 4 -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_03</div>
     <div class="split">
       <div class="col stack">
         <div class="tape red reveal">Errore 4 / 4</div>
@@ -328,7 +319,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- SLIDE 9 · LEZIONE: VERIFICARE -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_03</div>
     <div class="center">
       <div class="tape reveal">Lezione pratica</div>
       <h2 class="h-big reveal" style="margin-top:18px;">Verificare <em class="hot">sempre</em> l'output</h2>
@@ -356,7 +346,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- SLIDE 10 · COME FUNZIONA: PROMPT -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_03</div>
     <div class="center">
       <div class="tape sky reveal">Meccanismo interno</div>
       <h2 class="h-big reveal" style="margin-top:18px;">Come funziona un <em class="hot">LLM</em>?</h2>
@@ -380,7 +369,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- SLIDE 11 · TOKENIZZAZIONE -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_03</div>
     <div class="split">
       <div class="col stack">
         <div class="tape sky reveal">Passo 1</div>
@@ -414,7 +402,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- SLIDE 12 · RETI DI NODI -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_03</div>
     <div class="split">
       <div class="col stack">
         <div class="tape teal reveal">Passo 2</div>
@@ -447,7 +434,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- SLIDE 13 · LLM SI INTERROGA SUL PROMPT -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_03</div>
     <div class="center">
       <div class="tape gold reveal">Passo 3</div>
       <h2 class="h-big reveal" style="margin-top:18px;">L'LLM si <em class="hot">interroga</em> sul prompt</h2>
@@ -474,7 +460,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- SLIDE 14 · COSA UN LLM NON FA -->
   <section class="slide tight-slide">
-    <div class="deck-tab">IA · IA_03</div>
     <div class="tape red reveal">Miti da sfatare</div>
     <h2 class="h-sec reveal" style="margin-top:16px;">Cosa un LLM <em class="hot">non</em> fa</h2>
     <div class="grid2 reveal d1" style="margin-top:22px;">
@@ -504,7 +489,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- SLIDE 15 · QUIZ -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_03</div>
     <div class="tape teal reveal">Verifica veloce</div>
     <h2 class="h-sec reveal" style="margin-top:20px;" contenteditable="false">Metti alla prova le tue conoscenze</h2>
     <div class="grid2 reveal d1" style="margin-top:28px;">
@@ -524,7 +508,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- SLIDE 16 · CLOSING -->
   <section class="slide closing">
-    <div class="deck-tab">IA · IA_03</div>
     <div class="center" style="align-items:center;text-align:center;">
       <div class="eyebrow reveal gold">Fine IA_03 🧠</div>
       <h2 class="h-mega reveal" style="margin-top:10px;">Non magia.<br><em class="gold">Matematica.</em></h2>

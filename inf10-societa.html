@@ -99,7 +99,7 @@ em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--
 .title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
 .title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
 .title-left .tape{position:absolute;top:84px;left:90px;}
-.title-right{background:var(--teal-2);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right{background:var(--teal-2);position:relative;overflow:hidden;display:grid;place-items:center;}.title-right>div,.title-right>svg{position:relative;z-index:2;}
 .title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
 @keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
 .agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(4,auto);grid-template-columns:1fr 1fr;gap:18px 60px;margin-top:16px;}
@@ -124,7 +124,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- ============ SLIDE 1 · TITLE ============ -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <span class="tape">Informatica · M10</span>
       <div class="eyebrow reveal" style="margin-top:40px;">Modulo 10</div>
       <h1 class="h-mega reveal" contenteditable="false" style="margin-top:10px;">Tecnologia<br><em style="font-style:italic;color:var(--red);">e Società</em></h1>
       <p class="lead reveal d1" contenteditable="false" style="margin-top:28px;">Benessere digitale, dipendenze, smart working e ricadute sociali della digitalizzazione.</p>
@@ -135,12 +134,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="title-right">
       <div style="font-size:180px;line-height:1;text-align:center;" class="reveal">🧠</div>
     </div>
-    <div class="deck-tab">SOCIETÀ · M10</div>
   </section>
 
   <!-- ============ SLIDE 2 · AGENDA ============ -->
   <section class="slide">
-    <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="tape reveal">Cosa vedremo</div>
     <h2 class="h-sec reveal" style="margin-top:32px;" contenteditable="false">Cinque temi, un filo comune</h2>
     <div class="agenda-list reveal d1">
@@ -155,7 +152,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 3 · BENESSERE DIGITALE ============ -->
   <section class="slide">
-    <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="split">
       <div>
         <div class="tape reveal">Benessere digitale</div>
@@ -185,7 +181,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 4 · INCLUSIONE E ISOLAMENTO ============ -->
   <section class="slide">
-    <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="tape reveal">Due facce</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Inclusione vs Isolamento</h2>
     <div class="grid2 reveal d1" style="margin-top:36px;">
@@ -219,7 +214,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 5 · DIPENDENZE DIGITALI ============ -->
   <section class="slide">
-    <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="split">
       <div>
         <div class="tape red reveal">Dipendenze digitali</div>
@@ -255,7 +249,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 6 · STRATEGIE PREVENZIONE ============ -->
   <section class="slide">
-    <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="tape reveal">Prevenzione</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Come mantenere il controllo</h2>
     <div class="grid4 reveal d1" style="margin-top:36px;">
@@ -289,7 +282,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 7 · EMPATHY ENVIRONMENT ============ -->
   <section class="slide">
-    <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="split">
       <div>
         <div class="tape sky reveal">Empathy Environment</div>
@@ -319,7 +311,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 8 · ACCESSIBILITÀ ============ -->
   <section class="slide">
-    <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="tape sky reveal">Accessibilità</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Progettare per tutti</h2>
     <div class="grid4 reveal d1" style="margin-top:36px;">
@@ -353,7 +344,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 9 · AMBIENTI ADATTIVI ============ -->
   <section class="slide tight-slide">
-    <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="tape sky reveal">Ambienti adattivi</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Sistemi che si adattano all'utente</h2>
     <p class="lead reveal d1" contenteditable="false" style="margin-bottom:28px;">I moderni sistemi operativi e le piattaforme includono funzioni di adattività: non devono essere attivate dallo sviluppatore ma rispettate. Progettare bene significa <em class="sky">non romperle</em>.</p>
@@ -394,7 +384,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 10 · COS'È LO SMART WORKING ============ -->
   <section class="slide">
-    <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="split">
       <div>
         <div class="tape gold reveal">Smart Working</div>
@@ -429,7 +418,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 11 · STRUMENTI SMART WORKING ============ -->
   <section class="slide">
-    <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="tape gold reveal">Strumenti</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Il kit dello smart worker</h2>
     <div class="grid3 reveal d1" style="margin-top:36px;">
@@ -469,7 +457,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 12 · VANTAGGI E SVANTAGGI SW ============ -->
   <section class="slide">
-    <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="split even">
       <div class="stack">
         <div class="tape gold reveal">Vantaggi</div>
@@ -513,7 +500,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 13 · SICUREZZA SMART WORKING ============ -->
   <section class="slide tight-slide">
-    <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="tape red reveal">Sicurezza</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Proteggere i dati aziendali da casa</h2>
     <div class="grid2 reveal d1" style="margin-top:36px;align-items:start;">
@@ -556,7 +542,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 14 · CAMBIAMENTI NELLA SOCIETÀ ============ -->
   <section class="slide tight-slide">
-    <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="tape teal reveal">Ricadute sociali</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">La digitalizzazione cambia tutto</h2>
     <div class="grid3 reveal d1" style="margin-top:36px;">
@@ -596,7 +581,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 15 · OPPORTUNITÀ E SFIDE FUTURE ============ -->
   <section class="slide">
-    <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="split">
       <div>
         <div class="tape teal reveal">Sguardo al futuro</div>
@@ -631,7 +615,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 16 · CLOSING ============ -->
   <section class="slide closing">
-    <div class="deck-tab">SOCIETÀ · M10</div>
     <div class="center" style="align-items:center;text-align:center;">
       <div class="eyebrow reveal gold">Fine Modulo 10 🎓</div>
       <h2 class="h-mega reveal" style="margin-top:10px;" contenteditable="false">Informati,<br><em class="gold">consapevoli, liberi.</em></h2>

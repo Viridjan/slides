@@ -1,0 +1,313 @@
+Intelligenza Artificiale · IA_03 — LLM: Large Language Models
+=============================================================
+
+--- Slide 1 ---
+Intelligenza Artificiale 
+ LLM 
+spiegati 
+ Cos'è un Large Language Model, come funziona davvero — e perché molte cose che "sa" sull'IA sono sbagliate. 
+ 
+ IA_03 Large Language Models 
+ 
+ 
+ 
+ 🧠
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa vedremo 
+ 
+ 
+ Cosa sono gli LLM — definizione, architettura transformer, NLP 
+ Caso studio — un testo generato da IA su se stessa: quanti errori contiene? 
+ Analisi degli errori — 4 inesattezze tipo nel testo IA e cosa ci insegnano 
+ 
+ 
+ Come funziona un LLM — prompt → token → nodi → risposta 
+ Cosa un LLM non fa — capire, imparare, ragionare (nel senso umano) 
+ Usare gli LLM bene — verificare, iterare, non fidarsi ciecamente
+
+--- Slide 3 ---
+Definizione 
+ Large Language Models 
+ Modelli di IA basati su reti neurali addestrati su enormi quantità di testo — per imparare le relazioni matematiche tra parole . 
+ 
+ 🔑 Transformer 
+ L'architettura alla base di quasi tutti gli LLM moderni. Usa "meccanismi di attenzione" per capire il contesto di ogni parola rispetto alle altre nel testo. 
+ 
+ 
+ 
+ 
+ 📚 
+ Dati di addestramento 
+ Miliardi di pagine web, libri, articoli scientifici, codice. GPT-4 è stato addestrato su oltre un trilione di token. 
+ 
+ 
+ 🎯 
+ Obiettivo del training 
+ Prevedere la parola (token) successiva, data una sequenza. Semplice come obiettivo — potente come risultato. 
+ 
+ 
+ ⚙️ 
+ Parametri 
+ GPT-4 ha ~1.8 trilioni di parametri. Ogni parametro è un numero che codifica una relazione tra concetti.
+
+--- Slide 4 ---
+Caso studio 
+ Questo testo è corretto ? 
+ 
+ "I Large Language Models (LLM) sono modelli di intelligenza artificiale basati su reti neurali profonde specializzate nell'elaborazione del linguaggio naturale (NLP). Sono addestrati su enormi quantità di testo per apprendere le relazioni tra parole, frasi e concetti, permettendo loro di comprendere il significato implicito…"
+ 
+ 
+ 🔍 Fonte 
+ Testo generato con Perplexity.ai chiedendogli di spiegare se stesso. Contiene almeno 4 inesattezze. Le analizziamo nelle prossime slide.
+
+--- Slide 5 ---
+Errore 1 / 4 
+ "Reti neurali profonde " 
+ 
+ "…basati su reti neurali profonde specializzate nell'elaborazione del linguaggio naturale…"
+ 
+ 
+ ❌ Perché è sbagliato 
+ "Profonde" è il risultato di un'allucinazione: il modello ha associato LLM con "deep learning" e ha tradotto "deep" come "profonde" nel contesto sbagliato. 
+ 
+ 
+ 
+ 
+ ✓ Corretto 
+ Deep Learning 
+ Si chiama "deep" perché usa molti strati (layers) nella rete neurale — non perché i neuroni siano "profondi" in senso concettuale. 
+ 
+ 
+ 🔑 
+ Gli LLM usano transformer 
+ Non tutte le reti neurali profonde sono transformer. Gli LLM sono una famiglia specifica basata su architettura transformer — definirli solo "profondi" è impreciso.
+
+--- Slide 6 ---
+Errore 2 / 4 
+ LLM " comprende "? 
+ 
+ "…gli LLM possono comprendere il significato implicito, lo stile e il contesto…"
+ 
+ 
+ ❌ Perché è sbagliato 
+ Un LLM non "comprende" nulla. Calcola relazioni statistiche tra token. Questo è fondamentalmente diverso dalla comprensione umana. 
+ 
+ 
+ 
+ 
+ 🖥️ 
+ L'analogia del computer 
+ Dire che un LLM "comprende il concetto di pennarello" è come dire che un computer "capisce il giallo" perché lo rappresenta correttamente come #ffff00 . 
+ 
+ 
+ 💡 Differenza chiave 
+ L'LLM produce output che sembra comprensione — perché ha visto milioni di esempi di testo umano su quello stesso argomento. Ma non ha modello del mondo interno.
+
+--- Slide 7 ---
+Errore 3 / 4 
+ LLM " impara " il linguaggio? 
+ 
+ "…un LLM è un modello AI che 'impara' come funziona il linguaggio umano leggendo e analizzando grandi testi…"
+ 
+ 
+ ❌ Perché è sbagliato 
+ Un LLM non impara come funziona il linguaggio. Impara la relazione matematica tra token — quali sequenze di parole tendono ad apparire insieme. 
+ 
+ 
+ 
+ 
+ 📊 
+ Cosa fa davvero 
+ Il modello ottimizza una funzione matematica: dato il testo precedente, quale token viene dopo con la maggiore probabilità? 
+ 
+ 
+ 🎲 
+ Generazione caotica 
+ La generazione dell'output contiene un elemento stocastico (casuale). Il risultato sembra logico, ma è il prodotto di calcoli probabilistici — non di "pensiero".
+
+--- Slide 8 ---
+Errore 4 / 4 
+ NLP — allucinazione finale 
+ 
+ "…l'NLP è la tecnologia che consente ai computer di 'parlare' e capire il linguaggio umano in modo naturale e utile."
+ 
+ 
+ ❌ Perché è sbagliato 
+ L'NLP non "parla" — elabora. La frase confonde NLP con gli LLM stessi, mescolando concetti diversi in modo da sembrare corretto ma risultare privo di senso tecnico. 
+ 
+ 
+ 
+ 
+ ✓ NLP — definizione corretta 
+ Natural Language Processing 
+ Branca dell'IA che permette ai computer di elaborare testo e parlato umano. Include tokenizzazione, analisi sintattica, riconoscimento di entità, sentiment analysis — e molto altro oltre alla generazione di testo. 
+ 
+ 
+ 🔗 NLP ≠ LLM 
+ Gli LLM sono uno strumento NLP. Ma l'NLP esiste da decenni ed include sistemi molto più semplici: correttori ortografici, filtri spam, traduttori statistici.
+
+--- Slide 9 ---
+Lezione pratica 
+ Verificare sempre l'output 
+ Un LLM può generare testo scorretto con la stessa fluidità e sicurezza con cui genera testo corretto. Il tono sicuro non è garanzia di accuratezza. 
+ 
+ 
+ ⚠️ 
+ Allucinazioni 
+ Il modello può inventare fatti, citazioni, riferimenti bibliografici, nomi di persone o date — con completa sicurezza apparente. 
+ 
+ 
+ 🔍 
+ Cosa fare 
+ Usa gli LLM come punto di partenza, non come fonte primaria. Verifica le affermazioni importanti su fonti indipendenti. 
+ 
+ 
+ 🎓 
+ Valore didattico 
+ Far trovare agli studenti gli errori in un testo IA è uno degli esercizi di pensiero critico più efficaci — e coinvolgenti.
+
+--- Slide 10 ---
+Meccanismo interno 
+ Come funziona un LLM ? 
+ Tutto inizia con il prompt — il testo che scrivi all'LLM. È l'input che guida tutta la generazione successiva. 
+ 
+ ✍️ Prompt 
+ → 
+ 🔪 Tokenizzazione 
+ → 
+ 🕸️ Rete neurale 
+ → 
+ 📤 Output 
+ 
+ 
+ 💬 Il prompt è tutto 
+ La qualità del prompt determina la qualità della risposta. Un prompt vago → risposta vaga. Un prompt dettagliato con contesto → risposta utile.
+
+--- Slide 11 ---
+Passo 1 
+ Tokenizzazione 
+ Il prompt viene spezzato in token — pacchetti più piccoli del testo originale. 
+ Un token non corrisponde a una parola: può essere una sillaba, un simbolo, una parola intera o una sequenza comune. "gatto" = 1 token. "intelligenza" = 3+ token. 
+ 
+ 📐 Perché i token? 
+ Lavorare su token invece di parole intere permette di gestire lingue diverse, parole nuove e contesti tecnici senza vocabolario fisso. 
+ 
+ 
+ 
+ 
+ Esempio: 
+ "Come funziona un LLM?" 
+ ↓ tokenizzazione 
+ 
+ "Come" 
+ " fun" 
+ "ziona" 
+ " un" 
+ " LL" 
+ "M" 
+ "?"
+
+--- Slide 12 ---
+Passo 2 
+ Reti di nodi 
+ Ogni token viene inviato alla rete neurale. I nodi rispondono ai token e si inviano segnali a vicenda — come neuroni nel cervello. 
+ Il processo si propaga attraverso tutti gli strati della rete, trasformando il segnale ad ogni passaggio, finché l'LLM produce un output finale. 
+ 
+ ⚡ Velocità 
+ Questo processo avviene in millisecondi grazie a GPU potentissime che eseguono miliardi di operazioni matematiche in parallelo. 
+ 
+ 
+ 
+ 
+ TOKEN INPUT 
+
+ ↓
+
+ nodi strato 1 
+
+ ↓
+
+ nodi strato 2 
+
+ ↓
+
+ nodi strato 3… 
+
+ ↓
+
+ LLM soddisfatto? 
+
+ ↓
+
+ OUTPUT TOKEN
+
+--- Slide 13 ---
+Passo 3 
+ L'LLM si interroga sul prompt 
+ Nella maggior parte dei modelli moderni, quando fornisci un prompt l'IA prima chiede a se stessa cosa significhi quel prompt — prima di rispondere. 
+ 
+ 
+ 🤔 
+ Chain of thought 
+ Tecnica in cui il modello genera un "ragionamento" intermedio prima della risposta finale. Migliora significativamente l'accuratezza su problemi complessi. 
+ 
+ 
+ 🔄 
+ Attenzione (Attention) 
+ Il meccanismo transformer pesa ogni parola del prompt rispetto alle altre: quali parti sono più importanti per capire il contesto della richiesta? 
+ 
+ 
+ 
+ 🎯 Risultato 
+ L'output non è una ricerca in un database — è una sequenza di token generata token per token, ognuno influenzato da tutti i precedenti.
+
+--- Slide 14 ---
+Miti da sfatare 
+ Cosa un LLM non fa 
+ 
+ 
+ 🧠 
+ Non capisce 
+ Non ha un modello interno del mondo. Non sa cosa sia un cane — sa che "cane" è statisticamente vicino a "zampe", "abbaiare", "animale domestico". 
+ 
+ 
+ 📖 
+ Non impara in conversazione 
+ Quello che scrivi non modifica i pesi del modello. La "memoria" è solo il contesto della conversazione corrente — si azzera alla chiusura. 
+ 
+ 
+ 🌐 
+ Non naviga in tempo reale 
+ Ha una data di taglio. Non conosce notizie recenti a meno che non abbia accesso a strumenti di ricerca web — non per default. 
+ 
+ 
+ 🎭 
+ Non è neutro 
+ Riflette i bias presenti nei dati di addestramento — ideologici, culturali, linguistici. Non è una fonte oggettiva di verità.
+
+--- Slide 15 ---
+Verifica veloce 
+ Metti alla prova le tue conoscenze 
+ 
+ 
+ Cos'è un token? Perché gli LLM usano i token invece delle parole intere? 
+ Perché dire che un LLM "comprende" il significato è tecnicamente sbagliato? 
+ Cos'è un'allucinazione in un LLM? Fai un esempio concreto. 
+ 
+ 
+ Qual è la differenza tra NLP e LLM? Uno include l'altro? 
+ Cosa succede ai pesi del modello mentre chatti con ChatGPT? 
+ Perché un testo generato da IA su un argomento tecnico può sembrare corretto ma contenere errori gravi?
+
+--- Slide 16 ---
+Fine IA_03 🧠 
+ Non magia.
+ Matematica. 
+ 
+ Capire come funziona un LLM non riduce la sua utilità — la amplifica . Chi conosce i limiti dello strumento lo usa meglio di chi lo tratta come oracolo.
+ 
+ 
+ ← IA_02 · Esercizio 
+ ↩ Indice del corso

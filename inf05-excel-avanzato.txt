@@ -1,0 +1,288 @@
+Fogli di calcolo · F02 — Analizzare, condividere e cercare dati
+===============================================================
+
+--- Slide 1 ---
+F02 — Analisi e ricerca dati 
+ Analizzare,
+ condividere 
+e cercare 
+ Tabelle, filtri, pivot, collaborazione e funzioni di ricerca: CERCA.ORIZZ, CONFRONTA e INDICE. 
+ F02 Avanzato 
+ 
+ 🔎
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa impareremo 
+ 
+ 01 Tabelle, ordinamento e filtri 
+ 02 Tabelle pivot 
+ 03 Funzioni avanzate e suggerimenti 
+ 04 Condivisione e automazioni 
+ 05 CERCA.ORIZZ 
+ 06 CONFRONTA 
+ 07 INDICE 
+ 08 INDICE + CONFRONTA
+
+--- Slide 3 ---
+Organizzare i dati 
+ Tabelle, ordinamento e filtri 
+ 
+ 📋 Tabelle Organizzano grandi quantità di dati. Usa intestazioni chiare e colori alternati per leggere meglio. 
+ 🔤 Ordinamento Riordina i dati in ordine alfabetico, numerico o per data, senza riscrivere la tabella. 
+ 🔎 Filtri Mostrano solo le righe che rispettano una condizione: una categoria, una città, un prezzo minimo. 
+ 
+ Insieme sono potentissimi Filtra per categoria, ordina per data e leggi al volo ciò che ti serve senza toccare i dati originali.
+
+--- Slide 4 ---
+A B C D 
+ 1 Mese Categoria Vendite Totale 
+ 2 Gennaio Prodotti 42 1200 
+ 3 Gennaio Servizi 31 1850 
+ 4 Febbraio Prodotti 51 1480 
+ 5 Febbraio Servizi 29 1760 
+ 
+ 
+ Strumento avanzato 
+ Le tabelle pivot 
+ Riassumono automaticamente grandi quantità di dati, senza modificare quelli originali. Servono per creare statistiche e report al volo. 
+ Con una pivot puoi vedere vendite mese per mese, clienti per categoria o incassi per servizio, riorganizzando i dati a piacere.
+
+--- Slide 5 ---
+Per saperne di più 
+ Funzioni avanzate 
+ Quando i fogli crescono, esistono funzioni più potenti. Non servono tutte subito: sono strumenti da aggiungere quando il problema lo richiede. 
+ 
+ FILTER Estrae solo i dati che rispettano una condizione, aggiornandosi da solo. 
+ CERCA.VERT Cerca un valore dentro una tabella verticale. 
+ ARRAYFORMULA Applica una formula a un'intera colonna in un colpo solo. 
+ 
+ Idea semplice Nomi spaventosi, obiettivo pratico: cercare , filtrare e ripetere calcoli in automatico.
+
+--- Slide 6 ---
+Metodo 
+ Non serve impararle a memoria 
+ Nessuno ricorda tutte le formule. Il programma stesso ti aiuta: mentre scrivi suggerisce le funzioni e mostra come usarle. 
+ Quando non sai come fare una cosa, descrivi il problema online: “come sommare solo celle sopra una soglia”. Saper cercare vale più che sapere tutto a memoria. 
+ 
+ 
+ Suggerimento formula 
+ =SOM 
+ SOMMA 
+SOMMA.SE
+SOMMA.PIÙ.SE
+
+--- Slide 7 ---
+Lavorare meglio 
+ Condividere e automatizzare 
+ 
+ 🤝 Collaborazione in tempo reale Con Google Sheets puoi condividere un foglio dando permesso di modificare, commentare o solo vedere . 
+ ⚙️ Macro e automazioni Le macro registrano azioni ripetitive per rifarle con un clic. Apps Script può automatizzare flussi più complessi. 
+ 
+ Attenzione alla privacy Prima di condividere o pubblicare un foglio, controlla che non contenga dati personali dei clienti.
+
+--- Slide 8 ---
+Mappa mentale 
+ Tre funzioni, tre ruoli 
+ 
+ CERCA.ORIZZ Cerca un valore nella prima riga di una tabella e restituisce un dato da una riga sotto. 
+ CONFRONTA Non restituisce il dato: restituisce la posizione del valore dentro un intervallo. 
+ INDICE Prende il valore che sta in una certa riga e colonna di una tabella. 
+ 
+ 
+ Idea chiave 
+ CERCA.ORIZZ è comoda quando la tabella è orizzontale. INDICE + CONFRONTA è più flessibile quando la tabella cresce o cambia ordine.
+
+--- Slide 9 ---
+CERCA.ORIZZ · 1 
+ A cosa serve CERCA.ORIZZ 
+ Cerca un valore nella prima riga di una tabella orizzontale. Quando lo trova, restituisce il valore nella stessa colonna ma in una riga scelta. 
+ =CERCA.ORIZZ( "Febbraio" ; B1:D3; 3 ; FALSO) 
+ 
+ 
+ A B C D 
+ 1 Mese Gennaio Febbraio Marzo 
+ 2 Ordini 44 51 38 
+ 3 Incasso 1200 1480 980
+
+--- Slide 10 ---
+CERCA.ORIZZ · 2 
+ Sintassi 
+ =CERCA.ORIZZ( valore ; tabella ; indice_riga ; [intervallo] ) 
+ 
+ valore Quello da cercare nella prima riga: un mese, un codice, un nome prodotto. 
+ tabella Intervallo che contiene intestazioni sopra e dati sotto. 
+ indice_riga Numero della riga da cui recuperare il risultato, contando dentro la tabella. 
+ FALSO Usalo quasi sempre: richiede corrispondenza esatta. VERO è approssimato e rischioso.
+
+--- Slide 11 ---
+A B C D 
+ 1 SKU SKU101 SKU102 SKU103 
+ 2 Nome Pasta Riso Latte 
+ 3 Prezzo 1,20 2,10 1,40 
+ 
+ 
+ CERCA.ORIZZ · 3 
+ Esempio: nome da SKU 
+ Se i codici prodotto sono disposti in orizzontale, puoi cercare lo SKU in alto e recuperare il nome dalla seconda riga. 
+ =CERCA.ORIZZ("SKU102"; B1:D3; 2; FALSO) 
+ Risultato La formula restituisce Riso , perché SKU102 è nella colonna C e il nome è nella riga 2 della tabella.
+
+--- Slide 12 ---
+CERCA.ORIZZ · 4 
+ Errori da evitare 
+ 
+ Tabella verticale Se i valori da cercare stanno nella prima colonna, non usare CERCA.ORIZZ: serve una ricerca verticale. 
+ Indice riga sbagliato Se chiedi riga 3 ma volevi riga 2, ottieni un dato corretto ma non quello desiderato. 
+ VERO senza volerlo L'approssimazione può restituire risultati inattesi. Per codici e nomi usa sempre FALSO. 
+ Intestazioni duplicate Se due colonne hanno lo stesso titolo, la formula trova la prima e ignora l'altra.
+
+--- Slide 13 ---
+CERCA.ORIZZ · 5 
+ Quando usarla davvero 
+ 
+ Mesi in colonna? No: se i mesi sono verticali, CERCA.ORIZZ non è lo strumento giusto. 
+ Mesi in riga? Sì: cerca il mese nella riga superiore e recupera il valore sotto. 
+ Tabella stabile? Va bene se la tabella non cambia spesso struttura. 
+ 
+ Regola pratica ORIZZ = intestazioni in alto, dati sotto. Se devi cercare in qualsiasi direzione, pensa a INDICE + CONFRONTA.
+
+--- Slide 14 ---
+CONFRONTA · 1 
+ A cosa serve CONFRONTA 
+ CONFRONTA cerca un valore in una riga o colonna e restituisce la sua posizione numerica dentro l'intervallo. 
+ =CONFRONTA( "Febbraio" ; B1:D1; 0) 
+ 
+ 
+ B C D 
+ 1 Gennaio Febbraio Marzo 
+ posizione 1 2 3
+
+--- Slide 15 ---
+CONFRONTA · 2 
+ Sintassi 
+ =CONFRONTA( valore ; intervallo ; tipo ) 
+ 
+ Argomento Significato 
+ valore Elemento da cercare: "Riso", SKU102, 1480, una data. 
+ intervallo Una sola riga o una sola colonna. Non una tabella intera. 
+ tipo 0 Corrispondenza esatta. È il valore da usare quasi sempre. 
+ tipo 1 / -1 Ricerca approssimata su dati ordinati. Utile, ma più delicata.
+
+--- Slide 16 ---
+A B 
+ 1 Prodotto Prezzo 
+ 2 Pasta 1,20 
+ 3 Riso 2,10 
+ 4 Latte 1,40 
+ 
+ 
+ CONFRONTA · 3 
+ Esempio: posizione di un prodotto 
+ La formula cerca "Riso" nella lista prodotti e restituisce la posizione dentro l'intervallo A2:A4. 
+ =CONFRONTA("Riso"; A2:A4; 0) 
+ Risultato Restituisce 2 : dentro A2:A4, Riso è il secondo elemento.
+
+--- Slide 17 ---
+CONFRONTA · 4 
+ Corrispondenza esatta o approssimata? 
+ 
+ 0 Esatta. Cerca proprio quel valore. Usala per codici, nomi, mesi, categorie. 
+ 1 Trova il valore più grande minore o uguale. Richiede dati ordinati crescenti. 
+ -1 Trova il valore più piccolo maggiore o uguale. Richiede dati ordinati decrescenti. 
+ 
+ Attenzione Se i dati non sono ordinati, 1 e -1 possono dare risultati sbagliati senza avvisarti.
+
+--- Slide 18 ---
+CONFRONTA · 5 
+ Errori da evitare 
+ 
+ Intervallo 2D CONFRONTA vuole una riga o una colonna. Se passi una tabella intera, la formula non è chiara o fallisce. 
+ Spazi nascosti "Riso" e "Riso " non sono uguali. Gli spazi finali rompono le corrispondenze esatte. 
+ Numero come testo 102 e "102" possono comportarsi diversamente. Mantieni coerenti i formati. 
+ #N/D Significa: valore non trovato. Non è sempre un errore tecnico; spesso il dato manca davvero.
+
+--- Slide 19 ---
+INDICE · 1 
+ A cosa serve INDICE 
+ INDICE recupera il valore che si trova a un certo incrocio di riga e colonna dentro una tabella. 
+ =INDICE( B2:D4 ; 2 ; 3 ) 
+ 
+ 
+ B C D 
+ 2 Pasta 1,20 OK 
+ 3 Riso 2,10 OK 
+ 4 Latte 1,40 Scorta bassa
+
+--- Slide 20 ---
+INDICE · 2 
+ Sintassi 
+ =INDICE( matrice ; riga ; [colonna] ) 
+ 
+ matrice La tabella o intervallo da cui vuoi prendere il dato. 
+ riga Numero della riga dentro la matrice, non necessariamente nel foglio. 
+ colonna Numero della colonna dentro la matrice. Può mancare se l'intervallo ha una sola colonna. 
+ 
+ Importante INDICE non cerca. INDICE recupera. Per trovare riga o colonna in automatico, lo abbini a CONFRONTA.
+
+--- Slide 21 ---
+A B C 
+ 1 Prodotto Prezzo Scorta 
+ 2 Pasta 1,20 35 
+ 3 Riso 2,10 18 
+ 4 Latte 1,40 9 
+ 
+ 
+ INDICE · 3 
+ Esempio: dato da riga e colonna 
+ Nell'intervallo A2:C4, il prezzo del Riso è alla riga 2 e colonna 2. 
+ =INDICE(A2:C4; 2; 2) 
+ Risultato La formula restituisce 2,10 .
+
+--- Slide 22 ---
+INDICE · 4 
+ INDICE + CONFRONTA 
+ Questa combinazione cerca riga e colonna in automatico. È più flessibile di una ricerca fissa perché non dipende dall'ordine delle colonne. 
+ =INDICE(B2:C4; CONFRONTA("Riso"; A2:A4; 0); CONFRONTA("Prezzo"; B1:C1; 0)) 
+ 
+ Prima CONFRONTA Trova la riga di Riso nella lista prodotti. 
+ Seconda CONFRONTA Trova la colonna Prezzo tra le intestazioni.
+
+--- Slide 23 ---
+INDICE · 5 
+ Errori da evitare 
+ 
+ Numeri fuori intervallo Se chiedi riga 5 ma la matrice ha 3 righe, INDICE non può restituire nulla. 
+ Contare dal foglio La riga è relativa alla matrice scelta, non al numero assoluto della riga nel foglio. 
+ Intervalli disallineati Se INDICE usa B2:C4 ma CONFRONTA cerca in A2:A10, le posizioni non corrispondono. 
+ Formula troppo lunga Se diventa illeggibile, separa i passaggi o usa celle di appoggio.
+
+--- Slide 24 ---
+Metodo 
+ Quale funzione scelgo? 
+ 
+ Situazione Scelta consigliata 
+ Intestazioni in alto, tabella piccola CERCA.ORIZZ. 
+ Voglio sapere dove si trova un valore CONFRONTA. 
+ Conosco riga e colonna INDICE. 
+ Devo cercare riga e colonna in modo flessibile INDICE + CONFRONTA.
+
+--- Slide 25 ---
+Verifica veloce 
+ È tutto chiaro? 
+ Prova a rispondere a mente: 
+ 
+ 1. Che differenza c'è tra ordinare e filtrare i dati? 
+ 2. A cosa serve una tabella pivot? 
+ 3. Che cosa restituisce CONFRONTA: il valore o la posizione? 
+ 4. Perché INDICE + CONFRONTA è più robusto quando le colonne cambiano ordine?
+
+--- Slide 26 ---
+Fine F02 
+ Dati
+ trovati. 
+ Ora sai analizzare, condividere e cercare dati con strumenti più potenti: filtri, pivot, automazioni e formule di ricerca. 
+ 
+ Prossimo → F03 · Formule robuste 
+ ↩ Indice del corso 
+ 26 slide completate

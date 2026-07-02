@@ -1,0 +1,184 @@
+Game Design · GD_05 — Difficoltà e Progressione
+===============================================
+
+--- Slide 1 ---
+Game Design 
+ Difficoltà
+ e Progressione 
+ Come dosare la sfida perché il giocatore non si annoi né si arrenda — curve di apprendimento, sistemi di progressione, tutorial e puzzle. 
+ 
+ GD_05 Sfida & Crescita 
+ 
+ 
+ 
+ 📈
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa vedremo 
+ 
+ 
+ Curva di apprendimento e flow — la zona ideale tra noia e frustrazione 
+ Sistemi di progressione — XP, livelli, sblocchi e ricompense 
+ Livelli di difficoltà — cosa cambia davvero tra easy e hard 
+ 
+ 
+ Upgrade e skin — progressione di potenza vs progressione estetica 
+ New Game Plus — rigiocare con i progressi e più sfida 
+ Tutorial e puzzle — insegnare e mettere alla prova senza annoiare
+
+--- Slide 3 ---
+Fondamenta 
+ La curva di apprendimento 
+ Quanto è ripido imparare a giocare? Troppo ripida → frustrazione e abbandono. Troppo piatta → noia. Il designer modella questa curva, slide dopo slide di gioco. 
+ 
+ ⚖️ L'equilibrio 
+ La difficoltà deve crescere insieme all'abilità del giocatore: mai troppo avanti, mai troppo indietro. 
+ 
+ 
+ 
+ 📉 Troppo facile Nessuna sfida, nessuna soddisfazione: il giocatore si annoia e smette di giocare. 
+ 📈 Troppo difficile Muri di frustrazione: il giocatore si sente incapace e abbandona il gioco.
+
+--- Slide 4 ---
+Teoria 
+ Il flow 
+ Il "canale del flusso" di Mihály Csíkszentmihályi : la zona ideale tra ansia (sfida > abilità) e noia (abilità > sfida). Il gioco deve tenerti nel flow alzando la sfida man mano che migliori. 
+ 
+ 🌊 Flow 
+ Immersione totale, perdita del senso del tempo. È l'obiettivo di ogni buon design. 
+ 
+ 
+ 
+ 😰 Ansia La sfida supera l'abilità: stress, panico, senso di impotenza. 
+ 🌊 Flow Sfida e abilità in equilibrio: concentrazione perfetta, tutto scorre. 
+ 😴 Noia L'abilità supera la sfida: la mente vaga, il gioco non tiene più.
+
+--- Slide 5 ---
+Strumenti 
+ Tool vs Engine 
+ Nello sviluppo si parla di strumenti e di motori : non sono la stessa cosa, e confonderli porta a scegliere male. 
+ 
+ 🧰 La scelta giusta 
+ Capire la differenza aiuta a scegliere l'attrezzo giusto per il progetto: non serve un motore completo per fare una cosa sola. 
+ 
+ 
+ 
+ 🔧 Tool / strumento Fa una cosa specifica: un editor di livelli, un generatore di suoni, un tool di animazione. 
+ 🏗️ Engine / motore Sistema completo per costruire giochi: grafica, fisica, audio, script. Unity, Unreal, Godot.
+
+--- Slide 6 ---
+Motivazione 
+ Sistemi di progressione 
+ Dare al giocatore un senso di crescita : punti esperienza → livelli → sblocchi. La progressione è il filo che motiva a continuare, sessione dopo sessione. 
+ 
+ 🧠 Perché funziona 
+ Il cervello ama il progresso misurabile e le ricompense: ogni barra che si riempie è una piccola promessa mantenuta. 
+ 
+ 
+ 
+ ⭐ XP e livelli Ogni azione produce esperienza; accumularla fa salire di livello e misura la crescita. 
+ 🔓 Sblocchi Nuove abilità, aree, modalità: il gioco si apre a poco a poco davanti a te. 
+ 🎁 Ricompense Oggetti, valuta, riconoscimenti: il premio concreto che chiude il ciclo di sforzo.
+
+--- Slide 7 ---
+Opzioni 
+ Livelli di difficoltà 
+ Easy, medium, hard: dietro le etichette ci sono scelte precise di design. Cosa cambia davvero? 
+ 
+ 🟢 Easy Più risorse, nemici deboli, più salute: spazio per imparare senza punizioni. 
+ 🟡 Medium Il bilanciamento di riferimento: l'esperienza così come il designer l'ha "intesa". 
+ 🔴 Hard Nemici aggressivi, meno risorse, IA migliore: ogni errore si paga caro. 
+ 
+ 
+ ⚠️ Non solo numeri 
+ Un buon hard non è solo "più danni": cambia il comportamento dei nemici, non solo i loro numeri.
+
+--- Slide 8 ---
+Due binari 
+ Upgrade e skin 
+ Due tipi di progressione che convivono: una cambia quanto sei forte , l'altra cambia come appari . 
+ 
+ 💰 Monetizzazione 
+ Le skin monetizzano senza rompere il bilanciamento: " pay to look ", non "pay to win". 
+ 
+ 
+ 
+ ⚔️ Upgrade Progressione di potenza: armi migliori, abilità nuove. Cambia il gameplay. 
+ 🎨 Skin Progressione estetica: aspetto e cosmetici. Non cambia il gameplay, ma dà espressione e status.
+
+--- Slide 9 ---
+Curve a confronto 
+ Esponenziale vs modulabile 
+ Come cresce la sfida nel tempo? Due filosofie opposte, con rischi e vantaggi diversi. 
+ 
+ 🎛️ Difficoltà dinamica 
+ La dynamic difficulty adatta la sfida in tempo reale al livello del giocatore, senza che se ne accorga. 
+ 
+ 
+ 
+ 📈 Esponenziale La sfida cresce sempre più ripida: emozionante, ma rischia il muro invalicabile che blocca tutti. 
+ 🎚️ Modulabile Il giocatore regola la difficoltà, oppure il gioco si adatta da solo: ognuno trova la propria curva.
+
+--- Slide 10 ---
+Rigiocabilità 
+ New Game Plus 
+ Ricominciare il gioco mantenendo i progressi — armi, livelli, abilità — ma con una sfida aumentata. Premia chi vuole rigiocare ed estende la vita del gioco. 
+ 
+ 
+ 
+ ➕ NG+ 
+ Esempio classico di contenuto ad alto valore e basso costo di sviluppo: si riusa quasi tutto, cambiando solo il bilanciamento. 
+ 
+ 🔄 Il secondo giro Il giocatore parte forte, il gioco risponde più duro: una curva nuova costruita su contenuti già visti.
+
+--- Slide 11 ---
+Onboarding 
+ Tutorial e onboarding 
+ I primi minuti decidono tutto: bisogna insegnare senza annoiare . Due strade molto diverse per farlo. 
+ 
+ 👻 La regola 
+ Il miglior tutorial è invisibile : il giocatore impara senza accorgersi che qualcuno gli sta insegnando. 
+ 
+ 
+ 
+ 📖 Tutorial esplicito Istruzioni dirette, popup, schermate di testo. Chiaro ma con un rischio concreto: la noia. 
+ 🎮 Tutorial integrato Impari giocando: il primo livello di Super Mario insegna tutto senza una parola.
+
+--- Slide 12 ---
+Puzzle design 
+ Il design del problema 
+ Un buon puzzle ha una soluzione non ovvia ma logica in retrospettiva — il momento "ma certo!". Né arbitrario, né banale. 
+ 
+ 🏅 Regola d'oro 
+ Il giocatore deve sentirsi intelligente , non ingannato. 
+ 
+ 
+ 
+ ❌ Puzzle cattivo Soluzione arbitraria, si risolve solo per prova ed errore: nessuna soddisfazione, solo sollievo. 
+ ✅ Puzzle buono Indizi equi e logica soddisfacente: la risposta era lì, bastava vederla.
+
+--- Slide 13 ---
+Attività 
+ Analizza la curva 
+ 
+ Scegli un gioco che hai finito. 
+ Dov'era troppo facile o troppo difficile ? In quali momenti sei uscito dal flow? 
+ Come ti premiava la progressione ? XP, sblocchi, upgrade, skin? 
+ Come cambieresti la curva di difficoltà ? Cosa renderesti più dolce o più ripido? 
+ 
+ 
+ 💡 Bonus 
+ Il tutorial ti ha annoiato o ti ha preso? Perché? Prova a capire se era esplicito o integrato.
+
+--- Slide 14 ---
+Fine GD_05 📈 
+ Né troppo.
+ Né troppo poco. 
+ 
+ La difficoltà perfetta non esiste in assoluto: esiste per quel giocatore, in quel momento . Il design tiene il giocatore sul filo tra noia e frustrazione — nel flow.
+ 
+ 
+ ← GD_04 · Feedback Sensoriale 
+ → GD_06 · Meccaniche e Interazione 
+ ↩ Indice del corso

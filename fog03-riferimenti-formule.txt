@@ -1,0 +1,427 @@
+Fogli di calcolo · F03 — Riferimenti, range e formule robuste
+=============================================================
+
+--- Slide 1 ---
+F03 — Formule robuste 
+ Riferimenti,
+ range 
+e LET 
+ Come scrivere formule più chiare: riferimenti relativi e assoluti, intervalli, nomi, tabelle e variabili locali. 
+ F03 Formule 
+ 
+ 🧮
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa impareremo 
+ 
+ 01 Formule semplici 
+ 02 SOMMA, MEDIA, MIN/MAX 
+ 03 CONTA.NUMERI e CONTA.SE 
+ 04 Riferimenti relativi e assoluti 
+ 05 Riferimenti misti 
+ 06 Range e intervalli 
+ 07 Nomi, tabelle e colonne 
+ 08 Riferimenti strutturati 
+ 09 LET e formule leggibili 
+ 10 Errori e buone abitudini
+
+--- Slide 3 ---
+Formule semplici 
+ Le funzioni base da conoscere 
+ Le formule semplici risolvono la maggior parte dei calcoli quotidiani: sommare, fare medie, trovare estremi e contare dati. 
+ 
+ SOMMA =SOMMA(A1:A10) Aggiunge valori. 
+ MEDIA =MEDIA(A1:A10) Calcola il valore medio. 
+ MIN / MAX =MAX(A1:A10) Trova minimo o massimo. 
+ CONTA.NUMERI =CONTA.NUMERI(A:A) Conta celle numeriche. 
+ CONTA.SE =CONTA.SE(...) Conta solo se una condizione è vera. 
+ 💡 Prima capisci queste. Poi le formule avanzate diventano combinazioni più leggibili.
+
+--- Slide 4 ---
+SOMMA · 1 
+ A cosa serve SOMMA 
+ SOMMA aggiunge tutti i numeri presenti in un intervallo. È la funzione più usata per totali, incassi, spese e quantità. 
+ =SOMMA( B2:B6 ) 
+ 
+ 
+ A B 
+ 1 Voce Importo 
+ 2 Creme 120 
+ 3 Shampoo 80 
+ 4 Colori 150 
+ 5 Gel 45 
+ 6 Accessori 35
+
+--- Slide 5 ---
+SOMMA · 2 
+ Sintassi ed esempi 
+ 
+ Range continuo =SOMMA(B2:B6) Somma tutte le celle da B2 a B6. 
+ Celle separate =SOMMA(B2;B4;B6) Somma solo le celle indicate. 
+ Range multipli =SOMMA(B2:B6;D2:D6) Somma due intervalli diversi. 
+ Colonna intera =SOMMA(B:B) Utile se la colonna contiene solo valori coerenti.
+
+--- Slide 6 ---
+SOMMA · 3 
+ Esempio: totale vendite 
+ Se ogni riga è una vendita, SOMMA restituisce il totale del periodo. 
+ =SOMMA( Vendite[Importo] ) 
+ Con una tabella nominata, il range cresce quando aggiungi nuove righe. 
+ 
+ 
+ Risultato 120 + 80 + 150 + 45 + 35 = 430 
+ Quando usarla Totali di incassi, spese, ore lavorate, quantità vendute, giacenze.
+
+--- Slide 7 ---
+SOMMA · 4 
+ Errori da evitare 
+ Numeri scritti come testo Se una cella contiene "120 €" come testo, potrebbe non essere sommata correttamente. 
+ Range incompleto =SOMMA(B2:B6) ignora una nuova riga B7. 
+ 
+ 
+ Soluzione pratica 
+ Usa tabelle o range dinamici quando i dati crescono. Controlla sempre che i numeri siano davvero numeri, non testo.
+
+--- Slide 8 ---
+MEDIA · 1 
+ A cosa serve MEDIA 
+ MEDIA somma i valori e divide per quanti valori numerici ci sono. Serve per trovare un valore rappresentativo. 
+ =MEDIA( B2:B6 ) 
+ 
+ 
+ Prezzo medio Quanto spendono in media i clienti? 
+ Voto medio Qual è la media delle valutazioni? 
+ Tempo medio Quanto dura mediamente un servizio? 
+ Vendita media Quanto vale una vendita tipica?
+
+--- Slide 9 ---
+MEDIA · 2 
+ Sintassi ed esempi 
+ 
+ Base =MEDIA(B2:B6) Media dei numeri nell'intervallo. 
+ Celle separate =MEDIA(B2;B4;B6) Media solo di alcuni valori. 
+ Con colonna tabella =MEDIA(Vendite[Importo]) Più leggibile e più stabile. 
+ Celle vuote Le celle vuote non vengono contate nel denominatore.
+
+--- Slide 10 ---
+MEDIA · 3 
+ Esempio: scontrino medio 
+ Se hai una lista di importi, MEDIA ti dice quanto vale in media una vendita. 
+ =MEDIA( B2:B6 ) 
+ Con i valori 120, 80, 150, 45, 35 il risultato è 86 . 
+ 
+ 
+ Come leggerla 
+ La media è utile, ma può essere distorta da valori molto alti o molto bassi. Non racconta tutto da sola.
+
+--- Slide 11 ---
+MEDIA · 4 
+ Errori da evitare 
+ Media di categorie diverse Mescolare servizi da 10 minuti e trattamenti da 2 ore può dare una media poco utile. 
+ Zeri non voluti Uno zero conta nella media. Una cella vuota no. La differenza cambia il risultato. 
+ 
+ 
+ Controllo 
+ Prima di fidarti della media, guarda anche minimo e massimo: capisci subito se ci sono valori fuori scala.
+
+--- Slide 12 ---
+MIN / MAX · 1 
+ A cosa servono MIN e MAX 
+ MIN trova il valore più piccolo. MAX trova il valore più grande. Sono utili per scoprire estremi e anomalie. 
+ =MIN(B2:B6)
+=MAX(B2:B6) 
+ 
+ 
+ MIN Prezzo più basso, voto minimo, durata più breve. 
+ MAX Incasso più alto, voto massimo, quantità più grande.
+
+--- Slide 13 ---
+MIN / MAX · 2 
+ Sintassi ed esempi 
+ 
+ Minimo =MIN(B2:B6) Restituisce il valore più piccolo. 
+ Massimo =MAX(B2:B6) Restituisce il valore più grande. 
+ Con tabella =MAX(Vendite[Importo]) Leggibile e dinamico. 
+ Più range =MIN(B2:B6;D2:D6) Cerca il minimo in più intervalli.
+
+--- Slide 14 ---
+MIN / MAX · 3 
+ Esempio: controllare anomalie 
+ Se un importo massimo è molto più alto del solito, può essere un cliente importante oppure un errore di inserimento. 
+ =MAX( Vendite[Importo] ) 
+ 
+ 
+ Valore atteso Incassi tra 20 e 150 euro. 
+ Possibile errore Un valore da 1500 euro merita controllo: forse manca una virgola.
+
+--- Slide 15 ---
+MIN / MAX · 4 
+ Errori da evitare 
+ Testo ignorato MIN e MAX lavorano sui numeri. Valori scritti come testo possono falsare il controllo. 
+ Estremo senza contesto Il massimo dice qual è il valore più alto, non spiega perché è alto. 
+ 
+ 
+ Abbinamento utile 
+ Usa MIN, MAX e MEDIA insieme: hai subito una prima fotografia della distribuzione dei dati.
+
+--- Slide 16 ---
+CONTA.NUMERI · 1 
+ Contare le celle numeriche 
+ CONTA.NUMERI conta quante celle contengono numeri. Non somma i valori: conta le presenze numeriche. 
+ =CONTA.NUMERI( B:B ) 
+ 
+ 
+ Conta vendite Quanti importi sono stati registrati? 
+ Conta voti Quanti voti numerici sono presenti? 
+ Conta misure Quanti valori sono stati inseriti? 
+ Non conta testo Nomi, note e celle vuote non vengono conteggiati.
+
+--- Slide 17 ---
+CONTA.NUMERI · 2 
+ Sintassi ed esempi 
+ 
+ Intervallo =CONTA.NUMERI(B2:B100) Conta i numeri nell'intervallo. 
+ Colonna intera =CONTA.NUMERI(B:B) Conta tutti i numeri della colonna B. 
+ Più range =CONTA.NUMERI(B:B;D:D) Conta numeri in più colonne. 
+ Con tabella =CONTA.NUMERI(Vendite[Importo]) Conta gli importi inseriti.
+
+--- Slide 18 ---
+CONTA.NUMERI · 3 
+ Esempio: quante vendite? 
+ Se ogni importo corrisponde a una vendita, CONTA.NUMERI ti dice quante vendite sono state registrate. 
+ =CONTA.NUMERI( Vendite[Importo] ) 
+ 
+ 
+ Differenza da SOMMA 
+ SOMMA risponde "quanto in totale?". CONTA.NUMERI risponde "quanti valori numerici ci sono?".
+
+--- Slide 19 ---
+CONTA.NUMERI · 4 
+ Errori da evitare 
+ Codici numerici Un codice cliente come 00123 può essere contato come numero, anche se non è un valore da analizzare. 
+ Numeri come testo Se un importo è salvato come testo, CONTA.NUMERI potrebbe non contarlo. 
+ 
+ 
+ Controllo 
+ Usa il formato celle e l'allineamento per capire se il programma sta trattando i dati come numeri o come testo.
+
+--- Slide 20 ---
+CONTA.SE · 1 
+ Contare con una condizione 
+ CONTA.SE conta solo le celle che rispettano una regola: uguale a un testo, maggiore di un numero, contenente un valore specifico. 
+ =CONTA.SE( A2:A100 ;"Roma") 
+ 
+ 
+ Clienti di Roma Conta quante righe hanno città Roma. 
+ Vendite alte Conta quanti importi superano 100 euro. 
+ Stato pagato Conta quante fatture risultano "Pagato". 
+ Presenze Conta quante celle contengono "Presente".
+
+--- Slide 21 ---
+CONTA.SE · 2 
+ Sintassi ed esempi 
+ 
+ Uguale a testo =CONTA.SE(C:C;"Pagato") Conta le celle con testo Pagato. 
+ Maggiore di =CONTA.SE(B:B;">100") Conta valori superiori a 100. 
+ Minore o uguale =CONTA.SE(B:B;"<=50") Conta valori fino a 50. 
+ Con cella criterio =CONTA.SE(C:C;E1) Usa il criterio scritto in E1.
+
+--- Slide 22 ---
+CONTA.SE · 3 
+ Esempio: fatture pagate 
+ Se una colonna contiene lo stato della fattura, CONTA.SE conta quante righe hanno lo stato richiesto. 
+ =CONTA.SE( Fatture[Stato] ;"Pagato") 
+ 
+ 
+ Risultato Numero di fatture pagate. 
+ Uso pratico Dashboard rapide: pagate, aperte, in ritardo, annullate.
+
+--- Slide 23 ---
+CONTA.SE · 4 
+ Errori da evitare 
+ Criterio scritto male "pagato" e "Pagato " possono non essere equivalenti se ci sono spazi nascosti. 
+ Più condizioni CONTA.SE gestisce una condizione. Per più condizioni serve CONTA.PIÙ.SE . 
+ 
+ 
+ Regola pratica 
+ Standardizza i valori testuali con menu a tendina: eviti varianti come "pagata", "Pagato", "OK", "saldato".
+
+--- Slide 24 ---
+Coordinate 
+ Ogni cella ha un indirizzo 
+ Un foglio di calcolo è una griglia: le colonne usano lettere, le righe usano numeri. La cella B3 è l'incrocio tra colonna B e riga 3. 
+ Le formule non usano solo valori: usano indirizzi. Questo permette di aggiornare i risultati quando cambiano i dati. 
+ 
+ 
+ A B C 
+ 1 Prodotto Prezzo IVA 
+ 2 Crema 20 22% 
+ 3 Shampoo 12 22% 
+ 4 Gel 8 22%
+
+--- Slide 25 ---
+Copiare formule 
+ Riferimenti relativi e assoluti 
+ 
+ Tipo Esempio Cosa succede quando copi 
+ Relativo B2 Si sposta insieme alla formula: copiando in basso diventa B3 , poi B4 . 
+ Assoluto $B$2 Resta bloccato su colonna B e riga 2, anche se copi la formula altrove. 
+ Misto $B2 Blocca solo la colonna B, ma lascia cambiare la riga. 
+ Misto B$2 Blocca solo la riga 2, ma lascia cambiare la colonna. 
+ 
+ Idea chiave Il simbolo $ non indica denaro: indica cosa deve restare fermo quando la formula viene copiata.
+
+--- Slide 26 ---
+Esempio 
+ Quando serve $B$1 
+ Se l'aliquota IVA è scritta in una sola cella, tutte le formule devono puntare sempre lì. 
+ =B3*(1+ $B$1 ) 
+ Copiando la formula in basso, il prezzo cambia da B3 a B4 , ma l'IVA resta sempre $B$1 . 
+ 
+ 
+ Senza dollari =B3*(1+B1) 
+Copiando in basso diventa =B4*(1+B2) : errore. 
+ Con dollari =B3*(1+$B$1) 
+Copiando in basso diventa =B4*(1+$B$1) : corretto.
+
+--- Slide 27 ---
+Intervalli 
+ Range: più celle in una volta 
+ Un range è un intervallo di celle. Si scrive indicando la prima e l'ultima cella separate dai due punti. 
+ =SOMMA( B2:B10 ) 
+ Significa: somma tutte le celle da B2 a B10, estremi inclusi. 
+ 
+ 
+ Colonna B:B 
+tutta la colonna B. 
+ Riga 2:2 
+tutta la riga 2. 
+ Blocco A2:D20 
+rettangolo di celle. 
+ Più range SOMMA(B2:B5;D2:D5) 
+due intervalli separati.
+
+--- Slide 28 ---
+Chiarezza 
+ Nominare celle e range 
+ Puoi dare un nome a una cella o a un intervallo: la formula diventa più leggibile e meno fragile. 
+ =Prezzo*(1+ AliquotaIVA ) 
+ 
+ 
+ Prima =B3*(1+$B$1) 
+Funziona, ma devi ricordare cosa contiene B1. 
+ Dopo =B3*(1+AliquotaIVA) 
+La formula racconta cosa sta facendo. 
+ Nomi buoni Usa nomi senza spazi, chiari e stabili: AliquotaIVA , SogliaSconto , Listino2026 .
+
+--- Slide 29 ---
+Tabelle 
+ Nominare le colonne 
+ La prima riga di una tabella deve contenere intestazioni chiare. Non scrivere "dato1", "varie" o "colonna nuova". 
+ 
+ A B C D 
+ 1 Data Cliente Servizio Importo 
+ 2 12/03 Rossi Taglio 25 
+ 3 13/03 Bianchi Colore 55 
+ 
+ Perché conta Le intestazioni permettono filtri, tabelle pivot, riferimenti strutturati e formule più leggibili.
+
+--- Slide 30 ---
+Riferimenti strutturati 
+ Usare i nomi delle colonne 
+ In una tabella, puoi riferirti a una colonna con il suo nome invece che con lettere e numeri. 
+ =SOMMA( Vendite[Importo] ) 
+ La formula somma la colonna Importo della tabella Vendite . Se aggiungi righe, la tabella si espande. 
+ 
+ 
+ Più chiaro Vendite[Importo] dice cosa stai sommando. 
+ Più stabile Se la tabella cresce, il riferimento include anche le nuove righe. 
+ Più controllabile Riduce formule misteriose come =SOMMA(D2:D487) . 
+ Più professionale Aiuta chi apre il file dopo di te a capirlo rapidamente.
+
+--- Slide 31 ---
+Variabili locali 
+ La funzione LET 
+ LET permette di dare un nome temporaneo a parti della formula. È utile quando una formula ripete più volte lo stesso calcolo. 
+ 
+ 
+ Senza LET 
+ =SE((B2-C2)/B2>0,2;"OK";"BASSO") 
+ La percentuale è dentro la formula, difficile da leggere. 
+ 
+ 
+ Con LET 
+ =LET(margine;(B2-C2)/B2;SE(margine>0,2;"OK";"BASSO")) 
+ Il nome margine spiega cosa stai calcolando.
+
+--- Slide 32 ---
+Lettura 
+ LET come mini scaletta 
+ Pensa a LET come a una formula con appunti interni: prima assegni nomi, poi usi quei nomi nel risultato finale. 
+ =LET(
+ prezzo; B2;
+ sconto; C2;
+ netto; prezzo*(1-sconto);
+ netto 
+) 
+ 
+ 
+ Quando usarla Quando la formula è lunga, ripetitiva o difficile da spiegare. 
+ Quando evitarla Per formule semplici come =B2*C2 : aggiungere nomi sarebbe rumore. 
+ Nota compatibilità LET è disponibile nelle versioni moderne di Excel e in Google Sheets. In file vecchi o ambienti datati può non funzionare.
+
+--- Slide 33 ---
+Altri riferimenti utili 
+ Fogli, file e funzioni collegate 
+ 
+ Altro foglio =Foglio2!B3 
+legge B3 da un altro foglio della stessa cartella. 
+ INDIRETTO Costruisce un riferimento partendo da testo. Potente, ma fragile se rinomini fogli o celle. 
+ MATRICI Funzioni come FILTRA , UNICI , ORDINA restituiscono più celle. 
+ Convalida dati Limita cosa si può inserire in una cella: lista, numero, data, testo. 
+ Blocca intervalli Proteggi formule e celle importanti per evitare modifiche accidentali. 
+ Commenti Usali per spiegare formule particolari senza appesantire il foglio.
+
+--- Slide 34 ---
+Errori comuni 
+ Cosa rompe le formule 
+ 
+ 🔁 Copia sbagliata Un riferimento relativo cambia quando doveva restare fermo. 
+ 🔤 Intestazioni vaghe Colonne chiamate "dato", "varie" o "x" rendono impossibile capire il file. 
+ 🧱 Range rigidi A2:A100 ignora i dati nuovi alla riga 101. 
+ 🧩 Formule troppo lunghe Se non riesci a rileggerla, spezzala con LET o colonne di supporto. 
+ 🧨 Celle unite Complicano filtri, ordinamenti, formule e importazioni. 
+ 📋 Dati misti Numeri salvati come testo producono risultati strani.
+
+--- Slide 35 ---
+Metodo 
+ Regole per formule robuste 
+ Una formula buona non è solo corretta: è anche leggibile, copiabile e facile da controllare. 
+ 
+ 
+ 1. Blocca ciò che è fisso Aliquote, soglie e parametri vanno in celle nominate o riferimenti assoluti. 
+ 2. Usa tabelle vere Intestazioni chiare e riferimenti strutturati riducono errori. 
+ 3. Dai nomi leggibili AliquotaIVA è meglio di $B$1 se il file deve essere compreso da altri. 
+ 4. Documenta le formule difficili LET, commenti o celle di supporto rendono il foglio più mantenibile.
+
+--- Slide 36 ---
+Verifica veloce 
+ È tutto chiaro? 
+ Prova a rispondere a mente: 
+ 
+ 1. Che differenza c'è tra B2 e $B$2 ? 
+ 2. Quando conviene nominare una cella come AliquotaIVA ? 
+ 3. Perché le intestazioni delle tabelle devono essere chiare? 
+ 4. A cosa serve LET in una formula lunga? 
+ 
+ Bonus Riscrivi una formula lunga usando nomi di celle, tabella e LET: riesci a leggerla come una frase?
+
+--- Slide 37 ---
+Fine F03 
+ Formule
+ più leggibili. 
+ Ora sai usare riferimenti, intervalli, nomi e LET per costruire fogli più solidi e più facili da correggere. 
+ 
+ ↩ Indice del corso 
+ 37 slide completate

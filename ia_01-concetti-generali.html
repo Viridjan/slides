@@ -96,7 +96,7 @@ em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--
 .title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
 .title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
 .title-left .tape{position:absolute;top:84px;left:90px;}
-.title-right{background:var(--teal-2);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right{background:var(--teal-2);position:relative;overflow:hidden;display:grid;place-items:center;}.title-right>div,.title-right>svg{position:relative;z-index:2;}
 .title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--sky),var(--teal));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
 @keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
 .closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .gold{color:var(--gold);}
@@ -117,7 +117,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- ============ SLIDE 1 · TITLE ============ -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <span class="tape teal">IA · IA_01</span>
       <div class="eyebrow reveal" style="margin-top:40px;">Intelligenza Artificiale</div>
       <h1 class="h-mega reveal" contenteditable="false" style="margin-top:10px;">Concetti<br><em style="font-style:italic;color:var(--sky);">generali</em></h1>
       <p class="lead reveal d1" contenteditable="false" style="margin-top:28px;">Cos'è l'IA, come si definisce, le sue applicazioni quotidiane e i concetti chiave: ML, deep learning, deepfake, filter bubble.</p>
@@ -128,12 +127,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="title-right">
       <div style="font-size:200px;line-height:1;text-align:center;" class="reveal">🤖</div>
     </div>
-    <div class="deck-tab">IA · IA_01</div>
   </section>
 
   <!-- ============ SLIDE 2 · AGENDA ============ -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="tape teal reveal">In questo modulo</div>
     <h2 class="h-sec reveal" style="margin-top:32px;" contenteditable="false">Cosa vedremo</h2>
     <div class="agenda-list reveal d1">
@@ -148,7 +145,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 3 · COS'È L'IA ============ -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="split">
       <div class="col stack">
         <div class="tape sky reveal">Definizione</div>
@@ -179,7 +175,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · STORIA DELL'IA ============ -->
   <section class="slide tight-slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="tape teal reveal">Contesto storico</div>
     <h2 class="h-sec reveal" style="margin-top:16px;">Breve storia dell'<em class="hot">IA</em></h2>
     <div class="grid2 reveal d1" style="margin-top:22px;">
@@ -208,7 +203,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="center">
       <div class="tape reveal">Il problema della definizione</div>
       <h2 class="h-big reveal" style="margin-top:20px;">La battuta dei <em class="hot">ricercatori</em></h2>
@@ -233,7 +227,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · IA DEBOLE vs FORTE ============ -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="split even">
       <div class="card sky" style="align-self:stretch;display:flex;flex-direction:column;gap:16px;padding:40px;">
         <span class="ic" style="font-size:64px;">🎯</span>
@@ -258,7 +251,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <section class="slide tight-slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="tape sky reveal">Mappa concettuale</div>
     <h2 class="h-sec reveal" style="margin-top:18px;">I concetti <em class="hot">correlati</em></h2>
     <div class="grid2 reveal d1" style="margin-top:24px;">
@@ -285,14 +277,13 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     </div>
     <div class="note sky reveal d2" style="margin-top:20px;">
       <div class="lbl">📐 Gerarchia</div>
-      <p contenteditable="false">Informatica ⊃ IA ⊃ Machine Learning ⊃ Deep Learning</p>
+      <p contenteditable="false">Informatica ⊃ IA ⊃ Deep Learning &gt; Machine Learning</p>
     </div>
     <div class="page-num"></div>
   </section>
 
   <!-- ============ SLIDE NEW · RETI NEURALI ============ -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="split">
       <div class="col stack">
         <div class="tape teal reveal">Deep Learning</div>
@@ -324,7 +315,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · NLP ============ -->
   <section class="slide tight-slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="tape sky reveal">Natural Language Processing</div>
     <h2 class="h-sec reveal" style="margin-top:16px;">Capire il <em class="hot">linguaggio naturale</em></h2>
     <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;max-width:1200px;">L'NLP permette alle macchine di leggere, capire e generare testo umano — il ramo dell'IA con la crescita più esplosiva degli ultimi anni.</p>
@@ -358,7 +348,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · COME FUNZIONA IL ML ============ -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="center">
       <div class="tape sky reveal">Machine Learning</div>
       <h2 class="h-big reveal" style="margin-top:18px;">Come <em class="hot">impara</em> una macchina?</h2>
@@ -376,7 +365,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Applicazione</div>
@@ -412,7 +400,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · AUTO AUTONOMA — SFIDE ============ -->
   <section class="slide tight-slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="tape reveal">Applicazione · Approfondimento</div>
     <h2 class="h-sec reveal" style="margin-top:16px;">Auto autonoma — sfide <em class="hot">reali</em></h2>
     <div class="grid2 reveal d1" style="margin-top:22px;">
@@ -441,7 +428,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="center">
       <div class="tape teal reveal">Isaac Asimov · 1942</div>
       <h2 class="h-big reveal" style="margin-top:18px;">Le tre leggi della <em class="hot">robotica</em></h2>
@@ -460,7 +446,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 8 · CONTENUTI PERSONALIZZATI ============ -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="split">
       <div class="col stack">
         <div class="tape gold reveal">Applicazione</div>
@@ -491,7 +476,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 9 · FILTER BUBBLE ============ -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="center">
       <div class="tape red reveal">Rischio</div>
       <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Filter bubble</em><br><span style="font-size:60px;color:var(--ink-faint);">— la bolla di filtraggio</span></h2>
@@ -512,7 +496,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 10 · ECHO CHAMBER E TROLL ============ -->
   <section class="slide tight-slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="tape red reveal">Rischi sociali</div>
     <h2 class="h-sec reveal" style="margin-top:16px;">Echo chamber, troll e <em class="hot">fake news</em></h2>
     <div class="grid3 reveal d1" style="margin-top:22px;">
@@ -541,7 +524,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · USCIRE DALLA FILTER BUBBLE ============ -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="center">
       <div class="tape teal reveal">Difesa attiva</div>
       <h2 class="h-big reveal" style="margin-top:18px;">Come <em class="hot">uscire</em> dalla bolla</h2>
@@ -559,7 +541,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · BOT E FABBRICHE DI TROLL ============ -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="split">
       <div class="col stack">
         <div class="tape red reveal">Manipolazione digitale</div>
@@ -592,7 +573,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="split">
       <div class="col stack">
         <div class="tape sky reveal">Applicazione</div>
@@ -624,7 +604,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · COMPUTER VISION ============ -->
   <section class="slide tight-slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="tape sky reveal">Come funziona</div>
     <h2 class="h-sec reveal" style="margin-top:16px;"><em class="hot">Computer vision</em> — come vede una macchina</h2>
     <p class="lead reveal d1" contenteditable="false" style="margin-top:12px;max-width:1250px;">Un'immagine è solo una griglia di numeri (pixel). Il modello impara a riconoscere pattern di numeri associati a oggetti — dopo milioni di esempi etichettati.</p>
@@ -653,7 +632,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="center">
       <div class="tape red reveal">Implicazione critica</div>
       <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Deepfake</em> — "vedere non è credere"</h2>
@@ -676,7 +654,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · RICONOSCERE DEEPFAKE ============ -->
   <section class="slide tight-slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="tape red reveal">Difesa pratica</div>
     <h2 class="h-sec reveal" style="margin-top:16px;">Come <em class="hot">riconoscere</em> un deepfake</h2>
     <div class="grid2 reveal d1" style="margin-top:22px;">
@@ -713,7 +690,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="split">
       <div class="col stack">
         <div class="tape teal reveal">Strumenti IA</div>
@@ -742,7 +718,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · IA NEL QUOTIDIANO ============ -->
   <section class="slide tight-slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="tape gold reveal">Ogni giorno</div>
     <h2 class="h-sec reveal" style="margin-top:16px;">L'IA che usi <em class="hot">senza saperlo</em></h2>
     <div class="grid4 reveal d1" style="margin-top:24px;">
@@ -780,7 +755,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · PROMPT ENGINEERING ============ -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="center">
       <div class="tape teal reveal">Usare bene l'IA</div>
       <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Prompt engineering</em> — chiedi meglio</h2>
@@ -811,7 +785,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="center">
       <div class="tape reveal">Pensiero critico</div>
       <h2 class="h-big reveal" style="margin-top:18px;">Riconoscere gli <em class="hot">elaborati IA</em></h2>
@@ -839,7 +812,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · BIAS NELL'IA ============ -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="split">
       <div class="col stack">
         <div class="tape red reveal">Problema critico</div>
@@ -872,7 +844,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="center">
       <div class="tape gold reveal">Strumenti IA</div>
       <h2 class="h-big reveal" style="margin-top:18px;">Generazione di <em class="hot">immagini</em></h2>
@@ -901,7 +872,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · ETICA DELL'IA ============ -->
   <section class="slide tight-slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="tape teal reveal">Le domande aperte</div>
     <h2 class="h-sec reveal" style="margin-top:16px;"><em class="hot">Etica</em> dell'IA</h2>
     <div class="grid2 reveal d1" style="margin-top:20px;">
@@ -932,7 +902,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · FUTURO E AGI ============ -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="split">
       <div class="col stack">
         <div class="tape gold reveal">Prospettive</div>
@@ -967,7 +936,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · IA E CREATIVITA ============ -->
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="center">
       <div class="tape sky reveal">Riflessione</div>
       <h2 class="h-big reveal" style="margin-top:18px;">L'IA è <em class="hot">creativa</em>?</h2>
@@ -995,7 +963,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE NEW · PRIVACY E DATI ============ -->
   <section class="slide tight-slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="tape red reveal">Attenzione</div>
     <h2 class="h-sec reveal" style="margin-top:16px;">Privacy e <em class="hot">dati personali</em> nell'era IA</h2>
     <p class="lead reveal d1" contenteditable="false" style="margin-top:12px;max-width:1250px;">I modelli IA sono addestrati su enormi quantità di dati. Quando usi uno strumento IA, spesso <b>stai anche fornendo dati</b>.</p>
@@ -1024,7 +991,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <section class="slide">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="tape teal reveal">Verifica veloce</div>
     <h2 class="h-sec reveal" style="margin-top:20px;" contenteditable="false">Metti alla prova le tue conoscenze</h2>
     <div class="grid2 reveal d1" style="margin-top:24px;max-width:1400px;">
@@ -1046,7 +1012,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 17 · CLOSING ============ -->
   <section class="slide closing">
-    <div class="deck-tab">IA · IA_01</div>
     <div class="center" style="align-items:center;text-align:center;">
       <div class="eyebrow reveal gold">Fine IA_01 🤖</div>
       <h2 class="h-mega reveal" style="margin-top:10px;" contenteditable="false">L'IA sei<br><em class="gold">anche tu.</em></h2>

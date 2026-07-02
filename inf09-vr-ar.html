@@ -76,7 +76,7 @@ em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--
 .title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
 .title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
 .title-left .tape{position:absolute;top:84px;left:90px;}
-.title-right{background:var(--sky);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right{background:var(--sky);position:relative;overflow:hidden;display:grid;place-items:center;}.title-right>div,.title-right>svg{position:relative;z-index:2;}
 .title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--teal),var(--teal-2));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
 @keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
 .vr-icon{font-size:180px;line-height:1;text-align:center;animation:float 6s ease-in-out infinite alternate;}
@@ -102,7 +102,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- ============ SLIDE 1 · TITLE ============ -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <span class="tape sky">Informatica · M9</span>
       <div class="eyebrow reveal" style="margin-top:40px;color:var(--sky);">Modulo 9</div>
       <h1 class="h-mega reveal" contenteditable="false" style="margin-top:10px;">VR, AR<br><em style="font-style:italic;color:var(--sky);">e Metaverso</em></h1>
       <p class="lead reveal d1" contenteditable="false" style="margin-top:28px;">Realtà virtuale, aumentata e il mondo che verrà: dai visori alle piattaforme social 3D.</p>
@@ -113,12 +112,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="title-right">
       <div class="vr-icon reveal" contenteditable="false">🥽</div>
     </div>
-    <div class="deck-tab">VR/AR · M9</div>
   </section>
 
   <!-- ============ SLIDE 2 · AGENDA ============ -->
   <section class="slide">
-    <div class="deck-tab">VR/AR · M9</div>
     <div class="tape reveal">Cosa vedremo</div>
     <h2 class="h-sec reveal" style="margin-top:32px;" contenteditable="false">Tre mondi da esplorare</h2>
     <div class="agenda-list reveal d1">
@@ -133,7 +130,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 3 · COS'È LA VR ============ -->
   <section class="slide">
-    <div class="deck-tab">VR/AR · M9</div>
     <div class="split">
       <div>
         <div class="tape sky reveal">Realtà Virtuale</div>
@@ -157,7 +153,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 4 · COME FUNZIONA LA VR ============ -->
   <section class="slide">
-    <div class="deck-tab">VR/AR · M9</div>
     <div class="tape reveal">Hardware</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Come funziona un sistema VR</h2>
     <div class="grid4 reveal d1" style="margin-top:36px;">
@@ -191,7 +186,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 5 · APPLICAZIONI VR ============ -->
   <section class="slide">
-    <div class="deck-tab">VR/AR · M9</div>
     <div class="tape reveal">Usi reali</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Dove si usa la VR</h2>
     <div class="grid3 reveal d1" style="margin-top:36px;">
@@ -231,7 +225,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 6 · VANTAGGI E LIMITI VR ============ -->
   <section class="slide">
-    <div class="deck-tab">VR/AR · M9</div>
     <div class="split even">
       <div class="stack">
         <div class="tape sky reveal">Vantaggi</div>
@@ -275,7 +268,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 7 · COS'È LA AR ============ -->
   <section class="slide">
-    <div class="deck-tab">VR/AR · M9</div>
     <div class="split">
       <div>
         <div class="tape gold reveal">Realtà Aumentata</div>
@@ -296,7 +288,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 8 · COME FUNZIONA LA AR ============ -->
   <section class="slide">
-    <div class="deck-tab">VR/AR · M9</div>
     <div class="tape gold reveal">Come funziona</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">I componenti della AR</h2>
     <div class="grid4 reveal d1" style="margin-top:36px;">
@@ -330,7 +321,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 9 · APPLICAZIONI AR ============ -->
   <section class="slide">
-    <div class="deck-tab">VR/AR · M9</div>
     <div class="tape gold reveal">Usi reali</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">La AR nella vita quotidiana</h2>
     <div class="grid3 reveal d1" style="margin-top:36px;">
@@ -370,7 +360,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 10 · VR vs AR CONFRONTO ============ -->
   <section class="slide">
-    <div class="deck-tab">VR/AR · M9</div>
     <div class="tape reveal">A confronto</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">VR vs AR: le differenze</h2>
     <table class="cmp reveal d1" style="margin-top:36px;">
@@ -414,7 +403,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 11 · COS'È IL METAVERSO ============ -->
   <section class="slide">
-    <div class="deck-tab">VR/AR · M9</div>
     <div class="split">
       <div>
         <div class="tape teal reveal">Metaverso</div>
@@ -435,7 +423,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 12 · CARATTERISTICHE METAVERSO ============ -->
   <section class="slide">
-    <div class="deck-tab">VR/AR · M9</div>
     <div class="tape teal reveal">Caratteristiche</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Cosa definisce un metaverso</h2>
     <div class="grid3 reveal d1" style="margin-top:36px;">
@@ -475,7 +462,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 13 · PIATTAFORME METAVERSO ============ -->
   <section class="slide">
-    <div class="deck-tab">VR/AR · M9</div>
     <div class="tape teal reveal">Piattaforme</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Dove esiste il metaverso oggi</h2>
     <div class="grid3 reveal d1" style="margin-top:36px;">
@@ -515,7 +501,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 14 · OPPORTUNITÀ E CRITICITÀ METAVERSO ============ -->
   <section class="slide">
-    <div class="deck-tab">VR/AR · M9</div>
     <div class="split even">
       <div class="stack">
         <div class="tape teal reveal">Opportunità</div>

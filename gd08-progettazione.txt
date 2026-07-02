@@ -1,0 +1,170 @@
+Game Design · GD_08 — Progettare un Gioco
+=========================================
+
+--- Slide 1 ---
+Game Design 
+ Progettare
+ un Gioco 
+ Dalla teoria al tavolo: come si disegnano le carte, si calcolano i materiali, si scrive un regolamento chiaro e si impara modificando giochi che già esistono. 
+ 
+ GD_08 Progetto Fisico 
+ 
+ 
+ 
+ 🃏
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa vedremo 
+ 
+ 
+ Design delle carte — l'anatomia di una carta e le sue zone 
+ Dimensioni e testo — formati standard e regole di leggibilità 
+ Icone e risorse grafiche — dove trovare grafica per il prototipo 
+ 
+ 
+ Calcolo dei materiali — quante carte e quanti fogli servono 
+ Struttura del regolamento — le quattro sezioni di un manuale 
+ Modificare giochi esistenti — imparare il design smontandolo
+
+--- Slide 3 ---
+Design delle carte 
+ L'anatomia di una carta 
+ Una carta ben progettata è divisa in zone funzionali : ogni informazione ha il suo posto fisso, così il giocatore la trova a colpo d'occhio, partita dopo partita. 
+ 
+ 👁️ Gerarchia visiva 
+ L'occhio deve sapere dove guardare : prima il nome, poi il costo, poi l'effetto. Se ogni carta cambia layout, il giocatore riparte da zero ogni volta. 
+ 
+ 
+ 
+ 🏷️ Titolo e nome In alto, ben leggibile: identifica la carta anche a ventaglio in mano. 
+ 🖼️ Illustrazione La zona centrale: dà personalità e aiuta a riconoscere la carta al volo. 
+ 📜 Testo regole + 💎 costo L'effetto in basso; costi e valori negli angoli, visibili anche a carte sovrapposte.
+
+--- Slide 4 ---
+Formati 
+ Dimensioni standard 
+ Usare un formato standard permette di comprare bustine protettive (sleeve) già pronte — e di mescolare, impilare e conservare le carte senza rovinarle. 
+ 
+ 🎴 Standard "Magic" 63×88 mm — il formato più diffuso al mondo per giochi di carte moderni. 
+ ♠️ Poker e Bridge Poker 63×88 mm , bridge 56×88 mm : più stretto, comodo a ventaglio. 
+ 🀄 Mini 44×67 mm — per token, risorse e giochi con molte carte sul tavolo. 
+ 
+ 
+ 🛡️ Perché conta 
+ Formato non standard = niente bustine reperibili = carte che si rovinano in fretta. Un problema concreto per il giocatore, evitabile in fase di progetto.
+
+--- Slide 5 ---
+Leggibilità 
+ Il testo sulle carte 
+ Chiaro e conciso. Usa le keyword : una parola-regola definita una volta nel manuale, richiamata su tutte le carte. Gerarchia: nome grande, effetto leggibile, dettagli piccoli. 
+ 
+ ⚠️ Errore comune 
+ Troppo testo. Se una carta ha bisogno di un paragrafo intero per spiegarsi, semplifica la regola , non il carattere tipografico. 
+ 
+ 
+ 
+ ✅ Keyword "Volare", "Scudo", "Rapida": compatte, richiamano regole già note. La carta resta pulita. 
+ ❌ Muro di testo Cinque righe fitte di eccezioni: illeggibile a colpo d'occhio, rallenta ogni turno.
+
+--- Slide 6 ---
+Grafica 
+ Icone e risorse grafiche 
+ Per prototipare non servono illustratori: esistono librerie di icone gratuite con cui costruire carte chiare e leggibili in pochi minuti. 
+ 
+ 💡 Prima le regole 
+ Sostituisci le icone con l'arte finale solo dopo che le regole funzionano. Un prototipo bello ma rotto resta rotto. 
+ 
+ 
+ 
+ 🎨 Flaticon Icone generiche per interfacce e concetti: frecce, monete, orologi, simboli d'azione. 
+ 🎲 Game-icons.net Migliaia di icone a tema gioco: spade, pozioni, scudi, mostri — perfette per i prototipi.
+
+--- Slide 7 ---
+Produzione 
+ Calcolo dei materiali 
+ Quanto stampare? Formula semplice: giocatori × carte per giocatore × copie = carte totali , poi dividi per le carte che entrano in un foglio (circa 9 su un A4). 
+ 
+ 🧾 Esempio 
+ 4 giocatori × 10 carte a testa + 1 mazzo comune da 20 = 60 carte → 60 ÷ 9 ≈ 7 fogli A4 da stampare e tagliare. 
+ 
+ 
+ 
+ 🧮 Conta le carte Somma tutto: mazzi personali, mazzo comune, carte speciali, riserve per le modifiche. 
+ 🖨️ Conta i fogli Carte totali ÷ carte per foglio = pagine da stampare. Pianifica anche il tempo di taglio.
+
+--- Slide 8 ---
+Il manuale 
+ Il regolamento in 4 sezioni 
+ 
+ 🎯 1 · Obiettivo Come si vince — sempre per primo . Chi legge deve sapere subito verso cosa gioca. 
+ 🔧 2 · Setup Come si prepara il tavolo: cosa si distribuisce, cosa si mescola, chi inizia. 
+ 🔄 3 · Svolgimento del turno Cosa fa un giocatore al suo turno, azione per azione, nell'ordine giusto. 
+ 🏁 4 · Fine partita Quando finisce il gioco e come si contano i punti per decretare il vincitore. 
+ 
+ 
+ 💡 Perché l'obiettivo va primo 
+ Dire subito come si vince orienta tutta la lettura: ogni regola successiva acquista senso alla luce dell'obiettivo.
+
+--- Slide 9 ---
+Chiarezza 
+ Scrivere regole chiare 
+ La regola più bella è inutile se non si capisce. Usa esempi concreti , immagini, un ordine logico e un glossario per le keyword. Poi testa il manuale dando il gioco a qualcuno senza spiegarlo . 
+ 
+ 🧪 Il test del manuale 
+ Se devi essere presente per spiegare il gioco, il regolamento non è finito . Il manuale deve funzionare da solo. 
+ 
+ 
+ 
+ 📖 Esempi & immagini Un esempio di turno completo vale più di tre paragrafi di regole astratte. 
+ 🔤 Glossario keyword Ogni parola-regola definita una sola volta, in un posto facile da ritrovare.
+
+--- Slide 10 ---
+Esercizio di design 
+ Modificare giochi esistenti 
+ Un ottimo esercizio per imparare: prendi un gioco che conosci e cambia una sola regola . Osserva come cambia tutto il resto. Capisci il design smontandolo . 
+ 
+ 
+ 
+ 💡 Perché funziona 
+ Modificare è più facile che creare da zero: il gioco base è già bilanciato e testato, quindi ogni effetto che vedi è figlio della tua modifica . È il laboratorio di design perfetto. 
+ 
+ 🔬 Una variabile alla volta Cambia una regola sola: se ne cambi tre, non saprai quale ha prodotto l'effetto.
+
+--- Slide 11 ---
+Prova tu 
+ Esempi di modifica 
+ Cambia una regola e analizza l'effetto su strategia, durata e divertimento. 
+ 
+ 🃏 Briscola E se il seme di briscola cambiasse a ogni mano? La strategia di lungo periodo salta. 
+ 🏠 Monopoly E se le tasse finissero in un montepremi al centro? Nasce un nuovo incentivo a rischiare. 
+ 🂡 Blackjack E se il banco si fermasse a 16 invece di 17? Le probabilità si spostano — di quanto? 
+ 
+ 
+ ⚖️ Osserva l'effetto 
+ Ogni piccola modifica cambia strategia, durata e divertimento: annota cosa è cambiato e perché .
+
+--- Slide 12 ---
+Attività 
+ Progetta le tue carte 
+ 
+ Scegli un tema per un mini gioco di carte. 
+ Disegna l'anatomia di una carta: titolo, illustrazione, testo, costo — zona per zona. 
+ Scrivi le 4 sezioni del regolamento in bozza: obiettivo, setup, turno, fine partita. 
+ Calcola i materiali : quante carte e quanti fogli servono per 4 giocatori? 
+ 
+ 
+ 💡 Bonus 
+ Prendi un gioco che conosci e cambia una sola regola: prova mentalmente una partita e osserva come cambia.
+
+--- Slide 13 ---
+Fine GD_08 🃏 · Fine serie Game Design 
+ Dall'idea
+ al tavolo. 
+ 
+ Hai attraversato tutto il game design: dai tipi di gioco al suono, dal feedback alla difficoltà, dalle meccaniche al processo, fino a stampare le tue carte. Ora tocca a te progettare .
+ 
+ 
+ ← GD_07 · Processo di Design 
+ Fine serie Game Design 🎉 
+ ↩ Indice del corso

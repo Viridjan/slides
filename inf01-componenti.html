@@ -203,7 +203,7 @@ em.hot{font-style:italic;color:var(--red);}
 .title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
 .title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
 .title-left .tape{position:absolute;top:84px;left:90px;}
-.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}.title-right>div,.title-right>svg{position:relative;z-index:2;}
 .title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;
   background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));
   right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
@@ -255,7 +255,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- ============ SLIDE 1 · TITLE ============ -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="tape reveal">Corso di Informatica</div>
       <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="false">Modulo 01 — Componenti</div>
       <h1 class="h-mega reveal" contenteditable="false">Dentro<br>il <em class="hot">computer</em></h1>
       <p class="lead reveal" style="margin-top:30px;" contenteditable="false">Cos'è davvero un PC, di cosa è fatto e perché ogni pezzo conta. Partiamo da zero, senza dare niente per scontato.</p>
@@ -276,7 +275,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 2 · AGENDA ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="center">
       <div class="tape teal reveal">In questo modulo</div>
       <h2 class="h-sec reveal" style="margin-top:24px;">Cosa impareremo</h2>
@@ -296,7 +294,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 3 · COS'È UN PC ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="split">
       <div class="col stack">
         <div class="eyebrow reveal">Punto di partenza</div>
@@ -322,7 +319,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE · FISSO vs PORTATILE ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape gold reveal">Tanti formati, stessa idea</div>
       <h2 class="h-sec reveal">Fisso, portatile o tascabile?</h2>
@@ -343,7 +339,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 4 · HARDWARE vs SOFTWARE ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="center">
       <div class="tape reveal">Le due grandi categorie</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Hardware <span style="color:var(--ink-faint)">&amp;</span> Software</h2>
@@ -369,7 +364,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 5 · HARDWARE (overview) ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="col stack" style="height:100%;justify-content:center;">
       <div class="eyebrow reveal">01 · Hardware</div>
       <h2 class="h-big reveal">Le parti che puoi <em class="hot">toccare</em></h2>
@@ -392,7 +386,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 6 · CPU ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Componente · CPU</div>
@@ -433,7 +426,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 7 · RAM ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="split">
       <div class="illu reveal d1">
         <!-- SVG: modulo RAM -->
@@ -472,7 +464,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 8 · HARD DISK ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape teal reveal">Componente · Memoria</div>
       <h2 class="h-big reveal">L'<em class="hot">hard disk</em></h2>
@@ -491,7 +482,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE · BIT & BYTE ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="split">
       <div class="col stack">
         <div class="tape teal reveal">Quanto è grande un file?</div>
@@ -516,7 +506,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 9 · SCHEDA MADRE ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Componente · Scheda madre</div>
@@ -552,7 +541,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 10 · SCHEDA VIDEO + AUDIO ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="center">
       <div class="tape gold reveal">Componenti · Video &amp; Audio</div>
       <h2 class="h-sec reveal" style="margin-top:20px;">Immagini e suono</h2>
@@ -578,7 +566,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 11 · ALIMENTATORE ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="split">
       <div class="illu reveal d1" style="background:var(--teal);border-color:var(--ink);">
         <svg viewBox="0 0 300 240" role="img" aria-label="Alimentazione e batteria">
@@ -613,7 +600,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 12 · PERIFERICHE INPUT ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape teal reveal">Periferiche · INPUT</div>
       <h2 class="h-big reveal">Mandare informazioni <em class="hot">dentro</em></h2>
@@ -631,7 +617,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 13 · PERIFERICHE OUTPUT ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape reveal">Periferiche · OUTPUT</div>
       <h2 class="h-big reveal">Ricevere i risultati <em class="hot">fuori</em></h2>
@@ -649,7 +634,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 14 · PORTE ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="split">
       <div class="col stack">
         <div class="tape gold reveal">Connessioni · Porte</div>
@@ -693,7 +677,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
 <!-- ===== 3 · CONNESSIONI ===== -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="split">
       <div class="col stack">
         <div class="eyebrow reveal">Punto di partenza</div>
@@ -725,7 +708,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== 4 · LE DUE DISTINZIONI ===== -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="center">
       <div class="tape reveal">Come classificarle</div>
       <h2 class="h-sec reveal" style="margin-top:20px;">Due domande, sempre le stesse</h2>
@@ -751,7 +733,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== 5 · VIA CAVO · USB ===== -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Via cavo · USB</div>
@@ -784,7 +765,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== 6 · VIA CAVO · RETE ===== -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape teal reveal">Via cavo · Rete e internet</div>
       <h2 class="h-big reveal">Cavi per andare <em class="hot">in rete</em></h2>
@@ -804,7 +784,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== 7 · WIRELESS INTRO ===== -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="split">
       <div class="illu reveal d1" style="background:var(--teal);border-color:var(--ink);">
         <svg viewBox="0 0 280 240" role="img" aria-label="Onde wireless">
@@ -832,7 +811,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== 8 · WIFI ===== -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Wireless · WiFi</div>
@@ -864,7 +842,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== 9 · BLUETOOTH ===== -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="split">
       <div class="illu reveal d1">
         <svg viewBox="0 0 200 250" role="img" aria-label="Simbolo Bluetooth" style="max-width:330px;margin:0 auto;">
@@ -887,7 +864,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== 10 · RETI TELEFONICHE ===== -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape gold reveal">Wireless · Reti telefoniche</div>
       <h2 class="h-big reveal">3G, 4G, 5G: <em class="hot">internet ovunque</em></h2>
@@ -908,7 +884,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== 11 · INFRAROSSI ===== -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Wireless · Infrarossi</div>
@@ -939,7 +914,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   
   <!-- ============ SLIDE 15 · SOFTWARE ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="eyebrow reveal">02 · Software</div>
       <h2 class="h-big reveal">I programmi che <em class="hot">non puoi toccare</em></h2>
@@ -956,7 +930,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 16 · SISTEMA OPERATIVO ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Software · Il più importante</div>
@@ -979,7 +952,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 17 · BROWSER ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="split">
       <div class="illu reveal d1">
         <svg viewBox="0 0 340 240" role="img" aria-label="Finestra di un browser web">
@@ -1011,7 +983,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 18 · SUITE UFFICIO ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="center">
       <div class="tape gold reveal">Software · Lavoro</div>
       <h2 class="h-sec reveal" style="margin-top:20px;">La suite per ufficio</h2>
@@ -1040,7 +1011,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 19 · RIEPILOGO MAPPA ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape reveal">Mettiamo tutto insieme</div>
       <h2 class="h-sec reveal">La mappa del computer</h2>
@@ -1067,7 +1037,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ============ SLIDE 20 · DOMANDE / VERIFICA ============ -->
   <section class="slide">
-    <div class="deck-tab">INFORMATICA · M1</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape teal reveal">Verifica veloce</div>
       <h2 class="h-sec reveal">È tutto chiaro?</h2>

@@ -1,0 +1,335 @@
+Game Design · GD_01 — Introduzione al gioco
+===========================================
+
+--- Slide 1 ---
+Game Design 
+ Introduzione
+ al gioco 
+ Design applicato alle attività ludiche — tipologie di giochi, il paradigma MDA, meccaniche e dinamiche. 
+ 
+ GD_01 Game Design 
+ 
+ 
+ 
+ 🎲
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa vedremo 
+ 
+ 
+ Tipologie di giochi — board, card, dice, party, eurogame, family, cooperative 
+ Eccezioni e giochi ibridi — quando le categorie non bastano più 
+ Il paradigma MDA — Meccaniche, Dinamiche, Estetiche 
+ 
+ 
+ Prospettiva designer vs giocatore — chi costruisce e chi vive l'esperienza 
+ Giochi agonistici e non agonistici — competizione, cooperazione e vie di mezzo 
+ Attività pratica — analizza un gioco che conosci con il framework MDA
+
+--- Slide 3 ---
+Definizione 
+ Design applicato al gioco 
+ Il game design è la disciplina che progetta esperienze ludiche — non solo videogiochi, ma anche giochi da tavolo, di carte e live. Il designer crea regole, sistemi, feedback e progressione. 
+ 
+ 💡 Francesco Binetti / Viridjan 
+ L'autore di questo corso è game designer ed educatore, autore di giochi come K2 , Svalbard 2118 e Pandemonium . 
+ 
+ 
+ 
+ 
+ 🎲 
+ Giochi da tavolo 
+ Regole fisiche, componenti materiali: plance, segnalini, pedine. Lo spazio di gioco è condiviso e tangibile. 
+ 
+ 
+ 🃏 
+ Giochi di carte 
+ Mazzi, draft, collezione. La carta è al tempo stesso regola, risorsa e componente. 
+ 
+ 
+ 🎮 
+ Videogiochi 
+ Sistemi digitali con feedback immediato: il computer applica le regole al posto dei giocatori.
+
+--- Slide 4 ---
+Tipologie 
+ Classificare i giochi 
+ Esistono molte tipologie di gioco, spesso sovrapposte. Le categorie non sono definizioni rigide: ci aiutano a capire le aspettative dei giocatori . 
+ 
+ 
+ 🎲 
+ Board Game 
+ Gioco da tavolo con plancia. Esempi: Catan , Monopoly . Spazio fisico condiviso, spesso competitivo. 
+ 
+ 
+ 🃏 
+ Card Game 
+ Meccanica basata su mazzo di carte. Esempi: Exploding Kittens , UNO . Veloce, portatile, alta variabilità. 
+ 
+ 
+ 🎯 
+ Dice Game 
+ Il dado è il motore principale del gioco. Esempi: Yahtzee , King of Tokyo . Forte componente di fortuna.
+
+--- Slide 5 ---
+Tipologie 
+ Altri generi 
+ 
+ 
+ 🎉 
+ Party Game 
+ Pensato per gruppi grandi (4-10+ giocatori): regole semplici, partite brevi, alta interazione sociale. Esempi: Codenames , Taboo , Dobble . 
+ 
+ 
+ 🧩 
+ Eurogame 
+ Meccaniche profonde, poca fortuna, alta strategia. Raramente prevede l'eliminazione diretta dei giocatori. Esempi: Terraforming Mars , Agricola , Wingspan . 
+ 
+ 
+ 👨‍👩‍👧‍👦 
+ Family Game 
+ Equilibrio tra semplicità e profondità, adatto a tavoli con età miste (8+). Esempi: Ticket to Ride , Pandemic , Dixit .
+
+--- Slide 6 ---
+Cooperativo 
+ Tutti vincono o tutti perdono 
+ Nei giochi cooperativi i giocatori non competono fra loro: affrontano insieme un avversario comune — spesso il gioco stesso. Questo cambia radicalmente la dinamica sociale al tavolo. 
+ 
+ 🤝 Esempi 
+ Pandemic (fermare un virus globale), Hanabi (comporre fuochi d'artificio senza guardare le proprie carte), Spirit Island , Arkham Horror . 
+ 
+ 
+ 
+ 
+ 🧠 
+ Comunicazione 
+ La vittoria dipende dalla qualità della comunicazione tra giocatori: coordinarsi è la vera sfida del gioco. 
+ 
+ 
+ ⚠️ 
+ Alpha player 
+ Rischio tipico: un giocatore dominante decide per tutti e gli altri smettono di giocare davvero. Il game designer deve bilanciare per evitarlo.
+
+--- Slide 7 ---
+Eccezioni 
+ Le categorie non bastano 
+ Molti giochi di successo sfidano le categorie. La classificazione è uno strumento , non una gabbia. 
+ 
+ 
+ 🦠 
+ Pandemic 
+ Board game + cooperativo + gestione risorse: tre categorie in un solo gioco. 
+ 
+ 
+ 🌌 
+ Race for the Galaxy 
+ Un card game con meccaniche da eurogame profondo: strategia densa in un mazzo di carte. 
+ 
+ 
+ 👑 
+ King's Dilemma 
+ Cooperativo e competitivo insieme ("coopetitivo") + elementi legacy: la partita cambia il gioco per sempre. 
+ 
+ 
+ 🚋 
+ Tramways 
+ Eurogame + network building + pick-up-and-deliver: più meccaniche intrecciate in un unico sistema. 
+ 
+ 
+ 
+ 💡 Messaggio chiave 
+ Conoscere le categorie ti permette di violarle consapevolmente .
+
+--- Slide 8 ---
+Teoria 
+ MDA 
+ Il paradigma che ogni game designer dovrebbe conoscere. 
+ 
+ 🔩 Meccaniche 
+ → 
+ ⚡ Dinamiche 
+ → 
+ 🎭 Estetiche
+
+--- Slide 9 ---
+MDA Paradigm 
+ Come nasce un' esperienza 
+ Le Meccaniche sono le regole del gioco. Dalle meccaniche emergono le Dinamiche — i comportamenti dei giocatori. Le dinamiche generano le Estetiche — le emozioni vissute. 
+ 
+ 📖 Fonte 
+ "MDA: A Formal Approach to Game Design and Game Research" — Robin Hunicke, Marc LeBlanc, Robert Zubek (2004). 
+ 
+ 
+ 
+ 
+ 🔩 
+ M — Meccanica 
+ Le regole e i sistemi. Cosa si può fare nel gioco. 
+ 
+ 
+ ⚡ 
+ D — Dinamica 
+ I comportamenti emergenti. Cosa fanno davvero i giocatori. 
+ 
+ 
+ 🎭 
+ E — Estetica 
+ L'esperienza emotiva. Cosa sente il giocatore.
+
+--- Slide 10 ---
+M — Meccanica 
+ Le regole del gioco 
+ Le meccaniche sono i componenti formali del gioco: le azioni disponibili, i vincoli, i sistemi di ricompensa, le condizioni di vittoria. Sono il livello su cui lavora principalmente il designer . 
+ 
+ 🎲 Esempi di meccaniche 
+ Draft (scegliere carte da un pool), worker placement , deck building , gestione risorse , push your luck . 
+ 
+ 
+ 
+ 
+ ✅ 
+ Chiarezza 
+ Le meccaniche devono essere comprensibili. Regole opache rompono il flusso di gioco. 
+ 
+ 
+ 🔄 
+ Interazione 
+ Le meccaniche si parlano tra loro — cambiarne una cambia l'equilibrio di tutto il sistema.
+
+--- Slide 11 ---
+D — Dinamica 
+ Comportamenti emergenti 
+ Le dinamiche non si progettano direttamente — emergono dall'interazione tra meccaniche e giocatori. Un designer progetta meccaniche sperando che producano le dinamiche volute. 
+ 
+ ⚡ Esempio 
+ In Diplomazia (1959) la meccanica è "scrivi ordini segreti". La dinamica che emerge è la negoziazione , l'inganno e l'alleanza — nulla di questo è scritto nelle regole. 
+ 
+ 
+ 
+ 
+ 🎭 
+ Metagame 
+ I giocatori esperti sviluppano strategie fuori dal gioco (forum, guide, tornei). Questo è dinamica pura. 
+ 
+ 
+ ⚠️ 
+ Dinamiche indesiderate 
+ Un gioco mal bilanciato produce dinamiche negative: kingmaking, turtling, runaway leader.
+
+--- Slide 12 ---
+E — Estetica 
+ L' esperienza del giocatore 
+ L'estetica è il livello emotivo — cosa il giocatore sente mentre gioca. Non è decorazione: è l' obiettivo finale del design. Le meccaniche e le dinamiche esistono per produrre un'estetica specifica. 
+ 
+ 🎭 Le 8 estetiche di MDA 
+ Sensation · Fantasy · Narrative · Challenge · Fellowship · Discovery · Expression · Submission 
+ 
+ 
+ 
+ 
+ 😱 
+ Challenge 
+ Il piacere della difficoltà superata. Soulslike, puzzle game. 
+ 
+ 
+ 🤝 
+ Fellowship 
+ Il piacere della cooperazione. Giochi sociali, giochi cooperativi.
+
+--- Slide 13 ---
+Due prospettive 
+ Designer e giocatore vivono MDA al contrario 
+ 
+ DESIGNER 
+ 🔩 Meccaniche 
+ → 
+ ⚡ Dinamiche 
+ → 
+ 🎭 Estetiche 
+ 
+ 
+ GIOCATORE 
+ 🎭 Estetiche 
+ ← 
+ ⚡ Dinamiche 
+ ← 
+ 🔩 Meccaniche 
+ 
+ 
+ 💡 Implicazione 
+ Il designer pensa in termini di regole . Il giocatore pensa in termini di emozioni . Un buon design costruisce il ponte tra queste due prospettive.
+
+--- Slide 14 ---
+MDA in pratica 
+ Caso: DOOM (2016) 
+ Analizziamo DOOM 2016 attraverso il paradigma MDA per capire come meccaniche precise producano un' estetica specifica . 
+ 
+ 
+ 
+ 🔩 
+ Meccanica 
+ I nemici rilasciano salute solo se uccisi con attacchi corpo a corpo (glory kill). Le munizioni si ottengono solo con la motosega. 
+ 
+ 
+ ⚡ 
+ Dinamica 
+ Il giocatore non può stare fermo: deve avvicinarsi ai nemici per sopravvivere. Si genera un flusso ("flow") costante di movimento aggressivo. 
+ 
+ 
+ 🎭 
+ Estetica 
+ Sensation + Challenge. Ritmo frenetico e adrenalina continua. Questo stile si chiama "push forward combat".
+
+--- Slide 15 ---
+Competizione 
+ Agonistico vs non agonistico 
+ I giochi si dividono in base al rapporto con la competizione. Questa distinzione non è di qualità ma di design intent . 
+ 
+ 
+ ⚔️ 
+ Agonistico 
+ Ha un vincitore. La vittoria avviene a spese degli altri: l'eliminazione o la sconfitta diretta è al centro dell'esperienza. Esempi: Scacchi , Catan , Ticket to Ride . 
+ 
+ 
+ 🤝 
+ Non agonistico 
+ Nessun vincitore unico, o vittoria condivisa. Il design punta all'esperienza collettiva più che al confronto. Esempi: Pandemic , Hanabi , Fiasco (RPG). 
+ 
+ 
+ 
+ 🎲 E i semi-cooperativi? 
+ Alcuni giochi ( Battlestar Galactica , Dead of Winter ) hanno un traditore nascosto — agonistico dentro un framework cooperativo.
+
+--- Slide 16 ---
+Discussione 
+ Cosa ti viene in mente pensando a Super Mario ? 
+ Prenditi 2 minuti. Scrivi o dì ad alta voce le prime 5-10 cose che ti vengono in mente. 
+ 
+ 🎮 Guida alla riflessione 
+ Stai descrivendo meccaniche (saltare, raccogliere monete), dinamiche (evitare i nemici, esplorare), o estetiche (avventura, soddisfazione, nostalgia)?
+
+--- Slide 17 ---
+Attività 
+ Analizza un gioco con MDA 
+ 
+ Scegli un gioco — board game, videogioco, o card game che conosci bene. 
+ Elenca 3 meccaniche — quali sono le azioni principali disponibili al giocatore? 
+ Identifica 2 dinamiche — quali comportamenti emergono da quelle meccaniche? 
+ Descrivi l'estetica — quale emozione/esperienza il gioco intende produrre? 
+ 
+ 
+ 💡 Bonus 
+ In che categoria rientra il gioco scelto? È agonistico o no? Dove si posiziona nel framework MDA?
+
+--- Slide 18 ---
+Fine GD_01 🎲 
+ Regole.
+ Emozioni. 
+ 
+ Le meccaniche sono lo strumento . L'estetica è l' obiettivo . In mezzo ci sono le dinamiche — la magia che emerge quando i giocatori incontrano il design.
+ 
+ 
+ ← nessun deck precedente 
+ → GD_02 · La Colonna Sonora 
+ ↩ Indice del corso

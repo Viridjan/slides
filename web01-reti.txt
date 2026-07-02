@@ -1,0 +1,401 @@
+Informatica · Reti Informatiche e Internet
+==========================================
+
+--- Slide 1 ---
+Modulo 1 — Reti e Internet 
+ Reti
+Informatiche
+e Internet 
+ Come i dispositivi comunicano tra loro, cos'è Internet, cos'è il Web e come funziona una richiesta online. 
+ Modulo 1 Basi 
+ 
+ 
+ 
+ 
+ 
+ 
+ 🌐 
+ 
+ 
+ 💻 
+ 
+ 📱 
+ 
+ 🖨️ 
+ 
+ 🖥️ 
+ 
+ 💾 
+ 
+ 📡
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa impareremo 
+ 
+ 01 Cos'è una rete informatica 
+ 02 Tipologie di reti: LAN, WAN, MAN 
+ 03 Come si connettono i dispositivi 
+ 04 Cos'è Internet 
+ 05 Internet e Web: differenza 
+ 06 Come funziona una richiesta Web 
+ 07 Client e Server 
+ 08 Vantaggi delle reti 
+ 09 Rischi delle reti 
+ 10 Perché serve la sicurezza
+
+--- Slide 3 ---
+Definizione 
+ Cos'è una
+ rete 
+informatica? 
+ Un insieme di dispositivi collegati tra loro per scambiare dati e condividere risorse. Ogni dispositivo connesso alla rete si chiama nodo . 
+ 
+ 
+ 💻 Esempi di dispositivi 
+ Computer · Smartphone · Tablet · Stampanti · Server · Telecamere IP · Smartwatch · Televisori smart 
+ 
+ 
+ 🎯 Obiettivi principali 
+ Condivisione di informazioni — documenti, file, media
+ Accesso a servizi comuni — stampanti, internet, cloud
+ Comunicazione tra utenti — email, messaggi, videocall 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Switch 
+ 🔀 
+ 
+ 
+ 💻 
+ PC 
+ 
+ 📱 
+ Mobile 
+ 
+ 🖨️ 
+ Stampante 
+ 
+ 🖥️ 
+ Server 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ogni dispositivo è un nodo della rete
+
+--- Slide 4 ---
+Classificazione 
+ Tipologie di reti 
+ Le reti si classificano in base alla loro estensione geografica . Più grande è la rete, più complessa è la sua gestione. 
+ 
+ 
+ LAN 
+ Local Area Network 
+ Rete locale — copre un'area limitata. Casa, ufficio, scuola, edificio. I dispositivi sono fisicamente vicini. Alta velocità, bassa latenza. 
+ Raggio: fino a ~1 km 
+ 
+ 
+ WAN 
+ Wide Area Network 
+ Rete geografica — collega aree molto distanti. Città, nazioni, continenti. Internet è la WAN più grande del mondo. 
+ Raggio: globale 
+ 
+ 
+ MAN 
+ Metropolitan Area Network 
+ Rete metropolitana — copre una città o un campus universitario. Spesso usata dalle amministrazioni pubbliche per connettere edifici distanti. 
+ Raggio: 5–50 km 
+ 
+ 
+ PAN 
+ Personal Area Network 
+ Rete personale — i dispositivi di una singola persona. Connessione Bluetooth tra smartphone e cuffie, o tra laptop e smartwatch. 
+ Raggio: pochi metri 
+ 
+ 
+ 
+ 💡 A scuola o in ufficio 
+ La rete WiFi che usi a scuola è una LAN . Il collegamento della scuola a Internet è una WAN . Sono strati diversi dello stesso sistema.
+
+--- Slide 5 ---
+Connessioni 
+ Come si
+ connettono 
+i dispositivi 
+ I dispositivi possono connettersi a una rete in modo fisico (cablato) o senza fili (wireless) . Ogni metodo ha vantaggi e limiti. 
+ 
+ 
+ 🔌 Cablato — Ethernet 
+ Cavo fisico (RJ-45). Velocità elevata, connessione stabile, nessuna interferenza. Ideale per PC fissi, server, stampanti di rete. 
+ 
+ 
+ 📡 Wireless — WiFi 
+ Segnale radio. Mobilità totale, nessun cavo. Soggetto a interferenze, distanza limitata dall'access point. Protocollo: IEEE 802.11. 
+ 
+ 
+ 🌐 Fibra ottica 
+ Trasmissione tramite impulsi di luce in fibre di vetro. Velocità elevatissima (fino a Tb/s), bassa latenza. Usata per dorsali Internet e connessioni FTTH. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ROUTER 
+ 📡 
+ 
+ 
+ Cablato 
+ 💻 
+ 
+ RJ-45 
+ 
+ 
+ 📱 
+ WiFi 
+ 
+ 
+ 
+ 
+ 
+ 
+ 🖥️ 
+ WiFi 
+ 
+ 
+ 
+ 
+ 🔆 Fibra — dorsale 
+ 
+ Cablato = stabile; WiFi = mobile
+
+--- Slide 6 ---
+La rete delle reti 
+ Cos'è
+ Internet? 
+ Internet non è un unico cavo o un unico server. È una rete mondiale composta da milioni di reti interconnesse — aziendali, universitarie, governative, domestiche. 
+ 
+ 
+ 🌍 Caratteristiche principali 
+ Decentralizzata — nessun singolo punto di controllo
+ Distribuita — i dati trovano percorsi alternativi
+ Accessibile — da qualsiasi punto del pianeta 
+ 
+ 
+ ⚙️ Cosa permette 
+ Navigazione web · Email · Videoconferenze · Streaming · Cloud Computing · Messaggistica · E-commerce · Internet of Things 
+ 
+ 
+ In breve: una rete di strade locali collegate in una rete globale. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 🌐 
+ 
+ 
+ 
+ 
+ 
+ 
+ Milioni di reti interconnesse 
+ 
+ Ogni nodo è collegato a più vicini
+
+--- Slide 7 ---
+Distinzione fondamentale 
+ Internet ≠ World Wide Web 
+ Sono due cose diverse. Internet è l'infrastruttura — il Web è uno dei servizi che ci gira sopra. 
+ 
+ 
+ 🌐 
+ Internet 
+ La rete fisica e logica — cavi, router, protocolli, indirizzi IP. L'infrastruttura che permette a qualsiasi dispositivo di comunicare con qualsiasi altro nel mondo. 
+ Analogia: la rete stradale — asfalto, ponti, svincoli. 
+ 
+ 
+ 🕸️ 
+ World Wide Web (WWW) 
+ Un servizio che usa Internet — pagine web collegate tra loro tramite link (ipertesti), accessibili tramite un browser. Inventato da Tim Berners-Lee nel 1989. 
+ Analogia: i negozi e gli edifici lungo la rete stradale. 
+ 
+ 
+ 
+ 💡 Altri servizi su Internet (non sono il Web) 
+ Email (protocollo SMTP/IMAP) · FTP (trasferimento file) · SSH (accesso remoto sicuro) · VoIP (chiamate vocali) · Videoconferenze · Giochi online · DNS
+
+--- Slide 8 ---
+Step by step 
+ Come funziona
+una richiesta 
+Web 
+ Quando digiti un indirizzo nel browser, accadono molte cose in pochi millisecondi. Ecco le fasi principali. 
+ 
+ 1 Inserisci l'indirizzo 
+ Es. www.wikipedia.org nel browser 
+ 2 Il browser chiede al DNS 
+ "Qual è l'IP di wikipedia.org?" 
+ 3 Il browser contatta il server 
+ Connessione TCP all'indirizzo IP trovato 
+ 4 Il server invia i dati 
+ HTML, CSS, immagini, script 
+ 5 Il browser visualizza la pagina 
+ Interpreta il codice e mostra il risultato 
+ 
+ 
+ 
+ 
+ 
+ 
+ 🌐 
+ Browser 
+ 
+ 
+ 📒 
+ DNS 
+ 
+ 
+ 🖥️ 
+ Server 
+ 
+ 
+ 
+ 1. DNS? 
+ 
+ 
+ 2. IP→ 
+ 
+ 3. HTML ← 
+ 
+ DNS → Server → Browser: ~200ms
+
+--- Slide 9 ---
+Architettura 
+ Client e Server 
+ Il modello fondamentale di Internet: un client fa richieste, un server risponde. Ogni interazione online segue questo schema. 
+ 
+ 
+ 📲 
+ Client 
+ Il dispositivo che richiede informazioni o servizi. Avvia sempre la comunicazione. 
+ Esempi: 
+ Computer con browser · Smartphone con app · Lettore di email · App di streaming 
+ Chiede → Riceve → Mostra 
+ 
+ 
+ 🖥️ 
+ Server 
+ Il computer che fornisce servizi o contenuti. Rimane in ascolto e risponde alle richieste. 
+ Esempi: 
+ Server web (Apache, Nginx) · Server email (Gmail) · Server cloud (AWS, Drive) · Server di gioco 
+ Ascolta → Elabora → Risponde 
+ 
+ 
+ 
+ 💡 Un dispositivo può essere entrambi 
+ Il tuo computer è client quando naviga su Wikipedia. Può diventare server se condivide file in rete locale o ospita un sito. Il ruolo dipende dall'interazione, non dal dispositivo.
+
+--- Slide 10 ---
+Perché le reti sono utili 
+ Vantaggi delle reti 
+ Le reti hanno trasformato il modo in cui lavoriamo, comunichiamo e accediamo alle informazioni. Sono la base del mondo digitale moderno. 
+ 
+ 
+ 💬 
+ Comunicazione immediata 
+ Email, messaggi istantanei, videochiamate. Due persone agli antipodi del mondo possono comunicare in tempo reale senza costi rilevanti. 
+ 
+ 
+ 📂 
+ Condivisione di risorse 
+ Documenti, stampanti, software, storage — accessibili da più dispositivi. Un ufficio condivide una sola stampante invece di averne una per scrivania. 
+ 
+ 
+ 🌍 
+ Accesso remoto 
+ Lavorare da casa accedendo ai sistemi aziendali. Controllare dispositivi a distanza. Il lavoro non è più legato a un luogo fisico specifico. 
+ 
+ 
+ 
+ 
+ 🤝 Collaborazione online 
+ Più persone modificano lo stesso documento contemporaneamente (Google Docs), partecipano a riunioni virtuali, gestiscono progetti condivisi. 
+ 
+ 
+ 💾 Backup centralizzati 
+ I dati salvati su cloud o server di rete sono protetti anche se un singolo dispositivo si rompe o viene smarrito. Ridondanza come protezione.
+
+--- Slide 11 ---
+Il rovescio della medaglia 
+ Rischi 
+delle reti 
+ Ogni connessione è una porta aperta in entrambe le direzioni. Insieme ai vantaggi, le reti introducono nuovi rischi che non esistevano prima. 
+ 
+ 
+ 🔓 Accesso non autorizzato 
+ Un attaccante può tentare di entrare nei sistemi connessi — dalla rete locale a Internet. Senza protezioni, qualsiasi dispositivo è potenzialmente raggiungibile. 
+ 
+ 
+ 🦠 Malware e virus 
+ I programmi malevoli si diffondono attraverso la rete — email infette, siti compromessi, file scaricati. La velocità di diffusione è proporzionale alla connettività. 
+ 
+ 
+ 📤 Furto di dati 
+ Dati personali, password, dati bancari possono essere intercettati durante la trasmissione o sottratti da sistemi compromessi. 
+ 
+ 
+ 
+ 
+ 
+ ⚡ Interruzione dei servizi 
+ Attacchi DDoS, guasti di rete, dipendenza da infrastrutture esterne. Un'azienda moderna senza rete è paralizzata in pochi minuti. 
+ 
+ 
+ 📡 Intercettazione 
+ Il traffico su reti non cifrate può essere letto da chiunque sia sulla stessa rete. Reti WiFi pubbliche non sicure sono particolarmente rischiose. 
+ 
+ 
+ → Per questo esiste 
+ La sicurezza informatica — l'insieme di pratiche, strumenti e competenze per proteggere reti e sistemi da questi rischi.
+
+--- Slide 12 ---
+Verifica veloce 
+ È tutto chiaro? 
+ Prova a rispondere a mente: 
+ 
+ 1. Qual è la differenza tra una LAN e una WAN? Fai un esempio concreto di ciascuna. 
+ 2. Internet e World Wide Web sono la stessa cosa? Spiega la differenza con un'analogia. 
+ 3. Cosa fa un client? Cosa fa un server? Quando il tuo telefono è client e quando potrebbe essere server? 
+ 4. Elenca due vantaggi e due rischi delle reti informatiche. Come sono collegati l'uno all'altro? 
+ 
+ 
+ 🎯 Situazione pratica 
+ La tua scuola ha una rete WiFi e stampanti condivise. Che tipo di rete è? Quali vantaggi porta? Quali rischi introduce che non esisterebbero senza rete?
+
+--- Slide 13 ---
+Fine Modulo 1 
+ Connessi! 🌐 
+ Sai cos'è una rete, come si classificano, come funziona Internet e quali rischi introduce. Nel prossimo modulo vediamo come navigare il Web e la struttura degli indirizzi online. 
+ 
+ Prossimo → M2 · Navigazione e URL 
+ ↩ Indice del corso

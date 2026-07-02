@@ -1,0 +1,153 @@
+Game Design · GD_03 — Effetti Sonori e Audio
+============================================
+
+--- Slide 1 ---
+Game Design 
+ Effetti Sonori
+ e Audio 
+ Cosa sono gli effetti sonori, come si progettano, e come si produce l'audio di un gioco — dalla registrazione al mixing finale. 
+ 
+ GD_03 SFX & Produzione 
+ 
+ 
+ 
+ 🔊
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa vedremo 
+ 
+ 
+ Cos'è un SFX — il suono come feedback immediato 
+ Categorie di effetti sonori — foley, impatti, UI, ambientali 
+ Voice SFX — lingue inventate e parlato simulato 
+ 
+ 
+ Messaggi nascosti e il silenzio — cosa dice l'audio quando non parla 
+ Produzione audio — DAW, onde sonore e sampling 
+ Effetti e mixing — dare forma e coerenza al suono
+
+--- Slide 3 ---
+Definizione 
+ Cos'è un SFX 
+ Un Sound Effect è un suono breve legato a un'azione, un evento o un oggetto nel gioco. A differenza della musica (OST), lo SFX è puntuale e informativo : comunica che qualcosa è appena successo. 
+ 
+ 🔊 Feedback immediato 
+ Lo SFX conferma l'azione del giocatore. Premere un pulsante senza suono sembra "rotto" — il suono chiude il ciclo di feedback . 
+ 
+ 
+ 
+ 🎯 Azione Il salto, il colpo, il passo: ogni gesto del giocatore ha la sua conferma sonora. 
+ ⚔️ Evento Un allarme, il level up, un errore: il gioco segnala cosa è cambiato nel mondo. 
+ 🏆 Ambiente Vento, pioggia, folla: suoni che rendono vivo e credibile il luogo in cui ti trovi.
+
+--- Slide 4 ---
+Tassonomia 
+ Categorie di SFX 
+ 
+ 🦶 Foley Suoni quotidiani ricreati in studio: passi, vestiti, oggetti maneggiati. Il termine viene dal cinema, dal nome di Jack Foley. 
+ 💥 Impatti Colpi, esplosioni, collisioni. Spesso esagerati rispetto alla realtà, per dare enfasi e peso all'azione. 
+ 🎛️ UI / Interfaccia Click, conferme, notifiche. Devono essere puliti e discreti: li sentirai migliaia di volte, non devono stancare. 
+ 🌧️ Ambientali Suoni di sottofondo che definiscono un luogo: un bosco, una città, una caverna. Costruiscono lo spazio con l'orecchio.
+
+--- Slide 5 ---
+Voice SFX 
+ Lingue inventate 
+ Molti giochi non usano voci reali ma linguaggi inventati (gibberish): suoni vocali senza significato letterale. Costano meno, non serve tradurli, e danno carattere ai personaggi. 
+ 
+ 
+ 🏠 Simlish In The Sims : lingua inventata da suoni improvvisati. Emotiva ma incomprensibile — il giocatore proietta il significato. 
+ 🐾 Animalese In Animal Crossing : voci generate accelerando il parlato registrato. Ogni personaggio "parla" senza una vera lingua. 
+ 🎮 Banjo-Kazooie / Undertale Grunt e beep sincronizzati col testo per simulare il parlato, dando a ogni personaggio una voce riconoscibile.
+
+--- Slide 6 ---
+Dettagli nascosti 
+ Messaggi nel suono 
+ Il sonoro può nascondere informazioni e sorprese: messaggi in codice, easter egg audio, suoni che rivelano meccaniche a chi sa ascoltare. 
+ 
+ 🔍 Esempi 
+ Spettrogrammi nascosti nella musica — codici visibili solo analizzando l'onda — messaggi al contrario, cambi di traccia che segnalano segreti vicini. 
+ 
+ 
+ 
+ 👂 Diegesi audio Un suono fuori posto avverte il giocatore attento: qualcosa in questo posto non è come sembra. 
+ 🗝️ Design della scoperta Premiare chi ascolta con attenzione: il segreto sonoro trasforma l'orecchio in uno strumento di gioco.
+
+--- Slide 7 ---
+Assenza 
+ Il silenzio 
+ Togliere il suono è una scelta di design potente. Il silenzio crea tensione, isola un momento, o dà peso a ciò che viene dopo. 
+ 
+ 
+ 
+ 🤫 Uso del silenzio 
+ Un boss che entra nel silenzio totale; la musica che si ferma di colpo prima di un evento; il silenzio dopo una morte. Il contrasto amplifica l'impatto del suono successivo.
+
+--- Slide 8 ---
+Produzione 
+ La DAW 
+ La Digital Audio Workstation è il software dove si registra, monta e mixa l'audio. È lo studio di registrazione digitale: Ableton, Reaper, FL Studio, Audacity. 
+ 
+ 
+ 🎙️ Registrazione Catturare suoni reali col microfono: voci, oggetti, ambienti. 
+ 🧩 Editing Tagliare, allineare, pulire: dal materiale grezzo al suono utilizzabile. 
+ 🎚️ Mixing Bilanciare i livelli delle tracce perché ogni suono trovi il suo spazio.
+
+--- Slide 9 ---
+Fondamenti 
+ Onde e sampling 
+ Il suono è un'onda. Registrarlo digitalmente significa campionarlo (sampling): misurare l'ampiezza dell'onda migliaia di volte al secondo. 
+ 
+ 🌊 Sample rate 
+ 44.100 campioni al secondo ( 44.1 kHz ) è lo standard CD. Più campioni = più fedeltà, ma anche più spazio occupato. 
+ 
+ 
+ 
+ 📏 Ampiezza = volume L'altezza dell'onda determina quanto il suono è forte o debole. 
+ 〰️ Frequenza = altezza Quanto il suono è acuto o grave: si misura in Hertz (Hz), oscillazioni al secondo.
+
+--- Slide 10 ---
+Effetti 
+ Dare forma al suono 
+ 
+ 🔥 Overdrive / Distorsione Satura il segnale per un suono sporco e aggressivo. Usato per impatti e armi. 
+ 🗜️ Compressione Riduce la differenza tra suoni forti e deboli. Rende il mix coeso e sempre udibile. 
+ 🌀 Riverbero Simula lo spazio: una caverna, una stanza. Colloca il suono in un ambiente. 
+ ⏱️ Delay / Eco Ripete il suono con un ritardo. Crea profondità e ritmo.
+
+--- Slide 11 ---
+Assemblaggio 
+ Sequencing e mixing 
+ Mettere insieme i suoni nel tempo ( sequencing ) e bilanciarli tra loro ( mixing ) è ciò che trasforma tracce isolate in un paesaggio sonoro coerente. 
+ 
+ 
+ 
+ Disporre i suoni sulla timeline, nell'ordine e nel momento giusto. 
+ Regolare i volumi relativi: cosa deve emergere, cosa restare dietro. 
+ Posizionare nello spazio stereo : sinistra, destra, centro. 
+ EQ — tagliare le frequenze che si sovrappongono tra le tracce.
+
+--- Slide 12 ---
+Attività 
+ Progetta il suono di un'azione 
+ 
+ Scegli un'azione di gioco : un salto, un colpo, la raccolta di un oggetto. 
+ Elenca i suoni che la compongono: quanti strati servono davvero? 
+ Sono suoni reali (foley) o sintetici ? Come li otterresti? 
+ Quale effetto (riverbero, distorsione) la renderebbe più soddisfacente? 
+ 
+ 
+ 💡 Bonus 
+ Registra col telefono 3 suoni di casa e immagina a quale azione di gioco potrebbero servire.
+
+--- Slide 13 ---
+Fine GD_03 🔊 
+ Ogni suono
+ comunica. 
+ 
+ Un buon effetto sonoro non si nota — si sente. Chiude il ciclo di feedback, dà peso alle azioni, e costruisce un mondo che vive anche a occhi chiusi .
+ 
+ 
+ ← GD_02 · La Colonna Sonora 
+ → GD_04 · Feedback Sensoriale 
+ ↩ Indice del corso

@@ -112,7 +112,7 @@ em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--
 .title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
 .title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
 .title-left .tape{position:absolute;top:84px;left:90px;}
-.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}.title-right>div,.title-right>svg{position:relative;z-index:2;}
 .title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
 @keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
 .agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(4,auto);grid-template-columns:1fr 1fr;gap:16px 60px;margin-top:16px;}
@@ -137,7 +137,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- ===== SLIDE 1 · TITLE ===== -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <span class="tape teal">Informatica · M11</span>
       <div class="eyebrow reveal" style="margin-top:40px;color:var(--teal);">Modulo 11</div>
       <h1 class="h-big reveal" contenteditable="false" style="margin-top:10px;font-size:110px;">Sistemi<br><em style="font-style:italic;color:var(--teal);">Operativi</em></h1>
       <p class="lead reveal d1" contenteditable="false" style="margin-top:24px;">Windows, macOS, Linux, Android: come funzionano, in cosa differiscono, quale scegliere.</p>
@@ -149,12 +148,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="title-right">
       <div style="font-size:170px;line-height:1;text-align:center;" class="reveal">🖥️</div>
     </div>
-    <div class="deck-tab">OS · M11</div>
   </section>
 
   <!-- ===== SLIDE 2 · AGENDA ===== -->
   <section class="slide">
-    <div class="deck-tab">OS · M11</div>
     <div class="tape teal reveal">Programma</div>
     <h2 class="h-sec reveal" style="margin-top:28px;" contenteditable="false">Cosa vedremo</h2>
     <div class="agenda-list reveal d1">
@@ -170,7 +167,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== SLIDE 3 · COS'È UN OS ===== -->
   <section class="slide">
-    <div class="deck-tab">OS · M11</div>
     <div class="split">
       <div>
         <div class="tape teal reveal">Sistema Operativo</div>
@@ -195,7 +191,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== SLIDE 4 · KERNEL E GUI ===== -->
   <section class="slide tight-slide">
-    <div class="deck-tab">OS · M11</div>
     <div class="tape teal reveal">Architettura</div>
     <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Tre strati: hardware, kernel, interfaccia</h2>
     <div class="split even" style="margin-top:36px;">
@@ -249,7 +244,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== SLIDE 5 · OS DIFFUSI ===== -->
   <section class="slide tight-slide">
-    <div class="deck-tab">OS · M11</div>
     <div class="tape teal reveal">Panoramica</div>
     <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">I principali sistemi operativi</h2>
     <div class="grid3 reveal d1" style="margin-top:36px;">
@@ -289,7 +283,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== SLIDE 6 · WINDOWS: STORIA E CARATTERISTICHE ===== -->
   <section class="slide tight-slide">
-    <div class="deck-tab">OS · M11</div>
     <div class="tape sky reveal">Windows</div>
     <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Microsoft Windows: evoluzione e caratteristiche</h2>
     <div class="split even" style="margin-top:32px;">
@@ -346,7 +339,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== SLIDE 7 · macOS ===== -->
   <section class="slide tight-slide">
-    <div class="deck-tab">OS · M11</div>
     <div class="tape teal reveal">macOS</div>
     <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">macOS: hardware e software di Apple, insieme</h2>
     <div class="split even" style="margin-top:32px;">
@@ -384,7 +376,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== SLIDE 8 · LINUX ===== -->
   <section class="slide tight-slide">
-    <div class="deck-tab">OS · M11</div>
     <div class="tape gold reveal">Linux</div>
     <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Linux: libero, potente, ovunque</h2>
     <div class="split even" style="margin-top:32px;">
@@ -421,7 +412,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== SLIDE 9 · OPEN SOURCE ===== -->
   <section class="slide">
-    <div class="deck-tab">OS · M11</div>
     <div class="tape gold reveal">Open Source</div>
     <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Software libero vs open source vs proprietario</h2>
     <div class="grid3 reveal d1" style="margin-top:36px;">
@@ -450,7 +440,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== SLIDE 10 · ANDROID ===== -->
   <section class="slide tight-slide">
-    <div class="deck-tab">OS · M11</div>
     <div class="tape red reveal">Android</div>
     <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Android: il mobile OS più diffuso al mondo</h2>
     <div class="split even" style="margin-top:32px;">
@@ -484,7 +473,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== SLIDE 11 · CONFRONTO GENERALE ===== -->
   <section class="slide">
-    <div class="deck-tab">OS · M11</div>
     <div class="tape reveal">Confronto</div>
     <h2 class="h-sec reveal" style="margin-top:20px;" contenteditable="false">Tabella comparativa</h2>
     <table class="cmp reveal d1" style="margin-top:24px;">
@@ -540,7 +528,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== SLIDE 12 · GESTIONE APP E FILE SYSTEM ===== -->
   <section class="slide tight-slide">
-    <div class="deck-tab">OS · M11</div>
     <div class="tape reveal">App e File System</div>
     <h2 class="h-sec reveal" style="margin-top:20px;" contenteditable="false">Come si installano le app e come sono organizzati i file</h2>
     <div class="grid2 reveal d1" style="margin-top:30px;align-items:start;">
@@ -584,7 +571,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== SLIDE 13 · SICUREZZA E AGGIORNAMENTI ===== -->
   <section class="slide">
-    <div class="deck-tab">OS · M11</div>
     <div class="tape reveal">Sicurezza</div>
     <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Come ogni OS gestisce sicurezza e aggiornamenti</h2>
     <div class="grid4 reveal d1" style="margin-top:36px;">
@@ -618,7 +604,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== SLIDE 14 · PRIVACY, GUI, PERSONALIZZAZIONE ===== -->
   <section class="slide">
-    <div class="deck-tab">OS · M11</div>
     <div class="tape reveal">Privacy e Interfaccia</div>
     <h2 class="h-sec reveal" style="margin-top:20px;" contenteditable="false">Raccolta dati, GUI e personalizzazione a confronto</h2>
     <table class="cmp reveal d1" style="margin-top:28px;">
@@ -667,7 +652,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== SLIDE 15 · USI E MITI ===== -->
   <section class="slide tight-slide">
-    <div class="deck-tab">OS · M11</div>
     <div class="split even">
       <div class="stack">
         <div class="tape reveal">Usi tipici</div>
@@ -719,7 +703,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== SLIDE 16 · QUALE SCEGLIERE ===== -->
   <section class="slide">
-    <div class="deck-tab">OS · M11</div>
     <div class="tape reveal">Conclusione</div>
     <h2 class="h-sec reveal" style="margin-top:26px;" contenteditable="false">Non esiste il "migliore": dipende da te</h2>
     <div class="grid4 reveal d1" style="margin-top:36px;">
@@ -753,7 +736,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <!-- ===== SLIDE 17 · CLOSING ===== -->
   <section class="slide closing">
-    <div class="deck-tab">OS · M11</div>
     <div class="center" style="align-items:center;text-align:center;">
       <div class="eyebrow reveal gold">Fine Modulo 11 🖥️</div>
       <h2 class="h-mega reveal" style="margin-top:10px;" contenteditable="false">Conosci<br><em class="gold">il tuo OS.</em></h2>

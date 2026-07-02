@@ -46,7 +46,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
 .chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.chip.red{background:var(--red);color:#fff}
 .col{display:flex;flex-direction:column}.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.stack>*+*{margin-top:22px}
 .tight-slide .h-big{font-size:78px}.tight-slide .h-sec{font-size:64px}.tight-slide .lead{font-size:28px;line-height:1.34}.tight-slide .body{font-size:24px;line-height:1.35}.tight-slide .stack>*+*{margin-top:12px}.tight-slide .grid2{gap:18px}.tight-slide .grid3{gap:16px}.tight-slide .card{padding:18px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12)}.tight-slide .card h3{font-size:30px;margin-bottom:6px}.tight-slide .card p{font-size:21px;line-height:1.28}.tight-slide .card .ic{font-size:34px}.tight-slide .note{padding:18px 22px}.tight-slide .note p{font-size:22px;line-height:1.3}
-.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate}@keyframes float{to{transform:translate(-34px,46px) scale(1.04)}}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.title-right>div,.title-right>svg{position:relative;z-index:2;}.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate}@keyframes float{to{transform:translate(-34px,46px) scale(1.04)}}
 .agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}
 .app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.app{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:22px;box-shadow:6px 7px 0 rgba(28,23,20,.12)}.app .logo{width:58px;height:58px;border-radius:14px;display:grid;place-items:center;color:#fff;font-weight:900;font-family:var(--font-mono);font-size:26px;margin-bottom:12px}.blue{background:#4285f4}.green{background:#34a853}.yellow{background:#fbbc04;color:var(--ink)!important}.red{background:#ea4335}.teal-bg{background:var(--teal)}.sky-bg{background:var(--sky)}
 .app h3{font-family:var(--font-display);font-weight:900;font-size:30px;margin-bottom:6px}.app p{font-size:21px;line-height:1.3;color:var(--ink-soft)}
@@ -64,7 +64,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
 
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="tape reveal">Corso di Informatica</div>
       <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="false">Modulo 13 — Strumenti cloud</div>
       <h1 class="h-mega reveal" contenteditable="false">Software<br><em class="hot">Google</em></h1>
       <p class="lead reveal" style="margin-top:30px;" contenteditable="false">Drive, Documenti, Fogli, Presentazioni, Gmail e gli strumenti più usati per lavorare, studiare e collaborare online.</p>
@@ -74,7 +73,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="center">
       <div class="tape teal reveal">In questo modulo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
@@ -95,7 +93,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Definizione</div>
@@ -118,7 +115,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="split even">
       <div class="col stack">
         <div class="tape gold reveal">Identità</div>
@@ -137,7 +133,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="split">
       <div class="col stack">
         <div class="tape teal reveal">Cloud storage</div>
@@ -156,7 +151,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide tight-slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="center">
       <div class="tape reveal">Permessi</div>
       <h2 class="h-sec reveal">Condividere non significa cedere il controllo</h2>
@@ -173,7 +167,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="split">
       <div class="col stack">
         <div class="tape sky reveal">Testi</div>
@@ -192,7 +185,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="split even">
       <div class="col stack">
         <div class="tape gold reveal">Dati</div>
@@ -211,7 +203,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape reveal">Presentazioni</div>
       <h2 class="h-big reveal">Google <em class="hot">Slides</em></h2>
@@ -227,7 +218,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide tight-slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="center">
       <div class="tape teal reveal">Comunicazione</div>
       <h2 class="h-sec reveal">Gmail: email e organizzazione</h2>
@@ -244,7 +234,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="split even">
       <div class="col stack">
         <div class="tape gold reveal">Agenda</div>
@@ -262,7 +251,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="split">
       <div class="col stack">
         <div class="tape sky reveal">Videoriunioni</div>
@@ -281,7 +269,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="split even">
       <div class="col stack">
         <div class="tape teal reveal">Raccolta dati</div>
@@ -300,7 +287,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Scuola digitale</div>
@@ -318,7 +304,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide tight-slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="center">
       <div class="tape gold reveal">Altri strumenti comuni</div>
       <h2 class="h-sec reveal">Photos, Chrome, Keep, Maps, YouTube</h2>
@@ -335,7 +320,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="center">
       <div class="tape teal reveal">Collaborazione</div>
       <h2 class="h-sec reveal">Il flusso di lavoro tipico</h2>
@@ -351,7 +335,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide tight-slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="center">
       <div class="tape reveal">Formati</div>
       <h2 class="h-sec reveal">File Google, Office e PDF</h2>
@@ -367,7 +350,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="split even">
       <div class="col stack">
         <div class="tape gold reveal">Sicurezza</div>
@@ -385,7 +367,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide tight-slide">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape teal reveal">Verifica veloce</div>
       <h2 class="h-sec reveal">È tutto chiaro?</h2>
@@ -402,7 +383,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide closing">
-    <div class="deck-tab">GOOGLE · M13</div>
     <div class="center" style="align-items:center;text-align:center;">
       <div class="eyebrow reveal gold">Fine Modulo 13</div>
       <h2 class="h-mega reveal" style="margin-top:10px;" contenteditable="false">Un ecosistema,<br><em class="gold">non app isolate.</em></h2>

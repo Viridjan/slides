@@ -1,0 +1,545 @@
+Sicurezza Digitale · C1 — Introduzione alla Sicurezza Digitale
+==============================================================
+
+--- Slide 1 ---
+Sicurezza Digitale · Concetto 1 
+ Introduzione
+alla Sicurezza
+Digitale 
+ Cosa significa proteggere la nostra vita online, perché riguarda tutti e come possiamo difenderci ogni giorno. 
+ Concetto 1 / 3 Fondamentale
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa impareremo 
+ 
+ 01 Cos'è la Sicurezza Digitale 
+ 02 Il Triangolo CIA 
+ 03 Cosa dobbiamo proteggere 
+ 04 La nostra vita digitale 
+ 05 Perché la sicurezza ci riguarda 
+ 06 Casi reali e conseguenze 
+ 07 La sicurezza è per tutti 
+ 08 Il fattore umano 
+ 09 Sicurezza nella vita quotidiana 
+ 10 Password, 2FA e buone abitudini
+
+--- Slide 3 ---
+Definizione 
+ Cos'è la Sicurezza
+Digitale? 
+ Un insieme di pratiche, strumenti e comportamenti pensati per proteggere dati, dispositivi e identità digitale da accessi non autorizzati, furti e danni. 
+ 
+ 🛡️ Difesa tecnica Software antivirus, firewall, crittografia — sistemi che bloccano gli attacchi in automatico. 
+ 🧠 Consapevolezza Riconoscere i rischi e scegliere comportamenti sicuri ogni giorno — la parte più importante. 
+ 
+ 
+ 💡 Analogia 
+ Come chiudere a chiave la porta di casa e non lasciare le chiavi sotto lo zerbino. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Protezione dei dati in rete
+
+--- Slide 4 ---
+I fondamenti 
+ La Triade CID 
+ Ogni sistema di sicurezza si basa su tre principi. Si chiamano la triade CID — l'ABC della protezione digitale. 
+ 
+ 
+ 🔒 
+ Confidenzialità 
+ Confidentiality 
+ Solo le persone autorizzate possono accedere alle informazioni. Come un diario con lucchetto: nessuno può leggerlo senza la chiave. 
+ 
+ 
+ ✅ 
+ Integrità 
+ Integrity 
+ I dati non vengono modificati senza autorizzazione. Quello che hai scritto rimane esattamente quello che hai scritto — nessuno lo ha alterato. 
+ 
+ 
+ ⚡ 
+ Disponibilità 
+ Availability 
+ I sistemi funzionano quando ne hai bisogno. Un sito sempre raggiungibile, un file sempre accessibile, un servizio sempre attivo. 
+ 
+ 
+ 
+ 💡 Lo sapevi? 
+ Un attacco informatico viola sempre almeno uno di questi tre principi del CID. Identificare quale aiuta a capire il danno reale e come rispondere.
+
+--- Slide 5 ---
+Beni digitali 
+ Cosa dobbiamo
+ proteggere? 
+ Non solo i computer. Qualsiasi dispositivo o servizio che utilizzi contiene informazioni di valore — anche se non te ne accorgi. 
+ 
+ 👤 Dati personali 
+ Nome, indirizzo, codice fiscale, numero di conto bancario 
+ 📱 Dispositivi 
+ Smartphone, laptop, tablet, smartwatch, smart TV 
+ 🌐 Reti e connessioni 
+ WiFi di casa, reti aziendali, hotspot pubblici 
+ 🔑 Account e identità 
+ Email, social, home banking, app di lavoro, servizi cloud 
+ 
+ Regola: La sicurezza non riguarda solo i computer. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ogni dispositivo è un bene da proteggere
+
+--- Slide 6 ---
+Connessi ogni giorno 
+ Viviamo Digitalmente 
+ Quanti servizi online avete usato solo oggi? Probabilmente molto più di quanto pensiate. 
+ 
+ 
+ 📧 
+ Email 
+ Comunicazioni personali e di lavoro. Spesso la chiave di accesso a tutti gli altri servizi. 
+ 
+ 
+ 📱 
+ Social Network 
+ Instagram, TikTok, Facebook — foto, preferenze, contatti personali, messaggi privati. 
+ 
+ 
+ 🏦 
+ App Bancarie 
+ Pagamenti, bonifici, carte di credito — accesso diretto ai nostri soldi in tempo reale. 
+ 
+ 
+ ☁️ 
+ Cloud & Commerce 
+ Google Drive, iCloud, Amazon — documenti personali e acquisti salvati online. 
+ 
+ 
+ 
+ 📊 Lo sapevi? 
+ Un italiano medio usa 7-10 servizi online diversi ogni giorno . Ognuno è un potenziale punto d'accesso per un attaccante. Quanti ne usate voi?
+
+--- Slide 7 ---
+Dati e valore 
+ Quanto vale la nostra
+ impronta digitale? 
+ Ogni azione online lascia una traccia. I tuoi dati hanno un valore reale — per le aziende e per i criminali. 
+ Una carta di credito rubata vale circa 5-30€ nel mercato nero . Un account email completo può valere fino a 80€ . Un profilo di identità completo — nome, codice fiscale, indirizzo, carta — supera i 100€ . 
+ Regola: i tuoi dati sono già un bene. Trattali come tale. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ~€20 
+ Carta 
+ 
+ ~€80 
+ Email 
+ 
+ €100+ 
+ Identità 
+ 
+ Prezzi stimati nel dark web, 2024
+
+--- Slide 8 ---
+Conseguenze reali 
+ Cosa succede se non ci proteggiamo? 
+ 
+ 
+ 🗃️ 
+ Furto di dati 
+ Informazioni personali, documenti e foto private venduti o usati per ricattarti. Il danno può essere permanente. 
+ 
+ 
+ 💸 
+ Perdita di denaro 
+ Accesso ai conti bancari, acquisti non autorizzati, truffe sui pagamenti. Recuperare i soldi è spesso impossibile. 
+ 
+ 
+ 💼 
+ Problemi lavorativi 
+ Un account aziendale compromesso può causare licenziamento, responsabilità legali o danni ai clienti. 
+ 
+ 
+ 😔 
+ Danni reputazionali 
+ Messaggi falsi inviati a tuo nome, foto diffuse senza consenso, profili social clonati per truffare amici. 
+ 
+ 
+ 
+ ⚠️ Perché l'email è la chiave di tutto 
+ Chi accede alla tua email può cliccare "Password dimenticata" su qualsiasi altro sito e prendere il controllo di banca, social, lavoro — tutto in pochi minuti.
+
+--- Slide 9 ---
+Casi concreti 
+ Non capita solo alle grandi aziende 
+ Spesso pensiamo agli attacchi come roba da film. Ma i dati dicono che colpiscono soprattutto le persone comuni. 
+ 
+ 
+ 📲 
+ SIM Swapping 
+ Il numero di telefono viene trasferito alla SIM dell'attaccante. Lui riceve i tuoi SMS di verifica e accede al conto bancario. Colpisce persone comuni ogni settimana in Italia. 
+ 
+ 
+ 💌 
+ Email di phishing 
+ Una mail "dalla banca" o "da Amazon" chiede le credenziali. Spesso impossibile da distinguere da quella vera. Ogni anno colpisce milioni di italiani — anche persone esperte. 
+ 
+ 
+ 📸 
+ Account social clonati 
+ Qualcuno crea un profilo identico al tuo con le tue foto e scrive ai tuoi amici chiedendo denaro urgente. La vittima sei tu, non il criminale — ma ci vuole tempo per risolvere. 
+ 
+ 
+ 
+ 📊 Dati CNAIPIC 2023 
+ In Italia nel 2023 sono stati registrati oltre 2.100 attacchi informatici significativi . Il 65% ha preso di mira privati cittadini e piccole imprese.
+
+--- Slide 10 ---
+Riguarda tutti 
+ Non solo per
+ esperti 
+ Non servono lauree in informatica. Serve la stessa attenzione che usiamo già in altri ambiti della vita quotidiana. 
+ 
+ 
+ 🌍 Tutti usano Internet 
+ Social, shopping, messaggistica — chiunque abbia uno smartphone è già online e già esposto. 
+ 
+ 
+ 💎 Tutti hanno dati di valore 
+ Anche se credi di non avere "niente di importante": la tua identità, i tuoi contatti, le tue foto valgono comunque. 
+ 
+ 
+ 🎯 Tutti possono diventare vittime 
+ Gli attacchi di massa non scelgono per importanza — colpiscono chi non si è protetto. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ✓ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ La sicurezza è una competenza quotidiana
+
+--- Slide 11 ---
+Concetto chiave 
+ La Superficie di Attacco 
+ È l'insieme di tutti i punti attraverso cui un attaccante può provare ad entrare nel tuo sistema o nella tua vita digitale. 
+ 
+ 
+ 🔌 
+ Punti fisici 
+ USB inserite su computer pubblici, dispositivi lasciati incustoditi, schermo visibile in luoghi pubblici — qualcuno legge cosa stai scrivendo. 
+ 
+ 
+ 🌐 
+ Punti di rete 
+ WiFi pubblici non sicuri, router di casa con password predefinita del fornitore, porte di comunicazione aperte inutilmente. 
+ 
+ 
+ 🧩 
+ Punti software 
+ App non aggiornate con falle note, password riutilizzate su più siti, permessi eccessivi concessi alle app (GPS, microfono, contatti). 
+ 
+ 
+ 
+ 💡 La regola d'oro 
+ Ridurre la superficie di attacco : disinstalla app inutilizzate, chiudi account vecchi, non usare WiFi pubblici per operazioni sensibili. Meno porte aperte = meno rischi.
+
+--- Slide 12 ---
+Esempi concreti 
+ Sicurezza nella
+ vita quotidiana 
+ Piccole abitudini che fanno una differenza enorme. Quali di queste fate già? 
+ 
+ 📱 Blocca il telefono 
+ PIN, impronta o Face ID — sempre attivi, anche a casa 
+ 🔑 Password robuste 
+ Diverse per ogni account, mai "123456" o il tuo nome 
+ 🔄 Aggiorna le applicazioni 
+ Ogni aggiornamento chiude falle di sicurezza già note 
+ 📧 Verifica le email sospette 
+ Non cliccare link, controlla il mittente reale dall'indirizzo 
+ 
+ 
+ 🎯 Attività 
+ Dì ad alta voce quali di queste azioni fai già oggi — e quale inizieresti domani. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 🔒 Blocca telefono ✓ 
+ 
+ 🔑 Password sicure ✓ 
+ 
+ 🔄 Aggiorna app ○ 
+ 
+ 📧 Verifica email ○ 
+ 
+ 
+ 
+ 
+ 
+ Checklist di sicurezza quotidiana
+
+--- Slide 13 ---
+Il rischio invisibile 
+ Il Fattore Umano 
+ La tecnologia è sempre più sicura. Ma il punto debole siamo spesso noi stessi — e gli attaccanti lo sanno benissimo. 
+ 
+ 
+ 🎭 
+ Social Engineering 
+ Manipolare le persone invece di attaccare i sistemi. L'attaccante si finge qualcuno di fidato — la banca, un collega, il supporto tecnico — per farti rivelare informazioni o compiere azioni. 
+ "Ciao, sono dell'IT. Confermami la tua password per un aggiornamento urgente." 
+ 
+ 
+ 😬 
+ I nostri errori tipici 
+ Usiamo la stessa password ovunque. Clicchiamo i link prima di leggere il mittente. Ci fidiamo di email "ufficiali" senza verificarle. Lasciamo il PC sbloccato in pubblico. 
+ 
+ ~90% 
+ degli attacchi riusciti sfrutta un errore umano 
+ 
+ 
+ 
+ 
+ ⚠️ Regola d'oro 
+ Nessun servizio legittimo ti chiederà mai la password via telefono, SMS o email. Mai. Nessuna eccezione.
+
+--- Slide 14 ---
+Igiene digitale 
+ Perché gli
+ aggiornamenti 
+sono vitali 
+ Ogni software contiene difetti chiamati "vulnerabilità". Gli aggiornamenti li correggono prima che qualcuno li sfrutti per attaccarti. 
+ Quando ignori "Aggiornamento disponibile", stai lasciando una porta aperta. Gli attaccanti conoscono le falle dei software vecchi e le sfruttano in modo automatico e sistematico . 
+ 
+ 📊 Dato reale 
+ Il 60% degli attacchi riusciti sfrutta vulnerabilità per cui esisteva già una patch disponibile — spesso da settimane o mesi. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vulnerabilità scoperta 
+ dagli hacker 
+ 
+ 
+ Patch rilasciata 
+ dal produttore 
+ 
+ 
+ ✓ 
+ Aggiornato → al sicuro 
+ rischio eliminato 
+ 
+ 
+ ✗ 
+ Non aggiornato → esposto 
+ bersaglio facile 
+ 
+ Chi non aggiorna resta vulnerabile
+
+--- Slide 15 ---
+Autenticazione 
+ Password: la prima
+ linea di difesa 
+ 
+ 
+ ❌ Password deboli — da evitare 
+ 
+ 123456 
+ password 
+ giulia1990 
+ qwerty 
+ iloveyou 
+ 
+ Un computer le indovina in meno di un secondo con un attacco a dizionario. 
+ 
+ 
+ ✅ Password forti — così si fa 
+ 
+ Tr0mb0ne!Viola#47 
+ gatto.luna.porta.7 
+ !Mela-Blu&Treno99 
+ 
+ Almeno 12 caratteri, misto lettere maiuscole/minuscole, numeri e simboli. 
+ 
+ 💡 Consiglio 
+ Usa un gestore di password (Bitwarden, 1Password, KeePass). Una sola password maestra, il resto è automatico.
+
+--- Slide 16 ---
+Doppia protezione 
+ Autenticazione a
+ Due Fattori (2FA) 
+ Anche se qualcuno ruba la tua password, con il 2FA non può accedere al tuo account senza avere anche il tuo telefono fisicamente. 
+ Dopo la password, il sistema chiede un secondo codice che arriva solo sul tuo smartphone — via SMS, app dedicata o chiavetta fisica USB. 
+ 
+ SMS / email 
+ App (Google Auth) 
+ Chiave FIDO2 
+ 
+ 
+ 🛡️ Impatto reale 
+ Il 2FA blocca il 99,9% degli attacchi automatizzati agli account. Attivalo subito su email e home banking. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1. Inserisci password 
+ ● ● ● ● ● ● ● ● 
+ 
+ 
+ 
+ 
+ 
+ 2. Codice OTP dal telefono 
+ 4 8 3 9 1 2 
+ 
+ 
+ 
+ 
+ 
+ ✓ Accesso consentito 
+ 
+ Due chiavi valgono più di una
+
+--- Slide 17 ---
+Il bilanciamento 
+ Sicurezza vs Usabilità 
+ Più sicuro spesso significa più scomodo. Ma questo non vuol dire che dobbiamo scegliere: esiste un equilibrio pratico. 
+ 
+ 
+ ❌ Troppo rigido 
+ Password di 40 caratteri, cambiata ogni settimana, 2FA obbligatorio per tutto. Impossibile da usare — le persone trovano scorciatoie e aggirano i sistemi troppo rigidi. 
+ 
+ 
+ ⚖️ Equilibrio giusto 
+ Password forte + gestore password + 2FA sui servizi critici. Sicuro e usabile. La sicurezza funziona solo se le persone la adottano davvero — se è impossibile, non viene usata. 
+ 
+ 
+ ❌ Troppo comodo 
+ Stessa password ovunque, nessun 2FA, aggiornamenti mai fatti. Estremamente rischioso — una sola falla compromette tutto l'ecosistema digitale. 
+ 
+ 
+ 
+ 💡 Principio pratico 
+ Applica la massima protezione dove il rischio è massimo : email e banca prima di tutto. Meno attenzione dove il rischio è basso. Non trattare tutte le password allo stesso modo.
+
+--- Slide 18 ---
+Riepilogo pratico 
+ 10 Buone Abitudini Digitali 
+ 
+ 01 Password diverse e robuste per ogni account 
+ 02 Attiva il 2FA su email e app bancarie 
+ 03 Aggiorna sempre app e sistema operativo 
+ 04 Blocca il dispositivo quando lo lasci 
+ 05 Non cliccare link senza verificare il mittente 
+ 06 Evita WiFi pubblici per operazioni sensibili 
+ 07 Non condividere la password con nessuno 
+ 08 Controlla i permessi delle app installate 
+ 09 Usa un gestore di password (es. Bitwarden) 
+ 10 Backup regolari dei dati importanti
+
+--- Slide 19 ---
+Verifica veloce 
+ È tutto chiaro? 
+ Prova a rispondere a mente prima di vedere le prossime slide: 
+ 
+ 1. Cosa significa la "D" nella triade CID della sicurezza informatica? 
+ 2. Perché il furto dell'account email è particolarmente grave rispetto ad altri account? 
+ 3. Cos'è il Social Engineering e perché non serve essere informatici per subirlo? 
+ 4. Perché non bisogna usare la stessa password su siti diversi? 
+ 
+ 
+ 🎯 Bonus 
+ Nomina tre buone abitudini digitali che puoi adottare già oggi — senza costi, senza attrezzatura speciale.
+
+--- Slide 20 ---
+Fine Concetto 01 
+ Protetti! 🔒 
+ Conosci le basi della sicurezza digitale. Nel prossimo concetto entriamo nel dettaglio delle Minacce e Vulnerabilità della Rete : virus, malware, ransomware e come difendersi in pratica. 
+ Prossimo → C2 · Minacce e Vulnerabilità ↩ Indice del corso

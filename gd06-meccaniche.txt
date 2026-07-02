@@ -1,0 +1,162 @@
+Game Design · GD_06 — Meccaniche e Interazione
+==============================================
+
+--- Slide 1 ---
+Game Design 
+ Meccaniche
+ e Interazione 
+ I mattoni del gioco: le meccaniche più diffuse, come i giocatori interagiscono tra loro, e cosa significa bilanciare un sistema. 
+ 
+ GD_06 Meccaniche 
+ 
+ 
+ 
+ ⚙️
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa vedremo 
+ 
+ 
+ Meccaniche comuni — i mattoni ricorrenti dei board game 
+ Tipi di interazione — competitivo, cooperativo, coopetitivo 
+ Cooperativi e coopetitivi — quando si vince (o si tradisce) insieme 
+ 
+ 
+ Game vs Play — gioco strutturato e gioco libero 
+ Sincronizzazione — turni, simultaneità, tempo reale 
+ Bilanciamento — cosa rende un sistema equilibrato
+
+--- Slide 3 ---
+I mattoni · 1/2 
+ Meccaniche comuni 
+ I board game hanno un vocabolario di meccaniche ricorrenti. Conoscerle significa saper leggere qualsiasi gioco — e progettarne di nuovi. 
+ 
+ 🃏 Draft Scegli una carta da un pool comune e passi il resto al vicino. Ogni scelta è anche una rinuncia. Es. 7 Wonders . 
+ 📦 Set collection Raccogli combinazioni di elementi — colori, famiglie, sequenze — che valgono punti solo se completate. 
+ 🗺️ Area control Domini le zone della mappa dove hai più presenza. Chi controlla il territorio, controlla i punti. Es. Risiko .
+
+--- Slide 4 ---
+I mattoni · 2/2 
+ Ancora meccaniche 
+ 
+ 👷 Worker placement Piazzi i tuoi lavoratori su azioni disponibili in numero limitato: chi arriva prima blocca gli altri. Es. Agricola . 
+ 🏗️ Deck building Il tuo mazzo cresce e migliora durante la partita: ogni acquisto plasma le tue mosse future. Es. Dominion . 
+ 🎲 Push your luck Continui a rischiare per ottenere di più — ma un passo di troppo e perdi tutto. Es. Can't Stop . 
+ 
+ 
+ 🧩 Combinazioni 
+ Le meccaniche si combinano : un gioco raramente ne usa una sola. Draft + set collection, worker placement + area control — il design nasce dall'incastro.
+
+--- Slide 5 ---
+Al tavolo 
+ Tipi di interazione 
+ Come i giocatori si influenzano a vicenda? La risposta definisce l'esperienza sociale del gioco. 
+ 
+ ⚔️ Competitivo Uno contro l'altro: la tua vittoria è la sconfitta degli altri. Il modello classico. 
+ 🤝 Cooperativo Tutti contro il gioco: si vince e si perde insieme, come una squadra. 
+ 🔀 Coopetitivo Cooperi e competi nello stesso gioco: alleanze necessarie ma interessi divergenti. 
+ 
+ 
+ 🪑 Atmosfera 
+ Il tipo di interazione definisce l' atmosfera sociale al tavolo: sfida aperta, spirito di squadra o sospetto costante.
+
+--- Slide 6 ---
+Insieme 
+ Giochi cooperativi 
+ Tutti contro il gioco: vittoria e sconfitta sono condivise . In Pandemic la squadra ferma le epidemie o crolla insieme. Cambia la dinamica sociale: si discute, si pianifica, si decide come gruppo. 
+ 
+ ⚠️ Alpha player 
+ Il rischio: un giocatore esperto che decide per tutti . Il design deve prevenirlo — informazione nascosta, ruoli personali, decisioni segrete. 
+ 
+ 
+ 
+ 🧠 Comunicazione Il vero gioco è il dialogo: coordinare le mosse, condividere informazioni, costruire una strategia comune. 
+ ⚠️ Alpha player Se uno comanda e gli altri eseguono, il cooperativo diventa un solitario con spettatori.
+
+--- Slide 7 ---
+Insieme, ma… 
+ Giochi coopetitivi 
+ Cooperi e competi nello stesso gioco : alleanze mutevoli, tensione costante, fiducia sempre in bilico. 
+ 
+ 🎭 Ambiguità 
+ Il bello sta nell'ambiguità: non sai di chi fidarti — e nemmeno gli altri sanno se fidarsi di te. 
+ 
+ 
+ 
+ 👑 King's Dilemma Il consiglio del regno vota decisioni collettive — ma ogni casata ha un' agenda segreta da portare avanti. 
+ 🛸 Battlestar Galactica La squadra collabora per sopravvivere, ma tra voi si nasconde un traditore : ogni errore diventa sospetto.
+
+--- Slide 8 ---
+Teoria 
+ Game vs Play 
+ Il sociologo Roger Caillois distingue due poli del giocare: il gioco libero e il gioco regolato. 
+ 
+ 🎈 Paidia · Play Gioco libero , spontaneo, improvvisato: bambini che inventano storie in cortile, senza regole scritte né vincitori. 
+ 📏 Ludus · Game Gioco strutturato da regole e obiettivi espliciti: gli scacchi, dove ogni mossa è codificata e la vittoria è definita. 
+ 
+ 
+ ↔️ Un asse, non una scelta 
+ Ogni gioco vive su un asse tra questi due estremi : Minecraft in creativa è quasi pura paidia, una partita a scacchi è quasi puro ludus.
+
+--- Slide 9 ---
+Il tempo del gioco 
+ Sincronizzazione 
+ Come si organizza il tempo di gioco? Chi agisce, e quando? 
+ 
+ ⏱️ A turni I giocatori agiscono uno alla volta , in ordine: tutto il tempo per pensare, come negli scacchi. 
+ 🔄 Simultaneo Tutti agiscono insieme : si programmano gli ordini in segreto e si rivelano nello stesso momento. 
+ ⚡ Tempo reale Il gioco non aspetta nessuno: negli RTS la velocità di decisione è essa stessa un'abilità. 
+ 🐢 Turni lenti Il rovescio della medaglia: turni lunghi generano attesa per chi non sta giocando. 
+ 
+ 
+ ⏳ Downtime 
+ Il tipo di sincronizzazione cambia ritmo, tensione e downtime — il tempo morto in cui un giocatore aspetta il proprio turno.
+
+--- Slide 10 ---
+Equilibrio 
+ Bilanciamento: 4 criteri 
+ Cosa rende un gioco "ben bilanciato"? Quattro qualità da verificare a ogni playtest. 
+ 
+ 🔍 Chiarezza Le regole si capiscono e le scelte sono leggibili: il giocatore sa sempre cosa può fare e perché. 
+ 🌊 Fluidità Il gioco scorre senza intoppi, consultazioni continue del regolamento o downtime eccessivo. 
+ ⏳ Durata La giusta lunghezza: non così corto da sembrare vuoto, non così lungo da diventare estenuante. 
+ 🎉 Divertimento Le scelte sono significative e piacevoli: alla fine della partita viene voglia di rigiocare.
+
+--- Slide 11 ---
+In pratica 
+ Bilanciare le meccaniche 
+ Nessuna strategia deve dominare: se esiste una "mossa vincente" ovvia, il gioco si riduce a eseguirla. Ogni scelta deve avere pro e contro . 
+ 
+ ⚖️ Scelte significative 
+ Una scelta senza conseguenze è finta; una scelta ovvia non è una scelta. Il gioco vive nel mezzo. 
+ 
+ 
+ 
+ ❌ Strategia dominante Una via sempre migliore delle altre rompe il gioco : tutte le altre opzioni diventano decorazione. 
+ ✅ Scelte equilibrate Ogni via è valida in situazioni diverse: la partita resta aperta e le decisioni contano davvero.
+
+--- Slide 12 ---
+Attività 
+ Smonta le meccaniche 
+ 
+ Scegli un gioco — da tavolo o videogioco — che conosci bene. 
+ Elenca 3 meccaniche che usa: draft? set collection? deck building? 
+ Che tipo di interazione crea: competitivo, cooperativo o coopetitivo? 
+ C'è una strategia dominante ? Come la bilanceresti? 
+ 
+ 
+ 💡 Bonus 
+ Prova a combinare due meccaniche di giochi diversi: worker placement + push your luck? Funzionerebbero insieme?
+
+--- Slide 13 ---
+Fine GD_06 ⚙️ 
+ Regole che
+ si parlano. 
+ 
+ Le meccaniche non vivono isolate: interagiscono, si bilanciano, generano l'esperienza sociale del tavolo. Progettare un sistema è far dialogare le sue parti .
+ 
+ 
+ ← GD_05 · Difficoltà e Progressione 
+ → GD_07 · Processo di Design 
+ ↩ Indice del corso

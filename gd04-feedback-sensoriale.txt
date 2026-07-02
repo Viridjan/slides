@@ -1,0 +1,163 @@
+Game Design · GD_04 — Feedback Sensoriale
+=========================================
+
+--- Slide 1 ---
+Game Design 
+ Feedback
+ Sensoriale 
+ Come il gioco parla ai sensi del giocatore — vibrazione, tatto, sensori — e come giocatori diversi cercano esperienze diverse. 
+ 
+ GD_04 Feedback & Giocatori 
+ 
+ 
+ 
+ 🎮
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa vedremo 
+ 
+ 
+ Cos'è il feedback sensoriale — il gioco parla a vista, udito e tatto 
+ Evoluzione della vibrazione — dal rumble grezzo all'aptica fine 
+ DualSense e grilletti adattivi — il salto qualitativo di PS5 
+ 
+ 
+ Arduino e sensori — prototipare il feedback fisico 
+ Chi sono i giocatori — motivazioni diverse, esperienze diverse 
+ Tassonomia di Bartle — Killer, Achiever, Explorer, Socializer
+
+--- Slide 3 ---
+Definizione 
+ Il gioco parla ai sensi 
+ Ogni azione del giocatore merita una risposta percepibile. Lo schermo mostra, l'audio racconta, la vibrazione fa sentire : il feedback tattile chiude il ciclo azione → risposta e rende l'esperienza fisica. 
+ 
+ ✋ Feedback aptico 
+ L' aptica è la tecnologia che ricrea il senso del tatto tramite vibrazioni e forze: il gioco ti tocca, non solo ti si mostra. 
+ 
+ 
+ 
+ 👁️ Vista Lo schermo: animazioni, effetti, HUD. Il canale principale, ma non l'unico. 
+ 👂 Udito Musica ed effetti sonori: conferme, allarmi, atmosfera (moduli GD_02 e GD_03). 
+ ✋ Tatto Vibrazione e resistenza: il canale che rende l'azione fisicamente reale.
+
+--- Slide 4 ---
+Storia 
+ Dal rumble all'aptica 
+ La vibrazione nei controller nasce semplice: un motore che trema quando succede qualcosa. Ci vorranno vent'anni per passare dal "brr" generico alla sensazione precisa. 
+ 
+ 📳 Rumble Pak / DualShock 
+ Il Rumble Pak del Nintendo 64 (1997) e il DualShock di Sony portano la vibrazione nelle case di tutti: il tatto entra nel linguaggio dei videogiochi. 
+ 
+ 
+ 
+ 📳 Massa rotante Motori a massa eccentrica: un pesetto sbilanciato gira e fa vibrare tutto il controller. Efficace ma grezzo. 
+ 🎯 Il limite Nessuna precisione: solo "acceso" o "spento". Un'esplosione e una carezza vibrano quasi uguali.
+
+--- Slide 5 ---
+Salto qualitativo 
+ DualSense PS5 
+ Il controller di PlayStation 5 trasforma la vibrazione in un linguaggio espressivo: non un solo motore, ma un sistema che ricrea sensazioni diverse. 
+ 
+ 💡 Non più "brr" 
+ L'aptica moderna non vibra genericamente: ricrea sensazioni specifiche — la pioggia che batte, la sabbia sotto i piedi, la corda che si tende. 
+ 
+ 
+ 
+ 🌊 Haptic feedback Attuatori a bobina vocale: vibrazioni precise e localizzate che simulano texture — pioggia, sabbia, superfici diverse. 
+ 🏹 Grilletti adattivi Resistenza variabile sui grilletti: tendere un arco richiede forza, un grilletto inceppato si blocca davvero. 
+ 🔊 Speaker integrato Suoni riprodotti dal controller stesso: l'audio esce dalle tue mani, non solo dalla TV.
+
+--- Slide 6 ---
+Oltre il joypad 
+ Il tatto esce dal controller 
+ 
+ 🎧 Cuffie aptiche Le Razer Nari vibrano sulle frequenze basse: un'esplosione non si sente solo, si percepisce sulla testa. 
+ 🪑 Sedie e piattaforme Sedute e pedane aptiche per racing e VR: il motore che romba, il fondo stradale, gli urti trasmessi al corpo. 
+ 🧤 Guanti VR Feedback sulle singole dita: afferrare un oggetto virtuale e sentirne la forma e la resistenza. 
+ 📱 Smartphone I motori aptici dei telefoni (come il Taptic Engine) danno "click" e conferme tattili precise a ogni tocco.
+
+--- Slide 7 ---
+Prototipare 
+ Arduino e sensori 
+ Arduino è una scheda programmabile economica: legge sensori e attiva output. Perfetta per prototipare controller alternativi o installazioni interattive con feedback fisico reale. 
+ 
+ 🔧 Perché Arduino 
+ Basso costo, community enorme, migliaia di tutorial: il modo ideale per imparare come funzionano input e output fisici. 
+ 
+ 
+ 
+ 📥 Input Legge il mondo: pulsanti, sensori di luce, movimento, distanza. Il giocatore agisce, la scheda misura. 
+ 📤 Output Agisce sul mondo: LED, motori, suoni, vibrazioni. La scheda risponde con feedback percepibile.
+
+--- Slide 8 ---
+Input vs output 
+ Sensori e attuatori 
+ 
+ 📡 Sensori — percepire Pressione (quanto forte premi), movimento (accelerometro), luce (fotoresistenza), distanza (ultrasuoni), tatto (sensori capacitivi). 
+ ⚙️ Attuatori — rispondere LED (luce e colore), motori e servo (movimento), buzzer e altoparlanti (suono), motori di vibrazione (aptica). 
+ 
+ 
+ 🔁 Il ciclo del gioco fisico 
+ Un gioco fisico interattivo è sempre: sensori (cosa fa il giocatore) → logica (il programma decide) → attuatori (la risposta che il giocatore percepisce).
+
+--- Slide 9 ---
+Cambio di prospettiva 
+ Chi sono i giocatori 
+ Non tutti giocano per gli stessi motivi: c'è chi vuole vincere, chi vuole scoprire, chi vuole stare in compagnia. Capire i tipi di giocatore aiuta a progettare esperienze che li soddisfino davvero. 
+ 
+ 
+ 🎓 Richard Bartle, 1996 Studiando i MUD — i mondi multiplayer testuali antenati degli MMO — Bartle classifica i giocatori in quattro tipi: nasce la sua celebre tassonomia. 
+ 
+ 🎯 Design per chi? 
+ Un gioco che ignora i suoi giocatori fallisce: progettare significa prima capire per chi stai progettando.
+
+--- Slide 10 ---
+Modello 
+ La tassonomia di Bartle 
+ Quattro tipi su due assi: agire ↔ interagire e giocatori ↔ mondo . 
+ 
+ ♠️ Killer Agire sui giocatori : dominare, competere, vincere il PvP. Il piacere sta nel misurarsi con avversari reali. 
+ 🏆 Achiever Agire sul mondo : obiettivi, punti, trofei, completamento al 100%. Il piacere sta nel progredire e conquistare. 
+ 🧭 Explorer Interagire col mondo : scoprire, mappare, trovare segreti e meccaniche nascoste. Il piacere sta nel capire come funziona. 
+ 💬 Socializer Interagire coi giocatori : relazioni, community, chat, gilde. Il gioco è il pretesto, le persone sono il punto.
+
+--- Slide 11 ---
+Applicazione 
+ Progettare per i 4 tipi 
+ Un buon gioco offre qualcosa a ciascun tipo: sistemi diversi che parlano a motivazioni diverse, dentro la stessa esperienza. 
+ 
+ 🎭 Nessuno è puro 
+ La maggior parte dei giocatori è un mix dei quattro tipi, con uno dominante: progettare per tutti significa non escludere nessuno. 
+ 
+ 
+ 
+ Killer → classifiche, leaderboard, modalità PvP competitive 
+ Achiever → achievement, livelli, sistemi di progressione visibile 
+ Explorer → mondo ricco, segreti, aree nascoste da scoprire 
+ Socializer → modalità coop, gilde, chat e strumenti sociali
+
+--- Slide 12 ---
+Attività 
+ Che giocatore sei ? 
+ 
+ Pensa al tuo gioco preferito e a come lo giochi davvero. 
+ Quale tipo di Bartle sei quando lo giochi? Killer, Achiever, Explorer o Socializer? 
+ Come ti dà feedback fisico e sensoriale ? Vibrazione, audio, aptica? 
+ Come lo miglioreresti per un tipo di giocatore diverso dal tuo? 
+ 
+ 
+ 💡 Bonus 
+ Prova a immaginare un sensore Arduino che aggiungerebbe una nuova interazione fisica al tuo gioco: cosa misurerebbe, e come risponderebbe il gioco?
+
+--- Slide 13 ---
+Fine GD_04 🎮 
+ I sensi.
+ Il giocatore. 
+ 
+ Il feedback sensoriale rende reale l'azione; capire i giocatori la rende significativa. Un buon design tocca i sensi giusti per le persone giuste .
+ 
+ 
+ ← GD_03 · Effetti Sonori e Audio 
+ → GD_05 · Difficoltà e Progressione 
+ ↩ Indice del corso

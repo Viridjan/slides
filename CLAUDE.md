@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file gives repo-specific guidance to coding agents working in this folder.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## What this repo is
 
@@ -17,6 +17,18 @@ Entry points:
 - `00-indice.html` is the course index and links to the published decks.
 - `quiz-*.html` files are standalone macroarea quizzes.
 - `mappa-concettuale.mmd` is a Mermaid concept map.
+
+## Opening decks
+
+Open files directly via `file://` protocol — double-click or:
+
+```bash
+xdg-open gd01-introduzione.html
+```
+
+**Never start an HTTP server.** The user's browser is in HTTPS-Only mode and
+auto-upgrades `http://localhost` to `https://`, causing `ERR_SSL_PROTOCOL_ERROR`
+on any plain HTTP server.
 
 ## Editing rules
 
@@ -69,6 +81,30 @@ Avoid changing the visual language casually. If a deck needs a new component,
 prefer the existing `.tape`, `.card`, `.grid2`, `.grid3`, `.split`, `.note`,
 `.chips`, `.closing`, `.reveal`, and `.page-num` patterns.
 
+## Title slide invariants
+
+Every deck has a title slide with `.title-left` (text column) and `.title-right`
+(illustration column with an animated `::before` floating circle).
+
+**Required:** include this CSS rule in every deck so the illustration paints
+above the animated circle:
+
+```css
+.title-right>div,.title-right>svg{position:relative;z-index:2;}
+```
+
+Without it, the circle covers the illustration after the reveal animation
+completes (`transform:none` drops the element out of the stacking context and
+below the `position:absolute` `::before`).
+
+**Do not use `.deck-tab`** — the CSS class still exists in every file (dead
+code) but all `<div class="deck-tab">` elements have been removed. Do not
+re-add them.
+
+**Do not add `.tape` to title slides** — the `.tape` class was removed from
+title slides across the entire repo. Tape is still used as section headers on
+content slides ("In questo modulo", "Definizione", etc.); keep those.
+
 ## Overflow prevention
 
 Slides have about 888px of usable height after the standard 96px top and bottom
@@ -97,12 +133,46 @@ Published decks are root-level files named by series:
 | `inf` | Informatica | `inf01-componenti.html` |
 | `sma` | Smartphones | `sma01-smartphone-computer.html` |
 | `fog` | Fogli di calcolo | `fog03-riferimenti-formule.html` |
-| `iai` | Intelligenza Artificiale | `ia_01-concetti-generali.html` |
+| `ia_` | Intelligenza Artificiale | `ia_01-concetti-generali.html` |
+| `gd` | Game Design | `gd01-introduzione.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
 
 For new published decks, use the next available number in the relevant series
 and update `00-indice.html`. If the previous deck has a closing "Prossimo" chip,
 update that chip too.
+
+## TXT companion files
+
+Every deck has a sibling `.txt` file (e.g. `gd01-introduzione.txt`) containing
+the plain-text slide content. `00-indice.html` auto-injects a `↓ TXT` download
+button on every index card via inline JS. When adding a new deck, generate the
+`.txt` companion with:
+
+```bash
+python3 - << 'EOF'
+import re
+from pathlib import Path
+
+fpath = Path('new-deck.html')
+content = fpath.read_text()
+slides = re.findall(r'<section[^>]*class="slide[^"]*"[^>]*>(.*?)</section>', content, re.DOTALL)
+title_m = re.search(r'<title>([^<]+)</title>', content)
+deck_title = title_m.group(1) if title_m else fpath.stem
+
+def strip(html):
+    html = re.sub(r'<(script|style)[^>]*>.*?</(script|style)>', '', html, flags=re.DOTALL|re.IGNORECASE)
+    html = re.sub(r'<br\s*/?>', '\n', html, flags=re.IGNORECASE)
+    html = re.sub(r'<[^>]+>', ' ', html)
+    return re.sub(r'[ \t]+', ' ', html).strip()
+
+lines = [deck_title, '=' * max(len(deck_title), 40), '']
+for i, s in enumerate(slides, 1):
+    t = strip(s).strip()
+    if len(t) > 2:
+        lines += [f'--- Slide {i} ---', t, '']
+fpath.with_suffix('.txt').write_text('\n'.join(lines))
+EOF
+```
 
 ## Current published inventory
 
@@ -174,6 +244,21 @@ Navigation chain: inf01 → inf02 → inf03 → inf04 → inf05 → inf06 → in
 | `ia_02-esercizio-generazione.html` | Esercizio di generazione |
 | `ia_03-llm.html` | LLM — Large Language Models |
 
+### Game Design
+
+Navigation chain: gd01 → gd02 → gd03 → gd04 → gd05 → gd06 → gd07 → gd08
+
+| File | Title |
+| --- | --- |
+| `gd01-introduzione.html` | Introduzione al Game Design |
+| `gd02-ost.html` | La Colonna Sonora |
+| `gd03-sfx-audio.html` | Effetti Sonori e Audio |
+| `gd04-feedback-sensoriale.html` | Feedback Sensoriale e Giocatori |
+| `gd05-difficolta.html` | Difficoltà e Progressione |
+| `gd06-meccaniche.html` | Meccaniche e Interazione |
+| `gd07-processo.html` | Processo di Design |
+| `gd08-progettazione.html` | Progettare un Gioco Fisico |
+
 ### Fogli di calcolo (supplementary)
 
 | File | Title |
@@ -201,6 +286,9 @@ Sections start collapsed. Opening one section closes the others. The course
 header title is `Educazione digitale`; do not reintroduce the old "Indice del
 corso" badge or the difficulty legend under the title.
 
+The index has an inline JS snippet that auto-injects `↓ TXT` download buttons
+into every `.module-card[href]` at page load — no manual button markup needed.
+
 When adding a published deck:
 
 1. Add a card to the correct section in `00-indice.html`.
@@ -208,6 +296,7 @@ When adding a published deck:
 3. Update the previous deck closing chip when appropriate.
 4. Keep a fallback `↩ Indice del corso` link in closing slides.
 5. Check links with `rg 'href="[^"]+\.html"'`.
+6. Generate the `.txt` companion file (see TXT companion files section).
 
 ## Quizzes
 
@@ -221,6 +310,6 @@ visible score text and index card labels when the question count changes.
 Original PPTX/PDF/source files live in `corsi/`. Some files are large. The
 excluded source deck is documented in `corsi/source/EXCLUDED.md`.
 
-Topics still mainly represented by original course files, not fully converted in
-this root-level HTML course set, include IA, Arduino, Scratch, Sound Design,
-Game Design, Blender/3D, Micro:bit, and TinkerCAD.
+Topics still mainly represented by original course files, not fully converted
+in this root-level HTML course set, include Arduino, Scratch, Blender/3D,
+Micro:bit, and TinkerCAD.
