@@ -155,16 +155,18 @@ Use one of these fixes:
 
 ## Series and naming
 
-Published decks are root-level files named by series:
+Published decks use a two-letter prefix `XX##` where each letter is the initial
+of each word in the section name (e.g. `HS` = Hardware e **S**oftware):
 
 | Prefix | Area | Example |
 | --- | --- | --- |
-| `web` | Reti e Web | `web01-reti.html` |
-| `sec` | Sicurezza Digitale | `sec01-introduzione.html` |
-| `inf` | Informatica | `inf01-componenti.html` |
-| `sma` | Smartphones | `sma01-smartphone-computer.html` |
-| `fog` | Fogli di calcolo | `fog03-riferimenti-formule.html` |
-| `ia_` | Intelligenza Artificiale | `ia_01-concetti-generali.html` |
+| `hs` | Hardware e Software | `hs01-componenti.html` |
+| `rw` | Reti e Web | `rw01-reti.html` |
+| `sd` | Sicurezza Digitale | `sd01-introduzione.html` |
+| `in` | Informatica | `in01-identita.html` |
+| `sm` | Smartphones | `sm01-smartphone-computer.html` |
+| `su` | Suite Ufficio | `su01-google-workspace.html` |
+| `ia` | Intelligenza Artificiale | `ia01-concetti-generali.html` |
 | `gd` | Game Design | `gd01-introduzione.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
 
@@ -207,73 +209,96 @@ EOF
 
 ## Current published inventory
 
-### Reti e Web
+### Hardware e Software
+
+Navigation chain: hs01 → hs02 → hs03 → hs04
 
 | File | Title |
 | --- | --- |
-| `web01-reti.html` | Reti Informatiche e Internet |
-| `web02-navigazione.html` | Navigazione e Indirizzi Web |
-| `web03-ricerca.html` | Ricerca e Gestione delle Informazioni |
-| `web04-email.html` | La Posta Elettronica |
-| `web05-firma.html` | La Firma Email |
-| `web06-affidabilita.html` | Navigare con Spirito Critico |
-| `web07-contenuti.html` | Gestire e Archiviare Contenuti |
-| `web08-domini.html` | Domini e Indirizzi Internet |
+| `hs01-componenti.html` | Dentro il computer |
+| `hs02-hard-disk-filesystem.html` | Hard disk e file system |
+| `hs03-os.html` | Sistemi Operativi |
+| `hs04-os-concetti.html` | OS: concetti fondamentali |
+
+### Reti e Web
+
+Navigation chain: rw01 → rw02 → rw03 → rw04 → rw05 → rw06 → rw07 → rw08
+
+| File | Title |
+| --- | --- |
+| `rw01-reti.html` | Reti Informatiche e Internet |
+| `rw02-navigazione.html` | Navigazione e Indirizzi Web |
+| `rw03-domini.html` | Domini e Indirizzi Internet |
+| `rw04-ricerca.html` | Ricerca e Gestione delle Informazioni |
+| `rw05-email.html` | La Posta Elettronica |
+| `rw06-firma.html` | La Firma Email |
+| `rw07-affidabilita.html` | Navigare con Spirito Critico |
+| `rw08-contenuti.html` | Gestire e Archiviare Contenuti |
 
 ### Sicurezza Digitale
 
+Navigation chain: sd01 → sd02 → sd03 → sd04 → sd05
+
 | File | Title |
 | --- | --- |
-| `sec01-introduzione.html` | Introduzione alla Sicurezza Digitale |
-| `sec02-minacce.html` | Minacce e Vulnerabilità |
-| `sec03-privacy.html` | Privacy, Anonimato e Pseudonimia |
-| `sec04-professioni.html` | Professioni nella Sicurezza Informatica |
-| `sec05-assessment.html` | Assessment, Compliance e Dati Personali |
+| `sd01-introduzione.html` | Introduzione alla Sicurezza Digitale |
+| `sd02-minacce.html` | Minacce e Vulnerabilità |
+| `sd03-privacy.html` | Privacy, Anonimato e Pseudonimia |
+| `sd04-professioni.html` | Professioni nella Sicurezza Informatica |
+| `sd05-assessment.html` | Assessment, Compliance e Dati Personali |
 
 ### Informatica
 
-Navigation chain: inf01 → inf02 → inf03 → inf04 → inf05 → inf06 → inf07 → inf08 → inf09 → inf10 → inf11 → inf12 → inf13 → inf14
+Navigation chain: in01 → in02 → in03 → in04 → in05
 
 | File | Title |
 | --- | --- |
-| `inf01-componenti.html` | Dentro il computer |
-| `inf02-identita.html` | La tua identità online |
-| `inf03-documenti.html` | Mettere tutto per iscritto |
-| `inf04-excel-basi.html` | Le basi del foglio di calcolo |
-| `inf05-excel-avanzato.html` | Analizzare e condividere |
-| `inf06-branding.html` | Farsi riconoscere |
-| `inf07-social.html` | I social giusti |
-| `inf08-presentazioni.html` | Dillo con una slide |
-| `inf09-vr-ar.html` | VR, AR e Metaverso |
-| `inf10-societa.html` | Tecnologia e Società |
-| `inf11-hard-disk-filesystem.html` | Hard disk e file system |
-| `inf12-os.html` | Sistemi Operativi |
-| `inf13-os-concetti.html` | OS: concetti fondamentali |
-| `inf14-google-workspace.html` | Software Google |
+| `in01-identita.html` | La tua identità online |
+| `in02-societa.html` | Tecnologia e Società |
+| `in03-vr-ar.html` | VR, AR e Metaverso |
+| `in04-branding.html` | Farsi riconoscere |
+| `in05-social.html` | I social giusti |
 
 ### Smartphones
 
+Navigation chain: sm01 → … → sm11
+
 | File | Title |
 | --- | --- |
-| `sma01-smartphone-computer.html` | Lo smartphone è un computer |
-| `sma02-connessioni-reti-mobili.html` | Connessioni e reti mobili |
-| `sma03-android-ios.html` | Android e iOS |
-| `sma04-app-permessi.html` | App e permessi |
-| `sma05-privacy-telefono.html` | Privacy sul telefono |
-| `sma06-sicurezza-smartphone.html` | Sicurezza dello smartphone |
-| `sma07-file-telefono.html` | Gestione dei file sul telefono |
-| `sma08-fotocamera-contenuti.html` | Fotocamera e contenuti |
-| `sma09-benessere-digitale.html` | Benessere digitale |
-| `sma10-accessibilita-uso-pratico.html` | Accessibilità e uso pratico |
-| `sma11-manutenzione-scelta.html` | Manutenzione e scelta |
+| `sm01-smartphone-computer.html` | Lo smartphone è un computer |
+| `sm02-connessioni-reti-mobili.html` | Connessioni e reti mobili |
+| `sm03-android-ios.html` | Android e iOS |
+| `sm04-app-permessi.html` | App e permessi |
+| `sm05-privacy-telefono.html` | Privacy sul telefono |
+| `sm06-sicurezza-smartphone.html` | Sicurezza dello smartphone |
+| `sm07-file-telefono.html` | Gestione dei file sul telefono |
+| `sm08-fotocamera-contenuti.html` | Fotocamera e contenuti |
+| `sm09-benessere-digitale.html` | Benessere digitale |
+| `sm10-accessibilita-uso-pratico.html` | Accessibilità e uso pratico |
+| `sm11-manutenzione-scelta.html` | Manutenzione e scelta |
+
+### Suite Ufficio
+
+Navigation chain: su01 → su02 → su03 → su04 → su05 → su06
+
+| File | Title |
+| --- | --- |
+| `su01-google-workspace.html` | Software Google (intro) |
+| `su02-documenti.html` | Mettere tutto per iscritto |
+| `su03-excel-basi.html` | Le basi del foglio di calcolo |
+| `su04-excel-avanzato.html` | Analizzare e condividere |
+| `su05-riferimenti-formule.html` | Riferimenti e formule robuste |
+| `su06-presentazioni.html` | Dillo con una slide |
 
 ### Intelligenza Artificiale
 
+Navigation chain: ia01 → ia02 → ia03
+
 | File | Title |
 | --- | --- |
-| `ia_01-concetti-generali.html` | Concetti generali |
-| `ia_02-esercizio-generazione.html` | Esercizio di generazione |
-| `ia_03-llm.html` | LLM — Large Language Models |
+| `ia01-concetti-generali.html` | Concetti generali |
+| `ia02-esercizio-generazione.html` | Esercizio di generazione |
+| `ia03-llm.html` | LLM — Large Language Models |
 
 ### Game Design
 
@@ -289,12 +314,6 @@ Navigation chain: gd01 → gd02 → gd03 → gd04 → gd05 → gd06 → gd07 →
 | `gd06-meccaniche.html` | Meccaniche e Interazione |
 | `gd07-processo.html` | Processo di Design |
 | `gd08-progettazione.html` | Progettare un Gioco Fisico |
-
-### Fogli di calcolo (supplementary)
-
-| File | Title |
-| --- | --- |
-| `fog03-riferimenti-formule.html` | Riferimenti e formule robuste |
 
 ### Quizzes
 
