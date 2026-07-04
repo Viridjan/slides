@@ -110,6 +110,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 .edit-hint.show{display:block;}
 .progress{position:fixed;bottom:0;left:0;height:4px;background:var(--red);transition:width .4s var(--ease);z-index:9999;}
 .title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -157,10 +159,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <div class="tape sky reveal">Definizione</div>
         <h2 class="h-big reveal" style="margin-top:18px;">Cos'è una <em class="hot">OST</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">La <b>Original Soundtrack</b> è la musica composta per un'opera. Nel gioco non è sottofondo: guida l'emozione, segnala lo stato, scandisce il ritmo dell'azione.</p>
-        <div class="note sky reveal d2" style="margin-top:20px;">
-          <div class="lbl">🎧 Il ruolo della musica</div>
-          <p contenteditable="false">La musica dice al giocatore come <em>sentirsi</em> prima ancora che capisca cosa sta succedendo sullo schermo.</p>
-        </div>
+        <div class="analogy reveal d2" style="margin-top:20px;"><span class="big">Regola:</span> <span contenteditable="false">la musica migliore è quella che non noti — ma che sentiresti mancare.</span></div>
       </div>
       <div class="col stack">
         <div class="card reveal d1"><span class="ic">🎬</span><h3 contenteditable="false">Emozione</h3><p contenteditable="false">Tensione, trionfo, malinconia: la traccia costruisce lo stato d'animo della scena.</p></div>
@@ -179,13 +178,28 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">OST <em class="hot">statica</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">La traccia suona uguale ogni volta. Parte, va in loop, non sa cosa sta facendo il giocatore.</p>
         <div class="note reveal d2" style="margin-top:20px;">
-          <div class="lbl">🎸 Bobby Prince</div>
+          <div class="lbl">Bobby Prince</div>
           <p contenteditable="false">Compositore di <b>Wolfenstein 3D</b> (1992) e <b>DOOM</b> (1993). Riff metal in MIDI, loop fissi caricati per livello.</p>
         </div>
       </div>
       <div class="col stack">
         <div class="card red reveal d1"><span class="ic">🔁</span><h3 contenteditable="false">Loop fisso</h3><p contenteditable="false">Stessa traccia dall'inizio alla fine del livello. Semplice, economica, prevedibile.</p></div>
         <div class="card reveal d2"><span class="ic">🚫</span><h3 contenteditable="false">Nessuna reazione</h3><p contenteditable="false">La musica non sa se stai combattendo o esplorando: suona identica in ogni situazione.</p></div>
+        <div class="illu reveal d3">
+          <svg viewBox="0 0 280 190" style="max-width:240px;margin:0 auto;" role="img" aria-label="Musicassetta con freccia di loop">
+            <rect x="30" y="52" width="220" height="112" rx="12" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
+            <rect x="48" y="66" width="184" height="42" rx="6" fill="#f4ece0"/>
+            <rect x="48" y="94" width="184" height="10" fill="#e6c14a"/>
+            <circle cx="100" cy="134" r="15" fill="#f4ece0" stroke="#1c1714" stroke-width="3"/>
+            <circle cx="100" cy="134" r="5" fill="#1c1714"/>
+            <circle cx="180" cy="134" r="15" fill="#f4ece0" stroke="#1c1714" stroke-width="3"/>
+            <circle cx="180" cy="134" r="5" fill="#1c1714"/>
+            <rect x="118" y="124" width="44" height="20" rx="4" fill="#1c1714" opacity=".35"/>
+            <circle cx="44" cy="26" r="16" fill="none" stroke="#e6533b" stroke-width="6" stroke-dasharray="74 27"/>
+            <polygon points="40,3 56,10 40,17" fill="#e6533b"/>
+          </svg>
+          <div class="illu-cap">La stessa traccia, in loop, per tutto il livello</div>
+        </div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -211,10 +225,28 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <div class="tape teal reveal">Livello 2</div>
         <h2 class="h-big reveal" style="margin-top:18px;">OST procedurale <em class="hot">random</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">La musica non è una traccia unica: è composta di <b>strati</b> ricombinati in tempo reale. Ogni sessione suona diversa.</p>
+        <div class="illu reveal d2">
+          <svg viewBox="0 0 280 200" style="max-width:280px;margin:0 auto;" role="img" aria-label="Mixer con quattro fader, uno per ogni stem">
+            <rect x="26" y="20" width="228" height="160" rx="14" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
+            <rect x="58" y="44" width="8" height="96" rx="4" fill="#f4ece0" opacity=".3"/>
+            <rect x="110" y="44" width="8" height="96" rx="4" fill="#f4ece0" opacity=".3"/>
+            <rect x="162" y="44" width="8" height="96" rx="4" fill="#f4ece0" opacity=".3"/>
+            <rect x="214" y="44" width="8" height="96" rx="4" fill="#f4ece0" opacity=".3"/>
+            <rect x="47" y="56" width="30" height="16" rx="5" fill="#e6533b"/>
+            <rect x="99" y="100" width="30" height="16" rx="5" fill="#e6c14a"/>
+            <rect x="151" y="74" width="30" height="16" rx="5" fill="#3f7e8c"/>
+            <rect x="203" y="118" width="30" height="16" rx="5" fill="#f4ece0"/>
+            <text x="62" y="166" text-anchor="middle" font-size="13" fill="#f4ece0" style="font-family:var(--font-mono);">DRUM</text>
+            <text x="114" y="166" text-anchor="middle" font-size="13" fill="#f4ece0" style="font-family:var(--font-mono);">BASS</text>
+            <text x="166" y="166" text-anchor="middle" font-size="13" fill="#f4ece0" style="font-family:var(--font-mono);">SYNTH</text>
+            <text x="218" y="166" text-anchor="middle" font-size="13" fill="#f4ece0" style="font-family:var(--font-mono);">GTR</text>
+          </svg>
+          <div class="illu-cap">Ogni stem ha il suo volume: il motore li miscela dal vivo</div>
+        </div>
       </div>
       <div class="col stack">
         <div class="note teal reveal d1">
-          <div class="lbl">🎧 Mick Gordon · DOOM (2016)</div>
+          <div class="lbl">Mick Gordon · DOOM (2016)</div>
           <p contenteditable="false">La colonna sonora è costruita a <b>STEMS</b>: tracce separate — batteria, basso, sintetizzatori, chitarre — miscelate dinamicamente dal motore di gioco invece di essere un unico file audio.</p>
         </div>
         <div class="card sky reveal d2"><span class="ic">🎲</span><h3 contenteditable="false">Varietà infinita</h3><p contenteditable="false">La stessa libreria di strati genera combinazioni sempre nuove: la musica non stanca.</p></div>
@@ -246,6 +278,20 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <div class="tape red reveal">Livello 3</div>
         <h2 class="h-big reveal" style="margin-top:18px;">OST a <em class="hot">feedback</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Il salto finale: la musica non reagisce solo all'atmosfera, ma allo <b>stato preciso del gameplay</b>.</p>
+        <div class="illu reveal d2">
+          <svg viewBox="0 0 280 200" style="max-width:270px;margin:0 auto;" role="img" aria-label="Onda musicale collegata a un gamepad da una doppia freccia">
+            <path d="M18 52 H58 L70 24 L86 84 L102 36 L116 68 L128 52 H170 L182 30 L196 74 L208 52 H262" fill="none" stroke="#e6533b" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+            <line x1="140" y1="100" x2="140" y2="124" stroke="#3f7e8c" stroke-width="5"/>
+            <polygon points="140,88 148,102 132,102" fill="#3f7e8c"/>
+            <polygon points="140,136 132,122 148,122" fill="#3f7e8c"/>
+            <rect x="82" y="140" width="116" height="52" rx="26" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
+            <rect x="104" y="162" width="26" height="9" rx="2" fill="#f4ece0"/>
+            <rect x="113" y="153" width="9" height="26" rx="2" fill="#f4ece0"/>
+            <circle cx="164" cy="160" r="6" fill="#e6c14a"/>
+            <circle cx="180" cy="172" r="6" fill="#e6533b"/>
+          </svg>
+          <div class="illu-cap">Evento di gioco ↔ musica: un dialogo continuo</div>
+        </div>
       </div>
       <div class="col stack">
         <div class="card red reveal d1"><span class="ic">🎮</span><h3 contenteditable="false">DOOM Eternal</h3><p contenteditable="false">Mick Gordon lega gli stem a eventi di gioco: entrare in un'arena, uccisioni, boss. La traccia si costruisce <em>mentre</em> giochi.</p></div>
@@ -277,7 +323,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="card sky"><span class="ic">🎼</span><h3 contenteditable="false">Non-diegetico</h3><p contenteditable="false">La colonna sonora "dall'esterno": solo il giocatore la sente. La musica di tensione che parte quando arriva il nemico.</p></div>
     </div>
     <div class="note red reveal d2" style="margin-top:22px;">
-      <div class="lbl">🎲 Design intent</div>
+      <div class="lbl">Design intent</div>
       <p contenteditable="false">Spostare un suono da non-diegetico a diegetico (o viceversa) cambia <em>chi sa cosa</em> — uno strumento narrativo potente.</p>
     </div>
     <div class="page-num"></div>
@@ -303,7 +349,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- SLIDE 18 · CLOSING -->
   <section class="slide closing">
     <div class="center" style="align-items:center;text-align:center;">
-      <div class="eyebrow reveal gold">Fine GD_02 🎧</div>
+      <div class="eyebrow reveal gold">Fine GD_02</div>
       <h2 class="h-mega reveal" style="margin-top:10px;">Non sottofondo.<br><em class="gold">Sistema.</em></h2>
       <p class="lead reveal d1" contenteditable="false" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">
         Da traccia fissa a strumento reattivo: la musica migliore di un gioco è quella che <span class="gold">sa cosa stai facendo</span>.

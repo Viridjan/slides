@@ -110,6 +110,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 .edit-hint.show{display:block;}
 .progress{position:fixed;bottom:0;left:0;height:4px;background:var(--red);transition:width .4s var(--ease);z-index:9999;}
 .title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -158,13 +160,34 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Da dove nasce <em class="hot">un gioco</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Ogni gioco parte da un impulso: un'idea, un'emozione, una meccanica curiosa vista altrove. Ma non tutte le idee reggono. Prima di costruire, si <b>valida</b>.</p>
         <div class="note reveal d2" style="margin-top:20px;">
-          <div class="lbl">💭 L'idea non basta</div>
+          <div class="lbl">L'idea non basta</div>
           <p contenteditable="false">Tutti hanno idee per giochi. Il design è il mestiere di trasformarle in qualcosa che <em>funziona davvero</em> in mano ai giocatori.</p>
         </div>
       </div>
       <div class="col stack">
         <div class="card sky reveal d1"><span class="ic">💡</span><h3 contenteditable="false">L'impulso iniziale</h3><p contenteditable="false">Una scintilla: "e se un gioco facesse questo?". È il punto di partenza, non il progetto.</p></div>
-        <div class="card gold reveal d2"><span class="ic">🔬</span><h3 contenteditable="false">La validazione</h3><p contenteditable="false">Prima di investire tempo, si mette l'idea alla prova: regge sotto esame? Per chi è? È fattibile?</p></div>
+        <div class="illu reveal d2">
+          <svg viewBox="0 0 280 200" style="max-width:280px;margin:0 auto;" role="img" aria-label="Imbuto delle idee: molte idee entrano, un solo gioco valido esce">
+            <!-- idee in ingresso -->
+            <circle cx="70" cy="22" r="11" fill="#e6533b"/>
+            <circle cx="112" cy="14" r="9" fill="#e6c14a"/>
+            <circle cx="150" cy="24" r="12" fill="#3f7e8c"/>
+            <circle cx="192" cy="15" r="8" fill="#d98a2b"/>
+            <circle cx="222" cy="26" r="10" fill="#163b35"/>
+            <!-- imbuto -->
+            <path d="M42 48 H238 L162 126 H118 Z" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+            <rect x="118" y="126" width="44" height="22" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+            <text x="140" y="90" text-anchor="middle" font-family="Space Mono,monospace" font-size="17" font-weight="bold" fill="#f4ece0">7 CRITERI</text>
+            <!-- dado in uscita -->
+            <rect x="122" y="158" width="36" height="36" rx="7" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+            <circle cx="132" cy="168" r="3" fill="#1c1714"/>
+            <circle cx="148" cy="168" r="3" fill="#1c1714"/>
+            <circle cx="140" cy="176" r="3" fill="#1c1714"/>
+            <circle cx="132" cy="184" r="3" fill="#1c1714"/>
+            <circle cx="148" cy="184" r="3" fill="#1c1714"/>
+          </svg>
+          <div class="illu-cap">La validazione: tante idee entrano, un gioco esce</div>
+        </div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -203,7 +226,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="card teal"><span class="ic">⭐</span><h3 contenteditable="false">Epic meaning</h3><p contenteditable="false">Sentirsi parte di qualcosa più grande di sé: una missione, una causa, una storia.</p></div>
     </div>
     <div class="note sky reveal d3" style="margin-top:18px;">
-      <div class="lbl">🧭 Perché serve al designer</div>
+      <div class="lbl">Perché serve al designer</div>
       <p contenteditable="false">Capire <em>cosa muove</em> il tuo giocatore ti permette di progettare la motivazione, non solo le regole.</p>
     </div>
     <div class="page-num"></div>
@@ -217,7 +240,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Fail <em class="hot">fast</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Sbagliare presto, a basso costo. Meglio scoprire che un'idea non funziona con un prototipo di carta in un'ora, che dopo mesi di sviluppo.</p>
         <div class="note red reveal d2" style="margin-top:20px;">
-          <div class="lbl">⚡ Fail fast</div>
+          <div class="lbl">Fail fast</div>
           <p contenteditable="false">Prototipa grezzo, testa subito, butta via senza rimpianti. Ogni fallimento economico è una lezione a buon mercato.</p>
         </div>
       </div>
@@ -237,7 +260,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Requirements</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Definire i vincoli prima di costruire: quanti giocatori, quanto dura una partita, che età ha il pubblico, che budget e componenti hai. I vincoli <b>guidano</b> il design, non lo limitano.</p>
         <div class="note reveal d2" style="margin-top:20px;">
-          <div class="lbl">🧱 La cornice serve</div>
+          <div class="lbl">La cornice serve</div>
           <p contenteditable="false">Un design senza vincoli è un design senza direzione: la pagina bianca paralizza, la cornice fa partire.</p>
         </div>
       </div>
@@ -261,7 +284,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="step"><div class="t" contenteditable="false"><b>Ripeti</b> — la nuova bozza torna al test. Ogni giro il gioco migliora un po'.</div></div>
     </div>
     <div class="note reveal d2" style="margin-top:22px;">
-      <div class="lbl">🔁 Non è una linea</div>
+      <div class="lbl">Non è una linea</div>
       <p contenteditable="false">Il design non è lineare — è un <em>loop</em>. Non si passa da idea a gioco finito: si gira il ciclo finché funziona.</p>
     </div>
     <div class="page-num"></div>
@@ -274,10 +297,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <div class="tape red reveal">Il test</div>
         <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Playtesting</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Testare con giocatori reali è insostituibile. Osserva senza intervenire, non spiegare — se serve spiegare, le regole non sono chiare — e guarda dove si annoiano o si confondono.</p>
-        <div class="note red reveal d2" style="margin-top:20px;">
-          <div class="lbl">📋 Regola del playtest</div>
-          <p contenteditable="false">Stai testando il gioco, <b>non i giocatori</b>. Se sbagliano, è colpa del design.</p>
-        </div>
+        <div class="analogy reveal d2" style="margin-top:20px;font-size:25px;"><span class="big">Regola:</span> testi il gioco, non i giocatori. Se sbagliano, è colpa del design.</div>
       </div>
       <div class="col stack">
         <div class="card red reveal d1"><span class="ic">👀</span><h3 contenteditable="false">Osserva</h3><p contenteditable="false">In silenzio: dove esitano? Cosa rileggono? Quando guardano il telefono? Ogni gesto è un dato.</p></div>
@@ -294,10 +314,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <div class="tape sky reveal">Il loop</div>
         <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Iterazione</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Il design è ciclico: ogni playtest genera correzioni, ogni correzione un nuovo test. Si itera finché il gioco "gira" da solo — i giocatori capiscono, si divertono, vogliono rigiocare.</p>
-        <div class="note reveal d2" style="margin-top:20px;">
-          <div class="lbl">🏁 Quando fermarsi</div>
-          <p contenteditable="false">Un gioco non si <em>finisce</em>: si abbandona quando funziona abbastanza bene.</p>
-        </div>
+        <div class="analogy reveal d2" style="margin-top:20px;font-size:25px;"><span class="big">In pratica:</span> un gioco non si finisce — si abbandona quando funziona.</div>
       </div>
       <div class="col stack">
         <div class="card sky reveal d1"><span class="ic">🔄</span><h3 contenteditable="false">Test → correzione</h3><p contenteditable="false">Ogni giro del ciclo produce una versione un po' migliore. Dieci iterazioni piccole battono un grande piano perfetto.</p></div>
@@ -327,7 +344,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- SLIDE 12 · CLOSING -->
   <section class="slide closing">
     <div class="center" style="align-items:center;text-align:center;">
-      <div class="eyebrow reveal gold">Fine GD_07 🔁</div>
+      <div class="eyebrow reveal gold">Fine GD_07</div>
       <h2 class="h-mega reveal" style="margin-top:10px;">Sbaglia presto.<br><em class="gold">Itera sempre.</em></h2>
       <p class="lead reveal d1" contenteditable="false" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">
         Il gioco non nasce finito dalla testa del designer: emerge da un ciclo di <span class="gold">prototipi, test e correzioni</span>. Il processo è il vero mestiere.

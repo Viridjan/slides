@@ -17,6 +17,8 @@
 .center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
 .chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .card{padding:20px 24px}.tight-slide .card h3{font-size:30px}.tight-slide .card p,.tight-slide .card li{font-size:21px;line-height:1.28}
 .title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -47,13 +49,37 @@
       <div class="col stack">
         <div class="tape reveal">Privacy</div>
         <h2 class="h-big reveal">Cosa raccoglie il telefono</h2>
-        <p class="lead reveal d1">Lo smartphone è il dispositivo più personale: accumula dati su comunicazioni, posizione, abitudini e molto altro.</p>
-        <div class="note reveal d2"><div class="lbl">Da sapere</div><p>Nelle impostazioni puoi vedere un riepilogo dell'uso dei dati e resettare i permessi non usati di recente.</p></div>
+        <p class="lead reveal d1">Lo smartphone ti accompagna ovunque, sempre acceso e sempre connesso: nessun altro oggetto sa così tante cose di te.</p>
+        <div class="stack reveal d2">
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">⚙️</span><div><b style="font-size:27px;">Necessari al funzionamento</b><br><span style="font-size:23px;color:var(--ink-faint);">Rete, credenziali, preferenze: senza questi il telefono non lavora</span></div></div>
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🎯</span><div><b style="font-size:27px;">Utili alla profilazione</b><br><span style="font-size:23px;color:var(--ink-faint);">ID pubblicitari, abitudini d'uso, interessi dedotti dalle attività</span></div></div>
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🕶️</span><div><b style="font-size:27px;">Raccolti in background</b><br><span style="font-size:23px;color:var(--ink-faint);">App e sistema li accumulano spesso senza segnali visibili</span></div></div>
+        </div>
+        <div class="analogy reveal d3"><span class="big">Regola:</span> privacy è decidere tu, non nascondere.</div>
       </div>
-      <div class="card reveal d1">
-        <span class="ic">📱</span>
-        <h3>Cosa raccoglie il telefono</h3>
-        <ul><li>Comunicazioni, foto, posizione, contatti, ricerche e abitudini quotidiane.</li><li>App e sistema raccolgono identificatori, uso app e dati tecnici in background.</li><li>Alcuni dati servono al funzionamento, altri alla profilazione pubblicitaria.</li><li>La differenza va capita prima di accettare condizioni ciecamente.</li></ul>
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 280 280" style="max-width:260px;margin:0 auto;" role="img" aria-label="Occhio che osserva i dati emessi da un telefono">
+          <!-- Eye -->
+          <path d="M60 62 Q140 8 220 62 Q140 116 60 62 Z" fill="#f4ece0" stroke="#1c1714" stroke-width="4"/>
+          <circle cx="140" cy="62" r="26" fill="#3f7e8c"/>
+          <circle cx="140" cy="62" r="12" fill="#1c1714"/>
+          <circle cx="148" cy="54" r="5" fill="#f4ece0"/>
+          <!-- Data dots rising from phone -->
+          <circle cx="100" cy="142" r="7" fill="#e6533b"/>
+          <circle cx="140" cy="128" r="8" fill="#e6c14a"/>
+          <circle cx="180" cy="144" r="7" fill="#3f7e8c"/>
+          <line x1="118" y1="172" x2="104" y2="152" stroke="#d8c9b4" stroke-width="3" stroke-dasharray="5"/>
+          <line x1="140" y1="170" x2="140" y2="142" stroke="#d8c9b4" stroke-width="3" stroke-dasharray="5"/>
+          <line x1="162" y1="172" x2="176" y2="154" stroke="#d8c9b4" stroke-width="3" stroke-dasharray="5"/>
+          <!-- Phone -->
+          <rect x="98" y="170" width="84" height="102" rx="14" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
+          <rect x="110" y="186" width="60" height="62" rx="6" fill="#f4ece0"/>
+          <rect x="118" y="196" width="44" height="8" rx="4" fill="#3f7e8c"/>
+          <rect x="118" y="212" width="44" height="8" rx="4" fill="#e6533b" opacity=".8"/>
+          <rect x="118" y="228" width="30" height="8" rx="4" fill="#e6c14a"/>
+          <circle cx="140" cy="260" r="6" fill="#f4ece0"/>
+        </svg>
+        <div class="illu-cap">Ogni gesto sul telefono produce dati</div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -64,13 +90,13 @@
       <div class="col stack">
         <div class="tape reveal">Privacy</div>
         <h2 class="h-big reveal">Tracciamento pubblicitario</h2>
-        <p class="lead reveal d1">Gli identificatori pubblicitari collegano le tue attività tra app e servizi diversi.</p>
+        <p class="lead reveal d1">Hai cercato scarpe in un'app e ti compaiono ovunque? Non è un caso: è l'ID pubblicitario al lavoro.</p>
         <div class="note reveal d2"><div class="lbl">Come fare</div><p>Android: Impostazioni → Privacy → Pubblicità → Reimposta ID. iOS: Impostazioni → Privacy → Apple Advertising → disabilita annunci personalizzati.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📡</span>
-        <h3>Tracciamento pubblicitario</h3>
-        <ul><li>Gli identificatori pubblicitari collegano attività tra app e servizi.</li><li>Puoi limitarli o reimpostarli nelle impostazioni privacy del dispositivo.</li><li>Ridurre il tracciamento non elimina la pubblicità, ma limita la profilazione.</li></ul>
+        <span class="ic">🎯</span>
+        <h3>Come funziona l'ID pubblicitario</h3>
+        <ul><li>Ogni telefono ha un codice univoco che le app leggono e comunicano alle reti pubblicitarie.</li><li>Incrociando i dati di app diverse si costruisce un profilo: interessi, età stimata, potere d'acquisto.</li><li>Reimpostarlo azzera il profilo accumulato; disattivarlo limita la profilazione futura.</li><li>La pubblicità resta, ma diventa generica invece che cucita su di te.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -81,13 +107,13 @@
       <div class="col stack">
         <div class="tape reveal">Privacy</div>
         <h2 class="h-big reveal">Gestire la posizione</h2>
-        <p class="lead reveal d1">La posizione è uno dei dati più sensibili: rivela casa, lavoro, scuola e abitudini quotidiane.</p>
+        <p class="lead reveal d1">Dagli spostamenti si ricava tutto: dove abiti, dove lavori, dove porti i figli, quando non sei in casa.</p>
         <div class="note reveal d2"><div class="lbl">Come fare</div><p>Google Maps: profilo → Cronologia → cancellazione automatica a 3 mesi. iOS: Impostazioni → Privacy → Servizi di localizzazione.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🔐</span>
-        <h3>Gestire la posizione</h3>
-        <ul><li>Concedi la posizione solo ad app che ne hanno bisogno realmente.</li><li>Preferisci "solo mentre usi l'app" rispetto a "sempre".</li><li>Alcuni servizi salvano gli spostamenti nel tempo: controlla e limita la cronologia.</li><li>Cancella la cronologia periodicamente o abilita la cancellazione automatica.</li></ul>
+        <span class="ic">📍</span>
+        <h3>Tre livelli di permesso</h3>
+        <ul><li><b>Mai</b>: per app che non hanno motivo di sapere dove sei (giochi, torce, calcolatrici).</li><li><b>Solo mentre usi l'app</b>: la scelta giusta per mappe, meteo e consegne.</li><li><b>Sempre</b>: quasi mai giustificato — consente il tracciamento continuo in background.</li><li>In più: alcuni servizi salvano la cronologia degli spostamenti nel tempo. Attivane la cancellazione automatica.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -98,13 +124,13 @@
       <div class="col stack">
         <div class="tape reveal">Privacy</div>
         <h2 class="h-big reveal">Foto e metadati</h2>
-        <p class="lead reveal d1">Ogni foto porta con sé dati invisibili: data, modello del dispositivo e spesso la posizione GPS.</p>
+        <p class="lead reveal d1">Pubblichi la foto del tramonto dal balcone: chi la scarica può leggere le coordinate GPS di casa tua.</p>
         <div class="note reveal d2"><div class="lbl">Come fare</div><p>iOS: condividi foto → Opzioni → disabilita Posizione. Android: Google Foto → Modifica → Rimuovi dati posizione prima di condividere.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🧭</span>
-        <h3>Foto e metadati</h3>
-        <ul><li>Le foto contengono metadati EXIF: data, modello dispositivo e posizione GPS.</li><li>Prima di condividere immagini pubbliche, valuta se rimuovere i metadati.</li><li>Screenshot e foto di documenti possono esporre dati personali nascosti.</li></ul>
+        <span class="ic">🏷️</span>
+        <h3>Cosa contengono i dati EXIF</h3>
+        <ul><li>Coordinate GPS del punto esatto dello scatto, data e ora al secondo.</li><li>Modello di telefono, impostazioni della fotocamera, a volte il nome del proprietario.</li><li>Le app di messaggistica di solito li rimuovono; email e siti spesso no.</li><li>Occhio anche al contenuto visibile: schermi, documenti e targhe sullo sfondo parlano quanto i metadati.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -115,13 +141,13 @@
       <div class="col stack">
         <div class="tape reveal">Privacy</div>
         <h2 class="h-big reveal">Cloud e backup</h2>
-        <p class="lead reveal d1">I servizi cloud copiano dati su server remoti: utili, ma richiedono un account ben protetto.</p>
+        <p class="lead reveal d1">Il backup ti salva se perdi il telefono — ma sposta i tuoi dati su server che non controlli.</p>
         <div class="note reveal d2"><div class="lbl">Importante</div><p>Attiva la verifica in due passaggi sull'account cloud. Se perdi l'accesso, perdi anche backup, foto e documenti.</p></div>
       </div>
       <div class="card reveal d1">
         <span class="ic">☁️</span>
-        <h3>Cloud e backup</h3>
-        <ul><li>Il cloud consente backup automatico e accesso da più dispositivi.</li><li>Proteggi l'account con password forte e autenticazione a due fattori.</li><li>Il backup automatico può caricare foto private senza che tu te ne accorga.</li><li>Controlla quali cartelle sono incluse nel backup e la qualità delle immagini caricate.</li></ul>
+        <h3>Il compromesso da governare</h3>
+        <ul><li>Vantaggio: foto e dati sopravvivono a furti, guasti e cambi di telefono.</li><li>Rischio: chi entra nel tuo account cloud vede tutto — la password dell'account vale quanto il telefono stesso.</li><li>Il caricamento automatico può includere foto private senza che tu te ne accorga: controlla quali cartelle sincronizza.</li><li>Verifica periodicamente i dispositivi collegati all'account e scollega quelli che non riconosci.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -132,13 +158,13 @@
       <div class="col stack">
         <div class="tape reveal">Privacy</div>
         <h2 class="h-big reveal">Rubrica e messaggi</h2>
-        <p class="lead reveal d1">La rubrica contiene dati altrui; le chat includono testi, foto, vocali e metadati nel tempo.</p>
+        <p class="lead reveal d1">Quando un'app legge la tua rubrica, stai condividendo i numeri di persone che non hanno mai dato il consenso.</p>
         <div class="note reveal d2"><div class="lbl">Da sapere</div><p>Prima di installare un'app, chiediti: ha davvero bisogno di leggere tutti i miei contatti e messaggi?</p></div>
       </div>
       <div class="card reveal d1">
         <span class="ic">💬</span>
-        <h3>Rubrica e messaggi</h3>
-        <ul><li>La rubrica contiene dati anche di altre persone: sincronizzarla va fatto con attenzione.</li><li>Non tutte le app hanno bisogno di accedere a tutti i contatti.</li><li>I backup non cifrati delle chat possono indebolire la protezione end-to-end.</li><li>Controlla impostazioni di backup e dispositivi collegati alle app di messaggistica.</li></ul>
+        <h3>Punti deboli delle chat</h3>
+        <ul><li>La cifratura end-to-end protegge il messaggio in viaggio, ma non il backup: se il backup non è cifrato, la protezione si indebolisce.</li><li>I metadati (chi scrivi, quando, quanto spesso) raccontano molto anche senza leggere i contenuti.</li><li>Controlla i dispositivi collegati alla tua app di messaggistica: sessioni web dimenticate sono un accesso aperto.</li><li>Concedi l'accesso ai contatti solo alle app di comunicazione che ne hanno reale necessità.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -149,13 +175,13 @@
       <div class="col stack">
         <div class="tape reveal">Privacy</div>
         <h2 class="h-big reveal">Browser mobile</h2>
-        <p class="lead reveal d1">Il browser conserva cronologia, cookie, cache e dati di login: una mappa delle tue attività online.</p>
+        <p class="lead reveal d1">Cronologia, cookie, moduli compilati, password salvate: il browser è l'archivio della tua vita online.</p>
         <div class="note reveal d2"><div class="lbl">Come fare</div><p>Chrome: ⋮ → Impostazioni → Privacy → Cancella dati. Safari: Impostazioni → Safari → Cancella cronologia e dati del sito.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📁</span>
-        <h3>Browser mobile</h3>
-        <ul><li>Il browser conserva cronologia, cookie, cache e login.</li><li>La modalità privata non rende anonimi: evita solo la cronologia locale.</li><li>Cancella dati periodicamente o usa profili separati quando serve.</li></ul>
+        <span class="ic">🌐</span>
+        <h3>Il mito della navigazione privata</h3>
+        <ul><li>La modalità privata evita solo la cronologia <b>locale</b>: il sito, il gestore di rete e il datore di lavoro vedono comunque le tue visite.</li><li>Non nasconde il tuo indirizzo IP e non impedisce il tracciamento via cookie di sessione.</li><li>Utile per: computer condivisi, ricerca regali, login temporanei su dispositivi altrui.</li><li>Per pulizia vera: cancellazione periodica dei dati di navigazione dalle impostazioni.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -166,13 +192,13 @@
       <div class="col stack">
         <div class="tape reveal">Privacy</div>
         <h2 class="h-big reveal">App social</h2>
-        <p class="lead reveal d1">Social e app video raccolgono interazioni, interessi e tempo di visione per ottimizzare il feed.</p>
+        <p class="lead reveal d1">Sui social non conta solo cosa pubblichi: ogni pausa, ogni like e ogni secondo di visione viene misurato.</p>
         <div class="note reveal d2"><div class="lbl">Da controllare</div><p>Nelle impostazioni di ogni social verifica chi vede i tuoi contenuti, la tua posizione e le tue connessioni.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">💡</span>
-        <h3>App social</h3>
-        <ul><li>Social e app video raccolgono interazioni, interessi e tempo di visione.</li><li>Il feed è ottimizzato per trattenere l'attenzione il più a lungo possibile.</li><li>Privacy e benessere digitale sono strettamente collegati.</li></ul>
+        <span class="ic">📣</span>
+        <h3>Cosa osserva il feed</h3>
+        <ul><li>Tempo di visione per singolo contenuto, scorrimenti, riavvii: segnali più sinceri dei like.</li><li>Da questi segnali l'algoritmo deduce interessi che non hai mai dichiarato — a volte prima che tu ne sia consapevole.</li><li>Il profilo dedotto guida pubblicità e contenuti futuri: più resti, più diventa preciso.</li><li>Rivedere le impostazioni di visibilità limita ciò che gli altri utenti vedono, non ciò che la piattaforma misura.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -183,13 +209,13 @@
       <div class="col stack">
         <div class="tape reveal">Privacy</div>
         <h2 class="h-big reveal">Permessi periodici</h2>
-        <p class="lead reveal d1">Le app cambiano funzioni e richieste nel tempo: controllare i permessi una sola volta non basta.</p>
+        <p class="lead reveal d1">Quel permesso concesso due anni fa a un'app che non usi più è ancora attivo, adesso.</p>
         <div class="note reveal d2"><div class="lbl">Cadenza consigliata</div><p>Android: Impostazioni → Privacy → Gestione permessi. iOS: Impostazioni → Privacy e sicurezza. Revisione ogni 3–6 mesi.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🔎</span>
-        <h3>Permessi periodici</h3>
-        <ul><li>Controllare permessi una volta non basta: le app aggiornano funzioni e richieste.</li><li>Controlla in particolare posizione, microfono, fotocamera e contatti.</li><li>Revoca i permessi non giustificati e disinstalla le app che non usi.</li></ul>
+        <span class="ic">🔄</span>
+        <h3>La revisione in 4 mosse</h3>
+        <ul><li>Apri la gestione permessi e parti dai quattro critici: posizione, microfono, fotocamera, contatti.</li><li>Per ogni app chiediti: la uso ancora? Il permesso serve alla sua funzione principale?</li><li>Revoca ciò che non è giustificato — l'app lo richiederà se le serve davvero.</li><li>Disinstalla le app dormienti: ogni app in meno è una porta in meno.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -200,13 +226,13 @@
       <div class="col stack">
         <div class="tape reveal">Privacy</div>
         <h2 class="h-big reveal">Condivisione involontaria</h2>
-        <p class="lead reveal d1">Una foto può rivelare più di quanto pensi: indirizzi, targhe, badge, documenti e metadati GPS.</p>
+        <p class="lead reveal d1">Il selfie in ufficio con il badge al collo, lo screenshot con la notifica in alto: si condivide più di ciò che si inquadra.</p>
         <div class="note reveal d2"><div class="lbl">Strumenti utili</div><p>Scrambled Exif (Android) rimuove metadati prima della condivisione. iOS: Foto → Condividi → Opzioni → rimuovi posizione.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">✅</span>
-        <h3>Condivisione involontaria</h3>
-        <ul><li>Una foto può mostrare indirizzi, targhe, badge, schermi o documenti sullo sfondo.</li><li>I metadati EXIF di foto e screenshot possono rivelare dispositivo, data e posizione GPS.</li><li>Ritaglia, oscura o rimuovi metadati prima di condividere contenuti sensibili.</li></ul>
+        <span class="ic">🙈</span>
+        <h3>Controllo prima di pubblicare</h3>
+        <ul><li>Sfondo: targhe, indirizzi, badge, schermi accesi, documenti sul tavolo.</li><li>Screenshot: notifiche, nomi nelle chat, barre con orario e operatore possono identificare persone e luoghi.</li><li>Riflessi: vetri, specchi e occhiali a volte mostrano ciò che sta dietro la fotocamera.</li><li>Regola pratica: guarda la foto come la guarderebbe uno sconosciuto malintenzionato, poi decidi.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -217,13 +243,13 @@
       <div class="col stack">
         <div class="tape reveal">Privacy</div>
         <h2 class="h-big reveal">Privacy dei minori</h2>
-        <p class="lead reveal d1">I dati dei minori richiedono attenzione extra: foto, posizione e routine non vanno condivisi con leggerezza.</p>
+        <p class="lead reveal d1">Un bambino non può valutare le conseguenze di ciò che viene pubblicato su di lui — la responsabilità è di chi pubblica.</p>
         <div class="note reveal d2"><div class="lbl">Regola pratica</div><p>Evita di mostrare indirizzi, scuole o luoghi frequentati. Chiediti: questa informazione potrebbe creare problemi al minore in futuro?</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">⚠️</span>
-        <h3>Privacy dei minori</h3>
-        <ul><li>I dati dei minori richiedono attenzione maggiore rispetto agli adulti.</li><li>Foto, scuola, posizione e routine non vanno pubblicati con leggerezza.</li><li>Chiedi sempre il consenso dei minori (quando possibile) e dei genitori.</li></ul>
+        <span class="ic">🧒</span>
+        <h3>Sharenting: cosa considerare</h3>
+        <ul><li>Le foto pubblicate oggi costruiscono un'identità digitale che il minore non ha scelto e non potrà cancellare del tutto.</li><li>Divisa della scuola, fermata dello scuolabus e orari ricorrenti rendono un bambino rintracciabile.</li><li>Chiedi il consenso al minore quando ha l'età per capire, e sempre agli altri genitori per i figli altrui.</li><li>Alternativa concreta: condividi in chat ristrette invece che su profili pubblici.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -234,13 +260,15 @@
       <div class="col stack">
         <div class="tape reveal">Privacy</div>
         <h2 class="h-big reveal">Checklist privacy</h2>
-        <p class="lead reveal d1">Un controllo periodico delle impostazioni riduce i rischi in pochi minuti.</p>
-        <div class="note reveal d2"><div class="lbl">Cadenza consigliata</div><p>Dedica 10 minuti ogni 3 mesi a rivedere permessi, backup attivi, sincronizzazioni e autenticazione a due fattori.</p></div>
+        <p class="lead reveal d1">Dieci minuti ogni tre mesi: il costo reale di una privacy in ordine è tutto qui.</p>
       </div>
-      <div class="card reveal d1">
-        <span class="ic">🧰</span>
-        <h3>Checklist privacy</h3>
-        <ul><li>Riduci permessi non necessari: posizione, microfono, fotocamera, contatti.</li><li>Limita la posizione continua e la cronologia degli spostamenti.</li><li>Proteggi gli account cloud con 2FA e password robusta.</li><li>Controlla backup attivi e condivisioni automatiche.</li></ul>
+      <div class="col stack">
+        <div class="grid2 reveal d1">
+          <div class="card"><span class="ic">🔑</span><h3>Permessi</h3><p>Rivedi posizione, microfono, fotocamera e contatti. Revoca ciò che non è giustificato.</p></div>
+          <div class="card"><span class="ic">📍</span><h3>Posizione</h3><p>Niente "sempre attiva" senza motivo. Cancellazione automatica della cronologia spostamenti.</p></div>
+          <div class="card"><span class="ic">🔐</span><h3>Account</h3><p>2FA attiva su cloud e account principali. Controlla i dispositivi collegati.</p></div>
+          <div class="card"><span class="ic">🎯</span><h3>Tracciamento</h3><p>Reimposta l'ID pubblicitario. Disattiva gli annunci personalizzati se preferisci.</p></div>
+        </div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -252,10 +280,10 @@
       <h2 class="h-sec reveal">È tutto chiaro?</h2>
       <p class="lead reveal d1">Prova a rispondere a mente prima di passare al capitolo successivo.</p>
       <div class="grid2 reveal d2">
-        <div class="card"><h3>1.</h3><p>Qual è l'idea più importante di questo capitolo?</p></div>
-        <div class="card"><h3>2.</h3><p>Quale impostazione o comportamento puoi controllare subito sul tuo telefono?</p></div>
-        <div class="card"><h3>3.</h3><p>Quale rischio pratico riduci applicando queste regole?</p></div>
-        <div class="card"><h3>4.</h3><p>Come spiegheresti questo argomento a una persona poco esperta?</p></div>
+        <div class="card"><h3>1.</h3><p>Che informazioni può rivelare una foto pubblicata online, oltre a ciò che si vede nell'inquadratura?</p></div>
+        <div class="card"><h3>2.</h3><p>Perché "solo mentre usi l'app" è quasi sempre la scelta giusta per il permesso di posizione?</p></div>
+        <div class="card"><h3>3.</h3><p>Cosa protegge (e cosa NON protegge) la modalità di navigazione privata del browser?</p></div>
+        <div class="card"><h3>4.</h3><p>A cosa serve reimpostare l'ID pubblicitario, e dove si trova questa opzione?</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -265,7 +293,7 @@
     <div class="center" style="align-items:center;text-align:center;">
       <div class="eyebrow reveal gold">Fine S05</div>
       <h2 class="h-mega reveal" style="margin-top:10px;">Privacy telefono<br><em class="gold">in pratica.</em></h2>
-      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora hai una mappa operativa del capitolo: concetti chiave, rischi e controlli da applicare sullo smartphone.</p>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">La privacy non è nascondere: è decidere tu cosa condividere, con chi e quando. Il telefono va impostato una volta e ricontrollato ogni tanto — il resto è consapevolezza.</p>
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a href="sma06-sicurezza-smartphone.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → SMA06 · Sicurezza dello smartphone</a>
         <a href="00-indice.html" class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);text-decoration:none;">↩ Indice del corso</a>

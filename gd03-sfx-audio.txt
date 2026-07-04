@@ -31,10 +31,7 @@ In questo modulo
 Definizione 
  Cos'è un SFX 
  Un Sound Effect è un suono breve legato a un'azione, un evento o un oggetto nel gioco. A differenza della musica (OST), lo SFX è puntuale e informativo : comunica che qualcosa è appena successo. 
- 
- 🔊 Feedback immediato 
- Lo SFX conferma l'azione del giocatore. Premere un pulsante senza suono sembra "rotto" — il suono chiude il ciclo di feedback . 
- 
+ Regola: un suono giusto si sente, un suono sbagliato si nota. 
  
  
  🎯 Azione Il salto, il colpo, il passo: ogni gesto del giocatore ha la sua conferma sonora. 
@@ -45,10 +42,14 @@ Definizione
 Tassonomia 
  Categorie di SFX 
  
- 🦶 Foley Suoni quotidiani ricreati in studio: passi, vestiti, oggetti maneggiati. Il termine viene dal cinema, dal nome di Jack Foley. 
- 💥 Impatti Colpi, esplosioni, collisioni. Spesso esagerati rispetto alla realtà, per dare enfasi e peso all'azione. 
- 🎛️ UI / Interfaccia Click, conferme, notifiche. Devono essere puliti e discreti: li sentirai migliaia di volte, non devono stancare. 
- 🌧️ Ambientali Suoni di sottofondo che definiscono un luogo: un bosco, una città, una caverna. Costruiscono lo spazio con l'orecchio.
+ 🦶 Foley 
+ Suoni quotidiani ricreati in studio: passi, vestiti, oggetti maneggiati. Il termine viene dal cinema, dal nome di Jack Foley. 
+ 💥 Impatti 
+ Colpi, esplosioni, collisioni. Spesso esagerati rispetto alla realtà, per dare enfasi e peso all'azione. 
+ 🎛️ UI / Interfaccia 
+ Click, conferme, notifiche. Devono essere puliti e discreti: li sentirai migliaia di volte, non devono stancare. 
+ 🌧️ Ambientali 
+ Suoni di sottofondo che definiscono un luogo: un bosco, una città, una caverna. Costruiscono lo spazio con l'orecchio.
 
 --- Slide 5 ---
 Voice SFX 
@@ -65,7 +66,7 @@ Dettagli nascosti
  Messaggi nel suono 
  Il sonoro può nascondere informazioni e sorprese: messaggi in codice, easter egg audio, suoni che rivelano meccaniche a chi sa ascoltare. 
  
- 🔍 Esempi 
+ Esempi 
  Spettrogrammi nascosti nella musica — codici visibili solo analizzando l'onda — messaggi al contrario, cambi di traccia che segnalano segreti vicini. 
  
  
@@ -77,10 +78,15 @@ Dettagli nascosti
 Assenza 
  Il silenzio 
  Togliere il suono è una scelta di design potente. Il silenzio crea tensione, isola un momento, o dà peso a ciò che viene dopo. 
+ Regola: il silenzio è un effetto sonoro. 
  
  
  
- 🤫 Uso del silenzio 
+ 
+ La pausa amplifica il suono che arriva dopo 
+ 
+ 
+ Uso del silenzio 
  Un boss che entra nel silenzio totale; la musica che si ferma di colpo prima di un evento; il silenzio dopo una morte. Il contrasto amplifica l'impatto del suono successivo.
 
 --- Slide 8 ---
@@ -98,10 +104,14 @@ Fondamenti
  Onde e sampling 
  Il suono è un'onda. Registrarlo digitalmente significa campionarlo (sampling): misurare l'ampiezza dell'onda migliaia di volte al secondo. 
  
- 🌊 Sample rate 
+ Sample rate 
  44.100 campioni al secondo ( 44.1 kHz ) è lo standard CD. Più campioni = più fedeltà, ma anche più spazio occupato. 
  
  
+ 
+ 
+ 
+ Il sampling misura l'onda a intervalli regolari 
  
  📏 Ampiezza = volume L'altezza dell'onda determina quanto il suono è forte o debole. 
  〰️ Frequenza = altezza Quanto il suono è acuto o grave: si misura in Hertz (Hz), oscillazioni al secondo.
@@ -119,6 +129,10 @@ Effetti
 Assemblaggio 
  Sequencing e mixing 
  Mettere insieme i suoni nel tempo ( sequencing ) e bilanciarli tra loro ( mixing ) è ciò che trasforma tracce isolate in un paesaggio sonoro coerente. 
+ 
+ 
+ Ogni traccia al suo livello: nasce il mix 
+ 
  
  
  
@@ -141,7 +155,7 @@ Attività
  Registra col telefono 3 suoni di casa e immagina a quale azione di gioco potrebbero servire.
 
 --- Slide 13 ---
-Fine GD_03 🔊 
+Fine GD_03 
  Ogni suono
  comunica. 
  

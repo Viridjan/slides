@@ -81,6 +81,37 @@ Avoid changing the visual language casually. If a deck needs a new component,
 prefer the existing `.tape`, `.card`, `.grid2`, `.grid3`, `.split`, `.note`,
 `.chips`, `.closing`, `.reveal`, and `.page-num` patterns.
 
+### Rich components (required in every deck)
+
+All decks include these three components (CSS present everywhere); every deck
+should use each at least once:
+
+- `.analogy` — teal pill banner with gold label:
+  `<div class="analogy reveal d3"><span class="big">Regola:</span> short text.</div>`
+  Labels: "Regola:", "Analogia:", "In pratica:". Use for memorable principles.
+- `.illu` + `.illu-cap` — illustrated card with inline flat SVG and mono
+  caption. Palette: `#163b35` teal, `#e6533b` red, `#e6c14a` gold, `#3f7e8c`
+  sky, `#1c1714` ink, `#f4ece0` paper. See `sec01-introduzione.html` for
+  reference SVGs.
+- Dashed icon list — for parallel item lists, reusing `.agenda-item`:
+  `<div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📍</span><div><b style="font-size:27px;">Title</b><br><span style="font-size:23px;color:var(--ink-faint);">description</span></div></div>`
+
+### Emoji policy
+
+- Allowed: icons in `.ic` slots and icon-list slots, title-slide identity emoji
+  (`.title-right`), emoji inside SVG `<text>`, flags, ✓/✗ marks, brand markers
+  (🪟 🍎 🐧), and only **⚠️** / **💡** as `.lbl` note-label prefixes.
+- Not allowed: decorative emoji prefixes on other `.lbl` labels, emoji in
+  closing eyebrows ("Fine GD_02 🎧"), decorations in `h2` headings.
+
+### Slide anti-patterns
+
+Never generate slides where the lead paragraph, the card title, and the card
+body repeat the same sentence. The lead introduces; the card adds different
+content; the card `h3` must not duplicate the slide `h2`. Verification slides
+must ask questions specific to the deck content, not generic template
+questions.
+
 ## Title slide invariants
 
 Every deck has a title slide with `.title-left` (text column) and `.title-right`
@@ -286,6 +317,11 @@ Sections start collapsed. Opening one section closes the others. The course
 header title is `Educazione digitale`; do not reintroduce the old "Indice del
 corso" badge or the difficulty legend under the title.
 
+Card layout: single full-width column (one card per row), compact two-row grid
+(`num | title` / `num | desc`). Topic chips are hidden (`.card-topics
+{display:none}`). The difficulty pill and the `↓ TXT` button are absolutely
+positioned at the right edge, stacked vertically, both 80px wide.
+
 The index has an inline JS snippet that auto-injects `↓ TXT` download buttons
 into every `.module-card[href]` at page load — no manual button markup needed.
 
@@ -309,6 +345,11 @@ visible score text and index card labels when the question count changes.
 
 Original PPTX/PDF/source files live in `corsi/`. Some files are large. The
 excluded source deck is documented in `corsi/source/EXCLUDED.md`.
+
+`corsi/images/` (untracked, ~200MB) holds images extracted from all PPTX files,
+deduplicated by MD5, organized per source deck with slide numbers in filenames
+(`slide003_img01.png`). Browse via `corsi/images/index.html` (lightbox gallery).
+Regenerable from the PPTX files; do not commit it.
 
 Topics still mainly represented by original course files, not fully converted
 in this root-level HTML course set, include Arduino, Scratch, Blender/3D,

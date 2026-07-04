@@ -17,6 +17,8 @@
 .center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
 .chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .card{padding:20px 24px}.tight-slide .card h3{font-size:30px}.tight-slide .card p,.tight-slide .card li{font-size:21px;line-height:1.28}
 .title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -27,7 +29,7 @@
     <div class="title-left">
       <div class="eyebrow reveal" style="margin-top:40px;">S03 — Sistemi mobile</div>
       <h1 class="h-mega reveal">Android e iOS</h1>
-      <p class="lead reveal" style="margin-top:30px;">Sistema operativo, store, account, aggiornamenti, ecosistemi e come scegliere.</p>
+      <p class="lead reveal" style="margin-top:30px;">Due sistemi che si dividono il mondo degli smartphone: come funzionano, come si aggiornano e come scegliere quello giusto.</p>
       <div class="chips reveal" style="margin-top:46px;"><span class="chip">SMA03</span><span class="chip alt">Smartphones</span></div>
     </div>
     <div class="title-right"><div class="phone-art reveal"></div></div>
@@ -37,7 +39,7 @@
     <div class="center">
       <div class="tape teal reveal">In questo capitolo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa vedremo</h2>
-      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Sistema operativo</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Android</span></div><div class="agenda-item"><span class="n">03</span><span class="t">iOS</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Interfaccia touch</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Account di sistema</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Store ufficiali</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Sideloading</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Aggiornamenti</span></div><div class="agenda-item"><span class="n">09</span><span class="t">I due ecosistemi</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Backup e scelta</span></div></div>
+      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Il sistema operativo mobile</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Android</span></div><div class="agenda-item"><span class="n">03</span><span class="t">iOS</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Android vs iOS a confronto</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Account Google e Apple ID</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Gli store ufficiali</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Il sideloading</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Aggiornamenti: sistema e app</span></div><div class="agenda-item"><span class="n">09</span><span class="t">I due ecosistemi</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Backup e quale scegliere</span></div></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -45,131 +47,15 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Sistemi mobile</div>
-        <h2 class="h-big reveal">Sistema operativo mobile</h2>
-        <p class="lead reveal d1">Android e iOS gestiscono hardware, app, permessi, notifiche e sicurezza dello smartphone.</p>
-        <div class="note reveal d2"><div class="lbl">Perché è importante</div><p>Il SO è il layer tra hardware e app. Aggiornarlo è fondamentale: ogni patch chiude vulnerabilità reali. Un telefono senza aggiornamenti è esposto a rischi noti e non corretti.</p></div>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">📱</span>
-        <h3>Sistema operativo mobile</h3>
-        <ul><li>Progettato per touch, batteria limitata e connessione continua.</li><li>Gestisce permessi delle app, notifiche e accesso a fotocamera, microfono e posizione.</li><li>L'utente vede icone e app, ma sotto lavora un sistema complesso con kernel, driver e servizi.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Sistemi mobile</div>
-        <h2 class="h-big reveal">Android</h2>
-        <p class="lead reveal d1">Android è sviluppato da Google, basato su Linux e usato da molti produttori diversi.</p>
-        <div class="note reveal d2"><div class="lbl">Versioni e produttori</div><p>Android "stock" è la versione Google (su Pixel). Samsung, Xiaomi, Motorola aggiungono layer personalizzati (One UI, MIUI) che possono ritardare gli aggiornamenti e aggiungere app preinstallate.</p></div>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🔋</span>
-        <h3>Android</h3>
-        <ul><li>Usato da Samsung, Xiaomi, Motorola, Google Pixel e decine di altri produttori.</li><li>Questa varietà offre ampia scelta di prezzo e design, ma crea differenze negli aggiornamenti.</li><li>È il sistema più diffuso al mondo: oltre l'80% degli smartphone usa Android.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Sistemi mobile</div>
-        <h2 class="h-big reveal">iOS</h2>
-        <p class="lead reveal d1">iOS è il sistema degli iPhone: Apple controlla hardware, software, store e aggiornamenti.</p>
-        <div class="note reveal d2"><div class="lbl">Ciclo di supporto</div><p>Apple supporta iPhone con aggiornamenti per 5–7 anni. iOS 18 supporta iPhone XS (2018). Questo allunga la vita utile del dispositivo e rappresenta un vantaggio concreto per chi vuole sicurezza a lungo termine.</p></div>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">📡</span>
-        <h3>iOS</h3>
-        <ul><li>Apple controlla hardware, software, store e distribuzione degli aggiornamenti.</li><li>Questo crea coerenza, supporto lungo e un'esperienza uniforme tra modelli.</li><li>Meno personalizzazione rispetto ad Android, ma maggiore controllo qualitativo delle app.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Sistemi mobile</div>
-        <h2 class="h-big reveal">Interfaccia touch</h2>
-        <p class="lead reveal d1">Gesti come tap, swipe, pressione lunga e pinch sono il linguaggio base dello smartphone.</p>
-        <div class="note reveal d2"><div class="lbl">Gesti avanzati</div><p>Swipe dal basso per tornare alla home (Android/iOS). Swipe laterale per navigare avanti/indietro. Pressione lunga per menu contestuale. Pinch per zoom. Ogni sistema ha varianti e scorciatoie proprie.</p></div>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🔐</span>
-        <h3>Interfaccia touch</h3>
-        <ul><li>Il sistema è pensato per uso rapido con una mano e in movimento.</li><li>Accessibilità, dimensione schermo e modalità una-mano cambiano molto l'esperienza pratica.</li><li>I gesti sono appresi rapidamente ma variano tra Android e iOS: cambiare piattaforma richiede adattamento.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Sistemi mobile</div>
-        <h2 class="h-big reveal">Account di sistema</h2>
-        <p class="lead reveal d1">Account Google su Android e Apple ID su iOS sono centrali per backup, store e sicurezza.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">☁️</span>
-        <h3>Account di sistema</h3>
-        <ul><li>Account Google: sincronizza app, backup, contatti, Drive, Gmail e Play Store su Android.</li><li>Apple ID: collega iCloud, App Store, Dov'è, backup e tutti i dispositivi Apple.</li><li>Entrambi vanno protetti con password unica e verifica in due passaggi obbligatoria.</li><li>La perdita di accesso all'account può bloccare dati, acquisti e funzionalità del telefono.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Sistemi mobile</div>
-        <h2 class="h-big reveal">Store ufficiali</h2>
-        <p class="lead reveal d1">Play Store e App Store sono i canali principali per installare app in sicurezza.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">📷</span>
-        <h3>Play Store e App Store</h3>
-        <ul><li>Google e Apple controllano le app pubblicata: malware espliciti vengono rimossi, ma il rischio zero non esiste.</li><li>Prima di installare: controlla sviluppatore, numero di download, recensioni recenti e permessi richiesti.</li><li>App Store (iOS) ha controlli più stretti e uniformi; Play Store (Android) è più aperto ma anche più vasto.</li><li>Evita cloni, app miracolose o versioni gratis di servizi normalmente a pagamento.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Sistemi mobile</div>
-        <h2 class="h-big reveal">Sideloading</h2>
-        <p class="lead reveal d1">Su Android è possibile installare APK fuori dal Play Store: utile in casi specifici, rischioso in generale.</p>
-        <div class="note reveal d2"><div class="lbl">Rischi concreti</div><p>APK da siti casuali possono contenere malware mascherato da app legittima. Se devi fare sideloading: verifica l'hash SHA256 del file, usa solo fonti ufficiali del progetto (es. F-Droid per app open source).</p></div>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🧩</span>
-        <h3>Sideloading</h3>
-        <ul><li>Su Android: abilita "Fonti sconosciute" per installare APK esterni al Play Store.</li><li>Su iOS il sideloading è molto più limitato (solo sviluppatori o programmi aziendali).</li><li>Va fatto solo da fonti ufficiali e con piena consapevolezza del rischio malware.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Sistemi mobile</div>
-        <h2 class="h-big reveal">Aggiornamenti: sistema e app</h2>
-        <p class="lead reveal d1">Aggiornamenti di sistema e app chiudono vulnerabilità e migliorano stabilità: non vanno rimandati.</p>
+        <div class="tape reveal">Le fondamenta</div>
+        <h2 class="h-big reveal">Il sistema operativo mobile</h2>
+        <p class="lead reveal d1">È il software che fa da ponte tra l'hardware del telefono e le app che usi ogni giorno: tu vedi icone e schermate, sotto lavora un sistema complesso.</p>
+        <div class="note reveal d2"><div class="lbl">Un computer in tasca</div><p>Come Windows su un PC, anche qui ci sono kernel, driver e servizi in esecuzione. Ma tutto è ripensato per il touch, per una batteria limitata e per una connessione sempre attiva.</p></div>
       </div>
       <div class="card reveal d1">
         <span class="ic">⚙️</span>
-        <h3>Aggiornamenti: sistema e app</h3>
-        <ul><li>Gli aggiornamenti di sistema (iOS/Android) correggono falle di sicurezza attivamente sfruttate.</li><li>iPhone riceve aggiornamenti direttamente da Apple; Android dipende anche da produttore e operatore.</li><li>Le app vanno aggiornate separatamente: abilita aggiornamenti automatici su WiFi per semplicità.</li><li>App vecchie e abbandonate (non aggiornate da anni) possono diventare vulnerabilità: valuta la sostituzione.</li></ul>
+        <h3>Che cosa gestisce per te</h3>
+        <ul><li>I <b>permessi</b>: decide quali app possono usare fotocamera, microfono e posizione.</li><li>Le <b>notifiche</b>: raccoglie e mostra gli avvisi di tutte le app in un unico posto.</li><li>Le <b>risorse</b>: distribuisce memoria e batteria, mettendo in pausa le app in background.</li><li>La <b>sicurezza</b>: isola le app tra loro, così una non può leggere i dati dell'altra.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -178,14 +64,131 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Sistemi mobile</div>
-        <h2 class="h-big reveal">I due ecosistemi</h2>
-        <p class="lead reveal d1">Apple e Google offrono ecosistemi integrati con vantaggi diversi: la scelta dipende dai tuoi dispositivi.</p>
+        <div class="tape reveal">Il sistema aperto</div>
+        <h2 class="h-big reveal">Android</h2>
+        <p class="lead reveal d1">Sviluppato da Google e basato su Linux, è il sistema più diffuso al mondo: oltre l'80% degli smartphone lo usa.</p>
+        <div class="note reveal d2"><div class="lbl">Le versioni personalizzate</div><p>Android "stock" è la versione pura di Google (sui Pixel). Samsung, Xiaomi e Motorola aggiungono layer propri come One UI e MIUI: cambiano menu e app preinstallate, e possono ritardare gli aggiornamenti.</p></div>
+      </div>
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 280 280" style="max-width:260px;margin:0 auto;" role="img" aria-label="Tre smartphone di marche diverse, quello centrale con il robot di Android sullo schermo">
+          <ellipse cx="140" cy="240" rx="104" ry="12" fill="#163b35" opacity=".14"/>
+          <!-- telefoni laterali: marche e fasce di prezzo diverse -->
+          <rect x="26" y="92" width="60" height="140" rx="10" fill="#3f7e8c" stroke="#1c1714" stroke-width="4"/>
+          <rect x="34" y="104" width="44" height="104" rx="5" fill="#f4ece0"/>
+          <circle cx="56" cy="220" r="4" fill="#f4ece0"/>
+          <rect x="194" y="78" width="60" height="154" rx="10" fill="#e6c14a" stroke="#1c1714" stroke-width="4"/>
+          <rect x="202" y="90" width="44" height="118" rx="5" fill="#f4ece0"/>
+          <circle cx="224" cy="220" r="4" fill="#1c1714"/>
+          <!-- telefono centrale -->
+          <rect x="102" y="48" width="76" height="184" rx="12" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
+          <rect x="112" y="64" width="56" height="140" rx="6" fill="#f4ece0"/>
+          <!-- robot stilizzato -->
+          <line x1="126" y1="114" x2="119" y2="101" stroke="#e6533b" stroke-width="4" stroke-linecap="round"/>
+          <line x1="154" y1="114" x2="161" y2="101" stroke="#e6533b" stroke-width="4" stroke-linecap="round"/>
+          <path d="M118 132 a22 22 0 0 1 44 0 Z" fill="#e6533b"/>
+          <circle cx="131" cy="124" r="3.5" fill="#f4ece0"/>
+          <circle cx="149" cy="124" r="3.5" fill="#f4ece0"/>
+          <rect x="121" y="138" width="38" height="30" rx="7" fill="#e6533b"/>
+          <circle cx="140" cy="218" r="6" fill="#f4ece0"/>
+        </svg>
+        <div class="illu-cap">Un sistema, tanti produttori e prezzi</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape teal reveal">Il sistema chiuso</div>
+        <h2 class="h-big reveal">iOS</h2>
+        <p class="lead reveal d1">Esiste solo sugli iPhone: una sola azienda, Apple, decide hardware, software e regole dello store.</p>
+        <div class="note reveal d2"><div class="lbl">Ciclo di supporto</div><p>Apple aggiorna gli iPhone per 5–7 anni: iOS 18 gira ancora su iPhone XS del 2018. Un vantaggio concreto per chi vuole sicurezza a lungo termine senza cambiare telefono spesso.</p></div>
+      </div>
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 280 280" style="max-width:260px;margin:0 auto;" role="img" aria-label="Un solo smartphone con la mela sullo schermo, protetto da uno scudo con spunta e racchiuso in un anello chiuso">
+          <!-- anello: l'ecosistema chiuso -->
+          <circle cx="140" cy="140" r="122" fill="none" stroke="#3f7e8c" stroke-width="3" stroke-dasharray="11 10"/>
+          <ellipse cx="140" cy="236" rx="78" ry="10" fill="#163b35" opacity=".14"/>
+          <!-- un unico telefono -->
+          <rect x="98" y="44" width="84" height="188" rx="14" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
+          <rect x="108" y="60" width="64" height="146" rx="7" fill="#f4ece0"/>
+          <!-- mela stilizzata -->
+          <path d="M140 108 q2 -15 15 -19 q0 15 -15 19" fill="#163b35"/>
+          <circle cx="140" cy="134" r="26" fill="#e6533b"/>
+          <circle cx="164" cy="124" r="10" fill="#f4ece0"/>
+          <circle cx="140" cy="220" r="6" fill="#f4ece0"/>
+          <!-- scudo: aggiornamenti garantiti -->
+          <path d="M196 166 l30 10 v26 q0 20 -30 30 q-30 -10 -30 -30 v-26 Z" fill="#e6c14a" stroke="#1c1714" stroke-width="4"/>
+          <path d="M184 200 l9 9 l18 -20" fill="none" stroke="#1c1714" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="illu-cap">Un solo produttore, aggiornamenti per anni</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape gold reveal">Faccia a faccia</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">Android vs iOS a colpo d'occhio</h2>
+      <div class="grid2 reveal d1" style="margin-top:30px;">
+        <div class="card">
+          <span class="ic">🤖</span>
+          <h3>Android</h3>
+          <ul><li>Tanti produttori, prezzi per ogni tasca</li><li>Massima personalizzazione dell'interfaccia</li><li>Aggiornamenti variabili: dipendono da marca e modello</li><li>Play Store aperto + possibilità di sideloading</li><li>Legato all'account e ai servizi Google</li></ul>
+        </div>
+        <div class="card">
+          <span class="ic">🍎</span>
+          <h3>iOS</h3>
+          <ul><li>Solo iPhone, fascia di prezzo medio-alta</li><li>Esperienza uniforme, poca personalizzazione</li><li>Aggiornamenti immediati per 5–7 anni su tutti i modelli</li><li>App Store come unico canale, controlli più severi</li><li>Legato all'Apple ID e all'ecosistema Apple</li></ul>
+        </div>
+      </div>
+      <div class="note reveal d2" style="margin-top:26px;"><div class="lbl">Nessun vincitore assoluto</div><p>Sono due filosofie: libertà e varietà contro coerenza e controllo. La scelta giusta dipende da budget, abitudini e dispositivi che hai già.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape reveal">Identità digitale</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">Account Google e Apple ID</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Tutto il telefono ruota attorno a un account: senza, niente store, niente backup, niente sincronizzazione.</p>
+      <div class="grid2 reveal d2" style="margin-top:26px;gap:58px;">
+        <div>
+          <h3 style="font-family:var(--font-display);font-weight:900;font-size:33px;margin-bottom:4px;">☁️ Account Google (Android)</h3>
+          <div class="stack" style="margin-top:0;">
+            <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🛍️</span><div><b style="font-size:27px;">Store e servizi</b><br><span style="font-size:23px;color:var(--ink-faint);">Apre le porte a Play Store, Gmail, Drive e Google Foto</span></div></div>
+            <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🔄</span><div><b style="font-size:27px;">Sincronizzazione</b><br><span style="font-size:23px;color:var(--ink-faint);">Sincronizza contatti, calendario e password tra dispositivi</span></div></div>
+            <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">💾</span><div><b style="font-size:27px;">Backup</b><br><span style="font-size:23px;color:var(--ink-faint);">Attiva il backup automatico del telefono</span></div></div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family:var(--font-display);font-weight:900;font-size:33px;margin-bottom:4px;">🔑 Apple ID (iOS)</h3>
+          <div class="stack" style="margin-top:0;">
+            <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🛒</span><div><b style="font-size:27px;">Store e acquisti</b><br><span style="font-size:23px;color:var(--ink-faint);">Collega App Store, iCloud e i tuoi acquisti</span></div></div>
+            <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📍</span><div><b style="font-size:27px;">Dov'è</b><br><span style="font-size:23px;color:var(--ink-faint);">Attiva "Dov'è" per ritrovare un telefono perso o rubato</span></div></div>
+            <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🔗</span><div><b style="font-size:27px;">Un'unica identità</b><br><span style="font-size:23px;color:var(--ink-faint);">Unisce iPhone, iPad e Mac sotto la stessa identità</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="note reveal d3" style="margin-top:26px;"><div class="lbl">Proteggilo come una cassaforte</div><p>Password unica e verifica in due passaggi, sempre. Perdere l'accesso all'account significa perdere backup, acquisti e in certi casi l'uso stesso del telefono.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Installare app</div>
+        <h2 class="h-big reveal">Gli store ufficiali</h2>
+        <p class="lead reveal d1">Play Store su Android, App Store su iPhone: i canali sicuri per scaricare app, gestiti direttamente da Google e Apple.</p>
+        <div class="note reveal d2"><div class="lbl">Controlli, non garanzie</div><p>Ogni app pubblicata viene revisionata e i malware evidenti vengono rimossi, ma il rischio zero non esiste. L'App Store ha controlli più severi e uniformi; il Play Store è più aperto, ma anche più vasto.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🔎</span>
-        <h3>I due ecosistemi</h3>
-        <ul><li>Ecosistema Apple: iPhone + Mac + iPad + Watch + AirPods. AirDrop, Continuity e iCloud riducono attrito. Costo alto, meno apertura verso altri sistemi.</li><li>Ecosistema Google: Android + Gmail + Drive + Photos + Calendar + Chrome. Funziona su PC Windows, Chromebook e browser. Più aperto e meno costoso, ma più dati condivisi con Google.</li><li>Entrambi funzionano bene in modo indipendente; la vera differenza emerge se hai già altri dispositivi dello stesso brand.</li><li>La comodità dell'ecosistema va bilanciata con la gestione dei dati personali.</li></ul>
+        <span class="ic">🛍️</span>
+        <h3>Prima di installare, controlla</h3>
+        <ul><li>Lo <b>sviluppatore</b>: è quello ufficiale del servizio, o un nome sconosciuto?</li><li>I <b>numeri</b>: quanti download ha, e cosa dicono le recensioni recenti?</li><li>I <b>permessi</b> richiesti: una torcia che vuole i tuoi contatti è un segnale d'allarme.</li><li>Diffida di cloni, app "miracolose" e versioni gratis di servizi normalmente a pagamento.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -194,31 +197,79 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Sistemi mobile</div>
+        <div class="tape gold reveal">Fuori dallo store</div>
+        <h2 class="h-big reveal">Il sideloading</h2>
+        <p class="lead reveal d1">Installare app saltando lo store ufficiale: su Android si può, su iOS quasi mai. Utile in casi rari, pericoloso se fatto alla leggera.</p>
+        <div class="note reveal d2"><div class="lbl">Se proprio devi</div><p>Scarica solo dal sito ufficiale del progetto o da store alternativi affidabili come F-Droid (app open source), e verifica l'hash SHA256 del file quando è pubblicato. Mai da siti trovati cercando "app gratis".</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">⚠️</span>
+        <h3>Come funziona, e perché è rischioso</h3>
+        <ul><li>Su Android si abilitano le "Fonti sconosciute" per installare file APK esterni al Play Store.</li><li>Su iOS è riservato a sviluppatori e programmi aziendali: l'utente comune non lo incontra.</li><li>Un APK scaricato da un sito qualsiasi può essere malware travestito da app legittima: nessuno lo ha controllato prima di te.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape teal reveal">Manutenzione</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">Aggiornamenti: sistema e app</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Ogni aggiornamento chiude falle di sicurezza già note ai criminali: rimandarlo per settimane significa restare esposti a rischi documentati.</p>
+      <div class="grid3 reveal d2" style="margin-top:30px;">
+        <div class="card">
+          <span class="ic">🛡️</span>
+          <h3>Di sistema</h3>
+          <p>Correggono vulnerabilità sfruttate attivamente. Su iPhone arrivano diretti da Apple; su Android passano prima dal produttore, a volte anche dall'operatore.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🔄</span>
+          <h3>Delle app</h3>
+          <p>Viaggiano separatamente da quelli di sistema, tramite lo store. Attiva gli aggiornamenti automatici su Wi-Fi e non dovrai più pensarci.</p>
+        </div>
+        <div class="card">
+          <span class="ic">⏳</span>
+          <h3>Fine del supporto</h3>
+          <p>Un telefono che non riceve più patch accumula falle aperte. Vale anche per le app abbandonate da anni: meglio sostituirle con alternative attive.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape sky reveal">Oltre il telefono</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">I due ecosistemi</h2>
+      <div class="grid2 reveal d1" style="margin-top:30px;">
+        <div class="card">
+          <span class="ic">🔗</span>
+          <h3>Il mondo Apple</h3>
+          <ul><li>iPhone + Mac + iPad + Watch + AirPods</li><li>AirDrop, Continuity e iCloud fanno dialogare tutto senza sforzo</li><li>Comodissimo, ma costoso e poco aperto verso dispositivi di altre marche</li></ul>
+        </div>
+        <div class="card">
+          <span class="ic">🌐</span>
+          <h3>Il mondo Google</h3>
+          <ul><li>Android + Gmail + Drive + Foto + Calendar + Chrome</li><li>Funziona ovunque: PC Windows, Chromebook, perfino dal browser</li><li>Più aperto e meno costoso, ma condividi più dati con Google</li></ul>
+        </div>
+      </div>
+      <div class="note reveal d2" style="margin-top:26px;"><div class="lbl">Il vero criterio</div><p>Entrambi i telefoni funzionano benissimo da soli: la differenza emerge se possiedi già altri dispositivi dello stesso marchio. E la comodità dell'ecosistema va sempre bilanciata con la gestione dei tuoi dati personali.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Prima di cambiare</div>
         <h2 class="h-big reveal">Backup e quale scegliere</h2>
-        <p class="lead reveal d1">Il backup è fondamentale prima di cambiare o ripristinare il telefono; la scelta dipende da budget, abitudini e ecosistema.</p>
+        <p class="lead reveal d1">Il backup salva ciò che conta prima di un cambio telefono o di un ripristino. E per il prossimo acquisto c'è una domanda che vale più di tutte le altre.</p>
+        <div class="note reveal d2"><div class="lbl">La domanda chiave</div><p>Quanti anni di aggiornamenti di sicurezza garantisce quel modello? Conta più della fotocamera o dello schermo: decide per quanto tempo il telefono resterà sicuro da usare.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🧰</span>
-        <h3>Backup e quale scegliere</h3>
-        <ul><li>Android: backup Google salva impostazioni, SMS, dati app compatibili e foto (se Google Photos attivo).</li><li>iOS: iCloud salva app, impostazioni, messaggi e foto; verifica cosa viene incluso e cosa no.</li><li>Android: più scelta e flessibilità, più varietà di prezzo. iOS: coerenza, integrazione Apple, aggiornamenti centralizzati.</li><li>Domanda chiave: quanti anni di aggiornamenti di sicurezza garantisce il modello? È la priorità assoluta.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Sistemi mobile</div>
-        <h2 class="h-big reveal">Personalizzazione Android</h2>
-        <p class="lead reveal d1">Android consente launcher, widget, app predefinite e molta più libertà rispetto a iOS.</p>
-        <div class="note reveal d2"><div class="lbl">Cosa si può cambiare</div><p>Launcher alternativo (interfaccia home), widget sul desktop, app predefinite per link, email, mappe e telefono, temi e icone personalizzate. Più libertà significa anche più responsabilità sulle scelte fatte.</p></div>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">💡</span>
-        <h3>Personalizzazione Android</h3>
-        <ul><li>Puoi sostituire quasi ogni app di sistema con alternative: browser, tastiera, launcher, galleria.</li><li>I widget sul desktop danno accesso rapido a informazioni senza aprire le app.</li><li>Questa apertura è utile per adattare il telefono al proprio uso, ma richiede attenzione nella scelta delle app.</li></ul>
+        <span class="ic">💾</span>
+        <h3>Che cosa viene salvato</h3>
+        <ul><li><b>Android</b>: il backup Google copre impostazioni, SMS e dati delle app compatibili; le foto solo se Google Foto è attivo.</li><li><b>iOS</b>: iCloud salva app, impostazioni, messaggi e foto, ma lo spazio gratuito è limitato: verifica cosa è incluso.</li><li>Su entrambi: controlla la data dell'ultimo backup <em class="hot">prima</em> di ogni cambio o reset, non dopo.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -230,10 +281,10 @@
       <h2 class="h-sec reveal">È tutto chiaro?</h2>
       <p class="lead reveal d1">Prova a rispondere a mente prima di passare al capitolo successivo.</p>
       <div class="grid2 reveal d2">
-        <div class="card"><h3>1.</h3><p>Qual è l'idea più importante di questo capitolo?</p></div>
-        <div class="card"><h3>2.</h3><p>Quale impostazione o comportamento puoi controllare subito sul tuo telefono?</p></div>
-        <div class="card"><h3>3.</h3><p>Quale rischio pratico riduci applicando queste regole?</p></div>
-        <div class="card"><h3>4.</h3><p>Come spiegheresti questo argomento a una persona poco esperta?</p></div>
+        <div class="card"><h3>1.</h3><p>Qual è la differenza principale tra il modello Android (molti produttori) e quello iOS (solo Apple)?</p></div>
+        <div class="card"><h3>2.</h3><p>Perché installare app fuori dagli store ufficiali (sideloading) è più rischioso?</p></div>
+        <div class="card"><h3>3.</h3><p>Cosa controlla il tuo account Google o Apple ID, e perché va protetto con la verifica in due passaggi?</p></div>
+        <div class="card"><h3>4.</h3><p>Perché gli anni di aggiornamenti promessi contano più di qualche funzione in più al momento dell'acquisto?</p></div>
       </div>
     </div>
     <div class="page-num"></div>

@@ -32,9 +32,10 @@ Definizione
  Il gioco parla ai sensi 
  Ogni azione del giocatore merita una risposta percepibile. Lo schermo mostra, l'audio racconta, la vibrazione fa sentire : il feedback tattile chiude il ciclo azione → risposta e rende l'esperienza fisica. 
  
- ✋ Feedback aptico 
+ Feedback aptico 
  L' aptica è la tecnologia che ricrea il senso del tatto tramite vibrazioni e forze: il gioco ti tocca, non solo ti si mostra. 
  
+ Regola: il feedback migliore passa dal corpo, non dagli occhi. 
  
  
  👁️ Vista Lo schermo: animazioni, effetti, HUD. Il canale principale, ma non l'unico. 
@@ -46,7 +47,7 @@ Storia
  Dal rumble all'aptica 
  La vibrazione nei controller nasce semplice: un motore che trema quando succede qualcosa. Ci vorranno vent'anni per passare dal "brr" generico alla sensazione precisa. 
  
- 📳 Rumble Pak / DualShock 
+ Rumble Pak / DualShock 
  Il Rumble Pak del Nintendo 64 (1997) e il DualShock di Sony portano la vibrazione nelle case di tutti: il tatto entra nel linguaggio dei videogiochi. 
  
  
@@ -82,13 +83,17 @@ Prototipare
  Arduino e sensori 
  Arduino è una scheda programmabile economica: legge sensori e attiva output. Perfetta per prototipare controller alternativi o installazioni interattive con feedback fisico reale. 
  
- 🔧 Perché Arduino 
+ Perché Arduino 
  Basso costo, community enorme, migliaia di tutorial: il modo ideale per imparare come funzionano input e output fisici. 
  
  
  
- 📥 Input Legge il mondo: pulsanti, sensori di luce, movimento, distanza. Il giocatore agisce, la scheda misura. 
- 📤 Output Agisce sul mondo: LED, motori, suoni, vibrazioni. La scheda risponde con feedback percepibile.
+ 
+ 
+ sensori in → Arduino → attuatori out 
+ 
+ 
+ Input : pulsanti, sensori di luce, movimento, distanza. Output : LED, motori, suoni, vibrazioni. Il giocatore agisce, la scheda misura e risponde.
 
 --- Slide 8 ---
 Input vs output 
@@ -98,7 +103,7 @@ Input vs output
  ⚙️ Attuatori — rispondere LED (luce e colore), motori e servo (movimento), buzzer e altoparlanti (suono), motori di vibrazione (aptica). 
  
  
- 🔁 Il ciclo del gioco fisico 
+ Il ciclo del gioco fisico 
  Un gioco fisico interattivo è sempre: sensori (cosa fa il giocatore) → logica (il programma decide) → attuatori (la risposta che il giocatore percepisce).
 
 --- Slide 9 ---
@@ -109,7 +114,7 @@ Cambio di prospettiva
  
  🎓 Richard Bartle, 1996 Studiando i MUD — i mondi multiplayer testuali antenati degli MMO — Bartle classifica i giocatori in quattro tipi: nasce la sua celebre tassonomia. 
  
- 🎯 Design per chi? 
+ Design per chi? 
  Un gioco che ignora i suoi giocatori fallisce: progettare significa prima capire per chi stai progettando.
 
 --- Slide 10 ---
@@ -127,7 +132,7 @@ Applicazione
  Progettare per i 4 tipi 
  Un buon gioco offre qualcosa a ciascun tipo: sistemi diversi che parlano a motivazioni diverse, dentro la stessa esperienza. 
  
- 🎭 Nessuno è puro 
+ Nessuno è puro 
  La maggior parte dei giocatori è un mix dei quattro tipi, con uno dominante: progettare per tutti significa non escludere nessuno. 
  
  
@@ -151,7 +156,7 @@ Attività
  Prova a immaginare un sensore Arduino che aggiungerebbe una nuova interazione fisica al tuo gioco: cosa misurerebbe, e come risponderebbe il gioco?
 
 --- Slide 13 ---
-Fine GD_04 🎮 
+Fine GD_04 
  I sensi.
  Il giocatore. 
  

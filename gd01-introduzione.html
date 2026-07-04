@@ -110,6 +110,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 .edit-hint.show{display:block;}
 .progress{position:fixed;bottom:0;left:0;height:4px;background:var(--red);transition:width .4s var(--ease);z-index:9999;}
 .title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -188,21 +190,18 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="tape gold reveal">Tipologie</div>
     <h2 class="h-sec reveal" style="margin-top:28px;">Classificare i giochi</h2>
     <p class="lead reveal d1" contenteditable="false" style="margin-top:18px;">Esistono molte tipologie di gioco, spesso sovrapposte. Le categorie non sono definizioni rigide: ci aiutano a capire le <b>aspettative dei giocatori</b>.</p>
-    <div class="grid3 reveal d2" style="margin-top:32px;">
-      <div class="card gold">
-        <span class="ic">🎲</span>
-        <h3 contenteditable="false">Board Game</h3>
-        <p contenteditable="false">Gioco da tavolo con plancia. Esempi: <b>Catan</b>, <b>Monopoly</b>. Spazio fisico condiviso, spesso competitivo.</p>
+    <div class="stack reveal d2" style="margin-top:30px;max-width:1560px;">
+      <div class="agenda-item" style="display:flex;align-items:center;gap:26px;border-bottom:3px dashed var(--gold-deep);padding:14px 4px;">
+        <span style="font-size:38px;min-width:56px;">🎲</span>
+        <div contenteditable="false"><b style="font-size:28px;">Board Game</b><br><span style="font-size:23px;color:var(--ink-faint);">Gioco da tavolo con plancia. Esempi: <b>Catan</b>, <b>Monopoly</b>. Spazio fisico condiviso, spesso competitivo.</span></div>
       </div>
-      <div class="card sky">
-        <span class="ic">🃏</span>
-        <h3 contenteditable="false">Card Game</h3>
-        <p contenteditable="false">Meccanica basata su mazzo di carte. Esempi: <b>Exploding Kittens</b>, <b>UNO</b>. Veloce, portatile, alta variabilità.</p>
+      <div class="agenda-item" style="display:flex;align-items:center;gap:26px;border-bottom:3px dashed var(--sky);padding:14px 4px;">
+        <span style="font-size:38px;min-width:56px;">🃏</span>
+        <div contenteditable="false"><b style="font-size:28px;">Card Game</b><br><span style="font-size:23px;color:var(--ink-faint);">Meccanica basata su mazzo di carte. Esempi: <b>Exploding Kittens</b>, <b>UNO</b>. Veloce, portatile, alta variabilità.</span></div>
       </div>
-      <div class="card red">
-        <span class="ic">🎯</span>
-        <h3 contenteditable="false">Dice Game</h3>
-        <p contenteditable="false">Il dado è il motore principale del gioco. Esempi: <b>Yahtzee</b>, <b>King of Tokyo</b>. Forte componente di fortuna.</p>
+      <div class="agenda-item" style="display:flex;align-items:center;gap:26px;border-bottom:3px dashed var(--red);padding:14px 4px;">
+        <span style="font-size:38px;min-width:56px;">🎯</span>
+        <div contenteditable="false"><b style="font-size:28px;">Dice Game</b><br><span style="font-size:23px;color:var(--ink-faint);">Il dado è il motore principale del gioco. Esempi: <b>Yahtzee</b>, <b>King of Tokyo</b>. Forte componente di fortuna.</span></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -240,7 +239,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Tutti vincono o <em class="hot">tutti perdono</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Nei giochi cooperativi i giocatori non competono fra loro: affrontano insieme un <b>avversario comune</b> — spesso il gioco stesso. Questo cambia radicalmente la dinamica sociale al tavolo.</p>
         <div class="note teal reveal d2" style="margin-top:20px;">
-          <div class="lbl">🤝 Esempi</div>
+          <div class="lbl">Esempi</div>
           <p contenteditable="false"><b>Pandemic</b> (fermare un virus globale), <b>Hanabi</b> (comporre fuochi d'artificio senza guardare le proprie carte), <b>Spirit Island</b>, <b>Arkham Horror</b>.</p>
         </div>
       </div>
@@ -287,10 +286,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <p contenteditable="false">Eurogame + network building + pick-up-and-deliver: più meccaniche intrecciate in un unico sistema.</p>
       </div>
     </div>
-    <div class="note reveal d3" style="margin-top:20px;">
-      <div class="lbl">💡 Messaggio chiave</div>
-      <p contenteditable="false">Conoscere le categorie ti permette di <em>violarle consapevolmente</em>.</p>
-    </div>
+    <div class="analogy reveal d3" style="margin-top:24px;"><span class="big">Regola:</span> <span contenteditable="false">conoscere le categorie ti permette di <em>violarle consapevolmente</em>.</span></div>
     <div class="page-num"></div>
   </section>
 
@@ -319,26 +315,32 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Come nasce un'<em class="hot">esperienza</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Le <em>Meccaniche</em> sono le regole del gioco. Dalle meccaniche emergono le <em>Dinamiche</em> — i comportamenti dei giocatori. Le dinamiche generano le <em>Estetiche</em> — le emozioni vissute.</p>
         <div class="note gold reveal d2" style="margin-top:20px;">
-          <div class="lbl">📖 Fonte</div>
+          <div class="lbl">Fonte</div>
           <p contenteditable="false">"MDA: A Formal Approach to Game Design and Game Research" — Robin Hunicke, Marc LeBlanc, Robert Zubek (2004).</p>
         </div>
       </div>
-      <div class="col stack">
-        <div class="card gold reveal d1">
-          <span class="ic">🔩</span>
-          <h3 contenteditable="false">M — Meccanica</h3>
-          <p contenteditable="false">Le regole e i sistemi. Cosa si può fare nel gioco.</p>
-        </div>
-        <div class="card sky reveal d2">
-          <span class="ic">⚡</span>
-          <h3 contenteditable="false">D — Dinamica</h3>
-          <p contenteditable="false">I comportamenti emergenti. Cosa fanno davvero i giocatori.</p>
-        </div>
-        <div class="card red reveal d3">
-          <span class="ic">🎭</span>
-          <h3 contenteditable="false">E — Estetica</h3>
-          <p contenteditable="false">L'esperienza emotiva. Cosa <em>sente</em> il giocatore.</p>
-        </div>
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 300 252" style="max-width:440px;margin:0 auto;" role="img" aria-label="Triangolo MDA: Meccaniche, Dinamiche, Estetiche">
+          <!-- triangolo -->
+          <path d="M150 52 L46 196 L254 196 Z" fill="#ece0cf" stroke="#1c1714" stroke-width="3"/>
+          <!-- freccia M → D (lato sinistro) -->
+          <polygon points="91,134 112,119 99,110" fill="#1c1714"/>
+          <!-- freccia D → E (lato inferiore) -->
+          <polygon points="163,196 139,188 139,204" fill="#1c1714"/>
+          <!-- vertice M -->
+          <circle cx="150" cy="52" r="28" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+          <text x="150" y="63" text-anchor="middle" font-family="Space Mono, monospace" font-weight="700" font-size="32" fill="#1c1714">M</text>
+          <text x="150" y="15" text-anchor="middle" font-family="Space Mono, monospace" font-weight="700" font-size="15" letter-spacing="1" fill="#1c1714">MECCANICHE</text>
+          <!-- vertice D -->
+          <circle cx="46" cy="196" r="28" fill="#3f7e8c" stroke="#1c1714" stroke-width="3"/>
+          <text x="46" y="207" text-anchor="middle" font-family="Space Mono, monospace" font-weight="700" font-size="32" fill="#f4ece0">D</text>
+          <text x="50" y="245" text-anchor="middle" font-family="Space Mono, monospace" font-weight="700" font-size="15" letter-spacing="1" fill="#1c1714">DINAMICHE</text>
+          <!-- vertice E -->
+          <circle cx="254" cy="196" r="28" fill="#e6533b" stroke="#1c1714" stroke-width="3"/>
+          <text x="254" y="207" text-anchor="middle" font-family="Space Mono, monospace" font-weight="700" font-size="32" fill="#f4ece0">E</text>
+          <text x="250" y="245" text-anchor="middle" font-family="Space Mono, monospace" font-weight="700" font-size="15" letter-spacing="1" fill="#1c1714">ESTETICHE</text>
+        </svg>
+        <div class="illu-cap">M → D → E · dalle regole alle emozioni</div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -352,7 +354,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Le <em class="hot">regole</em> del gioco</h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Le meccaniche sono i componenti formali del gioco: le azioni disponibili, i vincoli, i sistemi di ricompensa, le condizioni di vittoria. Sono il livello su cui lavora principalmente il <b>designer</b>.</p>
         <div class="note gold reveal d2" style="margin-top:20px;">
-          <div class="lbl">🎲 Esempi di meccaniche</div>
+          <div class="lbl">Esempi di meccaniche</div>
           <p contenteditable="false"><b>Draft</b> (scegliere carte da un pool), <b>worker placement</b>, <b>deck building</b>, <b>gestione risorse</b>, <b>push your luck</b>.</p>
         </div>
       </div>
@@ -380,7 +382,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Comportamenti <em class="hot">emergenti</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Le dinamiche non si progettano direttamente — <em>emergono</em> dall'interazione tra meccaniche e giocatori. Un designer progetta meccaniche <b>sperando</b> che producano le dinamiche volute.</p>
         <div class="note sky reveal d2" style="margin-top:20px;">
-          <div class="lbl">⚡ Esempio</div>
+          <div class="lbl">Esempio</div>
           <p contenteditable="false">In <b>Diplomazia</b> (1959) la meccanica è "scrivi ordini segreti". La dinamica che emerge è la <b>negoziazione</b>, l'inganno e l'alleanza — nulla di questo è scritto nelle regole.</p>
         </div>
       </div>
@@ -408,7 +410,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">L'<em class="hot">esperienza</em> del giocatore</h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">L'estetica è il livello emotivo — cosa il giocatore <em>sente</em> mentre gioca. Non è decorazione: è l'<b>obiettivo finale</b> del design. Le meccaniche e le dinamiche esistono per produrre un'estetica specifica.</p>
         <div class="note red reveal d2" style="margin-top:20px;">
-          <div class="lbl">🎭 Le 8 estetiche di MDA</div>
+          <div class="lbl">Le 8 estetiche di MDA</div>
           <p contenteditable="false">Sensation · Fantasy · Narrative · Challenge · Fellowship · Discovery · Expression · Submission</p>
         </div>
       </div>
@@ -449,10 +451,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <div class="flow-arrow">←</div>
         <div class="flow-box" style="background:var(--gold);border-color:var(--gold-deep);">🔩 Meccaniche</div>
       </div>
-      <div class="note reveal d3" style="margin-top:40px;max-width:1300px;">
-        <div class="lbl">💡 Implicazione</div>
-        <p contenteditable="false">Il designer pensa in termini di <b>regole</b>. Il giocatore pensa in termini di <b>emozioni</b>. Un buon design costruisce il ponte tra queste due prospettive.</p>
-      </div>
+      <div class="analogy reveal d3" style="margin-top:44px;"><span class="big">In pratica:</span> <span contenteditable="false">il designer pensa in <b>regole</b>, il giocatore in <b>emozioni</b> — il buon design è il ponte.</span></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -504,7 +503,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="note reveal d3" style="margin-top:22px;">
-      <div class="lbl">🎲 E i semi-cooperativi?</div>
+      <div class="lbl">E i semi-cooperativi?</div>
       <p contenteditable="false">Alcuni giochi (<b>Battlestar Galactica</b>, <b>Dead of Winter</b>) hanno un traditore nascosto — agonistico dentro un framework cooperativo.</p>
     </div>
     <div class="page-num"></div>
@@ -515,9 +514,29 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="center" style="align-items:center;text-align:center;">
       <div class="tape sky reveal">Discussione</div>
       <h2 class="h-big reveal" style="margin-top:20px;">Cosa ti viene in mente pensando a <em class="hot">Super Mario</em>?</h2>
-      <p class="lead reveal d1" contenteditable="false" style="margin-top:22px;max-width:1200px;text-align:center;">Prenditi 2 minuti. Scrivi o dì ad alta voce le prime 5-10 cose che ti vengono in mente.</p>
-      <div class="note sky reveal d2" style="margin-top:36px;max-width:1300px;">
-        <div class="lbl">🎮 Guida alla riflessione</div>
+      <p class="lead reveal d1" contenteditable="false" style="margin-top:18px;max-width:1200px;text-align:center;">Prenditi 2 minuti. Scrivi o dì ad alta voce le prime 5-10 cose che ti vengono in mente.</p>
+      <div class="illu reveal d2" style="margin-top:24px;padding:20px 34px;">
+        <svg viewBox="0 0 280 152" style="max-width:290px;margin:0 auto;" role="img" aria-label="Controller di gioco con una moneta">
+          <!-- moneta -->
+          <circle cx="140" cy="15" r="11" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+          <!-- corpo controller -->
+          <rect x="20" y="34" width="240" height="92" rx="46" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
+          <!-- croce direzionale -->
+          <rect x="54" y="72" width="46" height="15" rx="3" fill="#f4ece0"/>
+          <rect x="69" y="57" width="15" height="46" rx="3" fill="#f4ece0"/>
+          <!-- pulsanti -->
+          <circle cx="205" cy="60" r="9" fill="#e6533b" stroke="#1c1714" stroke-width="2"/>
+          <circle cx="183" cy="80" r="9" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+          <circle cx="227" cy="80" r="9" fill="#3f7e8c" stroke="#1c1714" stroke-width="2"/>
+          <circle cx="205" cy="100" r="9" fill="#f4ece0" stroke="#1c1714" stroke-width="2"/>
+          <!-- start / select -->
+          <rect x="125" y="76" width="13" height="7" rx="3" fill="#f4ece0" opacity=".85"/>
+          <rect x="144" y="76" width="13" height="7" rx="3" fill="#f4ece0" opacity=".85"/>
+        </svg>
+        <div class="illu-cap" style="margin-top:8px;">salti, monete, nemici: meccaniche o estetiche?</div>
+      </div>
+      <div class="note sky reveal d3" style="margin-top:24px;max-width:1300px;">
+        <div class="lbl">Guida alla riflessione</div>
         <p contenteditable="false">Stai descrivendo <b>meccaniche</b> (saltare, raccogliere monete), <b>dinamiche</b> (evitare i nemici, esplorare), o <b>estetiche</b> (avventura, soddisfazione, nostalgia)?</p>
       </div>
     </div>
@@ -544,7 +563,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- SLIDE 18 · CLOSING -->
   <section class="slide closing">
     <div class="center" style="align-items:center;text-align:center;">
-      <div class="eyebrow reveal gold">Fine GD_01 🎲</div>
+      <div class="eyebrow reveal gold">Fine GD_01</div>
       <h2 class="h-mega reveal" style="margin-top:10px;">Regole.<br><em class="gold">Emozioni.</em></h2>
       <p class="lead reveal d1" contenteditable="false" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">
         Le meccaniche sono lo <span class="gold">strumento</span>. L'estetica è l'<span class="gold">obiettivo</span>. In mezzo ci sono le dinamiche — la magia che emerge quando i giocatori incontrano il design.

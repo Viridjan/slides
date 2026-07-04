@@ -31,10 +31,7 @@ In questo modulo
 Definizione 
  Cos'è una OST 
  La Original Soundtrack è la musica composta per un'opera. Nel gioco non è sottofondo: guida l'emozione, segnala lo stato, scandisce il ritmo dell'azione. 
- 
- 🎧 Il ruolo della musica 
- La musica dice al giocatore come sentirsi prima ancora che capisca cosa sta succedendo sullo schermo. 
- 
+ Regola: la musica migliore è quella che non noti — ma che sentiresti mancare. 
  
  
  🎬 Emozione Tensione, trionfo, malinconia: la traccia costruisce lo stato d'animo della scena. 
@@ -46,13 +43,16 @@ Livello 1
  OST statica 
  La traccia suona uguale ogni volta. Parte, va in loop, non sa cosa sta facendo il giocatore. 
  
- 🎸 Bobby Prince 
+ Bobby Prince 
  Compositore di Wolfenstein 3D (1992) e DOOM (1993). Riff metal in MIDI, loop fissi caricati per livello. 
  
  
  
  🔁 Loop fisso Stessa traccia dall'inizio alla fine del livello. Semplice, economica, prevedibile. 
- 🚫 Nessuna reazione La musica non sa se stai combattendo o esplorando: suona identica in ogni situazione.
+ 🚫 Nessuna reazione La musica non sa se stai combattendo o esplorando: suona identica in ogni situazione. 
+ 
+ 
+ La stessa traccia, in loop, per tutto il livello
 
 --- Slide 5 ---
 Vincolo 
@@ -69,8 +69,12 @@ Livello 2
  La musica non è una traccia unica: è composta di strati ricombinati in tempo reale. Ogni sessione suona diversa. 
  
  
+ Ogni stem ha il suo volume: il motore li miscela dal vivo 
  
- 🎧 Mick Gordon · DOOM (2016) 
+ 
+ 
+ 
+ Mick Gordon · DOOM (2016) 
  La colonna sonora è costruita a STEMS : tracce separate — batteria, basso, sintetizzatori, chitarre — miscelate dinamicamente dal motore di gioco invece di essere un unico file audio. 
  
  🎲 Varietà infinita La stessa libreria di strati genera combinazioni sempre nuove: la musica non stanca.
@@ -93,6 +97,10 @@ Livello 3
  Il salto finale: la musica non reagisce solo all'atmosfera, ma allo stato preciso del gameplay . 
  
  
+ Evento di gioco ↔ musica: un dialogo continuo 
+ 
+ 
+ 
  🎮 DOOM Eternal Mick Gordon lega gli stem a eventi di gioco: entrare in un'arena, uccisioni, boss. La traccia si costruisce mentre giochi. 
  🔗 Musica = HUD Il suono diventa informazione: capisci lo stato della battaglia dall'orecchio, non solo dagli occhi.
 
@@ -113,7 +121,7 @@ Origine del suono
  🎼 Non-diegetico La colonna sonora "dall'esterno": solo il giocatore la sente. La musica di tensione che parte quando arriva il nemico. 
  
  
- 🎲 Design intent 
+ Design intent 
  Spostare un suono da non-diegetico a diegetico (o viceversa) cambia chi sa cosa — uno strumento narrativo potente.
 
 --- Slide 11 ---
@@ -130,7 +138,7 @@ Attività
  Guarda un video di DOOM Eternal a volume alto: prova a indovinare l'evento di gioco dal cambio di musica, senza guardare lo schermo.
 
 --- Slide 12 ---
-Fine GD_02 🎧 
+Fine GD_02 
  Non sottofondo.
  Sistema. 
  

@@ -15,150 +15,158 @@ In questo capitolo
 --- Slide 3 ---
 Privacy 
  Cosa raccoglie il telefono 
- Lo smartphone è il dispositivo più personale: accumula dati su comunicazioni, posizione, abitudini e molto altro. 
- Da sapere Nelle impostazioni puoi vedere un riepilogo dell'uso dei dati e resettare i permessi non usati di recente. 
+ Lo smartphone ti accompagna ovunque, sempre acceso e sempre connesso: nessun altro oggetto sa così tante cose di te. 
+ 
+ ⚙️ Necessari al funzionamento 
+ Rete, credenziali, preferenze: senza questi il telefono non lavora 
+ 🎯 Utili alla profilazione 
+ ID pubblicitari, abitudini d'uso, interessi dedotti dalle attività 
+ 🕶️ Raccolti in background 
+ App e sistema li accumulano spesso senza segnali visibili 
+ 
+ Regola: privacy è decidere tu, non nascondere. 
  
  
- 📱 
- Cosa raccoglie il telefono 
- Comunicazioni, foto, posizione, contatti, ricerche e abitudini quotidiane. App e sistema raccolgono identificatori, uso app e dati tecnici in background. Alcuni dati servono al funzionamento, altri alla profilazione pubblicitaria. La differenza va capita prima di accettare condizioni ciecamente.
+ 
+ Ogni gesto sul telefono produce dati
 
 --- Slide 4 ---
 Privacy 
  Tracciamento pubblicitario 
- Gli identificatori pubblicitari collegano le tue attività tra app e servizi diversi. 
+ Hai cercato scarpe in un'app e ti compaiono ovunque? Non è un caso: è l'ID pubblicitario al lavoro. 
  Come fare Android: Impostazioni → Privacy → Pubblicità → Reimposta ID. iOS: Impostazioni → Privacy → Apple Advertising → disabilita annunci personalizzati. 
  
  
- 📡 
- Tracciamento pubblicitario 
- Gli identificatori pubblicitari collegano attività tra app e servizi. Puoi limitarli o reimpostarli nelle impostazioni privacy del dispositivo. Ridurre il tracciamento non elimina la pubblicità, ma limita la profilazione.
+ 🎯 
+ Come funziona l'ID pubblicitario 
+ Ogni telefono ha un codice univoco che le app leggono e comunicano alle reti pubblicitarie. Incrociando i dati di app diverse si costruisce un profilo: interessi, età stimata, potere d'acquisto. Reimpostarlo azzera il profilo accumulato; disattivarlo limita la profilazione futura. La pubblicità resta, ma diventa generica invece che cucita su di te.
 
 --- Slide 5 ---
 Privacy 
  Gestire la posizione 
- La posizione è uno dei dati più sensibili: rivela casa, lavoro, scuola e abitudini quotidiane. 
+ Dagli spostamenti si ricava tutto: dove abiti, dove lavori, dove porti i figli, quando non sei in casa. 
  Come fare Google Maps: profilo → Cronologia → cancellazione automatica a 3 mesi. iOS: Impostazioni → Privacy → Servizi di localizzazione. 
  
  
- 🔐 
- Gestire la posizione 
- Concedi la posizione solo ad app che ne hanno bisogno realmente. Preferisci "solo mentre usi l'app" rispetto a "sempre". Alcuni servizi salvano gli spostamenti nel tempo: controlla e limita la cronologia. Cancella la cronologia periodicamente o abilita la cancellazione automatica.
+ 📍 
+ Tre livelli di permesso 
+ Mai : per app che non hanno motivo di sapere dove sei (giochi, torce, calcolatrici). Solo mentre usi l'app : la scelta giusta per mappe, meteo e consegne. Sempre : quasi mai giustificato — consente il tracciamento continuo in background. In più: alcuni servizi salvano la cronologia degli spostamenti nel tempo. Attivane la cancellazione automatica.
 
 --- Slide 6 ---
 Privacy 
  Foto e metadati 
- Ogni foto porta con sé dati invisibili: data, modello del dispositivo e spesso la posizione GPS. 
+ Pubblichi la foto del tramonto dal balcone: chi la scarica può leggere le coordinate GPS di casa tua. 
  Come fare iOS: condividi foto → Opzioni → disabilita Posizione. Android: Google Foto → Modifica → Rimuovi dati posizione prima di condividere. 
  
  
- 🧭 
- Foto e metadati 
- Le foto contengono metadati EXIF: data, modello dispositivo e posizione GPS. Prima di condividere immagini pubbliche, valuta se rimuovere i metadati. Screenshot e foto di documenti possono esporre dati personali nascosti.
+ 🏷️ 
+ Cosa contengono i dati EXIF 
+ Coordinate GPS del punto esatto dello scatto, data e ora al secondo. Modello di telefono, impostazioni della fotocamera, a volte il nome del proprietario. Le app di messaggistica di solito li rimuovono; email e siti spesso no. Occhio anche al contenuto visibile: schermi, documenti e targhe sullo sfondo parlano quanto i metadati.
 
 --- Slide 7 ---
 Privacy 
  Cloud e backup 
- I servizi cloud copiano dati su server remoti: utili, ma richiedono un account ben protetto. 
+ Il backup ti salva se perdi il telefono — ma sposta i tuoi dati su server che non controlli. 
  Importante Attiva la verifica in due passaggi sull'account cloud. Se perdi l'accesso, perdi anche backup, foto e documenti. 
  
  
  ☁️ 
- Cloud e backup 
- Il cloud consente backup automatico e accesso da più dispositivi. Proteggi l'account con password forte e autenticazione a due fattori. Il backup automatico può caricare foto private senza che tu te ne accorga. Controlla quali cartelle sono incluse nel backup e la qualità delle immagini caricate.
+ Il compromesso da governare 
+ Vantaggio: foto e dati sopravvivono a furti, guasti e cambi di telefono. Rischio: chi entra nel tuo account cloud vede tutto — la password dell'account vale quanto il telefono stesso. Il caricamento automatico può includere foto private senza che tu te ne accorga: controlla quali cartelle sincronizza. Verifica periodicamente i dispositivi collegati all'account e scollega quelli che non riconosci.
 
 --- Slide 8 ---
 Privacy 
  Rubrica e messaggi 
- La rubrica contiene dati altrui; le chat includono testi, foto, vocali e metadati nel tempo. 
+ Quando un'app legge la tua rubrica, stai condividendo i numeri di persone che non hanno mai dato il consenso. 
  Da sapere Prima di installare un'app, chiediti: ha davvero bisogno di leggere tutti i miei contatti e messaggi? 
  
  
  💬 
- Rubrica e messaggi 
- La rubrica contiene dati anche di altre persone: sincronizzarla va fatto con attenzione. Non tutte le app hanno bisogno di accedere a tutti i contatti. I backup non cifrati delle chat possono indebolire la protezione end-to-end. Controlla impostazioni di backup e dispositivi collegati alle app di messaggistica.
+ Punti deboli delle chat 
+ La cifratura end-to-end protegge il messaggio in viaggio, ma non il backup: se il backup non è cifrato, la protezione si indebolisce. I metadati (chi scrivi, quando, quanto spesso) raccontano molto anche senza leggere i contenuti. Controlla i dispositivi collegati alla tua app di messaggistica: sessioni web dimenticate sono un accesso aperto. Concedi l'accesso ai contatti solo alle app di comunicazione che ne hanno reale necessità.
 
 --- Slide 9 ---
 Privacy 
  Browser mobile 
- Il browser conserva cronologia, cookie, cache e dati di login: una mappa delle tue attività online. 
+ Cronologia, cookie, moduli compilati, password salvate: il browser è l'archivio della tua vita online. 
  Come fare Chrome: ⋮ → Impostazioni → Privacy → Cancella dati. Safari: Impostazioni → Safari → Cancella cronologia e dati del sito. 
  
  
- 📁 
- Browser mobile 
- Il browser conserva cronologia, cookie, cache e login. La modalità privata non rende anonimi: evita solo la cronologia locale. Cancella dati periodicamente o usa profili separati quando serve.
+ 🌐 
+ Il mito della navigazione privata 
+ La modalità privata evita solo la cronologia locale : il sito, il gestore di rete e il datore di lavoro vedono comunque le tue visite. Non nasconde il tuo indirizzo IP e non impedisce il tracciamento via cookie di sessione. Utile per: computer condivisi, ricerca regali, login temporanei su dispositivi altrui. Per pulizia vera: cancellazione periodica dei dati di navigazione dalle impostazioni.
 
 --- Slide 10 ---
 Privacy 
  App social 
- Social e app video raccolgono interazioni, interessi e tempo di visione per ottimizzare il feed. 
+ Sui social non conta solo cosa pubblichi: ogni pausa, ogni like e ogni secondo di visione viene misurato. 
  Da controllare Nelle impostazioni di ogni social verifica chi vede i tuoi contenuti, la tua posizione e le tue connessioni. 
  
  
- 💡 
- App social 
- Social e app video raccolgono interazioni, interessi e tempo di visione. Il feed è ottimizzato per trattenere l'attenzione il più a lungo possibile. Privacy e benessere digitale sono strettamente collegati.
+ 📣 
+ Cosa osserva il feed 
+ Tempo di visione per singolo contenuto, scorrimenti, riavvii: segnali più sinceri dei like. Da questi segnali l'algoritmo deduce interessi che non hai mai dichiarato — a volte prima che tu ne sia consapevole. Il profilo dedotto guida pubblicità e contenuti futuri: più resti, più diventa preciso. Rivedere le impostazioni di visibilità limita ciò che gli altri utenti vedono, non ciò che la piattaforma misura.
 
 --- Slide 11 ---
 Privacy 
  Permessi periodici 
- Le app cambiano funzioni e richieste nel tempo: controllare i permessi una sola volta non basta. 
+ Quel permesso concesso due anni fa a un'app che non usi più è ancora attivo, adesso. 
  Cadenza consigliata Android: Impostazioni → Privacy → Gestione permessi. iOS: Impostazioni → Privacy e sicurezza. Revisione ogni 3–6 mesi. 
  
  
- 🔎 
- Permessi periodici 
- Controllare permessi una volta non basta: le app aggiornano funzioni e richieste. Controlla in particolare posizione, microfono, fotocamera e contatti. Revoca i permessi non giustificati e disinstalla le app che non usi.
+ 🔄 
+ La revisione in 4 mosse 
+ Apri la gestione permessi e parti dai quattro critici: posizione, microfono, fotocamera, contatti. Per ogni app chiediti: la uso ancora? Il permesso serve alla sua funzione principale? Revoca ciò che non è giustificato — l'app lo richiederà se le serve davvero. Disinstalla le app dormienti: ogni app in meno è una porta in meno.
 
 --- Slide 12 ---
 Privacy 
  Condivisione involontaria 
- Una foto può rivelare più di quanto pensi: indirizzi, targhe, badge, documenti e metadati GPS. 
+ Il selfie in ufficio con il badge al collo, lo screenshot con la notifica in alto: si condivide più di ciò che si inquadra. 
  Strumenti utili Scrambled Exif (Android) rimuove metadati prima della condivisione. iOS: Foto → Condividi → Opzioni → rimuovi posizione. 
  
  
- ✅ 
- Condivisione involontaria 
- Una foto può mostrare indirizzi, targhe, badge, schermi o documenti sullo sfondo. I metadati EXIF di foto e screenshot possono rivelare dispositivo, data e posizione GPS. Ritaglia, oscura o rimuovi metadati prima di condividere contenuti sensibili.
+ 🙈 
+ Controllo prima di pubblicare 
+ Sfondo: targhe, indirizzi, badge, schermi accesi, documenti sul tavolo. Screenshot: notifiche, nomi nelle chat, barre con orario e operatore possono identificare persone e luoghi. Riflessi: vetri, specchi e occhiali a volte mostrano ciò che sta dietro la fotocamera. Regola pratica: guarda la foto come la guarderebbe uno sconosciuto malintenzionato, poi decidi.
 
 --- Slide 13 ---
 Privacy 
  Privacy dei minori 
- I dati dei minori richiedono attenzione extra: foto, posizione e routine non vanno condivisi con leggerezza. 
+ Un bambino non può valutare le conseguenze di ciò che viene pubblicato su di lui — la responsabilità è di chi pubblica. 
  Regola pratica Evita di mostrare indirizzi, scuole o luoghi frequentati. Chiediti: questa informazione potrebbe creare problemi al minore in futuro? 
  
  
- ⚠️ 
- Privacy dei minori 
- I dati dei minori richiedono attenzione maggiore rispetto agli adulti. Foto, scuola, posizione e routine non vanno pubblicati con leggerezza. Chiedi sempre il consenso dei minori (quando possibile) e dei genitori.
+ 🧒 
+ Sharenting: cosa considerare 
+ Le foto pubblicate oggi costruiscono un'identità digitale che il minore non ha scelto e non potrà cancellare del tutto. Divisa della scuola, fermata dello scuolabus e orari ricorrenti rendono un bambino rintracciabile. Chiedi il consenso al minore quando ha l'età per capire, e sempre agli altri genitori per i figli altrui. Alternativa concreta: condividi in chat ristrette invece che su profili pubblici.
 
 --- Slide 14 ---
 Privacy 
  Checklist privacy 
- Un controllo periodico delle impostazioni riduce i rischi in pochi minuti. 
- Cadenza consigliata Dedica 10 minuti ogni 3 mesi a rivedere permessi, backup attivi, sincronizzazioni e autenticazione a due fattori. 
+ Dieci minuti ogni tre mesi: il costo reale di una privacy in ordine è tutto qui. 
  
  
- 🧰 
- Checklist privacy 
- Riduci permessi non necessari: posizione, microfono, fotocamera, contatti. Limita la posizione continua e la cronologia degli spostamenti. Proteggi gli account cloud con 2FA e password robusta. Controlla backup attivi e condivisioni automatiche.
+ 
+ 🔑 Permessi Rivedi posizione, microfono, fotocamera e contatti. Revoca ciò che non è giustificato. 
+ 📍 Posizione Niente "sempre attiva" senza motivo. Cancellazione automatica della cronologia spostamenti. 
+ 🔐 Account 2FA attiva su cloud e account principali. Controlla i dispositivi collegati. 
+ 🎯 Tracciamento Reimposta l'ID pubblicitario. Disattiva gli annunci personalizzati se preferisci.
 
 --- Slide 15 ---
 Verifica veloce 
  È tutto chiaro? 
  Prova a rispondere a mente prima di passare al capitolo successivo. 
  
- 1. Qual è l'idea più importante di questo capitolo? 
- 2. Quale impostazione o comportamento puoi controllare subito sul tuo telefono? 
- 3. Quale rischio pratico riduci applicando queste regole? 
- 4. Come spiegheresti questo argomento a una persona poco esperta?
+ 1. Che informazioni può rivelare una foto pubblicata online, oltre a ciò che si vede nell'inquadratura? 
+ 2. Perché "solo mentre usi l'app" è quasi sempre la scelta giusta per il permesso di posizione? 
+ 3. Cosa protegge (e cosa NON protegge) la modalità di navigazione privata del browser? 
+ 4. A cosa serve reimpostare l'ID pubblicitario, e dove si trova questa opzione?
 
 --- Slide 16 ---
 Fine S05 
  Privacy telefono
  in pratica. 
- Ora hai una mappa operativa del capitolo: concetti chiave, rischi e controlli da applicare sullo smartphone. 
+ La privacy non è nascondere: è decidere tu cosa condividere, con chi e quando. Il telefono va impostato una volta e ricontrollato ogni tanto — il resto è consapevolezza. 
  
  Prossimo → SMA06 · Sicurezza dello smartphone 
  ↩ Indice del corso

@@ -4,66 +4,81 @@ Smartphones · SMA01 — Lo smartphone è un computer
 --- Slide 1 ---
 S01 — Hardware 
  Lo smartphone è un computer 
- Componenti, memoria, batteria, sensori e differenze rispetto a PC e tablet. 
+ Cosa lavora dietro il vetro: SoC, memoria, batteria e sensori — e quando conviene ancora un PC o un tablet. 
  SMA01 Smartphones
 
 --- Slide 2 ---
 In questo capitolo 
  Cosa vedremo 
- 01 Computer tascabile 02 Scheda logica 03 CPU, SoC e RAM 04 Memoria interna 05 Batteria e ricarica 06 Schermo touch 07 Fotocamere 08 GPS e posizione 09 Sensori e microfoni 10 Confronto dispositivi
+ 01 Computer tascabile 02 Scheda logica 03 CPU, SoC e RAM 04 Memoria interna 05 Batteria e ricarica 06 Schermo touch 07 Fotocamere 08 GPS e posizione 09 Sensori invisibili 10 Microfoni e altoparlanti 11 Smartphone, tablet o PC 12 Limiti fisici e calore
 
 --- Slide 3 ---
 Hardware 
  Computer tascabile 
- Uno smartphone non è solo un telefono: è un computer completo in formato portatile. 
- Cosa cambia dal PC Lo smartphone è sempre acceso, sempre in rete, sempre con te. Questo cambia il tipo di rischi, abitudini e attenzioni necessarie rispetto a un computer fisso. 
+ Telefonare è ormai una funzione tra tante: nel taschino porti una macchina con processore, memoria, sistema operativo e applicazioni. 
+ La vera differenza Non è la potenza: è che lo smartphone è sempre acceso, sempre in rete e sempre con te. Per questo abitudini, rischi e attenzioni cambiano rispetto a un PC che si spegne a fine giornata. 
  
  
- 📱 
- Computer tascabile 
- Ha processore, memoria, sistema operativo, applicazioni, connessioni e periferiche integrate. La differenza principale è l'interfaccia: touch, sensori e mobilità continua. È sempre connesso a Internet, il che aumenta utilità e rischi rispetto a un PC offline.
+ 
+ 🔍 
+ Cosa c'è dietro il vetro 
+ Gli stessi ingredienti di un PC, miniaturizzati: un processore (SoC), la RAM, una memoria per i dati, una batteria. In più: antenne per rete mobile, WiFi, Bluetooth e GPS, due o più fotocamere e decine di sensori. 
+ 
+ 
+ ✋ 
+ Un'interfaccia diversa 
+ Niente mouse né tastiera fisica: si comanda con tocchi, gesti e voce. In questo capitolo apriamo il "cofano" e guardiamo i pezzi uno per uno.
 
 --- Slide 4 ---
-Hardware 
- Scheda logica 
- La scheda logica collega tutti i componenti principali in uno spazio minimo. 
- Riparabilità Sui moderni smartphone RAM, CPU e memoria sono spesso saldati: non sostituibili. In caso di guasto si riparano quasi solo schermo e batteria. Verifica la politica di riparazione prima di acquistare. 
+La scheda madre di un PC, compressa in pochi cm² 
  
  
- 🔋 
+ Hardware 
  Scheda logica 
- Collega CPU, RAM, memoria flash, modem, antenne, fotocamere e batteria. Su smartphone quasi tutto è saldato: compatto ma meno riparabile di un PC desktop. La compattezza richiede gestione termica attenta: meno spazio = meno dissipazione.
+ Il "pavimento" su cui vive tutta l'elettronica: ogni componente ci è fissato sopra e comunica attraverso di essa. 
+ Riparabilità Quasi tutto è saldato: RAM, processore e memoria non si sostituiscono. In pratica si riparano solo schermo e batteria. Prima di acquistare, verifica costi e politica di riparazione del produttore.
 
 --- Slide 5 ---
 Hardware 
  CPU, SoC e RAM 
- Il SoC integra CPU, GPU, modem e AI nello stesso chip; la RAM gestisce il multitasking. 
+ Nei PC processore, scheda grafica e modem sono componenti separati. Nel telefono convivono in un unico chip. 
  
+ 🧠 Il SoC System on a Chip: CPU, GPU, modem, processori AI e controller integrati insieme. Meno spazio, meno consumi, meno calore. 
+ ⚡ La RAM Il banco di lavoro: tiene i dati delle app aperte. Quando è piena, il sistema chiude le app in background — che poi ripartono da zero. 
+ 🏭 Chi li produce Apple (serie A), Qualcomm (Snapdragon), MediaTek e Samsung (Exynos): il nome del SoC dice molto sulla fascia del telefono. 
  
- 📡 
- CPU, SoC e RAM 
- SoC (System on a Chip): CPU, GPU, modem, processori AI e controller nello stesso chip — riduce consumi, spazio e calore. Produttori principali: Apple (A-series), Qualcomm (Snapdragon), MediaTek, Samsung (Exynos). La RAM contiene i dati temporanei delle app aperte: più RAM = multitasking più fluido. Quando la RAM è piena il sistema chiude app in background o le ricarica più spesso.
+ In pratica Più RAM = multitasking più fluido: passi da un'app all'altra senza attese né riavvii. Sui volantini, guarda la sigla del SoC oltre ai gigabyte.
 
 --- Slide 6 ---
 Hardware 
  Memoria interna 
- La memoria interna conserva app, foto, video e sistema operativo anche a telefono spento. 
- Come verificare Android: Impostazioni → Memoria. iOS: Impostazioni → Generali → Spazio iPhone. Tieni almeno 10% libero: con meno spazio il sistema rallenta e gli aggiornamenti falliscono. 
+ L'archivio permanente del telefono: sistema, app, foto e video restano al loro posto anche a dispositivo spento. 
+ Come verificare Android: Impostazioni → Memoria. iOS: Impostazioni → Generali → Spazio iPhone. Tieni almeno il 10% libero: sotto quella soglia il sistema rallenta e gli aggiornamenti falliscono. 
  
  
- ☁️ 
- Memoria interna 
- Non va confusa con la RAM: è persistente, non si svuota allo spegnimento. Capacità tipiche: 64 GB (base) fino a 1 TB sui modelli top. Quasi mai espandibile via microSD sui modelli recenti: scegli bene in fase di acquisto.
+ 
+ RAM Memoria interna 
+ 
+ Contiene Le app aperte adesso App, foto, video, sistema 
+ Allo spegnimento Si svuota Conserva tutto 
+ Tagli tipici 4–16 GB 64 GB – 1 TB 
+ 
+ 
+ 💾 Scegliere il taglio giusto Quasi mai espandibile con microSD sui modelli recenti: lo spazio si decide all'acquisto, non dopo. Foto e video in 4K riempiono in fretta i tagli piccoli.
 
 --- Slide 7 ---
 Hardware 
  Batteria e ricarica 
  La batteria degrada nel tempo; la ricarica rapida accelera il processo se usata male. 
+ Regola: evita il calore, carica tra 20–80%, usa caricatori certificati. 
  
  
- 🧭 
- Batteria e ricarica 
- Capacità in mAh: ma l'autonomia reale dipende da schermo, rete, app e processore. Con il tempo perde capacità: cicli, calore e ricariche a 0% accelerano il degrado. USB-C è lo standard comune; ricarica rapida richiede caricatore, cavo e telefono compatibili. Per prolungare la vita: evita calore, carica tra 20–80%, usa caricatori certificati.
+ 🔋 Capacità in mAh 
+ ma l'autonomia reale dipende da schermo, rete, app e processore 
+ 📉 Con il tempo perde capacità 
+ cicli, calore e ricariche a 0% accelerano il degrado 
+ 🔌 USB-C è lo standard comune 
+ la ricarica rapida richiede caricatore, cavo e telefono compatibili
 
 --- Slide 8 ---
 Hardware 
@@ -73,7 +88,7 @@ Hardware
  
  
  🛡️ 
- Schermo touch 
+ Tocco, luminosità, protezione 
  Tocchi, gesture, swipe e pinch sostituiscono mouse e tastiera. Luminosità, risoluzione e refresh rate incidono su comfort visivo e autonomia. Il vetro protettivo (Gorilla Glass e simili) riduce rischi da caduta o graffi.
 
 --- Slide 9 ---
@@ -84,7 +99,7 @@ Hardware
  
  
  🧩 
- Fotocamere 
+ Sensori più software 
  Le fotocamere sono sensori ottici collegati a software di elaborazione avanzata. La fotocamera frontale è ottimizzata per selfie e videochiamate; le posteriori per foto e video. Sistemi multi-obiettivo: grandangolo, normale, teleobiettivo, macro — diversi usi diversi lenti.
 
 --- Slide 10 ---
@@ -95,7 +110,7 @@ Hardware
  
  
  ⚙️ 
- GPS e posizione 
+ Satelliti, WiFi e celle 
  Il GPS riceve segnali da satelliti (GNSS) per stimare latitudine e longitudine. WiFi positioning e celle telefoniche integrano il GPS per velocità e precisione in interni. La localizzazione è utile per mappe, meteo e sicurezza, ma va gestita per privacy e batteria.
 
 --- Slide 11 ---
@@ -104,9 +119,14 @@ Hardware
  Lo smartphone include decine di sensori invisibili che arricchiscono l'esperienza. 
  
  
- 🔬 
- Sensori: movimento e ambiente 
- Accelerometro e giroscopio rilevano movimento, rotazione e orientamento — usati per schermo, giochi, fitness e realtà aumentata. Sensore di prossimità: spegne lo schermo durante le telefonate per evitare tocchi accidentali. Sensore di luce ambientale: regola luminosità automaticamente in base all'ambiente. Barometro (misura pressione) e motore aptico (vibrazione al tocco) completano il set.
+ 🧭 Accelerometro e giroscopio 
+ rilevano movimento, rotazione e orientamento — schermo, giochi, fitness, realtà aumentata 
+ 📵 Sensore di prossimità 
+ spegne lo schermo durante le telefonate per evitare tocchi accidentali 
+ 💡 Sensore di luce ambientale 
+ regola la luminosità automaticamente in base all'ambiente 
+ 🌡️ Barometro e motore aptico 
+ misura della pressione e vibrazione al tocco completano il set
 
 --- Slide 12 ---
 Hardware 
@@ -116,7 +136,7 @@ Hardware
  
  
  💡 
- Microfoni e altoparlanti 
+ Audio in entrata e in uscita 
  Più microfoni permettono cancellazione del rumore e audio stereo durante le riprese. Usati per chiamate, assistenti vocali, dettatura, traduzione e registrazione video. Gli altoparlanti stereo migliorano l'ascolto di musica e podcast senza cuffie.
 
 --- Slide 13 ---
@@ -124,10 +144,13 @@ Hardware
  Confronto con altri dispositivi 
  Tablet e PC condividono tecnologie con lo smartphone ma per usi diversi. 
  
- 
- ✅ 
  Smartphone vs tablet e PC 
- Il tablet privilegia schermo grande e produttività leggera; lo smartphone privilegia portabilità, fotocamera e uso continuo. Il PC è espandibile e adatto a lavori complessi: editing, programmazione, presentazioni lunghe. Lo smartphone è più integrato e sempre connesso; molte attività leggere si fanno su entrambi. La scelta dipende dalla situazione: nessun dispositivo sostituisce completamente gli altri.
+ Il tablet privilegia schermo grande e produttività leggera; lo smartphone privilegia portabilità, fotocamera e uso continuo. Il PC è espandibile e adatto a lavori complessi: editing, programmazione, presentazioni lunghe. Lo smartphone è più integrato e sempre connesso; molte attività leggere si fanno su entrambi. La scelta dipende dalla situazione: nessun dispositivo sostituisce completamente gli altri. 
+ 
+ 
+ 
+ 
+ Stesse tecnologie, tre formati per usi diversi
 
 --- Slide 14 ---
 Hardware 
@@ -137,7 +160,7 @@ Hardware
  
  
  🧰 
- Limiti fisici 
+ Il calore comanda 
  Meno spazio = meno dissipazione: il calore è il limite principale delle prestazioni mobile. Cover pesanti, sole diretto e ricarica durante uso intenso aumentano il problema. Il software monitora temperatura e riduce clock CPU/GPU in automatico per proteggersi.
 
 --- Slide 15 ---
@@ -145,10 +168,10 @@ Verifica veloce
  È tutto chiaro? 
  Prova a rispondere a mente prima di passare al capitolo successivo. 
  
- 1. Qual è l'idea più importante di questo capitolo? 
- 2. Quale impostazione o comportamento puoi controllare subito sul tuo telefono? 
- 3. Quale rischio pratico riduci applicando queste regole? 
- 4. Come spiegheresti questo argomento a una persona poco esperta?
+ 1. Cosa integra un SoC che in un PC desktop sarebbe distribuito su più componenti separati? 
+ 2. Perché il telefono rallenta da solo quando si scalda troppo? Come si chiama questo meccanismo? 
+ 3. Quanto spazio libero conviene mantenere sulla memoria interna, e cosa succede se lo esaurisci? 
+ 4. In quali situazioni un tablet o un PC restano preferibili allo smartphone?
 
 --- Slide 16 ---
 Fine S01 

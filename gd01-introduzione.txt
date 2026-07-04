@@ -96,7 +96,7 @@ Cooperativo
  Tutti vincono o tutti perdono 
  Nei giochi cooperativi i giocatori non competono fra loro: affrontano insieme un avversario comune — spesso il gioco stesso. Questo cambia radicalmente la dinamica sociale al tavolo. 
  
- 🤝 Esempi 
+ Esempi 
  Pandemic (fermare un virus globale), Hanabi (comporre fuochi d'artificio senza guardare le proprie carte), Spirit Island , Arkham Horror . 
  
  
@@ -137,9 +137,7 @@ Eccezioni
  Eurogame + network building + pick-up-and-deliver: più meccaniche intrecciate in un unico sistema. 
  
  
- 
- 💡 Messaggio chiave 
- Conoscere le categorie ti permette di violarle consapevolmente .
+ Regola: conoscere le categorie ti permette di violarle consapevolmente .
 
 --- Slide 8 ---
 Teoria 
@@ -157,32 +155,20 @@ MDA Paradigm
  Come nasce un' esperienza 
  Le Meccaniche sono le regole del gioco. Dalle meccaniche emergono le Dinamiche — i comportamenti dei giocatori. Le dinamiche generano le Estetiche — le emozioni vissute. 
  
- 📖 Fonte 
+ Fonte 
  "MDA: A Formal Approach to Game Design and Game Research" — Robin Hunicke, Marc LeBlanc, Robert Zubek (2004). 
  
  
  
  
- 🔩 
- M — Meccanica 
- Le regole e i sistemi. Cosa si può fare nel gioco. 
- 
- 
- ⚡ 
- D — Dinamica 
- I comportamenti emergenti. Cosa fanno davvero i giocatori. 
- 
- 
- 🎭 
- E — Estetica 
- L'esperienza emotiva. Cosa sente il giocatore.
+ M → D → E · dalle regole alle emozioni
 
 --- Slide 10 ---
 M — Meccanica 
  Le regole del gioco 
  Le meccaniche sono i componenti formali del gioco: le azioni disponibili, i vincoli, i sistemi di ricompensa, le condizioni di vittoria. Sono il livello su cui lavora principalmente il designer . 
  
- 🎲 Esempi di meccaniche 
+ Esempi di meccaniche 
  Draft (scegliere carte da un pool), worker placement , deck building , gestione risorse , push your luck . 
  
  
@@ -202,7 +188,7 @@ D — Dinamica
  Comportamenti emergenti 
  Le dinamiche non si progettano direttamente — emergono dall'interazione tra meccaniche e giocatori. Un designer progetta meccaniche sperando che producano le dinamiche volute. 
  
- ⚡ Esempio 
+ Esempio 
  In Diplomazia (1959) la meccanica è "scrivi ordini segreti". La dinamica che emerge è la negoziazione , l'inganno e l'alleanza — nulla di questo è scritto nelle regole. 
  
  
@@ -222,7 +208,7 @@ E — Estetica
  L' esperienza del giocatore 
  L'estetica è il livello emotivo — cosa il giocatore sente mentre gioca. Non è decorazione: è l' obiettivo finale del design. Le meccaniche e le dinamiche esistono per produrre un'estetica specifica. 
  
- 🎭 Le 8 estetiche di MDA 
+ Le 8 estetiche di MDA 
  Sensation · Fantasy · Narrative · Challenge · Fellowship · Discovery · Expression · Submission 
  
  
@@ -256,9 +242,7 @@ Due prospettive
  ← 
  🔩 Meccaniche 
  
- 
- 💡 Implicazione 
- Il designer pensa in termini di regole . Il giocatore pensa in termini di emozioni . Un buon design costruisce il ponte tra queste due prospettive.
+ In pratica: il designer pensa in regole , il giocatore in emozioni — il buon design è il ponte.
 
 --- Slide 14 ---
 MDA in pratica 
@@ -298,7 +282,7 @@ Competizione
  
  
  
- 🎲 E i semi-cooperativi? 
+ E i semi-cooperativi? 
  Alcuni giochi ( Battlestar Galactica , Dead of Winter ) hanno un traditore nascosto — agonistico dentro un framework cooperativo.
 
 --- Slide 16 ---
@@ -306,7 +290,11 @@ Discussione
  Cosa ti viene in mente pensando a Super Mario ? 
  Prenditi 2 minuti. Scrivi o dì ad alta voce le prime 5-10 cose che ti vengono in mente. 
  
- 🎮 Guida alla riflessione 
+ 
+ salti, monete, nemici: meccaniche o estetiche? 
+ 
+ 
+ Guida alla riflessione 
  Stai descrivendo meccaniche (saltare, raccogliere monete), dinamiche (evitare i nemici, esplorare), o estetiche (avventura, soddisfazione, nostalgia)?
 
 --- Slide 17 ---
@@ -323,7 +311,7 @@ Attività
  In che categoria rientra il gioco scelto? È agonistico o no? Dove si posiziona nel framework MDA?
 
 --- Slide 18 ---
-Fine GD_01 🎲 
+Fine GD_01 
  Regole.
  Emozioni. 
  

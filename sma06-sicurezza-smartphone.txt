@@ -4,144 +4,157 @@ Smartphones · SMA06 — Sicurezza dello smartphone
 --- Slide 1 ---
 S06 — Sicurezza 
  Sicurezza dello smartphone 
- Blocco schermo, 2FA, furto, SIM swap, phishing, malware e reti malevole. 
+ Blocco schermo e biometria, 2FA, furto e smarrimento, SIM swap, truffe via SMS e telefono, malware e reti WiFi false. 
  SMA06 Smartphones
 
 --- Slide 2 ---
 In questo capitolo 
  Cosa vedremo 
- 01 Il telefono come chiave 02 Blocco schermo 03 2FA e OTP 04 Furto e risposta 05 SIM swap 06 Phishing messaggi 07 Chiamate fraudolente 08 Malware e APK 09 Aggiornamenti sicurezza 10 Reti malevole
+ 01 Il telefono è una chiave 02 Blocco schermo e biometria 03 2FA e codici OTP 04 Furto: prepararsi e reagire 05 SIM swap 06 Smishing: truffe via SMS 07 Vishing: truffe al telefono 08 Malware e app da fonti dubbie 09 Aggiornamenti di sicurezza 10 WiFi pubbliche e reti false
 
 --- Slide 3 ---
 Sicurezza 
- Il telefono come chiave 
- Lo smartphone apre email, banca, social e cloud: proteggere il telefono significa proteggere la tua identità digitale. 
- Inventario degli accessi Elenca i servizi a cui il tuo telefono dà accesso: banca, email, lavoro, cloud, social. Sapere cosa rischi in caso di furto aiuta a stabilire le priorità di protezione. 
+ Il telefono è una chiave 
+ Non stiamo proteggendo un oggetto da qualche centinaio di euro: stiamo proteggendo tutto ciò che quell'oggetto apre. 
+ Regola: il PIN protegge il telefono, il telefono protegge tutto il resto. 
  
  
- 📱 
- Il telefono come chiave 
- Perderlo o farselo rubare può significare perdere accesso a molti account contemporaneamente. Un telefono sbloccato in mani sbagliata può esporre email, banca, foto e documenti. La sicurezza del telefono non è tecnica: è protezione della tua vita digitale.
+ 🔑 
+ Cosa apre davvero 
+ La tua email : da lì si resettano le password di quasi tutti gli altri account. La tua banca : app bancaria e SMS di conferma arrivano sullo stesso apparecchio. La tua vita privata : foto, chat, rubrica, documenti — materiale per ricatti e truffe verso i tuoi contatti.
 
 --- Slide 4 ---
-Sicurezza 
+Prima barriera 
  Blocco schermo e biometria 
- PIN, password, impronta e volto proteggono da accesso immediato; la biometria è comoda ma non sostituisce un codice forte. 
+ Senza blocco schermo, chiunque raccolga il telefono ha già vinto. Codice e biometria lavorano insieme, con ruoli diversi. 
  
+ 🔢 Il codice è le fondamenta PIN di almeno 6 cifre, non ovvie: niente 1234, 0000 o date di nascita. Una password alfanumerica protegge ancora meglio di un PIN. Blocco automatico entro 30–60 secondi di inattività. 
+ 👆 La biometria è la comodità Impronta e volto sbloccano in un istante, decine di volte al giorno. Dopo un riavvio o troppi tentativi falliti, il telefono chiede comunque il codice. Nessuno può "sbirciare" la tua impronta come farebbe con un PIN digitato in pubblico. 
  
- 🔋 
- Blocco schermo e biometria 
- Un blocco debole (0000, 1234, data di nascita) protegge poco: evita PIN ovvi. La biometria (impronta, volto) sblocca velocemente ma non funziona dopo riavvio o tentativi falliti — richiede il PIN. Usa biometria per comodità quotidiana, ma scegli un PIN/password forte come base. Imposta blocco automatico dopo 30–60 secondi di inattività: va nel cassetto = va bloccato.
+ Regola: PIN debole + impronta = porta blindata con la chiave sotto lo zerbino.
 
 --- Slide 5 ---
-Sicurezza 
+Seconda barriera 
  2FA e codici OTP 
- La verifica in due passaggi protegge gli account anche se la password viene rubata; i codici OTP non vanno mai comunicati a nessuno. 
+ Anche se qualcuno ti ruba la password, con la verifica in due passaggi non entra: gli manca il secondo pezzo. 
  
- 
- 🔐 
- 2FA e codici OTP 
- 2FA aggiunge un secondo fattore: qualcosa che hai (telefono) oltre a qualcosa che sai (password). App autenticatore (Google Authenticator, Aegis) è più sicura degli SMS: non intercettabile via SIM swap. Gli OTP cambiano ogni 30 secondi e valgono per un solo accesso. Chi chiede un OTP per telefono, chat o email sta quasi certamente tentando un furto account.
+ 🔐 Due lucchetti diversi Qualcosa che sai (la password) più qualcosa che hai (il telefono). Attivala prima di tutto su email e banca: sono gli account che aprono gli altri. 
+ 📲 App meglio degli SMS Un'app autenticatore (Google Authenticator, Aegis) genera i codici direttamente sul telefono: non viaggiano in rete e non si intercettano con un SIM swap. 
+ 🤫 L'OTP non si detta mai Ogni codice vale 30 secondi e un solo accesso. Chi te lo chiede — al telefono, in chat, via email — sta completando un furto: nessun servizio serio lo domanda.
 
 --- Slide 6 ---
-Sicurezza 
- Furto e risposta 
- Trova dispositivo va attivato prima del furto; in caso di smarrimento: blocca SIM, cambia password, usa cancellazione remota. 
+Furto · 1 
+ Prepararsi al furto 
+ Le difese contro furto e smarrimento funzionano solo se le attivi prima: a telefono sparito è troppo tardi. 
+ Blocco attivazione Con Trova dispositivo o Dov'è attivi, il telefono resta legato al tuo account anche dopo un reset di fabbrica : chi lo ruba non può riattivarlo. Un deterrente che rende il furto molto meno redditizio. 
  
  
  🧭 
- Furto e risposta 
- Android: Trova il mio dispositivo (findmydevice.google.com). iOS: Dov'è (icloud.com/find). Devono essere attivi prima dell'evento. In caso di furto con telefono sbloccato: cambia subito password email e banca da un altro dispositivo. Blocca la SIM chiamando l'operatore; avvisa banca e servizi sensibili. Il backup aggiornato riduce il danno: i dati si recuperano, il telefono no.
+ Da attivare oggi 
+ Android : Trova il mio dispositivo — verifica da findmydevice.google.com. iOS : Dov'è — verifica da icloud.com/find. Backup automatico attivo: i dati si recuperano, il telefono no. IMEI annotato : digita *#06# e conserva il codice, servirà per la denuncia.
 
 --- Slide 7 ---
-Sicurezza 
- SIM swap 
- Un attaccante trasferisce il tuo numero su una SIM che controlla e può ricevere i tuoi SMS OTP. 
- Come proteggersi Imposta un PIN SIM (Impostazioni → SIM) e un PIN account operatore. Evita SMS come secondo fattore per banca e email: usa app autenticatore. Segnale perso improvvisamente senza motivo? Chiama l'operatore subito. 
+Furto · 2 
+ Telefono rubato: i quattro passi 
+ Nell'emergenza conta l'ordine: prima limita i danni agli account, poi pensa all'apparecchio. 
  
- 
- 🛡️ 
- SIM swap 
- L'attaccante convince l'operatore a portare il numero su una nuova SIM fingendosi te. Con il tuo numero può ricevere SMS OTP e tentare accessi a banca, email e account. Il segnale del tuo telefono sparisce: è il primo segnale di un SIM swap in corso.
+ 📍 1 · Localizza e blocca 
+ Da un altro dispositivo entra in Trova dispositivo (Android) o Dov'è (iOS): blocca lo schermo da remoto e mostra un messaggio con un recapito per la restituzione. 
+ 🔑 2 · Cambia le password chiave 
+ Prima l'email, subito dopo banca e social: chi controlla la tua email può resettare tutto il resto. Fallo anche se il telefono era bloccato. 
+ 📵 3 · Blocca la SIM 
+ Chiama il tuo operatore: fermi chiamate a pagamento e soprattutto gli SMS OTP diretti al numero rubato. 
+ 🚨 4 · Denuncia e cancella 
+ Denuncia alle autorità con l'IMEI annotato. Se il recupero è impossibile, avvia la cancellazione remota: il backup ti restituirà i dati sul prossimo telefono.
 
 --- Slide 8 ---
-Sicurezza 
- Phishing via messaggi 
- SMS e WhatsApp falsificati imitano banche, corrieri e contatti fidati per rubare dati o codici. 
+Attacchi al numero 
+ SIM swap 
+ Per svuotarti il conto non serve rubarti il telefono: basta rubarti il numero. 
+ Le tue contromisure Imposta un PIN sulla SIM (Impostazioni → SIM) e un codice di sicurezza sull'account dell'operatore. Per banca ed email usa un'app autenticatore, non gli SMS. Segnale sparito senza motivo? Chiama subito l'operatore da un altro telefono. 
  
  
- 🧩 
- Phishing via messaggi 
- SMS phishing (smishing): finto corriere, banca, Poste Italiane, INPS — usano urgenza e link corti che nascondono l'URL reale. WhatsApp phishing: messaggi da contatti compromessi che sembrano affidabili. Attenzione a richieste di codici, votazioni, link strani o "guarda questo". Regola: non aprire link da messaggi inaspettati — entra dal sito ufficiale o chiama il mittente. Verifica con una chiamata se una richiesta è urgente o insolita, anche da un numero noto.
+ 📶 
+ Come avviene l'attacco 
+ Il truffatore contatta l'operatore fingendosi te, con dati raccolti online o via phishing, e chiede il trasferimento del numero su una nuova SIM. Da quel momento chiamate e SMS — compresi gli OTP della banca — arrivano a lui. Il tuo telefono perde il segnale all'improvviso: è il primo campanello d'allarme.
 
 --- Slide 9 ---
-Sicurezza 
- Chiamate fraudolente 
- Il vishing usa telefonate per creare urgenza e ottenere dati, password o autorizzazioni. 
- Tattica del vishing L'attaccante finge di essere banca, Polizia, Amazon o operatore. Crea urgenza ("la tua carta è bloccata"). Regola d'oro: riaggancia e richiama il numero ufficiale sul sito — mai il numero che ti hanno dato loro. 
+Truffe · SMS 
+ Smishing: l'esca via messaggio 
+ Finto corriere, finta banca, finto ente: un SMS ben scritto e un link che porta a una pagina-trappola identica all'originale. 
+ La regola che ti salva Mai entrare dal link. Se il messaggio parla di un pacco o del conto, apri tu l'app o il sito ufficiale e controlla lì. In dubbio, chiama il mittente a un numero che possiedi già. 
  
  
- 📁 
- Chiamate fraudolente 
- Il vishing (voice phishing) usa il telefono per ottenere dati personali, OTP o autorizzazioni bancarie. Banche e servizi seri non chiedono mai password complete, OTP o dati carta per telefono. Il numero chiamante può essere falsificato (spoofing): non fidarti del numero visualizzato.
+ 
+ L'SMS è l'esca, il link è l'amo
 
 --- Slide 10 ---
-Sicurezza 
- Malware e APK non sicuri 
- Il malware mobile ruba dati e intercetta SMS; gli APK da fonti non ufficiali sono il vettore principale. 
+Truffe · Voce 
+ Vishing: la truffa al telefono 
+ Una voce professionale, un'emergenza inventata e la fretta: così ti trasformano in complice del furto ai tuoi danni. 
+ Riaggancia e richiama Nessuna banca o forza dell'ordine chiede OTP, password o dati carta al telefono. Riaggancia e richiama tu il numero ufficiale che trovi sul sito o sul retro della carta — mai quello suggerito da chi ti ha chiamato. 
  
  
- 💡 
- Malware e APK non sicuri 
- Malware mobile può: rubare dati, mostrare pubblicità invasiva, intercettare SMS/OTP, usare accessibilità per controllare lo schermo. APK da siti casuali, Telegram o link possono contenere codice modificato nascosto nell'app "originale". App "premium gratis" e cloni di app famose sono segnali di rischio quasi certi. Scarica solo da: Play Store, sito ufficiale dello sviluppatore, F-Droid per app open source verificate.
+ 📞 
+ Il copione tipico 
+ Si presentano come banca, Polizia postale o assistenza clienti: «Rileviamo un pagamento sospetto, dobbiamo agire subito». Chiedono di dettare un OTP, i dati della carta o di fare un bonifico "di messa in sicurezza". Il numero sul display può essere falsificato ( spoofing ): sembrare quello vero della banca non prova nulla.
 
 --- Slide 11 ---
-Sicurezza 
- Aggiornamenti sicurezza 
- Le patch chiudono vulnerabilità note: un telefono non aggiornato è esposto ad attacchi già documentati. 
- Quando aggiornare Installa patch di sicurezza appena disponibili: le vulnerabilità note vengono sfruttate in pochi giorni dopo la pubblicazione. iOS: Impostazioni → Generali → Aggiornamento software. Android: Impostazioni → Info telefono → Aggiornamenti. 
+Software ostile 
+ Malware e app da fonti dubbie 
+ Sullo smartphone il malware arriva quasi sempre travestito da app: il vettore principale sono gli APK scaricati fuori dagli store. 
  
- 
- ✅ 
- Aggiornamenti sicurezza 
- Gli aggiornamenti di sicurezza correggono vulnerabilità che attaccanti potrebbero già conoscere. Un telefono non aggiornato da mesi o anni è una superficie di attacco nota e non protetta. Valuta il supporto aggiornamenti come criterio di acquisto: è più importante del prezzo.
+ 🦠 Cosa può fare Leggere SMS e intercettare gli OTP bancari. Controllare lo schermo abusando dei permessi di accessibilità. Rubare credenziali e inondarti di pubblicità. 
+ 🚩 Segnali di rischio App "premium gratis" e cloni di app famose. APK ricevuti via link, chat o canali Telegram. Richieste di permessi sproporzionate alla funzione. 
+ 🏪 Fonti affidabili Play Store e App Store, con le loro verifiche. Il sito ufficiale dello sviluppatore. F-Droid per app open source verificate.
 
 --- Slide 12 ---
-Sicurezza 
- Reti malevole 
- L'evil twin imita reti WiFi note per intercettare traffico; la connessione automatica a reti aperte è il punto debole. 
- Come prevenire Disattiva connessione automatica a reti WiFi aperte: Impostazioni → WiFi → Connetti automaticamente → Off. Per operazioni sensibili usa hotspot personale invece di WiFi pubblico. VPN su reti sconosciute aggiunge protezione. 
+Manutenzione 
+ Aggiornamenti di sicurezza 
+ Ogni patch chiude una porta che gli attaccanti già conoscono: rimandare l'installazione significa restare esposti a colpi documentati. 
+ Dove si controlla iOS : Impostazioni → Generali → Aggiornamento software. Android : Impostazioni → Sistema (o Info telefono) → Aggiornamenti. Attiva gli aggiornamenti automatici notturni e non ci pensi più. 
  
  
- ⚠️ 
- Reti malevole 
- L'evil twin è un access point falso che imita reti note ("Bar WiFi", "Aeroporto Free") per intercettare traffico. Chi si connette può esporre dati non cifrati, sessioni attive e credenziali di login. Il telefono si connette automaticamente a reti con lo stesso nome già usato: questo è il vettore.
+ 🔄 
+ Perché la fretta conta 
+ Quando una vulnerabilità diventa pubblica, gli attacchi che la sfruttano compaiono nel giro di giorni . Un telefono fermo da mesi o anni è un bersaglio con le debolezze scritte nero su bianco. In fase d'acquisto, gli anni di aggiornamenti garantiti valgono più di qualche euro di sconto.
 
 --- Slide 13 ---
-Sicurezza 
- Checklist sicurezza 
- Cinque controlli che fanno la differenza reale sulla sicurezza quotidiana dello smartphone. 
+Reti insidiose 
+ WiFi pubbliche e reti false 
+ Una rete gratuita può essere una trappola: l'evil twin è la copia malevola di una rete legittima, messa lì apposta per farti connettere. 
+ Difese pratiche Disattiva la connessione automatica alle reti aperte (Impostazioni → WiFi). Per banca e acquisti usa la rete mobile o il tuo hotspot personale. Su reti sconosciute, una VPN aggiunge un livello di protezione. 
  
  
- 🧰 
- Checklist sicurezza 
- Blocco schermo con PIN forte (min. 6 cifre non ovvie) e blocco automatico entro 60 s. 2FA attivo su email, banca e account principali — app autenticatore, non SMS. Trova dispositivo attivo e account associato ricordato. Aggiornamenti di sistema e app installati entro una settimana dal rilascio. App solo da store ufficiali; permessi sensibili revisionati ogni 3 mesi.
+ 🎭 
+ Il gemello cattivo 
+ Un access point falso imita il nome di una rete credibile: «Bar_WiFi_Free», «Aeroporto_Gratis». Il telefono si riconnette da solo alle reti già usate in passato: è proprio questo l'aggancio. Chi controlla la rete può osservare il traffico non cifrato, le sessioni aperte e i login.
 
 --- Slide 14 ---
+Riepilogo operativo 
+ La tua checklist 
+ Tutto il capitolo in due liste: cosa sistemare una volta sola e cosa tenere d'occhio nel tempo. 
+ 
+ ⚙️ Una volta sola PIN di almeno 6 cifre + biometria, blocco automatico entro 60 secondi. 2FA con app autenticatore su email e banca. Trova dispositivo / Dov'è attivo e testato. PIN sulla SIM e IMEI annotato (*#06#). 
+ 🔁 Regolarmente Aggiornamenti installati entro una settimana dal rilascio. Permessi delle app rivisti ogni 3 mesi. Backup verificato: apri e controlla che ci sia tutto. Reti WiFi salvate ripulite da quelle pubbliche. 
+ 
+ Codice forte 2FA con app Trova dispositivo Zero fretta con link e voci
+
+--- Slide 15 ---
 Verifica veloce 
  È tutto chiaro? 
  Prova a rispondere a mente prima di passare al capitolo successivo. 
  
- 1. Qual è l'idea più importante di questo capitolo? 
- 2. Quale impostazione o comportamento puoi controllare subito sul tuo telefono? 
- 3. Quale rischio pratico riduci applicando queste regole? 
- 4. Come spiegheresti questo argomento a una persona poco esperta?
+ 1. L'impronta digitale è comodissima: perché allora serve comunque un PIN robusto? Cosa ti chiede il telefono dopo un riavvio? 
+ 2. Ricevi un SMS: «Pacco in giacenza, paga 1,99 € su tracking-pacco.esempio.net». Come si chiama questa truffa e qual è la mossa corretta? 
+ 3. Ti accorgi ora che il telefono è stato rubato: quali sono i primi tre passi da fare, e in che ordine? 
+ 4. Per la 2FA della banca, perché un'app autenticatore è più sicura del codice via SMS? Cosa c'entra il SIM swap?
 
---- Slide 15 ---
+--- Slide 16 ---
 Fine S06 
- Sicurezza mobile
- in pratica. 
- Ora hai una mappa operativa del capitolo: concetti chiave, rischi e controlli da applicare sullo smartphone. 
+ Il telefono è una chiave:
+ custodiscila. 
+ Codice forte con biometria, 2FA con app autenticatore, Trova dispositivo già attivo e zero fretta davanti a link e telefonate urgenti: quattro abitudini che rendono ogni furto — fisico o digitale — molto più difficile. 
  
  Prossimo → SMA07 · Gestione dei file 
  ↩ Indice del corso

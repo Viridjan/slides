@@ -110,6 +110,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 .edit-hint.show{display:block;}
 .progress{position:fixed;bottom:0;left:0;height:4px;background:var(--red);transition:width .4s var(--ease);z-index:9999;}
 .title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -158,9 +160,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Il gioco parla ai <em class="hot">sensi</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Ogni azione del giocatore merita una risposta percepibile. Lo schermo mostra, l'audio racconta, la vibrazione <b>fa sentire</b>: il feedback tattile chiude il ciclo azione → risposta e rende l'esperienza fisica.</p>
         <div class="note sky reveal d2" style="margin-top:20px;">
-          <div class="lbl">✋ Feedback aptico</div>
+          <div class="lbl">Feedback aptico</div>
           <p contenteditable="false">L'<b>aptica</b> è la tecnologia che ricrea il senso del tatto tramite vibrazioni e forze: il gioco ti tocca, non solo ti si mostra.</p>
         </div>
+        <div class="analogy reveal d3"><span class="big">Regola:</span> il feedback migliore passa dal corpo, non dagli occhi.</div>
       </div>
       <div class="col stack">
         <div class="card sky reveal d1"><span class="ic">👁️</span><h3 contenteditable="false">Vista</h3><p contenteditable="false">Lo schermo: animazioni, effetti, HUD. Il canale principale, ma non l'unico.</p></div>
@@ -179,7 +182,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Dal <em class="hot">rumble</em> all'aptica</h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">La vibrazione nei controller nasce semplice: un motore che trema quando succede qualcosa. Ci vorranno vent'anni per passare dal "brr" generico alla sensazione precisa.</p>
         <div class="note reveal d2" style="margin-top:20px;">
-          <div class="lbl">📳 Rumble Pak / DualShock</div>
+          <div class="lbl">Rumble Pak / DualShock</div>
           <p contenteditable="false">Il <b>Rumble Pak</b> del Nintendo 64 (1997) e il <b>DualShock</b> di Sony portano la vibrazione nelle case di tutti: il tatto entra nel linguaggio dei videogiochi.</p>
         </div>
       </div>
@@ -233,13 +236,31 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Arduino e <em class="hot">sensori</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;"><b>Arduino</b> è una scheda programmabile economica: legge sensori e attiva output. Perfetta per prototipare controller alternativi o installazioni interattive con feedback fisico reale.</p>
         <div class="note reveal d2" style="margin-top:20px;">
-          <div class="lbl">🔧 Perché Arduino</div>
+          <div class="lbl">Perché Arduino</div>
           <p contenteditable="false">Basso costo, community enorme, migliaia di tutorial: il modo ideale per imparare come funzionano input e output fisici.</p>
         </div>
       </div>
       <div class="col stack">
-        <div class="card sky reveal d1"><span class="ic">📥</span><h3 contenteditable="false">Input</h3><p contenteditable="false">Legge il mondo: pulsanti, sensori di luce, movimento, distanza. Il giocatore agisce, la scheda misura.</p></div>
-        <div class="card gold reveal d2"><span class="ic">📤</span><h3 contenteditable="false">Output</h3><p contenteditable="false">Agisce sul mondo: LED, motori, suoni, vibrazioni. La scheda risponde con feedback percepibile.</p></div>
+        <div class="illu reveal d1">
+          <svg viewBox="0 0 280 170" style="max-width:280px;margin:0 auto;" role="img" aria-label="Scheda Arduino con input e output">
+            <rect x="80" y="45" width="120" height="80" rx="8" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+            <rect x="96" y="60" width="34" height="24" rx="3" fill="#1c1714"/>
+            <circle cx="176" cy="72" r="9" fill="#e6c14a"/>
+            <rect x="96" y="96" width="88" height="6" rx="3" fill="#3f7e8c"/>
+            <rect x="96" y="108" width="64" height="6" rx="3" fill="#3f7e8c"/>
+            <path d="M20 85 L72 85" stroke="#3f7e8c" stroke-width="5" stroke-linecap="round"/>
+            <path d="M62 73 L76 85 L62 97" fill="none" stroke="#3f7e8c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="30" cy="55" r="12" fill="#f4ece0" stroke="#1c1714" stroke-width="3"/>
+            <path d="M208 85 L256 85" stroke="#e6533b" stroke-width="5" stroke-linecap="round"/>
+            <path d="M246 73 L260 85 L246 97" fill="none" stroke="#e6533b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="252" cy="55" r="10" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+            <path d="M252 38 L252 30 M264 42 L270 36 M240 42 L234 36" stroke="#e6c14a" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <div class="illu-cap">sensori in → Arduino → attuatori out</div>
+        </div>
+        <div class="card reveal d2" style="padding:18px 24px;">
+          <p contenteditable="false" style="font-size:22px;"><b>Input</b>: pulsanti, sensori di luce, movimento, distanza. <b>Output</b>: LED, motori, suoni, vibrazioni. Il giocatore agisce, la scheda misura e risponde.</p>
+        </div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -254,7 +275,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="card gold"><span class="ic">⚙️</span><h3 contenteditable="false">Attuatori — rispondere</h3><p contenteditable="false"><b>LED</b> (luce e colore), <b>motori</b> e <b>servo</b> (movimento), <b>buzzer</b> e altoparlanti (suono), <b>motori di vibrazione</b> (aptica).</p></div>
     </div>
     <div class="note teal reveal d2" style="margin-top:22px;">
-      <div class="lbl">🔁 Il ciclo del gioco fisico</div>
+      <div class="lbl">Il ciclo del gioco fisico</div>
       <p contenteditable="false">Un gioco fisico interattivo è sempre: <b>sensori</b> (cosa fa il giocatore) → <b>logica</b> (il programma decide) → <b>attuatori</b> (la risposta che il giocatore percepisce).</p>
     </div>
     <div class="page-num"></div>
@@ -271,7 +292,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="col stack">
         <div class="card teal reveal d1"><span class="ic">🎓</span><h3 contenteditable="false">Richard Bartle, 1996</h3><p contenteditable="false">Studiando i <b>MUD</b> — i mondi multiplayer testuali antenati degli MMO — Bartle classifica i giocatori in quattro tipi: nasce la sua celebre tassonomia.</p></div>
         <div class="note reveal d2">
-          <div class="lbl">🎯 Design per chi?</div>
+          <div class="lbl">Design per chi?</div>
           <p contenteditable="false">Un gioco che ignora i suoi giocatori fallisce: progettare significa prima capire <b>per chi</b> stai progettando.</p>
         </div>
       </div>
@@ -301,7 +322,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Progettare per i <em class="hot">4 tipi</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Un buon gioco offre qualcosa a ciascun tipo: sistemi diversi che parlano a motivazioni diverse, dentro la stessa esperienza.</p>
         <div class="note reveal d2" style="margin-top:20px;">
-          <div class="lbl">🎭 Nessuno è puro</div>
+          <div class="lbl">Nessuno è puro</div>
           <p contenteditable="false">La maggior parte dei giocatori è un <b>mix</b> dei quattro tipi, con uno dominante: progettare per tutti significa non escludere nessuno.</p>
         </div>
       </div>
@@ -335,7 +356,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- SLIDE 13 · CLOSING -->
   <section class="slide closing">
     <div class="center" style="align-items:center;text-align:center;">
-      <div class="eyebrow reveal gold">Fine GD_04 🎮</div>
+      <div class="eyebrow reveal gold">Fine GD_04</div>
       <h2 class="h-mega reveal" style="margin-top:10px;">I sensi.<br><em class="gold">Il giocatore.</em></h2>
       <p class="lead reveal d1" contenteditable="false" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">
         Il feedback sensoriale rende reale l'azione; capire i giocatori la rende significativa. Un buon design <span class="gold">tocca i sensi giusti per le persone giuste</span>.

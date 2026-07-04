@@ -10,151 +10,154 @@ S02 — Connessioni
 --- Slide 2 ---
 In questo capitolo 
  Cosa vedremo 
- 01 Sempre connessi 02 WiFi 03 WiFi pubblico e VPN 04 Bluetooth 05 NFC 06 Reti cellulari 07 SIM e eSIM 08 Hotspot 09 Dati e roaming 10 Modalità aereo
+ 01 Sempre connessi 02 WiFi 03 WiFi pubblico e VPN 04 Bluetooth 05 NFC 06 Reti cellulari: da 2G a 5G 07 SIM e eSIM 08 Hotspot 09 Giga e roaming 10 Modalità aereo 11 Localizzazione assistita 12 Problemi comuni
 
 --- Slide 3 ---
-Reti mobili 
+Le radio del telefono 
  Sempre connessi 
- Lo smartphone usa più tecnologie di rete contemporaneamente: WiFi, rete mobile, Bluetooth, NFC. 
- Risparmia batteria Ogni radio attiva consuma energia. Disattiva WiFi, Bluetooth e dati mobili quando non servono. In modalità aereo puoi riattivare solo WiFi per navigare senza consumi da celle. 
+ Dentro lo smartphone convivono più radio, ognuna con un compito preciso: il sistema le accende e le combina senza che tu te ne accorga. 
  
+ 📶 WiFi Internet veloce a corto raggio: si aggancia a un router in casa, a scuola o al bar, senza toccare il piano dati. 
+ 📡 Rete mobile Internet ovunque, tramite le antenne dell'operatore: funziona anche in movimento, ma consuma i tuoi giga. 
+ 🎧 Bluetooth Collega accessori vicini — cuffie, smartwatch, auto — senza passare da Internet. 
+ 💳 NFC Scambia dati a contatto quasi fisico: pagamenti, biglietti e badge avvicinando il telefono. 
  
- 📱 
- Sempre connessi 
- Può connettersi a Internet via WiFi o rete mobile (3G/4G/5G). Può comunicare con accessori vicini tramite Bluetooth o NFC senza Internet. Più connessioni attive = più consumi: il sistema gestisce automaticamente le priorità.
+ Regola: ogni radio accesa consuma batteria — spegni quelle che non usi.
 
 --- Slide 4 ---
-Reti mobili 
+Connessioni 
  WiFi 
- Il WiFi collega il telefono a un router locale per Internet veloce e a basso costo. 
- Connessione sicura Usa WPA2 o WPA3 con password lunga sul tuo router. Cambia le credenziali di default. Tieni il firmware del router aggiornato: le vulnerabilità del router mettono a rischio tutti i dispositivi connessi. 
+ Il telefono si aggancia a un router nel raggio di qualche decina di metri: è la connessione più conveniente, perché non intacca il piano dati. 
+ Proteggi il router Usa WPA2 o WPA3 con una password lunga, cambia le credenziali di fabbrica e aggiorna il firmware: un router vulnerabile mette a rischio tutti i dispositivi collegati. 
  
  
- 🔋 
- WiFi 
- Ideale in casa, scuola, ufficio o luoghi con rete affidabile. La qualità dipende da distanza, muri, interferenze e router. Standard recenti (WiFi 6, WiFi 7) offrono maggiore velocità e stabilità in ambienti affollati.
+ 
+ Il segnale cala con distanza, muri e interferenze
 
 --- Slide 5 ---
-Reti mobili 
+Attenzione 
  WiFi pubblico e VPN 
- Le reti pubbliche possono essere imitate da attaccanti; la VPN cifra il traffico come protezione. 
+ La rete gratuita del bar o dell'aeroporto è comoda, ma non sai chi la gestisce né chi altro ci è collegato. 
  
+ ☕ Il rischio: la rete gemella Un malintenzionato può creare un access point con lo stesso nome di quello legittimo e osservare il traffico di chi si collega. Su reti sconosciute evita banca, email e acquisti. 
+ 🔒 La difesa: la VPN Crea un tunnel cifrato verso un server intermedio: il gestore della rete non vede né i contenuti né i siti che visiti. Funziona solo se il fornitore della VPN è a sua volta affidabile. 
  
- 🔐 
- WiFi pubblico e VPN 
- Un access point malevolo può imitare una rete legittima e intercettare il traffico. Evita operazioni sensibili (banca, email, acquisti) su reti sconosciute. Una VPN crea un tunnel cifrato verso un server intermedio: protegge su reti pubbliche se il provider è affidabile. HTTPS già cifra il contenuto; la VPN nasconde anche la destinazione al gestore della rete.
+ Analogia: sul WiFi pubblico i tuoi dati viaggiano come una cartolina — la VPN li chiude in una busta sigillata.
 
 --- Slide 6 ---
-Reti mobili 
+Corto raggio 
  Bluetooth 
- Collega dispositivi vicini senza Internet: cuffie, smartwatch, tastiere, auto. 
- Quando disattivarlo In luoghi affollati (aeroporti, metro) il Bluetooth aperto può esporre il dispositivo ad attacchi (bluejacking, bluesnarfing). Rimuovi associazioni non usate da Impostazioni → Bluetooth. 
+ Nato per eliminare i cavi: collega il telefono agli accessori entro una decina di metri, senza bisogno di Internet. 
+ Igiene Bluetooth In luoghi affollati (aeroporti, metro) un Bluetooth sempre aperto può esporre ad attacchi come bluejacking e bluesnarfing. Rimuovi le associazioni che non usi più da Impostazioni → Bluetooth. 
  
  
- 📡 
- Bluetooth 
- Funziona a breve distanza (tipicamente 10 m) e consuma poco. Non richiede Internet: utile per condivisione file locale, periferiche e pagamenti. Bluetooth Low Energy (BLE) è usato per sensori fitness, tag e dispositivi IoT.
+ 🎧 
+ Cosa ci colleghi ogni giorno 
+ Cuffie, casse, smartwatch, tastiere e il vivavoce dell'auto. Condivisione di file tra dispositivi vicini, anche senza rete. La variante Low Energy (BLE) alimenta sensori fitness, tag di localizzazione e dispositivi smart consumando pochissimo.
 
 --- Slide 7 ---
-Reti mobili 
+Contactless 
  NFC 
- NFC funziona a distanza molto breve e abilita pagamenti, biglietti e pairing rapido. 
- Come funziona Distanza massima: circa 4 cm. Per i pagamenti il telefono deve essere sbloccato. Le carte bancarie con NFC possono essere lette a distanza: considera un portafoglio con schermatura RF. 
+ Near Field Communication: funziona solo entro circa 4 centimetri — ed è proprio questa vicinanza obbligata a renderla difficile da intercettare. 
+ Pagare col telefono Per autorizzare un pagamento il telefono deve essere sbloccato: è una protezione in più rispetto alla carta. Le carte contactless, invece, possono essere lette da vicino: esistono portafogli con schermatura RF. 
  
  
- ☁️ 
- NFC 
- Usato per pagamenti contactless (Google Pay, Apple Pay), biglietti dei trasporti e badge aziendali. Permette il pairing rapido con cuffie, altoparlanti e accessori Bluetooth. La vicinanza fisica è una forma di protezione, ma il telefono deve essere comunque bloccato per sicurezza.
+ 
+ Pagamento contactless: serve il contatto ravvicinato
 
 --- Slide 8 ---
-Reti mobili 
- Reti cellulari: 3G, 4G, 5G 
- Ogni generazione ha portato capacità nuove: da Internet mobile a streaming e connettività ultra-bassa latenza. 
+Generazioni 
+ Reti cellulari: da 2G a 5G 
+ Il telefono aggancia l'antenna dell'operatore più vicina e passa da una cella all'altra mentre ti muovi. Ogni generazione — la «G» — ha aggiunto capacità nuove. 
  
- 
- 🧭 
- Reti cellulari: generazioni 
- Il telefono si connette alle antenne degli operatori e passa automaticamente tra celle mentre ti muovi. 3G ha reso Internet mobile realmente usabile; 4G ha portato streaming, mappe e social fluidi. 5G aumenta velocità e riduce latenza, ma richiede copertura e dispositivi compatibili. Copertura e velocità cambiano per zona, operatore e congestione della rete.
+ 📟 2G — anni '90 
+ Chiamate digitali e SMS; Internet quasi assente. In alcune zone resta la rete di riserva quando le altre non prendono. 
+ 🌐 3G — anni 2000 
+ Il primo vero Internet mobile: email e navigazione diventano usabili fuori casa. In Italia è ormai in via di spegnimento. 
+ 🎬 4G / LTE — anni 2010 
+ Streaming video, mappe e social fluidi: è oggi la rete più diffusa sul territorio, la copertura di riferimento. 
+ 🚀 5G — oggi 
+ Molta più velocità e latenza bassissima, ma servono antenne dedicate e un telefono compatibile. Copertura in crescita, non ovunque.
 
 --- Slide 9 ---
-Reti mobili 
+Identità mobile 
  SIM e eSIM 
- La SIM identifica la linea mobile; la eSIM è integrata nel telefono e si configura digitalmente. 
+ La SIM è la carta d'identità della tua linea: dice all'operatore chi sei, che numero hai e quale piano dati puoi usare. 
  
+ 🪪 SIM fisica Un piccolo chip da inserire nel carrellino del telefono. Per cambiare telefono la sposti fisicamente; per cambiare operatore ne ricevi una nuova. 
+ 📲 eSIM Integrata nel telefono, si attiva scansionando un QR code. Comoda per cambiare operatore o aggiungere un piano dati in viaggio: custodisci con cura il codice di attivazione. 
  
- 🛡️ 
- SIM e eSIM 
- La SIM contiene l'identità della linea: permette all'operatore di associare telefono, numero e piano dati. Una SIM rubata o duplicata (SIM swap) può essere un rischio serio per autenticazione e banca. La eSIM si configura con un profilo digitale (QR code): utile per cambiare operatore o aggiungere un piano viaggio. La eSIM richiede attenzione nella gestione dei codici QR e delle credenziali di attivazione.
+ Occhio al SIM swap Chi riesce a farsi duplicare la tua SIM riceve i tuoi SMS, compresi i codici di verifica della banca. Se il telefono perde campo all'improvviso e a lungo senza motivo, contatta subito l'operatore.
 
 --- Slide 10 ---
-Reti mobili 
+Condividere la rete 
  Hotspot 
- Lo smartphone può condividere la connessione mobile con laptop e tablet come un router portatile. 
- Usalo in sicurezza Imposta sempre password WPA2 o WPA3. Limita le connessioni ammesse. Ricorda che il traffico degli altri dispositivi passa dalla tua SIM e consuma il piano dati: spegni quando non serve. 
+ Il telefono può fare da router portatile: condivide la connessione mobile via WiFi con laptop, tablet o un altro telefono. 
+ Regole d'oro Imposta sempre una password WPA2 o WPA3, controlla chi si collega e spegnilo quando non serve: tutto il traffico degli ospiti esce dalla tua SIM. 
  
  
- ⚙️ 
- Hotspot 
- Utile per laptop e tablet fuori casa, in viaggio o quando il WiFi non è disponibile. Consuma batteria e dati: tenerlo sempre attivo scarica rapidamente il telefono. Alcuni piani dati limitano o addebitano separatamente l'uso come hotspot.
+ 💻 
+ Cosa aspettarti 
+ Perfetto in treno o in viaggio, quando il laptop non ha altra rete. Batteria e giga scendono in fretta: un aggiornamento del laptop può bruciare il piano dati in pochi minuti. Alcuni contratti limitano o tariffano a parte l'uso come hotspot: verifica il tuo piano.
 
 --- Slide 11 ---
-Reti mobili 
- Dati, roaming e consumi 
- Controllare il consumo dati evita sorprese in bolletta, soprattutto in roaming internazionale. 
+Consumi 
+ Giga e roaming 
+ Non tutte le attività pesano allo stesso modo sul piano dati — e all'estero le regole del gioco cambiano. 
  
+ 🎬 Consumano tanto Video in streaming, videochiamate, backup automatico delle foto sul cloud, aggiornamenti di app e sistema. 
+ 💬 Consumano poco Messaggi, email e pagine web. In Impostazioni → Utilizzo dati vedi quali app pesano di più e puoi impostare avvisi e limiti. 
  
- 📁 
- Dati, roaming e consumi 
- Video, backup cloud e aggiornamenti consumano molti dati; messaggistica e pagine web consumano poco. Impostazioni → Utilizzo dati per vedere quali app pesano di più e impostare limiti. Roaming = usare la rete di un operatore estero; in UE è spesso regolato, ma non sempre illimitato. Fuori UE: disattiva dati mobili o verifica i costi prima di attivare il roaming per evitare bollette salate.
+ In viaggio ✈ Roaming = appoggiarsi alla rete di un operatore estero. In UE è in genere incluso nel piano (ma non sempre in modo illimitato); fuori dall'UE verifica i costi prima di partire, oppure disattiva i dati mobili.
 
 --- Slide 12 ---
-Reti mobili 
+Tutto spento 
  Modalità aereo 
- Disattiva tutte le radio in un colpo; puoi poi riattivare WiFi o Bluetooth separatamente. 
- Usi pratici Utile non solo in aereo: attivala durante riunioni per silenzio totale, in hotel per evitare roaming accidentale, o quando vuoi risparmiare batteria tenendo solo WiFi attivo. 
+ Un interruttore unico che zittisce tutte le radio in un colpo solo: celle, WiFi e Bluetooth tacciono, ma il telefono resta acceso. 
+ Non solo in volo Usala di notte o in riunione per il silenzio totale, in hotel all'estero contro il roaming accidentale, o per risparmiare batteria riattivando solo il WiFi. 
  
  
- 🔎 
- Modalità aereo 
- Disattiva celle, WiFi e Bluetooth; le app offline restano usabili. Dopo l'attivazione puoi riabilitare singolarmente WiFi e Bluetooth se consentito. Non spegne il telefono: utente e sistema continuano a funzionare normalmente offline.
+ ✈️ 
+ Cosa succede davvero 
+ Le app offline — foto, note, musica scaricata — continuano a funzionare normalmente. Dopo averla attivata puoi riaccendere WiFi e Bluetooth singolarmente, dove consentito. Accenderla e spegnerla forza il telefono a riagganciare la rete: è il primo rimedio per i problemi di segnale.
 
 --- Slide 13 ---
-Reti mobili 
+Dove sei 
  Localizzazione assistita 
- Il telefono usa WiFi e celle per accelerare il GPS; questo migliora precisione ma aumenta i dati tracciabili. 
- Controlla la privacy Impostazioni → Privacy → Servizi di localizzazione. Imposta le app su "Solo durante l'uso" invece di "Sempre" per ridurre il tracciamento in background. Controlla periodicamente quali app hanno accesso. 
+ Il GPS da solo può impiegare minuti a trovarti: il telefono si aiuta con le reti WiFi e le celle vicine (A-GPS) per orientarsi in pochi secondi. 
+ Controlla la privacy In Impostazioni → Privacy → Localizzazione imposta le app su «Solo durante l'uso» invece di «Sempre», e rivedi periodicamente chi ha accesso alla tua posizione. 
  
  
- ✅ 
- Localizzazione assistita 
- Senza assistenza, il primo fix GPS può richiedere minuti all'aperto. Con WiFi positioning e celle (A-GPS), il telefono si orienta in pochi secondi. La precisione aumenta, ma aumentano anche i dati potenzialmente tracciabili dall'operatore e da Google/Apple.
+ 📍 
+ Il compromesso 
+ Più segnali combinati = posizione più rapida e precisa, anche al chiuso. Le stesse informazioni raccontano dove sei all'operatore e a Google o Apple. Le mappe scaricate offline riducono sia il consumo di giga sia i dati condivisi.
 
 --- Slide 14 ---
-Reti mobili 
- Problemi comuni 
- Quasi tutti i problemi di connessione si risolvono seguendo un ordine logico di diagnosi. 
- Checklist troubleshooting 1) Modalità aereo on/off. 2) Riavvia il telefono. 3) Verifica password WiFi. 4) Su Android: reimposta APN. 5) Prova un'altra rete. 6) Se il problema persiste: contatta l'operatore per verificare la SIM. 
+Pronto soccorso 
+ Quando Internet non va 
+ Prima di chiamare l'assistenza, procedi con ordine: la maggior parte dei problemi si risolve già ai primi due passi. 
  
+ 🔄 1 · Riavvia le radio Modalità aereo on/off, poi riavvio completo del telefono: risolve gran parte dei blocchi temporanei di rete. 
+ 🔍 2 · Controlla le basi Dati mobili attivi? Password WiFi corretta? C'è segnale? Su Android puoi anche reimpostare l'APN dell'operatore. 
+ 📞 3 · Isola il colpevole Prova un'altra rete o un altro dispositivo: capisci se il problema è del telefono, della SIM, del router o dell'operatore. 
  
- 🧰 
- Problemi comuni 
- Internet non funziona: controlla modalità aereo, segnale, dati mobili attivi e credenziali WiFi. Riavviare il telefono risolve la maggior parte dei problemi temporanei di rete. Distingui tra problema del telefono, della SIM, dell'operatore o del router prima di chiamare l'assistenza.
+ Se nulla funziona Contatta l'operatore e fai verificare SIM e linea: una SIM vecchia o danneggiata si sostituisce gratis o quasi in pochi minuti.
 
 --- Slide 15 ---
 Verifica veloce 
  È tutto chiaro? 
  Prova a rispondere a mente prima di passare al capitolo successivo. 
  
- 1. Qual è l'idea più importante di questo capitolo? 
- 2. Quale impostazione o comportamento puoi controllare subito sul tuo telefono? 
- 3. Quale rischio pratico riduci applicando queste regole? 
- 4. Come spiegheresti questo argomento a una persona poco esperta?
+ 1. Esci di casa mentre guardi un video: quale connessione prende il posto del WiFi, e perché conviene accorgersene? 
+ 2. Al bar trovi una rete aperta con il nome del locale: perché non è il posto giusto per entrare nella tua banca, e quale strumento può proteggerti? 
+ 3. Bluetooth e NFC funzionano entrambi senza Internet: che differenza c'è tra i due in portata e in uso tipico? 
+ 4. Parti per un viaggio fuori dall'Unione Europea: quali controlli fai sul roaming prima di atterrare per evitare bollette salate?
 
 --- Slide 16 ---
 Fine S02 
- Connessioni mobili
- in pratica. 
- Ora hai una mappa operativa del capitolo: concetti chiave, rischi e controlli da applicare sullo smartphone. 
+ Connesso ovunque,
+ con giudizio. 
+ Ora sai quale radio lavora in ogni momento: WiFi sulle reti di cui ti fidi, dati mobili in movimento, Bluetooth e NFC a corto raggio — e roaming solo dopo aver controllato i costi. Nel prossimo capitolo entriamo nei due mondi che governano tutto questo: Android e iOS. 
  
  Prossimo → SMA03 · Android e iOS 
  ↩ Indice del corso

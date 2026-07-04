@@ -17,6 +17,8 @@
 .center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
 .chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .card{padding:20px 24px}.tight-slide .card h3{font-size:30px}.tight-slide .card p,.tight-slide .card li{font-size:21px;line-height:1.28}
 .title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -27,7 +29,7 @@
     <div class="title-left">
       <div class="eyebrow reveal" style="margin-top:40px;">S11 — Scelta</div>
       <h1 class="h-mega reveal">Manutenzione e scelta dello smartphone</h1>
-      <p class="lead reveal" style="margin-top:30px;">Aggiornamenti, batteria, riparazione, ricondizionato, criteri di scelta e impatto ambientale.</p>
+      <p class="lead reveal" style="margin-top:30px;">Come scegliere bene, far durare a lungo e salutare nel modo giusto il tuo telefono.</p>
       <div class="chips reveal" style="margin-top:46px;"><span class="chip">SMA11</span><span class="chip alt">Smartphones</span></div>
     </div>
     <div class="title-right"><div class="phone-art reveal"></div></div>
@@ -37,260 +39,301 @@
     <div class="center">
       <div class="tape teal reveal">In questo capitolo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa vedremo</h2>
-      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Aggiornamenti</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Batteria</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Riparazione</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Acquisto</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Ricondizionato</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Ambiente</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Acquistare e mantenere</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Aggiornamenti</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Memoria minima</span></div><div class="agenda-item"><span class="n">10</span><span class="t">RAM e prestazioni</span></div></div>
+      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Aggiornamenti e supporto</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Memoria e RAM</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Batteria e ricarica</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Protezione fisica</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Riparazione e diritto UE</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Riparare o sostituire</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Fotocamera e display</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Nuovo o ricondizionato</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Checklist e vendita</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Ambiente e RAEE</span></div></div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Scelta</div>
-        <h2 class="h-big reveal">Acquistare e mantenere</h2>
-        <p class="lead reveal d1">Scegliere uno smartphone non significa guardare solo prezzo o fotocamera.</p>
+        <h2 class="h-big reveal">Più del prezzo</h2>
+        <p class="lead reveal d1">Quando si compra un telefono si guarda quasi sempre il cartellino e la fotocamera. Ma le vere differenze si vedono dopo due o tre anni di uso.</p>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📱</span>
-        <h3>Acquistare e mantenere</h3>
-        <ul><li>Scegliere uno smartphone non significa guardare solo prezzo o fotocamera.</li><li>Conta anche supporto aggiornamenti, batteria, memoria, riparabilità e durata nel tempo.</li><li>Un telefono mantenuto bene dura di più.</li></ul>
+        <span class="ic">🧭</span>
+        <h3>Una decisione che dura anni</h3>
+        <ul><li>Uno smartphone accompagna in media 3–4 anni della tua vita: vale la pena scegliere con calma.</li><li>Supporto software, batteria sostituibile e riparabilità pesano più di un piccolo sconto.</li><li>E una volta comprato, la manutenzione decide quanto durerà davvero.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Scelta</div>
-        <h2 class="h-big reveal">Aggiornamenti</h2>
-        <p class="lead reveal d1">Gli aggiornamenti di sicurezza sono essenziali.</p>
+        <h2 class="h-big reveal">Aggiornamenti e supporto</h2>
+        <p class="lead reveal d1">Un telefono senza aggiornamenti di sicurezza diventa vulnerabile, anche se funziona ancora perfettamente.</p>
+        <div class="analogy reveal d3" style="font-size:25px;"><span class="big">Regola:</span> senza aggiornamenti costa meno oggi, e di più domani.</div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🔋</span>
-        <h3>Aggiornamenti</h3>
-        <ul><li>Gli aggiornamenti di sicurezza sono essenziali.</li><li>Verifica quanti anni di supporto promette il produttore.</li><li>Un modello economico senza aggiornamenti può costare meno oggi e di più domani.</li></ul>
+        <span class="ic">🔄</span>
+        <h3>Quanti anni di supporto?</h3>
+        <ul><li>I produttori dichiarano la durata del supporto: si va da 2–3 anni fino a 7 per i marchi migliori.</li><li>Cerca questa informazione sulla scheda del prodotto prima di comprare.</li><li>Un modello economico che perde il supporto dopo un anno è un risparmio solo apparente.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Scelta</div>
-        <h2 class="h-big reveal">Memoria minima</h2>
-        <p class="lead reveal d1">La memoria interna deve bastare per app, foto, video e aggiornamenti.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">📡</span>
-        <h3>Memoria minima</h3>
-        <ul><li>La memoria interna deve bastare per app, foto, video e aggiornamenti.</li><li>Troppo poca memoria rende il telefono presto scomodo.</li><li>Meglio scegliere margine invece che arrivare sempre al limite.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Scelta</div>
-        <h2 class="h-big reveal">RAM e prestazioni</h2>
-        <p class="lead reveal d1">RAM e processore incidono su fluidità e durata utile.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🔐</span>
-        <h3>RAM e prestazioni</h3>
-        <ul><li>RAM e processore incidono su fluidità e durata utile.</li><li>Per uso base serve meno potenza; per giochi e video editing serve di più.</li><li>Benchmark non raccontano tutto: conta l’esperienza reale.</li></ul>
+    <div class="center">
+      <div class="tape reveal">Scelta</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Memoria e RAM</h2>
+      <p class="lead reveal d1" style="margin-top:18px;">Due numeri della scheda tecnica che decidono quanto a lungo il telefono resterà comodo da usare.</p>
+      <div class="grid2 reveal d2" style="margin-top:34px;">
+        <div class="card">
+          <span class="ic">💾</span>
+          <h3>Memoria interna: con margine</h3>
+          <ul><li>Deve contenere app, foto, video e futuri aggiornamenti di sistema.</li><li>Un telefono sempre pieno diventa lento e ti costringe a cancellare di continuo.</li><li>Oggi 128 GB sono un minimo ragionevole; di più se fai molte foto e video.</li></ul>
+        </div>
+        <div class="card">
+          <span class="ic">⚡</span>
+          <h3>RAM e processore: la fluidità</h3>
+          <ul><li>Determinano quante app girano insieme senza scatti e ricaricamenti.</li><li>Per messaggi, web e foto basta la fascia media; giochi e video editing chiedono di più.</li><li>Non fidarti solo dei numeri: prova il telefono o guarda recensioni d’uso reale.</li></ul>
+        </div>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Scelta</div>
         <h2 class="h-big reveal">Batteria nel tempo</h2>
-        <p class="lead reveal d1">La batteria degrada con cicli, calore e anni.</p>
+        <p class="lead reveal d1">La batteria è un componente di consumo: si degrada con i cicli di ricarica, il calore e semplicemente con gli anni.</p>
       </div>
-      <div class="card reveal d1">
-        <span class="ic">☁️</span>
-        <h3>Batteria nel tempo</h3>
-        <ul><li>La batteria degrada con cicli, calore e anni.</li><li>Dopo molti cicli può durare molto meno.</li><li>Sostituire batteria può allungare la vita del telefono.</li></ul>
+      <div class="col stack">
+        <div class="stack reveal d1">
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📉</span><div><b style="font-size:27px;">Capacità che cala</b><br><span style="font-size:23px;color:var(--ink-faint);">Dopo centinaia di cicli scende sotto l'80%</span></div></div>
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🩺</span><div><b style="font-size:27px;">Stato di salute</b><br><span style="font-size:23px;color:var(--ink-faint);">Controllabile nelle impostazioni del telefono</span></div></div>
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🔧</span><div><b style="font-size:27px;">Sostituzione conveniente</b><br><span style="font-size:23px;color:var(--ink-faint);">Una frazione del prezzo, due anni di vita in più</span></div></div>
+        </div>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape reveal">Manutenzione</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Buone pratiche di ricarica</h2>
+      <p class="lead reveal d1" style="margin-top:18px;">Tre abitudini semplici che rallentano il degrado della batteria.</p>
+      <div class="grid3 reveal d2" style="margin-top:34px;">
+        <div class="card">
+          <span class="ic">🌡️</span>
+          <h3>Evita il calore</h3>
+          <p>Non caricare il telefono sotto il sole, sotto il cuscino o dentro l’auto d’estate: il caldo è il primo nemico della batteria.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🔌</span>
+          <h3>Caricatori affidabili</h3>
+          <p>Usa caricatori originali o certificati: quelli scadenti scaldano di più e nei casi peggiori sono un rischio per la sicurezza.</p>
+        </div>
+        <div class="card">
+          <span class="ic">📉</span>
+          <h3>Ricariche parziali</h3>
+          <p>Non serve scaricare a zero: le batterie moderne preferiscono ricariche brevi e frequenti. La “ricarica ottimizzata” notturna aiuta.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape reveal">Manutenzione</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Protezione fisica</h2>
+      <p class="lead reveal d1" style="margin-top:18px;">La causa più comune di morte prematura di uno smartphone non è la tecnologia: è il pavimento.</p>
+      <div class="grid2 reveal d2" style="margin-top:34px;">
+        <div class="card">
+          <span class="ic">🛡️</span>
+          <h3>Cover e vetro temperato</h3>
+          <ul><li>Pochi euro di protezione possono evitare una riparazione da 200–300 €.</li><li>Scegli una cover che non copra microfoni, altoparlanti e prese d’aria.</li></ul>
+        </div>
+        <div class="card">
+          <span class="ic">💧</span>
+          <h3>Resistenza all’acqua (sigle IP)</h3>
+          <ul><li>IP67 o IP68 indicano resistenza a polvere e immersioni brevi.</li><li>Resistente non vuol dire indistruttibile: urti, età e riparazioni riducono la tenuta.</li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Scelta</div>
-        <h2 class="h-big reveal">Buone pratiche ricarica</h2>
-        <p class="lead reveal d1">Evita calore eccessivo durante la ricarica.</p>
+        <div class="tape reveal">Riparazione</div>
+        <h2 class="h-big reveal">Il diritto alla riparazione</h2>
+        <p class="lead reveal d1">Schermo rotto o batteria esausta non significano più fine del telefono: l’Europa ha cambiato le regole del gioco.</p>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🧭</span>
-        <h3>Buone pratiche ricarica</h3>
-        <ul><li>Evita calore eccessivo durante la ricarica.</li><li>Non serve scaricare sempre a zero.</li><li>Caricatori affidabili riducono rischi e stress della batteria.</li></ul>
+        <span class="ic">🔧</span>
+        <h3>Cosa dice la normativa UE (2024–2025)</h3>
+        <ul><li>I produttori devono garantire <b>pezzi di ricambio e documentazione tecnica</b> per anni dopo la fine delle vendite.</li><li>La riparazione va offerta a un prezzo ragionevole anche fuori garanzia.</li><li>Schermo e batteria restano le riparazioni più comuni: chiedi sempre un preventivo prima.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape reveal">Riparazione</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Riparare o sostituire?</h2>
+      <p class="lead reveal d1" style="margin-top:18px;">Una regola pratica: confronta il costo della riparazione con il valore del telefono e gli anni di supporto che gli restano.</p>
+      <div class="grid2 reveal d2" style="margin-top:34px;">
+        <div class="card">
+          <span class="ic">🔧</span>
+          <h3>Conviene riparare se…</h3>
+          <ul><li>La riparazione costa molto meno del valore attuale del telefono.</li><li>Il modello riceve ancora aggiornamenti di sicurezza.</li><li>Il problema è uno solo: schermo, batteria o connettore.</li></ul>
+        </div>
+        <div class="card">
+          <span class="ic">🔁</span>
+          <h3>Conviene sostituire se…</h3>
+          <ul><li>Il supporto software è finito o sta per finire.</li><li>Ci sono più guasti insieme e il preventivo si avvicina al prezzo di un ricondizionato.</li><li>Ma non cambiare solo per abitudine: se è sicuro e funziona, può restare.</li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape reveal">Scelta</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Fotocamera e display</h2>
+      <p class="lead reveal d1" style="margin-top:18px;">Le due voci più pubblicizzate della scheda tecnica — e le più fraintese.</p>
+      <div class="grid2 reveal d2" style="margin-top:34px;">
+        <div class="card">
+          <span class="ic">📷</span>
+          <h3>Oltre i megapixel</h3>
+          <ul><li>Contano sensore, lente, stabilizzazione e modalità notturna, non il numero più grande.</li><li>Guarda foto e video reali scattati con quel modello, non la pubblicità.</li></ul>
+        </div>
+        <div class="card">
+          <span class="ic">🖥️</span>
+          <h3>Lo schermo giusto per te</h3>
+          <ul><li>Valuta luminosità all’aperto, dimensione e maneggevolezza, non solo i pollici.</li><li>Gli schermi OLED hanno neri veri e consumano meno con i temi scuri.</li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape gold reveal">Scelta</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Nuovo o ricondizionato?</h2>
+      <div class="grid2 reveal d1" style="margin-top:30px;">
+        <div class="card">
+          <span class="ic">✨</span>
+          <h3>Nuovo</h3>
+          <ul><li>Batteria al 100% e massimo periodo di aggiornamenti davanti.</li><li>Garanzia legale piena di 2 anni.</li><li>Costo e impatto ambientale più alti.</li></ul>
+        </div>
+        <div class="card">
+          <span class="ic">♻️</span>
+          <h3>Ricondizionato</h3>
+          <ul><li>Telefono usato, testato e rimesso a nuovo da un venditore professionale: risparmi il 20–50%.</li><li>Meno anni di supporto residui: controlla quanto durerà ancora.</li><li>Non tutti gli “usati” sono ricondizionati davvero: serve un venditore affidabile.</li></ul>
+        </div>
+      </div>
+      <div class="note reveal d2" style="margin-top:26px;">
+        <div class="lbl">Prima di comprare un ricondizionato</div>
+        <p>Verifica lo <b>stato batteria dichiarato</b> (idealmente sopra l’80–85%), la garanzia di almeno 12 mesi e il grado estetico indicato (A, B, C).</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <div class="center">
+      <div class="tape reveal">Scelta</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Checklist prima dell’acquisto</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Sei controlli da fare in negozio o online, prima di dire sì.</p>
+      <div class="grid3 reveal d2" style="margin-top:28px;">
+        <div class="card"><span class="ic">🔄</span><h3>Anni di supporto</h3><p>Quanti aggiornamenti di sicurezza promette il produttore? Meno di 3 anni è poco.</p></div>
+        <div class="card"><span class="ic">💾</span><h3>Memoria con margine</h3><p>Almeno 128 GB; di più se scatti molte foto e video. La memoria non si aggiunge dopo.</p></div>
+        <div class="card"><span class="ic">🔋</span><h3>Autonomia reale</h3><p>Cerca test di durata d’uso, non solo i mAh. La batteria è sostituibile facilmente?</p></div>
+        <div class="card"><span class="ic">📷</span><h3>Foto e schermo provati</h3><p>Guarda scatti reali e prova lo schermo alla luce, se puoi.</p></div>
+        <div class="card"><span class="ic">🔧</span><h3>Riparabilità e garanzia</h3><p>Pezzi di ricambio disponibili? Centri assistenza vicini? Garanzia chiara?</p></div>
+        <div class="card"><span class="ic">💶</span><h3>Prezzo sostenibile</h3><p>Il telefono giusto è quello che copre i tuoi usi reali, non il top di gamma per forza.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape teal reveal">Passaggio di mano</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Preparare il telefono alla vendita</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Quattro passi, nell’ordine giusto, prima di vendere o regalare il tuo vecchio telefono.</p>
+      <div class="grid2 reveal d2" style="margin-top:28px;">
+        <div class="card"><h3>1 · Fai il backup</h3><p>Salva foto, contatti e chat sul cloud o sul computer. Dopo il ripristino non si torna indietro.</p></div>
+        <div class="card"><h3>2 · Esci dagli account</h3><p>Disattiva <b>Trova dispositivo / Trova il mio iPhone</b> ed esci da account Google o Apple: se il blocco attivazione resta acceso, il telefono è inutilizzabile per chi lo riceve.</p></div>
+        <div class="card"><h3>3 · Rimuovi SIM e schede</h3><p>Togli la SIM fisica e la microSD; se usi una eSIM, trasferiscila o eliminala dalle impostazioni.</p></div>
+        <div class="card"><h3>4 · Ripristino di fabbrica</h3><p>Riporta il telefono alle impostazioni iniziali e verifica alla riaccensione che non chieda i tuoi account.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Scelta</div>
-        <h2 class="h-big reveal">Protezione fisica</h2>
-        <p class="lead reveal d1">Cover e vetro protettivo riducono danni da caduta.</p>
+        <div class="tape sky reveal">Ambiente</div>
+        <h2 class="h-big reveal">L’impatto ambientale</h2>
+        <p class="lead reveal d1">La maggior parte dell’impronta ecologica di uno smartphone nasce prima ancora che tu lo accenda: nella produzione.</p>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📷</span>
-        <h3>Protezione fisica</h3>
-        <ul><li>Cover e vetro protettivo riducono danni da caduta.</li><li>Una protezione economica può evitare riparazioni costose.</li><li>Non coprire però porte, microfoni e dissipazione più del necessario.</li></ul>
+        <span class="ic">🌍</span>
+        <h3>Il gesto più verde: usarlo a lungo</h3>
+        <ul><li>Ogni telefono richiede materiali rari e difficili da estrarre: litio, cobalto, terre rare.</li><li>Allungare la vita del dispositivo anche solo di uno o due anni riduce molto l’impatto complessivo.</li><li>Riparare e comprare ricondizionato sono le scelte più efficaci, prima ancora del riciclo.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Scelta</div>
-        <h2 class="h-big reveal">Riparazione</h2>
-        <p class="lead reveal d1">Schermo e batteria sono le riparazioni più comuni.</p>
+        <div class="tape sky reveal">Ambiente</div>
+        <h2 class="h-big reveal">Smaltimento: i RAEE</h2>
+        <p class="lead reveal d1">Un telefono a fine vita è un <em class="hot">rifiuto elettronico</em> (RAEE): non va mai nel sacco dell’indifferenziata.</p>
       </div>
-      <div class="card reveal d1">
-        <span class="ic">🛡️</span>
-        <h3>Riparazione</h3>
-        <ul><li>Schermo e batteria sono le riparazioni più comuni.</li><li>Valuta costo riparazione rispetto a valore e aggiornamenti residui.</li><li>La normativa UE sul diritto alla riparazione (2024-2025) obbliga i produttori a garantire pezzi di ricambio e documentazione per anni.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Scelta</div>
-        <h2 class="h-big reveal">Impermeabilità</h2>
-        <p class="lead reveal d1">Sigle IP indicano resistenza a polvere e acqua.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🧩</span>
-        <h3>Impermeabilità</h3>
-        <ul><li>Sigle IP indicano resistenza a polvere e acqua.</li><li>Resistente non significa indistruttibile.</li><li>Urti, età e riparazioni possono ridurre la protezione.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Scelta</div>
-        <h2 class="h-big reveal">Fotocamera</h2>
-        <p class="lead reveal d1">Non scegliere solo per megapixel.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">⚙️</span>
-        <h3>Fotocamera</h3>
-        <ul><li>Non scegliere solo per megapixel.</li><li>Conta stabilizzazione, qualità lente, sensore, modalità notte e video.</li><li>Guarda esempi reali, non solo scheda tecnica.</li></ul>
+        <div class="illu reveal d1">
+          <svg viewBox="0 0 280 190" style="max-width:280px;margin:0 auto;" role="img" aria-label="Telefono verso il riciclo RAEE">
+            <rect x="34" y="48" width="64" height="110" rx="10" fill="#f4ece0" stroke="#1c1714" stroke-width="4"/>
+            <path d="M50 90 L82 90 M50 104 L74 104" stroke="#d8c9b4" stroke-width="5" stroke-linecap="round"/>
+            <path d="M112 100 L146 100" stroke="#e6533b" stroke-width="5" stroke-linecap="round"/>
+            <path d="M136 88 L150 100 L136 112" fill="none" stroke="#e6533b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="168" y="72" width="82" height="86" rx="8" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+            <rect x="160" y="58" width="98" height="18" rx="6" fill="#1f5249" stroke="#1c1714" stroke-width="3"/>
+            <path d="M196 100 a14 14 0 1 1 -4 22" fill="none" stroke="#e6c14a" stroke-width="5" stroke-linecap="round"/>
+            <path d="M188 118 L192 126 L198 118" fill="none" stroke="#e6c14a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M228 124 a14 14 0 1 1 4 -22" fill="none" stroke="#e6c14a" stroke-width="5" stroke-linecap="round"/>
+            <path d="M236 106 L232 98 L226 106" fill="none" stroke="#e6c14a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="illu-cap">isola ecologica · ritiro uno contro uno</div>
+        </div>
+        <div class="card reveal d2" style="padding:18px 24px;">
+          <p style="font-size:22px;">Gratis all'isola ecologica o in negozio ("uno contro uno" con acquisto). Dai RAEE si recuperano metalli preziosi — e prima di consegnarlo: ripristino di fabbrica.</p>
+        </div>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Scelta</div>
-        <h2 class="h-big reveal">Display</h2>
-        <p class="lead reveal d1">Dimensione, luminosità, tecnologia e refresh rate cambiano esperienza.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">📁</span>
-        <h3>Display</h3>
-        <ul><li>Dimensione, luminosità, tecnologia e refresh rate cambiano esperienza.</li><li>Schermi grandi sono comodi ma meno maneggevoli.</li><li>OLED consuma meno con temi scuri e neri reali.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Scelta</div>
-        <h2 class="h-big reveal">Nuovo o ricondizionato</h2>
-        <p class="lead reveal d1">Il ricondizionato riduce costo e impatto ambientale.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">💡</span>
-        <h3>Nuovo o ricondizionato</h3>
-        <ul><li>Il ricondizionato riduce costo e impatto ambientale.</li><li>Controlla garanzia, stato batteria, aggiornamenti e affidabilità venditore.</li><li>Non tutti i “usati” sono ricondizionati davvero.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Scelta</div>
-        <h2 class="h-big reveal">Quando sostituire</h2>
-        <p class="lead reveal d1">Sostituisci se mancano aggiornamenti, batteria è irrecuperabile o riparazioni costano troppo.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🔎</span>
-        <h3>Quando sostituire</h3>
-        <ul><li>Sostituisci se mancano aggiornamenti, batteria è irrecuperabile o riparazioni costano troppo.</li><li>Non cambiare solo per abitudine se il dispositivo è ancora sicuro e funzionale.</li><li>La scelta migliore bilancia bisogno reale, sicurezza e budget.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Scelta</div>
-        <h2 class="h-big reveal">Smaltimento</h2>
-        <p class="lead reveal d1">Smartphone contengono materiali preziosi e componenti inquinanti.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">✅</span>
-        <h3>Smaltimento</h3>
-        <ul><li>Smartphone contengono materiali preziosi e componenti inquinanti.</li><li>Non vanno buttati nei rifiuti generici.</li><li>Portali in centri RAEE, negozi autorizzati o programmi di ritiro.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Scelta</div>
-        <h2 class="h-big reveal">Preparare alla vendita</h2>
-        <p class="lead reveal d1">Prima di vendere o regalare, fai backup, esci dagli account e ripristina dati di fabbrica.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">⚠️</span>
-        <h3>Preparare alla vendita</h3>
-        <ul><li>Prima di vendere o regalare, fai backup, esci dagli account e ripristina dati di fabbrica.</li><li>Rimuovi SIM, eSIM se necessario e schede di memoria.</li><li>Verifica che Trova dispositivo o blocco attivazione siano disattivati.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Scelta</div>
-        <h2 class="h-big reveal">Checklist acquisto</h2>
-        <p class="lead reveal d1">Supporto aggiornamenti.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🧰</span>
-        <h3>Checklist acquisto</h3>
-        <ul><li>Supporto aggiornamenti.</li><li>Memoria sufficiente.</li><li>Batteria adeguata.</li><li>Fotocamera coerente con uso.</li><li>Garanzia e riparabilità.</li><li>Prezzo sostenibile.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
+
   <section class="slide">
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape teal reveal">Verifica veloce</div>
       <h2 class="h-sec reveal">È tutto chiaro?</h2>
-      <p class="lead reveal d1">Prova a rispondere a mente prima di passare al capitolo successivo.</p>
+      <p class="lead reveal d1">Prova a rispondere a mente prima di chiudere il capitolo.</p>
       <div class="grid2 reveal d2">
-        <div class="card"><h3>1.</h3><p>Qual è l’idea più importante di questo capitolo?</p></div>
-        <div class="card"><h3>2.</h3><p>Quale impostazione o comportamento puoi controllare subito sul tuo telefono?</p></div>
-        <div class="card"><h3>3.</h3><p>Quale rischio pratico riduci applicando queste regole?</p></div>
-        <div class="card"><h3>4.</h3><p>Come spiegheresti questo argomento a una persona poco esperta?</p></div>
+        <div class="card"><h3>1.</h3><p>Oltre al prezzo, quali criteri controlleresti prima di comprare uno smartphone? Prova a elencarne almeno quattro.</p></div>
+        <div class="card"><h3>2.</h3><p>Il tuo telefono ha lo schermo rotto: come decidi se conviene ripararlo o sostituirlo?</p></div>
+        <div class="card"><h3>3.</h3><p>Quali passaggi fai, e in che ordine, prima di vendere o regalare il tuo vecchio telefono?</p></div>
+        <div class="card"><h3>4.</h3><p>Dove si porta uno smartphone a fine vita, e perché non può finire nella spazzatura di casa?</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -298,9 +341,9 @@
 
   <section class="slide closing">
     <div class="center" style="align-items:center;text-align:center;">
-      <div class="eyebrow reveal gold">Fine S11</div>
-      <h2 class="h-mega reveal" style="margin-top:10px;">Manutenzione scelta<br><em class="gold">in pratica.</em></h2>
-      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora hai una mappa operativa del capitolo: concetti chiave, rischi e controlli da applicare sullo smartphone.</p>
+      <div class="eyebrow reveal gold">Fine S11 — Serie completata</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Undici capitoli:<br><em class="gold">ora tocca a te.</em></h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Hai completato la serie Smartphones: dal telefono come computer a reti, app, privacy, sicurezza, foto, benessere digitale e, oggi, scelta e manutenzione. Il tuo smartphone non ha più segreti.</p>
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a href="00-indice.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">↩ Indice del corso</a>
       </div>

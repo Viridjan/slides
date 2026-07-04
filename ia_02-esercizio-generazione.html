@@ -107,6 +107,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 .edit-hint.show{display:block;}
 .progress{position:fixed;bottom:0;left:0;height:4px;background:var(--red);transition:width .4s var(--ease);z-index:9999;}
 .title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -240,12 +242,27 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="center">
       <div class="tape teal reveal">Come lavoriamo</div>
       <h2 class="h-big reveal" style="margin-top:18px;">Metodologia dell'<em class="hot">esercizio</em></h2>
-      <div class="steps reveal d1" style="margin-top:28px;max-width:1300px;">
-        <div class="step"><div class="t" contenteditable="false"><b>Target</b> — Definiamo insieme un obiettivo comune da realizzare.</div></div>
-        <div class="step"><div class="t" contenteditable="false"><b>Task</b> — Dividiamo il lavoro in compiti individuali o per piccoli gruppi.</div></div>
-        <div class="step"><div class="t" contenteditable="false"><b>Pick yours!</b> — Ogni persona (o gruppo) sceglie il proprio compito.</div></div>
-        <div class="step"><div class="t" contenteditable="false"><b>A bit of work</b> — Usiamo gli strumenti IA per risolvere il compito assegnato.</div></div>
-        <div class="step"><div class="t" contenteditable="false"><b>Assemble!</b> — Raccogliamo tutti i risultati e costruiamo il prodotto finale insieme.</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:50px;align-items:center;max-width:1500px;" class="reveal d1">
+        <div class="steps">
+          <div class="step"><div class="t" contenteditable="false"><b>Target</b> — Definiamo insieme un obiettivo comune da realizzare.</div></div>
+          <div class="step"><div class="t" contenteditable="false"><b>Task</b> — Dividiamo il lavoro in compiti individuali o per piccoli gruppi.</div></div>
+          <div class="step"><div class="t" contenteditable="false"><b>Pick yours!</b> — Ogni persona (o gruppo) sceglie il proprio compito.</div></div>
+          <div class="step"><div class="t" contenteditable="false"><b>A bit of work</b> — Usiamo gli strumenti IA per risolvere il compito assegnato.</div></div>
+          <div class="step"><div class="t" contenteditable="false"><b>Assemble!</b> — Raccogliamo tutti i risultati e costruiamo il prodotto finale insieme.</div></div>
+        </div>
+        <div class="illu">
+          <svg viewBox="0 0 280 240" style="max-width:280px;margin:0 auto;" role="img" aria-label="Compiti individuali che convergono in un prodotto comune">
+            <circle cx="52" cy="44" r="20" fill="#3f7e8c"/>
+            <circle cx="140" cy="30" r="20" fill="#e6c14a"/>
+            <circle cx="228" cy="44" r="20" fill="#e6533b"/>
+            <path d="M60 68 Q100 120 128 148" stroke="#3f7e8c" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M140 54 L140 144" stroke="#d98a2b" stroke-width="4" stroke-linecap="round"/>
+            <path d="M220 68 Q180 120 152 148" stroke="#e6533b" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <rect x="92" y="152" width="96" height="64" rx="10" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+            <path d="M116 184 L132 198 L164 170" fill="none" stroke="#e6c14a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="illu-cap">tanti compiti, un prodotto</div>
+        </div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -257,6 +274,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="tape reveal">Al lavoro</div>
       <h2 class="h-big reveal" style="margin-top:18px;">Creiamo con <em class="hot">l'IA</em></h2>
       <p class="lead reveal d1" contenteditable="false" style="margin-top:18px;max-width:1200px;">Usa lo strumento che preferisci. Sperimenta, sbaglia, riprova — l'esplorazione è parte dell'apprendimento.</p>
+      <div class="analogy reveal d1" style="margin-top:20px;"><span class="big">Regola:</span> affina il prompt invece di ripartire da zero.</div>
       <div class="grid2 reveal d2" style="margin-top:28px;max-width:1300px;">
         <div class="note sky">
           <div class="lbl">💡 Buone pratiche</div>
@@ -268,7 +286,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         </div>
       </div>
       <div class="note teal reveal d3" style="margin-top:24px;max-width:1300px;">
-        <div class="lbl">🔗 Punto di partenza</div>
+        <div class="lbl">Punto di partenza</div>
         <p contenteditable="false">Puoi partire da <b>app.ludo.ai</b> per un esercizio guidato di creazione collaborativa con IA.</p>
       </div>
     </div>
@@ -278,7 +296,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- SLIDE 7 · CLOSING -->
   <section class="slide closing">
     <div class="center" style="align-items:center;text-align:center;">
-      <div class="eyebrow reveal gold">Fine IA_02 🛠️</div>
+      <div class="eyebrow reveal gold">Fine IA_02</div>
       <h2 class="h-mega reveal" style="margin-top:10px;">Ora<br><em class="gold">tocca a te.</em></h2>
       <p class="lead reveal d1" contenteditable="false" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">
         Gli strumenti IA si imparano usandoli. Non esiste modo sbagliato di esplorare — ogni errore ti insegna qualcosa sul <span class="gold">funzionamento della macchina</span>.

@@ -17,6 +17,8 @@
 .center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
 .chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .card{padding:20px 24px}.tight-slide .card h3{font-size:30px}.tight-slide .card p,.tight-slide .card li{font-size:21px;line-height:1.28}
 .title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -37,7 +39,23 @@
     <div class="center">
       <div class="tape teal reveal">In questo capitolo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa vedremo</h2>
-      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Sempre connessi</span></div><div class="agenda-item"><span class="n">02</span><span class="t">WiFi</span></div><div class="agenda-item"><span class="n">03</span><span class="t">WiFi pubblico e VPN</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Bluetooth</span></div><div class="agenda-item"><span class="n">05</span><span class="t">NFC</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Reti cellulari</span></div><div class="agenda-item"><span class="n">07</span><span class="t">SIM e eSIM</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Hotspot</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Dati e roaming</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Modalità aereo</span></div></div>
+      <div class="agenda-list reveal d1" style="grid-template-rows:repeat(6,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">Sempre connessi</span></div><div class="agenda-item"><span class="n">02</span><span class="t">WiFi</span></div><div class="agenda-item"><span class="n">03</span><span class="t">WiFi pubblico e VPN</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Bluetooth</span></div><div class="agenda-item"><span class="n">05</span><span class="t">NFC</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Reti cellulari: da 2G a 5G</span></div><div class="agenda-item"><span class="n">07</span><span class="t">SIM e eSIM</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Hotspot</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Giga e roaming</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Modalità aereo</span></div><div class="agenda-item"><span class="n">11</span><span class="t">Localizzazione assistita</span></div><div class="agenda-item"><span class="n">12</span><span class="t">Problemi comuni</span></div></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape reveal">Le radio del telefono</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Sempre connessi</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Dentro lo smartphone convivono più radio, ognuna con un compito preciso: il sistema le accende e le combina senza che tu te ne accorga.</p>
+      <div class="grid2 reveal d2" style="margin-top:24px;">
+        <div class="card"><span class="ic">📶</span><h3>WiFi</h3><p>Internet veloce a corto raggio: si aggancia a un router in casa, a scuola o al bar, senza toccare il piano dati.</p></div>
+        <div class="card"><span class="ic">📡</span><h3>Rete mobile</h3><p>Internet ovunque, tramite le antenne dell'operatore: funziona anche in movimento, ma consuma i tuoi giga.</p></div>
+        <div class="card"><span class="ic">🎧</span><h3>Bluetooth</h3><p>Collega accessori vicini — cuffie, smartwatch, auto — senza passare da Internet.</p></div>
+        <div class="card"><span class="ic">💳</span><h3>NFC</h3><p>Scambia dati a contatto quasi fisico: pagamenti, biglietti e badge avvicinando il telefono.</p></div>
+      </div>
+      <div class="analogy reveal d3" style="margin-top:28px;align-self:flex-start;"><span class="big">Regola:</span> ogni radio accesa consuma batteria — spegni quelle che non usi.</div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -45,33 +63,41 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Reti mobili</div>
-        <h2 class="h-big reveal">Sempre connessi</h2>
-        <p class="lead reveal d1">Lo smartphone usa più tecnologie di rete contemporaneamente: WiFi, rete mobile, Bluetooth, NFC.</p>
-        <div class="note reveal d2"><div class="lbl">Risparmia batteria</div><p>Ogni radio attiva consuma energia. Disattiva WiFi, Bluetooth e dati mobili quando non servono. In modalità aereo puoi riattivare solo WiFi per navigare senza consumi da celle.</p></div>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">📱</span>
-        <h3>Sempre connessi</h3>
-        <ul><li>Può connettersi a Internet via WiFi o rete mobile (3G/4G/5G).</li><li>Può comunicare con accessori vicini tramite Bluetooth o NFC senza Internet.</li><li>Più connessioni attive = più consumi: il sistema gestisce automaticamente le priorità.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Reti mobili</div>
+        <div class="tape teal reveal">Connessioni</div>
         <h2 class="h-big reveal">WiFi</h2>
-        <p class="lead reveal d1">Il WiFi collega il telefono a un router locale per Internet veloce e a basso costo.</p>
-        <div class="note reveal d2"><div class="lbl">Connessione sicura</div><p>Usa WPA2 o WPA3 con password lunga sul tuo router. Cambia le credenziali di default. Tieni il firmware del router aggiornato: le vulnerabilità del router mettono a rischio tutti i dispositivi connessi.</p></div>
+        <p class="lead reveal d1">Il telefono si aggancia a un router nel raggio di qualche decina di metri: è la connessione più conveniente, perché non intacca il piano dati.</p>
+        <div class="note reveal d2"><div class="lbl">Proteggi il router</div><p>Usa WPA2 o WPA3 con una password lunga, cambia le credenziali di fabbrica e aggiorna il firmware: un router vulnerabile mette a rischio tutti i dispositivi collegati.</p></div>
       </div>
-      <div class="card reveal d1">
-        <span class="ic">🔋</span>
-        <h3>WiFi</h3>
-        <ul><li>Ideale in casa, scuola, ufficio o luoghi con rete affidabile.</li><li>La qualità dipende da distanza, muri, interferenze e router.</li><li>Standard recenti (WiFi 6, WiFi 7) offrono maggiore velocità e stabilità in ambienti affollati.</li></ul>
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 280 280" style="max-width:260px;margin:0 auto;" role="img" aria-label="Telefono che riceve il segnale WiFi da un router">
+          <!-- Signal arcs -->
+          <path d="M82 100 A82 82 0 0 1 198 100" fill="none" stroke="#e6c14a" stroke-width="9" stroke-linecap="round"/>
+          <path d="M99 117 A58 58 0 0 1 181 117" fill="none" stroke="#3f7e8c" stroke-width="9" stroke-linecap="round"/>
+          <path d="M116 134 A34 34 0 0 1 164 134" fill="none" stroke="#163b35" stroke-width="9" stroke-linecap="round"/>
+          <circle cx="140" cy="156" r="11" fill="#e6533b"/>
+          <!-- Phone -->
+          <rect x="106" y="180" width="68" height="88" rx="11" fill="#f4ece0" stroke="#1c1714" stroke-width="4"/>
+          <rect x="116" y="194" width="48" height="52" rx="5" fill="#3f7e8c" opacity=".3"/>
+          <circle cx="140" cy="257" r="4" fill="#1c1714"/>
+          <!-- Ground shadow -->
+          <ellipse cx="140" cy="272" rx="52" ry="6" fill="#1c1714" opacity=".12"/>
+        </svg>
+        <div class="illu-cap">Il segnale cala con distanza, muri e interferenze</div>
       </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape gold reveal">Attenzione</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">WiFi pubblico e VPN</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">La rete gratuita del bar o dell'aeroporto è comoda, ma non sai chi la gestisce né chi altro ci è collegato.</p>
+      <div class="grid2 reveal d2" style="margin-top:24px;">
+        <div class="card"><span class="ic">☕</span><h3>Il rischio: la rete gemella</h3><p>Un malintenzionato può creare un access point con lo stesso nome di quello legittimo e osservare il traffico di chi si collega. Su reti sconosciute evita banca, email e acquisti.</p></div>
+        <div class="card"><span class="ic">🔒</span><h3>La difesa: la VPN</h3><p>Crea un tunnel cifrato verso un server intermedio: il gestore della rete non vede né i contenuti né i siti che visiti. Funziona solo se il fornitore della VPN è a sua volta affidabile.</p></div>
+      </div>
+      <div class="analogy reveal d3" style="margin-top:28px;align-self:flex-start;"><span class="big">Analogia:</span> sul WiFi pubblico i tuoi dati viaggiano come una cartolina — la VPN li chiude in una busta sigillata.</div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -79,31 +105,15 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Reti mobili</div>
-        <h2 class="h-big reveal">WiFi pubblico e VPN</h2>
-        <p class="lead reveal d1">Le reti pubbliche possono essere imitate da attaccanti; la VPN cifra il traffico come protezione.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🔐</span>
-        <h3>WiFi pubblico e VPN</h3>
-        <ul><li>Un access point malevolo può imitare una rete legittima e intercettare il traffico.</li><li>Evita operazioni sensibili (banca, email, acquisti) su reti sconosciute.</li><li>Una VPN crea un tunnel cifrato verso un server intermedio: protegge su reti pubbliche se il provider è affidabile.</li><li>HTTPS già cifra il contenuto; la VPN nasconde anche la destinazione al gestore della rete.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Reti mobili</div>
+        <div class="tape sky reveal">Corto raggio</div>
         <h2 class="h-big reveal">Bluetooth</h2>
-        <p class="lead reveal d1">Collega dispositivi vicini senza Internet: cuffie, smartwatch, tastiere, auto.</p>
-        <div class="note reveal d2"><div class="lbl">Quando disattivarlo</div><p>In luoghi affollati (aeroporti, metro) il Bluetooth aperto può esporre il dispositivo ad attacchi (bluejacking, bluesnarfing). Rimuovi associazioni non usate da Impostazioni → Bluetooth.</p></div>
+        <p class="lead reveal d1">Nato per eliminare i cavi: collega il telefono agli accessori entro una decina di metri, senza bisogno di Internet.</p>
+        <div class="note reveal d2"><div class="lbl">Igiene Bluetooth</div><p>In luoghi affollati (aeroporti, metro) un Bluetooth sempre aperto può esporre ad attacchi come bluejacking e bluesnarfing. Rimuovi le associazioni che non usi più da Impostazioni → Bluetooth.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📡</span>
-        <h3>Bluetooth</h3>
-        <ul><li>Funziona a breve distanza (tipicamente 10 m) e consuma poco.</li><li>Non richiede Internet: utile per condivisione file locale, periferiche e pagamenti.</li><li>Bluetooth Low Energy (BLE) è usato per sensori fitness, tag e dispositivi IoT.</li></ul>
+        <span class="ic">🎧</span>
+        <h3>Cosa ci colleghi ogni giorno</h3>
+        <ul><li>Cuffie, casse, smartwatch, tastiere e il vivavoce dell'auto.</li><li>Condivisione di file tra dispositivi vicini, anche senza rete.</li><li>La variante Low Energy (BLE) alimenta sensori fitness, tag di localizzazione e dispositivi smart consumando pochissimo.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -112,16 +122,62 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Reti mobili</div>
+        <div class="tape gold reveal">Contactless</div>
         <h2 class="h-big reveal">NFC</h2>
-        <p class="lead reveal d1">NFC funziona a distanza molto breve e abilita pagamenti, biglietti e pairing rapido.</p>
-        <div class="note reveal d2"><div class="lbl">Come funziona</div><p>Distanza massima: circa 4 cm. Per i pagamenti il telefono deve essere sbloccato. Le carte bancarie con NFC possono essere lette a distanza: considera un portafoglio con schermatura RF.</p></div>
+        <p class="lead reveal d1">Near Field Communication: funziona solo entro circa 4 centimetri — ed è proprio questa vicinanza obbligata a renderla difficile da intercettare.</p>
+        <div class="note reveal d2"><div class="lbl">Pagare col telefono</div><p>Per autorizzare un pagamento il telefono deve essere sbloccato: è una protezione in più rispetto alla carta. Le carte contactless, invece, possono essere lette da vicino: esistono portafogli con schermatura RF.</p></div>
       </div>
-      <div class="card reveal d1">
-        <span class="ic">☁️</span>
-        <h3>NFC</h3>
-        <ul><li>Usato per pagamenti contactless (Google Pay, Apple Pay), biglietti dei trasporti e badge aziendali.</li><li>Permette il pairing rapido con cuffie, altoparlanti e accessori Bluetooth.</li><li>La vicinanza fisica è una forma di protezione, ma il telefono deve essere comunque bloccato per sicurezza.</li></ul>
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 280 280" style="max-width:260px;margin:0 auto;" role="img" aria-label="Telefono avvicinato a un terminale di pagamento contactless">
+          <!-- Phone -->
+          <rect x="34" y="96" width="62" height="118" rx="11" fill="#f4ece0" stroke="#1c1714" stroke-width="4"/>
+          <rect x="43" y="112" width="44" height="72" rx="5" fill="#3f7e8c" opacity=".3"/>
+          <path d="M56 148 l7 9 13 -18" fill="none" stroke="#163b35" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="65" cy="200" r="4" fill="#1c1714"/>
+          <!-- NFC waves -->
+          <path d="M116 138 a17 17 0 0 1 0 34" fill="none" stroke="#e6533b" stroke-width="6" stroke-linecap="round"/>
+          <path d="M128 128 a26 26 0 0 1 0 54" fill="none" stroke="#e6c14a" stroke-width="6" stroke-linecap="round"/>
+          <!-- POS terminal -->
+          <rect x="162" y="84" width="84" height="140" rx="13" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
+          <rect x="174" y="98" width="60" height="42" rx="6" fill="#f4ece0"/>
+          <circle cx="184" cy="162" r="5" fill="#e6c14a"/><circle cx="204" cy="162" r="5" fill="#e6c14a"/><circle cx="224" cy="162" r="5" fill="#e6c14a"/>
+          <circle cx="184" cy="182" r="5" fill="#e6c14a"/><circle cx="204" cy="182" r="5" fill="#e6c14a"/><circle cx="224" cy="182" r="5" fill="#e6c14a"/>
+          <circle cx="184" cy="202" r="5" fill="#e6c14a"/><circle cx="204" cy="202" r="5" fill="#e6c14a"/><circle cx="224" cy="202" r="5" fill="#e6c14a"/>
+          <!-- Distance marker -->
+          <line x1="100" y1="244" x2="158" y2="244" stroke="#1c1714" stroke-width="3" stroke-dasharray="6 6"/>
+          <text x="129" y="270" text-anchor="middle" font-family="'Space Mono',monospace" font-size="21" font-weight="700" fill="#1c1714">≈ 4 cm</text>
+        </svg>
+        <div class="illu-cap">Pagamento contactless: serve il contatto ravvicinato</div>
       </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape reveal">Generazioni</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Reti cellulari: da 2G a 5G</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Il telefono aggancia l'antenna dell'operatore più vicina e passa da una cella all'altra mentre ti muovi. Ogni generazione — la «G» — ha aggiunto capacità nuove.</p>
+      <div class="stack reveal d2" style="margin-top:24px;">
+        <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📟</span><div><b style="font-size:27px;">2G — anni '90</b><br><span style="font-size:23px;color:var(--ink-faint);">Chiamate digitali e SMS; Internet quasi assente. In alcune zone resta la rete di riserva quando le altre non prendono.</span></div></div>
+        <div class="agenda-item" style="border-color:var(--gold-deep);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🌐</span><div><b style="font-size:27px;">3G — anni 2000</b><br><span style="font-size:23px;color:var(--ink-faint);">Il primo vero Internet mobile: email e navigazione diventano usabili fuori casa. In Italia è ormai in via di spegnimento.</span></div></div>
+        <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🎬</span><div><b style="font-size:27px;">4G / LTE — anni 2010</b><br><span style="font-size:23px;color:var(--ink-faint);">Streaming video, mappe e social fluidi: è oggi la rete più diffusa sul territorio, la copertura di riferimento.</span></div></div>
+        <div class="agenda-item" style="border-color:var(--teal-2);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🚀</span><div><b style="font-size:27px;">5G — oggi</b><br><span style="font-size:23px;color:var(--ink-faint);">Molta più velocità e latenza bassissima, ma servono antenne dedicate e un telefono compatibile. Copertura in crescita, non ovunque.</span></div></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape teal reveal">Identità mobile</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">SIM e eSIM</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">La SIM è la carta d'identità della tua linea: dice all'operatore chi sei, che numero hai e quale piano dati puoi usare.</p>
+      <div class="grid2 reveal d2" style="margin-top:24px;">
+        <div class="card"><span class="ic">🪪</span><h3>SIM fisica</h3><p>Un piccolo chip da inserire nel carrellino del telefono. Per cambiare telefono la sposti fisicamente; per cambiare operatore ne ricevi una nuova.</p></div>
+        <div class="card"><span class="ic">📲</span><h3>eSIM</h3><p>Integrata nel telefono, si attiva scansionando un QR code. Comoda per cambiare operatore o aggiungere un piano dati in viaggio: custodisci con cura il codice di attivazione.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:24px;"><div class="lbl">Occhio al SIM swap</div><p>Chi riesce a farsi duplicare la tua SIM riceve i tuoi SMS, compresi i codici di verifica della banca. Se il telefono perde campo all'improvviso e a lungo senza motivo, contatta subito l'operatore.</p></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -129,48 +185,30 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Reti mobili</div>
-        <h2 class="h-big reveal">Reti cellulari: 3G, 4G, 5G</h2>
-        <p class="lead reveal d1">Ogni generazione ha portato capacità nuove: da Internet mobile a streaming e connettività ultra-bassa latenza.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🧭</span>
-        <h3>Reti cellulari: generazioni</h3>
-        <ul><li>Il telefono si connette alle antenne degli operatori e passa automaticamente tra celle mentre ti muovi.</li><li>3G ha reso Internet mobile realmente usabile; 4G ha portato streaming, mappe e social fluidi.</li><li>5G aumenta velocità e riduce latenza, ma richiede copertura e dispositivi compatibili.</li><li>Copertura e velocità cambiano per zona, operatore e congestione della rete.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Reti mobili</div>
-        <h2 class="h-big reveal">SIM e eSIM</h2>
-        <p class="lead reveal d1">La SIM identifica la linea mobile; la eSIM è integrata nel telefono e si configura digitalmente.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🛡️</span>
-        <h3>SIM e eSIM</h3>
-        <ul><li>La SIM contiene l'identità della linea: permette all'operatore di associare telefono, numero e piano dati.</li><li>Una SIM rubata o duplicata (SIM swap) può essere un rischio serio per autenticazione e banca.</li><li>La eSIM si configura con un profilo digitale (QR code): utile per cambiare operatore o aggiungere un piano viaggio.</li><li>La eSIM richiede attenzione nella gestione dei codici QR e delle credenziali di attivazione.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Reti mobili</div>
+        <div class="tape reveal">Condividere la rete</div>
         <h2 class="h-big reveal">Hotspot</h2>
-        <p class="lead reveal d1">Lo smartphone può condividere la connessione mobile con laptop e tablet come un router portatile.</p>
-        <div class="note reveal d2"><div class="lbl">Usalo in sicurezza</div><p>Imposta sempre password WPA2 o WPA3. Limita le connessioni ammesse. Ricorda che il traffico degli altri dispositivi passa dalla tua SIM e consuma il piano dati: spegni quando non serve.</p></div>
+        <p class="lead reveal d1">Il telefono può fare da router portatile: condivide la connessione mobile via WiFi con laptop, tablet o un altro telefono.</p>
+        <div class="note reveal d2"><div class="lbl">Regole d'oro</div><p>Imposta sempre una password WPA2 o WPA3, controlla chi si collega e spegnilo quando non serve: tutto il traffico degli ospiti esce dalla tua SIM.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">⚙️</span>
-        <h3>Hotspot</h3>
-        <ul><li>Utile per laptop e tablet fuori casa, in viaggio o quando il WiFi non è disponibile.</li><li>Consuma batteria e dati: tenerlo sempre attivo scarica rapidamente il telefono.</li><li>Alcuni piani dati limitano o addebitano separatamente l'uso come hotspot.</li></ul>
+        <span class="ic">💻</span>
+        <h3>Cosa aspettarti</h3>
+        <ul><li>Perfetto in treno o in viaggio, quando il laptop non ha altra rete.</li><li>Batteria e giga scendono in fretta: un aggiornamento del laptop può bruciare il piano dati in pochi minuti.</li><li>Alcuni contratti limitano o tariffano a parte l'uso come hotspot: verifica il tuo piano.</li></ul>
       </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape gold reveal">Consumi</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Giga e roaming</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Non tutte le attività pesano allo stesso modo sul piano dati — e all'estero le regole del gioco cambiano.</p>
+      <div class="grid2 reveal d2" style="margin-top:24px;">
+        <div class="card"><span class="ic">🎬</span><h3>Consumano tanto</h3><p>Video in streaming, videochiamate, backup automatico delle foto sul cloud, aggiornamenti di app e sistema.</p></div>
+        <div class="card"><span class="ic">💬</span><h3>Consumano poco</h3><p>Messaggi, email e pagine web. In Impostazioni → Utilizzo dati vedi quali app pesano di più e puoi impostare avvisi e limiti.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:24px;"><div class="lbl">In viaggio ✈</div><p>Roaming = appoggiarsi alla rete di un operatore estero. In UE è in genere incluso nel piano (ma non sempre in modo illimitato); fuori dall'UE verifica i costi prima di partire, oppure disattiva i dati mobili.</p></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -178,31 +216,15 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Reti mobili</div>
-        <h2 class="h-big reveal">Dati, roaming e consumi</h2>
-        <p class="lead reveal d1">Controllare il consumo dati evita sorprese in bolletta, soprattutto in roaming internazionale.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">📁</span>
-        <h3>Dati, roaming e consumi</h3>
-        <ul><li>Video, backup cloud e aggiornamenti consumano molti dati; messaggistica e pagine web consumano poco.</li><li>Impostazioni → Utilizzo dati per vedere quali app pesano di più e impostare limiti.</li><li>Roaming = usare la rete di un operatore estero; in UE è spesso regolato, ma non sempre illimitato.</li><li>Fuori UE: disattiva dati mobili o verifica i costi prima di attivare il roaming per evitare bollette salate.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Reti mobili</div>
+        <div class="tape sky reveal">Tutto spento</div>
         <h2 class="h-big reveal">Modalità aereo</h2>
-        <p class="lead reveal d1">Disattiva tutte le radio in un colpo; puoi poi riattivare WiFi o Bluetooth separatamente.</p>
-        <div class="note reveal d2"><div class="lbl">Usi pratici</div><p>Utile non solo in aereo: attivala durante riunioni per silenzio totale, in hotel per evitare roaming accidentale, o quando vuoi risparmiare batteria tenendo solo WiFi attivo.</p></div>
+        <p class="lead reveal d1">Un interruttore unico che zittisce tutte le radio in un colpo solo: celle, WiFi e Bluetooth tacciono, ma il telefono resta acceso.</p>
+        <div class="note reveal d2"><div class="lbl">Non solo in volo</div><p>Usala di notte o in riunione per il silenzio totale, in hotel all'estero contro il roaming accidentale, o per risparmiare batteria riattivando solo il WiFi.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🔎</span>
-        <h3>Modalità aereo</h3>
-        <ul><li>Disattiva celle, WiFi e Bluetooth; le app offline restano usabili.</li><li>Dopo l'attivazione puoi riabilitare singolarmente WiFi e Bluetooth se consentito.</li><li>Non spegne il telefono: utente e sistema continuano a funzionare normalmente offline.</li></ul>
+        <span class="ic">✈️</span>
+        <h3>Cosa succede davvero</h3>
+        <ul><li>Le app offline — foto, note, musica scaricata — continuano a funzionare normalmente.</li><li>Dopo averla attivata puoi riaccendere WiFi e Bluetooth singolarmente, dove consentito.</li><li>Accenderla e spegnerla forza il telefono a riagganciare la rete: è il primo rimedio per i problemi di segnale.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -211,33 +233,31 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Reti mobili</div>
+        <div class="tape reveal">Dove sei</div>
         <h2 class="h-big reveal">Localizzazione assistita</h2>
-        <p class="lead reveal d1">Il telefono usa WiFi e celle per accelerare il GPS; questo migliora precisione ma aumenta i dati tracciabili.</p>
-        <div class="note reveal d2"><div class="lbl">Controlla la privacy</div><p>Impostazioni → Privacy → Servizi di localizzazione. Imposta le app su "Solo durante l'uso" invece di "Sempre" per ridurre il tracciamento in background. Controlla periodicamente quali app hanno accesso.</p></div>
+        <p class="lead reveal d1">Il GPS da solo può impiegare minuti a trovarti: il telefono si aiuta con le reti WiFi e le celle vicine (A-GPS) per orientarsi in pochi secondi.</p>
+        <div class="note reveal d2"><div class="lbl">Controlla la privacy</div><p>In Impostazioni → Privacy → Localizzazione imposta le app su «Solo durante l'uso» invece di «Sempre», e rivedi periodicamente chi ha accesso alla tua posizione.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">✅</span>
-        <h3>Localizzazione assistita</h3>
-        <ul><li>Senza assistenza, il primo fix GPS può richiedere minuti all'aperto.</li><li>Con WiFi positioning e celle (A-GPS), il telefono si orienta in pochi secondi.</li><li>La precisione aumenta, ma aumentano anche i dati potenzialmente tracciabili dall'operatore e da Google/Apple.</li></ul>
+        <span class="ic">📍</span>
+        <h3>Il compromesso</h3>
+        <ul><li>Più segnali combinati = posizione più rapida e precisa, anche al chiuso.</li><li>Le stesse informazioni raccontano dove sei all'operatore e a Google o Apple.</li><li>Le mappe scaricate offline riducono sia il consumo di giga sia i dati condivisi.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
 
   <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Reti mobili</div>
-        <h2 class="h-big reveal">Problemi comuni</h2>
-        <p class="lead reveal d1">Quasi tutti i problemi di connessione si risolvono seguendo un ordine logico di diagnosi.</p>
-        <div class="note reveal d2"><div class="lbl">Checklist troubleshooting</div><p>1) Modalità aereo on/off. 2) Riavvia il telefono. 3) Verifica password WiFi. 4) Su Android: reimposta APN. 5) Prova un'altra rete. 6) Se il problema persiste: contatta l'operatore per verificare la SIM.</p></div>
+    <div class="center">
+      <div class="tape reveal">Pronto soccorso</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Quando Internet non va</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Prima di chiamare l'assistenza, procedi con ordine: la maggior parte dei problemi si risolve già ai primi due passi.</p>
+      <div class="grid3 reveal d2" style="margin-top:24px;">
+        <div class="card"><span class="ic">🔄</span><h3>1 · Riavvia le radio</h3><p>Modalità aereo on/off, poi riavvio completo del telefono: risolve gran parte dei blocchi temporanei di rete.</p></div>
+        <div class="card"><span class="ic">🔍</span><h3>2 · Controlla le basi</h3><p>Dati mobili attivi? Password WiFi corretta? C'è segnale? Su Android puoi anche reimpostare l'APN dell'operatore.</p></div>
+        <div class="card"><span class="ic">📞</span><h3>3 · Isola il colpevole</h3><p>Prova un'altra rete o un altro dispositivo: capisci se il problema è del telefono, della SIM, del router o dell'operatore.</p></div>
       </div>
-      <div class="card reveal d1">
-        <span class="ic">🧰</span>
-        <h3>Problemi comuni</h3>
-        <ul><li>Internet non funziona: controlla modalità aereo, segnale, dati mobili attivi e credenziali WiFi.</li><li>Riavviare il telefono risolve la maggior parte dei problemi temporanei di rete.</li><li>Distingui tra problema del telefono, della SIM, dell'operatore o del router prima di chiamare l'assistenza.</li></ul>
-      </div>
+      <div class="note reveal d3" style="margin-top:24px;"><div class="lbl">Se nulla funziona</div><p>Contatta l'operatore e fai verificare SIM e linea: una SIM vecchia o danneggiata si sostituisce gratis o quasi in pochi minuti.</p></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -248,10 +268,10 @@
       <h2 class="h-sec reveal">È tutto chiaro?</h2>
       <p class="lead reveal d1">Prova a rispondere a mente prima di passare al capitolo successivo.</p>
       <div class="grid2 reveal d2">
-        <div class="card"><h3>1.</h3><p>Qual è l'idea più importante di questo capitolo?</p></div>
-        <div class="card"><h3>2.</h3><p>Quale impostazione o comportamento puoi controllare subito sul tuo telefono?</p></div>
-        <div class="card"><h3>3.</h3><p>Quale rischio pratico riduci applicando queste regole?</p></div>
-        <div class="card"><h3>4.</h3><p>Come spiegheresti questo argomento a una persona poco esperta?</p></div>
+        <div class="card"><h3>1.</h3><p>Esci di casa mentre guardi un video: quale connessione prende il posto del WiFi, e perché conviene accorgersene?</p></div>
+        <div class="card"><h3>2.</h3><p>Al bar trovi una rete aperta con il nome del locale: perché non è il posto giusto per entrare nella tua banca, e quale strumento può proteggerti?</p></div>
+        <div class="card"><h3>3.</h3><p>Bluetooth e NFC funzionano entrambi senza Internet: che differenza c'è tra i due in portata e in uso tipico?</p></div>
+        <div class="card"><h3>4.</h3><p>Parti per un viaggio fuori dall'Unione Europea: quali controlli fai sul roaming prima di atterrare per evitare bollette salate?</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -260,8 +280,8 @@
   <section class="slide closing">
     <div class="center" style="align-items:center;text-align:center;">
       <div class="eyebrow reveal gold">Fine S02</div>
-      <h2 class="h-mega reveal" style="margin-top:10px;">Connessioni mobili<br><em class="gold">in pratica.</em></h2>
-      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora hai una mappa operativa del capitolo: concetti chiave, rischi e controlli da applicare sullo smartphone.</p>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Connesso ovunque,<br><em class="gold">con giudizio.</em></h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora sai quale radio lavora in ogni momento: WiFi sulle reti di cui ti fidi, dati mobili in movimento, Bluetooth e NFC a corto raggio — e roaming solo dopo aver controllato i costi. Nel prossimo capitolo entriamo nei due mondi che governano tutto questo: Android e iOS.</p>
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a href="sma03-android-ios.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → SMA03 · Android e iOS</a>
         <a href="00-indice.html" class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);text-decoration:none;">↩ Indice del corso</a>

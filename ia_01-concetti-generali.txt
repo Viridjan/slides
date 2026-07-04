@@ -88,7 +88,7 @@ Il problema della definizione
  Narrow AI 
  Eccelle in un solo compito : giocare a scacchi, riconoscere volti, tradurre testi, guidare un'auto. Non può fare altro. 
  
- 📌 Oggi 
+ Oggi 
  Tutta l'IA esistente oggi — compreso ChatGPT — è IA debole, per quanto impressionante sembri. 
  
  
@@ -98,7 +98,7 @@ Il problema della definizione
  AGI 
  Un sistema capace di qualsiasi compito cognitivo che un essere umano può svolgere — ragionamento, creatività, apprendimento autonomo in nuovi contesti. 
  
- 🔮 Futuro 
+ Futuro 
  Non esiste ancora. I ricercatori non concordano su quando — o se — arriverà.
 
 --- Slide 7 ---
@@ -127,8 +127,8 @@ Mappa concettuale
  
  
  
- 📐 Gerarchia 
- Informatica ⊃ IA ⊃ Deep Learning > Machine Learning
+ 
+ Ogni cerchio è un sottoinsieme del precedente: IA ⊃ ML ⊃ DL
 
 --- Slide 8 ---
 Deep Learning 
@@ -182,7 +182,7 @@ Natural Language Processing
  
  
  
- 🔗 Collegamento 
+ Collegamento 
  ChatGPT è un Large Language Model (LLM) — un modello NLP addestrato su enormi quantità di testo disponibile in internet.
 
 --- Slide 10 ---
@@ -193,9 +193,7 @@ Machine Learning
  Modello — un algoritmo che trova pattern nei dati. Commette errori, li misura, si corregge — milioni di volte. 
  Previsione — dato un input nuovo, il modello applica i pattern appresi e produce un output: "questa è una foto di gatto" con 94% di confidenza. 
  
- 
- 🔑 Differenza chiave 
- In un programma tradizionale le regole le scrive il programmatore. Nel ML le regole le scopre il modello da solo guardando i dati.
+ Analogia: il ML impara dagli esempi come un bambino, non dalle regole come un impiegato.
 
 --- Slide 11 ---
 Applicazione 
@@ -219,7 +217,7 @@ Applicazione
  Robot per consegne, droni autonomi, navi senza equipaggio: le stesse tecnologie si estendono ovunque. 
  
  
- 👁️ Ruolo umano 
+ Ruolo umano 
  Gli umani assumeranno sempre più un ruolo di supervisione mentre le macchine gestiscono l'esecuzione.
 
 --- Slide 12 ---
@@ -287,11 +285,11 @@ Rischio
  Quando un algoritmo registra il comportamento dell'utente e sceglie selettivamente solo ciò che vuole vedere , isolandolo da informazioni in contrasto con il suo punto di vista. 
  
  
- 🚫 Effetto 
+ Effetto 
  L'utente viene escluso da notizie, opinioni e dati che contraddicono la propria visione del mondo — senza rendersene conto. 
  
  
- 📌 Esempi 
+ Esempi 
  Google Search personalizzata e Facebook News Feed sono i casi più studiati e documentati di filter bubble.
 
 --- Slide 16 ---
@@ -315,7 +313,7 @@ Rischi sociali
  
  
  
- 🔗 Connessione con l'IA 
+ Connessione con l'IA 
  Gli algoritmi di raccomandazione massimizzano l'engagement — spesso promuovendo contenuti emotivi o polarizzanti, alimentando tutti e tre questi fenomeni.
 
 --- Slide 17 ---
@@ -332,7 +330,7 @@ Manipolazione digitale
  Bot e troll farm 
  Account automatizzati e reti coordinate di persone reali usati per amplificare messaggi, creare falsa consenso e polarizzare l'opinione pubblica . 
  
- 🚨 Come si riconosce un bot 
+ Come si riconosce un bot 
  Account creato di recente, nessuna foto personale, pubblica decine di volte al giorno, commenta sempre lo stesso tema, spesso senza profilo completo. 
  
  
@@ -395,7 +393,7 @@ Come funziona
  
  
  
- 📱 Ogni giorno 
+ Ogni giorno 
  Face ID dello smartphone, filtri AR di Instagram, traduzione live di testo con la fotocamera, riconoscimento della scrittura — tutte computer vision.
 
 --- Slide 21 ---
@@ -404,11 +402,11 @@ Implicazione critica
  Con l'aumento della potenza di calcolo, creare video falsi dall'aspetto autentico — indistinguibili da filmati reali — è diventato accessibile a chiunque. 
  
  
- 🎥 Come funziona 
+ Come funziona 
  Il modello apprende il volto e la voce di una persona da molte immagini/video e li sovrappone su un altro soggetto con precisione crescente. 
  
  
- 🛡️ Cosa fare 
+ Cosa fare 
  Verificare la fonte originale. Cercare incongruenze (occhi, denti, bordi). Non condividere video sensazionali senza verifica.
 
 --- Slide 22 ---
@@ -515,7 +513,7 @@ Usare bene l'IA
  
  
  
- 🚫 Non fidarti ciecamente 
+ Non fidarti ciecamente 
  ChatGPT può "allucinare" : inventare fatti, citare fonti inesistenti, sbagliare calcoli. Verifica sempre le informazioni critiche.
 
 --- Slide 26 ---
@@ -542,7 +540,7 @@ Problema critico
  Bias nell'IA 
  Un modello impara dai dati. Se i dati riflettono pregiudizi umani, il modello li amplifica e automatizza . 
  
- ⚖️ Impatto reale 
+ Impatto reale 
  Algoritmi usati in tribunali USA per prevedere la recidiva hanno mostrato bias razziali. Sistemi di riconoscimento facciale falliscono di più con pelli scure. 
  
  
@@ -611,7 +609,7 @@ Prospettive
  Il futuro dell' IA 
  I ricercatori non concordano su cosa succederà — ma concordano che il cambiamento sarà profondo . 
  
- 🧠 AGI — Artificial General Intelligence 
+ AGI — Artificial General Intelligence 
  Un sistema capace di imparare qualsiasi compito come un umano. Alcune stime: 10 anni. Altre: mai. Nessuno lo sa davvero. 
  
  
@@ -637,11 +635,11 @@ Riflessione
  L'IA genera testo, musica, immagini, codice — ma non ha intenzioni, emozioni o esperienze vissute . Combina pattern visti nei dati. 
  
  
- ✅ Cosa riesce bene 
+ Cosa riesce bene 
  Variazioni su temi esistenti, combinazioni inaspettate, produzione rapida di bozze, sperimentazione di stili. Ottimo assistente creativo. 
  
  
- 🚫 Cosa non riesce 
+ Cosa non riesce 
  Originalità vera, rottura consapevole delle regole, vissuto personale, intenzione artistica autentica, comprensione del contesto culturale profondo. 
  
  
@@ -671,7 +669,7 @@ Attenzione
  
  
  
- 🇪🇺 AI Act 
+ 🇺 AI Act 
  Il regolamento europeo sull'IA (2024) classifica i sistemi per livello di rischio e impone obblighi di trasparenza — il più avanzato al mondo.
 
 --- Slide 33 ---
@@ -691,7 +689,7 @@ Verifica veloce
  L'IA è creativa? Spiega la differenza tra generare pattern e creare con intenzione.
 
 --- Slide 34 ---
-Fine IA_01 🤖 
+Fine IA_01 
  L'IA sei
  anche tu. 
  

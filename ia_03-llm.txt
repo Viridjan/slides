@@ -32,7 +32,7 @@ Definizione
  Large Language Models 
  Modelli di IA basati su reti neurali addestrati su enormi quantità di testo — per imparare le relazioni matematiche tra parole . 
  
- 🔑 Transformer 
+ Transformer 
  L'architettura alla base di quasi tutti gli LLM moderni. Usa "meccanismi di attenzione" per capire il contesto di ogni parola rispetto alle altre nel testo. 
  
  
@@ -59,7 +59,7 @@ Caso studio
  "I Large Language Models (LLM) sono modelli di intelligenza artificiale basati su reti neurali profonde specializzate nell'elaborazione del linguaggio naturale (NLP). Sono addestrati su enormi quantità di testo per apprendere le relazioni tra parole, frasi e concetti, permettendo loro di comprendere il significato implicito…"
  
  
- 🔍 Fonte 
+ Fonte 
  Testo generato con Perplexity.ai chiedendogli di spiegare se stesso. Contiene almeno 4 inesattezze. Le analizziamo nelle prossime slide.
 
 --- Slide 5 ---
@@ -69,7 +69,7 @@ Errore 1 / 4
  "…basati su reti neurali profonde specializzate nell'elaborazione del linguaggio naturale…"
  
  
- ❌ Perché è sbagliato 
+ Perché è sbagliato 
  "Profonde" è il risultato di un'allucinazione: il modello ha associato LLM con "deep learning" e ha tradotto "deep" come "profonde" nel contesto sbagliato. 
  
  
@@ -91,7 +91,7 @@ Errore 2 / 4
  "…gli LLM possono comprendere il significato implicito, lo stile e il contesto…"
  
  
- ❌ Perché è sbagliato 
+ Perché è sbagliato 
  Un LLM non "comprende" nulla. Calcola relazioni statistiche tra token. Questo è fondamentalmente diverso dalla comprensione umana. 
  
  
@@ -112,9 +112,10 @@ Errore 3 / 4
  "…un LLM è un modello AI che 'impara' come funziona il linguaggio umano leggendo e analizzando grandi testi…"
  
  
- ❌ Perché è sbagliato 
+ Perché è sbagliato 
  Un LLM non impara come funziona il linguaggio. Impara la relazione matematica tra token — quali sequenze di parole tendono ad apparire insieme. 
  
+ Analogia: un T9 gigantesco — non "sa", predice. 
  
  
  
@@ -134,7 +135,7 @@ Errore 4 / 4
  "…l'NLP è la tecnologia che consente ai computer di 'parlare' e capire il linguaggio umano in modo naturale e utile."
  
  
- ❌ Perché è sbagliato 
+ Perché è sbagliato 
  L'NLP non "parla" — elabora. La frase confonde NLP con gli LLM stessi, mescolando concetti diversi in modo da sembrare corretto ma risultare privo di senso tecnico. 
  
  
@@ -145,7 +146,7 @@ Errore 4 / 4
  Branca dell'IA che permette ai computer di elaborare testo e parlato umano. Include tokenizzazione, analisi sintattica, riconoscimento di entità, sentiment analysis — e molto altro oltre alla generazione di testo. 
  
  
- 🔗 NLP ≠ LLM 
+ NLP ≠ LLM 
  Gli LLM sono uno strumento NLP. Ma l'NLP esiste da decenni ed include sistemi molto più semplici: correttori ortografici, filtri spam, traduttori statistici.
 
 --- Slide 9 ---
@@ -182,7 +183,7 @@ Meccanismo interno
  📤 Output 
  
  
- 💬 Il prompt è tutto 
+ Il prompt è tutto 
  La qualità del prompt determina la qualità della risposta. Un prompt vago → risposta vaga. Un prompt dettagliato con contesto → risposta utile.
 
 --- Slide 11 ---
@@ -191,7 +192,7 @@ Passo 1
  Il prompt viene spezzato in token — pacchetti più piccoli del testo originale. 
  Un token non corrisponde a una parola: può essere una sillaba, un simbolo, una parola intera o una sequenza comune. "gatto" = 1 token. "intelligenza" = 3+ token. 
  
- 📐 Perché i token? 
+ Perché i token? 
  Lavorare su token invece di parole intere permette di gestire lingue diverse, parole nuove e contesti tecnici senza vocabolario fisso. 
  
  
@@ -215,33 +216,14 @@ Passo 2
  Ogni token viene inviato alla rete neurale. I nodi rispondono ai token e si inviano segnali a vicenda — come neuroni nel cervello. 
  Il processo si propaga attraverso tutti gli strati della rete, trasformando il segnale ad ogni passaggio, finché l'LLM produce un output finale. 
  
- ⚡ Velocità 
+ Velocità 
  Questo processo avviene in millisecondi grazie a GPU potentissime che eseguono miliardi di operazioni matematiche in parallelo. 
  
  
  
  
- TOKEN INPUT 
-
- ↓
-
- nodi strato 1 
-
- ↓
-
- nodi strato 2 
-
- ↓
-
- nodi strato 3… 
-
- ↓
-
- LLM soddisfatto? 
-
- ↓
-
- OUTPUT TOKEN
+ 
+ il segnale attraversa gli strati, trasformandosi
 
 --- Slide 13 ---
 Passo 3 
@@ -260,7 +242,7 @@ Passo 3
  
  
  
- 🎯 Risultato 
+ Risultato 
  L'output non è una ricerca in un database — è una sequenza di token generata token per token, ognuno influenzato da tutti i precedenti.
 
 --- Slide 14 ---
@@ -302,7 +284,7 @@ Verifica veloce
  Perché un testo generato da IA su un argomento tecnico può sembrare corretto ma contenere errori gravi?
 
 --- Slide 16 ---
-Fine IA_03 🧠 
+Fine IA_03 
  Non magia.
  Matematica. 
  

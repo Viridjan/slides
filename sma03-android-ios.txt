@@ -4,141 +4,173 @@ Smartphones · SMA03 — Android e iOS
 --- Slide 1 ---
 S03 — Sistemi mobile 
  Android e iOS 
- Sistema operativo, store, account, aggiornamenti, ecosistemi e come scegliere. 
+ Due sistemi che si dividono il mondo degli smartphone: come funzionano, come si aggiornano e come scegliere quello giusto. 
  SMA03 Smartphones
 
 --- Slide 2 ---
 In questo capitolo 
  Cosa vedremo 
- 01 Sistema operativo 02 Android 03 iOS 04 Interfaccia touch 05 Account di sistema 06 Store ufficiali 07 Sideloading 08 Aggiornamenti 09 I due ecosistemi 10 Backup e scelta
+ 01 Il sistema operativo mobile 02 Android 03 iOS 04 Android vs iOS a confronto 05 Account Google e Apple ID 06 Gli store ufficiali 07 Il sideloading 08 Aggiornamenti: sistema e app 09 I due ecosistemi 10 Backup e quale scegliere
 
 --- Slide 3 ---
-Sistemi mobile 
- Sistema operativo mobile 
- Android e iOS gestiscono hardware, app, permessi, notifiche e sicurezza dello smartphone. 
- Perché è importante Il SO è il layer tra hardware e app. Aggiornarlo è fondamentale: ogni patch chiude vulnerabilità reali. Un telefono senza aggiornamenti è esposto a rischi noti e non corretti. 
- 
- 
- 📱 
- Sistema operativo mobile 
- Progettato per touch, batteria limitata e connessione continua. Gestisce permessi delle app, notifiche e accesso a fotocamera, microfono e posizione. L'utente vede icone e app, ma sotto lavora un sistema complesso con kernel, driver e servizi.
-
---- Slide 4 ---
-Sistemi mobile 
- Android 
- Android è sviluppato da Google, basato su Linux e usato da molti produttori diversi. 
- Versioni e produttori Android "stock" è la versione Google (su Pixel). Samsung, Xiaomi, Motorola aggiungono layer personalizzati (One UI, MIUI) che possono ritardare gli aggiornamenti e aggiungere app preinstallate. 
- 
- 
- 🔋 
- Android 
- Usato da Samsung, Xiaomi, Motorola, Google Pixel e decine di altri produttori. Questa varietà offre ampia scelta di prezzo e design, ma crea differenze negli aggiornamenti. È il sistema più diffuso al mondo: oltre l'80% degli smartphone usa Android.
-
---- Slide 5 ---
-Sistemi mobile 
- iOS 
- iOS è il sistema degli iPhone: Apple controlla hardware, software, store e aggiornamenti. 
- Ciclo di supporto Apple supporta iPhone con aggiornamenti per 5–7 anni. iOS 18 supporta iPhone XS (2018). Questo allunga la vita utile del dispositivo e rappresenta un vantaggio concreto per chi vuole sicurezza a lungo termine. 
- 
- 
- 📡 
- iOS 
- Apple controlla hardware, software, store e distribuzione degli aggiornamenti. Questo crea coerenza, supporto lungo e un'esperienza uniforme tra modelli. Meno personalizzazione rispetto ad Android, ma maggiore controllo qualitativo delle app.
-
---- Slide 6 ---
-Sistemi mobile 
- Interfaccia touch 
- Gesti come tap, swipe, pressione lunga e pinch sono il linguaggio base dello smartphone. 
- Gesti avanzati Swipe dal basso per tornare alla home (Android/iOS). Swipe laterale per navigare avanti/indietro. Pressione lunga per menu contestuale. Pinch per zoom. Ogni sistema ha varianti e scorciatoie proprie. 
- 
- 
- 🔐 
- Interfaccia touch 
- Il sistema è pensato per uso rapido con una mano e in movimento. Accessibilità, dimensione schermo e modalità una-mano cambiano molto l'esperienza pratica. I gesti sono appresi rapidamente ma variano tra Android e iOS: cambiare piattaforma richiede adattamento.
-
---- Slide 7 ---
-Sistemi mobile 
- Account di sistema 
- Account Google su Android e Apple ID su iOS sono centrali per backup, store e sicurezza. 
- 
- 
- ☁️ 
- Account di sistema 
- Account Google: sincronizza app, backup, contatti, Drive, Gmail e Play Store su Android. Apple ID: collega iCloud, App Store, Dov'è, backup e tutti i dispositivi Apple. Entrambi vanno protetti con password unica e verifica in due passaggi obbligatoria. La perdita di accesso all'account può bloccare dati, acquisti e funzionalità del telefono.
-
---- Slide 8 ---
-Sistemi mobile 
- Store ufficiali 
- Play Store e App Store sono i canali principali per installare app in sicurezza. 
- 
- 
- 📷 
- Play Store e App Store 
- Google e Apple controllano le app pubblicata: malware espliciti vengono rimossi, ma il rischio zero non esiste. Prima di installare: controlla sviluppatore, numero di download, recensioni recenti e permessi richiesti. App Store (iOS) ha controlli più stretti e uniformi; Play Store (Android) è più aperto ma anche più vasto. Evita cloni, app miracolose o versioni gratis di servizi normalmente a pagamento.
-
---- Slide 9 ---
-Sistemi mobile 
- Sideloading 
- Su Android è possibile installare APK fuori dal Play Store: utile in casi specifici, rischioso in generale. 
- Rischi concreti APK da siti casuali possono contenere malware mascherato da app legittima. Se devi fare sideloading: verifica l'hash SHA256 del file, usa solo fonti ufficiali del progetto (es. F-Droid per app open source). 
- 
- 
- 🧩 
- Sideloading 
- Su Android: abilita "Fonti sconosciute" per installare APK esterni al Play Store. Su iOS il sideloading è molto più limitato (solo sviluppatori o programmi aziendali). Va fatto solo da fonti ufficiali e con piena consapevolezza del rischio malware.
-
---- Slide 10 ---
-Sistemi mobile 
- Aggiornamenti: sistema e app 
- Aggiornamenti di sistema e app chiudono vulnerabilità e migliorano stabilità: non vanno rimandati. 
+Le fondamenta 
+ Il sistema operativo mobile 
+ È il software che fa da ponte tra l'hardware del telefono e le app che usi ogni giorno: tu vedi icone e schermate, sotto lavora un sistema complesso. 
+ Un computer in tasca Come Windows su un PC, anche qui ci sono kernel, driver e servizi in esecuzione. Ma tutto è ripensato per il touch, per una batteria limitata e per una connessione sempre attiva. 
  
  
  ⚙️ 
+ Che cosa gestisce per te 
+ I permessi : decide quali app possono usare fotocamera, microfono e posizione. Le notifiche : raccoglie e mostra gli avvisi di tutte le app in un unico posto. Le risorse : distribuisce memoria e batteria, mettendo in pausa le app in background. La sicurezza : isola le app tra loro, così una non può leggere i dati dell'altra.
+
+--- Slide 4 ---
+Il sistema aperto 
+ Android 
+ Sviluppato da Google e basato su Linux, è il sistema più diffuso al mondo: oltre l'80% degli smartphone lo usa. 
+ Le versioni personalizzate Android "stock" è la versione pura di Google (sui Pixel). Samsung, Xiaomi e Motorola aggiungono layer propri come One UI e MIUI: cambiano menu e app preinstallate, e possono ritardare gli aggiornamenti. 
+ 
+ 
+ 
+ Un sistema, tanti produttori e prezzi
+
+--- Slide 5 ---
+Il sistema chiuso 
+ iOS 
+ Esiste solo sugli iPhone: una sola azienda, Apple, decide hardware, software e regole dello store. 
+ Ciclo di supporto Apple aggiorna gli iPhone per 5–7 anni: iOS 18 gira ancora su iPhone XS del 2018. Un vantaggio concreto per chi vuole sicurezza a lungo termine senza cambiare telefono spesso. 
+ 
+ 
+ 
+ Un solo produttore, aggiornamenti per anni
+
+--- Slide 6 ---
+Faccia a faccia 
+ Android vs iOS a colpo d'occhio 
+ 
+ 
+ 🤖 
+ Android 
+ Tanti produttori, prezzi per ogni tasca Massima personalizzazione dell'interfaccia Aggiornamenti variabili: dipendono da marca e modello Play Store aperto + possibilità di sideloading Legato all'account e ai servizi Google 
+ 
+ 
+ 🍎 
+ iOS 
+ Solo iPhone, fascia di prezzo medio-alta Esperienza uniforme, poca personalizzazione Aggiornamenti immediati per 5–7 anni su tutti i modelli App Store come unico canale, controlli più severi Legato all'Apple ID e all'ecosistema Apple 
+ 
+ 
+ Nessun vincitore assoluto Sono due filosofie: libertà e varietà contro coerenza e controllo. La scelta giusta dipende da budget, abitudini e dispositivi che hai già.
+
+--- Slide 7 ---
+Identità digitale 
+ Account Google e Apple ID 
+ Tutto il telefono ruota attorno a un account: senza, niente store, niente backup, niente sincronizzazione. 
+ 
+ 
+ ☁️ Account Google (Android) 
+ 
+ 🛍️ Store e servizi 
+ Apre le porte a Play Store, Gmail, Drive e Google Foto 
+ 🔄 Sincronizzazione 
+ Sincronizza contatti, calendario e password tra dispositivi 
+ 💾 Backup 
+ Attiva il backup automatico del telefono 
+ 
+ 
+ 
+ 🔑 Apple ID (iOS) 
+ 
+ 🛒 Store e acquisti 
+ Collega App Store, iCloud e i tuoi acquisti 
+ 📍 Dov'è 
+ Attiva "Dov'è" per ritrovare un telefono perso o rubato 
+ 🔗 Un'unica identità 
+ Unisce iPhone, iPad e Mac sotto la stessa identità 
+ 
+ 
+ 
+ Proteggilo come una cassaforte Password unica e verifica in due passaggi, sempre. Perdere l'accesso all'account significa perdere backup, acquisti e in certi casi l'uso stesso del telefono.
+
+--- Slide 8 ---
+Installare app 
+ Gli store ufficiali 
+ Play Store su Android, App Store su iPhone: i canali sicuri per scaricare app, gestiti direttamente da Google e Apple. 
+ Controlli, non garanzie Ogni app pubblicata viene revisionata e i malware evidenti vengono rimossi, ma il rischio zero non esiste. L'App Store ha controlli più severi e uniformi; il Play Store è più aperto, ma anche più vasto. 
+ 
+ 
+ 🛍️ 
+ Prima di installare, controlla 
+ Lo sviluppatore : è quello ufficiale del servizio, o un nome sconosciuto? I numeri : quanti download ha, e cosa dicono le recensioni recenti? I permessi richiesti: una torcia che vuole i tuoi contatti è un segnale d'allarme. Diffida di cloni, app "miracolose" e versioni gratis di servizi normalmente a pagamento.
+
+--- Slide 9 ---
+Fuori dallo store 
+ Il sideloading 
+ Installare app saltando lo store ufficiale: su Android si può, su iOS quasi mai. Utile in casi rari, pericoloso se fatto alla leggera. 
+ Se proprio devi Scarica solo dal sito ufficiale del progetto o da store alternativi affidabili come F-Droid (app open source), e verifica l'hash SHA256 del file quando è pubblicato. Mai da siti trovati cercando "app gratis". 
+ 
+ 
+ ⚠️ 
+ Come funziona, e perché è rischioso 
+ Su Android si abilitano le "Fonti sconosciute" per installare file APK esterni al Play Store. Su iOS è riservato a sviluppatori e programmi aziendali: l'utente comune non lo incontra. Un APK scaricato da un sito qualsiasi può essere malware travestito da app legittima: nessuno lo ha controllato prima di te.
+
+--- Slide 10 ---
+Manutenzione 
  Aggiornamenti: sistema e app 
- Gli aggiornamenti di sistema (iOS/Android) correggono falle di sicurezza attivamente sfruttate. iPhone riceve aggiornamenti direttamente da Apple; Android dipende anche da produttore e operatore. Le app vanno aggiornate separatamente: abilita aggiornamenti automatici su WiFi per semplicità. App vecchie e abbandonate (non aggiornate da anni) possono diventare vulnerabilità: valuta la sostituzione.
+ Ogni aggiornamento chiude falle di sicurezza già note ai criminali: rimandarlo per settimane significa restare esposti a rischi documentati. 
+ 
+ 
+ 🛡️ 
+ Di sistema 
+ Correggono vulnerabilità sfruttate attivamente. Su iPhone arrivano diretti da Apple; su Android passano prima dal produttore, a volte anche dall'operatore. 
+ 
+ 
+ 🔄 
+ Delle app 
+ Viaggiano separatamente da quelli di sistema, tramite lo store. Attiva gli aggiornamenti automatici su Wi-Fi e non dovrai più pensarci. 
+ 
+ 
+ ⏳ 
+ Fine del supporto 
+ Un telefono che non riceve più patch accumula falle aperte. Vale anche per le app abbandonate da anni: meglio sostituirle con alternative attive.
 
 --- Slide 11 ---
-Sistemi mobile 
+Oltre il telefono 
  I due ecosistemi 
- Apple e Google offrono ecosistemi integrati con vantaggi diversi: la scelta dipende dai tuoi dispositivi. 
  
  
- 🔎 
- I due ecosistemi 
- Ecosistema Apple: iPhone + Mac + iPad + Watch + AirPods. AirDrop, Continuity e iCloud riducono attrito. Costo alto, meno apertura verso altri sistemi. Ecosistema Google: Android + Gmail + Drive + Photos + Calendar + Chrome. Funziona su PC Windows, Chromebook e browser. Più aperto e meno costoso, ma più dati condivisi con Google. Entrambi funzionano bene in modo indipendente; la vera differenza emerge se hai già altri dispositivi dello stesso brand. La comodità dell'ecosistema va bilanciata con la gestione dei dati personali.
+ 🔗 
+ Il mondo Apple 
+ iPhone + Mac + iPad + Watch + AirPods AirDrop, Continuity e iCloud fanno dialogare tutto senza sforzo Comodissimo, ma costoso e poco aperto verso dispositivi di altre marche 
+ 
+ 
+ 🌐 
+ Il mondo Google 
+ Android + Gmail + Drive + Foto + Calendar + Chrome Funziona ovunque: PC Windows, Chromebook, perfino dal browser Più aperto e meno costoso, ma condividi più dati con Google 
+ 
+ 
+ Il vero criterio Entrambi i telefoni funzionano benissimo da soli: la differenza emerge se possiedi già altri dispositivi dello stesso marchio. E la comodità dell'ecosistema va sempre bilanciata con la gestione dei tuoi dati personali.
 
 --- Slide 12 ---
-Sistemi mobile 
+Prima di cambiare 
  Backup e quale scegliere 
- Il backup è fondamentale prima di cambiare o ripristinare il telefono; la scelta dipende da budget, abitudini e ecosistema. 
+ Il backup salva ciò che conta prima di un cambio telefono o di un ripristino. E per il prossimo acquisto c'è una domanda che vale più di tutte le altre. 
+ La domanda chiave Quanti anni di aggiornamenti di sicurezza garantisce quel modello? Conta più della fotocamera o dello schermo: decide per quanto tempo il telefono resterà sicuro da usare. 
  
  
- 🧰 
- Backup e quale scegliere 
- Android: backup Google salva impostazioni, SMS, dati app compatibili e foto (se Google Photos attivo). iOS: iCloud salva app, impostazioni, messaggi e foto; verifica cosa viene incluso e cosa no. Android: più scelta e flessibilità, più varietà di prezzo. iOS: coerenza, integrazione Apple, aggiornamenti centralizzati. Domanda chiave: quanti anni di aggiornamenti di sicurezza garantisce il modello? È la priorità assoluta.
+ 💾 
+ Che cosa viene salvato 
+ Android : il backup Google copre impostazioni, SMS e dati delle app compatibili; le foto solo se Google Foto è attivo. iOS : iCloud salva app, impostazioni, messaggi e foto, ma lo spazio gratuito è limitato: verifica cosa è incluso. Su entrambi: controlla la data dell'ultimo backup prima di ogni cambio o reset, non dopo.
 
 --- Slide 13 ---
-Sistemi mobile 
- Personalizzazione Android 
- Android consente launcher, widget, app predefinite e molta più libertà rispetto a iOS. 
- Cosa si può cambiare Launcher alternativo (interfaccia home), widget sul desktop, app predefinite per link, email, mappe e telefono, temi e icone personalizzate. Più libertà significa anche più responsabilità sulle scelte fatte. 
- 
- 
- 💡 
- Personalizzazione Android 
- Puoi sostituire quasi ogni app di sistema con alternative: browser, tastiera, launcher, galleria. I widget sul desktop danno accesso rapido a informazioni senza aprire le app. Questa apertura è utile per adattare il telefono al proprio uso, ma richiede attenzione nella scelta delle app.
-
---- Slide 14 ---
 Verifica veloce 
  È tutto chiaro? 
  Prova a rispondere a mente prima di passare al capitolo successivo. 
  
- 1. Qual è l'idea più importante di questo capitolo? 
- 2. Quale impostazione o comportamento puoi controllare subito sul tuo telefono? 
- 3. Quale rischio pratico riduci applicando queste regole? 
- 4. Come spiegheresti questo argomento a una persona poco esperta?
+ 1. Qual è la differenza principale tra il modello Android (molti produttori) e quello iOS (solo Apple)? 
+ 2. Perché installare app fuori dagli store ufficiali (sideloading) è più rischioso? 
+ 3. Cosa controlla il tuo account Google o Apple ID, e perché va protetto con la verifica in due passaggi? 
+ 4. Perché gli anni di aggiornamenti promessi contano più di qualche funzione in più al momento dell'acquisto?
 
---- Slide 15 ---
+--- Slide 14 ---
 Fine S03 
  Android e iOS
  in pratica. 

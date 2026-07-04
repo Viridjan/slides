@@ -17,6 +17,8 @@
 .center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13)}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
 .chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
 .title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -27,7 +29,7 @@
     <div class="title-left">
       <div class="eyebrow reveal" style="margin-top:40px;">S10 — Accessibilità</div>
       <h1 class="h-mega reveal">Accessibilità e uso pratico</h1>
-      <p class="lead reveal" style="margin-top:30px;">Testo, contrasto, dark mode, voce, sottotitoli, pagamenti, mappe ed emergenze.</p>
+      <p class="lead reveal" style="margin-top:30px;">Testo grande, lettura a voce, sottotitoli, modalità semplificate: il telefono che si adatta a chi lo usa.</p>
       <div class="chips reveal" style="margin-top:46px;"><span class="chip">SMA10</span><span class="chip alt">Smartphones</span></div>
     </div>
     <div class="title-right"><div class="phone-art reveal"></div></div>
@@ -37,7 +39,7 @@
     <div class="center">
       <div class="tape teal reveal">In questo capitolo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa vedremo</h2>
-      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Telefono adattabile</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Testo e contrasto</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Dark mode</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Zoom e ingrandimento</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Lettura schermo</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Controllo vocale</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Accessibilità uditiva</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Modalità semplificata</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Autonomia quotidiana</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Emergenze e traduzione</span></div></div>
+      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Un telefono adattabile</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Testo e contrasto</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Dark mode</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Zoom e lente</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Lettura dello schermo</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Voce e dettatura</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Udito e sottotitoli</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Modalità semplificata</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Autonomia quotidiana</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Emergenze e traduzione</span></div></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -46,14 +48,32 @@
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Telefono adattabile</h2>
-        <p class="lead reveal d1">Il telefono include centinaia di opzioni di adattamento: non sono solo per chi ha una disabilità, ma per chiunque voglia usarlo meglio.</p>
-        <div class="note reveal d2"><div class="lbl">Dove si trovano</div><p>iOS: Impostazioni → Accessibilità. Android: Impostazioni → Accessibilità. Le funzioni sono organizzate per tipo: Vista, Udito, Motricità, Interazione. Vale la pena esplorarle anche senza una necessità specifica.</p></div>
+        <h2 class="h-big reveal">Un telefono adattabile</h2>
+        <p class="lead reveal d1">Dentro ogni smartphone c'è un menù che quasi nessuno apre: raccoglie decine di strumenti per vedere, sentire e toccare meglio.</p>
+        <div class="note reveal d2"><div class="lbl">Dove si trova</div><p>Sia su iPhone che su Android il percorso è lo stesso: <b>Impostazioni → Accessibilità</b>. Le opzioni sono raggruppate per bisogno: Vista, Udito, Motricità e interazione.</p></div>
       </div>
-      <div class="card reveal d1">
-        <span class="ic">⚙️</span>
-        <h3>Telefono adattabile</h3>
-        <ul><li>Le funzioni di accessibilità migliorano l'esperienza per tutti: testo più grande, contrasto alto, voce — utili anche senza disabilità.</li><li>Molte funzioni sono spente per default: esplorarle richiede 10 minuti ma può cambiare il modo di usare il telefono.</li><li>L'accessibilità è anche un indicatore di qualità: le app ben fatte sono accessibili per tutti.</li></ul>
+      <div class="col stack">
+        <div class="stack reveal d1">
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">👓</span><div><b style="font-size:27px;">Occhiali dimenticati</b><br><span style="font-size:23px;color:var(--ink-faint);">Testo grande e zoom salvano la giornata</span></div></div>
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">☀️</span><div><b style="font-size:27px;">Sole a picco</b><br><span style="font-size:23px;color:var(--ink-faint);">Il contrasto elevato rende tutto leggibile</span></div></div>
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🍳</span><div><b style="font-size:27px;">Mani occupate</b><br><span style="font-size:23px;color:var(--ink-faint);">Dettatura e comandi vocali fanno il lavoro</span></div></div>
+        </div>
+        <div class="analogy reveal d3"><span class="big">Regola:</span> l'accessibilità aiuta tutti, non solo chi ha una disabilità.</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div><span class="tape sky reveal">Vista</span></div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Testo e contrasto</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Se leggere sullo schermo affatica, non serve cambiare telefono: bastano quattro impostazioni.</p>
+      <div class="grid2 reveal d2" style="margin-top:26px;">
+        <div class="card"><span class="ic">🔠</span><h3>Dimensione del testo</h3><p>iPhone: Impostazioni → Accessibilità → Schermo e dimensioni testo → Testo più grande. Android: Impostazioni → Display → Dimensione carattere.</p></div>
+        <div class="card"><span class="ic">🖋️</span><h3>Testo in grassetto</h3><p>Tratti più spessi, lettere più nette: si attiva nello stesso menù. Ottimo per chi trova i caratteri sottili difficili da distinguere.</p></div>
+        <div class="card"><span class="ic">🌗</span><h3>Contrasto elevato</h3><p>iPhone: "Aumenta contrasto". Android: "Testo ad alto contrasto". Scritte più marcate, leggibili anche in pieno sole.</p></div>
+        <div class="card"><span class="ic">📲</span><h3>Vale in tutto il sistema</h3><p>Queste regolazioni agiscono su menù, messaggi e app insieme — a differenza dello zoom di una singola pagina web.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -62,31 +82,15 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Testo e contrasto</h2>
-        <p class="lead reveal d1">Aumentare la dimensione del testo e il contrasto rende tutto più leggibile, anche in condizioni di luce difficile.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🔠</span>
-        <h3>Testo e contrasto</h3>
-        <ul><li>Dimensione testo: iOS → Impostazioni → Accessibilità → Testo più grande. Android → Impostazioni → Display → Dimensione testo. La maggior parte delle app la rispetta automaticamente.</li><li>Contrasto aumentato (iOS: Aumenta contrasto; Android: Testo ad alto contrasto) migliora la leggibilità in piena luce solare.</li><li>Testo in grassetto rende la lettura più facile: Impostazioni → Accessibilità → Testo in grassetto.</li><li>Queste impostazioni si applicano all'intero sistema, non solo a un'app.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Accessibilità</div>
+        <div class="tape gold reveal">Vista</div>
         <h2 class="h-big reveal">Dark mode</h2>
-        <p class="lead reveal d1">La dark mode riduce la luminosità dello sfondo: su schermi OLED risparmia batteria reale oltre a ridurre l'affaticamento visivo.</p>
-        <div class="note reveal d2"><div class="lbl">Quando conviene</div><p>Dark mode + schermo OLED: risparmio batteria reale (pixel neri = pixel spenti). Su LCD non c'è beneficio energetico. Attivala automaticamente al tramonto: Impostazioni → Display → Automatico in base alla luce.</p></div>
+        <p class="lead reveal d1">Sfondo scuro e testo chiaro: meno luce negli occhi la sera e, su certi schermi, anche meno consumo di batteria.</p>
+        <div class="note reveal d2"><div class="lbl">OLED vs LCD</div><p>Sugli schermi OLED i pixel neri sono <b>spenti</b>: il risparmio di batteria è reale. Sugli schermi LCD la retroilluminazione resta accesa, quindi il beneficio è solo per gli occhi.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🌑</span>
-        <h3>Dark mode</h3>
-        <ul><li>La dark mode inverte lo sfondo da chiaro a scuro: riduce la luce emessa dello schermo in ambienti bui.</li><li>Su iPhone e molti Android con schermo OLED, i pixel neri sono spenti: risparmio energetico misurabile.</li><li>Non tutte le app rispettano la dark mode: alcune mostrano uno sfondo bianco anche con sistema in dark.</li></ul>
+        <span class="ic">🌙</span>
+        <h3>Come e quando attivarla</h3>
+        <ul><li>Si programma da sola: iPhone → Impostazioni → Schermo e luminosità → Automatico; Android → Display → Tema scuro con orario.</li><li>"Dal tramonto all'alba" è la scelta più comoda: di giorno chiaro, di sera scuro.</li><li>Non tutte le app la rispettano: alcune restano con lo sfondo bianco anche di notte.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -95,15 +99,15 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Zoom e ingrandimento</h2>
-        <p class="lead reveal d1">Lo zoom dello schermo ingrandisce qualsiasi contenuto al volo, senza cambiare la dimensione del testo nelle impostazioni.</p>
-        <div class="note reveal d2"><div class="lbl">Come attivarlo</div><p>iOS: Impostazioni → Accessibilità → Zoom → attiva "Gesto zoom" (doppio tap con tre dita). Android: Impostazioni → Accessibilità → Magnificazione. Con gesto attivo puoi ingrandire qualsiasi schermata senza entrare nelle impostazioni.</p></div>
+        <div class="tape sky reveal">Vista</div>
+        <h2 class="h-big reveal">Zoom e lente</h2>
+        <p class="lead reveal d1">Un dettaglio troppo piccolo — una foto, una mappa, un'etichetta — si può ingrandire al volo, senza toccare le impostazioni ogni volta.</p>
+        <div class="note reveal d2"><div class="lbl">Gesto rapido</div><p>iPhone: Impostazioni → Accessibilità → Zoom, poi doppio tocco con <b>tre dita</b>. Android: Accessibilità → Ingrandimento, poi triplo tocco o pulsante dedicato sullo schermo.</p></div>
       </div>
       <div class="card reveal d1">
         <span class="ic">🔎</span>
-        <h3>Zoom e ingrandimento</h3>
-        <ul><li>Lo zoom di accessibilità ingrandisce tutto lo schermo, non solo il testo: foto, mappe, pagine web.</li><li>Diverso dallo zoom browser o dalla dimensione testo: agisce a livello di sistema operativo su tutto ciò che vedi.</li><li>La lente di ingrandimento (iOS: Controllo accesso; Android: Accessibilità) usa la fotocamera come lente.</li></ul>
+        <h3>Due strumenti diversi</h3>
+        <ul><li>Lo <b>zoom dello schermo</b> ingrandisce quello che è già sul display: app, foto, pagine web.</li><li>La <b>lente d'ingrandimento</b> usa la fotocamera per il mondo reale: il menù del ristorante, il foglietto di un farmaco.</li><li>Su iPhone è l'app "Lente"; su molti Android è una scorciatoia nel menù Accessibilità.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -112,15 +116,57 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Lettura schermo</h2>
-        <p class="lead reveal d1">TalkBack (Android) e VoiceOver (iOS) leggono ad alta voce tutto ciò che è sullo schermo.</p>
-        <div class="note reveal d2"><div class="lbl">Gesti diversi</div><p>TalkBack e VoiceOver cambiano completamente i gesti: tap singolo seleziona, doppio tap attiva, swipe naviga. Prova 5 minuti con occhi chiusi: è un modo efficace per capire quanto un'app sia realmente accessibile.</p></div>
+        <div class="tape reveal">Vista</div>
+        <h2 class="h-big reveal">Lettura dello schermo</h2>
+        <p class="lead reveal d1">Per chi vede poco o nulla, il telefono può descriversi da solo, a voce: ogni pulsante, ogni messaggio, ogni immagine.</p>
+        <div class="note reveal d2"><div class="lbl">Attenzione ai gesti</div><p>Con la lettura schermo attiva i gesti cambiano: un tocco <b>seleziona e legge</b>, il doppio tocco attiva, si naviga scorrendo. Se la provi per curiosità, impara prima la scorciatoia per spegnerla.</p></div>
       </div>
-      <div class="card reveal d1">
-        <span class="ic">🔊</span>
-        <h3>Lettura schermo</h3>
-        <ul><li>VoiceOver (iOS) e TalkBack (Android) leggono testo, pulsanti, notifiche e descrizioni delle immagini.</li><li>Indispensabili per chi ha difficoltà visive, utili per chi guida o ha le mani occupate.</li><li>Le app ben sviluppate includono etichette per ogni elemento: le app mal fatte diventano inutilizzabili con screen reader.</li></ul>
+      <div class="col stack">
+        <div class="illu reveal d1">
+          <svg viewBox="0 0 280 190" style="max-width:280px;margin:0 auto;" role="img" aria-label="Telefono che legge lo schermo a voce">
+            <rect x="60" y="30" width="76" height="130" rx="12" fill="#f4ece0" stroke="#1c1714" stroke-width="4"/>
+            <rect x="72" y="52" width="52" height="10" rx="4" fill="#163b35"/>
+            <rect x="72" y="72" width="40" height="8" rx="4" fill="#d8c9b4"/>
+            <rect x="72" y="88" width="48" height="8" rx="4" fill="#d8c9b4"/>
+            <rect x="72" y="112" width="52" height="22" rx="6" fill="#e6533b"/>
+            <path d="M158 70 Q178 95 158 120" fill="none" stroke="#3f7e8c" stroke-width="5" stroke-linecap="round"/>
+            <path d="M174 55 Q205 95 174 135" fill="none" stroke="#3f7e8c" stroke-width="5" stroke-linecap="round"/>
+            <path d="M190 40 Q232 95 190 150" fill="none" stroke="#3f7e8c" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+          <div class="illu-cap">VoiceOver (iPhone) · TalkBack (Android)</div>
+        </div>
+        <div class="card reveal d2" style="padding:18px 24px;">
+          <p style="font-size:22px;">Leggono testi, pulsanti e immagini etichettate. Velocità regolabile — gli esperti ascoltano a velocità doppia. Cinque minuti a occhi chiusi rivelano quali app sono fatte bene.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div><span class="tape teal reveal">Voce</span></div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Voce e dettatura</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Funziona anche la direzione opposta: invece di leggere lo schermo, il telefono ascolta te.</p>
+      <div class="grid2 reveal d2" style="grid-template-columns:repeat(3,1fr);margin-top:26px;">
+        <div class="card"><span class="ic">🎙️</span><h3>Controllo vocale</h3><p>Comandi parlati: "apri Fotocamera", "scorri in basso", "tocca Invia". iPhone: Accessibilità → Controllo vocale. Android: app Voice Access.</p></div>
+        <div class="card"><span class="ic">🎤</span><h3>Dettatura</h3><p>Tocca il microfono sulla tastiera: parli e il telefono scrive. La punteggiatura si detta ("virgola", "punto"). Sui modelli recenti funziona anche offline.</p></div>
+        <div class="card"><span class="ic">🙌</span><h3>A chi conviene</h3><p>Pensata per difficoltà motorie e visive, ma comoda per tutti: messaggi lunghi, mani occupate, appunti al volo mentre cammini.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div><span class="tape gold reveal">Udito</span></div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Se l'udito non aiuta</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Rumore intorno, un solo auricolare, ipoacusia: per ogni situazione c'è una funzione dedicata.</p>
+      <div class="grid2 reveal d2" style="margin-top:26px;">
+        <div class="card"><span class="ic">💬</span><h3>Sottotitoli istantanei</h3><p>Android: Accessibilità → Sottotitoli istantanei trascrive in diretta video e messaggi vocali. iPhone: Accessibilità → Sottotitoli per i contenuti che li includono.</p></div>
+        <div class="card"><span class="ic">💡</span><h3>Avvisi visivi</h3><p>Il flash o lo schermo lampeggiano quando arriva una chiamata: iPhone → Accessibilità → Audio/Visivo → Flash LED per avvisi. Perfetto in ambienti rumorosi.</p></div>
+        <div class="card"><span class="ic">🎧</span><h3>Mono e bilanciamento</h3><p>L'audio mono unisce i due canali stereo; il bilanciamento sposta il suono a destra o sinistra. Utile con un solo auricolare o udito asimmetrico.</p></div>
+        <div class="card"><span class="ic">🦻</span><h3>Apparecchi acustici</h3><p>Molti apparecchi moderni si collegano al telefono via Bluetooth: chiamate e musica arrivano direttamente, con regolazioni dedicate nel menù Accessibilità.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -129,79 +175,44 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Controllo vocale</h2>
-        <p class="lead reveal d1">Comandi vocali e dettatura permettono di usare il telefono e scrivere testi senza toccare lo schermo.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🎙️</span>
-        <h3>Controllo vocale</h3>
-        <ul><li>Controllo vocale (iOS: Accessibilità → Controllo vocale; Android: Controllo vocale in Accessibilità) esegue comandi parlati: "apri Chrome", "scorri verso il basso", "tocca Invia".</li><li>La dettatura converte il parlato in testo in qualsiasi campo di testo: tocca il microfono sulla tastiera o usa il tasto dedicato.</li><li>Funziona offline su molti dispositivi moderni: la trascrizione avviene nel telefono senza inviare audio al cloud.</li><li>Utile non solo per disabilità: ideale con le mani occupate, alla guida (con vivavoce), o per appunti veloci.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Accessibilità uditiva</h2>
-        <p class="lead reveal d1">Sottotitoli automatici e notifiche visive rendono il telefono utilizzabile anche senza audio o in ambienti rumorosi.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">👂</span>
-        <h3>Accessibilità uditiva</h3>
-        <ul><li>Sottotitoli automatici in tempo reale: Android → Accessibilità → Sottotitoli istantanei. iOS → Accessibilità → Sottotitoli e sottotitoli codificati.</li><li>Notifiche visive (lampo LED o lampeggio schermo) segnalano chiamate e notifiche senza suono.</li><li>Mono audio combina i canali stereo in uno: utile con un solo auricolare o per chi ha difficoltà uditive asimmetriche.</li><li>Bilancio audio L/R: Impostazioni → Accessibilità → Audio/Visivo → permette di spostare il bilanciamento stereo.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Accessibilità</div>
+        <div class="tape reveal">Semplicità</div>
         <h2 class="h-big reveal">Modalità semplificata</h2>
-        <p class="lead reveal d1">Alcune versioni Android offrono un'interfaccia semplificata con icone grandi e menu ridotti.</p>
-        <div class="note reveal d2"><div class="lbl">Opzioni disponibili</div><p>Android Samsung: Impostazioni → Display → Modalità facile. Launcher alternativi: Simple Launcher, Necta Launcher. iOS non ha una modalità semplificata ufficiale, ma si può aumentare testo, ridurre motion e abilitare Accesso assistito.</p></div>
+        <p class="lead reveal d1">Meno icone, scritte più grandi, niente menù nascosti: l'interfaccia si può ridurre all'essenziale con un interruttore.</p>
+        <div class="note reveal d2"><div class="lbl">Dove trovarla</div><p>Samsung: Impostazioni → Display → <b>Modalità facile</b>. iPhone: <b>Accesso assistito</b> (Impostazioni → Accessibilità) riduce tutto a poche app scelte, con pulsanti giganti.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📐</span>
-        <h3>Modalità semplificata</h3>
-        <ul><li>La modalità facile riduce il numero di opzioni visibili, aumenta le icone e semplifica i menu.</li><li>Utile per chi si avvicina ai telefoni per la prima volta, per anziani o per chi preferisce un'interfaccia meno densa.</li><li>Molte funzioni avanzate restano disponibili nelle impostazioni, ma non sono visibili nell'interfaccia principale.</li></ul>
+        <span class="ic">👵</span>
+        <h3>A chi serve davvero</h3>
+        <ul><li>A chi usa lo smartphone per la prima volta e si perde tra le icone.</li><li>A chi vuole solo telefono, messaggi, foto e poco altro, senza distrazioni.</li><li>Le funzioni avanzate non spariscono: restano nelle impostazioni.</li><li>È reversibile: si disattiva in ogni momento dallo stesso interruttore.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
 
   <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Autonomia quotidiana</h2>
-        <p class="lead reveal d1">Pagamenti contactless, mappe e navigazione vocale rendono il telefono uno strumento di autonomia nella vita di tutti i giorni.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🗺️</span>
-        <h3>Autonomia quotidiana</h3>
-        <ul><li>Pagamenti NFC (Google Pay, Apple Pay): avvicina il telefono al POS, autentica con biometria — più veloce della carta.</li><li>Mappe con navigazione passo-passo funzionano offline (scarica le mappe in anticipo): Google Maps → Offline, Apple Maps → offline automatico.</li><li>Navigazione vocale descrive il percorso a voce: utile a piedi, in bici o con disabilità visive parziali.</li><li>Accessibilità percorsi: Google Maps e Apple Maps filtrano tragitti con ascensori, rampe e mezzi accessibili.</li></ul>
+    <div class="center">
+      <div><span class="tape sky reveal">Vita quotidiana</span></div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Autonomia quotidiana</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Le stesse funzioni che aiutano chi ha una disabilità semplificano la vita di tutti: pagare, orientarsi, muoversi da soli.</p>
+      <div class="grid2 reveal d2" style="grid-template-columns:repeat(3,1fr);margin-top:26px;">
+        <div class="card"><span class="ic">💳</span><h3>Pagare senza carta</h3><p>Google Wallet o Apple Pay: avvicini il telefono al POS e confermi con impronta o volto. Niente PIN da ricordare, niente monete da contare alla cassa.</p></div>
+        <div class="card"><span class="ic">🗺️</span><h3>Mappe anche offline</h3><p>Scarica la tua zona in anticipo (Google Maps → Mappe offline): la navigazione funziona anche senza rete, in viaggio o dove il segnale manca.</p></div>
+        <div class="card"><span class="ic">🚶</span><h3>Percorsi guidati a voce</h3><p>Le indicazioni passo-passo parlate accompagnano a piedi e sui mezzi; i filtri mostrano percorsi con ascensori e rampe al posto delle scale.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
 
   <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Accessibilità</div>
-        <h2 class="h-big reveal">Emergenze e traduzione</h2>
-        <p class="lead reveal d1">Emergency SOS e la cartella medica possono salvare vite; la traduzione in tempo reale abbatte le barriere linguistiche.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🚨</span>
-        <h3>Emergenze e traduzione</h3>
-        <ul><li>Emergency SOS: tieni premuto il tasto laterale (iOS) o il pulsante accensione 5 volte (Android) per chiamare i soccorsi e avvisare i contatti.</li><li>Cartella clinica (app Salute iOS, Google Fit Android): gruppo sanguigno, farmaci, allergie — visibili dalla schermata di blocco senza sbloccare il telefono.</li><li>Traduzione in tempo reale: Google Traduttore modalità "Conversazione" gestisce turni alternati senza toccare il tasto.</li><li>Traduzione offline: scarica i pacchetti lingua per usarla senza connessione all'estero o in zone senza rete.</li></ul>
+    <div class="center">
+      <div><span class="tape gold reveal">Sicurezza</span></div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Emergenze e traduzione</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Quattro strumenti da configurare adesso, con calma: quando serviranno non ci sarà tempo di cercarli.</p>
+      <div class="grid2 reveal d2" style="margin-top:26px;">
+        <div class="card"><span class="ic">🚨</span><h3>Chiamata SOS</h3><p>iPhone: tieni premuti tasto laterale e un tasto volume. Android: premi 5 volte il tasto di accensione. Chiama i soccorsi e invia la posizione ai contatti di emergenza.</p></div>
+        <div class="card"><span class="ic">🩺</span><h3>Informazioni mediche</h3><p>Allergie, farmaci e gruppo sanguigno leggibili dalla schermata di blocco: iPhone → app Salute → Cartella clinica; Android → Impostazioni → Sicurezza ed emergenze.</p></div>
+        <div class="card"><span class="ic">🌍</span><h3>Conversazione tradotta</h3><p>Google Traduttore in modalità Conversazione: due persone, due lingue — il telefono capisce chi sta parlando e traduce nei due sensi.</p></div>
+        <div class="card"><span class="ic">✈️</span><h3>Lingue offline</h3><p>Prima di partire scarica i pacchetti lingua: la traduzione funziona anche senza connessione, all'estero o in zone senza copertura.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -213,10 +224,10 @@
       <h2 class="h-sec reveal">È tutto chiaro?</h2>
       <p class="lead reveal d1">Prova a rispondere a mente prima di passare al capitolo successivo.</p>
       <div class="grid2 reveal d2">
-        <div class="card"><h3>1.</h3><p>Qual è l'idea più importante di questo capitolo?</p></div>
-        <div class="card"><h3>2.</h3><p>Quale impostazione o comportamento puoi controllare subito sul tuo telefono?</p></div>
-        <div class="card"><h3>3.</h3><p>Quale rischio pratico riduci applicando queste regole?</p></div>
-        <div class="card"><h3>4.</h3><p>Come spiegheresti questo argomento a una persona poco esperta?</p></div>
+        <div class="card"><h3>1.</h3><p>Una persona che vede molto poco vuole che il telefono le legga messaggi e pulsanti ad alta voce: quale funzione attivi su iPhone e quale su Android?</p></div>
+        <div class="card"><h3>2.</h3><p>Dove trovi l'impostazione per ingrandire il testo in tutto il sistema, e perché è più utile dello zoom di una singola pagina web?</p></div>
+        <div class="card"><h3>3.</h3><p>Un tuo parente non sente le chiamate quando c'è rumore: quali due funzioni — una visiva e una testuale — possono aiutarlo?</p></div>
+        <div class="card"><h3>4.</h3><p>A chi consiglieresti la Modalità facile di Samsung o l'Accesso assistito di iPhone, e cosa cambia rispetto all'interfaccia normale?</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -225,8 +236,8 @@
   <section class="slide closing">
     <div class="center" style="align-items:center;text-align:center;">
       <div class="eyebrow reveal gold">Fine S10</div>
-      <h2 class="h-mega reveal" style="margin-top:10px;">Telefono<br><em class="gold">per tutti.</em></h2>
-      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Le funzioni di accessibilità rendono lo smartphone più utile per tutti, non solo per chi ha esigenze specifiche.</p>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Il telefono<br><em class="gold">si adatta a te.</em></h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Testo più grande, VoiceOver e TalkBack, sottotitoli istantanei, Modalità facile: dieci minuti in Impostazioni → Accessibilità restituiscono autonomia a chi vede o sente poco — e comodità a tutti gli altri.</p>
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a href="sma11-manutenzione-scelta.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → SMA11 · Manutenzione e scelta</a>
         <a href="00-indice.html" class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);text-decoration:none;">↩ Indice del corso</a>

@@ -108,6 +108,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 .edit-hint.show{display:block;}
 .progress{position:fixed;bottom:0;left:0;height:4px;background:var(--red);transition:width .4s var(--ease);z-index:9999;}
 .title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -233,7 +235,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h3 contenteditable="false" style="font-size:52px;line-height:1;">IA Debole<br><em style="font-size:32px;font-style:normal;color:var(--sky);">Narrow AI</em></h3>
         <p contenteditable="false" style="font-size:27px;line-height:1.4;color:var(--ink-soft);">Eccelle in <b>un solo compito</b>: giocare a scacchi, riconoscere volti, tradurre testi, guidare un'auto. Non può fare altro.</p>
         <div class="note sky" style="margin-top:auto;">
-          <div class="lbl">📌 Oggi</div>
+          <div class="lbl">Oggi</div>
           <p contenteditable="false" style="font-size:22px;">Tutta l'IA esistente oggi — compreso ChatGPT — è IA debole, per quanto impressionante sembri.</p>
         </div>
       </div>
@@ -242,7 +244,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h3 contenteditable="false" style="font-size:52px;line-height:1;color:var(--gold-deep);">IA Forte<br><em style="font-size:32px;font-style:normal;color:var(--gold-deep);">AGI</em></h3>
         <p contenteditable="false" style="font-size:27px;line-height:1.4;color:var(--ink-soft);">Un sistema capace di <b>qualsiasi compito cognitivo</b> che un essere umano può svolgere — ragionamento, creatività, apprendimento autonomo in nuovi contesti.</p>
         <div class="note" style="margin-top:auto;">
-          <div class="lbl">🔮 Futuro</div>
+          <div class="lbl">Futuro</div>
           <p contenteditable="false" style="font-size:22px;">Non esiste ancora. I ricercatori non concordano su quando — o se — arriverà.</p>
         </div>
       </div>
@@ -275,9 +277,22 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <p contenteditable="false">Costruzione e programmazione di robot per scenari complessi. La sfida definitiva dell'IA: richiede quasi tutte le sue aree.</p>
       </div>
     </div>
-    <div class="note sky reveal d2" style="margin-top:20px;">
-      <div class="lbl">📐 Gerarchia</div>
-      <p contenteditable="false">Informatica ⊃ IA ⊃ Deep Learning &gt; Machine Learning</p>
+    <div class="illu reveal d2" style="margin-top:20px;padding:18px 30px;">
+      <svg viewBox="0 0 620 192" style="max-width:620px;margin:0 auto;" role="img" aria-label="Cerchi concentrici: il Deep Learning è un sottoinsieme del Machine Learning, che è un sottoinsieme dell'Intelligenza Artificiale">
+        <circle cx="105" cy="96" r="88" fill="#163b35"/>
+        <circle cx="105" cy="126" r="57" fill="#3f7e8c"/>
+        <circle cx="105" cy="154" r="29" fill="#e6c14a"/>
+        <text x="105" y="40" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="24" fill="#f4ece0">IA</text>
+        <text x="105" y="94" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="22" fill="#f4ece0">ML</text>
+        <text x="105" y="161" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="19" fill="#1c1714">DL</text>
+        <circle cx="258" cy="48" r="11" fill="#163b35"/>
+        <text x="284" y="56" font-family="Space Grotesk,sans-serif" font-size="23" fill="#1c1714"><tspan font-weight="700">Intelligenza Artificiale</tspan> — il campo intero</text>
+        <circle cx="258" cy="96" r="11" fill="#3f7e8c"/>
+        <text x="284" y="104" font-family="Space Grotesk,sans-serif" font-size="23" fill="#1c1714"><tspan font-weight="700">Machine Learning</tspan> — impara dai dati</text>
+        <circle cx="258" cy="144" r="11" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <text x="284" y="152" font-family="Space Grotesk,sans-serif" font-size="23" fill="#1c1714"><tspan font-weight="700">Deep Learning</tspan> — reti neurali profonde</text>
+      </svg>
+      <div class="illu-cap">Ogni cerchio è un sottoinsieme del precedente: IA ⊃ ML ⊃ DL</div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -336,7 +351,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="note reveal d3" style="margin-top:18px;">
-      <div class="lbl">🔗 Collegamento</div>
+      <div class="lbl">Collegamento</div>
       <p contenteditable="false">ChatGPT è un Large Language Model (LLM) — un modello NLP addestrato su enormi quantità di testo disponibile in internet.</p>
     </div>
     <div class="page-num"></div>
@@ -356,10 +371,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <div class="step"><div class="t" contenteditable="false"><b>Modello</b> — un algoritmo che trova pattern nei dati. Commette errori, li misura, si corregge — milioni di volte.</div></div>
         <div class="step"><div class="t" contenteditable="false"><b>Previsione</b> — dato un input nuovo, il modello applica i pattern appresi e produce un output: "questa è una foto di gatto" con 94% di confidenza.</div></div>
       </div>
-      <div class="note sky reveal d2" style="margin-top:24px;max-width:1300px;">
-        <div class="lbl">🔑 Differenza chiave</div>
-        <p contenteditable="false">In un programma tradizionale le regole le scrive il programmatore. Nel ML le regole le <b>scopre il modello da solo</b> guardando i dati.</p>
-      </div>
+      <div class="analogy reveal d2" style="margin-top:24px;"><span class="big">Analogia:</span> il ML impara dagli esempi come un bambino, non dalle regole come un impiegato.</div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -388,7 +400,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
           <p contenteditable="false">Robot per consegne, droni autonomi, navi senza equipaggio: le stesse tecnologie si estendono ovunque.</p>
         </div>
         <div class="note reveal d3">
-          <div class="lbl">👁️ Ruolo umano</div>
+          <div class="lbl">Ruolo umano</div>
           <p contenteditable="false">Gli umani assumeranno sempre più un ruolo di <b>supervisione</b> mentre le macchine gestiscono l'esecuzione.</p>
         </div>
       </div>
@@ -482,11 +494,11 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <p class="lead reveal d1" contenteditable="false" style="margin-top:18px;max-width:1350px;">Quando un algoritmo registra il comportamento dell'utente e sceglie selettivamente <b>solo ciò che vuole vedere</b>, isolandolo da informazioni in contrasto con il suo punto di vista.</p>
       <div class="grid2 reveal d2" style="margin-top:28px;max-width:1350px;">
         <div class="note red">
-          <div class="lbl">🚫 Effetto</div>
+          <div class="lbl">Effetto</div>
           <p contenteditable="false">L'utente viene escluso da notizie, opinioni e dati che contraddicono la propria visione del mondo — senza rendersene conto.</p>
         </div>
         <div class="note">
-          <div class="lbl">📌 Esempi</div>
+          <div class="lbl">Esempi</div>
           <p contenteditable="false">Google Search personalizzata e Facebook News Feed sono i casi più studiati e documentati di filter bubble.</p>
         </div>
       </div>
@@ -516,7 +528,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="note red reveal d2" style="margin-top:20px;">
-      <div class="lbl">🔗 Connessione con l'IA</div>
+      <div class="lbl">Connessione con l'IA</div>
       <p contenteditable="false">Gli algoritmi di raccomandazione massimizzano l'engagement — spesso promuovendo contenuti emotivi o polarizzanti, alimentando tutti e tre questi fenomeni.</p>
     </div>
     <div class="page-num"></div>
@@ -547,7 +559,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Bot</em> e troll farm</h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Account automatizzati e reti coordinate di persone reali usati per <b>amplificare messaggi, creare falsa consenso e polarizzare l'opinione pubblica</b>.</p>
         <div class="note red reveal d2" style="margin-top:18px;">
-          <div class="lbl">🚨 Come si riconosce un bot</div>
+          <div class="lbl">Come si riconosce un bot</div>
           <p contenteditable="false">Account creato di recente, nessuna foto personale, pubblica decine di volte al giorno, commenta sempre lo stesso tema, spesso senza profilo completo.</p>
         </div>
       </div>
@@ -625,7 +637,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="note sky reveal d3" style="margin-top:18px;">
-      <div class="lbl">📱 Ogni giorno</div>
+      <div class="lbl">Ogni giorno</div>
       <p contenteditable="false">Face ID dello smartphone, filtri AR di Instagram, traduzione live di testo con la fotocamera, riconoscimento della scrittura — tutte computer vision.</p>
     </div>
     <div class="page-num"></div>
@@ -638,11 +650,11 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <p class="lead reveal d1" contenteditable="false" style="margin-top:20px;max-width:1300px;">Con l'aumento della potenza di calcolo, creare <b>video falsi dall'aspetto autentico</b> — indistinguibili da filmati reali — è diventato accessibile a chiunque.</p>
       <div class="grid2 reveal d2" style="margin-top:30px;max-width:1300px;">
         <div class="note red">
-          <div class="lbl">🎥 Come funziona</div>
+          <div class="lbl">Come funziona</div>
           <p contenteditable="false">Il modello apprende il volto e la voce di una persona da molte immagini/video e li sovrappone su un altro soggetto con precisione crescente.</p>
         </div>
         <div class="note">
-          <div class="lbl">🛡️ Cosa fare</div>
+          <div class="lbl">Cosa fare</div>
           <p contenteditable="false">Verificare la fonte originale. Cercare incongruenze (occhi, denti, bordi). Non condividere video sensazionali senza verifica.</p>
         </div>
       </div>
@@ -777,7 +789,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         </div>
       </div>
       <div class="note reveal d3" style="margin-top:20px;max-width:1350px;">
-        <div class="lbl">🚫 Non fidarti ciecamente</div>
+        <div class="lbl">Non fidarti ciecamente</div>
         <p contenteditable="false">ChatGPT può <b>"allucinare"</b>: inventare fatti, citare fonti inesistenti, sbagliare calcoli. Verifica sempre le informazioni critiche.</p>
       </div>
     </div>
@@ -818,7 +830,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Bias</em> nell'IA</h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Un modello impara dai dati. Se i dati riflettono pregiudizi umani, il modello li <b>amplifica e automatizza</b>.</p>
         <div class="note red reveal d2" style="margin-top:20px;">
-          <div class="lbl">⚖️ Impatto reale</div>
+          <div class="lbl">Impatto reale</div>
           <p contenteditable="false">Algoritmi usati in tribunali USA per prevedere la recidiva hanno mostrato bias razziali. Sistemi di riconoscimento facciale falliscono di più con pelli scure.</p>
         </div>
       </div>
@@ -908,7 +920,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Il futuro dell'<em class="hot">IA</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">I ricercatori non concordano su cosa succederà — ma concordano che <b>il cambiamento sarà profondo</b>.</p>
         <div class="note reveal d2" style="margin-top:20px;">
-          <div class="lbl">🧠 AGI — Artificial General Intelligence</div>
+          <div class="lbl">AGI — Artificial General Intelligence</div>
           <p contenteditable="false">Un sistema capace di imparare qualsiasi compito come un umano. Alcune stime: 10 anni. Altre: mai. Nessuno lo sa davvero.</p>
         </div>
       </div>
@@ -942,11 +954,11 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <p class="lead reveal d1" contenteditable="false" style="margin-top:18px;max-width:1300px;">L'IA genera testo, musica, immagini, codice — ma <b>non ha intenzioni, emozioni o esperienze vissute</b>. Combina pattern visti nei dati.</p>
       <div class="grid2 reveal d2" style="margin-top:28px;max-width:1300px;">
         <div class="note sky">
-          <div class="lbl">✅ Cosa riesce bene</div>
+          <div class="lbl">Cosa riesce bene</div>
           <p contenteditable="false">Variazioni su temi esistenti, combinazioni inaspettate, produzione rapida di bozze, sperimentazione di stili. Ottimo assistente creativo.</p>
         </div>
         <div class="note red">
-          <div class="lbl">🚫 Cosa non riesce</div>
+          <div class="lbl">Cosa non riesce</div>
           <p contenteditable="false">Originalità vera, rottura consapevole delle regole, vissuto personale, intenzione artistica autentica, comprensione del contesto culturale profondo.</p>
         </div>
       </div>
@@ -984,7 +996,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="note reveal d3" style="margin-top:18px;">
-      <div class="lbl">🇪🇺 AI Act</div>
+      <div class="lbl">🇺 AI Act</div>
       <p contenteditable="false">Il regolamento europeo sull'IA (2024) classifica i sistemi per livello di rischio e impone obblighi di trasparenza — il più avanzato al mondo.</p>
     </div>
     <div class="page-num"></div>
@@ -1013,7 +1025,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- ============ SLIDE 17 · CLOSING ============ -->
   <section class="slide closing">
     <div class="center" style="align-items:center;text-align:center;">
-      <div class="eyebrow reveal gold">Fine IA_01 🤖</div>
+      <div class="eyebrow reveal gold">Fine IA_01</div>
       <h2 class="h-mega reveal" style="margin-top:10px;" contenteditable="false">L'IA sei<br><em class="gold">anche tu.</em></h2>
       <p class="lead reveal d1" contenteditable="false" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">
         Capire l'IA significa capire meglio il mondo che ci circonda — i contenuti che vediamo, le decisioni che le macchine prendono per noi, e come possiamo <span class="gold">usarla con senso critico</span>.

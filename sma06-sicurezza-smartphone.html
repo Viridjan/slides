@@ -17,6 +17,8 @@
 .center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
 .chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .card{padding:20px 24px}.tight-slide .card h3{font-size:30px}.tight-slide .card p,.tight-slide .card li{font-size:21px;line-height:1.28}
 .title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -27,7 +29,7 @@
     <div class="title-left">
       <div class="eyebrow reveal" style="margin-top:40px;">S06 — Sicurezza</div>
       <h1 class="h-mega reveal">Sicurezza dello smartphone</h1>
-      <p class="lead reveal" style="margin-top:30px;">Blocco schermo, 2FA, furto, SIM swap, phishing, malware e reti malevole.</p>
+      <p class="lead reveal" style="margin-top:30px;">Blocco schermo e biometria, 2FA, furto e smarrimento, SIM swap, truffe via SMS e telefono, malware e reti WiFi false.</p>
       <div class="chips reveal" style="margin-top:46px;"><span class="chip">SMA06</span><span class="chip alt">Smartphones</span></div>
     </div>
     <div class="title-right"><div class="phone-art reveal"></div></div>
@@ -37,7 +39,7 @@
     <div class="center">
       <div class="tape teal reveal">In questo capitolo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa vedremo</h2>
-      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Il telefono come chiave</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Blocco schermo</span></div><div class="agenda-item"><span class="n">03</span><span class="t">2FA e OTP</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Furto e risposta</span></div><div class="agenda-item"><span class="n">05</span><span class="t">SIM swap</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Phishing messaggi</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Chiamate fraudolente</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Malware e APK</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Aggiornamenti sicurezza</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Reti malevole</span></div></div>
+      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">Il telefono è una chiave</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Blocco schermo e biometria</span></div><div class="agenda-item"><span class="n">03</span><span class="t">2FA e codici OTP</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Furto: prepararsi e reagire</span></div><div class="agenda-item"><span class="n">05</span><span class="t">SIM swap</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Smishing: truffe via SMS</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Vishing: truffe al telefono</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Malware e app da fonti dubbie</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Aggiornamenti di sicurezza</span></div><div class="agenda-item"><span class="n">10</span><span class="t">WiFi pubbliche e reti false</span></div></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -46,14 +48,42 @@
     <div class="split">
       <div class="col stack">
         <div class="tape reveal">Sicurezza</div>
-        <h2 class="h-big reveal">Il telefono come chiave</h2>
-        <p class="lead reveal d1">Lo smartphone apre email, banca, social e cloud: proteggere il telefono significa proteggere la tua identità digitale.</p>
-        <div class="note reveal d2"><div class="lbl">Inventario degli accessi</div><p>Elenca i servizi a cui il tuo telefono dà accesso: banca, email, lavoro, cloud, social. Sapere cosa rischi in caso di furto aiuta a stabilire le priorità di protezione.</p></div>
+        <h2 class="h-big reveal">Il telefono è una chiave</h2>
+        <p class="lead reveal d1">Non stiamo proteggendo un oggetto da qualche centinaio di euro: stiamo proteggendo tutto ciò che quell'oggetto apre.</p>
+        <div class="analogy reveal d2"><span class="big">Regola:</span> il PIN protegge il telefono, il telefono protegge tutto il resto.</div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📱</span>
-        <h3>Il telefono come chiave</h3>
-        <ul><li>Perderlo o farselo rubare può significare perdere accesso a molti account contemporaneamente.</li><li>Un telefono sbloccato in mani sbagliata può esporre email, banca, foto e documenti.</li><li>La sicurezza del telefono non è tecnica: è protezione della tua vita digitale.</li></ul>
+        <span class="ic">🔑</span>
+        <h3>Cosa apre davvero</h3>
+        <ul><li><b>La tua email</b>: da lì si resettano le password di quasi tutti gli altri account.</li><li><b>La tua banca</b>: app bancaria e SMS di conferma arrivano sullo stesso apparecchio.</li><li><b>La tua vita privata</b>: foto, chat, rubrica, documenti — materiale per ricatti e truffe verso i tuoi contatti.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">Prima barriera</div>
+      <h2 class="h-sec reveal">Blocco schermo e biometria</h2>
+      <p class="lead reveal d1">Senza blocco schermo, chiunque raccolga il telefono ha già vinto. Codice e biometria lavorano insieme, con ruoli diversi.</p>
+      <div class="grid2 reveal d2">
+        <div class="card"><span class="ic">🔢</span><h3>Il codice è le fondamenta</h3><ul><li>PIN di almeno 6 cifre, non ovvie: niente 1234, 0000 o date di nascita.</li><li>Una password alfanumerica protegge ancora meglio di un PIN.</li><li>Blocco automatico entro 30–60 secondi di inattività.</li></ul></div>
+        <div class="card"><span class="ic">👆</span><h3>La biometria è la comodità</h3><ul><li>Impronta e volto sbloccano in un istante, decine di volte al giorno.</li><li>Dopo un riavvio o troppi tentativi falliti, il telefono chiede comunque il codice.</li><li>Nessuno può "sbirciare" la tua impronta come farebbe con un PIN digitato in pubblico.</li></ul></div>
+      </div>
+      <div class="analogy reveal d3" style="align-self:center;"><span class="big">Regola:</span> PIN debole + impronta = porta blindata con la chiave sotto lo zerbino.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">Seconda barriera</div>
+      <h2 class="h-sec reveal">2FA e codici OTP</h2>
+      <p class="lead reveal d1">Anche se qualcuno ti ruba la password, con la verifica in due passaggi non entra: gli manca il secondo pezzo.</p>
+      <div class="grid3 reveal d2">
+        <div class="card"><span class="ic">🔐</span><h3>Due lucchetti diversi</h3><p>Qualcosa che <b>sai</b> (la password) più qualcosa che <b>hai</b> (il telefono). Attivala prima di tutto su email e banca: sono gli account che aprono gli altri.</p></div>
+        <div class="card"><span class="ic">📲</span><h3>App meglio degli SMS</h3><p>Un'app autenticatore (Google Authenticator, Aegis) genera i codici direttamente sul telefono: non viaggiano in rete e non si intercettano con un SIM swap.</p></div>
+        <div class="card"><span class="ic">🤫</span><h3>L'OTP non si detta mai</h3><p>Ogni codice vale 30 secondi e un solo accesso. Chi te lo chiede — al telefono, in chat, via email — sta completando un furto: nessun servizio serio lo domanda.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -62,46 +92,30 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Sicurezza</div>
-        <h2 class="h-big reveal">Blocco schermo e biometria</h2>
-        <p class="lead reveal d1">PIN, password, impronta e volto proteggono da accesso immediato; la biometria è comoda ma non sostituisce un codice forte.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🔋</span>
-        <h3>Blocco schermo e biometria</h3>
-        <ul><li>Un blocco debole (0000, 1234, data di nascita) protegge poco: evita PIN ovvi.</li><li>La biometria (impronta, volto) sblocca velocemente ma non funziona dopo riavvio o tentativi falliti — richiede il PIN.</li><li>Usa biometria per comodità quotidiana, ma scegli un PIN/password forte come base.</li><li>Imposta blocco automatico dopo 30–60 secondi di inattività: va nel cassetto = va bloccato.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Sicurezza</div>
-        <h2 class="h-big reveal">2FA e codici OTP</h2>
-        <p class="lead reveal d1">La verifica in due passaggi protegge gli account anche se la password viene rubata; i codici OTP non vanno mai comunicati a nessuno.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🔐</span>
-        <h3>2FA e codici OTP</h3>
-        <ul><li>2FA aggiunge un secondo fattore: qualcosa che hai (telefono) oltre a qualcosa che sai (password).</li><li>App autenticatore (Google Authenticator, Aegis) è più sicura degli SMS: non intercettabile via SIM swap.</li><li>Gli OTP cambiano ogni 30 secondi e valgono per un solo accesso.</li><li>Chi chiede un OTP per telefono, chat o email sta quasi certamente tentando un furto account.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Sicurezza</div>
-        <h2 class="h-big reveal">Furto e risposta</h2>
-        <p class="lead reveal d1">Trova dispositivo va attivato prima del furto; in caso di smarrimento: blocca SIM, cambia password, usa cancellazione remota.</p>
+        <div class="tape reveal">Furto · 1</div>
+        <h2 class="h-big reveal">Prepararsi al furto</h2>
+        <p class="lead reveal d1">Le difese contro furto e smarrimento funzionano solo se le attivi prima: a telefono sparito è troppo tardi.</p>
+        <div class="note reveal d2"><div class="lbl">Blocco attivazione</div><p>Con Trova dispositivo o Dov'è attivi, il telefono resta legato al tuo account <b>anche dopo un reset di fabbrica</b>: chi lo ruba non può riattivarlo. Un deterrente che rende il furto molto meno redditizio.</p></div>
       </div>
       <div class="card reveal d1">
         <span class="ic">🧭</span>
-        <h3>Furto e risposta</h3>
-        <ul><li>Android: Trova il mio dispositivo (findmydevice.google.com). iOS: Dov'è (icloud.com/find). Devono essere attivi prima dell'evento.</li><li>In caso di furto con telefono sbloccato: cambia subito password email e banca da un altro dispositivo.</li><li>Blocca la SIM chiamando l'operatore; avvisa banca e servizi sensibili.</li><li>Il backup aggiornato riduce il danno: i dati si recuperano, il telefono no.</li></ul>
+        <h3>Da attivare oggi</h3>
+        <ul><li><b>Android</b>: Trova il mio dispositivo — verifica da findmydevice.google.com.</li><li><b>iOS</b>: Dov'è — verifica da icloud.com/find.</li><li><b>Backup automatico</b> attivo: i dati si recuperano, il telefono no.</li><li><b>IMEI annotato</b>: digita *#06# e conserva il codice, servirà per la denuncia.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">Furto · 2</div>
+      <h2 class="h-sec reveal">Telefono rubato: i quattro passi</h2>
+      <p class="lead reveal d1">Nell'emergenza conta l'ordine: prima limita i danni agli account, poi pensa all'apparecchio.</p>
+      <div class="stack reveal d2">
+        <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📍</span><div><b style="font-size:27px;">1 · Localizza e blocca</b><br><span style="font-size:23px;color:var(--ink-faint);">Da un altro dispositivo entra in Trova dispositivo (Android) o Dov'è (iOS): blocca lo schermo da remoto e mostra un messaggio con un recapito per la restituzione.</span></div></div>
+        <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🔑</span><div><b style="font-size:27px;">2 · Cambia le password chiave</b><br><span style="font-size:23px;color:var(--ink-faint);">Prima l'email, subito dopo banca e social: chi controlla la tua email può resettare tutto il resto. Fallo anche se il telefono era bloccato.</span></div></div>
+        <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📵</span><div><b style="font-size:27px;">3 · Blocca la SIM</b><br><span style="font-size:23px;color:var(--ink-faint);">Chiama il tuo operatore: fermi chiamate a pagamento e soprattutto gli SMS OTP diretti al numero rubato.</span></div></div>
+        <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🚨</span><div><b style="font-size:27px;">4 · Denuncia e cancella</b><br><span style="font-size:23px;color:var(--ink-faint);">Denuncia alle autorità con l'IMEI annotato. Se il recupero è impossibile, avvia la cancellazione remota: il backup ti restituirà i dati sul prossimo telefono.</span></div></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -110,15 +124,15 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Sicurezza</div>
+        <div class="tape reveal">Attacchi al numero</div>
         <h2 class="h-big reveal">SIM swap</h2>
-        <p class="lead reveal d1">Un attaccante trasferisce il tuo numero su una SIM che controlla e può ricevere i tuoi SMS OTP.</p>
-        <div class="note reveal d2"><div class="lbl">Come proteggersi</div><p>Imposta un PIN SIM (Impostazioni → SIM) e un PIN account operatore. Evita SMS come secondo fattore per banca e email: usa app autenticatore. Segnale perso improvvisamente senza motivo? Chiama l'operatore subito.</p></div>
+        <p class="lead reveal d1">Per svuotarti il conto non serve rubarti il telefono: basta rubarti il numero.</p>
+        <div class="note reveal d2"><div class="lbl">Le tue contromisure</div><p>Imposta un <b>PIN sulla SIM</b> (Impostazioni → SIM) e un codice di sicurezza sull'account dell'operatore. Per banca ed email usa un'app autenticatore, non gli SMS. Segnale sparito senza motivo? Chiama subito l'operatore da un altro telefono.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🛡️</span>
-        <h3>SIM swap</h3>
-        <ul><li>L'attaccante convince l'operatore a portare il numero su una nuova SIM fingendosi te.</li><li>Con il tuo numero può ricevere SMS OTP e tentare accessi a banca, email e account.</li><li>Il segnale del tuo telefono sparisce: è il primo segnale di un SIM swap in corso.</li></ul>
+        <span class="ic">📶</span>
+        <h3>Come avviene l'attacco</h3>
+        <ul><li>Il truffatore contatta l'operatore fingendosi te, con dati raccolti online o via phishing, e chiede il trasferimento del numero su una nuova SIM.</li><li>Da quel momento chiamate e SMS — <b>compresi gli OTP della banca</b> — arrivano a lui.</li><li>Il tuo telefono perde il segnale all'improvviso: è il primo campanello d'allarme.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -127,47 +141,34 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Sicurezza</div>
-        <h2 class="h-big reveal">Phishing via messaggi</h2>
-        <p class="lead reveal d1">SMS e WhatsApp falsificati imitano banche, corrieri e contatti fidati per rubare dati o codici.</p>
+        <div class="tape reveal">Truffe · SMS</div>
+        <h2 class="h-big reveal">Smishing: l'esca via messaggio</h2>
+        <p class="lead reveal d1">Finto corriere, finta banca, finto ente: un SMS ben scritto e un link che porta a una pagina-trappola identica all'originale.</p>
+        <div class="note reveal d2"><div class="lbl">La regola che ti salva</div><p><b>Mai entrare dal link.</b> Se il messaggio parla di un pacco o del conto, apri tu l'app o il sito ufficiale e controlla lì. In dubbio, chiama il mittente a un numero che possiedi già.</p></div>
       </div>
-      <div class="card reveal d1">
-        <span class="ic">🧩</span>
-        <h3>Phishing via messaggi</h3>
-        <ul><li>SMS phishing (smishing): finto corriere, banca, Poste Italiane, INPS — usano urgenza e link corti che nascondono l'URL reale.</li><li>WhatsApp phishing: messaggi da contatti compromessi che sembrano affidabili. Attenzione a richieste di codici, votazioni, link strani o "guarda questo".</li><li>Regola: non aprire link da messaggi inaspettati — entra dal sito ufficiale o chiama il mittente.</li><li>Verifica con una chiamata se una richiesta è urgente o insolita, anche da un numero noto.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Sicurezza</div>
-        <h2 class="h-big reveal">Chiamate fraudolente</h2>
-        <p class="lead reveal d1">Il vishing usa telefonate per creare urgenza e ottenere dati, password o autorizzazioni.</p>
-        <div class="note reveal d2"><div class="lbl">Tattica del vishing</div><p>L'attaccante finge di essere banca, Polizia, Amazon o operatore. Crea urgenza ("la tua carta è bloccata"). Regola d'oro: riaggancia e richiama il numero ufficiale sul sito — mai il numero che ti hanno dato loro.</p></div>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">📁</span>
-        <h3>Chiamate fraudolente</h3>
-        <ul><li>Il vishing (voice phishing) usa il telefono per ottenere dati personali, OTP o autorizzazioni bancarie.</li><li>Banche e servizi seri non chiedono mai password complete, OTP o dati carta per telefono.</li><li>Il numero chiamante può essere falsificato (spoofing): non fidarti del numero visualizzato.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">Sicurezza</div>
-        <h2 class="h-big reveal">Malware e APK non sicuri</h2>
-        <p class="lead reveal d1">Il malware mobile ruba dati e intercetta SMS; gli APK da fonti non ufficiali sono il vettore principale.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">💡</span>
-        <h3>Malware e APK non sicuri</h3>
-        <ul><li>Malware mobile può: rubare dati, mostrare pubblicità invasiva, intercettare SMS/OTP, usare accessibilità per controllare lo schermo.</li><li>APK da siti casuali, Telegram o link possono contenere codice modificato nascosto nell'app "originale".</li><li>App "premium gratis" e cloni di app famose sono segnali di rischio quasi certi.</li><li>Scarica solo da: Play Store, sito ufficiale dello sviluppatore, F-Droid per app open source verificate.</li></ul>
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 280 280" style="max-width:260px;margin:0 auto;" role="img" aria-label="Messaggio SMS agganciato da un amo da pesca">
+          <!-- Fishing line -->
+          <line x1="190" y1="6" x2="190" y2="72" stroke="#1c1714" stroke-width="3"/>
+          <!-- Hook -->
+          <path d="M190 72 V106 a26 26 0 1 1 -52 0 v-4" fill="none" stroke="#3f7e8c" stroke-width="7" stroke-linecap="round"/>
+          <path d="M138 100 l-9 14 h18 Z" fill="#3f7e8c"/>
+          <!-- SMS bubble -->
+          <rect x="34" y="150" width="204" height="96" rx="14" fill="#f4ece0" stroke="#1c1714" stroke-width="4"/>
+          <path d="M62 244 L48 270 L92 246 Z" fill="#f4ece0" stroke="#1c1714" stroke-width="4" stroke-linejoin="round"/>
+          <!-- Text lines -->
+          <rect x="54" y="168" width="142" height="10" rx="5" fill="#163b35" opacity=".55"/>
+          <rect x="54" y="188" width="164" height="10" rx="5" fill="#163b35" opacity=".55"/>
+          <!-- The bait link -->
+          <rect x="54" y="212" width="112" height="13" rx="6" fill="#e6533b"/>
+          <!-- Alert badge -->
+          <circle cx="238" cy="150" r="17" fill="#e6533b" stroke="#1c1714" stroke-width="4"/>
+          <rect x="235" y="139" width="6" height="13" rx="3" fill="#f4ece0"/>
+          <circle cx="238" cy="159" r="3.5" fill="#f4ece0"/>
+          <!-- Coin bait -->
+          <circle cx="164" cy="132" r="11" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+        </svg>
+        <div class="illu-cap">L'SMS è l'esca, il link è l'amo</div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -176,15 +177,29 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Sicurezza</div>
-        <h2 class="h-big reveal">Aggiornamenti sicurezza</h2>
-        <p class="lead reveal d1">Le patch chiudono vulnerabilità note: un telefono non aggiornato è esposto ad attacchi già documentati.</p>
-        <div class="note reveal d2"><div class="lbl">Quando aggiornare</div><p>Installa patch di sicurezza appena disponibili: le vulnerabilità note vengono sfruttate in pochi giorni dopo la pubblicazione. iOS: Impostazioni → Generali → Aggiornamento software. Android: Impostazioni → Info telefono → Aggiornamenti.</p></div>
+        <div class="tape reveal">Truffe · Voce</div>
+        <h2 class="h-big reveal">Vishing: la truffa al telefono</h2>
+        <p class="lead reveal d1">Una voce professionale, un'emergenza inventata e la fretta: così ti trasformano in complice del furto ai tuoi danni.</p>
+        <div class="note reveal d2"><div class="lbl">Riaggancia e richiama</div><p>Nessuna banca o forza dell'ordine chiede OTP, password o dati carta al telefono. Riaggancia e <b>richiama tu il numero ufficiale</b> che trovi sul sito o sul retro della carta — mai quello suggerito da chi ti ha chiamato.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">✅</span>
-        <h3>Aggiornamenti sicurezza</h3>
-        <ul><li>Gli aggiornamenti di sicurezza correggono vulnerabilità che attaccanti potrebbero già conoscere.</li><li>Un telefono non aggiornato da mesi o anni è una superficie di attacco nota e non protetta.</li><li>Valuta il supporto aggiornamenti come criterio di acquisto: è più importante del prezzo.</li></ul>
+        <span class="ic">📞</span>
+        <h3>Il copione tipico</h3>
+        <ul><li>Si presentano come banca, Polizia postale o assistenza clienti: «Rileviamo un pagamento sospetto, dobbiamo agire subito».</li><li>Chiedono di dettare un OTP, i dati della carta o di fare un bonifico "di messa in sicurezza".</li><li>Il numero sul display può essere falsificato (<b>spoofing</b>): sembrare quello vero della banca non prova nulla.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">Software ostile</div>
+      <h2 class="h-sec reveal">Malware e app da fonti dubbie</h2>
+      <p class="lead reveal d1">Sullo smartphone il malware arriva quasi sempre travestito da app: il vettore principale sono gli APK scaricati fuori dagli store.</p>
+      <div class="grid3 reveal d2">
+        <div class="card"><span class="ic">🦠</span><h3>Cosa può fare</h3><ul><li>Leggere SMS e intercettare gli OTP bancari.</li><li>Controllare lo schermo abusando dei permessi di accessibilità.</li><li>Rubare credenziali e inondarti di pubblicità.</li></ul></div>
+        <div class="card"><span class="ic">🚩</span><h3>Segnali di rischio</h3><ul><li>App "premium gratis" e cloni di app famose.</li><li>APK ricevuti via link, chat o canali Telegram.</li><li>Richieste di permessi sproporzionate alla funzione.</li></ul></div>
+        <div class="card"><span class="ic">🏪</span><h3>Fonti affidabili</h3><ul><li>Play Store e App Store, con le loro verifiche.</li><li>Il sito ufficiale dello sviluppatore.</li><li>F-Droid per app open source verificate.</li></ul></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -193,15 +208,15 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Sicurezza</div>
-        <h2 class="h-big reveal">Reti malevole</h2>
-        <p class="lead reveal d1">L'evil twin imita reti WiFi note per intercettare traffico; la connessione automatica a reti aperte è il punto debole.</p>
-        <div class="note reveal d2"><div class="lbl">Come prevenire</div><p>Disattiva connessione automatica a reti WiFi aperte: Impostazioni → WiFi → Connetti automaticamente → Off. Per operazioni sensibili usa hotspot personale invece di WiFi pubblico. VPN su reti sconosciute aggiunge protezione.</p></div>
+        <div class="tape reveal">Manutenzione</div>
+        <h2 class="h-big reveal">Aggiornamenti di sicurezza</h2>
+        <p class="lead reveal d1">Ogni patch chiude una porta che gli attaccanti già conoscono: rimandare l'installazione significa restare esposti a colpi documentati.</p>
+        <div class="note reveal d2"><div class="lbl">Dove si controlla</div><p><b>iOS</b>: Impostazioni → Generali → Aggiornamento software. <b>Android</b>: Impostazioni → Sistema (o Info telefono) → Aggiornamenti. Attiva gli aggiornamenti automatici notturni e non ci pensi più.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">⚠️</span>
-        <h3>Reti malevole</h3>
-        <ul><li>L'evil twin è un access point falso che imita reti note ("Bar WiFi", "Aeroporto Free") per intercettare traffico.</li><li>Chi si connette può esporre dati non cifrati, sessioni attive e credenziali di login.</li><li>Il telefono si connette automaticamente a reti con lo stesso nome già usato: questo è il vettore.</li></ul>
+        <span class="ic">🔄</span>
+        <h3>Perché la fretta conta</h3>
+        <ul><li>Quando una vulnerabilità diventa pubblica, gli attacchi che la sfruttano compaiono <b>nel giro di giorni</b>.</li><li>Un telefono fermo da mesi o anni è un bersaglio con le debolezze scritte nero su bianco.</li><li>In fase d'acquisto, gli anni di aggiornamenti garantiti valgono più di qualche euro di sconto.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -210,15 +225,30 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Sicurezza</div>
-        <h2 class="h-big reveal">Checklist sicurezza</h2>
-        <p class="lead reveal d1">Cinque controlli che fanno la differenza reale sulla sicurezza quotidiana dello smartphone.</p>
+        <div class="tape reveal">Reti insidiose</div>
+        <h2 class="h-big reveal">WiFi pubbliche e reti false</h2>
+        <p class="lead reveal d1">Una rete gratuita può essere una trappola: l'evil twin è la copia malevola di una rete legittima, messa lì apposta per farti connettere.</p>
+        <div class="note reveal d2"><div class="lbl">Difese pratiche</div><p>Disattiva la <b>connessione automatica</b> alle reti aperte (Impostazioni → WiFi). Per banca e acquisti usa la rete mobile o il tuo hotspot personale. Su reti sconosciute, una VPN aggiunge un livello di protezione.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">🧰</span>
-        <h3>Checklist sicurezza</h3>
-        <ul><li>Blocco schermo con PIN forte (min. 6 cifre non ovvie) e blocco automatico entro 60 s.</li><li>2FA attivo su email, banca e account principali — app autenticatore, non SMS.</li><li>Trova dispositivo attivo e account associato ricordato.</li><li>Aggiornamenti di sistema e app installati entro una settimana dal rilascio.</li><li>App solo da store ufficiali; permessi sensibili revisionati ogni 3 mesi.</li></ul>
+        <span class="ic">🎭</span>
+        <h3>Il gemello cattivo</h3>
+        <ul><li>Un access point falso imita il nome di una rete credibile: «Bar_WiFi_Free», «Aeroporto_Gratis».</li><li>Il telefono si <b>riconnette da solo</b> alle reti già usate in passato: è proprio questo l'aggancio.</li><li>Chi controlla la rete può osservare il traffico non cifrato, le sessioni aperte e i login.</li></ul>
       </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="col stack" style="justify-content:center;height:100%;">
+      <div class="tape reveal">Riepilogo operativo</div>
+      <h2 class="h-sec reveal">La tua checklist</h2>
+      <p class="lead reveal d1">Tutto il capitolo in due liste: cosa sistemare una volta sola e cosa tenere d'occhio nel tempo.</p>
+      <div class="grid2 reveal d2">
+        <div class="card"><span class="ic">⚙️</span><h3>Una volta sola</h3><ul><li>PIN di almeno 6 cifre + biometria, blocco automatico entro 60 secondi.</li><li>2FA con app autenticatore su email e banca.</li><li>Trova dispositivo / Dov'è attivo e testato.</li><li>PIN sulla SIM e IMEI annotato (*#06#).</li></ul></div>
+        <div class="card"><span class="ic">🔁</span><h3>Regolarmente</h3><ul><li>Aggiornamenti installati entro una settimana dal rilascio.</li><li>Permessi delle app rivisti ogni 3 mesi.</li><li>Backup verificato: apri e controlla che ci sia tutto.</li><li>Reti WiFi salvate ripulite da quelle pubbliche.</li></ul></div>
+      </div>
+      <div class="chips reveal d3"><span class="chip">Codice forte</span><span class="chip alt">2FA con app</span><span class="chip alt">Trova dispositivo</span><span class="chip alt">Zero fretta con link e voci</span></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -229,10 +259,10 @@
       <h2 class="h-sec reveal">È tutto chiaro?</h2>
       <p class="lead reveal d1">Prova a rispondere a mente prima di passare al capitolo successivo.</p>
       <div class="grid2 reveal d2">
-        <div class="card"><h3>1.</h3><p>Qual è l'idea più importante di questo capitolo?</p></div>
-        <div class="card"><h3>2.</h3><p>Quale impostazione o comportamento puoi controllare subito sul tuo telefono?</p></div>
-        <div class="card"><h3>3.</h3><p>Quale rischio pratico riduci applicando queste regole?</p></div>
-        <div class="card"><h3>4.</h3><p>Come spiegheresti questo argomento a una persona poco esperta?</p></div>
+        <div class="card"><h3>1.</h3><p>L'impronta digitale è comodissima: perché allora serve comunque un PIN robusto? Cosa ti chiede il telefono dopo un riavvio?</p></div>
+        <div class="card"><h3>2.</h3><p>Ricevi un SMS: «Pacco in giacenza, paga 1,99 € su tracking-pacco.esempio.net». Come si chiama questa truffa e qual è la mossa corretta?</p></div>
+        <div class="card"><h3>3.</h3><p>Ti accorgi ora che il telefono è stato rubato: quali sono i primi tre passi da fare, e in che ordine?</p></div>
+        <div class="card"><h3>4.</h3><p>Per la 2FA della banca, perché un'app autenticatore è più sicura del codice via SMS? Cosa c'entra il SIM swap?</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -241,8 +271,8 @@
   <section class="slide closing">
     <div class="center" style="align-items:center;text-align:center;">
       <div class="eyebrow reveal gold">Fine S06</div>
-      <h2 class="h-mega reveal" style="margin-top:10px;">Sicurezza mobile<br><em class="gold">in pratica.</em></h2>
-      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora hai una mappa operativa del capitolo: concetti chiave, rischi e controlli da applicare sullo smartphone.</p>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Il telefono è una chiave:<br><em class="gold">custodiscila.</em></h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Codice forte con biometria, 2FA con app autenticatore, Trova dispositivo già attivo e zero fretta davanti a link e telefonate urgenti: quattro abitudini che rendono ogni furto — fisico o digitale — molto più difficile.</p>
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a href="sma07-file-telefono.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → SMA07 · Gestione dei file</a>
         <a href="00-indice.html" class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);text-decoration:none;">↩ Indice del corso</a>

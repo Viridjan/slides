@@ -17,6 +17,8 @@
 .center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13)}.card h3{font-family:var(--font-display);font-weight:900;font-size:35px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
 .chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
 .title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -27,7 +29,7 @@
     <div class="title-left">
       <div class="eyebrow reveal" style="margin-top:40px;">S07 — File</div>
       <h1 class="h-mega reveal">Gestione dei file sul telefono</h1>
-      <p class="lead reveal" style="margin-top:30px;">Download, foto, cloud, backup, organizzazione e file sensibili.</p>
+      <p class="lead reveal" style="margin-top:30px;">Dove finiscono i download, come lavora il cloud e come liberare spazio senza perdere nulla.</p>
       <div class="chips reveal" style="margin-top:46px;"><span class="chip">SMA07</span><span class="chip alt">Smartphones</span></div>
     </div>
     <div class="title-right"><div class="phone-art reveal"></div></div>
@@ -37,7 +39,7 @@
     <div class="center">
       <div class="tape teal reveal">In questo capitolo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa vedremo</h2>
-      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">File anche sul telefono</span></div><div class="agenda-item"><span class="n">02</span><span class="t">App File</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Download e documenti</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Foto, video e allegati</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Cloud e backup</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Spazio e cache</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Trasferire a PC</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Condivisione file</span></div><div class="agenda-item"><span class="n">09</span><span class="t">File sensibili</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Nomi e cestino</span></div></div>
+      <div class="agenda-list reveal d1"><div class="agenda-item"><span class="n">01</span><span class="t">File anche sul telefono</span></div><div class="agenda-item"><span class="n">02</span><span class="t">L'app File</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Download e documenti</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Foto, video e allegati</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Cloud e backup</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Spazio e cache</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Trasferire file al PC</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Condividere: copia o link</span></div><div class="agenda-item"><span class="n">09</span><span class="t">File sensibili</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Nomi chiari e cestino</span></div></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -47,13 +49,26 @@
       <div class="col stack">
         <div class="tape reveal">File</div>
         <h2 class="h-big reveal">File anche sul telefono</h2>
-        <p class="lead reveal d1">Lo smartphone gestisce file come un computer: foto, video, documenti e app convivono in un file system strutturato.</p>
-        <div class="note reveal d2"><div class="lbl">Dove si trovano</div><p>Android: cartelle Download, DCIM (foto), Documenti. Ogni app ha la propria cartella in /Android/data/. iOS: app File → Nel mio iPhone. I file dentro le singole app non sono sempre visibili da File.</p></div>
+        <p class="lead reveal d1">Dietro le icone colorate lo smartphone è organizzato in cartelle, proprio come un computer: sapere quali sono ti evita di «perdere» i documenti.</p>
+        <div class="note reveal d2"><div class="lbl">iOS fa a modo suo</div><p>Su iPhone non c'è una cartella unica: ogni app custodisce i propri contenuti. L'app File li raccoglie in «Sul mio iPhone» e in iCloud Drive.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📁</span>
-        <h3>File anche sul telefono</h3>
-        <ul><li>I file sono organizzati in cartelle come su un PC, anche se l'interfaccia lo nasconde.</li><li>Foto in DCIM, download nella cartella Download, documenti in Documenti o nell'app che li ha aperti.</li><li>iOS limita l'accesso diretto: ogni app ha il proprio contenitore e i file non sono condivisi liberamente.</li></ul>
+        <span class="ic">🗺️</span>
+        <h3>La mappa di Android</h3>
+        <ul><li><b>DCIM</b> — foto e video scattati con la fotocamera.</li><li><b>Download</b> — tutto ciò che scarichi dal browser o dalle email.</li><li><b>Documents</b> — PDF e file di lavoro salvati dalle app.</li><li><b>Android/data</b> — dati interni delle app: meglio non toccarli.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape teal reveal">Strumenti</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">L'app File</h2>
+      <p class="lead reveal d1" style="margin-top:16px;">È l'«Esplora risorse» del telefono: cerca, sposta, rinomina e cancella senza dover aprire le singole app. Mostra insieme memoria locale e cloud collegati.</p>
+      <div class="grid2 reveal d2" style="margin-top:28px;">
+        <div class="card"><span class="ic">🤖</span><h3>Su Android</h3><ul><li>Si chiama «Files di Google» o «Gestione file», a seconda del produttore.</li><li>Organizza per categorie: Immagini, Video, Audio, Download.</li><li>La funzione «Libera spazio» segnala doppioni e file inutili da eliminare.</li></ul></div>
+        <div class="card"><span class="ic">🍎</span><h3>Su iPhone</h3><ul><li>L'app si chiama proprio «File» ed è preinstallata.</li><li>Due sezioni: «Sul mio iPhone» (memoria locale) e «iCloud Drive» (cloud).</li><li>La scheda Recenti elenca gli ultimi file toccati: perfetta per ritrovare un download al volo.</li></ul></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -62,47 +77,29 @@
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">File</div>
-        <h2 class="h-big reveal">App File</h2>
-        <p class="lead reveal d1">Il file manager permette di navigare la memoria, spostare, copiare e cancellare file senza passare dalle singole app.</p>
-        <div class="note reveal d2"><div class="lbl">Come usarla</div><p>Android: "File" (Google) o "Gestore file" del produttore. iOS: app "File". Entrambi mostrano cloud integrato (Drive, iCloud) e memoria locale. I file recenti appaiono in cima alla lista.</p></div>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">📂</span>
-        <h3>App File</h3>
-        <ul><li>Permette di copiare, spostare, rinominare e cancellare file senza entrare nelle singole app.</li><li>Mostra sia la memoria locale sia i cloud collegati (Drive, Dropbox, iCloud) in un'unica interfaccia.</li><li>Utile per trovare file scaricati o inviati via WhatsApp che non sai dove sono finiti.</li></ul>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">File</div>
+        <div class="tape reveal">Download</div>
         <h2 class="h-big reveal">Download e documenti</h2>
-        <p class="lead reveal d1">I file ricevuti via web o email si accumulano nelle cartelle Download e Documenti: vanno revisionati periodicamente.</p>
+        <p class="lead reveal d1">Ogni PDF, biglietto o modulo che scarichi finisce da qualche parte — quasi sempre nella cartella Download, che nessuno svuota mai.</p>
+        <div class="note reveal d2"><div class="lbl">Il percorso</div><p>Dal browser → cartella Download. Gli allegati email si aprono in anteprima e restano salvati solo se tocchi «Salva» o li condividi. Su iPhone: app File → Download.</p></div>
       </div>
       <div class="card reveal d1">
-        <span class="ic">📥</span>
-        <h3>Download e documenti</h3>
-        <ul><li>I download dal browser finiscono in Download; quelli dalle email nella cartella mail o in Download.</li><li>I documenti PDF e Office salvati si trovano in Documenti o nella cartella dell'app usata per aprirli.</li><li>La cartella Download si riempie di file dimenticati: revisionala ogni 2–4 settimane.</li><li>Sposta i documenti importanti in una cartella nominata e nel cloud per averli anche da PC.</li></ul>
+        <span class="ic">🧹</span>
+        <h3>Routine anti-accumulo</h3>
+        <ul><li>Una volta al mese apri Download: via scontrini scaduti, biglietti usati e doppioni.</li><li>I documenti da conservare spostali in una cartella con un nome sensato, o caricali sul cloud per averli anche da PC.</li><li>Non ritrovi un file? Usa la ricerca per nome dell'app File: copre tutta la memoria.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
 
   <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape reveal">File</div>
-        <h2 class="h-big reveal">Foto, video e allegati</h2>
-        <p class="lead reveal d1">Foto dalla galleria, video registrati e allegati da chat occupano la maggior parte dello spazio: gestirli riduce i consumi.</p>
-      </div>
-      <div class="card reveal d1">
-        <span class="ic">🖼️</span>
-        <h3>Foto, video e allegati</h3>
-        <ul><li>Foto e video in DCIM sono i maggiori consumatori di spazio: video 4K occupano 300–500 MB al minuto.</li><li>Gli allegati ricevuti via WhatsApp e Telegram si duplicano in download locali anche se già nel cloud.</li><li>Usa Google Foto o iCloud per sincronizzazione automatica, poi cancella le copie locali per liberare spazio.</li><li>Scarica su PC i contenuti a cui tieni prima di cancellare dal telefono.</li></ul>
+    <div class="center">
+      <div class="tape gold reveal">Spazio</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Foto, video e allegati</h2>
+      <p class="lead reveal d1" style="margin-top:16px;">La voce che pesa di più sulla memoria: un minuto di video in 4K può superare il mezzo gigabyte.</p>
+      <div class="grid2 reveal d2" style="grid-template-columns:repeat(3,1fr);margin-top:28px;">
+        <div class="card"><span class="ic">📸</span><h3>Dalla fotocamera</h3><p>Scatti doppi, raffiche e screenshot si accumulano in silenzio nella galleria (cartella DCIM), spesso a decine ogni settimana.</p></div>
+        <div class="card"><span class="ic">💬</span><h3>Dalle chat</h3><p>WhatsApp e Telegram salvano una copia locale di ogni foto e video ricevuto. Il download automatico dei media si può spegnere nelle impostazioni della chat.</p></div>
+        <div class="card"><span class="ic">🧭</span><h3>Da dove iniziare</h3><p>Nella galleria parti dagli album «Screenshot» e «WhatsApp»: si svuotano senza rimpianti. Le foto vere valutale per ultime, con calma.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -114,10 +111,12 @@
         <div class="tape reveal">File</div>
         <h2 class="h-big reveal">Cloud e backup</h2>
         <p class="lead reveal d1">Il cloud archivia file accessibili da qualsiasi dispositivo; il backup automatico protegge i dati in caso di perdita o furto.</p>
+        <div class="analogy reveal d2"><span class="big">Regola:</span> cancellare dalla galleria non cancella dal cloud.</div>
+        <div class="illu reveal d3"><svg viewBox="0 0 280 280" style="max-width:250px;margin:0 auto;" role="img" aria-label="Telefono e nuvola collegati da frecce di sincronizzazione nei due sensi"><circle cx="140" cy="55" r="32" fill="#163b35"/><circle cx="100" cy="68" r="22" fill="#163b35"/><circle cx="180" cy="68" r="24" fill="#163b35"/><rect x="78" y="62" width="124" height="30" rx="15" fill="#163b35"/><path d="M124 62 l12 12 l24 -26" stroke="#e6c14a" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="97" y="150" width="86" height="124" rx="14" fill="#f4ece0" stroke="#1c1714" stroke-width="5"/><rect x="126" y="160" width="28" height="6" rx="3" fill="#1c1714"/><rect x="110" y="180" width="26" height="26" rx="5" fill="#e6c14a"/><rect x="144" y="180" width="26" height="26" rx="5" fill="#e6533b"/><rect x="110" y="214" width="26" height="26" rx="5" fill="#3f7e8c"/><rect x="144" y="214" width="26" height="26" rx="5" fill="#163b35"/><circle cx="140" cy="258" r="5" fill="#1c1714"/><line x1="60" y1="205" x2="60" y2="122" stroke="#e6533b" stroke-width="8" stroke-linecap="round"/><polygon points="46,132 60,106 74,132" fill="#e6533b"/><line x1="222" y1="115" x2="222" y2="198" stroke="#3f7e8c" stroke-width="8" stroke-linecap="round"/><polygon points="208,188 222,214 236,188" fill="#3f7e8c"/></svg><div class="illu-cap">Sincronizzazione: il file vive sul telefono e nel cloud</div></div>
       </div>
       <div class="card reveal d1">
         <span class="ic">☁️</span>
-        <h3>Cloud e backup</h3>
+        <h3>Sincronizzare oltre il telefono</h3>
         <ul><li>Cloud storage (Drive, iCloud, OneDrive, Dropbox) sincronizza i file in tempo reale su tutti i dispositivi.</li><li>Il backup automatico del telefono include app, impostazioni, messaggi e foto.</li><li>Controlla che il backup sia attivo e aggiornato: Impostazioni → account cloud → Backup.</li><li>Lo spazio gratuito (15 GB Google, 5 GB iCloud) si esaurisce: valuta un abbonamento se il telefono è il tuo strumento principale.</li></ul>
       </div>
     </div>
@@ -133,7 +132,7 @@
       </div>
       <div class="card reveal d1">
         <span class="ic">💾</span>
-        <h3>Spazio e cache</h3>
+        <h3>Liberare i gigabyte nascosti</h3>
         <ul><li>Lo spazio pieno rallenta il telefono: sistema e app hanno bisogno di spazio libero per funzionare bene.</li><li>La cache è dati temporanei per caricare le app più velocemente: può crescere a diversi gigabyte.</li><li>Android: Impostazioni → App → seleziona app → Svuota cache. iOS gestisce la cache automaticamente.</li><li>Prima di cancellare file: controlla cosa pesa di più in Impostazioni → Memoria → Analizza.</li></ul>
       </div>
     </div>
@@ -150,7 +149,7 @@
       </div>
       <div class="card reveal d1">
         <span class="ic">🖥️</span>
-        <h3>Trasferire a PC</h3>
+        <h3>Tre strade: cavo, aria, cloud</h3>
         <ul><li>USB: collega il cavo, scegli "Trasferimento file" (Android) o usa Finder/iTunes (iOS).</li><li>WiFi diretto: Nearby Share su Android, AirDrop su Apple, per file singoli senza cavo.</li><li>Cloud: carica su Drive o OneDrive dal telefono, scarica dal PC — comodo ma richiede connessione.</li></ul>
       </div>
     </div>
@@ -167,7 +166,7 @@
       </div>
       <div class="card reveal d1">
         <span class="ic">🔗</span>
-        <h3>Condivisione file</h3>
+        <h3>Copia vs link</h3>
         <ul><li>Inviare il file via WhatsApp o email crea una copia su ogni dispositivo: nessun controllo su chi la ridistribuisce.</li><li>Un link condiviso è revocabile, tracciabile e non duplica il file su ogni dispositivo.</li><li>Per file grandi, i link cloud evitano i limiti di dimensione delle chat e delle email.</li></ul>
       </div>
     </div>
@@ -184,7 +183,7 @@
       </div>
       <div class="card reveal d1">
         <span class="ic">🔒</span>
-        <h3>File sensibili</h3>
+        <h3>La galleria non è una cassaforte</h3>
         <ul><li>La galleria foto non è un archivio sicuro: app con accesso alle foto possono vederle tutte.</li><li>Foto di documenti, dati bancari e referti medici richiedono protezione aggiuntiva.</li><li>Una cartella bloccata o cifrata è accessibile solo con PIN separato, anche se lo schermo è sbloccato.</li></ul>
       </div>
     </div>
@@ -200,7 +199,7 @@
       </div>
       <div class="card reveal d1">
         <span class="ic">🗂️</span>
-        <h3>Nomi chiari e cestino</h3>
+        <h3>Ordine che si mantiene da solo</h3>
         <ul><li>Schema utile: AAAA-MM-GG-descrizione.ext → 2026-06-30-contratto-affitto-v2.pdf. La data in testa permette ordinamento automatico.</li><li>Evita nomi come "documento.pdf", "foto.jpg", "file1" — impossibili da ritrovare dopo settimane.</li><li>Il cestino trattiene i file eliminati fino a 30 giorni: utile per errori, non per cancellazioni definitive.</li><li>Cancellare dalla galleria non cancella dal cloud (Google Foto, iCloud): controlla anche lì.</li></ul>
       </div>
     </div>
@@ -213,10 +212,10 @@
       <h2 class="h-sec reveal">È tutto chiaro?</h2>
       <p class="lead reveal d1">Prova a rispondere a mente prima di passare al capitolo successivo.</p>
       <div class="grid2 reveal d2">
-        <div class="card"><h3>1.</h3><p>Qual è l'idea più importante di questo capitolo?</p></div>
-        <div class="card"><h3>2.</h3><p>Quale impostazione o comportamento puoi controllare subito sul tuo telefono?</p></div>
-        <div class="card"><h3>3.</h3><p>Quale rischio pratico riduci applicando queste regole?</p></div>
-        <div class="card"><h3>4.</h3><p>Come spiegheresti questo argomento a una persona poco esperta?</p></div>
+        <div class="card"><h3>1.</h3><p>Dove finiscono i file che scarichi dal browser, e con quale app li ritrovi?</p></div>
+        <div class="card"><h3>2.</h3><p>Che differenza c'è tra un file salvato solo sul telefono e uno sincronizzato sul cloud?</p></div>
+        <div class="card"><h3>3.</h3><p>Se una foto è nel cloud e la cancelli dal telefono, cosa succede? E viceversa?</p></div>
+        <div class="card"><h3>4.</h3><p>Quali sono i tre modi più efficaci per liberare spazio quando la memoria è piena?</p></div>
       </div>
     </div>
     <div class="page-num"></div>

@@ -110,6 +110,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 .edit-hint.show{display:block;}
 .progress{position:fixed;bottom:0;left:0;height:4px;background:var(--red);transition:width .4s var(--ease);z-index:9999;}
 .title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -158,7 +160,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Large Language <em class="hot">Models</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Modelli di IA basati su reti neurali addestrati su enormi quantità di testo — per imparare le <b>relazioni matematiche tra parole</b>.</p>
         <div class="note sky reveal d2" style="margin-top:20px;">
-          <div class="lbl">🔑 Transformer</div>
+          <div class="lbl">Transformer</div>
           <p contenteditable="false">L'architettura alla base di quasi tutti gli LLM moderni. Usa "meccanismi di attenzione" per capire il contesto di ogni parola rispetto alle altre nel testo.</p>
         </div>
       </div>
@@ -192,7 +194,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         "I Large Language Models (LLM) sono modelli di intelligenza artificiale basati su <b>reti neurali profonde</b> specializzate nell'elaborazione del linguaggio naturale (NLP). Sono addestrati su enormi quantità di testo per apprendere le relazioni tra parole, frasi e concetti, permettendo loro di <b>comprendere</b> il significato implicito…"
       </div>
       <div class="note red reveal d2" style="margin-top:24px;max-width:1400px;">
-        <div class="lbl">🔍 Fonte</div>
+        <div class="lbl">Fonte</div>
         <p contenteditable="false">Testo generato con <b>Perplexity.ai</b> chiedendogli di spiegare se stesso. Contiene almeno 4 inesattezze. Le analizziamo nelle prossime slide.</p>
       </div>
     </div>
@@ -209,7 +211,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
           "…basati su <b>reti neurali profonde</b> specializzate nell'elaborazione del linguaggio naturale…"
         </div>
         <div class="note red reveal d2" style="margin-top:20px;">
-          <div class="lbl">❌ Perché è sbagliato</div>
+          <div class="lbl">Perché è sbagliato</div>
           <p contenteditable="false">"Profonde" è il risultato di un'allucinazione: il modello ha associato LLM con "deep learning" e ha tradotto "deep" come "profonde" nel contesto sbagliato.</p>
         </div>
       </div>
@@ -239,7 +241,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
           "…gli LLM possono <b>comprendere</b> il significato implicito, lo stile e il contesto…"
         </div>
         <div class="note red reveal d2" style="margin-top:20px;">
-          <div class="lbl">❌ Perché è sbagliato</div>
+          <div class="lbl">Perché è sbagliato</div>
           <p contenteditable="false">Un LLM non "comprende" nulla. Calcola relazioni statistiche tra token. Questo è fondamentalmente diverso dalla comprensione umana.</p>
         </div>
       </div>
@@ -268,9 +270,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
           "…un LLM è un modello AI che <b>'impara'</b> come funziona il linguaggio umano leggendo e analizzando grandi testi…"
         </div>
         <div class="note red reveal d2" style="margin-top:20px;">
-          <div class="lbl">❌ Perché è sbagliato</div>
+          <div class="lbl">Perché è sbagliato</div>
           <p contenteditable="false">Un LLM non impara <em>come funziona</em> il linguaggio. Impara la <b>relazione matematica tra token</b> — quali sequenze di parole tendono ad apparire insieme.</p>
         </div>
+        <div class="analogy reveal d3" style="margin-top:20px;"><span class="big">Analogia:</span> un T9 gigantesco — non "sa", predice.</div>
       </div>
       <div class="col stack">
         <div class="card sky reveal d1">
@@ -298,7 +301,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
           "…l'NLP è la tecnologia che consente ai computer di <b>'parlare'</b> e capire il linguaggio umano in modo naturale e utile."
         </div>
         <div class="note red reveal d2" style="margin-top:20px;">
-          <div class="lbl">❌ Perché è sbagliato</div>
+          <div class="lbl">Perché è sbagliato</div>
           <p contenteditable="false">L'NLP non "parla" — elabora. La frase confonde NLP con gli LLM stessi, mescolando concetti diversi in modo da sembrare corretto ma risultare privo di senso tecnico.</p>
         </div>
       </div>
@@ -309,7 +312,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
           <p contenteditable="false">Branca dell'IA che permette ai computer di elaborare testo e parlato umano. Include tokenizzazione, analisi sintattica, riconoscimento di entità, sentiment analysis — e molto altro oltre alla generazione di testo.</p>
         </div>
         <div class="note sky reveal d2">
-          <div class="lbl">🔗 NLP ≠ LLM</div>
+          <div class="lbl">NLP ≠ LLM</div>
           <p contenteditable="false">Gli LLM sono uno strumento NLP. Ma l'NLP esiste da decenni ed include sistemi molto più semplici: correttori ortografici, filtri spam, traduttori statistici.</p>
         </div>
       </div>
@@ -360,7 +363,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <div class="flow-box" style="background:#c0d4d1;border-color:var(--teal);">📤 Output</div>
       </div>
       <div class="note sky reveal d3" style="margin-top:28px;max-width:1200px;">
-        <div class="lbl">💬 Il prompt è tutto</div>
+        <div class="lbl">Il prompt è tutto</div>
         <p contenteditable="false">La qualità del prompt determina la qualità della risposta. Un prompt vago → risposta vaga. Un prompt dettagliato con contesto → risposta utile.</p>
       </div>
     </div>
@@ -376,7 +379,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Il prompt viene spezzato in <b>token</b> — pacchetti più piccoli del testo originale.</p>
         <p class="body reveal d2" contenteditable="false" style="margin-top:12px;">Un token non corrisponde a una parola: può essere una sillaba, un simbolo, una parola intera o una sequenza comune. "gatto" = 1 token. "intelligenza" = 3+ token.</p>
         <div class="note sky reveal d3" style="margin-top:16px;">
-          <div class="lbl">📐 Perché i token?</div>
+          <div class="lbl">Perché i token?</div>
           <p contenteditable="false">Lavorare su token invece di parole intere permette di gestire lingue diverse, parole nuove e contesti tecnici senza vocabolario fisso.</p>
         </div>
       </div>
@@ -409,23 +412,36 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Ogni token viene inviato alla rete neurale. I nodi rispondono ai token e si inviano segnali a vicenda — come neuroni nel cervello.</p>
         <p class="body reveal d2" contenteditable="false" style="margin-top:12px;">Il processo si propaga attraverso tutti gli strati della rete, trasformando il segnale ad ogni passaggio, finché l'LLM produce un output finale.</p>
         <div class="note teal reveal d3" style="margin-top:16px;">
-          <div class="lbl">⚡ Velocità</div>
+          <div class="lbl">Velocità</div>
           <p contenteditable="false">Questo processo avviene in millisecondi grazie a GPU potentissime che eseguono miliardi di operazioni matematiche in parallelo.</p>
         </div>
       </div>
       <div class="col" style="justify-content:center;align-items:center;">
-        <div style="font-family:var(--font-mono);font-size:21px;color:var(--ink-soft);text-align:center;line-height:2.2;background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:30px 44px;" class="reveal d1">
-          <span style="color:var(--sky);font-weight:700;">TOKEN INPUT</span><br>
-          ↓<br>
-          <span style="color:var(--teal);font-weight:700;">nodi strato 1</span><br>
-          ↓<br>
-          <span style="color:var(--teal);font-weight:700;">nodi strato 2</span><br>
-          ↓<br>
-          <span style="color:var(--teal);font-weight:700;">nodi strato 3…</span><br>
-          ↓<br>
-          <span style="color:var(--gold-deep);font-weight:700;">LLM soddisfatto?</span><br>
-          ↓<br>
-          <span style="color:var(--red);font-weight:700;">OUTPUT TOKEN</span>
+        <div class="illu reveal d1" style="max-width:420px;">
+          <svg viewBox="0 0 280 240" style="max-width:300px;margin:0 auto;" role="img" aria-label="Rete neurale a tre strati: token in ingresso, nodi, token in uscita">
+            <circle cx="46" cy="60" r="14" fill="#3f7e8c"/>
+            <circle cx="46" cy="120" r="14" fill="#3f7e8c"/>
+            <circle cx="46" cy="180" r="14" fill="#3f7e8c"/>
+            <circle cx="140" cy="40" r="14" fill="#163b35"/>
+            <circle cx="140" cy="93" r="14" fill="#163b35"/>
+            <circle cx="140" cy="146" r="14" fill="#163b35"/>
+            <circle cx="140" cy="199" r="14" fill="#163b35"/>
+            <circle cx="234" cy="90" r="14" fill="#e6533b"/>
+            <circle cx="234" cy="150" r="14" fill="#e6533b"/>
+            <g stroke="#d8c9b4" stroke-width="2">
+              <line x1="60" y1="60" x2="126" y2="40"/><line x1="60" y1="60" x2="126" y2="93"/><line x1="60" y1="60" x2="126" y2="146"/>
+              <line x1="60" y1="120" x2="126" y2="93"/><line x1="60" y1="120" x2="126" y2="146"/><line x1="60" y1="120" x2="126" y2="199"/>
+              <line x1="60" y1="180" x2="126" y2="146"/><line x1="60" y1="180" x2="126" y2="199"/>
+              <line x1="154" y1="40" x2="220" y2="90"/><line x1="154" y1="93" x2="220" y2="90"/><line x1="154" y1="93" x2="220" y2="150"/>
+              <line x1="154" y1="146" x2="220" y2="150"/><line x1="154" y1="199" x2="220" y2="150"/>
+            </g>
+            <line x1="60" y1="120" x2="126" y2="93" stroke="#e6c14a" stroke-width="4"/>
+            <line x1="154" y1="93" x2="220" y2="90" stroke="#e6c14a" stroke-width="4"/>
+            <text x="46" y="215" font-family="Space Mono" font-size="12" fill="#3a322c" text-anchor="middle">token in</text>
+            <text x="140" y="228" font-family="Space Mono" font-size="12" fill="#3a322c" text-anchor="middle">strati di nodi</text>
+            <text x="234" y="180" font-family="Space Mono" font-size="12" fill="#3a322c" text-anchor="middle">token out</text>
+          </svg>
+          <div class="illu-cap">il segnale attraversa gli strati, trasformandosi</div>
         </div>
       </div>
     </div>
@@ -451,7 +467,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         </div>
       </div>
       <div class="note reveal d3" style="margin-top:24px;max-width:1300px;">
-        <div class="lbl">🎯 Risultato</div>
+        <div class="lbl">Risultato</div>
         <p contenteditable="false">L'output non è una ricerca in un database — è una sequenza di token generata token per token, ognuno influenzato da tutti i precedenti.</p>
       </div>
     </div>
@@ -509,7 +525,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- SLIDE 16 · CLOSING -->
   <section class="slide closing">
     <div class="center" style="align-items:center;text-align:center;">
-      <div class="eyebrow reveal gold">Fine IA_03 🧠</div>
+      <div class="eyebrow reveal gold">Fine IA_03</div>
       <h2 class="h-mega reveal" style="margin-top:10px;">Non magia.<br><em class="gold">Matematica.</em></h2>
       <p class="lead reveal d1" contenteditable="false" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">
         Capire come funziona un LLM non riduce la sua utilità — la <span class="gold">amplifica</span>. Chi conosce i limiti dello strumento lo usa meglio di chi lo tratta come oracolo.

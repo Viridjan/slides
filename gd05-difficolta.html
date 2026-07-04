@@ -110,6 +110,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 .edit-hint.show{display:block;}
 .progress{position:fixed;bottom:0;left:0;height:4px;background:var(--red);transition:width .4s var(--ease);z-index:9999;}
 .title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -157,10 +159,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <div class="tape sky reveal">Fondamenta</div>
         <h2 class="h-big reveal" style="margin-top:18px;">La curva di <em class="hot">apprendimento</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Quanto è ripido imparare a giocare? Troppo ripida → frustrazione e abbandono. Troppo piatta → noia. Il designer <b>modella</b> questa curva, slide dopo slide di gioco.</p>
-        <div class="note reveal d2" style="margin-top:20px;">
-          <div class="lbl">⚖️ L'equilibrio</div>
-          <p contenteditable="false">La difficoltà deve crescere <em>insieme</em> all'abilità del giocatore: mai troppo avanti, mai troppo indietro.</p>
-        </div>
+        <div class="analogy reveal d3" style="margin-top:20px;"><span class="big">Equilibrio:</span> mai troppo avanti, mai troppo indietro.</div>
       </div>
       <div class="col stack">
         <div class="card sky reveal d1"><span class="ic">📉</span><h3 contenteditable="false">Troppo facile</h3><p contenteditable="false">Nessuna sfida, nessuna soddisfazione: il giocatore si annoia e smette di giocare.</p></div>
@@ -178,14 +177,28 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Il <em class="hot">flow</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Il "canale del flusso" di <b>Mihály Csíkszentmihályi</b>: la zona ideale tra ansia (sfida &gt; abilità) e noia (abilità &gt; sfida). Il gioco deve tenerti nel flow alzando la sfida man mano che migliori.</p>
         <div class="note sky reveal d2" style="margin-top:20px;">
-          <div class="lbl">🌊 Flow</div>
+          <div class="lbl">Flow</div>
           <p contenteditable="false">Immersione totale, perdita del senso del tempo. È l'obiettivo di ogni buon design.</p>
         </div>
       </div>
       <div class="col stack">
-        <div class="card red reveal d1"><span class="ic">😰</span><h3 contenteditable="false">Ansia</h3><p contenteditable="false">La sfida supera l'abilità: stress, panico, senso di impotenza.</p></div>
-        <div class="card sky reveal d2"><span class="ic">🌊</span><h3 contenteditable="false">Flow</h3><p contenteditable="false">Sfida e abilità in equilibrio: concentrazione perfetta, tutto scorre.</p></div>
-        <div class="card reveal d3"><span class="ic">😴</span><h3 contenteditable="false">Noia</h3><p contenteditable="false">L'abilità supera la sfida: la mente vaga, il gioco non tiene più.</p></div>
+        <div class="illu reveal d1">
+          <svg viewBox="0 0 280 220" style="max-width:300px;margin:0 auto;" role="img" aria-label="Canale del flow tra ansia e noia">
+            <line x1="40" y1="190" x2="40" y2="24" stroke="#1c1714" stroke-width="3"/>
+            <line x1="40" y1="190" x2="260" y2="190" stroke="#1c1714" stroke-width="3"/>
+            <text x="18" y="110" font-family="Space Mono" font-size="13" fill="#3a322c" transform="rotate(-90 18 110)">SFIDA</text>
+            <text x="150" y="212" font-family="Space Mono" font-size="13" fill="#3a322c" text-anchor="middle">ABILITÀ</text>
+            <polygon points="40,190 40,110 180,24 260,24 260,104 110,190" fill="#3f7e8c" opacity=".35"/>
+            <path d="M40 150 Q140 110 260 62" fill="none" stroke="#163b35" stroke-width="5" stroke-linecap="round"/>
+            <text x="80" y="52" font-family="Space Mono" font-size="15" fill="#e6533b" font-weight="bold">ANSIA</text>
+            <text x="150" y="118" font-family="Space Mono" font-size="16" fill="#163b35" font-weight="bold">FLOW</text>
+            <text x="196" y="172" font-family="Space Mono" font-size="15" fill="#d98a2b" font-weight="bold">NOIA</text>
+          </svg>
+          <div class="illu-cap">il canale del flusso · Csíkszentmihályi</div>
+        </div>
+        <div class="card reveal d2" style="padding:16px 22px;">
+          <p contenteditable="false" style="font-size:21px;"><b>😰 Ansia</b>: sfida &gt; abilità — stress. <b>🌊 Flow</b>: equilibrio — tutto scorre. <b>😴 Noia</b>: abilità &gt; sfida — la mente vaga.</p>
+        </div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -199,7 +212,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Tool vs <em class="hot">Engine</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Nello sviluppo si parla di <b>strumenti</b> e di <b>motori</b>: non sono la stessa cosa, e confonderli porta a scegliere male.</p>
         <div class="note reveal d2" style="margin-top:20px;">
-          <div class="lbl">🧰 La scelta giusta</div>
+          <div class="lbl">La scelta giusta</div>
           <p contenteditable="false">Capire la differenza aiuta a scegliere l'attrezzo giusto per il progetto: non serve un motore completo per fare una cosa sola.</p>
         </div>
       </div>
@@ -219,7 +232,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Sistemi di <em class="hot">progressione</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Dare al giocatore un <b>senso di crescita</b>: punti esperienza → livelli → sblocchi. La progressione è il filo che motiva a continuare, sessione dopo sessione.</p>
         <div class="note reveal d2" style="margin-top:20px;">
-          <div class="lbl">🧠 Perché funziona</div>
+          <div class="lbl">Perché funziona</div>
           <p contenteditable="false">Il cervello ama il progresso misurabile e le ricompense: ogni barra che si riempie è una piccola promessa mantenuta.</p>
         </div>
       </div>
@@ -257,7 +270,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Upgrade e <em class="hot">skin</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Due tipi di progressione che convivono: una cambia <b>quanto sei forte</b>, l'altra cambia <b>come appari</b>.</p>
         <div class="note reveal d2" style="margin-top:20px;">
-          <div class="lbl">💰 Monetizzazione</div>
+          <div class="lbl">Monetizzazione</div>
           <p contenteditable="false">Le skin monetizzano senza rompere il bilanciamento: "<b>pay to look</b>", non "pay to win".</p>
         </div>
       </div>
@@ -277,7 +290,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Esponenziale vs <em class="hot">modulabile</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Come cresce la sfida nel tempo? Due filosofie opposte, con rischi e vantaggi diversi.</p>
         <div class="note sky reveal d2" style="margin-top:20px;">
-          <div class="lbl">🎛️ Difficoltà dinamica</div>
+          <div class="lbl">Difficoltà dinamica</div>
           <p contenteditable="false">La <b>dynamic difficulty</b> adatta la sfida in tempo reale al livello del giocatore, senza che se ne accorga.</p>
         </div>
       </div>
@@ -299,7 +312,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
       <div class="col stack">
         <div class="note reveal d1">
-          <div class="lbl">➕ NG+</div>
+          <div class="lbl">NG+</div>
           <p contenteditable="false">Esempio classico di contenuto ad <b>alto valore e basso costo</b> di sviluppo: si riusa quasi tutto, cambiando solo il bilanciamento.</p>
         </div>
         <div class="card gold reveal d2"><span class="ic">🔄</span><h3 contenteditable="false">Il secondo giro</h3><p contenteditable="false">Il giocatore parte forte, il gioco risponde più duro: una curva nuova costruita su contenuti già visti.</p></div>
@@ -316,7 +329,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Tutorial e <em class="hot">onboarding</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">I primi minuti decidono tutto: bisogna <b>insegnare senza annoiare</b>. Due strade molto diverse per farlo.</p>
         <div class="note reveal d2" style="margin-top:20px;">
-          <div class="lbl">👻 La regola</div>
+          <div class="lbl">La regola</div>
           <p contenteditable="false">Il miglior tutorial è <em>invisibile</em>: il giocatore impara senza accorgersi che qualcuno gli sta insegnando.</p>
         </div>
       </div>
@@ -336,7 +349,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Il design del <em class="hot">problema</em></h2>
         <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Un buon puzzle ha una soluzione <b>non ovvia ma logica in retrospettiva</b> — il momento "ma certo!". Né arbitrario, né banale.</p>
         <div class="note reveal d2" style="margin-top:20px;">
-          <div class="lbl">🏅 Regola d'oro</div>
+          <div class="lbl">Regola d'oro</div>
           <p contenteditable="false">Il giocatore deve sentirsi <em>intelligente</em>, non ingannato.</p>
         </div>
       </div>
@@ -368,7 +381,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- SLIDE 14 · CLOSING -->
   <section class="slide closing">
     <div class="center" style="align-items:center;text-align:center;">
-      <div class="eyebrow reveal gold">Fine GD_05 📈</div>
+      <div class="eyebrow reveal gold">Fine GD_05</div>
       <h2 class="h-mega reveal" style="margin-top:10px;">Né troppo.<br><em class="gold">Né troppo poco.</em></h2>
       <p class="lead reveal d1" contenteditable="false" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">
         La difficoltà perfetta non esiste in assoluto: esiste per <span class="gold">quel giocatore, in quel momento</span>. Il design tiene il giocatore sul filo tra noia e frustrazione — nel flow.
