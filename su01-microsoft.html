@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suite Ufficio · SU01 — Software Microsoft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.slide.visible .reveal:nth-child(5){transition-delay:.37s}.slide.visible .reveal:nth-child(6){transition-delay:.45s}
+.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}.d4{transition-delay:.56s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep)}.tape.teal{background:var(--teal)}.tape.sky{background:var(--sky)}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:92px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var(--sky)}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1120px;}
+.body{font-size:28px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1.05;}
+.card p{font-size:24px;line-height:1.36;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa}.note.sky{background:#d9edf2}.note.teal{background:var(--teal)}.note.teal *{color:var(--paper)!important}.note.teal .lbl{color:var(--gold)!important}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.36;color:var(--ink);}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.chip.red{background:var(--red);color:#fff}
+.col{display:flex;flex-direction:column}.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.stack>*+*{margin-top:22px}
+.tight-slide .h-big{font-size:78px}.tight-slide .h-sec{font-size:64px}.tight-slide .lead{font-size:28px;line-height:1.34}.tight-slide .body{font-size:24px;line-height:1.35}.tight-slide .stack>*+*{margin-top:12px}.tight-slide .grid2{gap:18px}.tight-slide .grid3{gap:16px}.tight-slide .card{padding:18px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12)}.tight-slide .card h3{font-size:30px;margin-bottom:6px}.tight-slide .card p{font-size:21px;line-height:1.28}.tight-slide .card .ic{font-size:34px}.tight-slide .note{padding:18px 22px}.tight-slide .note p{font-size:22px;line-height:1.3}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.title-right>div,.title-right>svg{position:relative;z-index:2;}.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate}@keyframes float{to{transform:translate(-34px,46px) scale(1.04)}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu svg{width:100%;height:auto;display:block;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+/* MS logo colors */
+.ms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ms-app{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:22px;box-shadow:6px 7px 0 rgba(28,23,20,.12);}
+.ms-app .logo{width:60px;height:60px;border-radius:12px;display:grid;place-items:center;color:#fff;font-weight:900;font-family:var(--font-mono);font-size:22px;margin-bottom:12px;}
+.ms-word{background:#185abd}.ms-excel{background:#107c41}.ms-ppt{background:#c43e1c}.ms-outlook{background:#0072c6}.ms-teams{background:#6264a7}.ms-onedrive{background:#0078d4}.ms-onenote{background:#7719aa}.ms-access{background:#a4373a}
+.ms-app h3{font-family:var(--font-display);font-weight:900;font-size:30px;margin-bottom:6px}
+.ms-app p{font-size:21px;line-height:1.3;color:var(--ink-soft)}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:24px}.cmp th{font-family:var(--font-display);font-weight:900;font-size:31px;text-align:left;padding:14px 20px;color:var(--paper);background:var(--teal)}.cmp th:first-child{background:var(--ink);border-radius:12px 0 0 0}.cmp th:last-child{border-radius:0 12px 0 0}.cmp td{padding:12px 20px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.3}.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2)}.cmp tr:last-child td{border-bottom:none}
+.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer}.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease}.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto}.edit-toggle.active{background:var(--red)}body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px}.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px}.edit-hint.show{display:block}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.title-slide .lead,.title-slide .chips{display:none;}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+  <!-- 1. TITLE -->
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <div class="tape teal" style="position:absolute;top:84px;left:90px;">Suite Ufficio · SU01</div>
+      <div class="eyebrow reveal" style="margin-top:40px;">Strumenti professionali</div>
+      <h1 class="h-mega reveal">Software<br><em class="hot">Microsoft</em></h1>
+      <p class="lead reveal" style="margin-top:30px;">Word, Excel, PowerPoint, Outlook, Teams e OneDrive: la suite più diffusa nelle aziende e negli uffici di tutto il mondo.</p>
+      <div class="chips reveal" style="margin-top:46px;"><span class="chip">18 slide</span><span class="chip alt">Microsoft 365</span></div>
+    </div>
+    <div class="title-right">
+      <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:60px;">
+        <div style="width:100px;height:100px;border-radius:18px;background:#185abd;display:grid;place-items:center;color:#fff;font-weight:900;font-family:'Space Mono',monospace;font-size:38px;box-shadow:6px 7px 0 rgba(0,0,0,.3);">W</div>
+        <div style="width:100px;height:100px;border-radius:18px;background:#107c41;display:grid;place-items:center;color:#fff;font-weight:900;font-family:'Space Mono',monospace;font-size:38px;box-shadow:6px 7px 0 rgba(0,0,0,.3);">X</div>
+        <div style="width:100px;height:100px;border-radius:18px;background:#c43e1c;display:grid;place-items:center;color:#fff;font-weight:900;font-family:'Space Mono',monospace;font-size:38px;box-shadow:6px 7px 0 rgba(0,0,0,.3);">P</div>
+        <div style="width:100px;height:100px;border-radius:18px;background:#0072c6;display:grid;place-items:center;color:#fff;font-weight:900;font-family:'Space Mono',monospace;font-size:38px;box-shadow:6px 7px 0 rgba(0,0,0,.3);">O</div>
+        <div style="width:100px;height:100px;border-radius:18px;background:#6264a7;display:grid;place-items:center;color:#fff;font-weight:900;font-family:'Space Mono',monospace;font-size:38px;box-shadow:6px 7px 0 rgba(0,0,0,.3);">T</div>
+        <div style="width:100px;height:100px;border-radius:18px;background:#0078d4;display:grid;place-items:center;color:#fff;font-weight:900;font-family:'Space Mono',monospace;font-size:38px;box-shadow:6px 7px 0 rgba(0,0,0,.3);">↑</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. AGENDA -->
+  <section class="slide">
+    <div class="center">
+      <div class="tape teal reveal">In questo modulo</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
+      <div class="agenda-list reveal d1">
+        <div class="agenda-item"><span class="n">01</span><span class="t">Microsoft 365: cos'è l'ecosistema</span></div>
+        <div class="agenda-item"><span class="n">02</span><span class="t">Word — elaborazione testi</span></div>
+        <div class="agenda-item"><span class="n">03</span><span class="t">Excel — foglio di calcolo</span></div>
+        <div class="agenda-item"><span class="n">04</span><span class="t">PowerPoint — presentazioni</span></div>
+        <div class="agenda-item"><span class="n">05</span><span class="t">Outlook — email e calendario</span></div>
+        <div class="agenda-item"><span class="n">06</span><span class="t">Teams — collaborazione</span></div>
+        <div class="agenda-item"><span class="n">07</span><span class="t">OneDrive — cloud storage</span></div>
+        <div class="agenda-item"><span class="n">08</span><span class="t">Licenze: abbonamento vs perpetua</span></div>
+        <div class="agenda-item"><span class="n">09</span><span class="t">Quando scegliere Microsoft</span></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 3. COS'È MICROSOFT 365 -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Definizione</div>
+        <h2 class="h-big reveal">Cos'è <em class="hot">Microsoft 365</em></h2>
+        <p class="lead reveal d1">È un abbonamento cloud che dà accesso a tutte le app Office più servizi come email, cloud storage e videoconferenza — aggiornati in continuo.</p>
+        <div class="analogy reveal d2"><span class="big">In pratica:</span> non compri il software, lo "noleggi" con tutti gli aggiornamenti inclusi.</div>
+      </div>
+      <div>
+        <div class="illu reveal d1">
+          <svg viewBox="0 0 380 300" style="height:300px;">
+            <rect x="10" y="10" width="360" height="280" rx="18" fill="#f4ece0" stroke="#1c1714" stroke-width="3"/>
+            <rect x="10" y="10" width="360" height="56" rx="18" fill="#163b35"/>
+            <rect x="10" y="44" width="360" height="22" fill="#163b35"/>
+            <text x="190" y="46" text-anchor="middle" fill="#e6c14a" font-family="Space Mono" font-weight="700" font-size="22">MICROSOFT 365</text>
+            <!-- app icons grid -->
+            <rect x="30" y="90" width="70" height="70" rx="12" fill="#185abd"/>
+            <text x="65" y="138" text-anchor="middle" fill="white" font-family="Space Mono" font-weight="700" font-size="32">W</text>
+            <rect x="115" y="90" width="70" height="70" rx="12" fill="#107c41"/>
+            <text x="150" y="138" text-anchor="middle" fill="white" font-family="Space Mono" font-weight="700" font-size="32">X</text>
+            <rect x="200" y="90" width="70" height="70" rx="12" fill="#c43e1c"/>
+            <text x="235" y="138" text-anchor="middle" fill="white" font-family="Space Mono" font-weight="700" font-size="32">P</text>
+            <rect x="285" y="90" width="70" height="70" rx="12" fill="#0072c6"/>
+            <text x="320" y="138" text-anchor="middle" fill="white" font-family="Space Mono" font-weight="700" font-size="32">O</text>
+            <rect x="72" y="185" width="70" height="70" rx="12" fill="#6264a7"/>
+            <text x="107" y="233" text-anchor="middle" fill="white" font-family="Space Mono" font-weight="700" font-size="32">T</text>
+            <rect x="157" y="185" width="70" height="70" rx="12" fill="#7719aa"/>
+            <text x="192" y="233" text-anchor="middle" fill="white" font-family="Space Mono" font-weight="700" font-size="32">N</text>
+            <rect x="242" y="185" width="70" height="70" rx="12" fill="#0078d4"/>
+            <text x="277" y="233" text-anchor="middle" fill="white" font-family="Space Mono" font-weight="700" font-size="26">☁</text>
+          </svg>
+          <div class="illu-cap">L'ecosistema Microsoft 365 in un colpo d'occhio</div>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 4. WORD -->
+  <section class="slide">
+    <div class="col stack">
+      <div class="tape reveal">Elaborazione testi</div>
+      <h2 class="h-sec reveal">Microsoft <em class="hot">Word</em></h2>
+      <p class="lead reveal d1">Il word processor più usato al mondo: dalla lettera al curriculum, dal contratto al report aziendale.</p>
+      <div class="grid3 reveal d2">
+        <div class="card">
+          <span class="ic">✍️</span>
+          <h3>Documenti professionali</h3>
+          <p>Stili, intestazioni, sommario automatico, numerazione pagine, sezioni e note a piè di pagina.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🖼️</span>
+          <h3>Oggetti e layout</h3>
+          <p>Immagini, tabelle, grafici, caselle di testo, colonne — tutto gestito con trascinamento.</p>
+        </div>
+        <div class="card">
+          <span class="ic">👥</span>
+          <h3>Revisione collaborativa</h3>
+          <p>Commenti, revisioni tracciate, confronto versioni e co-authoring in tempo reale su Word Online.</p>
+        </div>
+      </div>
+      <div class="analogy reveal d3"><span class="big">In pratica:</span> .docx è lo standard de facto — anche chi usa LibreOffice o Google Docs salva spesso in questo formato per compatibilità.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 5. EXCEL -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">Fogli di calcolo</div>
+        <h2 class="h-big reveal">Microsoft <em class="hot">Excel</em></h2>
+        <p class="lead reveal d1">Il foglio di calcolo di riferimento per dati, formule, grafici e analisi — dalle fatture ai cruscotti aziendali.</p>
+        <div class="stack reveal d2">
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;">
+            <span style="font-size:34px;min-width:50px;">📊</span>
+            <div><b style="font-size:27px;">Formule avanzate</b><br><span style="font-size:23px;color:var(--ink-faint);">CERCA.VERT, SE, SOMMA.SE, tabelle pivot</span></div>
+          </div>
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;">
+            <span style="font-size:34px;min-width:50px;">📈</span>
+            <div><b style="font-size:27px;">Grafici e visualizzazioni</b><br><span style="font-size:23px;color:var(--ink-faint);">Barre, linee, torta, mappe, sparkline</span></div>
+          </div>
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;">
+            <span style="font-size:34px;min-width:50px;">🔌</span>
+            <div><b style="font-size:27px;">Power Query e macro</b><br><span style="font-size:23px;color:var(--ink-faint);">Automazione e import dati da fonti esterne</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="note teal reveal d1" style="align-self:center;">
+        <div class="lbl">💡 Da approfondire</div>
+        <p>I moduli SU06, SU07 e SU08 di questa sezione trattano Excel e Sheets in dettaglio: formule, pivot, riferimenti e collaborazione.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 6. POWERPOINT -->
+  <section class="slide">
+    <div class="col stack">
+      <div class="tape reveal">Presentazioni</div>
+      <h2 class="h-sec reveal">Microsoft <em class="hot">PowerPoint</em></h2>
+      <p class="lead reveal d1">Lo strumento standard per presentazioni aziendali, scolastiche e conference talk — con animazioni, transizioni e layout a griglia.</p>
+      <div class="grid2 reveal d2">
+        <div class="card">
+          <h3>Progettare le slide</h3>
+          <p>Temi, layout predefiniti, SmartArt, grafici integrati. Il Designer di PowerPoint suggerisce layout professionali automaticamente.</p>
+        </div>
+        <div class="card">
+          <h3>Animazioni e transizioni</h3>
+          <p>Entrate/uscite per oggetto, transizioni tra slide, zoom, Morph per animazioni cinematografiche senza codice.</p>
+        </div>
+        <div class="card">
+          <h3>Presenter View</h3>
+          <p>Vista del relatore con note, timer e anteprima slide successiva — lo schermo del pubblico mostra solo la slide pulita.</p>
+        </div>
+        <div class="card">
+          <h3>Esporta ovunque</h3>
+          <p>Salva in .pptx, PDF, video .mp4 o presenta online via Teams senza installare nulla sul computer del cliente.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 7. OUTLOOK -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape sky reveal">Email e calendario</div>
+        <h2 class="h-big reveal">Microsoft <em class="hot">Outlook</em></h2>
+        <p class="lead reveal d1">Il client di posta aziendale con calendario, contatti e attività integrati — il centro nevralgico della comunicazione professionale.</p>
+        <div class="analogy reveal d2"><span class="big">Regola:</span> Outlook ≠ solo email. È l'agenda, la rubrica, il gestore delle riunioni e dei task aziendali in un'unica app.</div>
+      </div>
+      <div class="col stack reveal d1">
+        <div class="card">
+          <h3>Posta e regole</h3>
+          <p>Cartelle, etichette, regole automatiche, firma professionale, risposta automatica (out of office).</p>
+        </div>
+        <div class="card">
+          <h3>Calendario condiviso</h3>
+          <p>Prenotazione sale, inviti riunione con link Teams integrato, visualizzazione disponibilità colleghi.</p>
+        </div>
+        <div class="card">
+          <h3>Organizzazione</h3>
+          <p>Flag, categorie colore, attività (Tasks), note e integrazione con Teams per follow-up immediati.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 8. TEAMS -->
+  <section class="slide">
+    <div class="col stack">
+      <div class="tape reveal">Collaborazione</div>
+      <h2 class="h-sec reveal">Microsoft <em class="hot">Teams</em></h2>
+      <p class="lead reveal d1">Chat, videochiamate, canali tematici e condivisione file in un'unica piattaforma — il centro di lavoro per i team aziendali.</p>
+      <div class="grid3 reveal d2">
+        <div class="card">
+          <span class="ic">💬</span>
+          <h3>Chat e canali</h3>
+          <p>Messaggi diretti o nei canali di team. Thread, menzioni @, reazioni emoji e cronologia sempre accessibile.</p>
+        </div>
+        <div class="card">
+          <span class="ic">📹</span>
+          <h3>Riunioni video</h3>
+          <p>Fino a 1000 partecipanti, lavagna condivisa, registrazione, trascrizione automatica e sottotitoli live.</p>
+        </div>
+        <div class="card">
+          <span class="ic">📁</span>
+          <h3>File e app</h3>
+          <p>Ogni canale ha una cartella SharePoint integrata. Aprire e modificare Word o Excel senza uscire da Teams.</p>
+        </div>
+      </div>
+      <div class="note reveal d3"><div class="lbl">⚠️ Attenzione</div><p>Teams non è solo per le aziende: esiste anche una versione gratuita personale per gruppi, famiglie e piccoli progetti.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 9. ONEDRIVE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape sky reveal">Cloud storage</div>
+        <h2 class="h-big reveal">Microsoft <em class="hot">OneDrive</em></h2>
+        <p class="lead reveal d1">Il cloud storage di Microsoft — 5 GB gratuiti, 1 TB con Microsoft 365. I file sono sincronizzati su tutti i dispositivi e accessibili via browser.</p>
+        <div class="stack reveal d2">
+          <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;">
+            <span style="font-size:34px;min-width:50px;">🔄</span>
+            <div><b style="font-size:27px;">Sincronizzazione automatica</b><br><span style="font-size:23px;color:var(--ink-faint);">Cartella locale che si aggiorna ovunque in tempo reale</span></div>
+          </div>
+          <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;">
+            <span style="font-size:34px;min-width:50px;">🔗</span>
+            <div><b style="font-size:27px;">Condivisione sicura</b><br><span style="font-size:23px;color:var(--ink-faint);">Link con scadenza, solo visualizzazione o modifica, password</span></div>
+          </div>
+          <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;">
+            <span style="font-size:34px;min-width:50px;">📱</span>
+            <div><b style="font-size:27px;">App mobile</b><br><span style="font-size:23px;color:var(--ink-faint);">iOS e Android — scansiona documenti direttamente con il telefono</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 320 260" style="height:260px;">
+          <ellipse cx="160" cy="100" rx="130" ry="70" fill="#0078d4" opacity=".15" stroke="#0078d4" stroke-width="2"/>
+          <ellipse cx="160" cy="110" rx="110" ry="58" fill="#0078d4" opacity=".25"/>
+          <text x="160" y="120" text-anchor="middle" fill="#0072c6" font-family="Space Mono" font-weight="700" font-size="52">☁</text>
+          <!-- arrows down -->
+          <line x1="80" y1="170" x2="80" y2="220" stroke="#1c1714" stroke-width="3" stroke-dasharray="6,4"/>
+          <line x1="160" y1="170" x2="160" y2="220" stroke="#1c1714" stroke-width="3" stroke-dasharray="6,4"/>
+          <line x1="240" y1="170" x2="240" y2="220" stroke="#1c1714" stroke-width="3" stroke-dasharray="6,4"/>
+          <!-- devices -->
+          <rect x="50" y="220" width="60" height="36" rx="6" fill="#185abd" stroke="#1c1714" stroke-width="2"/>
+          <text x="80" y="244" text-anchor="middle" fill="white" font-size="18" font-family="Space Mono">PC</text>
+          <rect x="130" y="220" width="60" height="36" rx="6" fill="#c43e1c" stroke="#1c1714" stroke-width="2"/>
+          <text x="160" y="244" text-anchor="middle" fill="white" font-size="14" font-family="Space Mono">TAB</text>
+          <rect x="210" y="220" width="60" height="36" rx="6" fill="#107c41" stroke="#1c1714" stroke-width="2"/>
+          <text x="240" y="244" text-anchor="middle" fill="white" font-size="14" font-family="Space Mono">MOB</text>
+        </svg>
+        <div class="illu-cap">Un file, tre dispositivi — sempre sincronizzato</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 10. ALTRI STRUMENTI -->
+  <section class="slide tight-slide">
+    <div class="col stack">
+      <div class="tape reveal">Ecosistema completo</div>
+      <h2 class="h-sec reveal">Altre app <em class="hot">Microsoft 365</em></h2>
+      <p class="lead reveal d1">Oltre ai "big tre" (Word, Excel, PowerPoint), la suite include strumenti specializzati per ogni esigenza professionale.</p>
+      <div class="grid3 reveal d2">
+        <div class="card">
+          <div class="ms-app" style="border:none;box-shadow:none;padding:0;background:transparent;">
+            <div class="logo ms-onenote">N</div>
+          </div>
+          <h3>OneNote</h3>
+          <p>Blocco note digitale organizzato in sezioni e pagine. Ottimo per appunti di riunioni, schizzi e checklist.</p>
+        </div>
+        <div class="card">
+          <div class="ms-app" style="border:none;box-shadow:none;padding:0;background:transparent;">
+            <div class="logo" style="background:#036ac4;">S</div>
+          </div>
+          <h3>SharePoint</h3>
+          <p>Intranet aziendale e repository documenti condivisi. La "cartella di rete" moderna con controllo versioni.</p>
+        </div>
+        <div class="card">
+          <div class="ms-app" style="border:none;box-shadow:none;padding:0;background:transparent;">
+            <div class="logo" style="background:#ca3e47;">Fo</div>
+          </div>
+          <h3>Forms + Planner</h3>
+          <p>Forms per sondaggi e quiz online; Planner per gestire attività del team con schede Kanban.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 11. LICENZE -->
+  <section class="slide">
+    <div class="col stack">
+      <div class="tape gold reveal">Licenze e costi</div>
+      <h2 class="h-sec reveal">Abbonamento <em class="hot">o licenza perpetua?</em></h2>
+      <p class="lead reveal d1">Microsoft offre due modelli: abbonamento mensile/annuale con Microsoft 365, o acquisto una-tantum con Office 2021/2024.</p>
+      <table class="cmp reveal d2">
+        <thead>
+          <tr><th>Caratteristica</th><th>Microsoft 365</th><th>Office 2021/2024</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Prezzo</td><td>~7€/mese (Personal), ~10€/mese (Family)</td><td>Acquisto unico ~150–300€</td></tr>
+          <tr><td>Aggiornamenti</td><td>Continui, inclusi nel prezzo</td><td>Solo sicurezza, nessuna funzione nuova</td></tr>
+          <tr><td>Cloud storage</td><td>1 TB OneDrive incluso</td><td>Non incluso (5 GB gratuiti)</td></tr>
+          <tr><td>Dispositivi</td><td>Fino a 5 PC + 5 tablet + 5 smartphone</td><td>1 PC (licenza singola)</td></tr>
+          <tr><td>Adatto per</td><td>Uso continuativo, team, aggiornamento costante</td><td>Uso occasionale, nessun abbonamento</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 12. MICROSOFT VS ALTERNATIVE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Confronto</div>
+        <h2 class="h-big reveal">Microsoft<br><em class="hot">vs alternative</em></h2>
+        <p class="lead reveal d1">Microsoft è lo standard aziendale, ma non è l'unica scelta. Google Workspace e LibreOffice coprono molti degli stessi casi d'uso.</p>
+        <div class="analogy reveal d2"><span class="big">Regola:</span> Se il tuo settore usa .docx e .xlsx come standard di scambio, Microsoft rimane la scelta più sicura per la compatibilità.</div>
+      </div>
+      <div class="col stack reveal d1">
+        <div class="card">
+          <h3>✓ Scegli Microsoft quando…</h3>
+          <p>Lavori in azienda che usa Active Directory, hai bisogno di macro VBA avanzate, o devi inviare file a clienti che usano Office.</p>
+        </div>
+        <div class="card">
+          <h3>→ Considera Google Workspace quando…</h3>
+          <p>Lavori in cloud natively, collabori molto in tempo reale, hai dispositivi misti o cerchi costi più bassi.</p>
+        </div>
+        <div class="card">
+          <h3>→ Considera LibreOffice quando…</h3>
+          <p>Vuoi zero costi, open source, nessun abbonamento e usi principalmente formati standard ODF.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 13. SICUREZZA E ADMIN -->
+  <section class="slide">
+    <div class="col stack">
+      <div class="tape reveal">Sicurezza</div>
+      <h2 class="h-sec reveal">Microsoft 365 e la <em class="hot">sicurezza aziendale</em></h2>
+      <p class="lead reveal d1">Microsoft 365 include strumenti di sicurezza avanzati spesso gestiti dall'IT aziendale — importanti da conoscere anche come utente finale.</p>
+      <div class="grid2 reveal d2">
+        <div class="card">
+          <span class="ic">🔐</span>
+          <h3>Autenticazione multi-fattore</h3>
+          <p>MFA obbligatorio nelle aziende: accedere con password + codice SMS/app Authenticator protegge anche se la password viene rubata.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🛡️</span>
+          <h3>Microsoft Defender</h3>
+          <p>Antivirus e protezione integrata in Windows. In M365 Business include anche protezione email avanzata contro phishing e malware.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🗂️</span>
+          <h3>Controllo accessi</h3>
+          <p>L'admin IT può gestire chi vede cosa, bloccare dispositivi smarriti e imporre policy (es. password minima, crittografia disco).</p>
+        </div>
+        <div class="card">
+          <span class="ic">♻️</span>
+          <h3>Cestino e versioni</h3>
+          <p>OneDrive mantiene 30-180 giorni di cronologia versioni. File cancellati recuperabili dal Cestino per 90 giorni.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 14. VERIFICA -->
+  <section class="slide">
+    <div class="center">
+      <div class="tape teal reveal">Verifica</div>
+      <h2 class="h-sec reveal" style="margin-top:24px;">Hai capito <em class="hot">Microsoft 365?</em></h2>
+      <div class="grid2 reveal d1" style="margin-top:36px;">
+        <div class="card">
+          <h3>Differenza abbonamento / perpetua</h3>
+          <p>Quali sono i vantaggi principali di Microsoft 365 rispetto a comprare Office 2024 una volta sola?</p>
+        </div>
+        <div class="card">
+          <h3>Teams vs Outlook</h3>
+          <p>Per cosa usi Teams e per cosa preferisci Outlook? Fai un esempio concreto di quando sceglieresti l'uno o l'altro.</p>
+        </div>
+        <div class="card">
+          <h3>OneDrive e sicurezza</h3>
+          <p>Se perdi il laptop, come recuperi i file che avevi salvato su OneDrive? Quali dati sono al sicuro?</p>
+        </div>
+        <div class="card">
+          <h3>Scenario reale</h3>
+          <p>Sei un libero professionista con budget limitato. Sceglieresti Microsoft 365 Personal, Office 2024 o un'alternativa gratuita? Perché?</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 15. CLOSING -->
+  <section class="slide closing">
+    <div class="center" style="text-align:center;">
+      <div class="eyebrow reveal" style="color:var(--gold);margin-bottom:16px;">Fine SU01</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;">Un ecosistema,<br><em class="gold">non app isolate.</em></h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora conosci i principali strumenti Microsoft 365 e sai scegliere il modello di licenza più adatto alla tua situazione professionale.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a class="chip" href="su02-google-workspace.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → SU02 · Software Google</a>
+        <a href="00-indice.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">↩ Indice del corso</a>
+        <span class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);">18 slide completate</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<div class="edit-hotzone" id="editHotzone"></div>
+<button class="edit-toggle" id="editToggle">✏️</button>
+<div class="edit-hint" id="editHint">Clicca su qualsiasi testo per modificarlo.<br>Ctrl+S per salvare (copia negli appunti).</div>
+<div class="progress" id="progress"></div>
+
+<script>
+(function(){
+  const stage=document.getElementById('deckStage');
+  const slides=[...stage.querySelectorAll('.slide')];
+  const total=slides.length;
+  let cur=0;
+  function go(n){
+    if(n<0||n>=total)return;
+    slides[cur].classList.remove('active','visible');
+    cur=n;
+    slides[cur].classList.add('active');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>slides[cur].classList.add('visible')));
+    document.getElementById('progress').style.width=((cur+1)/total*100)+'%';
+    numberPages();
+  }
+  function numberPages(){
+    slides.forEach((s,i)=>{const p=s.querySelector('.page-num');if(p)p.innerHTML='<b>'+(i+1)+'</b>/'+total;});
+  }
+  function scale(){
+    const vw=window.innerWidth,vh=window.innerHeight;
+    const s=Math.min(vw/1920,vh/1080);
+    stage.style.transform=`scale(${s})`;
+    stage.style.left=((vw-1920*s)/2)+'px';
+    stage.style.top=((vh-1080*s)/2)+'px';
+  }
+  scale();window.addEventListener('resize',scale);
+  slides[0].classList.add('visible');
+  numberPages();
+  document.getElementById('progress').style.width=(1/total*100)+'%';
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='ArrowDown')go(cur+1);
+    else if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(cur-1);
+    else if(e.key==='E'||e.key==='e'){document.getElementById('editToggle').click();}
+  });
+  let tx=0;
+  stage.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+  stage.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)go(d<0?cur+1:cur-1);},{passive:true});
+  stage.addEventListener('wheel',e=>{e.preventDefault();go(e.deltaY>0?cur+1:cur-1);},{passive:false});
+  stage.addEventListener('click',e=>{if(!document.body.classList.contains('editing')){const r=stage.getBoundingClientRect();go(e.clientX-r.left>r.width/2?cur+1:cur-1);}});
+  // editor
+  const hz=document.getElementById('editHotzone');
+  const btn=document.getElementById('editToggle');
+  const hint=document.getElementById('editHint');
+  hz.addEventListener('mouseenter',()=>btn.classList.add('show'));
+  hz.addEventListener('mouseleave',()=>{if(!document.body.classList.contains('editing'))btn.classList.remove('show');});
+  btn.addEventListener('click',()=>{
+    const ed=document.body.classList.toggle('editing');
+    btn.classList.toggle('active',ed);
+    btn.textContent=ed?'✓':'✏️';
+    hint.classList.toggle('show',ed);
+    stage.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',ed?'true':'false'));
+    if(!ed){
+      const blob=new Blob([document.documentElement.outerHTML],{type:'text/html'});
+      const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='su01-microsoft.html';a.click();
+    }
+  });
+  document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='s'&&document.body.classList.contains('editing')){e.preventDefault();btn.click();}});
+})();
+</script>
+</body>
+</html>

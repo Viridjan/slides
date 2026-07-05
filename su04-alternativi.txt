@@ -1,0 +1,262 @@
+Suite Ufficio · SU04 — Software Alternativi
+===========================================
+
+--- Slide 1 ---
+Suite Ufficio · SU04 
+ Open source e libero 
+ Software
+ Alternativi 
+ LibreOffice, GIMP, Inkscape, DaVinci Resolve e altre alternative free o open source alle suite commerciali: quando usarle e quando no. 
+ 15 slide Open Source 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ OPEN 
+ SOURCE
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa impareremo 
+ 
+ 01 Cos'è il software open source 
+ 02 LibreOffice — suite ufficio 
+ 03 GIMP — fotoritocco 
+ 04 Inkscape — grafica vettoriale 
+ 05 DaVinci Resolve — video 
+ 06 Altri strumenti consigliati 
+ 07 Licenze open source 
+ 08 Quando scegliere l'alternativa
+
+--- Slide 3 ---
+Definizione 
+ Cos'è open source 
+ Un software open source ha il codice sorgente pubblicamente disponibile: chiunque può leggerlo, modificarlo e redistribuirlo rispettando la licenza. 
+ Analogia: Open source è come una ricetta pubblicata: chiunque può cucinare, adattare e migliorarla — non solo lo chef originale. 
+ ⚠️ Free ≠ gratuito "Free software" in inglese significa libero , non necessariamente gratis. DaVinci Resolve è gratis ma non open source; LibreOffice è entrambe le cose. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 🔒 
+ PROPRIETARIO 
+ sorgente nascosto 
+ 
+ 
+ 
+ 📖 
+ OPEN SOURCE 
+ sorgente aperto 
+ 
+ ⟶ 
+ 
+ 
+ 👥 Comunità di sviluppatori 
+ contribuisce, corregge, migliora 
+ 
+ 
+ 
+ 
+ Proprietario vs Open Source: il codice è visibile?
+
+--- Slide 4 ---
+Suite ufficio 
+ LibreOffice FREE 
+ Suite ufficio completa e gratuita: compatibile con i formati Microsoft (.docx, .xlsx, .pptx), sviluppata dalla comunità open source di The Document Foundation. 
+ 
+ 
+ 📝 
+ Writer 
+ Elaborazione testi equivalente a Word. Apre e salva .docx. Ottimo per documenti lunghi con stili avanzati. 
+ 
+ 
+ 📊 
+ Calc 
+ Foglio di calcolo con formule, tabelle pivot, grafici. Compatibile con .xlsx — qualche formula Excel potrebbe non funzionare. 
+ 
+ 
+ 📽️ 
+ Impress 
+ Presentazioni compatibili con PowerPoint. Apre .pptx, salva in ODP o PDF. Animazioni meno avanzate di PPT. 
+ 
+ 
+ In pratica: LibreOffice copre il 90% dei casi d'uso di Microsoft Office — ma le macro VBA non funzionano, e la resa grafica può differire.
+
+--- Slide 5 ---
+Fotoritocco 
+ GIMP FREE 
+ GNU Image Manipulation Program: il principale editor raster open source. Alternativa gratuita a Photoshop per ritocco foto, compositing e grafica web. 
+ 
+ 
+ 🪄 
+ Strumenti completi 
+ Livelli, maschere, selezioni, pennelli, canali 
+ 
+ 
+ 🔌 
+ Plugin e script 
+ Ecosistema di estensioni, supporto Python-Fu 
+ 
+ 
+ ⚠️ Limite rispetto a Photoshop GIMP lavora solo in 8-bit per canale (Photoshop supporta 32-bit). Non adatto a flussi di lavoro fotografici professionali RAW. 
+ 
+ 
+ 
+ 💡 Alternativa moderna 
+ darktable è preferito dai fotografi per sviluppo RAW e gestione catalogo, similmente a Lightroom. Gratis e open source. 
+ 
+ 
+ Quando usare GIMP 
+ Rimozione sfondo semplice, ridimensionamento batch, retocco base, web graphic, banner, collage — senza budget per Photoshop.
+
+--- Slide 6 ---
+Grafica vettoriale 
+ Inkscape FREE 
+ Editor SVG open source: alternativa gratuita a Illustrator per loghi, icone, illustrazioni e grafica vettoriale. Formato nativo SVG, esporta in PDF, PNG, EPS. 
+ In pratica: Inkscape è ottimo per loghi e icone SVG destinati al web — è il tool nativo per SVG, a differenza di Illustrator che usa .ai. 
+ 
+ 
+ 
+ ✓ Punti di forza 
+ Strumento Penna, nodi di Bézier, operazioni booleane su forme, font e testo su percorso, effetti SVG avanzati. 
+ 
+ 
+ → Limiti 
+ Gestione font meno avanzata di Illustrator. Export CMYK limitato — non ideale per la stampa professionale ad alta qualità. 
+ 
+ 
+ Alternativa browser 
+ Figma (freemium) è molto usato per UI/UX design e si avvicina a Illustrator per interfacce digitali.
+
+--- Slide 7 ---
+Video editing 
+ DaVinci Resolve GRATIS 
+ Il software di montaggio video professionale di Blackmagic Design — usato in produzioni hollywoodiane e disponibile gratuitamente (versione completa, non demo). 
+ 
+ 
+ 🎬 
+ Cut e Edit 
+ Due pagine dedicate al montaggio: Cut per rapidità, Edit per controllo completo. Timeline multi-traccia identica a Premiere Pro. 
+ 
+ 
+ 🎨 
+ Color (Fusion) 
+ Color grading professionale con nodi — lo stesso usato per film al cinema. Superiore a Lumetri di Premiere per i coloristi. 
+ 
+ 
+ 🔊 
+ Fairlight Audio 
+ DAW integrato nel software: mixing, equalizzazione, rimozione rumore di fondo, senza uscire dall'applicazione. 
+ 
+ 
+ 💡 Perché è gratis? Blackmagic guadagna vendendo le telecamere e le schede hardware DaVinci. Il software è il motore per fidelizzare l'ecosistema.
+
+--- Slide 8 ---
+Ecosistema alternativo 
+ Altri strumenti consigliati 
+ Oltre alla suite principale, il panorama open source copre email, PDF, CAD e molto altro. 
+ 
+ 
+ 📧 
+ Thunderbird 
+ Client email open source di Mozilla. Alternativa a Outlook per email locali IMAP/POP3 con calendario integrato (gratuito). 
+ 
+ 
+ 📄 
+ Okular / Evince 
+ Lettori PDF open source per Linux. Per annotare e compilare form PDF senza Acrobat: Foxit Reader (gratuito, non open). 
+ 
+ 
+ 🎵 
+ Audacity 
+ Editor audio open source e gratuito. Registra, taglia, equalizza, esporta MP3/WAV. Alternativa leggera ad Audition. 
+ 
+ 
+ 🖥️ 
+ Blender 
+ Modellazione 3D, animazione, rendering, video compositing — livello professionale, open source e gratuito. Curva di apprendimento ripida. 
+ 
+ 
+ 📐 
+ FreeCAD / OpenSCAD 
+ CAD parametrico open source. Per progettazione meccanica e stampa 3D senza AutoCAD (licenze costose). 
+ 
+ 
+ 🔗 
+ Nextcloud 
+ Self-hosted cloud storage: alternativa a OneDrive/Google Drive per chi vuole i dati sul proprio server. Open source.
+
+--- Slide 9 ---
+Licenze 
+ Le principali licenze open source 
+ Non tutte le licenze open source sono uguali: variano su cosa puoi fare con il codice, soprattutto se lo usi in un prodotto commerciale. 
+ 
+ 
+ Licenza Usi commerciali Modifica Condivisione 
+ 
+ 
+ MIT / BSD ✓ Libero ✓ Libera Non obbligatoria 
+ Apache 2.0 ✓ Libero ✓ Libera Non obbligatoria, con notice 
+ GPL v2/v3 ✓ Ma obbligo copyleft ✓ Libera Obbligatoria (stesso termine) 
+ LGPL ✓ Libero (librerie) ✓ Solo la lib Solo modifiche alla lib 
+ Creative Commons Dipende dalla variante Dipende (ND = no) SA = ShareAlike obbligatorio
+
+--- Slide 10 ---
+Confronto 
+ Commerciale vs alternativo 
+ 
+ 
+ ✓ Scegli l'alternativa quando… 
+ • Budget zero o limitato
+• Non hai bisogno di funzioni avanzate (macro VBA, color CMYK professionale)
+• Lavori in ambienti Linux o vuoi indipendenza dalla piattaforma
+• Dai valore alla privacy e al software libero
+• Stai imparando e vuoi sperimentare senza licenze 
+ 
+ 
+ → Scegli il commerciale quando… 
+ • Scambi file costantemente con colleghi su Office o Adobe
+• Hai bisogno di funzioni avanzate (Power Query, Smart Object, Lumetri)
+• Lavori in un'azienda con standard IT uniformi
+• Hai bisogno di supporto professionale garantito
+• La compatibilità perfetta dei formati è critica 
+ 
+ 
+ Regola: L'alternativa open source è ottima per imparare, sperimentare e usare. Il problema arriva quando devi collaborare con chi usa il software commerciale.
+
+--- Slide 11 ---
+Verifica 
+ Hai capito le alternative? 
+ 
+ 
+ LibreOffice e compatibilità 
+ Il tuo capo ti manda un file .xlsx con macro VBA. Puoi aprirlo con LibreOffice Calc? Funzionerà tutto? Cosa perdi? 
+ 
+ 
+ GIMP vs Photoshop 
+ Devi consegnare a una tipografia una foto ritratto in formato TIFF 16-bit. Puoi usare GIMP o serve Photoshop? Perché? 
+ 
+ 
+ Licenza GPL 
+ Stai sviluppando un'app commerciale che usa una libreria con licenza GPL v3. Cosa sei obbligato a fare con il codice della tua app? 
+ 
+ 
+ Scenario 
+ Sei uno studente senza budget. Devi montare un video, ritoccare foto e creare un logo. Quali tre strumenti alternativi useresti?
+
+--- Slide 12 ---
+Fine SU04 
+ Libero non significa
+ inferiore. 
+ Ora sai orientarti tra le alternative open source e gratuire, scegliere la licenza giusta e capire quando il software commerciale è davvero necessario. 
+ 
+ Prossimo → SU05 · Documenti 
+ ↩ Indice del corso 
+ 15 slide completate

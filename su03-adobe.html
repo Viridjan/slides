@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suite Ufficio · SU03 — Software Adobe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.slide.visible .reveal:nth-child(5){transition-delay:.37s}.slide.visible .reveal:nth-child(6){transition-delay:.45s}
+.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}.d4{transition-delay:.56s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep)}.tape.teal{background:var(--teal)}.tape.sky{background:var(--sky)}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:92px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var(--sky)}
+.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1120px;}
+.body{font-size:28px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1.05;}
+.card p{font-size:24px;line-height:1.36;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa}.note.sky{background:#d9edf2}.note.teal{background:var(--teal)}.note.teal *{color:var(--paper)!important}.note.teal .lbl{color:var(--gold)!important}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.36;color:var(--ink);}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.col{display:flex;flex-direction:column}.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.stack>*+*{margin-top:22px}
+.tight-slide .h-big{font-size:78px}.tight-slide .h-sec{font-size:64px}.tight-slide .lead{font-size:28px;line-height:1.34}.tight-slide .body{font-size:24px;line-height:1.35}.tight-slide .stack>*+*{margin-top:12px}.tight-slide .grid2{gap:18px}.tight-slide .grid3{gap:16px}.tight-slide .card{padding:18px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12)}.tight-slide .card h3{font-size:30px;margin-bottom:6px}.tight-slide .card p{font-size:21px;line-height:1.28}.tight-slide .card .ic{font-size:34px}.tight-slide .note{padding:18px 22px}.tight-slide .note p{font-size:22px;line-height:1.3}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.title-right>div,.title-right>svg{position:relative;z-index:2;}.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate}@keyframes float{to{transform:translate(-34px,46px) scale(1.04)}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu svg{width:100%;height:auto;display:block;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:24px}.cmp th{font-family:var(--font-display);font-weight:900;font-size:31px;text-align:left;padding:14px 20px;color:var(--paper);background:var(--teal)}.cmp th:first-child{background:var(--ink);border-radius:12px 0 0 0}.cmp th:last-child{border-radius:0 12px 0 0}.cmp td{padding:12px 20px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.3}.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2)}.cmp tr:last-child td{border-bottom:none}
+.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer}.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease}.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto}.edit-toggle.active{background:var(--red)}body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px}.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px}.edit-hint.show{display:block}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.title-slide .lead,.title-slide .chips{display:none;}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+  <!-- 1. TITLE -->
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <div class="tape teal" style="position:absolute;top:84px;left:90px;">Suite Ufficio · SU03</div>
+      <div class="eyebrow reveal" style="margin-top:40px;">Strumenti creativi professionali</div>
+      <h1 class="h-mega reveal">Software<br><em class="hot">Adobe</em></h1>
+      <p class="lead reveal" style="margin-top:30px;">Photoshop, Illustrator, InDesign, Premiere Pro, Acrobat: gli strumenti di riferimento per grafica, stampa, video e gestione dei PDF.</p>
+      <div class="chips reveal" style="margin-top:46px;"><span class="chip">16 slide</span><span class="chip alt">Creative Cloud</span></div>
+    </div>
+    <div class="title-right">
+      <svg class="reveal" viewBox="0 0 300 300" style="width:280px;height:280px;">
+        <!-- Adobe logo stylized -->
+        <rect x="20" y="20" width="260" height="260" rx="40" fill="#e6533b"/>
+        <text x="150" y="200" text-anchor="middle" fill="white" font-family="Georgia,serif" font-weight="900" font-size="180" letter-spacing="-8">Ai</text>
+        <rect x="20" y="250" width="260" height="30" rx="0" fill="rgba(0,0,0,.2)"/>
+        <rect x="20" y="250" width="260" height="30" rx="0" ry="0" fill="none"/>
+        <rect x="20" y="250" width="260" height="30" rx="20" fill="rgba(0,0,0,.15)"/>
+        <text x="150" y="272" text-anchor="middle" fill="white" font-family="Space Mono" font-weight="700" font-size="16" letter-spacing="2">CREATIVE CLOUD</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 2. AGENDA -->
+  <section class="slide">
+    <div class="center">
+      <div class="tape teal reveal">In questo modulo</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
+      <div class="agenda-list reveal d1">
+        <div class="agenda-item"><span class="n">01</span><span class="t">Creative Cloud: il modello Adobe</span></div>
+        <div class="agenda-item"><span class="n">02</span><span class="t">Raster vs vettoriale</span></div>
+        <div class="agenda-item"><span class="n">03</span><span class="t">Photoshop — foto e compositing</span></div>
+        <div class="agenda-item"><span class="n">04</span><span class="t">Illustrator — grafica vettoriale</span></div>
+        <div class="agenda-item"><span class="n">05</span><span class="t">InDesign — impaginazione</span></div>
+        <div class="agenda-item"><span class="n">06</span><span class="t">Premiere Pro — montaggio video</span></div>
+        <div class="agenda-item"><span class="n">07</span><span class="t">Acrobat Pro — PDF professionale</span></div>
+        <div class="agenda-item"><span class="n">08</span><span class="t">Quale app per quale lavoro</span></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 3. CREATIVE CLOUD -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Definizione</div>
+        <h2 class="h-big reveal">Cos'è <em class="hot">Creative Cloud</em></h2>
+        <p class="lead reveal d1">Creative Cloud è l'abbonamento Adobe che include tutte le app creative (Photoshop, Illustrator, InDesign…), 100 GB di cloud storage e font Adobe Fonts.</p>
+        <div class="analogy reveal d2"><span class="big">Regola:</span> Adobe CC non si compra: si affitta. Senza abbonamento attivo, i file restano accessibili in sola lettura per 180 giorni.</div>
+      </div>
+      <div class="col stack reveal d1">
+        <div class="card">
+          <h3>Abbonamento mensile / annuale</h3>
+          <p>~60€/mese (singola app ~25€). Per studenti e insegnanti esiste uno sconto del 65% verificabile.</p>
+        </div>
+        <div class="card">
+          <h3>Sempre aggiornato</h3>
+          <p>Nuove funzioni aggiunte continuamente — es. Generative Fill (AI), Neural Filters, Speech to Text in Premiere.</p>
+        </div>
+        <div class="card">
+          <h3>Integrazione tra app</h3>
+          <p>File .psd, .ai, .indd comunicano tra loro: modifica il logo in Illustrator, si aggiorna automaticamente in InDesign.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 4. RASTER VS VETTORIALE -->
+  <section class="slide">
+    <div class="col stack">
+      <div class="tape reveal">Concetto fondamentale</div>
+      <h2 class="h-sec reveal"><em class="hot">Raster</em> vs <em class="hot">Vettoriale</em></h2>
+      <p class="lead reveal d1">Prima di scegliere l'app giusta, devi capire come viene memorizzata l'immagine — perché cambia tutto: qualità, modifica, uso finale.</p>
+      <div class="grid2 reveal d2">
+        <div class="card">
+          <h3>🖼️ Raster (bitmap)</h3>
+          <p>Griglia di pixel con colori. Ingrandendo perde qualità (pixela). Formato: JPEG, PNG, PSD.<br><br><b>Usato per:</b> foto, compositing, texture, immagini complesse.</p>
+        </div>
+        <div class="card">
+          <h3>📐 Vettoriale</h3>
+          <p>Descrizione matematica di forme e curve. Scala senza perdita di qualità a qualsiasi dimensione. Formato: SVG, AI, EPS.<br><br><b>Usato per:</b> loghi, icone, illustrazioni, stampa a grande formato.</p>
+        </div>
+      </div>
+      <div class="analogy reveal d3"><span class="big">Analogia:</span> Raster è come un mosaico di tessere; vettoriale è un disegno tecnico — puoi riscalarlo all'infinito.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 5. PHOTOSHOP -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Fotoritocco e compositing</div>
+        <h2 class="h-big reveal">Adobe <em class="hot">Photoshop</em></h2>
+        <p class="lead reveal d1">Il software di riferimento per foto digitali, ritocco, compositing e creazione di immagini raster per web e stampa.</p>
+        <div class="stack reveal d2">
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;">
+            <span style="font-size:34px;min-width:50px;">🪄</span>
+            <div><b style="font-size:27px;">Selezioni intelligenti</b><br><span style="font-size:23px;color:var(--ink-faint);">Rimozione sfondo con un clic, maschera capelli</span></div>
+          </div>
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;">
+            <span style="font-size:34px;min-width:50px;">🎨</span>
+            <div><b style="font-size:27px;">Livelli e maschere</b><br><span style="font-size:23px;color:var(--ink-faint);">Compositing non distruttivo, effetti per livello</span></div>
+          </div>
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;">
+            <span style="font-size:34px;min-width:50px;">🤖</span>
+            <div><b style="font-size:27px;">Generative Fill (AI)</b><br><span style="font-size:23px;color:var(--ink-faint);">Espansione tela e riempimento con prompt testuale</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 320 280" style="height:280px;">
+          <!-- Photoshop-style canvas -->
+          <rect x="10" y="10" width="300" height="260" rx="12" fill="#1e1e2e" stroke="#1c1714" stroke-width="3"/>
+          <!-- checkerboard bg -->
+          <rect x="60" y="40" width="200" height="150" rx="4" fill="#444"/>
+          <rect x="60" y="40" width="100" height="75" fill="#555"/>
+          <rect x="160" y="115" width="100" height="75" fill="#555"/>
+          <!-- image layer -->
+          <ellipse cx="160" cy="115" rx="80" ry="60" fill="#e6533b" opacity=".8"/>
+          <circle cx="160" cy="115" r="30" fill="#e6c14a" opacity=".9"/>
+          <!-- tools sidebar -->
+          <rect x="15" y="40" width="34" height="200" rx="6" fill="#2d2d3a"/>
+          <rect x="22" y="52" width="20" height="20" rx="4" fill="#6264a7"/>
+          <rect x="22" y="80" width="20" height="20" rx="4" fill="#4a90d9"/>
+          <rect x="22" y="108" width="20" height="20" rx="4" fill="#e6533b"/>
+          <rect x="22" y="136" width="20" height="20" rx="4" fill="#34a853"/>
+          <!-- layers panel -->
+          <rect x="60" y="205" width="200" height="52" rx="6" fill="#2d2d3a"/>
+          <rect x="68" y="213" width="36" height="30" rx="4" fill="#e6533b" opacity=".6"/>
+          <rect x="112" y="220" width="80" height="8" rx="4" fill="#555"/>
+          <rect x="112" y="232" width="50" height="6" rx="3" fill="#444"/>
+          <text x="160" y="272" text-anchor="middle" fill="#6b5f54" font-family="Space Mono" font-size="14">Livelli · Maschere · Filtri</text>
+        </svg>
+        <div class="illu-cap">Photoshop: lavoro a livelli non distruttivo</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 6. ILLUSTRATOR -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Grafica vettoriale</div>
+        <h2 class="h-big reveal">Adobe <em class="hot">Illustrator</em></h2>
+        <p class="lead reveal d1">Il software per loghi, icone, illustrazioni e qualsiasi grafica che deve scalare senza perdita — da un biglietto da visita a un cartellone stradale.</p>
+        <div class="stack reveal d2">
+          <div class="card" style="margin-top:0;">
+            <h3>Penna e percorsi</h3>
+            <p>Lo strumento Penna disegna curve di Bézier precise. I percorsi si modificano punto per punto con controllo assoluto.</p>
+          </div>
+          <div class="card">
+            <h3>Tipografia avanzata</h3>
+            <p>Testo su percorso, area di testo, font variabili, glifi speciali — ideale per loghi testuali e intestazioni personalizzate.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col stack reveal d1" style="justify-content:center;gap:18px;">
+        <div class="note teal">
+          <div class="lbl">💡 Formato nativo</div>
+          <p>Il file .ai è la sorgente. Per la consegna si esporta in SVG (web), PDF (stampa) o PNG (schermo) — il file .ai rimane modificabile.</p>
+        </div>
+        <div class="note">
+          <div class="lbl">⚠️ Attenzione</div>
+          <p>Illustrator non è adatto al fotoritocco. Per immagini raster usa sempre Photoshop — le due app si integrano ma non si sostituiscono.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 7. INDESIGN -->
+  <section class="slide">
+    <div class="col stack">
+      <div class="tape reveal">Impaginazione</div>
+      <h2 class="h-sec reveal">Adobe <em class="hot">InDesign</em></h2>
+      <p class="lead reveal d1">Lo strumento professionale per libri, riviste, brochure, cataloghi e qualsiasi documento con layout a più pagine.</p>
+      <div class="grid3 reveal d2">
+        <div class="card">
+          <span class="ic">📰</span>
+          <h3>Layout multipage</h3>
+          <p>Pagine master, griglie modulari, colonne, filetti e gestione automatica dei numeri di pagina per documenti di centinaia di pagine.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🔗</span>
+          <h3>Link a sorgenti esterne</h3>
+          <p>Immagini e testo collegati, non incorporati: modifica il .psd in Photoshop, InDesign aggiorna automaticamente l'impaginato.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🖨️</span>
+          <h3>Export per la stampa</h3>
+          <p>PDF con profilo CMYK, segni di stampa, abbondanza (bleed), separazione colori e verifica preflight prima dell'invio in tipografia.</p>
+        </div>
+      </div>
+      <div class="analogy reveal d3"><span class="big">Analogia:</span> InDesign è come una lavagna dove incolli foto, testi e grafici in modo preciso — poi generi il PDF finale per la stampa o il digitale.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 8. PREMIERE PRO -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Video editing</div>
+        <h2 class="h-big reveal">Adobe <em class="hot">Premiere Pro</em></h2>
+        <p class="lead reveal d1">Il software di montaggio video professionale usato in produzioni cinematografiche, televisione e contenuti social.</p>
+        <div class="stack reveal d2">
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;">
+            <span style="font-size:34px;min-width:50px;">🎬</span>
+            <div><b style="font-size:27px;">Timeline multi-traccia</b><br><span style="font-size:23px;color:var(--ink-faint);">Video, audio, effetti su tracce separate e sincronizzate</span></div>
+          </div>
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;">
+            <span style="font-size:34px;min-width:50px;">🎨</span>
+            <div><b style="font-size:27px;">Color grading</b><br><span style="font-size:23px;color:var(--ink-faint);">Lumetri Color per correzione e look cinematografico</span></div>
+          </div>
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;">
+            <span style="font-size:34px;min-width:50px;">🔤</span>
+            <div><b style="font-size:27px;">Speech to Text</b><br><span style="font-size:23px;color:var(--ink-faint);">Trascrizione automatica per sottotitoli e caption</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="col stack reveal d1" style="justify-content:center;">
+        <div class="note sky">
+          <div class="lbl">💡 Ecosistema video</div>
+          <p>Premiere Pro lavora insieme ad After Effects (motion graphics), Audition (audio) e Media Encoder (esportazione). Flusso di lavoro integrato.</p>
+        </div>
+        <div class="card" style="margin-top:18px;">
+          <h3>Alternativa gratuita</h3>
+          <p>DaVinci Resolve (trattato in SU04) è la principale alternativa open e gratuita — copre montaggio, color e audio in un'unica app.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 9. ACROBAT -->
+  <section class="slide">
+    <div class="col stack">
+      <div class="tape reveal">PDF professionale</div>
+      <h2 class="h-sec reveal">Adobe <em class="hot">Acrobat Pro</em></h2>
+      <p class="lead reveal d1">Il PDF non è solo visualizzazione: Acrobat Pro permette di creare, modificare, proteggere e firmare documenti PDF in modo professionale.</p>
+      <div class="grid2 reveal d2">
+        <div class="card">
+          <span class="ic">✏️</span>
+          <h3>Modifica PDF</h3>
+          <p>Modifica testo e immagini nel PDF esistente, riorganizza pagine, unisci più PDF, estrai pagine singole.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🔐</span>
+          <h3>Protezione e password</h3>
+          <p>Password di apertura, limitazione stampa/copia, redazione (oscuramento) di dati sensibili, crittografia 256-bit.</p>
+        </div>
+        <div class="card">
+          <span class="ic">✍️</span>
+          <h3>Firme digitali</h3>
+          <p>Richiedi firme elettroniche (Adobe Sign), aggiungi la tua firma, timbra documenti con date certificate.</p>
+        </div>
+        <div class="card">
+          <span class="ic">📋</span>
+          <h3>Moduli interattivi</h3>
+          <p>Crea form compilabili, raccogli dati, crea campi firma e invia documenti da compilare via email.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 10. QUALE APP PER QUALE LAVORO -->
+  <section class="slide">
+    <div class="col stack">
+      <div class="tape gold reveal">Guida rapida</div>
+      <h2 class="h-sec reveal">Quale app per <em class="hot">quale lavoro</em></h2>
+      <table class="cmp reveal d1" style="margin-top:24px;">
+        <thead>
+          <tr><th>Esigenza</th><th>App giusta</th><th>Perché</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Ritoccare una foto, rimuovere sfondo</td><td>Photoshop</td><td>Lavoro pixel-based, maschere, selezioni intelligenti</td></tr>
+          <tr><td>Creare un logo o un'icona</td><td>Illustrator</td><td>Vettoriale: scala infinita, modificabile</td></tr>
+          <tr><td>Impaginare una brochure, un libro</td><td>InDesign</td><td>Layout multipage, masterpage, export per stampa</td></tr>
+          <tr><td>Montare un video, aggiungere sottotitoli</td><td>Premiere Pro</td><td>Timeline non lineare, color grading, export</td></tr>
+          <tr><td>Gestire, proteggere e firmare PDF</td><td>Acrobat Pro</td><td>Unico tool professionale per il formato .pdf</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 11. LIGHTROOM E ALTRI -->
+  <section class="slide tight-slide">
+    <div class="col stack">
+      <div class="tape reveal">Altre app CC</div>
+      <h2 class="h-sec reveal">Il resto di <em class="hot">Creative Cloud</em></h2>
+      <p class="lead reveal d1">La suite include oltre 20 applicazioni. Le più usate oltre ai "big four":</p>
+      <div class="grid3 reveal d2">
+        <div class="card">
+          <span class="ic">📷</span>
+          <h3>Lightroom</h3>
+          <p>Gestione e sviluppo foto RAW. Cataloga migliaia di scatti, applica preset, sincronizza modifiche su più foto. Alternativa: darktable (open).</p>
+        </div>
+        <div class="card">
+          <span class="ic">🎞️</span>
+          <h3>After Effects</h3>
+          <p>Motion graphics, animazioni, effetti visivi compositi. Integrato con Premiere. Per titoli, grafiche in movimento e VFX.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🔊</span>
+          <h3>Audition</h3>
+          <p>Editor audio professionale. Rimozione rumori di fondo, missaggio multitrack, restauro audio — integrato nel flusso video di Premiere.</p>
+        </div>
+      </div>
+      <div class="note reveal d3"><div class="lbl">⚠️ Costo abbonamento</div><p>Creative Cloud completo: ~60€/mese. Valuta se ti servono davvero tutte le app o se basta un abbonamento singola-app (~25€/mese).</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 12. VERIFICA -->
+  <section class="slide">
+    <div class="center">
+      <div class="tape teal reveal">Verifica</div>
+      <h2 class="h-sec reveal" style="margin-top:24px;">Hai capito <em class="hot">Adobe CC?</em></h2>
+      <div class="grid2 reveal d1" style="margin-top:36px;">
+        <div class="card">
+          <h3>Raster o vettoriale?</h3>
+          <p>Un cliente ti chiede un logo che deve andare sia su un biglietto da visita che su un cartellone 3×6 m. Quale app usi e perché?</p>
+        </div>
+        <div class="card">
+          <h3>Flusso di lavoro</h3>
+          <p>Stai creando una rivista: hai foto (da ritoccare), loghi (forniti dal cliente) e testo. Quali tre app Adobe usi e in quale ordine?</p>
+        </div>
+        <div class="card">
+          <h3>Acrobat Pro</h3>
+          <p>Devi inviare un contratto PDF che il cliente firma digitalmente e restituisce. Quale funzione di Acrobat usi?</p>
+        </div>
+        <div class="card">
+          <h3>Abbonamento</h3>
+          <p>Sei un fotografo freelance. Ti serve solo Lightroom e Photoshop. Conviene l'abbonamento Creative Cloud completo o esiste un'alternativa?</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 13. CLOSING -->
+  <section class="slide closing">
+    <div class="center" style="text-align:center;">
+      <div class="eyebrow reveal" style="color:var(--gold);margin-bottom:16px;">Fine SU03</div>
+      <h2 class="h-mega reveal" style="margin-top:10px;">L'app giusta<br><em class="gold">per ogni creatività.</em></h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ora sai distinguere raster da vettoriale e scegliere tra Photoshop, Illustrator, InDesign, Premiere e Acrobat in base al lavoro da fare.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a class="chip" href="su04-alternativi.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → SU04 · Software Alternativi</a>
+        <a href="00-indice.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">↩ Indice del corso</a>
+        <span class="chip" style="background:transparent;border:2px solid var(--paper);color:var(--paper);">16 slide completate</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<div class="edit-hotzone" id="editHotzone"></div>
+<button class="edit-toggle" id="editToggle">✏️</button>
+<div class="edit-hint" id="editHint">Clicca su qualsiasi testo per modificarlo.<br>Ctrl+S per salvare.</div>
+<div class="progress" id="progress"></div>
+
+<script>
+(function(){
+  const stage=document.getElementById('deckStage');
+  const slides=[...stage.querySelectorAll('.slide')];
+  const total=slides.length;
+  let cur=0;
+  function go(n){if(n<0||n>=total)return;slides[cur].classList.remove('active','visible');cur=n;slides[cur].classList.add('active');requestAnimationFrame(()=>requestAnimationFrame(()=>slides[cur].classList.add('visible')));document.getElementById('progress').style.width=((cur+1)/total*100)+'%';numberPages();}
+  function numberPages(){slides.forEach((s,i)=>{const p=s.querySelector('.page-num');if(p)p.innerHTML='<b>'+(i+1)+'</b>/'+total;});}
+  function scale(){const vw=window.innerWidth,vh=window.innerHeight;const s=Math.min(vw/1920,vh/1080);stage.style.transform=`scale(${s})`;stage.style.left=((vw-1920*s)/2)+'px';stage.style.top=((vh-1080*s)/2)+'px';}
+  scale();window.addEventListener('resize',scale);
+  slides[0].classList.add('visible');numberPages();
+  document.getElementById('progress').style.width=(1/total*100)+'%';
+  document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '||e.key==='ArrowDown')go(cur+1);else if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(cur-1);else if(e.key==='E'||e.key==='e')document.getElementById('editToggle').click();});
+  let tx=0;stage.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});stage.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)go(d<0?cur+1:cur-1);},{passive:true});
+  stage.addEventListener('wheel',e=>{e.preventDefault();go(e.deltaY>0?cur+1:cur-1);},{passive:false});
+  stage.addEventListener('click',e=>{if(!document.body.classList.contains('editing')){const r=stage.getBoundingClientRect();go(e.clientX-r.left>r.width/2?cur+1:cur-1);}});
+  const hz=document.getElementById('editHotzone');const btn=document.getElementById('editToggle');const hint=document.getElementById('editHint');
+  hz.addEventListener('mouseenter',()=>btn.classList.add('show'));hz.addEventListener('mouseleave',()=>{if(!document.body.classList.contains('editing'))btn.classList.remove('show');});
+  btn.addEventListener('click',()=>{const ed=document.body.classList.toggle('editing');btn.classList.toggle('active',ed);btn.textContent=ed?'✓':'✏️';hint.classList.toggle('show',ed);stage.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',ed?'true':'false'));if(!ed){const blob=new Blob([document.documentElement.outerHTML],{type:'text/html'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='su03-adobe.html';a.click();}});
+  document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='s'&&document.body.classList.contains('editing')){e.preventDefault();btn.click();}});
+})();
+</script>
+</body>
+</html>

@@ -142,7 +142,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
       <div class="agenda-item"><span class="n">03</span><span class="t">Sicurezza dei link</span></div>
       <div class="agenda-item"><span class="n">04</span><span class="t">Motori di ricerca — cosa sono e come funzionano</span></div>
       <div class="agenda-item"><span class="n">05</span><span class="t">Parole chiave e tecniche di ricerca</span></div>
-      <div class="agenda-item"><span class="n">06</span><span class="t">Operatori di ricerca avanzata</span></div>
+      <div class="agenda-item"><span class="n">06</span><span class="t">Operatori avanzati e valutazione dei risultati</span></div>
       <div class="agenda-item"><span class="n">07</span><span class="t">Moduli online — compilare e inviare</span></div>
       <div class="agenda-item"><span class="n">08</span><span class="t">Enciclopedie e dizionari digitali</span></div>
       <div class="agenda-item"><span class="n">09</span><span class="t">Strumenti di traduzione automatica</span></div>
@@ -235,61 +235,18 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
   <div class="page-num"></div>
 </section>
 
-<!-- === SLIDE 5: TIPOLOGIE DI LINK (slide 24) === -->
+<!-- === SLIDE 5: TIPOLOGIE DI LINK (merge slides 24+25) === -->
 <section class="slide">
-  <div class="center">
-    <div class="tape gold reveal">Classificazione</div>
-    <h2 class="h-sec reveal" style="margin-top:14px;">Tipologie di <em class="gold">link</em></h2>
-    <div class="grid3 reveal d1" style="margin-top:18px;gap:20px;">
-      <div class="card">
-        <div style="margin-bottom:10px;"><span class="pill int">Link interni</span></div>
-        <h3>Stesso sito</h3>
-        <p>Collegano pagine o sezioni dello stesso sito web. Usati nei menu di navigazione, sommari, breadcrumb.</p>
-      </div>
-      <div class="card">
-        <div style="margin-bottom:10px;"><span class="pill ext">Link esterni</span></div>
-        <h3>Sito diverso</h3>
-        <p>Portano verso un dominio differente. Si aprono spesso in una nuova scheda. Citazioni, referenze, sponsor.</p>
-      </div>
-      <div class="card">
-        <div style="margin-bottom:10px;"><span class="pill dl">Link di download</span></div>
-        <h3>Scarica file</h3>
-        <p>Avviano il download di un file (PDF, ZIP, immagine). Il browser può aprire il file direttamente o salvarlo.</p>
-      </div>
-    </div>
-    <div class="grid2 reveal d2" style="margin-top:14px;gap:20px;">
-      <div class="card">
-        <div style="margin-bottom:10px;"><span class="pill mail">Link email</span></div>
-        <h3>Apre client email</h3>
-        <p>Cliccando si apre il programma di posta con il destinatario già inserito. Usa il protocollo <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;">mailto:</code></p>
-      </div>
-      <div class="card">
-        <div style="margin-bottom:10px;"><span class="pill nav">Link di navigazione</span></div>
-        <h3>Struttura del sito</h3>
-        <p>Fanno parte del sistema di navigazione principale (navbar, sidebar, footer). Organizzano la struttura del sito.</p>
-      </div>
-    </div>
-  </div>
-  <div class="page-num"></div>
-</section>
-
-<!-- === SLIDE 6: LINK INTERNI ED ESTERNI (slide 25) === -->
-<section class="slide">
-  <div class="split even">
+  <div class="split">
     <div class="col stack">
-      <div class="tape gold reveal">A confronto</div>
-      <h2 class="h-big reveal">Link <em class="gold">interni</em><br>ed <em class="hot">esterni</em></h2>
-      <div class="stack reveal d1">
-        <div class="note" style="background:var(--paper-2);">
-          <div class="lbl" style="color:var(--sky) !important;">🔵 Link interni</div>
-          <p>Collegano pagine dello <b>stesso sito</b>. L'URL di destinazione appartiene allo stesso dominio di partenza.</p>
-          <p style="margin-top:10px;font-family:var(--font-mono);font-size:22px;">Home → Contatti<br>Articolo → Sezione</p>
-        </div>
-        <div class="note" style="background:var(--paper-2);">
-          <div class="lbl" style="color:var(--gold-deep) !important;">🟠 Link esterni</div>
-          <p>Portano verso un <b>sito differente</b>. L'URL di destinazione appartiene a un dominio diverso.</p>
-          <p style="margin-top:10px;font-family:var(--font-mono);font-size:22px;">Wikipedia → Treccani<br>Blog → Fonte citata</p>
-        </div>
+      <div class="tape gold reveal">Classificazione</div>
+      <h2 class="h-big reveal">Tipologie<br>di <em class="gold">link</em></h2>
+      <div class="col reveal d1">
+        <div class="op-row"><div class="op"><span class="pill int">Interni</span></div><div class="desc"><b>Stesso sito</b> — collegano pagine dello stesso dominio (Home → Contatti). Menu, sommari, breadcrumb.</div></div>
+        <div class="op-row"><div class="op"><span class="pill ext">Esterni</span></div><div class="desc"><b>Sito diverso</b> — portano verso un dominio differente (blog → fonte citata). Si aprono spesso in una nuova scheda.</div></div>
+        <div class="op-row"><div class="op"><span class="pill dl">Download</span></div><div class="desc"><b>Scaricano un file</b> (PDF, ZIP, immagine). Il browser può aprirlo direttamente o salvarlo.</div></div>
+        <div class="op-row"><div class="op"><span class="pill mail">Email</span></div><div class="desc"><b>Aprono il programma di posta</b> con il destinatario già inserito. Usano il protocollo <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;">mailto:</code></div></div>
+        <div class="op-row" style="border:none;"><div class="op"><span class="pill nav">Navigazione</span></div><div class="desc"><b>Struttura del sito</b> — navbar, sidebar, footer: organizzano le sezioni principali.</div></div>
       </div>
     </div>
     <div class="illu reveal d1">
@@ -310,18 +267,18 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
         <text x="96" y="62" text-anchor="middle" font-family="Space Mono" font-size="9" fill="#d98a2b">interno</text>
         <!-- Page with external link -->
         <rect x="26" y="106" width="148" height="24" rx="6" fill="#d8c9b4"/>
-        <text x="100" y="122" text-anchor="middle" font-size="12" fill="#1c1714">🔗 link a treccani.it →</text>
+        <text x="100" y="122" text-anchor="middle" font-size="12" fill="#1c1714">🔗 link a azienda.it →</text>
         <!-- External arrow going out -->
         <line x1="100" y1="140" x2="100" y2="180" stroke="#e6533b" stroke-width="3"/>
         <polygon points="96,176 100,184 104,176" fill="#e6533b"/>
         <text x="120" y="166" font-family="Space Mono" font-size="9" fill="#e6533b">esterno</text>
         <!-- Site B box -->
         <rect x="20" y="190" width="160" height="56" rx="10" fill="#fbf5ec" stroke="#e6533b" stroke-width="3"/>
-        <text x="100" y="208" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#e6533b">treccani.it</text>
+        <text x="100" y="208" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#e6533b">azienda.it</text>
         <rect x="36" y="214" width="128" height="20" rx="4" fill="#d8c9b4"/>
-        <text x="100" y="228" text-anchor="middle" font-size="12" fill="#6b5f54">Dizionario della lingua italiana</text>
+        <text x="100" y="228" text-anchor="middle" font-size="12" fill="#6b5f54">Un altro sito web</text>
       </svg>
-      <div class="illu-cap">Interno = stesso dominio</div>
+      <div class="illu-cap">Interno = stesso dominio · esterno = altro dominio</div>
     </div>
   </div>
   <div class="page-num"></div>
@@ -355,46 +312,30 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
   <div class="page-num"></div>
 </section>
 
-<!-- === SLIDE 8: COS'È UN MOTORE DI RICERCA (slide 27) === -->
+<!-- === SLIDE: COS'È UN MOTORE E COME FUNZIONA (merge slides 27+29) === -->
 <section class="slide">
-  <div class="split">
-    <div class="col stack">
-      <div class="tape gold reveal">Motori di ricerca</div>
-      <h2 class="h-big reveal">Cos'è un<br><em class="gold">motore</em><br>di ricerca</h2>
-      <p class="lead reveal d1">Un motore di ricerca è un servizio che permette di <b>trovare informazioni presenti sul Web</b>. Analizza miliardi di pagine e costruisce un indice consultabile dagli utenti in tempo reale.</p>
-      <div class="stack reveal d2">
-        <div class="note">
-          <div class="lbl">Come funziona in breve</div>
-          <p>I motori esplorano continuamente il Web raccogliendo pagine (<b>crawling</b>), le organizzano in un enorme indice (<b>indexing</b>) e le ordinano per rilevanza quando cerchi qualcosa (<b>ranking</b>).</p>
-        </div>
-        <div class="note" style="background:var(--paper-2);">
-          <div class="lbl">In numeri</div>
-          <p>Google elabora oltre <b>8,5 miliardi</b> di ricerche al giorno. L'indice di Google contiene oltre <b>100 miliardi</b> di pagine web.</p>
-        </div>
+  <div class="center">
+    <div class="tape gold reveal">Motori di ricerca</div>
+    <h2 class="h-sec reveal" style="margin-top:20px;">Cos'è un <em class="gold">motore di ricerca</em></h2>
+    <p class="lead reveal d1">Un servizio che permette di <b>trovare informazioni presenti sul Web</b>: analizza miliardi di pagine e le ordina per rilevanza. Google da solo elabora oltre <b>8,5 miliardi</b> di ricerche al giorno. Il processo si basa su tre fasi.</p>
+    <div class="grid3 reveal d2" style="margin-top:26px;">
+      <div class="card" style="border-color:var(--sky);">
+        <div style="font-family:var(--font-display);font-weight:900;font-size:72px;color:var(--sky);line-height:1;margin-bottom:12px;">1</div>
+        <h3>Scansione (Crawling)</h3>
+        <p>Programmi automatici chiamati <b>spider</b> o <b>bot</b> navigano continuamente il Web, seguendo ogni link trovato e scaricando il contenuto delle pagine.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <div style="font-family:var(--font-display);font-weight:900;font-size:72px;color:var(--gold-deep);line-height:1;margin-bottom:12px;">2</div>
+        <h3>Indicizzazione (Indexing)</h3>
+        <p>Le pagine scaricate vengono analizzate e inserite in un enorme <b>indice</b> — come un catalogo alfabetico di miliardi di pagine con tutte le parole che contengono.</p>
+      </div>
+      <div class="card" style="border-color:var(--red);">
+        <div style="font-family:var(--font-display);font-weight:900;font-size:72px;color:var(--red);line-height:1;margin-bottom:12px;">3</div>
+        <h3>Ordinamento (Ranking)</h3>
+        <p>Quando cerchi qualcosa, l'algoritmo confronta la tua query con l'indice e ordina i risultati per <b>rilevanza e autorevolezza</b>. Centinaia di fattori vengono considerati.</p>
       </div>
     </div>
-    <div class="illu reveal d1">
-      <svg viewBox="0 0 240 200" style="max-width:220px;margin:0 auto;" role="img" aria-label="Casella di ricerca che trova risultati da molte pagine">
-        <!-- Search box -->
-        <rect x="20" y="20" width="200" height="36" rx="18" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
-        <text x="52" y="43" font-family="Space Mono" font-size="13" fill="#6b5f54">ricerca...</text>
-        <circle cx="198" cy="38" r="12" fill="#d98a2b"/>
-        <text x="198" y="43" text-anchor="middle" font-size="14" fill="#fff">🔍</text>
-        <!-- Arrow down -->
-        <line x1="120" y1="56" x2="120" y2="76" stroke="#d98a2b" stroke-width="3"/>
-        <polygon points="116,72 120,80 124,72" fill="#d98a2b"/>
-        <!-- Results -->
-        <rect x="20" y="84" width="200" height="24" rx="6" fill="#e6c14a" opacity=".3" stroke="#d98a2b" stroke-width="2"/>
-        <text x="36" y="100" font-family="Space Grotesk" font-size="12" fill="#1c1714" font-weight="700">1. sitofinto.it — Risultato rilevante</text>
-        <rect x="20" y="114" width="200" height="22" rx="6" fill="var(--paper-2)" stroke="#d8c9b4" stroke-width="1.5"/>
-        <text x="36" y="129" font-family="Space Grotesk" font-size="12" fill="#3a322c">2. altrositofinto.it — Secondo risultato</text>
-        <rect x="20" y="142" width="200" height="22" rx="6" fill="var(--paper-2)" stroke="#d8c9b4" stroke-width="1.5"/>
-        <text x="36" y="157" font-family="Space Grotesk" font-size="12" fill="#6b5f54">3. esempio.org — Terzo risultato</text>
-        <rect x="20" y="170" width="200" height="22" rx="6" fill="var(--paper-2)" stroke="#d8c9b4" stroke-width="1.5" opacity=".5"/>
-        <text x="36" y="185" font-family="Space Grotesk" font-size="12" fill="#6b5f54" opacity=".6">4. ...</text>
-      </svg>
-      <div class="illu-cap">L'utente vede solo il risultato finale</div>
-    </div>
+    <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">Analogia:</span> come una biblioteca che aggiorna continuamente il catalogo e ti dice dove trovare ogni libro.</div>
   </div>
   <div class="page-num"></div>
 </section>
@@ -429,88 +370,27 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
     </div>
     <div class="note reveal d3" style="margin-top:22px;">
       <div class="lbl">💡 La scelta dipende dalle esigenze</div>
-      <p>Nessuna urgenza? Usa quello che preferisci. <b>Privacy</b> → DuckDuckGo. <b>Impatto ambientale</b> → Ecosia. <b>Massima copertura</b> → Google. <b>Integrazione Windows</b> → Bing.</p>
+      <p>Non esiste il motore "migliore" in assoluto. <b>Privacy</b> → DuckDuckGo. <b>Impatto ambientale</b> → Ecosia. <b>Massima copertura</b> → Google. <b>Integrazione Windows</b> → Bing. Puoi usarli tutti e cambiare in base al contesto e ai tuoi valori.</p>
     </div>
   </div>
   <div class="page-num"></div>
 </section>
 
-<!-- === SLIDE 10: COME FUNZIONANO I MOTORI (slide 29) === -->
-<section class="slide">
-  <div class="center">
-    <div class="tape gold reveal">Dietro le quinte</div>
-    <h2 class="h-sec reveal" style="margin-top:20px;">Come funzionano i <em class="gold">motori</em></h2>
-    <p class="lead reveal d1">Il processo si basa su tre fasi. L'utente vede solo il risultato finale — in realtà dietro c'è un sistema enormemente complesso.</p>
-    <div class="grid3 reveal d2" style="margin-top:26px;">
-      <div class="card" style="border-color:var(--sky);">
-        <div style="font-family:var(--font-display);font-weight:900;font-size:72px;color:var(--sky);line-height:1;margin-bottom:12px;">1</div>
-        <h3>Scansione (Crawling)</h3>
-        <p>Programmi automatici chiamati <b>spider</b> o <b>bot</b> navigano continuamente il Web, seguendo ogni link trovato e scaricando il contenuto delle pagine.</p>
-      </div>
-      <div class="card" style="border-color:var(--gold-deep);">
-        <div style="font-family:var(--font-display);font-weight:900;font-size:72px;color:var(--gold-deep);line-height:1;margin-bottom:12px;">2</div>
-        <h3>Indicizzazione (Indexing)</h3>
-        <p>Le pagine scaricate vengono analizzate e inserite in un enorme <b>indice</b> — come un catalogo alfabetico di miliardi di pagine con tutte le parole che contengono.</p>
-      </div>
-      <div class="card" style="border-color:var(--red);">
-        <div style="font-family:var(--font-display);font-weight:900;font-size:72px;color:var(--red);line-height:1;margin-bottom:12px;">3</div>
-        <h3>Ordinamento (Ranking)</h3>
-        <p>Quando cerchi qualcosa, l'algoritmo confronta la tua query con l'indice e ordina i risultati per <b>rilevanza e autorevolezza</b>. Centinaia di fattori vengono considerati.</p>
-      </div>
-    </div>
-    <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">Analogia:</span> come una biblioteca che aggiorna continuamente il catalogo e ti dice dove trovare ogni libro.</div>
-  </div>
-  <div class="page-num"></div>
-</section>
-
-<!-- === SLIDE 11: QUANDO SCEGLIERE MOTORI DIVERSI (slide 30) === -->
-<section class="slide">
-  <div class="center">
-    <div class="tape gold reveal">Scelta consapevole</div>
-    <h2 class="h-sec reveal" style="margin-top:20px;">Quando scegliere <em class="gold">motori diversi</em></h2>
-    <div class="grid3 reveal d1" style="margin-top:26px;">
-      <div class="card" style="border-color:#3355cc;">
-        <span class="ic">🔵</span>
-        <h3>Google</h3>
-        <p>Eccelle nella <b>quantità di risultati</b>. Prima scelta per ricerche generali, notizie recenti, mappe, immagini, testi accademici.</p>
-        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:#3355cc;">↳ Massima copertura</p>
-      </div>
-      <div class="card" style="border-color:var(--gold-deep);">
-        <span class="ic">🟠</span>
-        <h3>DuckDuckGo</h3>
-        <p>Privilegia la <b>privacy</b>. Nessun tracciamento, nessuna profilazione. I risultati non variano in base alla tua storia di navigazione.</p>
-        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:var(--gold-deep);">↳ Riservatezza</p>
-      </div>
-      <div class="card" style="border-color:#2e7d4f;">
-        <span class="ic">🌿</span>
-        <h3>Ecosia</h3>
-        <p>Utilizza parte dei ricavi pubblicitari per <b>finanziare progetti ambientali</b>. Ottima alternativa per chi vuole un impatto positivo.</p>
-        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:#2e7d4f;">↳ Impatto ecologico</p>
-      </div>
-    </div>
-    <div class="note reveal d2" style="margin-top:22px;">
-      <div class="lbl">💡 La scelta dipende dalle esigenze dell'utente</div>
-      <p>Non esiste il motore "migliore" in assoluto. Scegli in base a <b>cosa stai cercando</b>, al tuo <b>livello di attenzione alla privacy</b> e ai tuoi <b>valori</b>. Puoi usarli tutti e cambiare in base al contesto.</p>
-    </div>
-  </div>
-  <div class="page-num"></div>
-</section>
-
-<!-- === SLIDE 12: IMPORTANZA PAROLE CHIAVE (slide 31) === -->
+<!-- === SLIDE: PAROLE CHIAVE (merge slides 31+32) === -->
 <section class="slide">
   <div class="split">
     <div class="col stack">
       <div class="tape gold reveal">Tecniche di ricerca</div>
-      <h2 class="h-big reveal">L'importanza<br>delle <em class="gold">parole</em><br>chiave</h2>
-      <p class="lead reveal d1">Le parole chiave (<b>keyword</b>) sono i termini principali usati per cercare un argomento. Una ricerca efficace dipende dalla scelta delle parole <em>corrette</em>.</p>
+      <h2 class="h-big reveal">Le <em class="gold">parole</em><br>chiave</h2>
+      <p class="lead reveal d1">Le parole chiave (<b>keyword</b>) sono i concetti principali che descrivono il tuo bisogno. Il motore non "capisce" la tua intenzione — confronta le tue parole con i testi indicizzati: parole vaghe → risultati vaghi, parole precise → risultati precisi.</p>
       <div class="stack reveal d2">
         <div class="note">
-          <div class="lbl">Il principio base</div>
-          <p>Il motore non "capisce" la tua intenzione — confronta le tue parole con i testi indicizzati. Parole vaghe → risultati vaghi. Parole precise → risultati precisi.</p>
+          <div class="lbl">Generica vs specifica</div>
+          <p><b>«computer»</b> produce miliardi di risultati su ogni aspetto: storia, marche, prezzi… <b>«miglior portatile per grafica 2025»</b> produce confronti e guide d'acquisto mirati al tuo bisogno reale.</p>
         </div>
         <div class="note" style="background:var(--paper-2);">
-          <div class="lbl">Cosa sono esattamente</div>
-          <p>Le keyword sono i <b>concetti principali</b> della tua ricerca, non la frase intera. Prima di cercare, chiediti: quali sono le parole che descrivono meglio il mio bisogno?</p>
+          <div class="lbl">💡 Strategia consigliata</div>
+          <p>Parti da una ricerca <b>specifica</b>. Se i risultati non bastano, allarga gradualmente togliendo una parola alla volta — non partire dal generico, perderesti tempo tra risultati irrilevanti.</p>
         </div>
       </div>
     </div>
@@ -533,32 +413,6 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
         <text x="14" y="120" font-family="Space Mono" font-size="22">😊</text>
       </svg>
       <div class="illu-cap">Più è specifica, più è utile</div>
-    </div>
-  </div>
-  <div class="page-num"></div>
-</section>
-
-<!-- === SLIDE 13: GENERICHE E SPECIFICHE (slide 32) === -->
-<section class="slide">
-  <div class="center">
-    <div class="tape gold reveal">Qualità della ricerca</div>
-    <h2 class="h-sec reveal" style="margin-top:20px;">Parole chiave <em class="gold">generiche</em> e <em class="hot">specifiche</em></h2>
-    <p class="lead reveal d1">Le parole chiave specifiche producono risultati più pertinenti. La generalità è un nemico della ricerca efficace.</p>
-    <div class="grid2 reveal d2" style="margin-top:24px;">
-      <div class="card" style="border-color:var(--red);">
-        <h3 style="color:var(--red);">Ricerca generica</h3>
-        <div class="mono-box" style="margin:14px 0;display:block;text-align:center;font-size:36px;">computer</div>
-        <p>Produce <b>miliardi di risultati</b> su ogni aspetto dei computer: storia, componenti, marche, accessori, software, prezzi… Quasi impossibile trovare quello che cerchi davvero.</p>
-      </div>
-      <div class="card" style="border-color:#2e7d4f;">
-        <h3 style="color:#2e7d4f;">Ricerca specifica</h3>
-        <div class="mono-box" style="margin:14px 0;display:block;text-align:center;font-size:26px;">miglior computer<br>portatile per grafica 2025</div>
-        <p>Produce <b>risultati mirati</b> — confronti, recensioni, guide d'acquisto specifiche per il tuo bisogno reale. Risparmia tempo e trova subito ciò che serve.</p>
-      </div>
-    </div>
-    <div class="note reveal d3" style="margin-top:22px;">
-      <div class="lbl">💡 Strategia consigliata</div>
-      <p>Parti da una ricerca specifica. Se i risultati non bastano, <b>allarga gradualmente</b> togliendo una parola alla volta. Non partire dal generico — perderesti troppo tempo tra risultati irrilevanti.</p>
     </div>
   </div>
   <div class="page-num"></div>
@@ -588,7 +442,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
     </div>
     <div class="note reveal d3" style="margin-top:22px;">
       <div class="lbl">Esempio pratico</div>
-      <p>Cercare <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;">perché il cielo è blu</code> produce una risposta diretta in cima ai risultati. I motori moderni preferiscono domande chiare al linguaggio "telegrafic".</p>
+      <p>Cercare <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;">perché il cielo è blu</code> produce una risposta diretta in cima ai risultati. I motori moderni preferiscono domande chiare al linguaggio "telegrafico".</p>
     </div>
   </div>
   <div class="page-num"></div>
@@ -832,7 +686,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
   <div class="center">
     <div class="tape gold reveal">Uso critico</div>
     <h2 class="h-sec reveal" style="margin-top:20px;">Come utilizzare un'<em class="gold">enciclopedia</em></h2>
-    <p class="lead reveal d1">Non tutte le voci enciclopediche sono uguali. Le informazioni devono essere confrontate, verificate e controllate per aggiornamento.</p>
+    <p class="lead reveal d1">Non tutte le voci sono uguali. Le fonti autorevoli citano le fonti primarie, indicano gli autori, hanno un comitato editoriale e aggiornano le voci — se manca uno di questi elementi, verifica altrove.</p>
     <div class="grid3 reveal d2" style="margin-top:26px;">
       <div class="card">
         <span class="ic">🔄</span>
@@ -894,42 +748,6 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
   <div class="page-num"></div>
 </section>
 
-<!-- === SLIDE 24: FONTI AFFIDABILI (slide 43) === -->
-<section class="slide">
-  <div class="center">
-    <div class="tape gold reveal">Autorevolezza</div>
-    <h2 class="h-sec reveal" style="margin-top:20px;">Fonti <em class="gold">affidabili</em></h2>
-    <p class="lead reveal d1">Le fonti ufficiali sono generalmente preferibili. Riconoscere un'istituzione autorevole richiede pratica — ecco un riferimento.</p>
-    <div class="grid4 reveal d2" style="margin-top:22px;">
-      <div class="card" style="text-align:center;border-color:var(--gold-deep);">
-        <span class="ic">📚</span>
-        <h3>Treccani</h3>
-        <p>Istituto della Enciclopedia Italiana. Fondato nel 1925, curato da accademici. Standard di riferimento per l'italiano.</p>
-      </div>
-      <div class="card" style="text-align:center;border-color:var(--sky);">
-        <span class="ic">🌿</span>
-        <h3>Accademia della Crusca</h3>
-        <p>La più antica accademia linguistica del mondo (1583). Custode della lingua italiana, risponde a consulenze grammaticali.</p>
-      </div>
-      <div class="card" style="text-align:center;border-color:var(--teal);">
-        <span class="ic">🌍</span>
-        <h3>Britannica</h3>
-        <p>Enciclopedia fondata nel 1768. La più antica enciclopedia in lingua inglese ancora in uso. Alta autorevolezza accademica internazionale.</p>
-      </div>
-      <div class="card" style="text-align:center;border-color:var(--red);">
-        <span class="ic">🏛️</span>
-        <h3>Enc. Italiana</h3>
-        <p>Enciclopedia Italiana di Scienze, Lettere ed Arti. Progetto editoriale monumentale, 36 volumi, curato da Treccani.</p>
-      </div>
-    </div>
-    <div class="note reveal d3" style="margin-top:20px;">
-      <div class="lbl">Segnale di autorevolezza</div>
-      <p>Fonti autorevoli: citano le fonti primarie · hanno un comitato editoriale · indicano gli autori · aggiornano le voci · sono riconosciute dall'ambiente accademico. Se manca uno di questi elementi, verifica altrove.</p>
-    </div>
-  </div>
-  <div class="page-num"></div>
-</section>
-
 <!-- === SLIDE 25: TRADUZIONE AUTOMATICA (slide 44) === -->
 <section class="slide">
   <div class="split">
@@ -970,59 +788,36 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
   <div class="page-num"></div>
 </section>
 
-<!-- === SLIDE 26: PRINCIPALI STRUMENTI (slide 45) === -->
+<!-- === SLIDE: STRUMENTI DI TRADUZIONE (merge slides 45+46) === -->
 <section class="slide">
   <div class="center">
     <div class="tape gold reveal">Panoramica</div>
     <h2 class="h-sec reveal" style="margin-top:20px;">Principali <em class="gold">strumenti</em> di traduzione</h2>
-    <p class="lead reveal d1">Ogni strumento presenta vantaggi e limiti. La scelta dipende dal contesto e dal livello di accuratezza richiesto.</p>
-    <div class="grid3 reveal d2" style="margin-top:26px;">
+    <p class="lead reveal d1">Ogni strumento presenta vantaggi e limiti — la scelta dipende dal contesto e dall'accuratezza richiesta.</p>
+    <div class="grid3 reveal d2" style="margin-top:24px;">
       <div class="card" style="text-align:center;">
         <span class="ic">🔵</span>
         <h3>Google Translate</h3>
-        <p>Il più diffuso al mondo. Supporta oltre 130 lingue. Ottimo per comprensione rapida. Integrato in Chrome per tradurre interi siti. Qualità variabile tra lingue.</p>
-        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:var(--sky);">Punti di forza: quantità lingue, velocità</p>
+        <p>Il più diffuso al mondo, oltre 130 lingue. Ottimo per comprensione rapida, integrato in Chrome. Qualità variabile tra lingue.</p>
       </div>
       <div class="card" style="text-align:center;">
         <span class="ic">🎯</span>
         <h3>DeepL</h3>
-        <p>Considerato il più accurato per le lingue europee. Produce traduzioni più naturali, mantiene meglio il tono e le sfumature. Preferito in ambito professionale.</p>
-        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:var(--gold-deep);">Punti di forza: qualità, naturalezza</p>
+        <p>Il più accurato per le lingue europee: traduzioni naturali, mantiene tono e sfumature. Preferito in ambito professionale.</p>
       </div>
       <div class="card" style="text-align:center;">
         <span class="ic">🔷</span>
         <h3>Microsoft Translator</h3>
-        <p>Integrato in Office, Teams, Edge. Ottimo per documenti aziendali. Supporta la traduzione in tempo reale nelle conversazioni e nelle presentazioni live.</p>
-        <p style="margin-top:14px;font-family:var(--font-mono);font-size:20px;color:#3355cc;">Punti di forza: integrazione Office</p>
+        <p>Integrato in Office, Teams, Edge. Traduzione in tempo reale nelle conversazioni e nelle presentazioni live.</p>
       </div>
     </div>
-  </div>
-  <div class="page-num"></div>
-</section>
-
-<!-- === SLIDE 27: TRADURRE UNA PAGINA WEB (slide 46) === -->
-<section class="slide">
-  <div class="center">
-    <div class="tape gold reveal">Pratico</div>
-    <h2 class="h-sec reveal" style="margin-top:20px;">Tradurre una <em class="gold">pagina web</em></h2>
-    <p class="lead reveal d1">Molti browser permettono di tradurre automaticamente un sito. La traduzione avviene senza modificare il contenuto originale.</p>
-    <div class="grid2 reveal d2" style="margin-top:26px;">
-      <div class="card">
-        <span class="ic">🌐</span>
-        <h3>Traduzione integrata nel browser</h3>
-        <p>Quando visiti una pagina in lingua straniera, il browser (Chrome, Edge, Safari) propone automaticamente la traduzione. Un clic traduce l'intera pagina mantenendo il layout originale.</p>
-        <p style="margin-top:14px;font-family:var(--font-mono);font-size:22px;color:var(--gold-deep);">Chrome: icona in barra URL → Traduci</p>
-      </div>
-      <div class="card">
-        <span class="ic">🔧</span>
-        <h3>Come funziona</h3>
-        <p>Il testo della pagina viene inviato ai server del traduttore, elaborato e restituito tradotto. Il layout (immagini, pulsanti, struttura) rimane identico. Solo il testo cambia lingua.</p>
-        <p style="margin-top:14px;">La pagina originale sul server non viene modificata — la traduzione è solo visiva, solo per te.</p>
-      </div>
+    <div class="note reveal d3" style="margin-top:20px;">
+      <div class="lbl">💡 Tradurre un'intera pagina web</div>
+      <p>Chrome, Edge e Safari propongono la traduzione automatica delle pagine straniere (icona nella barra URL → Traduci): il layout resta identico, cambia solo il testo.</p>
     </div>
-    <div class="note reveal d3" style="margin-top:22px;">
+    <div class="note red reveal d3" style="margin-top:16px;">
       <div class="lbl">⚠️ Attenzione alla privacy</div>
-      <p>Quando traduci una pagina, il suo contenuto viene inviato ai server del traduttore (Google, Microsoft…). <b>Non tradurre documenti riservati</b> (contratti, dati medici, password) usando traduttori online gratuiti.</p>
+      <p>Il testo tradotto viene inviato ai server del traduttore (Google, Microsoft…). <b>Non tradurre documenti riservati</b> (contratti, dati medici, password) con traduttori online gratuiti.</p>
     </div>
   </div>
   <div class="page-num"></div>
@@ -1109,7 +904,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
     <h2 class="h-mega reveal" style="margin-top:10px;color:#fff;">Trovato! <em class="hot">🔍</em></h2>
     <p class="lead reveal d1" style="color:#f4ece0;max-width:1100px;text-align:center;margin-top:20px;">Sai cercare, valutare le fonti, usare moduli e tradurre contenuti online. Hai tutti gli strumenti per navigare <b>in modo consapevole e critico</b>. Il prossimo modulo ti insegna a comunicare professionalmente via <span style="color:var(--gold);">posta elettronica</span>.</p>
     <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
-      <a class="chip" href="web04-email.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → M5 · Posta Elettronica</a>
+      <a class="chip" href="rw05-email.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → M5 · Posta Elettronica</a>
       <a class="chip alt" href="00-indice.html" style="color:#f4ece0;border-color:rgba(244,236,224,.4);text-decoration:none;cursor:pointer;">↩ Indice del corso</a>
     </div>
   </div>
