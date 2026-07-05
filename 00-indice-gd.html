@@ -28,8 +28,13 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
 
 /* Section group */
 .section-group{margin-bottom:22px;}
-.section-label{font-family:var(--font-mono);font-size:18px;letter-spacing:3px;text-transform:uppercase;color:rgba(244,236,224,.72);margin-bottom:16px;display:flex;align-items:center;gap:16px;background:rgba(244,236,224,.06);border:1px solid rgba(216,201,180,.16);border-left:4px solid var(--gold-deep);border-radius:12px;padding:16px 18px;box-shadow:0 10px 28px rgba(0,0,0,.16);}
+.section-label{font-family:var(--font-mono);font-size:18px;letter-spacing:3px;text-transform:uppercase;color:rgba(244,236,224,.72);margin-bottom:16px;display:flex;align-items:center;gap:16px;cursor:pointer;user-select:none;background:rgba(244,236,224,.06);border:1px solid rgba(216,201,180,.16);border-left:4px solid var(--gold-deep);border-radius:12px;padding:16px 18px;box-shadow:0 10px 28px rgba(0,0,0,.16);transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease;}
+.section-label::before{content:"▾";font-size:20px;color:var(--gold);transition:transform .2s ease,color .2s ease;}
 .section-label::after{content:"";flex:1;height:1px;background:rgba(216,201,180,.18);}
+.section-label:hover{color:var(--paper);background:rgba(244,236,224,.10);border-color:rgba(216,201,180,.32);transform:translateY(-1px);}
+.section-group.collapsed .section-label{color:rgba(244,236,224,.48);background:rgba(244,236,224,.035);border-left-color:rgba(216,201,180,.26);box-shadow:none;}
+.section-group.collapsed .section-label::before{transform:rotate(-90deg);color:rgba(244,236,224,.36);}
+.section-group.collapsed .module-grid{display:none;}
 
 /* Module cards */
 .module-grid{display:grid;grid-template-columns:1fr;gap:8px;}
@@ -186,6 +191,17 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
   </footer>
 
 </div>
+<script>
+const label = document.querySelector('.section-label');
+const group = label?.closest('.section-group');
+if (label && group) {
+  label.setAttribute('role','button');
+  label.setAttribute('tabindex','0');
+  const toggle = () => group.classList.toggle('collapsed');
+  label.addEventListener('click', toggle);
+  label.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' '){e.preventDefault();toggle();} });
+}
+</script>
 <script>
 document.querySelectorAll('.module-card[href]').forEach(card => {
   const href = card.getAttribute('href');
