@@ -1,0 +1,323 @@
+Suite Ufficio · SU10 — Le 10 funzioni più usate
+===============================================
+
+--- Slide 1 ---
+Suite Ufficio · SU10 
+ Fogli di calcolo 
+ Le 10 funzioni
+ più usate 
+ SOMMA.SE, SOMMA.PIÙ.SE, CONTA.PIÙ.SE, SE.ERRORE, ARROTONDA, TESTO, CONCATENA, OGGI e MATR.SOMMA.PRODOTTO — quelle che i professionisti usano ogni giorno. 
+ 15 slide 
+ 
+ 
+ ⚡
+
+--- Slide 2 ---
+Roadmap 
+ Già viste vs nuove 
+ Le funzioni fondamentali le hai già imparate. Questo modulo copre quelle che mancano per lavorare come un professionista. 
+ 
+ 
+ ✓ Già viste (SU06-09) 
+ SOMMA · MEDIA · MIN · MAX
+CONTA.NUMERI · CONTA.VALORI
+CONTA.SE · SE · LET
+CERCA.VERT · CERCA.ORIZZ
+INDICE · CONFRONTA · CERCA.X 
+ 
+ 
+ ★ Nuove in questo modulo 
+ SOMMA.SE · SOMMA.PIÙ.SE
+CONTA.PIÙ.SE · SE.ERRORE
+ARROTONDA · TESTO
+CONCATENA / &amp;
+OGGI · ADESSO · DATA
+MATR.SOMMA.PRODOTTO
+
+--- Slide 3 ---
+1. SOMMA.SE 
+ Somma con condizione 
+ SOMMA.SE somma solo le celle che rispettano una condizione — come CONTA.SE ma invece di contare, somma i valori. 
+ =SOMMA.SE( intervallo ; criterio ; somma_range ) 
+ 
+ → =SOMMA.SE(C:C;"Pagato";B:B) 
+ Somma col. B solo dove col. C = "Pagato" 
+ → =SOMMA.SE(A:A;"Roma";D:D) 
+ Totale vendite solo per clienti di Roma 
+ 
+ 💡 Differenza chiave intervallo = colonna dove cerchi la condizione. somma_range = colonna con i numeri da sommare. Possono essere diverse. 
+ 
+ 
+ 
+ A B (€) C 
+ 1 Cliente Spesa Stato 
+ 2 Rossi 200 Pagato 
+ 3 Bianchi 150 Aperto 
+ 4 Verdi 300 Pagato 
+ 5 SOMMA.SE → 500 
+ 
+ Solo Rossi + Verdi (Pagato): 200+300=500
+
+--- Slide 4 ---
+2–3. PIÙ condizioni 
+ SOMMA.PIÙ.SE e CONTA.PIÙ.SE 
+ Somma o conta con due o più condizioni contemporaneamente. Tutte le condizioni devono essere vere (AND logico). 
+ 
+ 
+ SOMMA.PIÙ.SE 
+ =SOMMA.PIÙ.SE(somma_range; int1; crit1; int2; crit2; …) 
+ Esempio: totale vendite di "Rossi" a "Gennaio"
+ =SOMMA.PIÙ.SE(D:D;A:A;"Rossi";B:B;"Gennaio") 
+ 
+ 
+ CONTA.PIÙ.SE 
+ =CONTA.PIÙ.SE(int1; crit1; int2; crit2; …) 
+ Esempio: quante fatture "Aperto" sopra 100€
+ =CONTA.PIÙ.SE(C:C;"Aperto";B:B;"&gt;100") 
+ 
+ 
+ In pratica: SOMMA.SE e CONTA.SE per 1 condizione. SOMMA.PIÙ.SE e CONTA.PIÙ.SE per 2 o più — stessa logica, sintassi estesa.
+
+--- Slide 5 ---
+4. SE.ERRORE 
+ Gestire gli errori con grazia 
+ SE.ERRORE valuta un'espressione: se produce un errore (qualsiasi errore) restituisce il valore alternativo che specifichi invece di mostrare #N/D, #DIV/0! ecc. 
+ =SE.ERRORE( formula ; valore_se_errore ) 
+ 
+ 
+ Senza SE.ERRORE 
+ =CERCA.VERT("Pippo";A:B;2;0)
+→ #N/D (non trovato) 
+ 
+ 
+ Con SE.ERRORE 
+ =SE.ERRORE(CERCA.VERT(...);"Non trovato")
+→ Non trovato (leggibile) 
+ 
+ 
+ 
+ 
+ 💡 Errori gestibili SE.ERRORE intercetta tutti i codici di errore: #N/D, #DIV/0!, #VALORE!, #RIF!, #NOME?, #NULLO!, #NUMERO! 
+ ⚠️ Non nascondere troppo SE.ERRORE che restituisce "" (stringa vuota) può nascondere errori reali. Usa un messaggio leggibile come "Non trovato" o "—".
+
+--- Slide 6 ---
+5. ARROTONDA 
+ Arrotondare i decimali 
+ ARROTONDA restituisce un numero arrotondato al numero di cifre decimali specificato. Indispensabile nei calcoli finanziari per evitare residui da floating point. 
+ =ARROTONDA( numero ; cifre_decimali ) 
+ 
+ → =ARROTONDA(3.14159; 2) → 3,14 
+ → =ARROTONDA(2467; -2) → 2500 (arrotonda a centinaia) 
+ → =ARROTONDA.ECCESSO(1.1; 0.5) → 1,5 
+ 
+ 💡 Varianti ARROTONDA.PER.DIF arrotonda sempre verso il basso. ARROTONDA.PER.ECC sempre verso l'alto. TRONCA elimina i decimali senza arrotondare. 
+ 
+ 
+ 
+ 
+ 3.14159 
+ 
+ 
+ 3,14 
+ =ARROTONDA(A1; 2) 
+ 
+ 2 decimali: 3.14159 → 3,14
+
+--- Slide 7 ---
+6. TESTO 
+ Formattare numeri come testo 
+ TESTO converte un numero in una stringa formattata secondo un codice che specifichi tu. Indispensabile per creare messaggi, etichette e report con numeri ben presentati. 
+ =TESTO( valore ; " formato ") 
+ 
+ → =TESTO(45678;"GG/MM/AAAA") → 15/03/2025 
+ → =TESTO(1234.5;"€ #.##0,00") → € 1.234,50 
+ → =TESTO(0.85;"0%") → 85% 
+ 
+ 
+ 
+ 💡 Uso tipico Combina TESTO con &amp; per creare messaggi: "Totale: "&amp;TESTO(B10;"€ #.##0,00") → "Totale: € 1.234,50". 
+ ⚠️ Risultato testo TESTO restituisce testo, non un numero. Non puoi sommare i risultati di TESTO. Usalo solo per visualizzare, non per calcolare.
+
+--- Slide 8 ---
+7. CONCATENA / &amp; 
+ Unire testi 
+ Unisce due o più stringhe di testo in una sola. Disponibile come funzione (CONCATENA) o come operatore (&amp;) — preferisci &amp; perché è più leggibile. 
+ =A2 &amp; " " &amp; B2 
+ Se A2 = "Maria" e B2 = "Rossi" → "Maria Rossi" . Lo spazio tra virgolette è letterale. 
+ In pratica: Crea email, etichette, messaggi. "Gentile "&amp;A2&amp;", il tuo appuntamento è "&amp;TESTO(C2;"GG/MM"). 
+ 
+ 
+ 
+ A B C 
+ 1 Nome Cognome Completo 
+ 2 Maria Rossi Maria Rossi 
+ 3 Giulia Bianchi Giulia Bianchi 
+ 
+ =A2 &amp; " " &amp; B2 
+ Spazio tra virgolette = separatore letterale
+
+--- Slide 9 ---
+8. Date e ore 
+ OGGI, ADESSO e DATA 
+ Funzioni per lavorare con la data corrente, la data/ora, e costruire date da componenti separati. 
+ 
+ 
+ OGGI() 
+ =OGGI() 
+ Restituisce la data odierna. Si aggiorna ogni volta che il foglio si ricalcola. Nessun argomento. 
+ 
+ 
+ ADESSO() 
+ =ADESSO() 
+ Data e ora correnti. Cambia ogni volta che il foglio viene modificato — non fisso. 
+ 
+ 
+ DATA 
+ =DATA(anno; mese; giorno) 
+ Crea una data da tre numeri: =DATA(2025;6;15) → 15/06/2025. Utile quando anno/mese/giorno sono in colonne separate. 
+ 
+ 
+ 
+ 
+ GIORNO / MESE / ANNO 
+ =MESE(A2) 
+ Estrae il componente da una data: =MESE(OGGI()) → numero del mese corrente. 
+ 
+ 
+ GIORNI 
+ =GIORNI(fine; inizio) 
+ Differenza in giorni tra due date: =GIORNI(OGGI(); C2) → giorni dall'appuntamento in C2. 
+ 
+ 
+ GIORNO.SETTIMANA 
+ =GIORNO.SETTIMANA(A2; 2) 
+ Restituisce il numero del giorno nella settimana. Con argomento 2: 1=lunedì, 7=domenica.
+
+--- Slide 10 ---
+9. MATR.SOMMA.PRODOTTO 
+ La funzione svizzera 
+ MATR.SOMMA.PRODOTTO moltiplica gli elementi corrispondenti di due o più array e ne somma i prodotti. Molto usata per calcoli pesati e aggregazioni con condizioni. 
+ =MATR.SOMMA.PRODOTTO( array1 ; array2 ; …) 
+ Analogia: Media ponderata, sconto su quantità, totale con più criteri — tutto con un'unica formula senza helper columns. 
+ 💡 Caso tipico Media ponderata dei voti: =MATR.SOMMA.PRODOTTO(voti;pesi)/SOMMA(pesi) 
+ 
+ 
+ 
+ A (Qty) B (€/cad) C = A×B 
+ 1 Qtà Prezzo Subtot. 
+ 2 5 20 [100] 
+ 3 3 45 [135] 
+ 4 8 12 [96] 
+ 5 MATR.SOMMA.PRODOTTO = 331 
+ 
+ =MATR.SOMMA.PRODOTTO(A2:A4; B2:B4) → 331
+(senza colonna C di supporto)
+
+--- Slide 11 ---
+10. Funzioni testo 
+ SINISTRA, DESTRA, STRINGA.ESTRAI 
+ Estrai parti di una stringa di testo. Indispensabili per pulire dati importati e isolare codici, prefissi, sigle. 
+ 
+ 
+ SINISTRA 
+ =SINISTRA(testo; n_caratteri) 
+ Prende i primi N caratteri da sinistra.
+ =SINISTRA("IT12345"; 2) → "IT" (prefisso paese) 
+ 
+ 
+ DESTRA 
+ =DESTRA(testo; n_caratteri) 
+ Prende gli ultimi N caratteri da destra.
+ =DESTRA("FATTURA-2025"; 4) → "2025" 
+ 
+ 
+ STRINGA.ESTRAI 
+ =STRINGA.ESTRAI(testo; inizio; n) 
+ Estrae N caratteri a partire dalla posizione indicata.
+ =STRINGA.ESTRAI("IT12345"; 3; 5) → "12345" 
+ 
+ 
+ 💡 Combinazione potente Usa insieme a TROVA o RICERCA per trovare la posizione di un carattere (es. "-") e poi estrarre dinamicamente la parte prima o dopo.
+
+--- Slide 12 ---
+Riepilogo 
+ Le 10 funzioni di questo modulo 
+ 
+ 
+ SOMMA.SE 
+ =SOMMA.SE(int;crit;sum) 
+ Somma con 1 condizione 
+ 
+ 
+ SOMMA.PIÙ.SE 
+ =SOMMA.PIÙ.SE(...) 
+ Somma con N condizioni 
+ 
+ 
+ CONTA.PIÙ.SE 
+ =CONTA.PIÙ.SE(...) 
+ Conta con N condizioni 
+ 
+ 
+ SE.ERRORE 
+ =SE.ERRORE(f;alt) 
+ Fallback sugli errori 
+ 
+ 
+ ARROTONDA 
+ =ARROTONDA(n;dec) 
+ Decimali controllati 
+ 
+ 
+ TESTO 
+ =TESTO(v;"fmt") 
+ Numero → stringa 
+ 
+ 
+ CONCATENA / &amp; 
+ =A2&amp;" "&amp;B2 
+ Unire stringhe 
+ 
+ 
+ OGGI / DATA 
+ =OGGI() 
+ Data corrente 
+ 
+ 
+ MATR.SOMMA.PROD. 
+ =MATR.SOMMA.PROD(...) 
+ Prodotto + somma array 
+ 
+ 
+ SINISTRA / DESTRA 
+ =SINISTRA(t;n) 
+ Estrai parti di testo
+
+--- Slide 13 ---
+Verifica 
+ Hai padroneggiato le funzioni avanzate? 
+ 
+ 
+ SOMMA.SE vs SOMMA.PIÙ.SE 
+ Hai vendite in colonna D, città in A, mese in B. Scrivi la formula per il totale delle vendite solo a "Milano" nel mese di "Marzo". 
+ 
+ 
+ SE.ERRORE 
+ La formula =CERCA.VERT(E2;A:C;3;0) mostra #N/D quando il prodotto non esiste. Come modificarla per mostrare "Non disponibile"? 
+ 
+ 
+ TESTO e CONCATENA 
+ Vuoi creare il messaggio "Appuntamento del 15/06/2025" dove la data è in cella A2. Scrivi la formula usando TESTO e &amp;. 
+ 
+ 
+ MATR.SOMMA.PRODOTTO 
+ Hai quantità in colonna A e prezzi in colonna B. Qual è il modo più diretto per calcolare il fatturato totale senza una colonna di supporto?
+
+--- Slide 14 ---
+Fine SU10 
+ Strumenti da
+ professionista. 
+ Hai completato il percorso sui fogli di calcolo. Prossimo: presentazioni con impatto. 
+ 
+ Prossimo → SU11 · Dillo con una slide 
+ ↩ Indice del corso

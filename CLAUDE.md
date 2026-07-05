@@ -165,7 +165,7 @@ of each word in the section name (e.g. `HS` = Hardware e **S**oftware):
 | `sd` | Sicurezza Digitale | `sd01-introduzione.html` |
 | `in` | Informatica | `in01-identita.html` |
 | `sm` | Smartphones | `sm01-smartphone-computer.html` |
-| `su` | Suite Ufficio | `su01-google-workspace.html` |
+| `su` | Suite Ufficio | `su01-microsoft.html` |
 | `ia` | Intelligenza Artificiale | `ia01-concetti-generali.html` |
 | `gd` | Game Design | `gd01-introduzione.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
@@ -279,16 +279,21 @@ Navigation chain: sm01 → … → sm11
 
 ### Suite Ufficio
 
-Navigation chain: su01 → su02 → su03 → su04 → su05 → su06
+Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 → su08 → su09 → su10 → su11
 
 | File | Title |
 | --- | --- |
-| `su01-google-workspace.html` | Software Google (intro) |
-| `su02-documenti.html` | Mettere tutto per iscritto |
-| `su03-excel-basi.html` | Le basi del foglio di calcolo |
-| `su04-excel-avanzato.html` | Analizzare e condividere |
-| `su05-riferimenti-formule.html` | Riferimenti e formule robuste |
-| `su06-presentazioni.html` | Dillo con una slide |
+| `su01-microsoft.html` | Software Microsoft |
+| `su02-google-workspace.html` | Software Google (intro) |
+| `su03-adobe.html` | Software Adobe |
+| `su04-alternativi.html` | Software alternativi (open source) |
+| `su05-documenti.html` | Mettere tutto per iscritto |
+| `su06-sistema.html` | Il foglio di calcolo: sistema di lavoro |
+| `su07-riferimenti.html` | Riferimenti e range |
+| `su08-prime-formule.html` | Prime formule |
+| `su09-analisi.html` | Analizzare e cercare |
+| `su10-funzioni-top.html` | Le 10 funzioni più usate |
+| `su11-presentazioni.html` | Dillo con una slide |
 
 ### Intelligenza Artificiale
 

@@ -1,0 +1,316 @@
+Suite Ufficio · SU08 — Prime formule
+========================================
+
+--- Slide 1 ---
+Suite Ufficio · SU08 
+ Fogli di calcolo 
+ Prime formule 
+ Come funzionano le formule, gli operatori, e le funzioni fondamentali: SOMMA, MEDIA, MIN, MAX, CONTA, CONTA.SE e SE. 
+ 14 slide 
+ 
+ 
+ 🧮
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa impareremo 
+ 
+ 01 Come funziona una formula 
+ 02 Operatori aritmetici 
+ 03 SOMMA 
+ 04 MEDIA 
+ 05 MIN e MAX 
+ 06 CONTA.NUMERI e CONTA.VALORI 
+ 07 CONTA.SE 
+ 08 SE — decisioni automatiche 
+ 09 Errori delle formule 
+ 10 Buone abitudini
+
+--- Slide 3 ---
+Il superpotere 
+ Come funziona
+una formula 
+ Ogni formula inizia con = e può usare valori fissi, riferimenti a celle, operatori e funzioni. Il risultato si aggiorna automaticamente quando cambiano i dati. 
+ Regola: Senza = il foglio tratta ciò che scrivi come testo. Con = lo calcola. 
+ 💡 Niente calcolatrice Imposti la formula una volta — il foglio ricalcola tutto da solo ad ogni modifica. Cambia un dato, tutti i risultati si aggiornano. 
+ 
+ 
+ C1 = A1 + B1 
+ 
+ A B C 
+ 1 20 15 35 
+ 
+ =A1+B1 → 35, aggiornato se A1 o B1 cambia
+
+--- Slide 4 ---
+Operatori 
+ Operatori aritmetici e logici 
+ Le formule usano operatori per combinare valori e riferimenti. Li conosci già dalla matematica — con qualche variante. 
+ 
+ 
+ + − * / 
+ Aritmetici 
+ Somma, sottrai, moltiplica, dividi. =A2*B2 moltiplica due celle. 
+ 
+ 
+ ^ 
+ Potenza 
+ =A2^2 calcola il quadrato di A2. Equivale a A2×A2. 
+ 
+ 
+ &gt; &lt; = &lt;&gt; 
+ Confronto 
+ Maggiore, minore, uguale, diverso. Restituiscono VERO o FALSO — usati nelle condizioni. 
+ 
+ 
+ &amp; 
+ Testo 
+ Unisce testo: =A2&" "&B2 → "Mario Rossi". Utile per nomi completi. 
+ 
+ 
+ 💡 Precedenza Come in matematica: * e / prima di + e −. Usa le parentesi per cambiare l'ordine: =(A+B)*C .
+
+--- Slide 5 ---
+SOMMA 
+ La funzione
+più usata 
+ SOMMA aggiunge tutti i numeri in un intervallo. È la funzione più usata per totali, incassi, spese e quantità. 
+ =SOMMA( B2:B6 ) 
+ 
+ 
+ ✓ 
+ =SOMMA(B2:B6) — range continuo 
+ 
+ 
+ ✓ 
+ =SOMMA(B2;B4;B6) — celle separate 
+ 
+ 
+ ✓ 
+ =SOMMA(B:B) — intera colonna 
+ 
+ 
+ 
+ 
+ 
+ A B 
+ 1 Voce € 
+ 2 Creme 120 
+ 3 Shampoo 80 
+ 4 Colori 150 
+ 5 Gel 45 
+ 6 Totale 430 
+ 
+ =SOMMA(B2:B5) → 430
+
+--- Slide 6 ---
+MEDIA · MIN · MAX 
+ Tre funzioni, una fotografia dei dati 
+ Usate insieme danno subito una panoramica della distribuzione dei valori — senza leggere ogni cella. 
+ 
+ 
+ MEDIA 
+ =MEDIA(B2:B10) 
+ Somma i valori e divide per quanti ce ne sono. Le celle vuote non vengono contate — attenzione agli zeri non voluti. 
+ 
+ 
+ MIN 
+ =MIN(B2:B10) 
+ Trova il valore più piccolo nell'intervallo. Utile per controllare anomalie e prezzi minimi. 
+ 
+ 
+ MAX 
+ =MAX(B2:B10) 
+ Trova il valore più grande. Se MAX è molto superiore alla MEDIA, potrebbe essere un outlier o un errore. 
+ 
+ 
+ In pratica: MIN, MEDIA, MAX insieme = in pochi secondi capisci la distribuzione dei dati senza grafici.
+
+--- Slide 7 ---
+Contare 
+ Contare le celle presenti 
+ SOMMA risponde "quanto in totale?". Le funzioni CONTA rispondono "quante celle hanno qualcosa dentro?". 
+ 
+ 
+ CONTA.NUMERI 
+ =CONTA.NUMERI(B:B) 
+ Conta solo le celle che contengono numeri . Testo, date e celle vuote vengono ignorati. 
+ 
+ 
+ CONTA.VALORI 
+ =CONTA.VALORI(A:A) 
+ Conta le celle non vuote — qualsiasi contenuto (testo, numero, formula). Utile per contare righe compilate. 
+ 
+ 
+ 
+ 
+ 
+ A (nome) B (€) 
+ 1 Cliente Spesa 
+ 2 Sofia 145 
+ 3 Laura 62 
+ 4 Giulia 
+ 5 Marco 88 
+ 6 CONTA.VALORI=4 CONTA.NUMERI=3 
+ 
+ B4 è vuota: CONTA.NUMERI la salta, CONTA.VALORI no
+
+--- Slide 8 ---
+CONTA.SE 
+ Contare con una condizione 
+ CONTA.SE conta solo le celle che rispettano una regola: uguale a un testo, maggiore di un numero, contenente un valore specifico. 
+ =CONTA.SE( C:C ;"Pagato") 
+ 
+ 
+ → 
+ =CONTA.SE(B:B;"&gt;100") — spese sopra 100€ 
+ 
+ 
+ → 
+ =CONTA.SE(A:A;"Roma") — clienti di Roma 
+ 
+ 
+ → 
+ =CONTA.SE(C:C;E1) — criterio in E1 
+ 
+ 
+ ⚠️ Più condizioni CONTA.SE gestisce una sola condizione. Per più condizioni usa CONTA.PIÙ.SE — trattato in SU10. 
+ 
+ 
+ 
+ A B (€) C 
+ 1 Cliente Spesa Stato 
+ 2 Sofia 145 Pagato 
+ 3 Laura 62 Aperto 
+ 4 Giulia 88 Pagato 
+ 5 CONTA.SE(C:C;"Pagato") = 2 
+ 
+ Conta solo le righe con stato "Pagato"
+
+--- Slide 9 ---
+SE 
+ Decisioni automatiche 
+ SE valuta una condizione: se è vera restituisce un valore, altrimenti un altro. È la funzione logica base da cui nascono tutte le decisioni nel foglio. 
+ =SE( condizione ; se_vero; se_falso) 
+ =SE(B2&gt;100; "Ottimo"; "Da migliorare") 
+ Se la spesa in B2 supera 100€ → scrive "Ottimo", altrimenti "Da migliorare". 
+ 
+ 
+ C2 = SE(B2&gt;100;"Ottimo";"Basso") 
+ 
+ A B (€) C 
+ 1 Cliente Spesa Valut. 
+ 2 Sofia 145 Ottimo 
+ 3 Laura 65 Basso 
+ 4 Giulia 120 Ottimo 
+ 
+ SE valuta ogni riga in automatico
+
+--- Slide 10 ---
+Riepilogo 
+ Le 7 funzioni di questo modulo 
+ 
+ 
+ SOMMA 
+ =SOMMA(A1:A10) 
+ Totale numerico di un intervallo 
+ 
+ 
+ MEDIA 
+ =MEDIA(A1:A10) 
+ Valore medio 
+ 
+ 
+ MIN 
+ =MIN(A1:A10) 
+ Valore minimo 
+ 
+ 
+ MAX 
+ =MAX(A1:A10) 
+ Valore massimo 
+ 
+ 
+ CONTA.NUMERI 
+ =CONTA.NUMERI(A:A) 
+ Celle con numeri 
+ 
+ 
+ CONTA.SE 
+ =CONTA.SE(A:A;"x") 
+ Celle che rispettano una condizione 
+ 
+ 
+ SE 
+ =SE(cond;vero;falso) 
+ Decisione automatica in base a una condizione 
+ 
+ 
+ CONTA.VALORI 
+ =CONTA.VALORI(A:A) 
+ Celle non vuote (qualsiasi tipo)
+
+--- Slide 11 ---
+Errori 
+ Errori tipici delle formule 
+ Quando qualcosa non torna, il foglio mostra un codice di errore. Ogni codice ha una causa precisa e una soluzione. 
+ 
+ #DIV/0! Divisione per zero o per cella vuota. Usa SE.ERRORE o controlla che il denominatore non sia 0. 
+ #VALORE! Tipo di dato sbagliato: stai sommando testo. Controlla il formato delle celle — i numeri devono essere allineati a destra. 
+ #RIF! Riferimento a una cella cancellata o spostata. Ricontrolla da dove proviene la formula. 
+ #NOME? Nome di funzione scritto male (es. SOMMMA invece di SOMMA) o nome di range inesistente.
+
+--- Slide 12 ---
+Metodo 
+ Buone abitudini 
+ Una formula corretta non basta: deve essere anche leggibile, robusta e facile da correggere. 
+ 
+ 
+ 
+ 1. 
+ Mai calcoli magici 
+ Usa riferimenti a celle, non valori fissi come 0.22 sparsi nelle formule 
+ 
+ 
+ 2. 
+ Una formula, poi copia 
+ Scrivi la formula corretta in una cella, poi trascinala — non riscrivere ogni volta 
+ 
+ 
+ 3. 
+ Controlla il risultato 
+ Verifica sempre che il risultato sia plausibile — le formule non avvisano se sei in un range sbagliato 
+ 
+ 
+ 4. 
+ Nessuno sa tutto a memoria 
+ Il programma suggerisce mentre scrivi — usa i suggerimenti, non memorizzare la sintassi
+
+--- Slide 13 ---
+Verifica 
+ Hai capito le prime formule? 
+ 
+ 
+ SOMMA vs CONTA 
+ Hai 10 vendite da 50€ ciascuna. =SOMMA(B:B) dà 500. Cosa dà =CONTA.NUMERI(B:B) ? E =MEDIA(B:B) ? 
+ 
+ 
+ CONTA.SE 
+ In colonna C hai gli stati "Pagato", "Aperto", "Annullato". Scrivi la formula per contare solo le righe "Aperto". 
+ 
+ 
+ SE 
+ Scrivi una formula SE che scriva "Scorta bassa" se la cella B2 è inferiore a 10, altrimenti "OK". 
+ 
+ 
+ Errore 
+ La formula =SOMMA(A1:A5) mostra #VALORE!. Qual è la causa più probabile e come controlli?
+
+--- Slide 14 ---
+Fine SU08 
+ I calcoli girano
+ da soli. 
+ Ora sai usare le formule fondamentali. Nel prossimo modulo analizziamo e cerchiamo dati con strumenti più potenti. 
+ 
+ Prossimo → SU09 · Analizzare e cercare 
+ ↩ Indice del corso

@@ -1,0 +1,364 @@
+Suite Ufficio · SU06 — Il foglio di calcolo: sistema di lavoro
+==============================================================
+
+--- Slide 1 ---
+Suite Ufficio · SU06 
+ Fogli di calcolo 
+ Il sistema 
+di lavoro 
+ Cos'è un foglio di calcolo, come è fatto, che tipi di dati gestisce e come si lavora con celle, fogli, formattazione e grafici. 
+ 14 slide SU06 · Basi 
+ 
+ 
+ 📊
+
+--- Slide 2 ---
+In questo modulo 
+ Cosa impareremo 
+ 
+ 01 Cos'è un foglio di calcolo 
+ 02 L'interfaccia: griglia e barre 
+ 03 Celle e indirizzi 
+ 04 Tipi di dati 
+ 05 Inserire e modificare dati 
+ 06 Più fogli in un file 
+ 07 Formattazione celle 
+ 08 Grafici 
+ 09 Stampa e condivisione 
+ 10 Errori comuni
+
+--- Slide 3 ---
+Punto di partenza 
+ Cos'è un foglio di calcolo 
+ Un programma con un'interfaccia a celle — una griglia di righe e colonne — per organizzare dati, automatizzare calcoli e creare grafici. 
+ In breve: un quaderno a quadretti che sa fare i conti da solo — e si aggiorna ogni volta che cambiano i dati. 
+ 
+ 
+ 📊 
+ Excel — Microsoft
+ Standard aziendale, parte di Microsoft 365 
+ 
+ 
+ 🌐 
+ Google Sheets — Google
+ Gratuito, online, collaborazione in tempo reale 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ A 
+ B 
+ C 
+ D 
+ 
+ 1 
+ 2 
+ 3 
+ 4 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ B2 
+ 
+ Nome 
+ Spesa € 
+ Mese 
+ Sofia 
+ Laura 
+ Giulia 
+ Gennaio 
+ Gennaio 
+ 
+ La griglia: colonne (A,B,C) × righe (1,2,3)
+
+--- Slide 4 ---
+Interfaccia 
+ Le parti dell' interfaccia 
+ Ogni programma di fogli di calcolo ha la stessa struttura di base, che tu usi Excel o Google Sheets. 
+ 
+ 
+ 📋 
+ Barra della formula 
+ Mostra il contenuto della cella selezionata — formula o valore grezzo, non il risultato formattato. 
+ 
+ 
+ 🔲 
+ Casella del nome 
+ Mostra l'indirizzo della cella attiva (es. B2). Puoi anche digitarci un indirizzo per saltarci direttamente. 
+ 
+ 
+ 📑 
+ Linguette foglio 
+ In basso: un file può avere più fogli (pagine). Si passa dall'uno all'altro con un clic. 
+ 
+ 
+ 📏 
+ Intestazioni 
+ Lettere per le colonne (A, B, C…), numeri per le righe (1, 2, 3…). Identificano ogni cella. 
+ 
+ 
+ Regola: La barra della formula è il posto più onesto del programma — mostra sempre cosa c'è davvero dentro la cella.
+
+--- Slide 5 ---
+Dati 
+ Tipi di dati in una cella 
+ Il tipo di dato determina cosa puoi fare con quella cella. Gli errori più comuni nascono proprio da confusioni tra tipi. 
+ 
+ 
+ 📝 
+ Testo — allineato a sinistra, non sommabile 
+ 
+ 
+ 🔢 
+ Numero — allineato a destra, usabile nei calcoli 
+ 
+ 
+ 📅 
+ Data — è un numero speciale (1 = 1 gen 1900) 
+ 
+ 
+ ☑️ 
+ Logico — VERO / FALSO, usato nelle condizioni 
+ 
+ 
+ ⚠️ Errore tipico Scrivere "€ 50" come testo invece di 50: il foglio non riesce a sommarlo. Controlla l'allineamento. 
+ 
+ 
+ 
+ A B 
+ 1 Sofia 120 
+ 2 Clienti 15/06/2025 
+ 3 € 50 ⚠ 
+ 4 VERO FALSO 
+ 
+ Testo→sinistra · Numero→destra · Logico→centro
+
+--- Slide 6 ---
+Lavorare con i dati 
+ Inserire e modificare 
+ Clicca su una cella → digita → premi Invio per scendere o Tab per spostarti a destra. Doppio clic (o F2) per modificare una cella già compilata. 
+ 
+ 
+ ✂️ 
+ Copia e incolla 
+ Ctrl+C / Ctrl+V. "Incolla speciale" permette di incollare solo valori (senza formule) o solo formati. 
+ 
+ 
+ ↔️ 
+ Riempimento automatico 
+ Trascina il quadratino in basso a destra di una cella: continua la sequenza (1,2,3 o lun,mar,mer…). 
+ 
+ 
+ 🔄 
+ Annulla / Ripristina 
+ Ctrl+Z annulla l'ultima azione. Ctrl+Y la ripristina. Puoi tornare indietro decine di passi. 
+ 
+ 
+ 💡 Scorciatoia Ctrl+Shift+End seleziona fino all'ultima cella con dati — utile per capire quanto è grande la tabella.
+
+--- Slide 7 ---
+Organizzazione 
+ Più fogli in un file 
+ Un file può contenere più fogli: uno per ogni mese, categoria o argomento. Le linguette in basso permettono di passare dall'uno all'altro. 
+ In pratica: Usa fogli separati come capitoli di un libro — stessa copertina (file), contenuti diversi (fogli). 
+ 
+ 
+ ✏️ 
+ Rinomina: doppio clic sulla linguetta 
+ 
+ 
+ 🎨 
+ Colore: clic destro → Colore linguetta 
+ 
+ 
+ 📋 
+ Sposta/copia: trascina la linguetta 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Salone_2025.xlsx 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gennaio 
+ 
+ 
+ Febbraio 
+ 
+ 
+ Clienti 
+ 
+ 
+ + 
+ 
+ 3 fogli · 1 file 
+ 
+ Linguette foglio — stesso file, contenuti separati
+
+--- Slide 8 ---
+Formattazione 
+ Rendere i dati leggibili 
+ La formattazione non cambia il valore della cella, cambia solo come appare. È fondamentale per tabelle professionali. 
+ 
+ 
+ 💶 
+ Valuta 
+ Aggiungi simbolo € e due decimali. Scrivi 50 → appare € 50,00 . 
+ 
+ 
+ 📅 
+ Data 
+ Scegli GG/MM/AAAA o "3 luglio 2025". Il valore sottostante è sempre un numero. 
+ 
+ 
+ % 
+ Percentuale 
+ Scrivi 0,22 → applica formato % → appare 22% automaticamente. 
+ 
+ 
+ 🎨 
+ Stile cella 
+ Grassetto intestazioni, sfondo colorato per totali, bordi tra sezioni, righe alternate. 
+ 
+ 
+ 💡 Consiglio Usa la Formattazione condizionale per colorare automaticamente le celle in base al valore — es. rosso se sotto soglia, verde se sopra target.
+
+--- Slide 9 ---
+Visualizzazione 
+ Creare un grafico 
+ Seleziona i dati → menu Inserisci → Grafico . Il grafico si aggiorna automaticamente quando cambiano i dati. 
+ 
+ 
+ 📊 
+ Barre / Colonne 
+ Confrontare valori tra categorie diverse 
+ 
+ 
+ 🥧 
+ Torta 
+ Proporzioni sul totale (percentuali) 
+ 
+ 
+ 📈 
+ Linee 
+ Andamento nel tempo (trend mensile) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gen 
+ Feb 
+ Mar 
+ Apr 
+ 
+ 0 
+ 50 
+ 100 
+ 150 
+ 
+ Incassi mensili (€) 
+ 
+ Grafico a colonne — un clic su Inserisci → Grafico
+
+--- Slide 10 ---
+Condividi 
+ Stampa e condivisione 
+ 
+ 
+ 🖨️ 
+ Stampa 
+ Imposta l'area di stampa, orientamento orizzontale per tabelle larghe, scala per fit su 1 pagina. 
+ 
+ 
+ 📄 
+ Esporta PDF 
+ File → Scarica come PDF. I dati restano fissi e non modificabili — ideale per clienti o archivio. 
+ 
+ 
+ 🔗 
+ Link (Sheets) 
+ Condividi → crea link con permesso sola lettura, commento o modifica. Il collaboratore vede i dati live. 
+ 
+ 
+ 📧 
+ Email come allegato 
+ File → Email come allegato: invia direttamente in formato Excel o PDF senza uscire dal browser. 
+ 
+ 
+ ⚠️ Privacy Prima di condividere, controlla che il file non contenga dati personali di clienti o informazioni riservate.
+
+--- Slide 11 ---
+Errori 
+ Capire gli errori del foglio 
+ Quando una formula non funziona, il foglio mostra un codice di errore. Leggerlo è il primo passo per risolverlo. 
+ 
+ #DIV/0! Divisione per zero o per cella vuota. Controlla che il denominatore non sia 0. 
+ #VALORE! Tipo sbagliato: stai sommando testo invece di numeri. Controlla il formato delle celle. 
+ #RIF! Riferimento a una cella cancellata o spostata. Ricontrolla da dove proviene la formula. 
+ #NOME? Nome funzione scritto male: es. SOMAM invece di SOMMA .
+
+--- Slide 12 ---
+Verifica 
+ Hai capito il sistema? 
+ 
+ 
+ Tipi di dato 
+ Scrivi "€ 50" in una cella invece di 50. Cosa cambia? Riesci a sommarlo con SOMMA? 
+ 
+ 
+ Fogli multipli 
+ Hai dati di 12 mesi. Come li organizzeresti in un file? Quanti fogli useresti e come li chiameresti? 
+ 
+ 
+ Errore #DIV/0! 
+ La formula =B2/C2 mostra #DIV/0!. Cosa controlla per prima cosa? 
+ 
+ 
+ Grafico 
+ Vuoi mostrare l'andamento delle vendite mese per mese negli ultimi 12 mesi. Quale tipo di grafico scegli?
+
+--- Slide 13 ---
+Fine SU06 
+ La griglia è
+ il tuo spazio. 
+ Ora conosci l'interfaccia, i tipi di dati, la formattazione e come organizzare il lavoro in più fogli. Prossimo passo: i riferimenti. 
+ 
+ Prossimo → SU07 · Riferimenti 
+ ↩ Indice del corso
