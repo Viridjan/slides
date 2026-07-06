@@ -105,12 +105,9 @@ em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--
 body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
 .edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:260px;}
 .edit-hint.show{display:block;}
-/* perm table */
-.perm-table{width:100%;border-collapse:collapse;}
-.perm-table th{font-family:var(--font-display);font-size:28px;text-align:left;padding:14px 20px;border-bottom:3px solid var(--ink);color:var(--teal);}
-.perm-table td{font-size:26px;padding:14px 20px;border-bottom:1px solid var(--line);color:var(--ink-soft);}
-.perm-table tr:last-child td{border-bottom:none;}
-.perm-table .mark{font-size:28px;text-align:center;}
+/* journey badge — filo conduttore */
+.journey{position:absolute;top:40px;right:110px;z-index:5;font-family:var(--font-mono);font-size:19px;letter-spacing:1px;color:var(--ink-faint);background:#fbf5ec;border:2px dashed var(--line);border-radius:30px;padding:8px 20px;}
+.journey b{color:var(--red);}
 </style>
 </head>
 <body>
@@ -160,13 +157,84 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <div class="page-num"></div>
 </section>
 
-<!-- ── Slide 2: Netiquette – definizione ──────────────────── -->
+<!-- ── Slide 2: Lo scenario — il filo conduttore ──────────── -->
 <section class="slide" id="s2">
+  <div class="tape teal reveal">Lo scenario</div>
+  <div class="h-sec reveal">Primo giorno in un team remoto</div>
+  <p class="lead reveal" style="margin-top:14px;margin-bottom:26px;">Immagina: da oggi lavori a un progetto con cinque colleghi in cinque città diverse. Non li incontrerai mai di persona. <em class="hot">Tutta</em> la collaborazione passa dagli strumenti digitali. Questo modulo segue il tuo percorso, passo per passo:</p>
+  <div class="grid3 reveal d3" style="grid-template-columns:1fr 1fr 1fr;gap:18px;">
+    <div class="agenda-item" style="border-color:var(--gold-deep);padding:12px 16px;">
+      <span style="font-size:32px;min-width:44px;">🪪</span>
+      <div><b style="font-size:24px;">1 · Chi sei online</b><br><span style="font-size:20px;color:var(--ink-faint);">identità digitale professionale</span></div>
+    </div>
+    <div class="agenda-item" style="border-color:var(--red);padding:12px 16px;">
+      <span style="font-size:32px;min-width:44px;">🤝</span>
+      <div><b style="font-size:24px;">2 · Come ti comporti</b><br><span style="font-size:20px;color:var(--ink-faint);">netiquette ed email</span></div>
+    </div>
+    <div class="agenda-item" style="border-color:var(--sky);padding:12px 16px;">
+      <span style="font-size:32px;min-width:44px;">📡</span>
+      <div><b style="font-size:24px;">3 · Quale canale scegli</b><br><span style="font-size:20px;color:var(--ink-faint);">sincrono, asincrono, chat</span></div>
+    </div>
+    <div class="agenda-item" style="border-color:var(--teal);padding:12px 16px;">
+      <span style="font-size:32px;min-width:44px;">☁️</span>
+      <div><b style="font-size:24px;">4 · Dove vive il lavoro</b><br><span style="font-size:20px;color:var(--ink-faint);">cloud, versioni, permessi</span></div>
+    </div>
+    <div class="agenda-item" style="border-color:var(--gold-deep);padding:12px 16px;">
+      <span style="font-size:32px;min-width:44px;">🗂️</span>
+      <div><b style="font-size:24px;">5 · Come vi organizzate</b><br><span style="font-size:20px;color:var(--ink-faint);">PM tools e riunioni video</span></div>
+    </div>
+    <div class="agenda-item" style="border-color:var(--red);padding:12px 16px;">
+      <span style="font-size:32px;min-width:44px;">🌍</span>
+      <div><b style="font-size:24px;">6 · Quando va storto (e oltre)</b><br><span style="font-size:20px;color:var(--ink-faint);">malintesi, collaborazione aperta</span></div>
+    </div>
+  </div>
+  <div class="analogy reveal d4" style="margin-top:26px;"><span class="big">In pratica:</span> Collaborare a distanza non è "lavorare da casa" — è un mestiere con regole proprie.</div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── PASSO 1 ─────────────────────────────────────────────── -->
+
+<!-- ── Slide 3: Identità digitale professionale ───────────── -->
+<section class="slide" id="s3">
+  <div class="journey">Passo <b>1</b>/6 · Chi sei online</div>
+  <div class="tape gold reveal">Identità</div>
+  <div class="h-sec reveal">Prima di scrivere: chi sei online?</div>
+  <p class="lead reveal" style="margin-top:12px;margin-bottom:18px;">I tuoi colleghi non ti hanno mai visto. Per loro, <em class="hot">tu sei quello che scrivi</em>: la tua identità professionale nasce dai messaggi, dai profili e dai contributi che lasci sui canali di lavoro.</p>
+  <div class="split reveal d3" style="height:auto;">
+    <div class="col stack">
+      <div class="card teal">
+        <span class="ic">🌐</span>
+        <h3>Che cos'è</h3>
+        <p>L'<b>immagine di noi stessi</b> che emerge dalle attività, interazioni e profili sui canali digitali di lavoro: email, LinkedIn, chat, commenti su documenti, contributi a progetti.</p>
+      </div>
+    </div>
+    <div class="col stack">
+      <div class="card red">
+        <span class="ic">❌</span>
+        <h3>Non è…</h3>
+        <p>Un documento d'identità scansionato · Un avatar per nascondersi · L'insieme delle password cloud · Un profilo fake</p>
+      </div>
+      <div class="card sky reveal d4">
+        <span class="ic">✅</span>
+        <h3>Si costruisce con…</h3>
+        <p>Profilo LinkedIn aggiornato · Firma email professionale · Tono coerente nei messaggi · Contributi visibili a progetti condivisi</p>
+      </div>
+    </div>
+  </div>
+  <div class="analogy reveal d5" style="margin-top:18px;"><span class="big">Regola:</span> Ogni messaggio scritto è un mattone della tua identità professionale online.</div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── PASSO 2 ─────────────────────────────────────────────── -->
+
+<!-- ── Slide 4: Netiquette ─────────────────────────────────── -->
+<section class="slide" id="s4">
+  <div class="journey">Passo <b>2</b>/6 · Come ti comporti</div>
   <div class="tape reveal">Definizione</div>
-  <div class="h-sec reveal">Netiquette</div>
-  <p class="lead reveal" style="margin-top:14px;margin-bottom:28px;">Insieme di regole comportamentali non scritte che regolano le interazioni nei contesti digitali — email, chat, videoconferenze, social professionali.</p>
+  <div class="h-sec reveal">Netiquette: il galateo che ti rappresenta</div>
+  <p class="lead reveal" style="margin-top:14px;margin-bottom:24px;">Se l'identità è <em class="sky">chi sei</em>, la netiquette è <em class="hot">come ti comporti</em>: l'insieme di regole non scritte che governano email, chat, videoconferenze e social professionali. È il modo più rapido per costruire — o distruggere — l'immagine appena vista.</p>
   <div class="analogy reveal d3"><span class="big">Regola:</span> Adatta il registro linguistico e il tono alla piattaforma e all'interlocutore.</div>
-  <div class="grid2 reveal d4" style="margin-top:28px;">
+  <div class="grid2 reveal d4" style="margin-top:24px;">
     <div class="card teal">
       <span class="ic">✅</span>
       <h3>Da fare</h3>
@@ -181,11 +249,12 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <div class="page-num"></div>
 </section>
 
-<!-- ── Slide 3: Email professionale ───────────────────────── -->
-<section class="slide tight-slide" id="s3">
+<!-- ── Slide 5: Email professionale ───────────────────────── -->
+<section class="slide tight-slide" id="s5">
+  <div class="journey">Passo <b>2</b>/6 · Come ti comporti</div>
   <div class="tape gold reveal">Email</div>
-  <div class="h-sec reveal">Scrivere email professionali</div>
-  <p class="lead reveal" style="margin-top:10px;margin-bottom:22px;">Ogni email riflette la tua identità digitale professionale. Tre elementi non negoziabili:</p>
+  <div class="h-sec reveal">La netiquette alla prova: l'email</div>
+  <p class="lead reveal" style="margin-top:10px;margin-bottom:20px;">L'email è il primo banco di prova della netiquette: formale, tracciabile, permanente. Le stesse regole di tono e rispetto si concentrano in tre elementi non negoziabili:</p>
   <div class="grid3 reveal d3">
     <div class="card teal">
       <span class="ic">📋</span>
@@ -203,19 +272,23 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <p>Non inviare messaggi di lavoro a qualsiasi ora: rispetta i confini del destinatario.</p>
     </div>
   </div>
-  <div class="note teal reveal d4" style="margin-top:22px;">
+  <div class="note teal reveal d4" style="margin-top:20px;">
     <div class="lbl">⚠️ Attenzione</div>
     <p>Inviare messaggi fuori orario <b>non</b> è un segno di dedizione: mette pressione e viola la <em class="sky">disconnessione digitale</em>.</p>
   </div>
   <div class="page-num"></div>
 </section>
 
-<!-- ── Slide 4: Sincrono vs Asincrono ────────────────────── -->
-<section class="slide" id="s4">
+<!-- ── PASSO 3 ─────────────────────────────────────────────── -->
+
+<!-- ── Slide 6: Sincrono vs Asincrono ────────────────────── -->
+<section class="slide" id="s6">
+  <div class="journey">Passo <b>3</b>/6 · Quale canale scegli</div>
   <div class="tape sky reveal">Comunicazione</div>
-  <div class="h-sec reveal">Sincrona vs Asincrona</div>
-  <div class="split even reveal d3" style="margin-top:24px;height:auto;">
-    <div class="col stack">
+  <div class="h-sec reveal">Ma l'email non basta: sincrono o asincrono?</div>
+  <p class="lead reveal" style="margin-top:10px;margin-bottom:16px;">Sai <em class="sky">come</em> scrivere — ora devi scegliere <em class="hot">quando e dove</em>. Ogni messaggio del team viaggia su uno di due binari:</p>
+  <div class="split even reveal d3" style="height:auto;">
+    <div class="col stack" style="margin-top:0;">
       <div class="card teal">
         <span class="ic">⏱️</span>
         <h3>Asincrona</h3>
@@ -223,16 +296,11 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
       <div class="card teal">
         <span class="ic">📧</span>
-        <h3>Esempi</h3>
-        <p>Email · Messaggi lasciati · Commenti su documenti · Forum · Post</p>
-      </div>
-      <div class="card teal">
-        <span class="ic">✅</span>
-        <h3>Quando usarla</h3>
-        <p>Aggiornamenti non urgenti · Documentazione · Lavoro su fusi orari diversi</p>
+        <h3>Esempi · quando usarla</h3>
+        <p>Email · Commenti su documenti · Forum. Per aggiornamenti non urgenti, documentazione, fusi orari diversi.</p>
       </div>
     </div>
-    <div class="col stack">
+    <div class="col stack" style="margin-top:0;">
       <div class="card sky">
         <span class="ic">🔴</span>
         <h3>Sincrona</h3>
@@ -240,26 +308,59 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
       <div class="card sky">
         <span class="ic">📹</span>
-        <h3>Esempi</h3>
-        <p>Videochiamata · Telefonata · Chat in tempo reale · Riunione fisica</p>
+        <h3>Esempi · quando usarla</h3>
+        <p>Videochiamata · Telefonata · Chat live. Per decisioni urgenti, chiarimenti complessi, situazioni emotive.</p>
       </div>
-      <div class="card sky">
+    </div>
+  </div>
+  <div class="analogy reveal d4" style="margin-top:18px;"><span class="big">Regola:</span> Asincrono per default, sincrono quando serve davvero: il tempo altrui è la risorsa più scarsa del team.</div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── Slide 7: Instant Messaging ──────────────────────── -->
+<section class="slide" id="s7">
+  <div class="journey">Passo <b>3</b>/6 · Quale canale scegli</div>
+  <div class="tape sky reveal">Messaging</div>
+  <div class="h-sec reveal">Il canale di mezzo: l'Instant Messaging</div>
+  <p class="lead reveal" style="margin-top:10px;margin-bottom:16px;">Tra email lenta e videochiamata invadente c'è la chat: quasi-sincrona, veloce, informale. Perfetta per coordinarsi — <em class="hot">pericolosa</em> come archivio.</p>
+  <div class="split even reveal d3" style="height:auto;">
+    <div class="col stack" style="margin-top:0;">
+      <div class="card teal">
         <span class="ic">⚡</span>
-        <h3>Quando usarla</h3>
-        <p>Decisioni urgenti · Chiarimenti complessi · Situazioni emotive · Brainstorming</p>
+        <h3>Quando usarlo</h3>
+        <p>Aggiornamenti rapidi · Domande veloci · Coordinamento del momento · Canali tematici (Slack) e thread</p>
+      </div>
+      <div class="card red">
+        <span class="ic">⚠️</span>
+        <h3>Limite principale</h3>
+        <p>I file condivisi via IM <b>si perdono nel flusso</b> dei messaggi: manca una struttura logica di archiviazione. Reperire un file inviato settimane fa è difficile o impossibile.</p>
+      </div>
+    </div>
+    <div class="col stack" style="margin-top:0;">
+      <div class="card gold">
+        <span class="ic">📁</span>
+        <h3>Soluzione corretta</h3>
+        <p>I file <b>definitivi di progetto</b> vanno in <em class="hot">cartelle condivise strutturate</em> (Drive, SharePoint, OneDrive) — non in chat.</p>
+      </div>
+      <div class="note sky" style="margin-top:0;">
+        <div class="lbl">💡 Ponte al prossimo passo</div>
+        <p>Se la chat non è il posto dei documenti… <b>dove vive davvero il lavoro del team?</b> Nel cloud. Vediamolo.</p>
       </div>
     </div>
   </div>
   <div class="page-num"></div>
 </section>
 
-<!-- ── Slide 5: Versionamento cloud ──────────────────────── -->
-<section class="slide" id="s5">
+<!-- ── PASSO 4 ─────────────────────────────────────────────── -->
+
+<!-- ── Slide 8: Versionamento cloud ──────────────────────── -->
+<section class="slide" id="s8">
+  <div class="journey">Passo <b>4</b>/6 · Dove vive il lavoro</div>
   <div class="tape teal reveal">Cloud</div>
-  <div class="h-sec reveal">Versionamento</div>
+  <div class="h-sec reveal">Il documento condiviso: versionamento</div>
   <div class="split reveal d3" style="margin-top:18px;height:auto;">
     <div class="col stack">
-      <p class="lead">I documenti cloud (Google Docs, OneDrive, SharePoint) salvano automaticamente ogni modifica come <em class="hot">versione numerata</em>.</p>
+      <p class="lead">Il progetto del team vive in documenti cloud (Google Docs, OneDrive, SharePoint) dove tutti scrivono <b>sullo stesso file</b>. E se qualcuno cancella il lavoro di un altro? Qui entra il <em class="hot">versionamento</em>: ogni modifica salvata come versione numerata.</p>
       <div class="note reveal d4">
         <div class="lbl">💡 Vantaggio principale</div>
         <p><b>Recuperare stati precedenti</b> del documento in caso di errori, sovrascritture indesiderate o modifiche da annullare.</p>
@@ -307,11 +408,12 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <div class="page-num"></div>
 </section>
 
-<!-- ── Slide 6: Permessi granulari ───────────────────────── -->
-<section class="slide tight-slide" id="s6">
+<!-- ── Slide 9: Permessi granulari ───────────────────────── -->
+<section class="slide tight-slide" id="s9">
+  <div class="journey">Passo <b>4</b>/6 · Dove vive il lavoro</div>
   <div class="tape sky reveal">Sicurezza</div>
-  <div class="h-sec reveal">Permessi granulari</div>
-  <p class="lead reveal" style="margin-top:10px;margin-bottom:22px;">Condividere un file con <em class="hot">permessi granulari</em> significa definire <b>specificamente</b> cosa può fare ogni utente — non concedere accesso generico a tutti.</p>
+  <div class="h-sec reveal">Il documento condiviso: chi può fare cosa?</div>
+  <p class="lead reveal" style="margin-top:10px;margin-bottom:20px;">Il versionamento ripara i danni <em class="sky">dopo</em>. I <em class="hot">permessi granulari</em> li prevengono <em class="hot">prima</em>: definire <b>specificamente</b> cosa può fare ogni utente sul file, invece di dare accesso generico a tutti.</p>
   <div class="grid3 reveal d3">
     <div class="card sky">
       <span class="ic">👁️</span>
@@ -329,20 +431,23 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <p>L'utente ha <b>accesso completo</b>: può cambiare, cancellare e aggiungere contenuti.</p>
     </div>
   </div>
-  <div class="note teal reveal d4" style="margin-top:22px;">
+  <div class="note teal reveal d4" style="margin-top:20px;">
     <div class="lbl">⚠️ Da ricordare</div>
-    <p>Concedere accesso di <b>modifica a tutti</b> non è una scelta granulare: è assenza di controllo. I permessi granulari proteggono l'integrità del documento.</p>
+    <p>Concedere accesso di <b>modifica a tutti</b> non è una scelta granulare: è assenza di controllo. Meno versioni da recuperare, meno conflitti da gestire.</p>
   </div>
   <div class="page-num"></div>
 </section>
 
-<!-- ── Slide 7: Project Management ───────────────────────── -->
-<section class="slide tight-slide" id="s7">
+<!-- ── PASSO 5 ─────────────────────────────────────────────── -->
+
+<!-- ── Slide 10: Project Management ───────────────────────── -->
+<section class="slide tight-slide" id="s10">
+  <div class="journey">Passo <b>5</b>/6 · Come vi organizzate</div>
   <div class="tape gold reveal">Collaborazione</div>
-  <div class="h-sec reveal">Strumenti di Project Management</div>
+  <div class="h-sec reveal">Chi fa cosa, entro quando: i PM tools</div>
   <div class="split reveal d3" style="margin-top:16px;height:auto;gap:50px;">
     <div class="col stack">
-      <p class="body">Per team remoti su progetti complessi, i software di PM <b>sostituiscono le catene di email</b> e rendono visibile lo stato del lavoro.</p>
+      <p class="body">Canali giusti ✓ documenti al sicuro ✓ — ma il progetto è fatto di <b>compiti, scadenze e responsabilità</b>. Coordinarli via email genera catene di CC illeggibili: i software di Project Management le <b>sostituiscono</b> rendendo visibile lo stato di ogni attività.</p>
       <div class="analogy reveal d4"><span class="big">In pratica:</span> Un task board vale più di dieci email in CC.</div>
       <div class="note red reveal d5" style="margin-top:16px;">
         <div class="lbl">⚠️ Evitare</div>
@@ -367,11 +472,12 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <div class="page-num"></div>
 </section>
 
-<!-- ── Slide 8: Videoconferenza ───────────────────────────── -->
-<section class="slide tight-slide" id="s8">
+<!-- ── Slide 11: Videoconferenza ───────────────────────────── -->
+<section class="slide tight-slide" id="s11">
+  <div class="journey">Passo <b>5</b>/6 · Come vi organizzate</div>
   <div class="tape sky reveal">Video</div>
-  <div class="h-sec reveal">Videoconferenza e inclusione digitale</div>
-  <p class="lead reveal" style="margin-top:10px;margin-bottom:20px;">Una riunione online inclusiva richiede comportamenti specifici, diversi dalla presenza fisica.</p>
+  <div class="h-sec reveal">Il momento sincrono: la riunione video</div>
+  <p class="lead reveal" style="margin-top:10px;margin-bottom:18px;">Il task board coordina il lavoro quotidiano; per decidere insieme serve il canale sincrono per eccellenza — la videoconferenza. Perché funzioni <em class="hot">per tutti</em>, servono comportamenti che in presenza non servivano:</p>
   <div class="grid2 reveal d3">
     <div class="card teal">
       <span class="ic">🙋</span>
@@ -397,46 +503,20 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <div class="page-num"></div>
 </section>
 
-<!-- ── Slide 9: Identità digitale professionale ───────────── -->
-<section class="slide" id="s9">
-  <div class="tape gold reveal">Identità</div>
-  <div class="h-sec reveal">Identità digitale professionale</div>
-  <div class="split reveal d3" style="margin-top:20px;height:auto;">
-    <div class="col stack">
-      <div class="card teal">
-        <span class="ic">🌐</span>
-        <h3>Che cos'è</h3>
-        <p>L'<b>immagine di noi stessi</b> che emerge dalle attività, interazioni e profili sui canali digitali di lavoro: email, LinkedIn, chat, commenti su documenti, contributi a progetti.</p>
-      </div>
-      <div class="analogy reveal d4" style="margin-top:20px;"><span class="big">Regola:</span> Ogni messaggio scritto è un mattone della tua identità professionale online.</div>
-    </div>
-    <div class="col stack">
-      <div class="card red">
-        <span class="ic">❌</span>
-        <h3>Non è…</h3>
-        <p>Un documento d'identità scansionato · Un avatar per nascondersi · L'insieme delle password cloud · Un profilo fake</p>
-      </div>
-      <div class="card sky reveal d4">
-        <span class="ic">✅</span>
-        <h3>Si costruisce con…</h3>
-        <p>Profilo LinkedIn aggiornato · Firma email professionale · Tono coerente nei messaggi · Contributi visibili a progetti condivisi</p>
-      </div>
-    </div>
-  </div>
-  <div class="page-num"></div>
-</section>
+<!-- ── PASSO 6 ─────────────────────────────────────────────── -->
 
-<!-- ── Slide 10: Malintesi online ────────────────────────── -->
-<section class="slide tight-slide" id="s10">
+<!-- ── Slide 12: Malintesi online ────────────────────────── -->
+<section class="slide tight-slide" id="s12">
+  <div class="journey">Passo <b>6</b>/6 · Quando va storto</div>
   <div class="tape red reveal">Conflitti</div>
-  <div class="h-sec reveal">Gestire malintesi online</div>
-  <p class="lead reveal" style="margin-top:10px;margin-bottom:18px;">Il testo scritto è <em class="hot">piatto</em>: manca tono, espressione, contesto. I malintesi sono frequenti e vanno risolti con metodo.</p>
+  <div class="h-sec reveal">Quando va storto: il malinteso in chat</div>
+  <p class="lead reveal" style="margin-top:10px;margin-bottom:16px;">Anche col team più organizzato, prima o poi succede: un messaggio letto col tono sbagliato. Il testo scritto è <em class="hot">piatto</em> — manca voce, espressione, contesto. Ecco il metodo per uscirne:</p>
   <div class="steps reveal d3">
     <div class="step">
       <div class="t"><b>Riconosci il malinteso.</b> Non continuare a discutere via chat — il canale testuale amplifica, non risolve.</div>
     </div>
     <div class="step">
-      <div class="t"><b>Passa a un canale più ricco.</b> Una chiamata audio o una breve videochiamata chiarisce in 2 minuti ciò che 20 messaggi non risolvono.</div>
+      <div class="t"><b>Passa a un canale più ricco.</b> Ricordi sincrono vs asincrono? Una chiamata audio o video chiarisce in 2 minuti ciò che 20 messaggi non risolvono.</div>
     </div>
     <div class="step">
       <div class="t"><b>Evita il sarcasmo scritto.</b> Rispondere sarcasticamente peggiora sempre la situazione — il tono è perso nella trascrizione.</div>
@@ -445,51 +525,19 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="t"><b>Non abbandonare il gruppo.</b> Uscire senza risolvere lascia un conflitto aperto che colpisce l'intero team.</div>
     </div>
   </div>
-  <div class="note sky reveal d4" style="margin-top:16px;">
+  <div class="note sky reveal d4" style="margin-top:14px;">
     <div class="lbl">💡 Strategia</div>
     <p><b>Voce e video</b> sono canali ricchi: trasmettono tono, emozione, sfumatura. Usarli quando c'è tensione non è debolezza — è intelligenza comunicativa.</p>
   </div>
   <div class="page-num"></div>
 </section>
 
-<!-- ── Slide 11: Instant Messaging ──────────────────────── -->
-<section class="slide" id="s11">
-  <div class="tape sky reveal">Messaging</div>
-  <div class="h-sec reveal">Instant Messaging — vantaggi e limiti</div>
-  <div class="split even reveal d3" style="margin-top:22px;height:auto;">
-    <div class="col stack">
-      <div class="card teal">
-        <span class="ic">⚡</span>
-        <h3>Quando usarlo</h3>
-        <p>Aggiornamenti rapidi · Domande veloci · Coordinamento del momento · Notifiche in tempo reale</p>
-      </div>
-      <div class="card teal">
-        <span class="ic">✅</span>
-        <h3>Punti di forza</h3>
-        <p>Velocità · Informalità · Canali tematici (Slack) · Reazioni e thread per organizzare la discussione</p>
-      </div>
-    </div>
-    <div class="col stack">
-      <div class="card red">
-        <span class="ic">⚠️</span>
-        <h3>Limite principale</h3>
-        <p>I file condivisi via IM <b>si perdono nel flusso</b> dei messaggi: manca struttura logica di archiviazione. Reperire un file condiviso settimane fa è difficile o impossibile.</p>
-      </div>
-      <div class="card red">
-        <span class="ic">📁</span>
-        <h3>Soluzione corretta</h3>
-        <p>I file <b>definitivi di progetto</b> vanno in <em class="hot">cartelle condivise strutturate</em> (Drive, SharePoint, OneDrive) — non in chat.</p>
-      </div>
-    </div>
-  </div>
-  <div class="page-num"></div>
-</section>
-
-<!-- ── Slide 12: Collaborazione aperta ──────────────────── -->
-<section class="slide tight-slide" id="s12">
+<!-- ── Slide 13: Collaborazione aperta ──────────────────── -->
+<section class="slide tight-slide" id="s13">
+  <div class="journey">Oltre il team</div>
   <div class="tape gold reveal">Open</div>
-  <div class="h-sec reveal">Collaborazione aperta</div>
-  <p class="lead reveal" style="margin-top:10px;margin-bottom:18px;">Wikipedia, GitHub e i progetti open source funzionano solo se ogni partecipante rispetta un principio etico fondamentale.</p>
+  <div class="h-sec reveal">Oltre il tuo team: la collaborazione aperta</div>
+  <p class="lead reveal" style="margin-top:10px;margin-bottom:16px;">Tutto ciò che hai imparato — identità, rispetto, documenti condivisi, riconoscimento dei ruoli — vale anche su scala mondiale: Wikipedia, GitHub e l'open source sono team remoti di <em class="hot">migliaia di sconosciuti</em>. Reggono su un solo principio etico:</p>
   <div class="grid2 reveal d3">
     <div class="card teal">
       <span class="ic">🏆</span>
@@ -502,18 +550,18 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <p>Cancellare contributi altrui se non si è d'accordo · Rivendicare la proprietà esclusiva · Usare il lavoro altrui senza mai contribuire</p>
     </div>
   </div>
-  <div class="note sky reveal d4" style="margin-top:18px;">
+  <div class="note sky reveal d4" style="margin-top:16px;">
     <div class="lbl">💡 In pratica</div>
-    <p>In un progetto open source, il tuo nome appare nella <b>cronologia dei commit</b> — il credito è automatico e trasparente. Cancellare il lavoro altrui non ti rende più visibile: ti rende inaffidabile.</p>
+    <p>In un progetto open source, il tuo nome appare nella <b>cronologia dei contributi</b> — il credito è automatico e trasparente. Cancellare il lavoro altrui non ti rende più visibile: ti rende inaffidabile.</p>
   </div>
   <div class="page-num"></div>
 </section>
 
-<!-- ── Slide 13: Closing ─────────────────────────────────── -->
-<section class="slide closing" id="s13">
+<!-- ── Slide 14: Closing ─────────────────────────────────── -->
+<section class="slide closing" id="s14">
   <div style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:28px;position:relative;z-index:2;">
-    <div class="h-sec reveal d1">Collaborazione Digitale</div>
-    <p class="lead reveal d2" style="max-width:900px;color:rgba(244,236,224,.75);">Netiquette · Sincrono/Asincrono · Cloud e Versionamento · Permessi · PM tools · Videoconferenza · Identità digitale · IM · Open source</p>
+    <div class="h-sec reveal d1">Il percorso completo</div>
+    <p class="lead reveal d2" style="max-width:1000px;color:rgba(244,236,224,.75);">Chi sei online → come ti comporti → quale canale scegli → dove vive il lavoro → come vi organizzate → come si ripara un malinteso. Le stesse regole valgono dal tuo team di cinque persone a Wikipedia.</p>
     <div class="chips reveal d3" style="justify-content:center;">
       <a class="chip alt" href="in05-social.html" style="color:#f4ece0;border-color:rgba(244,236,224,.4);text-decoration:none;">← IN05</a>
       <a class="chip alt" href="00-indice.html" style="color:#f4ece0;border-color:rgba(244,236,224,.4);text-decoration:none;">↩ Indice del corso</a>
