@@ -110,6 +110,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 .title-slide .lead,.title-slide .chips{display:none;}
 .analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
 .illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
 </style>
 <link rel="stylesheet" href="theme-corsi.css">
 </head>
@@ -1042,6 +1046,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 </div>
 
 <div class="progress" id="progress"></div>
+<a class="home-btn" href="00-indice.html" title="Torna all'indice (I)">↩ Indice</a>
 <div class="edit-hotzone" aria-hidden="true"></div>
 <button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
 <div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>

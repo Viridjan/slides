@@ -79,6 +79,10 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
 .closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
 .progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
 .title-slide .lead,.title-slide .chips{display:none;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
 </style>
 <link rel="stylesheet" href="theme-corsi.css">
 </head>
@@ -89,7 +93,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <!-- 1. TITLE -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="tape teal" style="position:absolute;top:84px;left:90px;">Suite Ufficio · SU10</div>
       <div class="eyebrow reveal" style="margin-top:40px;">Fogli di calcolo</div>
       <h1 class="h-mega reveal">Le 10 funzioni<br><em class="hot">più usate</em></h1>
       <p class="lead reveal" style="margin-top:30px;">SOMMA.SE, SOMMA.PIÙ.SE, CONTA.PIÙ.SE, SE.ERRORE, ARROTONDA, TESTO, CONCATENA, OGGI e MATR.SOMMA.PRODOTTO — quelle che i professionisti usano ogni giorno.</p>
@@ -478,6 +481,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
 </div>
 </div>
 <div class="progress" id="progress"></div>
+<a class="home-btn" href="00-indice.html" title="Torna all'indice (I)">↩ Indice</a>
 <script>
 (function(){
   const stage=document.getElementById('deckStage');

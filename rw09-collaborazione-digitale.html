@@ -120,6 +120,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 .sec-4{--slide-bg:#edf3ee;--line:#afc9b8;}
 .sec-5{--slide-bg:#f4ecdf;--line:#d4bd9a;}
 .sec-6{--slide-bg:#f6e9e7;--line:#d8b0aa;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
 </style>
 <link rel="stylesheet" href="theme-corsi.css">
 </head>
@@ -131,7 +135,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 <section class="slide title-slide" id="s1">
   <div class="title-left">
     <span class="eyebrow reveal d1">Reti e Web · RW09</span>
-    <div class="h-mega reveal d2">Collabora-<br>zione<br>Digitale</div>
+    <div class="h-mega reveal d2">Collaborazione<br>Digitale</div>
     <p class="lead reveal d3">Netiquette, cloud, comunicazione sincrona e asincrona, identità professionale online.</p>
     <div class="chips reveal d4"><span class="chip">Netiquette</span><span class="chip">Cloud</span><span class="chip">Team</span></div>
   </div>
@@ -1008,6 +1012,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 </main>
 </div>
 <div class="progress" id="progress"></div>
+<a class="home-btn" href="00-indice.html" title="Torna all'indice (I)">↩ Indice</a>
 <div class="edit-hotzone" aria-hidden="true"></div>
 <button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
 <div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>

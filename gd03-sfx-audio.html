@@ -171,6 +171,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 .closing a.chip,.closing .chip{background:var(--gold-deep)!important;color:#000!important;}
 .analogy{color:var(--gold)!important;}
 .analogy .big{color:var(--sky)!important;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono),monospace;font-size:15px;letter-spacing:.5px;color:#ffe066;background:rgba(0,0,16,.7);border:2px solid rgba(0,229,255,.5);border-radius:4px;padding:8px 15px;text-decoration:none;opacity:.6;transition:opacity .2s ease;}
+.home-btn:hover{opacity:1;border-color:#00e5ff;}
 </style>
 </head>
 <body>
@@ -468,6 +472,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 </div>
 
 <div class="progress" id="progress"></div>
+<a class="home-btn" href="00-indice-gd.html" title="Torna all'indice (I)">↩ Indice</a>
 <div class="edit-hotzone" aria-hidden="true"></div>
 <button class="edit-toggle" id="editToggle" title="Modalita modifica (E)">✏️</button>
 <div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
@@ -503,7 +508,7 @@ hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classLi
 hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
 toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
 toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
-addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}if((e.key==='i'||e.key==='I')&&!onEd){location.href='00-indice.html';}});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}if((e.key==='i'||e.key==='I')&&!onEd){location.href='00-indice-gd.html';}});
 </script>
 </body>
 </html>

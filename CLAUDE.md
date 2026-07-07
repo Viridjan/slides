@@ -64,6 +64,9 @@ Every content deck should include:
 - touch and wheel navigation
 - inline editor hotzone / `E` shortcut when following existing deck style
 - a closing slide with an index link
+- a fixed `↩ Indice` home button (`.home-btn`, bottom-left, `position:fixed`)
+  linking to `00-indice.html` (GD decks link to `00-indice-gd.html` and use the
+  arcade variant); the `I` keyboard shortcut must point to the same index
 
 ## Warm Study Zine tokens
 
@@ -344,6 +347,11 @@ Navigation chain: gd01 → gd02 → gd03 → gd04 → gd05 → gd06 → gd07 →
 | `quiz-reti-web.html` | Reti e Web, 20 questions |
 | `quiz-sicurezza.html` | Sicurezza Digitale, 20 questions |
 | `quiz-informatica.html` | Identità digitale, 20 questions |
+| `quiz-hardware-software.html` | Hardware e Software, 20 questions |
+| `quiz-smartphones.html` | Smartphones, 20 questions |
+| `quiz-suite-ufficio.html` | Suite Ufficio, 20 questions |
+| `quiz-ia.html` | Intelligenza Artificiale, 20 questions |
+| `quiz-project-management.html` | Project Management, 20 questions |
 
 ## Index maintenance
 
