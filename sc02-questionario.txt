@@ -1,0 +1,35 @@
+Programmare con Scratch · SC02 — Questionario
+=============================================
+
+--- Slide 1 ---
+Programmare con Scratch SC02 Variabili, sensori, condizioni, timer, punteggio e liste per costruire un quiz interattivo.
+
+--- Slide 2 ---
+Cosa vedremo: Nuovo progetto; Variabili; Interazione; Condizioni e timer; Liste
+
+--- Slide 3 ---
+Un questionario a tempo Il modulo parte da un nuovo file Scratch e costruisce un questionario con personaggi, stage, tempo limite e punteggio.
+
+--- Slide 4 ---
+Preparare la scena Si importano gli sprite necessari, si sceglie uno stage e si scrive il codice comune nello stage quando riguarda tutto il progetto. Sprite narrativi: Nel corso originale compaiono Dante e Paolo e Francesca come personaggi del quiz. Variabile tempo: Serve per controllare il countdown e chiudere la partita. Messaggio iniziale: Lo stage può inviare un segnale di avvio agli sprite. Inizializzazione: All'inizio alcuni sprite sono visibili, altri invisibili, secondo la scena.
+
+--- Slide 5 ---
+Variabili e liste Variabili e liste permettono di memorizzare dati, usarli nei blocchi e cambiare il comportamento del progetto. Variabile: Contiene una singola informazione: numero, parola o frase senza tipo dichiarato. Lista: Contiene più valori ordinati; ogni elemento ha una posizione numerata. Nomi chiari: Nomi semplici come tempo, punti e pos rendono il progetto più leggibile. Aggiornamento: Porta X a Y assegna un valore; cambia X di Y modifica un numero esistente.
+
+--- Slide 6 ---
+Fare domande Il blocco domanda raccoglie l'input dell'utente e lo salva nella variabile risposta. Da lì può essere controllato e combinato. Risposta: Scratch memorizza sempre l'ultima risposta digitata. Case sensitive: Maiuscole, minuscole e spazi contano: le verifiche devono tenerne conto. Unione: Il blocco unione concatena variabili e testo per costruire frasi dinamiche. Annidamento: I comandi possono essere inseriti dentro altri comandi per comporre espressioni.
+
+--- Slide 7 ---
+If / then / else Le condizioni decidono se eseguire un blocco oppure un'alternativa. In Scratch sono rappresentate da forme esagonali. If / then: Se la condizione è vera, esegue le istruzioni interne; altrimenti le salta. If / then / else: Permette due strade: una se la condizione è vera, una se è falsa. Aritmetica: Confronti numerici come maggiore, minore o uguale. Logica: Combinazioni come e, o, non per controlli più complessi.
+
+--- Slide 8 ---
+Timer e cicli Il timer usa un ciclo per sempre: riduce il tempo di 1, aspetta 1 secondo e controlla se il valore è arrivato a zero. Per sempre: Utile per controlli costanti, ma da usare senza appesantire troppo il progetto. Countdown: Ogni ripetizione riduce tempo e aggiorna lo stato del quiz. Tempo scaduto: Quando il valore arriva a zero viene inviato un messaggio a tutti. Punteggio: La variabile punti tiene traccia della qualità delle risposte.
+
+--- Slide 9 ---
+Completare il quiz I codici dei tre sprite sono simili: cambiano domande, messaggi di attivazione e reazioni. Questo suggerisce una struttura ripetibile. Pattern: Ogni personaggio può ricevere un messaggio, fare una domanda, controllare la risposta e aggiornare punti. Finale: Quando il tempo termina, il gatto può annunciare il punteggio. Estensioni: Si possono aggiungere penalità, suggerimenti, tentativi o domande extra. Debug: Cercare l'errore nel timer è parte del lavoro: leggere i blocchi uno per uno.
+
+--- Slide 10 ---
+Questionari con liste Le liste domande e risposte rendono il codice più rapido da compilare e più facile da modificare. Domande: Una lista contiene il testo delle domande in ordine. Risposte: Una seconda lista può contenere la risposta corretta nella stessa posizione. Posizione: La variabile pos scorre gli indici e seleziona la domanda corrente. Manutenzione: Aggiungere, rimuovere o cambiare domande non richiede riscrivere tutto il codice.
+
+--- Slide 11 ---
+Dati, regole, interazione Il secondo modulo porta Scratch oltre l'animazione: input, condizioni, cicli, timer e strutture dati.

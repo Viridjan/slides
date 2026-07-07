@@ -1,0 +1,35 @@
+Programmare con Micro:bit · MB02 — CreateAI
+===========================================
+
+--- Slide 1 ---
+Programmare con Micro:bit MB02 Introduzione a Micro:bit CreateAI: sessioni, campioni, dati live, azioni e addestramento del modello.
+
+--- Slide 2 ---
+Cosa vedremo: Ambiente online; Azioni; Samples; Live data; Train model
+
+--- Slide 3 ---
+CreateAI in breve Il secondo modulo Micro:bit introduce CreateAI: un ambiente online per raccogliere esempi, addestrare un modello e usarlo con la scheda.
+
+--- Slide 4 ---
+Avviare una sessione Si apre createai.microbit.org, si crea una nuova sessione e si lavora interamente online. Browser: Il software è online, come MakeCode. New Session: Il pulsante crea l'ambiente di lavoro per registrare dati e azioni. Salva: La sessione deve essere salvata per non perdere campioni e modello. Scheda collegata: Micro:bit fornisce dati reali da usare nel progetto.
+
+--- Slide 5 ---
+Le aree dell'IDE Il vecchio file elenca le aree principali: azioni, rappresentazione, record, samples, live data, aggiunta azione, train model e salvataggio. Azioni: Le categorie che vogliamo far riconoscere al modello. Rappresentazione: Visualizza i dati raccolti e aiuta a capire se sono distinguibili. Record: Registra esempi reali da associare a ogni azione. Samples: Raccoglie i campioni su cui il modello imparerà.
+
+--- Slide 6 ---
+Dati live e campioni CreateAI rende esplicita una parte fondamentale dell'IA: un modello dipende dalla qualità degli esempi raccolti. Live data: Mostra cosa sta leggendo Micro:bit in tempo reale. Esempi coerenti: Ogni azione deve avere campioni puliti e rappresentativi. Equilibrio: Le azioni dovrebbero avere quantità simili di esempi. Pulizia: Campioni sbagliati o rumorosi rendono il modello meno affidabile.
+
+--- Slide 7 ---
+Addestrare il modello Train model usa i campioni registrati per costruire un classificatore capace di riconoscere le azioni definite. Training: Il modello cerca pattern nei dati associati alle azioni. Test: Dopo l'addestramento si verifica se riconosce nuovi movimenti o situazioni. Iterazione: Se sbaglia, si raccolgono nuovi campioni e si riaddestra. Salvataggio: Il modello va salvato insieme alla sessione.
+
+--- Slide 8 ---
+Cosa cambia rispetto ai blocchi Con MakeCode classico si scrivono regole esplicite; con CreateAI si lavora per esempi, dati e verifica empirica. Regole: Se accade X, fai Y: logica esplicita e controllabile. Esempi: Questa sequenza appartiene all'azione A: apprendimento dai campioni. Incertezza: Il modello può sbagliare; va testato con casi nuovi. Pensiero critico: L'IA non sostituisce il progetto: richiede scelte, dati e controlli.
+
+--- Slide 9 ---
+Routine di laboratorio Una buona attività CreateAI segue passaggi ordinati per evitare modelli fragili. Definisci le azioni: Scegli categorie chiare e distinguibili. Registra campioni: Raccogli più esempi per ogni azione, variando leggermente l'esecuzione. Allena il modello: Usa Train model e osserva il comportamento. Prova con dati nuovi: Testa movimenti non registrati e correggi il dataset. Salva e documenta: Annota cosa funziona, cosa confonde il modello e come migliorarlo.
+
+--- Slide 10 ---
+Dal sensore all'IA CreateAI collega Micro:bit ai concetti chiave dell'intelligenza artificiale: dati, etichette, campioni, addestramento, test e iterazione. Etichette: Ogni campione ha un significato assegnato dallo studente. Dataset: Il modello vede solo gli esempi che raccogliamo. Validazione: La qualità si misura su prove nuove, non solo sui campioni di training. Miglioramento: Aggiungere dati migliori è spesso più utile che cambiare interfaccia.
+
+--- Slide 11 ---
+IA concreta, non magica CreateAI mostra che un modello nasce da esempi, scelte e verifiche. Micro:bit rende tutto osservabile in laboratorio.

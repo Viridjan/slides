@@ -175,6 +175,8 @@ of each word in the section name (e.g. `HS` = Hardware e **S**oftware):
 | `su` | Suite Ufficio | `su01-microsoft.html` |
 | `ia` | Intelligenza Artificiale | `ia01-concetti-generali.html` |
 | `pm` | Project Management | `pm01-introduzione.html` |
+| `sc` | Programmare con Scratch | `sc01-introduzione.html` |
+| `mb` | Programmare con Micro:bit | `mb01-microbit.html` |
 | `gd` | Game Design | `gd01-introduzione.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
 
@@ -325,6 +327,24 @@ Navigation chain: pm01 → pm02 → pm03 → pm04
 | `pm03-metodologie.html` | Metodologie |
 | `pm04-strumenti.html` | Strumenti Digitali |
 
+### Programmare con Scratch
+
+Navigation chain: sc01 → sc02
+
+| File | Title |
+| --- | --- |
+| `sc01-introduzione.html` | Introduzione a Scratch |
+| `sc02-questionario.html` | Questionari con Scratch |
+
+### Programmare con Micro:bit
+
+Navigation chain: mb01 → mb02
+
+| File | Title |
+| --- | --- |
+| `mb01-microbit.html` | Fondamenti Micro:bit |
+| `mb02-createai.html` | Micro:bit CreateAI |
+
 ### Game Design
 
 Navigation chain: gd01 → gd02 → gd03 → gd04 → gd05 → gd06 → gd07 → gd08
@@ -401,5 +421,4 @@ deduplicated by MD5, organized per source deck with slide numbers in filenames
 Regenerable from the PPTX files; do not commit it.
 
 Topics still mainly represented by original course files, not fully converted
-in this root-level HTML course set, include Arduino, Scratch, Blender/3D,
-Micro:bit, and TinkerCAD.
+in this root-level HTML course set, include Arduino, Blender/3D, and TinkerCAD.

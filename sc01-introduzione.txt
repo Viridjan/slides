@@ -1,0 +1,35 @@
+Programmare con Scratch · SC01 — Introduzione
+=============================================
+
+--- Slide 1 ---
+Programmare con Scratch SC01 Ambiente Scratch, blocchi, sprite, stage, messaggi e prime animazioni coordinate.
+
+--- Slide 2 ---
+Cosa vedremo: Cos'è Scratch; Ambiente di sviluppo; Primo dialogo; Messaggi; Asset e salvataggio
+
+--- Slide 3 ---
+Scratch in breve Scratch è un ambiente gratuito di programmazione grafica pensato per imparare creando animazioni, giochi e simulazioni con primitive visive.
+
+--- Slide 4 ---
+Online oppure offline Il corso originale distingue due modalità: usare Scratch dal browser o installarlo sul PC per ridurre problemi di rete e blocchi del browser. Online: Dal sito scratch.mit.edu si può cliccare su Crea e lavorare direttamente nel browser. Offline: L'app installata è preferibile quando la connessione non è affidabile o si lavora in aula. Lingua: Dal mappamondo si può cambiare lingua dell'interfaccia. File locali: I progetti si salvano e ricaricano dal computer, utili anche da penna USB.
+
+--- Slide 5 ---
+L'ambiente di sviluppo Scratch separa codice, oggetti e risultato visivo: ogni area ha un ruolo preciso nella costruzione del progetto. Blocchi: Categorie distinte per funzione e colore: movimento, aspetto, situazioni, controllo, sensori e altro. Sprite: Ogni sprite ha i propri script, costumi, suoni, coordinate, direzione, dimensione e visibilità. Stage: È l'output del progetto e può avere sfondi diversi, importati, disegnati o scelti dalla libreria. Estensioni: Nuovi blocchi possono ampliare quelli standard quando il progetto lo richiede.
+
+--- Slide 6 ---
+Eseguire un algoritmo I blocchi vengono eseguiti dall'alto verso il basso solo quando sono collegati e attivati da un evento. Bandierina verde: Un punto di partenza comune per avviare animazioni e giochi. Tasto spazio: Un altro trigger può attivare script diversi nello stesso progetto. Cicli: Ripetere azioni, aggiungere pause e rendere visibile l'esecuzione dei blocchi. Cancellazione: Un blocco eliminato porta via anche quelli agganciati sotto: attenzione alla pila.
+
+--- Slide 7 ---
+Sprite indipendenti La programmazione in Scratch è orientata agli oggetti: ogni personaggio ha codice proprio e non vede automaticamente quello degli altri. Codice per sprite: Se si passa dal gatto ad Abby, cambiano gli script mostrati perché sono associati all'oggetto selezionato. Posizione: Coordinate, direzione e dimensione definiscono lo stato iniziale e i movimenti. Dialoghi: Parla per X secondi e attendi permettono di costruire conversazioni leggibili. Ordine: I blocchi devono essere incastrati per garantire una sequenza affidabile.
+
+--- Slide 8 ---
+Messaggi e manutenzione I messaggi permettono agli oggetti di reagire a segnali condivisi: Start, Dialogo1, Dialogo2, Fine. Broadcast: Un messaggio non ha un destinatario unico: tutti possono riceverlo, ma risponde solo chi ha lo script giusto. Ripristino: All'avvio conviene impostare posizione, costume, dimensione e visibilità degli sprite. Errori comuni: CTRL+Z aiuta, ma serve anche progettare stati iniziali chiari per evitare sprite nascosti o sovrapposti. Manutenzione: Un unico blocco iniziale spesso è più leggibile di tanti script separati difficili da mantenere.
+
+--- Slide 9 ---
+Costumi, suoni e immagini Il corso introduce la modifica degli asset per trasformare un semplice script in un progetto narrativo o ludico. Costumi: La grafica vettoriale permette di modificare parti indipendenti con punti di controllo. Suoni: Scratch importa WAV e MP3; un suono è associato allo sprite o allo stage. PNG: Per gli sprite importati è buona prassi usare immagini PNG con sfondo trasparente. Versioni: Salvare come progetto_001, progetto_002 e così via aiuta a recuperare errori.
+
+--- Slide 10 ---
+Prima di programmare Il vecchio corso chiude collegando Scratch allo sviluppo del software: non si parte subito dai blocchi, si pianifica. Analisi requisiti: Stabilire cosa deve fare il progetto, per chi e con quali vincoli. Progettazione: Usare carta e penna per dialoghi, scene, messaggi e risorse. Collaudo: Provare, correggere e controllare i casi limite prima di consegnare. Manutenzione: Rendere il progetto modificabile da chi lo riprenderà dopo.
+
+--- Slide 11 ---
+Dai blocchi al progetto Il primo modulo mette le basi: ambiente, oggetti, eventi, messaggi e organizzazione del lavoro.

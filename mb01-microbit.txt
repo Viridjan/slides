@@ -1,0 +1,35 @@
+Programmare con Micro:bit · MB01 — Fondamenti
+=============================================
+
+--- Slide 1 ---
+Programmare con Micro:bit MB01 MakeCode, microcontrollore, simulatore, download e primi progetti con sensori e LED.
+
+--- Slide 2 ---
+Cosa vedremo: Cos'è Micro:bit; MakeCode; Primi output; Sensori; Progetti guidati
+
+--- Slide 3 ---
+Micro:bit in breve Micro:bit è un sistema embedded progettato per la formazione informatica: una piccola scheda programmabile con LED, pulsanti, sensori e pin.
+
+--- Slide 4 ---
+Microcontrollore Il corso originale introduce Micro:bit come microcontrollore: un circuito integrato nato per applicazioni specifiche di controllo digitale. Embedded: Esegue compiti mirati dentro oggetti, prototipi e sistemi di controllo. Output: La matrice LED mostra icone, numeri e stringhe. Input: Pulsanti, pin, accelerometro, microfono e bussola generano eventi. Progetto fisico: Il codice non resta sullo schermo: viene caricato sulla scheda.
+
+--- Slide 5 ---
+Usare MakeCode Si lavora online su makecode.microbit.org: nuovo progetto, nome, creazione e programmazione a blocchi. Simulatore: Permette di vedere il comportamento del programma prima del download. Toolbox: I blocchi sono divisi per colore e funzione, come in Scratch. Workspace: Area centrale in cui si compone l'algoritmo. Download: Il pulsante download carica il programma sul Micro:bit seguendo i passaggi indicati.
+
+--- Slide 6 ---
+Love! Il primo esercizio usa due blocchi show leds e un blocco forever per creare una piccola animazione sulla matrice LED. Show leds: Disegna un'icona direttamente sulla griglia di LED. Forever: Ripete continuamente la sequenza scelta. Feedback immediato: Il simulatore mostra subito il risultato. Caricamento: Dopo il test si scarica il programma sulla scheda.
+
+--- Slide 7 ---
+Dado a 6 facce Il dado usa on shake, show number e pick random per trasformare un gesto fisico in un numero casuale. On shake: L'accelerometro rileva lo scuotimento della scheda. Pick random: Genera un numero casuale da 1 a 6. Show number: Mostra il risultato sulla matrice LED. Evento: Il programma reagisce a un input invece di partire solo all'avvio.
+
+--- Slide 8 ---
+Love Meter Il Love Meter usa on pin pressed: due persone toccano pin 0 e GND per chiudere il circuito e generare un valore. Pin 0 e GND: I pin diventano input fisici semplici da sperimentare. Show string: All'avvio si può mostrare una scritta introduttiva. Numero casuale: Come nel dado, si può visualizzare un valore generato dal programma. Interazione: Il progetto richiede partecipazione e rende visibile il circuito.
+
+--- Slide 9 ---
+Clap, bussola, contapassi Gli esercizi successivi introducono variabili e sensori: suono, direzione e movimento. Clap! Clap!: Una variabile lightsOn tiene traccia dello stato acceso/spento. Bussola: Una variabile degrees conserva la direzione rilevata. Contapassi: Una variabile steps aumenta con il movimento. Leggere il codice: Il corso invita a capire il funzionamento dei blocchi, non solo copiarli.
+
+--- Slide 10 ---
+Metodo di lavoro Ogni progetto segue una routine didattica ripetibile: trova i blocchi, componi, prova nel simulatore, scarica, osserva, modifica. Individuare i blocchi: I colori della toolbox aiutano a trovare le funzioni richieste. Comporre algoritmo: Si incastrano eventi, output, condizioni, cicli e variabili. Testare: Il simulatore riduce errori prima del caricamento. Sperimentare: La scheda rende il debugging concreto: si prova con mani, suoni e movimento.
+
+--- Slide 11 ---
+Dal codice al mondo fisico Micro:bit rende visibile il legame tra algoritmo, sensore, evento e comportamento della scheda.
