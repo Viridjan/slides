@@ -1,0 +1,441 @@
+Pianificare un Progetto · PM02
+========================================
+
+--- Slide 1 ---
+Project Management · PM02 
+ Pianificare
+un
+progetto 
+ Obiettivi SMART, WBS, stime, Gantt e gestione dei rischi. 
+ SMART WBS Gantt
+
+--- Slide 2 ---
+In questo modulo 
+ Dal "che bello sarebbe" al piano 
+ In PM01 hai visto che la pianificazione è la fase 2 del ciclo di vita. Qui la apriamo: come si trasforma un obiettivo in un piano che il team può eseguire davvero ? 
+ 
+ 
+ 🎯 
+ Obiettivi SMART 
+ trasformare i desideri in traguardi misurabili 
+ 
+ 
+ 🧩 
+ WBS e stime 
+ scomporre il lavoro e dargli una durata onesta 
+ 
+ 
+ 📅 
+ Gantt e milestone 
+ mettere le attività sul calendario 
+ 
+ 
+ 🌩️ 
+ Rischi e comunicazione 
+ prepararsi agli imprevisti prima che arrivino 
+ 
+ 
+ Regola: un'ora di pianificazione risparmia dieci ore di rilavorazione.
+
+--- Slide 3 ---
+Il caso guida 
+ Il progetto che pianificheremo 
+ 
+ 
+ Per tutto il modulo useremo lo stesso esempio: il salone "Belli e Brillanti" vuole lanciare un servizio di prenotazione online entro tre mesi, con un budget di 5.000&nbsp;€. 
+ 
+ Perché un caso concreto 
+ SMART, WBS e Gantt sembrano sigle astratte finché non le applichi. Vedrai ogni strumento all'opera sullo stesso progetto, dall'inizio alla fine. 
+ 
+ 
+ 💡 Nota 
+ Il progetto è volutamente piccolo: gli strumenti sono gli stessi che governano un cantiere da dieci milioni. Cambia la scala, non il metodo. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Prenota ora 
+ 
+ 
+ 
+ CONFERMA ✓ 
+ 
+ 3 mesi 
+ 5.000 € 
+ 
+ i vincoli 
+ 
+ Un servizio di prenotazione online: tempo e budget già fissati
+
+--- Slide 4 ---
+Primo passo 
+ Obiettivi SMART 
+ "Portare il salone online" è un desiderio, non un obiettivo. Il metodo SMART è una checklist di cinque domande che trasforma i desideri in traguardi verificabili. 
+ 
+ 
+ S — Specifico 
+ Cosa, esattamente? "Un sistema di prenotazione online per tagli e trattamenti, integrato nel sito esistente." 
+ 
+ 
+ M — Misurabile 
+ Come sai di avercela fatta? "Almeno il 30% delle prenotazioni passa dal sito entro due mesi dal lancio." 
+ 
+ 
+ A — Raggiungibile 
+ È fattibile con le risorse che hai? Con 5.000&nbsp;€ e tre mesi sì — un'app personalizzata da zero no. 
+ 
+ 
+ 
+ 
+ R — Rilevante 
+ Serve davvero al salone? Sì: metà delle chiamate arriva fuori orario, e ogni chiamata persa è un cliente perso. 
+ 
+ 
+ T — Temporizzato 
+ Entro quando? "Online il 1° ottobre, in tempo per la stagione delle feste." Senza scadenza, nessuna priorità.
+
+--- Slide 5 ---
+Primo passo 
+ Prima e dopo la cura 
+ Lo stesso progetto, due formulazioni. Solo la seconda permette di pianificare — e di dire, a fine progetto, "ce l'abbiamo fatta" senza discussioni. 
+ 
+ 
+ 🌫️ 
+ Obiettivo vago 
+ "Dobbiamo portare il salone online, i clienti ormai prenotano tutto da internet." 
+ Quando è finito? Cosa include? Un sito? Un'app? I social? Ognuno capisce una cosa diversa. 
+ 
+ 
+ 🎯 
+ Obiettivo SMART 
+ "Sistema di prenotazione online attivo entro il 1° ottobre, budget 5.000&nbsp;€, con il 30% delle prenotazioni dal sito entro fine novembre." 
+ Chiaro cosa, quanto, entro quando: si può pianificare e verificare. 
+ 
+ 
+ Regola: se non puoi dire come misurerai il successo, non hai ancora un obiettivo.
+
+--- Slide 6 ---
+Secondo passo 
+ WBS: scomporre l'elefante 
+ 
+ 
+ La Work Breakdown Structure spezza il progetto in pezzi sempre più piccoli, finché ogni pezzo è abbastanza chiaro da poter essere assegnato e stimato . 
+ 
+ La regola di scomposizione 
+ Ogni attività finale deve rispondere a tre domande: chi la fa, quanto dura, come si capisce che è finita. Se non puoi rispondere, scomponi ancora. 
+ 
+ Analogia: come si mangia un elefante? Un boccone alla volta. 
+ 
+ 
+ 
+ 
+ Prenotazioni online 
+ 
+ 
+ 
+ 
+ 
+ 
+ Software 
+ 
+ Contenuti 
+ 
+ Lancio 
+ 
+ 
+ 
+ 
+ scegliere piattaforma 
+ configurare servizi 
+ collegare pagamenti 
+ testare 
+ 
+ foto servizi 
+ listino e testi 
+ regole cancellazione 
+ 
+ formare staff 
+ annuncio social 
+ promo apertura 
+ 
+ La WBS del caso guida: tre rami, poi attività concrete
+
+--- Slide 7 ---
+Secondo passo 
+ Le dipendenze: cosa aspetta cosa 
+ Le attività della WBS non sono tutte indipendenti: alcune non possono iniziare finché altre non finiscono. Ignorare le dipendenze produce piani impossibili. 
+ 
+ Non puoi configurare i servizi prima di aver scelto la piattaforma — la scelta blocca tutto il ramo software. 
+ Non puoi testare senza listino caricato e pagamenti collegati — qui i rami software e contenuti si incontrano. 
+ Non puoi formare lo staff su un sistema che non esiste — ma puoi preparare foto e testi in parallelo al software. 
+ 
+ 
+ 💡 L'intuizione chiave 
+ Le dipendenze rivelano cosa può correre in parallelo : è lì che si recupera tempo. La sequenza più lunga di attività dipendenti tra loro si chiama percorso critico — e decide la durata minima del progetto.
+
+--- Slide 8 ---
+Terzo passo 
+ Stimare senza mentirsi 
+ Quanto dura "configurare i servizi"? Le stime sono la parte più fragile del piano: tendiamo tutti a essere ottimisti . Tre tecniche per difendersi da se stessi: 
+ 
+ 
+ 📊 
+ Per analogia 
+ "Quanto ci abbiamo messo l'ultima volta per una cosa simile?" La memoria dei progetti passati vale più dell'intuizione — per questo le lezioni apprese contano. 
+ 
+ 
+ 🗣️ 
+ Chiedere a chi fa 
+ La stima la dà chi eseguirà il lavoro, non chi lo assegna. Il PM può discuterla, ma imporne una calata dall'alto produce solo numeri di fantasia. 
+ 
+ 
+ 🎲 
+ Tre valori 
+ Stima ottimistica, pessimistica e probabile: la media pesata smaschera l'incertezza. Se ottimista e pessimista sono lontane, l'attività va capita meglio. 
+ 
+ 
+ 
+ ⚠️ Il buffer non è grasso da tagliare 
+ Aggiungere un margine per gli imprevisti (10–20%) non è pessimismo: è statistica. Un piano senza riserve è un piano che fallisce al primo raffreddore.
+
+--- Slide 9 ---
+Quarto passo 
+ Il diagramma di Gantt 
+ Attività, durate e dipendenze si mettono infine sul calendario. Il Gantt è la vista d'insieme: ogni barra un'attività, la sua lunghezza la durata, la posizione il periodo. 
+ 
+ 
+ Scegliere piattaforma 
+ 
+ Configurare + pagamenti 
+ 
+ Foto, testi, listino 
+ 
+ Test completo 
+ 
+ Formazione + lancio 
+ 
+ 
+ 
+ 
+ 
+ 1° ottobre — lancio 
+ luglio 
+ agosto 
+ settembre 
+ 
+ Il Gantt del caso guida: contenuti in parallelo al software, poi tutto converge sul test
+
+--- Slide 10 ---
+Quarto passo 
+ Le milestone: i traguardi intermedi 
+ 
+ 
+ Una milestone è un punto di controllo a durata zero: non è un'attività, è un evento verificabile . "Piattaforma scelta", "test superato", "sito online". 
+ 
+ A cosa servono 
+ Spezzano un progetto di mesi in traguardi ravvicinati: il team vede i progressi, lo sponsor ha date precise da controllare, i ritardi emergono subito invece che alla fine. 
+ 
+ Analogia: le milestone sono i caselli dell'autostrada — non ti fanno andare più veloce, ma sai sempre dove sei. 
+ 
+ 
+ 
+ 🚩 
+ 15 luglio — piattaforma scelta 
+ sblocca tutto il ramo software 
+ 
+ 
+ 🚩 
+ 5 settembre — sistema completo 
+ software configurato, contenuti caricati 
+ 
+ 
+ 🚩 
+ 20 settembre — test superato 
+ prenotazione di prova completata senza errori 
+ 
+ 
+ 🏁 
+ 1° ottobre — online 
+ la milestone finale coincide con l'obiettivo T di SMART
+
+--- Slide 11 ---
+Le persone 
+ Chi fa cosa: niente zone grigie 
+ Ogni attività della WBS ha bisogno di un solo responsabile . "Ce ne occupiamo insieme" è la formula magica con cui le attività non le fa nessuno. 
+ 
+ 
+ 👤 
+ Un responsabile per attività 
+ Altri possono contribuire, essere consultati o informati — ma la persona che risponde del risultato è una sola . Se sono due, non è nessuna. 
+ 
+ 
+ 🗂️ 
+ La matrice delle responsabilità 
+ Una tabella attività × persone: per ogni incrocio, il ruolo (chi esegue, chi approva, chi va consultato, chi informato). Dieci minuti di lavoro, mesi di malintesi evitati. 
+ 
+ 
+ Nel caso guida: le foto le fa Sara (titolare), i testi Marco (receptionist), la piattaforma la configura il consulente esterno — e ogni scelta di spesa la approva Sara. Scritto, condiviso, niente sorprese.
+
+--- Slide 12 ---
+I soldi 
+ Il budget: la WBS con i prezzi 
+ 
+ 
+ Il budget non si inventa: si costruisce dal basso , attività per attività. La WBS che hai già fatto è anche la lista della spesa del progetto. 
+ 
+ La riserva di contingenza 
+ Una quota del budget (qui il 12%) resta non assegnata : coprirà gli imprevisti. Non è denaro sprecato — è l'assicurazione che il primo intoppo non fermi tutto. 
+ 
+ Regola: il budget si decide una volta e si controlla ogni settimana — mai il contrario. 
+ 
+ 
+ 
+ 
+ Piattaforma (1 anno) 
+ 1.400 € 
+ 
+ Consulente esterno 
+ 2.200 € 
+ 
+ Foto professionali 
+ 500 € 
+ 
+ Promozione lancio 
+ 300 € 
+ 
+ Riserva imprevisti (12%) 
+ 600 € 
+ 
+ Il budget del caso guida: 5.000 € — riserva inclusa, non rubata
+
+--- Slide 13 ---
+Quinto passo 
+ I rischi: pensarci prima 
+ Un rischio è un evento incerto che, se accade, impatta il progetto. La domanda non è "se" qualcosa andrà storto, ma cosa — e la risposta si cerca a piano fatto, non a disastro avvenuto. 
+ 
+ Brainstorm con il team — "cosa potrebbe andare storto?" Chi esegue il lavoro vede rischi che il PM non immagina. 
+ Guardare i progetti passati — gli imprevisti si ripetono: fornitori in ritardo, ferie dimenticate, richieste last-minute del committente. 
+ Scrivere ogni rischio nella stessa forma — "A causa di X, potrebbe accadere Y, con effetto Z su tempi/costi/qualità." 
+ 
+ 
+ ⚠️ Nel caso guida 
+ "A causa delle ferie di agosto, il consulente potrebbe non essere disponibile due settimane, con effetto di ritardo sul test di settembre." Identificato a luglio, si risolve con una telefonata. Scoperto a settembre, fa saltare il lancio.
+
+--- Slide 14 ---
+Quinto passo 
+ Probabilità × impatto 
+ 
+ 
+ Non tutti i rischi meritano la stessa attenzione. Ognuno si valuta su due assi: quanto è probabile e quanto farebbe male . Il prodotto dei due decide la priorità. 
+ 
+ Dove guardare per primi 
+ L'angolo in alto a destra: probabile e grave. Questi rischi richiedono un piano di risposta pronto prima che si presentino. 
+ 
+ In pratica: l'ombrello si compra quando c'è il sole — a pioggia iniziata restano solo quelli cari. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ impatto → 
+ probabilità → 
+ 
+ ferie consulente 
+ 
+ foto in ritardo 
+ 
+ piattaforma chiude 
+ 
+ La matrice dei rischi del caso guida: rosso = agire subito
+
+--- Slide 15 ---
+Quinto passo 
+ Le quattro risposte a un rischio 
+ Per ogni rischio prioritario si sceglie una strategia. Quattro opzioni, dalla più drastica alla più serena: 
+ 
+ 
+ 🚫 
+ Evitare 
+ Cambiare il piano perché il rischio non possa accadere. Il consulente va in ferie ad agosto? Si anticipa tutta la configurazione a luglio. 
+ 
+ 
+ 🛡️ 
+ Mitigare 
+ Ridurre probabilità o impatto. Test intermedi ogni due settimane invece di un unico test finale: se qualcosa si rompe, si scopre subito. 
+ 
+ 
+ 📤 
+ Trasferire 
+ Spostare il rischio su qualcun altro: un'assicurazione, una penale contrattuale, un fornitore con garanzia di uptime. 
+ 
+ 
+ 👁️ 
+ Accettare 
+ Per i rischi improbabili o lievi: nessuna azione, solo monitoraggio. Accettare consapevolmente non è ignorare — è una decisione scritta. 
+ 
+ 
+ Regola: ogni rischio rosso della matrice deve avere un nome accanto: chi lo tiene d'occhio.
+
+--- Slide 16 ---
+Ultimo tassello 
+ Il piano di comunicazione 
+ L'ultimo pezzo del piano risponde a una domanda semplice: chi deve sapere cosa, quando, e come ? Deciderlo prima evita sia il silenzio totale sia la riunione perenne. 
+ 
+ 
+ 🧑‍🤝‍🧑 
+ Al team 
+ Punto rapido settimanale: cosa è stato fatto, cosa è in corso, cosa blocca. Quindici minuti, sempre lo stesso giorno. 
+ 
+ 
+ 🏛️ 
+ Allo sponsor 
+ Report sintetico ogni due settimane: semaforo su tempi/costi/rischi, decisioni da prendere. Una pagina, non venti. 
+ 
+ 
+ 🧑‍💼 
+ Agli utenti 
+ Nel caso guida: lo staff del salone va informato prima del lancio, i clienti al lancio. Comunicare tardi trasforma una novità in una sorpresa sgradita. 
+ 
+ 
+ 
+ 💡 Collegamento 
+ Canali sincroni e asincroni, riunioni efficaci e netiquette: tutto quello che serve qui l'hai visto nel modulo RW09 · Collaborazione Digitale .
+
+--- Slide 17 ---
+Ricapitolando 
+ Il piano completo, in una pagina 
+ Sette domande, sette risposte scritte. Se riesci a compilare questa lista, il tuo progetto ha un piano vero — qualunque sia la sua dimensione. 
+ 
+ Perché? → obiettivo SMART, condiviso con lo sponsor 
+ Cosa? → WBS: tutto il lavoro, scomposto in attività assegnabili 
+ Quando? → Gantt con dipendenze e milestone di controllo 
+ Chi? → un responsabile per attività, matrice condivisa 
+ Quanto? → budget dal basso, riserva di contingenza inclusa 
+ E se? → rischi mappati per probabilità × impatto, risposte pronte 
+ Come ci parliamo? → piano di comunicazione per team, sponsor e utenti
+
+--- Slide 18 ---
+Verifica 
+ Mettiti alla prova 
+ Usando il caso "Belli e Brillanti" — o un progetto tuo — rispondi senza tornare indietro: 
+ 
+ "Migliorare la presenza online del salone" — quali delle cinque lettere di SMART mancano a questo obiettivo? Riscrivilo completo. 
+ Le foto possono essere scattate mentre il consulente configura la piattaforma? Cosa te lo dice: la WBS o le dipendenze? 
+ Il consulente stima "2-3 giorni" per i pagamenti, il PM scrive "2" — quale errore di stima sta commettendo il PM? 
+ "Il fotografo potrebbe ammalarsi" — bassa probabilità, impatto medio. Quale delle quattro risposte al rischio sceglieresti, e perché? 
+ Che differenza c'è tra un'attività e una milestone? "Testare il sistema" e "test superato": quale è quale?
+
+--- Slide 19 ---
+Fine PM02 
+ Un piano non prevede il futuro:
+ lo rende gestibile 
+ Obiettivo SMART, lavoro scomposto, tempi onesti, responsabilità chiare, rischi già guardati in faccia. Ora il progetto può partire — e sopravvivere al primo imprevisto. 
+ 
+ ← PM01 
+ ↩ Indice del corso

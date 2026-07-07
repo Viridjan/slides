@@ -1,0 +1,388 @@
+Metodologie di Project Management · PM03
+========================================
+
+--- Slide 1 ---
+Project Management · PM03 
+ Metodo-
+logie 
+ Waterfall, Agile, Scrum e Kanban: come si organizza il lavoro di progetto. 
+ Waterfall Agile Scrum
+
+--- Slide 2 ---
+In questo modulo 
+ Non esiste un solo modo di gestire 
+ PM01 e PM02 descrivono cosa va fatto. Le metodologie rispondono a come organizzarlo: tutto pianificato all'inizio, o a piccoli cicli con correzioni continue? 
+ 
+ 
+ 🌊 
+ Waterfall 
+ l'approccio predittivo, una fase dopo l'altra 
+ 
+ 
+ 🔁 
+ Agile 
+ l'approccio adattivo, a cicli brevi 
+ 
+ 
+ 🏉 
+ Scrum e Kanban 
+ i due framework agili più diffusi 
+ 
+ 
+ ⚖️ 
+ Quale scegliere 
+ i criteri per decidere, progetto per progetto 
+ 
+ 
+ Regola: la metodologia si sceglie in base al progetto — mai per moda.
+
+--- Slide 3 ---
+La distinzione chiave 
+ Predittivo o adattivo? 
+ Tutte le metodologie derivano da una domanda: quanto sai già del risultato finale? Se i requisiti sono chiari e stabili, pianifichi tutto. Se cambieranno strada facendo, pianifichi a cicli. 
+ 
+ 
+ 🗺️ 
+ Predittivo (waterfall) 
+ Requisiti chiari, poca incertezza: si pianifica tutto all'inizio e si esegue il piano. Es.: ristrutturare il salone — i muri non cambiano idea a metà lavori. 
+ 
+ 
+ 🧭 
+ Adattivo (agile) 
+ Requisiti incerti, feedback necessario: si consegna a piccoli cicli e si corregge la rotta. Es.: un'app per i clienti — capisci cosa serve solo vedendoli usarla. 
+ 
+ 
+ Analogia: il predittivo è un viaggio in treno con orari fissi; l'adattivo è un viaggio in bici — decidi la tappa successiva a ogni incrocio.
+
+--- Slide 4 ---
+Approccio predittivo 
+ Waterfall: la cascata 
+ 
+ 
+ Le fasi si susseguono in sequenza , come acqua che scende: ogni fase inizia solo quando la precedente è completata e approvata. Non si torna indietro (o si torna a caro prezzo). 
+ 
+ Quando funziona 
+ Requisiti stabili e ben capiti · settori regolamentati con approvazioni formali · progetti fisici (edilizia, produzione) dove rifare costa moltissimo. 
+ 
+ 
+ Il punto debole 
+ Il cliente vede il risultato solo alla fine : se i requisiti erano sbagliati o sono cambiati, lo scopri quando è più caro rimediare. 
+ 
+ 
+ 
+ 
+ 
+ Requisiti 
+ 
+ Progettazione 
+ 
+ Realizzazione 
+ 
+ Test 
+ 
+ Consegna 
+ 
+ 
+ La cascata: ogni fase alimenta la successiva, senza ritorni
+
+--- Slide 5 ---
+Approccio predittivo 
+ La curva del costo del cambiamento 
+ 
+ 
+ Perché waterfall teme i cambiamenti? Perché più il progetto avanza, più cambiare costa: correggere un requisito sulla carta costa un'ora, correggerlo a prodotto finito costa settimane di rilavorazione. 
+ 
+ La change request 
+ Nei progetti waterfall il cambiamento passa da una richiesta formale : si valuta l'impatto su tempi e costi (il triplo vincolo di PM01), si approva o si respinge. Lento, ma tracciato. 
+ 
+ Analogia: spostare una parete sul progetto è una gomma; spostarla a casa costruita è un martello pneumatico. 
+ 
+ 
+ 
+ 
+ 
+ 
+ avanzamento del progetto → 
+ costo del cambio → 
+ 
+ requisiti 
+ 
+ realizzazione 
+ 
+ consegna 
+ 
+ Lo stesso cambiamento costa sempre di più, fase dopo fase
+
+--- Slide 6 ---
+Approccio adattivo 
+ Agile: consegnare a cicli 
+ 
+ 
+ Nato nel software nel 2001 con il Manifesto Agile : invece di un'unica grande consegna finale, cicli brevi (1–4 settimane) che producono ogni volta qualcosa di funzionante e mostrabile. 
+ 
+ I quattro valori del Manifesto 
+ Le persone più dei processi · il prodotto funzionante più della documentazione · la collaborazione col cliente più del contratto · rispondere al cambiamento più che seguire il piano. 
+ 
+ In pratica: il cambiamento non è il nemico del piano — è informazione che arriva. 
+ 
+ 
+ 
+ 
+ 
+ ciclo 1 
+ 
+ 
+ ciclo 2 
+ 
+ ciclo 3… 
+ 
+ 
+ a ogni ciclo: qualcosa di usabile + feedback 
+ 
+ Cicli brevi: consegna, feedback, correzione — poi si riparte
+
+--- Slide 7 ---
+Approccio adattivo 
+ Dentro un'iterazione 
+ Ogni ciclo agile è un mini-progetto completo : si pianifica poco, si costruisce qualcosa di finito, lo si mostra, si impara. Quattro momenti, sempre nello stesso ordine. 
+ 
+ Pianificare poco — si scelgono solo le attività del ciclo, non dei prossimi sei mesi: le priorità di oggi, decise con le informazioni di oggi. 
+ Costruire qualcosa di finito — non "il 20% di tutto" ma "il 100% di poco": una funzione completa e usabile, non dieci a metà. 
+ Mostrarlo a chi decide — la demo al cliente: il feedback su qualcosa di reale vale cento riunioni su documenti. 
+ Imparare e correggere — cosa cambia nel prodotto (dal feedback) e cosa cambia nel modo di lavorare (dalla retrospettiva del team). 
+ 
+ 
+ 💡 Il punto chiave 
+ Il rischio waterfall — "scoprire alla fine che era sbagliato" — qui è impossibile per costruzione: la verifica arriva ogni due settimane , non dopo sei mesi.
+
+--- Slide 8 ---
+Framework agile 
+ Scrum: l'agile con le regole 
+ Scrum è il framework agile più diffuso: cicli fissi chiamati sprint (di solito 2 settimane), tre ruoli precisi e riti regolari che tengono il ritmo. 
+ 
+ 
+ 📋 
+ Product Owner 
+ Rappresenta il cliente: decide cosa ha priorità nel backlog (la lista ordinata delle cose da fare). 
+ 
+ 
+ 🧹 
+ Scrum Master 
+ Custode del metodo: rimuove gli ostacoli e protegge il team dalle interruzioni. Non è il capo — è il facilitatore. 
+ 
+ 
+ 🛠️ 
+ Team di sviluppo 
+ Autonomo nel decidere come realizzare gli obiettivi dello sprint. Piccolo: 3–9 persone. 
+ 
+ 
+ 
+ 💡 I riti dello sprint 
+ Planning (cosa faremo) → daily stand-up (15 min al giorno: fatto, da fare, blocchi) → review (demo al cliente) → retrospettiva (come migliorare il prossimo sprint).
+
+--- Slide 9 ---
+Framework agile 
+ Due settimane di sprint, giorno per giorno 
+ Lo sprint ha un ritmo fisso: si apre con la pianificazione, batte ogni giorno con lo stand-up, si chiude con demo e retrospettiva. Nessuna riunione extra : il metodo le ha già tutte previste. 
+ 
+ 
+ 
+ 
+ Planning 
+ giorno 1 
+ cosa faremo 
+ 
+ Review 
+ ultimo giorno 
+ demo al cliente 
+ 
+ Retro 
+ come migliorare 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ● daily stand-up — 15 minuti in piedi, ogni giorno 
+ ieri ho fatto · oggi farò · questo mi blocca 
+ 
+ Uno sprint di due settimane: apertura, battito quotidiano, chiusura doppia
+
+--- Slide 10 ---
+Framework agile 
+ Il backlog e le user story 
+ Da dove arriva il lavoro dello sprint? Da una lista unica e ordinata per valore : il backlog. E ogni voce è scritta dal punto di vista di chi la userà. 
+ 
+ 
+ 📚 
+ Product backlog 
+ Tutto ciò che il prodotto potrebbe diventare, in ordine di priorità. Vive per tutto il progetto, cresce e si riordina. Lo governa il Product Owner : la sua unica lista, la sua responsabilità. 
+ 
+ 
+ 🎒 
+ Sprint backlog 
+ Le voci scelte per questo sprint, e solo quelle. Una volta partito lo sprint non si aggiunge nulla: le novità aspettano il prossimo — è così che il team lavora senza interruzioni. 
+ 
+ 
+ La user story, il formato delle voci di backlog: «Come cliente del salone voglio ricevere un promemoria il giorno prima così da non dimenticare l'appuntamento.» Chi, cosa, perché — in una frase.
+
+--- Slide 11 ---
+Framework agile 
+ Kanban: visualizzare il flusso 
+ 
+ 
+ Nato nelle fabbriche Toyota: il lavoro scorre su una bacheca a colonne (da fare → in corso → fatto) e ogni colonna ha un limite di attività contemporanee (WIP limit). 
+ 
+ Perché il limite conta 
+ Dieci attività "in corso" = nessuna finita. Il WIP limit obbliga a finire prima di iniziare : il lavoro scorre invece di accumularsi. 
+ 
+ Analogia: come le casse del supermercato — più code aperte a metà non fanno uscire nessuno prima. 
+ 
+ 
+ 
+ 
+ DA FARE 
+ 
+ 
+ 
+ 
+ 
+ IN CORSO ≤2 
+ 
+ 
+ 
+ FATTO ✓ 
+ 
+ 
+ 
+ 
+ La bacheca kanban: il limite sulla colonna centrale fa scorrere il lavoro
+
+--- Slide 12 ---
+Framework agile 
+ Scrum o Kanban? 
+ Entrambi agili, ma con caratteri opposti: Scrum impone un ritmo , Kanban impone un limite . La differenza si vede su quattro assi. 
+ 
+ 
+ 🥁 
+ Cadenza 
+ Scrum: sprint a durata fissa, consegna a fine ciclo.
+ Kanban: flusso continuo, si consegna appena una scheda è "fatta". 
+ 
+ 
+ 🎭 
+ Ruoli 
+ Scrum: tre ruoli obbligatori (PO, Scrum Master, team).
+ Kanban: nessun ruolo richiesto — si adatta alla squadra che c'è già. 
+ 
+ 
+ 🔀 
+ Cambiamenti 
+ Scrum: lo sprint è protetto, le novità entrano al ciclo dopo.
+ Kanban: le priorità si riordinano in ogni momento. 
+ 
+ 
+ 🧲 
+ Terreno ideale 
+ Scrum: costruire un prodotto con un team dedicato.
+ Kanban: gestire un flusso continuo di richieste eterogenee. 
+ 
+ 
+ In pratica: Scrum è un allenamento a orari fissi, Kanban è tenere sgombro il tapis roulant.
+
+--- Slide 13 ---
+La scelta 
+ Quale metodologia per quale progetto 
+ Nessuna metodologia vince sempre. Si sceglie guardando il progetto — e spesso si combinano : waterfall per il cantiere, kanban per il team marketing. 
+ 
+ 
+ 🌊 
+ Waterfall se… 
+ Requisiti chiari e stabili · rifare costa tantissimo · servono approvazioni formali a ogni fase · il cliente sa esattamente cosa vuole. 
+ 
+ 
+ 🏉 
+ Scrum se… 
+ Il risultato va scoperto col feedback · il team è dedicato al progetto · il cliente è disponibile a vedere demo regolari. 
+ 
+ 
+ 📌 
+ Kanban se… 
+ Il lavoro arriva in modo continuo (richieste, ticket, manutenzione) · le priorità cambiano spesso · il team gestisce più flussi insieme. 
+ 
+ 
+ Regola: prima capisci il progetto, poi scegli il metodo — mai il contrario.
+
+--- Slide 14 ---
+La scelta 
+ Gli approcci ibridi: il mondo reale 
+ Fuori dai manuali, la maggior parte dei progetti mescola : struttura predittiva dove i vincoli sono rigidi, cicli adattivi dove serve scoprire. Non è indecisione — è sartoria. 
+ 
+ 
+ 🏗️ 
+ Cornice waterfall, cuore agile 
+ Milestone e budget fissati a contratto (il cliente li esige), ma dentro ogni fase il team lavora a sprint con demo regolari. Il meglio dei due mondi — se la comunicazione regge. 
+ 
+ 
+ 🧵 
+ Metodi diversi per flussi diversi 
+ Lo stesso progetto può avere il cantiere in waterfall (i muri non iterano), lo sviluppo dell'app in Scrum e l'assistenza clienti in Kanban. Metodo per natura del lavoro, non per moda aziendale. 
+ 
+ 
+ 
+ 💡 Nel caso guida 
+ "Belli e Brillanti" (PM02) è già un ibrido: la configurazione della piattaforma segue fasi in cascata con milestone fisse, mentre foto, testi e promozione scorrono su una board kanban. Nessuno l'ha chiamato "ibrido" — ha solo funzionato.
+
+--- Slide 15 ---
+Attenzione 
+ Agile fatto male: le quattro trappole 
+ "Siamo agili" è la frase più abusata degli uffici. Questi quattro sintomi rivelano un metodo adottato solo a parole — riconoscerli è già metà della cura. 
+ 
+ 
+ 🐌 
+ Il daily di un'ora 
+ Lo stand-up da 15 minuti diventa una riunione-fiume seduti. Cura: in piedi, tre domande a testa, gli approfondimenti dopo e solo tra i diretti interessati. 
+ 
+ 
+ 🌊 
+ Lo sprint-waterfall 
+ Si "sviluppa" per dieci giorni e si testa tutto negli ultimi due: un mini-waterfall travestito. Cura: ogni voce dello sprint arriva a "fatta e verificata", una alla volta. 
+ 
+ 
+ 🕳️ 
+ Il backlog discarica 
+ Quattrocento voci mai riordinate non sono priorità: sono un archivio di sensi di colpa. Cura: il PO pota il backlog a ogni ciclo — ciò che non sarà mai fatto si cancella. 
+ 
+ 
+ 📄 
+ "Agile = niente documenti" 
+ Il Manifesto dice "più del", non "invece di": il prodotto conta più della documentazione, ma decisioni e accordi vanno comunque scritti. L'oralità totale è caos, non agilità. 
+ 
+ 
+ Regola: agile è una disciplina, non un'esenzione dalle regole.
+
+--- Slide 16 ---
+Verifica 
+ Mettiti alla prova 
+ Rispondi senza tornare indietro: 
+ 
+ Ristrutturare il salone vs creare l'app dei clienti: quale approccio per ciascuno, e quale caratteristica del progetto lo decide? 
+ In Scrum, chi decide le priorità e chi decide come realizzarle? Due ruoli diversi — quali? 
+ Il team ha 9 attività "in corso" e nessuna finita da due settimane. Quale principio kanban risolverebbe la situazione? 
+ "Rispondere al cambiamento più che seguire il piano" — questo valore agile contraddice la pianificazione vista in PM02? Argomenta. 
+ «Come receptionist voglio vedere le prenotazioni di domani così da preparare le postazioni» — riconosci il formato? Quali tre elementi contiene? 
+ Il daily del team dura 50 minuti, seduti in sala riunioni. Quale trappola è, e quali sono le due correzioni immediate?
+
+--- Slide 17 ---
+Fine PM03 
+ Il metodo giusto è quello
+ che serve al progetto 
+ Predittivo quando sai dove vai, adattivo quando lo scopri strada facendo. Waterfall, Scrum e Kanban non sono religioni: sono attrezzi. 
+ 
+ Prossimo → PM04 · Strumenti Digitali 
+ ↩ Indice del corso

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metodologie di Project Management · PM03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+main.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;}.main.deck-stage{position:static;width:auto;height:auto;transform:none!important;}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;width:1920px;height:1080px;break-after:page;}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:88px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+code{font-family:var(--font-mono);}
+.page-num{position:absolute;bottom:52px;right:110px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s!important;}.d2{transition-delay:.32s!important;}.d3{transition-delay:.44s!important;}
+.d4{transition-delay:.56s!important;}.d5{transition-delay:.68s!important;}.d6{transition-delay:.80s!important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:22px;letter-spacing:3px;padding:10px 22px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;margin-bottom:18px;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}.tape.sky{background:var(--sky);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:34px;color:var(--red);margin-bottom:12px;display:block;}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:132px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:88px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:70px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--sky);}
+.lead{font-size:32px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:27px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1;}
+.card p{font-size:24px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:44px;line-height:1;display:block;margin-bottom:8px;}
+.card.red{border-color:var(--red);}.card.red h3{color:var(--red);}
+.card.teal{border-color:var(--teal);}.card.teal h3{color:var(--teal);}
+.card.sky{border-color:var(--sky);}.card.sky h3{color:var(--sky);}
+.card.gold{border-color:var(--gold-deep);}.card.gold h3{color:var(--gold-deep);}
+.chips{display:flex;gap:14px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:23px;padding:12px 22px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.chip.red{background:var(--red);color:#fff;}.chip.sky{background:var(--sky);color:#fff;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa;border-color:var(--red);}
+.note.sky{background:#d4eaee;border-color:var(--sky);}
+.note.teal{background:#c0d4d1;border-color:var(--teal);}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:20px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.4;color:var(--ink);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;}
+.stack>*+*{margin-top:20px;}
+.tight-slide .h-sec{font-size:60px;}
+.tight-slide .lead{font-size:27px;line-height:1.34;}
+.tight-slide .card{padding:16px 20px;}
+.tight-slide .card h3{font-size:28px;margin-bottom:5px;}
+.tight-slide .card p{font-size:20px;line-height:1.28;}
+.tight-slide .card .ic{font-size:32px;margin-bottom:4px;}
+.tight-slide .note{padding:16px 22px;}
+.tight-slide .note p{font-size:21px;}
+.tight-slide .stack>*+*{margin-top:12px;}
+.tight-slide .grid2{gap:16px;}
+.tight-slide .grid3{gap:14px;}
+.steps{counter-reset:st;display:flex;flex-direction:column;gap:14px;}
+.step{display:flex;align-items:flex-start;gap:18px;background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:16px 22px;box-shadow:4px 5px 0 rgba(28,23,20,.12);}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--font-display);font-weight:900;font-size:36px;color:var(--red);min-width:40px;line-height:1;}
+.step .t{font-size:25px;line-height:1.35;color:var(--ink-soft);padding-top:3px;}
+.step .t b{color:var(--ink);}
+.blockquote{border-left:6px solid var(--red);padding:18px 28px;background:#fbf5ec;border-radius:0 12px 12px 0;font-size:26px;line-height:1.5;color:var(--ink-soft);font-style:italic;}
+.agenda-item{display:flex;align-items:center;gap:20px;border:2px dashed var(--line);border-radius:12px;padding:16px 22px;background:#fbf5ec;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:110px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-right{background:var(--teal-2);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right>div,.title-right>svg{position:relative;z-index:2;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--sky),var(--teal));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .gold{color:var(--gold);}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease);}
+.title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 28px;font-size:26px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:31px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:28px;display:grid;place-items:center;}
+.illu svg{width:100%;height:auto;display:block;}
+.illu-cap{font-family:var(--font-mono);font-size:20px;color:var(--ink-faint);text-align:center;margin-top:12px;}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:260px;}
+.edit-hint.show{display:block;}
+</style>
+<link rel="stylesheet" href="theme-corsi.css">
+</head>
+<body class="course-pm">
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- ── Slide 1: Title ─────────────────────────────────────── -->
+<section class="slide title-slide" id="s1">
+  <div class="title-left">
+    <span class="eyebrow reveal d1">Project Management · PM03</span>
+    <div class="h-mega reveal d2">Metodo-<br>logie</div>
+    <p class="lead reveal d3">Waterfall, Agile, Scrum e Kanban: come si organizza il lavoro di progetto.</p>
+    <div class="chips reveal d4"><span class="chip">Waterfall</span><span class="chip">Agile</span><span class="chip">Scrum</span></div>
+  </div>
+  <div class="title-right">
+    <div>
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="width:300px;height:300px;">
+        <rect x="30" y="40" width="70" height="34" rx="7" fill="#3f7e8c"/>
+        <rect x="65" y="90" width="70" height="34" rx="7" fill="#3f7e8c"/>
+        <rect x="100" y="140" width="70" height="34" rx="7" fill="#3f7e8c"/>
+        <path d="M65 74 L82 90 M100 124 L117 140" stroke="#1c1714" stroke-width="2.5" fill="none"/>
+        <circle cx="225" cy="200" r="58" fill="none" stroke="#e6533b" stroke-width="8"/>
+        <polygon points="225,132 210,152 240,152" fill="#e6533b"/>
+        <circle cx="225" cy="200" r="22" fill="#e6c14a" stroke="#1c1714" stroke-width="2.5"/>
+      </svg>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── Slide 2: In questo modulo ──────────────────────────── -->
+<section class="slide" id="s2">
+  <div class="tape teal reveal">In questo modulo</div>
+  <div class="h-sec reveal">Non esiste un solo modo di gestire</div>
+  <p class="lead reveal" style="margin-top:14px;margin-bottom:28px;">PM01 e PM02 descrivono <em class="hot">cosa</em> va fatto. Le metodologie rispondono a <em class="hot">come</em> organizzarlo: tutto pianificato all'inizio, o a piccoli cicli con correzioni continue?</p>
+  <div class="grid2 reveal d3" style="gap:18px;">
+    <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px 12px 16px;">
+      <span style="font-size:34px;min-width:50px;">🌊</span>
+      <div><b style="font-size:27px;">Waterfall</b><br><span style="font-size:23px;color:var(--ink-faint);">l'approccio predittivo, una fase dopo l'altra</span></div>
+    </div>
+    <div class="agenda-item" style="border-color:var(--red);padding:12px 4px 12px 16px;">
+      <span style="font-size:34px;min-width:50px;">🔁</span>
+      <div><b style="font-size:27px;">Agile</b><br><span style="font-size:23px;color:var(--ink-faint);">l'approccio adattivo, a cicli brevi</span></div>
+    </div>
+    <div class="agenda-item" style="border-color:var(--gold-deep);padding:12px 4px 12px 16px;">
+      <span style="font-size:34px;min-width:50px;">🏉</span>
+      <div><b style="font-size:27px;">Scrum e Kanban</b><br><span style="font-size:23px;color:var(--ink-faint);">i due framework agili più diffusi</span></div>
+    </div>
+    <div class="agenda-item" style="border-color:var(--teal);padding:12px 4px 12px 16px;">
+      <span style="font-size:34px;min-width:50px;">⚖️</span>
+      <div><b style="font-size:27px;">Quale scegliere</b><br><span style="font-size:23px;color:var(--ink-faint);">i criteri per decidere, progetto per progetto</span></div>
+    </div>
+  </div>
+  <div class="analogy reveal d4" style="margin-top:30px;"><span class="big">Regola:</span> la metodologia si sceglie in base al progetto — mai per moda.</div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── Slide 3: Predittivo vs adattivo ────────────────────── -->
+<section class="slide" id="s3">
+  <div class="tape reveal">La distinzione chiave</div>
+  <div class="h-sec reveal">Predittivo o adattivo?</div>
+  <p class="lead reveal" style="margin-top:12px;margin-bottom:24px;">Tutte le metodologie derivano da una domanda: <em class="hot">quanto sai già</em> del risultato finale? Se i requisiti sono chiari e stabili, pianifichi tutto. Se cambieranno strada facendo, pianifichi a cicli.</p>
+  <div class="grid2 reveal d3">
+    <div class="card sky">
+      <span class="ic">🗺️</span>
+      <h3>Predittivo (waterfall)</h3>
+      <p>Requisiti chiari, poca incertezza: si pianifica tutto all'inizio e si esegue il piano. Es.: ristrutturare il salone — i muri non cambiano idea a metà lavori.</p>
+    </div>
+    <div class="card red">
+      <span class="ic">🧭</span>
+      <h3>Adattivo (agile)</h3>
+      <p>Requisiti incerti, feedback necessario: si consegna a piccoli cicli e si corregge la rotta. Es.: un'app per i clienti — capisci cosa serve solo vedendoli usarla.</p>
+    </div>
+  </div>
+  <div class="analogy reveal d4" style="margin-top:26px;"><span class="big">Analogia:</span> il predittivo è un viaggio in treno con orari fissi; l'adattivo è un viaggio in bici — decidi la tappa successiva a ogni incrocio.</div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── Slide 4: Waterfall ─────────────────────────────────── -->
+<section class="slide" id="s4">
+  <div class="tape sky reveal">Approccio predittivo</div>
+  <div class="h-sec reveal">Waterfall: la cascata</div>
+  <div class="split" style="margin-top:10px;">
+    <div class="col" style="gap:22px;">
+      <p class="lead reveal d2">Le fasi si susseguono <em class="hot">in sequenza</em>, come acqua che scende: ogni fase inizia solo quando la precedente è completata e approvata. Non si torna indietro (o si torna a caro prezzo).</p>
+      <div class="card sky reveal d3">
+        <h3>Quando funziona</h3>
+        <p>Requisiti stabili e ben capiti · settori regolamentati con approvazioni formali · progetti fisici (edilizia, produzione) dove rifare costa moltissimo.</p>
+      </div>
+      <div class="card red reveal d4">
+        <h3>Il punto debole</h3>
+        <p>Il cliente vede il risultato <b>solo alla fine</b>: se i requisiti erano sbagliati o sono cambiati, lo scopri quando è più caro rimediare.</p>
+      </div>
+    </div>
+    <div class="illu reveal d3">
+      <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="20" width="130" height="42" rx="8" fill="#163b35"/>
+        <text x="85" y="46" font-family="Space Mono" font-size="15" fill="#f4ece0" text-anchor="middle">Requisiti</text>
+        <rect x="85" y="80" width="130" height="42" rx="8" fill="#3f7e8c"/>
+        <text x="150" y="106" font-family="Space Mono" font-size="15" fill="#f4ece0" text-anchor="middle">Progettazione</text>
+        <rect x="150" y="140" width="130" height="42" rx="8" fill="#e6c14a" stroke="#1c1714" stroke-width="1.5"/>
+        <text x="215" y="166" font-family="Space Mono" font-size="15" fill="#1c1714" text-anchor="middle">Realizzazione</text>
+        <rect x="215" y="200" width="130" height="42" rx="8" fill="#d98a2b"/>
+        <text x="280" y="226" font-family="Space Mono" font-size="15" fill="#1c1714" text-anchor="middle">Test</text>
+        <rect x="250" y="260" width="130" height="42" rx="8" fill="#e6533b"/>
+        <text x="315" y="286" font-family="Space Mono" font-size="15" fill="#f4ece0" text-anchor="middle">Consegna</text>
+        <path d="M110 62 L128 80 M175 122 L193 140 M240 182 L258 200 M295 242 L305 260" stroke="#1c1714" stroke-width="2.5" fill="none"/>
+      </svg>
+      <div class="illu-cap">La cascata: ogni fase alimenta la successiva, senza ritorni</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── NEW: Costo del cambiamento ────────────────────────── -->
+<section class="slide" id="s5">
+  <div class="tape sky reveal">Approccio predittivo</div>
+  <div class="h-sec reveal">La curva del costo del cambiamento</div>
+  <div class="split" style="margin-top:10px;">
+    <div class="col" style="gap:22px;">
+      <p class="lead reveal d2">Perché waterfall teme i cambiamenti? Perché più il progetto avanza, più cambiare costa: correggere un requisito <em class="hot">sulla carta</em> costa un'ora, correggerlo <em class="hot">a prodotto finito</em> costa settimane di rilavorazione.</p>
+      <div class="card sky reveal d3">
+        <h3>La change request</h3>
+        <p>Nei progetti waterfall il cambiamento passa da una <b>richiesta formale</b>: si valuta l'impatto su tempi e costi (il triplo vincolo di PM01), si approva o si respinge. Lento, ma tracciato.</p>
+      </div>
+      <div class="analogy reveal d4"><span class="big">Analogia:</span> spostare una parete sul progetto è una gomma; spostarla a casa costruita è un martello pneumatico.</div>
+    </div>
+    <div class="illu reveal d3">
+      <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="260" x2="370" y2="260" stroke="#1c1714" stroke-width="3"/>
+        <line x1="50" y1="260" x2="50" y2="30" stroke="#1c1714" stroke-width="3"/>
+        <path d="M50 250 Q160 245 240 200 Q330 145 360 50" fill="none" stroke="#e6533b" stroke-width="5"/>
+        <text x="210" y="290" font-family="Space Mono" font-size="15" fill="#1c1714" text-anchor="middle">avanzamento del progetto →</text>
+        <text x="28" y="150" font-family="Space Mono" font-size="15" fill="#1c1714" text-anchor="middle" transform="rotate(-90 28 150)">costo del cambio →</text>
+        <circle cx="90" cy="247" r="9" fill="#163b35"/>
+        <text x="90" y="230" font-family="Space Mono" font-size="13" fill="#163b35" text-anchor="middle">requisiti</text>
+        <circle cx="240" cy="200" r="9" fill="#d98a2b"/>
+        <text x="240" y="182" font-family="Space Mono" font-size="13" fill="#d98a2b" text-anchor="middle">realizzazione</text>
+        <circle cx="345" cy="72" r="9" fill="#e6533b"/>
+        <text x="322" y="52" font-family="Space Mono" font-size="13" fill="#e6533b" text-anchor="middle">consegna</text>
+      </svg>
+      <div class="illu-cap">Lo stesso cambiamento costa sempre di più, fase dopo fase</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── Slide 5: Agile ─────────────────────────────────────── -->
+<section class="slide" id="s6">
+  <div class="tape red reveal" style="background:var(--red);">Approccio adattivo</div>
+  <div class="h-sec reveal">Agile: consegnare a cicli</div>
+  <div class="split" style="margin-top:10px;">
+    <div class="col" style="gap:22px;">
+      <p class="lead reveal d2">Nato nel software nel 2001 con il <em class="hot">Manifesto Agile</em>: invece di un'unica grande consegna finale, <em class="sky">cicli brevi</em> (1–4 settimane) che producono ogni volta qualcosa di funzionante e mostrabile.</p>
+      <div class="card teal reveal d3">
+        <h3>I quattro valori del Manifesto</h3>
+        <p>Le persone più dei processi · il prodotto funzionante più della documentazione · la collaborazione col cliente più del contratto · rispondere al cambiamento più che seguire il piano.</p>
+      </div>
+      <div class="analogy reveal d4"><span class="big">In pratica:</span> il cambiamento non è il nemico del piano — è informazione che arriva.</div>
+    </div>
+    <div class="illu reveal d3">
+      <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="110" cy="150" r="58" fill="none" stroke="#e6533b" stroke-width="7"/>
+        <polygon points="110,82 96,102 126,102" fill="#e6533b"/>
+        <text x="110" y="157" font-family="Space Mono" font-size="14" fill="#1c1714" text-anchor="middle">ciclo 1</text>
+        <circle cx="230" cy="150" r="58" fill="none" stroke="#d98a2b" stroke-width="7"/>
+        <polygon points="230,82 216,102 246,102" fill="#d98a2b"/>
+        <text x="230" y="157" font-family="Space Mono" font-size="14" fill="#1c1714" text-anchor="middle">ciclo 2</text>
+        <circle cx="350" cy="150" r="58" fill="none" stroke="#163b35" stroke-width="7" stroke-dasharray="10,8"/>
+        <text x="350" y="157" font-family="Space Mono" font-size="14" fill="#1c1714" text-anchor="middle">ciclo 3…</text>
+        <circle cx="153" cy="212" r="12" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <circle cx="273" cy="212" r="12" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <text x="200" y="272" font-family="Space Mono" font-size="15" fill="#6b5f54" text-anchor="middle">a ogni ciclo: qualcosa di usabile + feedback</text>
+      </svg>
+      <div class="illu-cap">Cicli brevi: consegna, feedback, correzione — poi si riparte</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── NEW: Dentro un'iterazione ──────────────────────────── -->
+<section class="slide" id="s7">
+  <div class="tape red reveal" style="background:var(--red);">Approccio adattivo</div>
+  <div class="h-sec reveal">Dentro un'iterazione</div>
+  <p class="lead reveal" style="margin-top:12px;margin-bottom:24px;">Ogni ciclo agile è un <em class="hot">mini-progetto completo</em>: si pianifica poco, si costruisce qualcosa di finito, lo si mostra, si impara. Quattro momenti, sempre nello stesso ordine.</p>
+  <div class="steps reveal d3">
+    <div class="step"><div class="t"><b>Pianificare poco</b> — si scelgono solo le attività del ciclo, non dei prossimi sei mesi: le priorità di oggi, decise con le informazioni di oggi.</div></div>
+    <div class="step"><div class="t"><b>Costruire qualcosa di finito</b> — non "il 20% di tutto" ma "il 100% di poco": una funzione completa e usabile, non dieci a metà.</div></div>
+    <div class="step"><div class="t"><b>Mostrarlo a chi decide</b> — la demo al cliente: il feedback su qualcosa di reale vale cento riunioni su documenti.</div></div>
+    <div class="step"><div class="t"><b>Imparare e correggere</b> — cosa cambia nel prodotto (dal feedback) e cosa cambia nel modo di lavorare (dalla retrospettiva del team).</div></div>
+  </div>
+  <div class="note reveal d4" style="margin-top:24px;">
+    <div class="lbl">💡 Il punto chiave</div>
+    <p>Il rischio waterfall — "scoprire alla fine che era sbagliato" — qui è impossibile per costruzione: la verifica arriva <b>ogni due settimane</b>, non dopo sei mesi.</p>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── Slide 6: Scrum ─────────────────────────────────────── -->
+<section class="slide tight-slide" id="s8">
+  <div class="tape gold reveal">Framework agile</div>
+  <div class="h-sec reveal">Scrum: l'agile con le regole</div>
+  <p class="lead reveal" style="margin-top:12px;margin-bottom:20px;">Scrum è il framework agile più diffuso: cicli fissi chiamati <em class="hot">sprint</em> (di solito 2 settimane), tre ruoli precisi e riti regolari che tengono il ritmo.</p>
+  <div class="grid3 reveal d3">
+    <div class="card gold">
+      <span class="ic">📋</span>
+      <h3>Product Owner</h3>
+      <p>Rappresenta il cliente: decide <b>cosa</b> ha priorità nel backlog (la lista ordinata delle cose da fare).</p>
+    </div>
+    <div class="card teal">
+      <span class="ic">🧹</span>
+      <h3>Scrum Master</h3>
+      <p>Custode del metodo: rimuove gli ostacoli e protegge il team dalle interruzioni. Non è il capo — è il facilitatore.</p>
+    </div>
+    <div class="card sky">
+      <span class="ic">🛠️</span>
+      <h3>Team di sviluppo</h3>
+      <p>Autonomo nel decidere <b>come</b> realizzare gli obiettivi dello sprint. Piccolo: 3–9 persone.</p>
+    </div>
+  </div>
+  <div class="note reveal d4" style="margin-top:20px;">
+    <div class="lbl">💡 I riti dello sprint</div>
+    <p><b>Planning</b> (cosa faremo) → <b>daily stand-up</b> (15 min al giorno: fatto, da fare, blocchi) → <b>review</b> (demo al cliente) → <b>retrospettiva</b> (come migliorare il prossimo sprint).</p>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── NEW: Lo sprint nel dettaglio ───────────────────────── -->
+<section class="slide" id="s9">
+  <div class="tape gold reveal">Framework agile</div>
+  <div class="h-sec reveal">Due settimane di sprint, giorno per giorno</div>
+  <p class="lead reveal" style="margin-top:12px;margin-bottom:22px;">Lo sprint ha un ritmo fisso: si apre con la pianificazione, batte ogni giorno con lo stand-up, si chiude con demo e retrospettiva. <em class="hot">Nessuna riunione extra</em>: il metodo le ha già tutte previste.</p>
+  <div class="illu reveal d3" style="padding:30px 40px;">
+    <svg viewBox="0 0 1560 300" xmlns="http://www.w3.org/2000/svg">
+      <rect x="40" y="110" width="1480" height="60" rx="12" fill="#ece0cf" stroke="#1c1714" stroke-width="2.5"/>
+      <rect x="40" y="110" width="130" height="60" rx="12" fill="#163b35"/>
+      <text x="105" y="145" font-family="Space Mono" font-size="18" fill="#f4ece0" text-anchor="middle">Planning</text>
+      <text x="105" y="200" font-family="Space Mono" font-size="15" fill="#6b5f54" text-anchor="middle">giorno 1</text>
+      <text x="105" y="225" font-family="Space Mono" font-size="14" fill="#6b5f54" text-anchor="middle">cosa faremo</text>
+      <rect x="1260" y="110" width="130" height="60" rx="12" fill="#e6533b"/>
+      <text x="1325" y="145" font-family="Space Mono" font-size="18" fill="#f4ece0" text-anchor="middle">Review</text>
+      <text x="1325" y="200" font-family="Space Mono" font-size="15" fill="#6b5f54" text-anchor="middle">ultimo giorno</text>
+      <text x="1325" y="225" font-family="Space Mono" font-size="14" fill="#6b5f54" text-anchor="middle">demo al cliente</text>
+      <rect x="1395" y="110" width="125" height="60" rx="12" fill="#d98a2b"/>
+      <text x="1457" y="145" font-family="Space Mono" font-size="17" fill="#1c1714" text-anchor="middle">Retro</text>
+      <text x="1457" y="200" font-family="Space Mono" font-size="14" fill="#6b5f54" text-anchor="middle">come migliorare</text>
+      <g>
+        <circle cx="300" cy="140" r="20" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <circle cx="420" cy="140" r="20" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <circle cx="540" cy="140" r="20" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <circle cx="660" cy="140" r="20" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <circle cx="780" cy="140" r="20" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <circle cx="900" cy="140" r="20" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <circle cx="1020" cy="140" r="20" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <circle cx="1140" cy="140" r="20" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+      </g>
+      <text x="720" y="60" font-family="Space Mono" font-size="18" fill="#1c1714" text-anchor="middle">● daily stand-up — 15 minuti in piedi, ogni giorno</text>
+      <text x="720" y="90" font-family="Space Mono" font-size="15" fill="#6b5f54" text-anchor="middle">ieri ho fatto · oggi farò · questo mi blocca</text>
+    </svg>
+    <div class="illu-cap">Uno sprint di due settimane: apertura, battito quotidiano, chiusura doppia</div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── NEW: Backlog e user story ──────────────────────────── -->
+<section class="slide" id="s10">
+  <div class="tape gold reveal">Framework agile</div>
+  <div class="h-sec reveal">Il backlog e le user story</div>
+  <p class="lead reveal" style="margin-top:12px;margin-bottom:22px;">Da dove arriva il lavoro dello sprint? Da una lista unica e <em class="hot">ordinata per valore</em>: il backlog. E ogni voce è scritta dal punto di vista di chi la userà.</p>
+  <div class="grid2 reveal d3">
+    <div class="card gold">
+      <span class="ic">📚</span>
+      <h3>Product backlog</h3>
+      <p>Tutto ciò che il prodotto potrebbe diventare, in ordine di priorità. Vive per tutto il progetto, cresce e si riordina. Lo governa il <b>Product Owner</b>: la sua unica lista, la sua responsabilità.</p>
+    </div>
+    <div class="card teal">
+      <span class="ic">🎒</span>
+      <h3>Sprint backlog</h3>
+      <p>Le voci scelte per <b>questo</b> sprint, e solo quelle. Una volta partito lo sprint non si aggiunge nulla: le novità aspettano il prossimo — è così che il team lavora senza interruzioni.</p>
+    </div>
+  </div>
+  <div class="blockquote reveal d4" style="margin-top:24px;">La user story, il formato delle voci di backlog: <b>«Come</b> cliente del salone <b>voglio</b> ricevere un promemoria il giorno prima <b>così da</b> non dimenticare l'appuntamento.» Chi, cosa, perché — in una frase.</div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── Slide 7: Kanban ────────────────────────────────────── -->
+<section class="slide" id="s11">
+  <div class="tape gold reveal">Framework agile</div>
+  <div class="h-sec reveal">Kanban: visualizzare il flusso</div>
+  <div class="split" style="margin-top:10px;">
+    <div class="col" style="gap:22px;">
+      <p class="lead reveal d2">Nato nelle fabbriche Toyota: il lavoro scorre su una <em class="hot">bacheca a colonne</em> (da fare → in corso → fatto) e ogni colonna ha un <em class="sky">limite</em> di attività contemporanee (WIP limit).</p>
+      <div class="card teal reveal d3">
+        <h3>Perché il limite conta</h3>
+        <p>Dieci attività "in corso" = nessuna finita. Il WIP limit obbliga a <b>finire prima di iniziare</b>: il lavoro scorre invece di accumularsi.</p>
+      </div>
+      <div class="analogy reveal d4"><span class="big">Analogia:</span> come le casse del supermercato — più code aperte a metà non fanno uscire nessuno prima.</div>
+    </div>
+    <div class="illu reveal d3">
+      <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="30" width="110" height="250" rx="10" fill="#fbf5ec" stroke="#1c1714" stroke-width="2.5"/>
+        <text x="75" y="58" font-family="Space Mono" font-size="14" fill="#1c1714" text-anchor="middle">DA FARE</text>
+        <rect x="32" y="72" width="86" height="34" rx="6" fill="#3f7e8c"/>
+        <rect x="32" y="114" width="86" height="34" rx="6" fill="#3f7e8c" opacity=".8"/>
+        <rect x="32" y="156" width="86" height="34" rx="6" fill="#3f7e8c" opacity=".6"/>
+        <rect x="32" y="198" width="86" height="34" rx="6" fill="#3f7e8c" opacity=".4"/>
+        <rect x="145" y="30" width="110" height="250" rx="10" fill="#fbf5ec" stroke="#e6533b" stroke-width="3"/>
+        <text x="200" y="58" font-family="Space Mono" font-size="14" fill="#e6533b" text-anchor="middle">IN CORSO ≤2</text>
+        <rect x="157" y="72" width="86" height="34" rx="6" fill="#e6c14a" stroke="#1c1714" stroke-width="1.5"/>
+        <rect x="157" y="114" width="86" height="34" rx="6" fill="#e6c14a" stroke="#1c1714" stroke-width="1.5"/>
+        <rect x="270" y="30" width="110" height="250" rx="10" fill="#fbf5ec" stroke="#163b35" stroke-width="2.5"/>
+        <text x="325" y="58" font-family="Space Mono" font-size="14" fill="#163b35" text-anchor="middle">FATTO ✓</text>
+        <rect x="282" y="72" width="86" height="34" rx="6" fill="#163b35"/>
+        <rect x="282" y="114" width="86" height="34" rx="6" fill="#163b35" opacity=".7"/>
+        <rect x="282" y="156" width="86" height="34" rx="6" fill="#163b35" opacity=".5"/>
+      </svg>
+      <div class="illu-cap">La bacheca kanban: il limite sulla colonna centrale fa scorrere il lavoro</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── NEW: Scrum vs Kanban ───────────────────────────────── -->
+<section class="slide tight-slide" id="s12">
+  <div class="tape gold reveal">Framework agile</div>
+  <div class="h-sec reveal">Scrum o Kanban?</div>
+  <p class="lead reveal" style="margin-top:12px;margin-bottom:20px;">Entrambi agili, ma con caratteri opposti: Scrum impone un <em class="hot">ritmo</em>, Kanban impone un <em class="hot">limite</em>. La differenza si vede su quattro assi.</p>
+  <div class="grid2 reveal d3" style="gap:16px;">
+    <div class="card red">
+      <span class="ic">🥁</span>
+      <h3>Cadenza</h3>
+      <p><b>Scrum:</b> sprint a durata fissa, consegna a fine ciclo.<br><b>Kanban:</b> flusso continuo, si consegna appena una scheda è "fatta".</p>
+    </div>
+    <div class="card gold">
+      <span class="ic">🎭</span>
+      <h3>Ruoli</h3>
+      <p><b>Scrum:</b> tre ruoli obbligatori (PO, Scrum Master, team).<br><b>Kanban:</b> nessun ruolo richiesto — si adatta alla squadra che c'è già.</p>
+    </div>
+    <div class="card sky">
+      <span class="ic">🔀</span>
+      <h3>Cambiamenti</h3>
+      <p><b>Scrum:</b> lo sprint è protetto, le novità entrano al ciclo dopo.<br><b>Kanban:</b> le priorità si riordinano in ogni momento.</p>
+    </div>
+    <div class="card teal">
+      <span class="ic">🧲</span>
+      <h3>Terreno ideale</h3>
+      <p><b>Scrum:</b> costruire un prodotto con un team dedicato.<br><b>Kanban:</b> gestire un flusso continuo di richieste eterogenee.</p>
+    </div>
+  </div>
+  <div class="analogy reveal d4" style="margin-top:20px;"><span class="big">In pratica:</span> Scrum è un allenamento a orari fissi, Kanban è tenere sgombro il tapis roulant.</div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── Slide 8: Quale scegliere ───────────────────────────── -->
+<section class="slide tight-slide" id="s13">
+  <div class="tape teal reveal">La scelta</div>
+  <div class="h-sec reveal">Quale metodologia per quale progetto</div>
+  <p class="lead reveal" style="margin-top:12px;margin-bottom:20px;">Nessuna metodologia vince sempre. Si sceglie guardando il progetto — e spesso si <em class="hot">combinano</em>: waterfall per il cantiere, kanban per il team marketing.</p>
+  <div class="grid3 reveal d3">
+    <div class="card sky">
+      <span class="ic">🌊</span>
+      <h3>Waterfall se…</h3>
+      <p>Requisiti chiari e stabili · rifare costa tantissimo · servono approvazioni formali a ogni fase · il cliente sa esattamente cosa vuole.</p>
+    </div>
+    <div class="card red">
+      <span class="ic">🏉</span>
+      <h3>Scrum se…</h3>
+      <p>Il risultato va scoperto col feedback · il team è dedicato al progetto · il cliente è disponibile a vedere demo regolari.</p>
+    </div>
+    <div class="card gold">
+      <span class="ic">📌</span>
+      <h3>Kanban se…</h3>
+      <p>Il lavoro arriva in modo continuo (richieste, ticket, manutenzione) · le priorità cambiano spesso · il team gestisce più flussi insieme.</p>
+    </div>
+  </div>
+  <div class="analogy reveal d4" style="margin-top:22px;"><span class="big">Regola:</span> prima capisci il progetto, poi scegli il metodo — mai il contrario.</div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── NEW: Approcci ibridi ───────────────────────────────── -->
+<section class="slide" id="s14">
+  <div class="tape teal reveal">La scelta</div>
+  <div class="h-sec reveal">Gli approcci ibridi: il mondo reale</div>
+  <p class="lead reveal" style="margin-top:12px;margin-bottom:24px;">Fuori dai manuali, la maggior parte dei progetti <em class="hot">mescola</em>: struttura predittiva dove i vincoli sono rigidi, cicli adattivi dove serve scoprire. Non è indecisione — è sartoria.</p>
+  <div class="grid2 reveal d3">
+    <div class="card teal">
+      <span class="ic">🏗️</span>
+      <h3>Cornice waterfall, cuore agile</h3>
+      <p>Milestone e budget fissati a contratto (il cliente li esige), ma dentro ogni fase il team lavora a sprint con demo regolari. Il meglio dei due mondi — se la comunicazione regge.</p>
+    </div>
+    <div class="card gold">
+      <span class="ic">🧵</span>
+      <h3>Metodi diversi per flussi diversi</h3>
+      <p>Lo stesso progetto può avere il cantiere in waterfall (i muri non iterano), lo sviluppo dell'app in Scrum e l'assistenza clienti in Kanban. Metodo per natura del lavoro, non per moda aziendale.</p>
+    </div>
+  </div>
+  <div class="note sky reveal d4" style="margin-top:26px;">
+    <div class="lbl">💡 Nel caso guida</div>
+    <p>"Belli e Brillanti" (PM02) è già un ibrido: la configurazione della piattaforma segue fasi in cascata con milestone fisse, mentre foto, testi e promozione scorrono su una board kanban. Nessuno l'ha chiamato "ibrido" — ha solo funzionato.</p>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── NEW: Agile fatto male ──────────────────────────────── -->
+<section class="slide tight-slide" id="s15">
+  <div class="tape red reveal" style="background:var(--red);">Attenzione</div>
+  <div class="h-sec reveal">Agile fatto male: le quattro trappole</div>
+  <p class="lead reveal" style="margin-top:12px;margin-bottom:20px;">"Siamo agili" è la frase più abusata degli uffici. Questi quattro sintomi rivelano un metodo adottato <em class="hot">solo a parole</em> — riconoscerli è già metà della cura.</p>
+  <div class="grid2 reveal d3" style="gap:16px;">
+    <div class="card red">
+      <span class="ic">🐌</span>
+      <h3>Il daily di un'ora</h3>
+      <p>Lo stand-up da 15 minuti diventa una riunione-fiume seduti. Cura: in piedi, tre domande a testa, gli approfondimenti dopo e solo tra i diretti interessati.</p>
+    </div>
+    <div class="card red">
+      <span class="ic">🌊</span>
+      <h3>Lo sprint-waterfall</h3>
+      <p>Si "sviluppa" per dieci giorni e si testa tutto negli ultimi due: un mini-waterfall travestito. Cura: ogni voce dello sprint arriva a "fatta e verificata", una alla volta.</p>
+    </div>
+    <div class="card red">
+      <span class="ic">🕳️</span>
+      <h3>Il backlog discarica</h3>
+      <p>Quattrocento voci mai riordinate non sono priorità: sono un archivio di sensi di colpa. Cura: il PO pota il backlog a ogni ciclo — ciò che non sarà mai fatto si cancella.</p>
+    </div>
+    <div class="card red">
+      <span class="ic">📄</span>
+      <h3>"Agile = niente documenti"</h3>
+      <p>Il Manifesto dice "più del", non "invece di": il prodotto conta più della documentazione, ma decisioni e accordi vanno comunque scritti. L'oralità totale è caos, non agilità.</p>
+    </div>
+  </div>
+  <div class="analogy reveal d4" style="margin-top:20px;"><span class="big">Regola:</span> agile è una disciplina, non un'esenzione dalle regole.</div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── Slide 9: Verifica ──────────────────────────────────── -->
+<section class="slide" id="s16">
+  <div class="tape sky reveal">Verifica</div>
+  <div class="h-sec reveal">Mettiti alla prova</div>
+  <p class="lead reveal" style="margin-top:12px;margin-bottom:26px;">Rispondi senza tornare indietro:</p>
+  <div class="steps reveal d3">
+    <div class="step"><div class="t"><b>Ristrutturare il salone vs creare l'app dei clienti:</b> quale approccio per ciascuno, e quale caratteristica del progetto lo decide?</div></div>
+    <div class="step"><div class="t"><b>In Scrum, chi decide le priorità e chi decide come realizzarle?</b> Due ruoli diversi — quali?</div></div>
+    <div class="step"><div class="t"><b>Il team ha 9 attività "in corso" e nessuna finita da due settimane.</b> Quale principio kanban risolverebbe la situazione?</div></div>
+    <div class="step"><div class="t"><b>"Rispondere al cambiamento più che seguire il piano"</b> — questo valore agile contraddice la pianificazione vista in PM02? Argomenta.</div></div>
+    <div class="step"><div class="t"><b>«Come receptionist voglio vedere le prenotazioni di domani così da preparare le postazioni»</b> — riconosci il formato? Quali tre elementi contiene?</div></div>
+    <div class="step"><div class="t"><b>Il daily del team dura 50 minuti, seduti in sala riunioni.</b> Quale trappola è, e quali sono le due correzioni immediate?</div></div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── Slide 10: Closing ──────────────────────────────────── -->
+<section class="slide closing" id="s17">
+  <div style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:28px;position:relative;z-index:2;">
+    <span class="eyebrow reveal d1" style="color:var(--gold);">Fine PM03</span>
+    <div class="h-big reveal d2">Il metodo giusto è quello<br><span class="gold">che serve al progetto</span></div>
+    <p class="lead reveal d3" style="max-width:1000px;color:rgba(244,236,224,.75);">Predittivo quando sai dove vai, adattivo quando lo scopri strada facendo. Waterfall, Scrum e Kanban non sono religioni: sono attrezzi.</p>
+    <div class="chips reveal d4" style="justify-content:center;">
+      <a class="chip" href="pm04-strumenti.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → PM04 · Strumenti Digitali</a>
+      <a class="chip alt" href="00-indice.html" style="color:#f4ece0;border-color:rgba(244,236,224,.4);text-decoration:none;cursor:pointer;">↩ Indice del corso</a>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+<script>
+class SlidePresentation{
+  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
+    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
+    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
+  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
+  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;});}
+  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
+  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
+  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
+    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
+  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
+}
+const deck=new SlidePresentation();
+const editor={isActive:false,
+  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
+  key(){return 'pm03-edits';},
+  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
+  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
+document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
+editor.load();
+const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
+toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
+hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
+hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
+toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}if((e.key==='i'||e.key==='I')&&!onEd){location.href='00-indice.html';}});
+</script>
+</body>
+</html>

@@ -167,10 +167,11 @@ of each word in the section name (e.g. `HS` = Hardware e **S**oftware):
 | `hs` | Hardware e Software | `hs01-componenti.html` |
 | `rw` | Reti e Web | `rw01-reti.html` |
 | `sd` | Sicurezza Digitale | `sd01-introduzione.html` |
-| `in` | Informatica | `in01-identita.html` |
+| `in` | Identità digitale (ex Informatica) | `in01-identita.html` |
 | `sm` | Smartphones | `sm01-smartphone-computer.html` |
 | `su` | Suite Ufficio | `su01-microsoft.html` |
 | `ia` | Intelligenza Artificiale | `ia01-concetti-generali.html` |
+| `pm` | Project Management | `pm01-introduzione.html` |
 | `gd` | Game Design | `gd01-introduzione.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
 
@@ -252,7 +253,7 @@ Navigation chain: sd01 → sd02 → sd03 → sd04 → sd05
 | `sd04-professioni.html` | Professioni nella Sicurezza Informatica |
 | `sd05-assessment.html` | Assessment, Compliance e Dati Personali |
 
-### Informatica
+### Identità digitale
 
 Navigation chain: in01 → in02 → in03 → in04 → in05
 
@@ -310,6 +311,17 @@ Navigation chain: ia01 → ia02 → ia03
 | `ia02-esercizio-generazione.html` | Esercizio di generazione |
 | `ia03-llm.html` | LLM — Large Language Models |
 
+### Project Management
+
+Navigation chain: pm01 → pm02 → pm03 → pm04
+
+| File | Title |
+| --- | --- |
+| `pm01-introduzione.html` | Introduzione al Project Management |
+| `pm02-pianificazione.html` | Pianificare un Progetto |
+| `pm03-metodologie.html` | Metodologie |
+| `pm04-strumenti.html` | Strumenti Digitali |
+
 ### Game Design
 
 Navigation chain: gd01 → gd02 → gd03 → gd04 → gd05 → gd06 → gd07 → gd08
@@ -331,7 +343,7 @@ Navigation chain: gd01 → gd02 → gd03 → gd04 → gd05 → gd06 → gd07 →
 | --- | --- |
 | `quiz-reti-web.html` | Reti e Web, 20 questions |
 | `quiz-sicurezza.html` | Sicurezza Digitale, 20 questions |
-| `quiz-informatica.html` | Informatica, 20 questions |
+| `quiz-informatica.html` | Identità digitale, 20 questions |
 
 ## Index maintenance
 
@@ -340,7 +352,7 @@ Card color classes:
 
 - `.pre` for Reti e Web
 - `.sec` for Sicurezza Digitale
-- `.inf` for Informatica and the other course sections that use the gold theme
+- `.inf` for Identità digitale and the other course sections that use the gold theme
 
 Sections start collapsed. Opening one section closes the others. The course
 header title is `Educazione digitale`; do not reintroduce the old "Indice del
