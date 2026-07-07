@@ -32,7 +32,11 @@ on any plain HTTP server.
 
 ## Editing rules
 
-- Keep all deck files self-contained: inline CSS and inline JS.
+- Keep all deck files self-contained: inline CSS and inline JS. Sole
+  exception: `theme-corsi.css`, a shared stylesheet linked by every published
+  deck that sets per-section background tints via `body.course-XX` classes
+  (e.g. `<body class="course-rw">`). New decks must include the link and the
+  matching course class. Edit that one file to retheme a whole section.
 - Keep links between decks as bare filenames, for example
   `href="inf12-os-concetti.html"`.
 - Do not add folder prefixes to root-level deck links.
@@ -222,7 +226,7 @@ Navigation chain: hs01 → hs02 → hs03 → hs04
 
 ### Reti e Web
 
-Navigation chain: rw01 → rw02 → rw03 → rw04 → rw05 → rw06 → rw07 → rw08
+Navigation chain: rw01 → rw02 → rw03 → rw04 → rw05 → rw06 → rw07 → rw08 → rw09
 
 | File | Title |
 | --- | --- |
@@ -234,6 +238,7 @@ Navigation chain: rw01 → rw02 → rw03 → rw04 → rw05 → rw06 → rw07 →
 | `rw06-firma.html` | La Firma Email |
 | `rw07-affidabilita.html` | Navigare con Spirito Critico |
 | `rw08-contenuti.html` | Gestire e Archiviare Contenuti |
+| `rw09-collaborazione-digitale.html` | Collaborazione Digitale |
 
 ### Sicurezza Digitale
 

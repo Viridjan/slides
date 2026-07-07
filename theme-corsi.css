@@ -1,0 +1,24 @@
+/* === TEMA COLORI PER SEZIONE ===
+   Un colore di sfondo per ogni sezione del corso.
+   Modifica qui per cambiare tutti i deck di una sezione. */
+
+/* Hardware e Software — grigio acciaio */
+body.course-hs{--slide-bg:#eef0f2;--line:#c3ccd3;}
+
+/* Reti e Web — azzurro cielo */
+body.course-rw{--slide-bg:#e9f2f4;--line:#b0cdd8;}
+
+/* Sicurezza Digitale — rosso tenue */
+body.course-sd{--slide-bg:#f7eae6;--line:#dcb4aa;}
+
+/* Informatica — ambra */
+body.course-in{--slide-bg:#f7f0dc;--line:#ddc89a;}
+
+/* Smartphones — verde salvia */
+body.course-sm{--slide-bg:#edf3ee;--line:#afc9b8;}
+
+/* Suite Ufficio — ocra */
+body.course-su{--slide-bg:#f5edda;--line:#d4bd9a;}
+
+/* Intelligenza Artificiale — lilla */
+body.course-ia{--slide-bg:#f0ecf5;--line:#c5bcd6;}
