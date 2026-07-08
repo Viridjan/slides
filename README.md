@@ -2,144 +2,75 @@
 
 Static HTML slide decks for the Italian **Educazione digitale** course.
 
-Open the course from:
+Open the course index at:
 
 ```text
-index.html
+00-indice.html
 ```
 
-`index.html` redirects to `00-indice.html`, the main course index.
-
-## Contents
-
-- `web*.html` — Reti e Web modules
-- `sec*.html` — Sicurezza Digitale modules
-- `inf*.html` — Informatica modules
-- `s*.html` — Smartphones modules
-- `fog*.html` — Fogli di calcolo modules
-- `quiz-*.html` — macroarea quizzes, 20 multiple-choice questions each
-- `mappa-concettuale.mmd` — Mermaid concept map
-- `corsi/` — original PPTX/PDF/source material
-
-The decks are standalone HTML files with inline CSS and JavaScript. There is no
-build step.
+(`index.html` redirects there.)
 
 ## Opening locally
 
-You can open `00-indice.html` directly in a browser.
-
-If browser restrictions get in the way, serve the folder with any static server,
-for example:
+Open `00-indice.html` directly in a browser via `file://` — double-click or:
 
 ```bash
-python3 -m http.server 8000
+xdg-open 00-indice.html
 ```
 
-Then open:
-
-```text
-http://localhost:8000/00-indice.html
-```
+**Do not use an HTTP server.** Browsers in HTTPS-Only mode auto-upgrade `http://localhost` and produce `ERR_SSL_PROTOCOL_ERROR`.
 
 ## Navigation
 
-Inside slide decks:
+Inside any deck:
 
-- arrow keys / PageUp / PageDown move between slides
-- touch swipe works on touch devices
-- mouse wheel navigation is enabled in most decks
-- the bottom progress bar shows position
+- Arrow keys / Space / PageUp / PageDown — advance or go back
+- Mouse wheel — advance/back
+- Touch swipe — left/right
+- `I` key — jump to the course index
+- `E` key / top-left hotzone — toggle inline editor (saves to `localStorage`, does not modify the HTML file)
+- Bottom bar — progress indicator
 
-Most decks also include an inline editor:
+## Course areas
 
-- hover or click the top-left hotzone, or press `E`
-- edit visible text
-- press `Ctrl+S` / `Cmd+S` to save to browser `localStorage`
-
-Edits saved this way are local to the browser and do not modify the HTML file.
-
-## Published Course Areas
-
-### Reti e Web
-
-- Reti Informatiche e Internet
-- Navigazione e Indirizzi Web
-- Domini e Indirizzi Internet
-- Ricerca e Gestione delle Informazioni
-- La Posta Elettronica
-- La Firma Email
-- Navigare con Spirito Critico
-- Gestire e Archiviare Contenuti
-
-### Sicurezza Digitale
-
-- Introduzione alla Sicurezza Digitale
-- Minacce e Vulnerabilità
-- Privacy, Anonimato e Pseudonimia
-- Professioni nella Sicurezza Informatica
-- Assessment, Compliance e Dati Personali
-
-### Informatica
-
-- Dentro il computer
-- Hard disk e file system
-- Sistemi Operativi
-- OS: concetti fondamentali
-- La tua identità online
-- Software Google
-- Tecnologia e Società
-- VR, AR e Metaverso
-- Farsi riconoscere
-- I social giusti
-
-### Smartphones
-
-- Lo smartphone è un computer
-- Connessioni e reti mobili
-- Android e iOS
-- App e permessi
-- Privacy sul telefono
-- Sicurezza dello smartphone
-- Gestione dei file sul telefono
-- Fotocamera e contenuti
-- Benessere digitale
-- Accessibilità e uso pratico
-- Manutenzione e scelta
-
-### Editor di testo
-
-- Mettere tutto per iscritto
-
-### Fogli di calcolo
-
-- Le basi del foglio di calcolo
-- Analizzare e condividere
-- Riferimenti e formule robuste
-
-### Presentazioni
-
-- Dillo con una slide
+| Prefix | Area | Decks |
+|--------|------|-------|
+| `hs` | Hardware e Software | hs01–hs04 |
+| `rw` | Reti e Web | rw01–rw09 |
+| `sd` | Sicurezza Digitale | sd01–sd05 |
+| `in` | Identità digitale | in01–in05 |
+| `sm` | Smartphones | sm01–sm11 |
+| `su` | Suite Ufficio | su01–su12 |
+| `ia` | Intelligenza Artificiale | ia01–ia03 |
+| `pm` | Project Management | pm01–pm04 |
+| `sc` | Programmare con Scratch | sc01–sc02 |
+| `mb` | Programmare con Micro:bit | mb01–mb02 |
+| `gd` | Game Design | gd01–gd08 |
 
 ## Quizzes
 
-The current macroarea quizzes are:
+| File | Scope |
+|------|-------|
+| `quiz-reti-web.html` | Reti e Web |
+| `quiz-sicurezza.html` | Sicurezza Digitale |
+| `quiz-informatica.html` | Identità digitale |
+| `quiz-hardware-software.html` | Hardware e Software |
+| `quiz-smartphones.html` | Smartphones |
+| `quiz-suite-ufficio.html` | Suite Ufficio |
+| `quiz-ia.html` | Intelligenza Artificiale |
+| `quiz-project-management.html` | Project Management |
 
-- `quiz-reti-web.html`
-- `quiz-sicurezza.html`
-- `quiz-informatica.html`
+## Structure
 
-Each quiz contains 20 multiple-choice questions, immediate correction, score,
-and reset.
+- All deck files are self-contained (inline CSS + JS). Sole shared file: `theme-corsi.css`.
+- Every deck has a sibling `.txt` companion — the index injects a `↓ TXT` button automatically.
+- Links between decks use bare filenames: `href="rw02-navigazione.html"`.
+- `corsi/` holds source PPTX/PDF; `corsi/images/` holds extracted images (untracked, ~200 MB, regenerable).
 
-## Maintaining the Index
+## Adding a deck
 
-When adding a new published deck:
-
-1. Add the HTML file in the repo root.
-2. Add a card in `00-indice.html`.
-3. Use a bare filename in links, for example `href="inf13-topic.html"`.
-4. Update the previous deck closing chip if it has a "Prossimo" link.
-5. Keep an index fallback link in the closing slide.
-
-`corsi/` contains source material and should be left alone unless the task is
-specifically about original PPTX/PDF assets.
+1. Create the HTML file in repo root following the `XX##-slug.html` naming scheme.
+2. Generate the `.txt` companion (see `CLAUDE.md` → TXT companion files).
+3. Add a card to `00-indice.html`.
+4. Update the previous deck's "Prossimo" closing chip.
+5. Update `CLAUDE.md` inventory and navigation chain.
