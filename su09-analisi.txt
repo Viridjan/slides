@@ -6,7 +6,7 @@ Fogli di calcolo
  Analizzare
 e cercare 
  Tabelle, filtri, pivot, condivisione, CERCA.VERT, CERCA.ORIZZ, CONFRONTA, INDICE e la moderna CERCA.X. 
- 16 slide 
+ 15 slide 
  
  
  🔍
@@ -137,7 +137,7 @@ Formule dinamiche
  Google Sheets: applica la stessa formula a un intero range senza copiare. Excel usa "array impliciti". 
  
  
- 💡 Disponibilità FILTER e UNICI sono disponibili in Excel 365 e Google Sheets. Nelle versioni più vecchie di Excel usare le pivot o tabelle manuali.
+ 💡 Nomi e disponibilità In Google Sheets si chiamano FILTER e UNIQUE ; in Excel 365 italiano FILTRO e UNICI . Nelle versioni più vecchie di Excel usare le pivot o tabelle manuali.
 
 --- Slide 7 ---
 Collaborazione 
@@ -263,7 +263,7 @@ La combinazione
 --- Slide 13 ---
 Moderno 
  CERCA.X — il futuro 
- CERCA.X (XLOOKUP) sostituisce sia CERCA.VERT che INDICE+CONFRONTA. Cerca in qualsiasi direzione, gestisce i mancati migliaia di righe trovati automaticamente e ha una sintassi più leggibile. 
+ CERCA.X (XLOOKUP) sostituisce sia CERCA.VERT che INDICE+CONFRONTA. Cerca in qualsiasi direzione, gestisce da sola i valori non trovati e ha una sintassi più leggibile. 
  =CERCA.X( chiave ; dove_cercare ; cosa_restituire ; [se_non_trovato]) 
  A differenza di CERCA.VERT non richiede il numero di colonna — specifichi direttamente il range di output. 
  💡 Compatibilità Disponibile in Excel 365 (non versioni precedenti) e Google Sheets. Per file condivisi con utenti su Excel 2019 o meno, usa ancora CERCA.VERT. 

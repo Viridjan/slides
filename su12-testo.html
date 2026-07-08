@@ -92,8 +92,8 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
     <div class="title-left">
       <div class="eyebrow reveal" style="margin-top:40px;">Fogli di calcolo · Google Sheets</div>
       <h1 class="h-mega reveal">Manipolare<br><em class="hot">il testo</em></h1>
-      <p class="lead reveal" style="margin-top:30px;">Unire, dividere, cercare, sostituire e pulire il testo con le funzioni di Google Sheets.</p>
-      <div class="chips reveal" style="margin-top:46px;"><span class="chip">13 slide</span></div>
+      <p class="lead reveal" style="margin-top:30px;">Unire, dividere, cercare, sostituire, pulire e convertire il testo con le funzioni di Google Sheets.</p>
+      <div class="chips reveal" style="margin-top:46px;"><span class="chip">14 slide</span></div>
     </div>
     <div class="title-right">
       <div class="reveal" style="font-size:210px;line-height:1;">✂️</div>
@@ -271,10 +271,34 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
     <div class="page-num"></div>
   </section>
 
-  <!-- 9. MAIUSCOLE / MINUSCOLE -->
+  <!-- 9. VALORE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape teal reveal">7. Da testo a numero</div>
+        <h2 class="h-big reveal">Numeri <em class="hot">travestiti</em> da testo</h2>
+        <p class="lead reveal d1">Un numero importato come testo sembra identico ma non si calcola: SOMMA lo ignora e la media sballa. VALORE lo riconverte in numero vero.</p>
+        <div class="formula reveal d2" style="font-size:23px;">=VALORE(<b>A2</b>)</div>
+        <p class="body reveal d3">Come riconoscerli: i numeri veri si allineano a destra, i numeri-testo a sinistra. Un totale che dà 0 su una colonna "piena di numeri" è il sintomo classico.</p>
+        <div class="note reveal d4"><div class="lbl">💡 Cugine utili</div><p><b>DATA.VALORE</b> fa lo stesso con le date scritte come testo. E si combina con la pulizia: <span style="font-family:var(--font-mono);font-size:19px;">=VALORE(ANNULLA.SPAZI(A2))</span></p></div>
+      </div>
+      <div class="illu reveal d1">
+        <table class="sheet" style="width:320px;">
+          <tr><th></th><th>A (testo)</th><th>B (=VALORE)</th></tr>
+          <tr><td class="rowh">2</td><td style="font-size:16px;text-align:left;padding-left:10px;">120</td><td>120</td></tr>
+          <tr><td class="rowh">3</td><td style="font-size:16px;text-align:left;padding-left:10px;">80</td><td>80</td></tr>
+          <tr><td class="rowh">4</td><td style="font-size:15px;color:var(--red);">SOMMA → 0</td><td class="sel" style="font-size:15px;">SOMMA → 200</td></tr>
+        </table>
+        <div class="illu-cap">A sinistra testo (non somma),<br>dopo VALORE numeri veri</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 10. MAIUSCOLE / MINUSCOLE -->
   <section class="slide">
     <div class="col stack">
-      <div class="tape sky reveal">7. Maiuscole e minuscole</div>
+      <div class="tape sky reveal">8. Maiuscole e minuscole</div>
       <h2 class="h-sec reveal">MAIUSC, MINUSC, <em class="hot">MAIUSC.INIZ</em></h2>
       <p class="lead reveal d1">Uniformare il formato dei nomi scritti in dieci modi diversi da dieci persone diverse: tre funzioni, zero fatica.</p>
       <div class="grid3 reveal d2">
@@ -335,7 +359,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
     <div class="center">
       <div class="tape teal reveal">Riepilogo</div>
       <h2 class="h-sec reveal" style="margin-top:16px;">La cassetta degli attrezzi del <em class="hot">testo</em></h2>
-      <div class="grid4 reveal d1" style="margin-top:22px;">
+      <div class="grid3 reveal d1" style="margin-top:22px;">
         <div class="fn-card" style="padding:14px 16px;">
           <h3 style="font-size:21px;">&amp; / TESTO.UNISCI</h3>
           <div class="syntax" style="font-size:15px;">=TESTO.UNISCI(sep;VERO;range)</div>
@@ -375,6 +399,11 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
           <h3 style="font-size:21px;">MAIUSC.INIZ</h3>
           <div class="syntax" style="font-size:15px;">=MAIUSC.INIZ(t)</div>
           <p style="font-size:17px;">Maiuscole uniformi</p>
+        </div>
+        <div class="fn-card" style="padding:14px 16px;">
+          <h3 style="font-size:21px;">VALORE</h3>
+          <div class="syntax" style="font-size:15px;">=VALORE(t)</div>
+          <p style="font-size:17px;">Testo → numero vero</p>
         </div>
       </div>
       <div class="analogy reveal d2" style="margin-top:24px;"><span class="big">Regola:</span> le funzioni di testo non modificano mai la cella originale — producono una copia corretta altrove.</div>

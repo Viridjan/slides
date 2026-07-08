@@ -5,8 +5,8 @@ Suite Ufficio · SU12 — Manipolare il testo
 Fogli di calcolo · Google Sheets 
  Manipolare
  il testo 
- Unire, dividere, cercare, sostituire e pulire il testo con le funzioni di Google Sheets. 
- 13 slide 
+ Unire, dividere, cercare, sostituire, pulire e convertire il testo con le funzioni di Google Sheets. 
+ 14 slide 
  
  
  ✂️
@@ -150,7 +150,25 @@ Senza il 4° argomento le cambia tutte.
  💡 Cugina utile PULISCI rimuove i caratteri non stampabili (a capo strani, tab) che arrivano da export e PDF. Si combina: =ANNULLA.SPAZI(PULISCI(A2))
 
 --- Slide 9 ---
-7. Maiuscole e minuscole 
+7. Da testo a numero 
+ Numeri travestiti da testo 
+ Un numero importato come testo sembra identico ma non si calcola: SOMMA lo ignora e la media sballa. VALORE lo riconverte in numero vero. 
+ =VALORE( A2 ) 
+ Come riconoscerli: i numeri veri si allineano a destra, i numeri-testo a sinistra. Un totale che dà 0 su una colonna "piena di numeri" è il sintomo classico. 
+ 💡 Cugine utili DATA.VALORE fa lo stesso con le date scritte come testo. E si combina con la pulizia: =VALORE(ANNULLA.SPAZI(A2)) 
+ 
+ 
+ 
+ A (testo) B (=VALORE) 
+ 2 120 120 
+ 3 80 80 
+ 4 SOMMA → 0 SOMMA → 200 
+ 
+ A sinistra testo (non somma),
+dopo VALORE numeri veri
+
+--- Slide 10 ---
+8. Maiuscole e minuscole 
  MAIUSC, MINUSC, MAIUSC.INIZ 
  Uniformare il formato dei nomi scritti in dieci modi diversi da dieci persone diverse: tre funzioni, zero fatica. 
  
@@ -178,7 +196,7 @@ Per nomi e cognomi.
  
  ⚠️ Limite di MAIUSC.INIZ Mette la maiuscola a ogni parola, anche dove non va: "de luca" → "De Luca" (bene), ma "d'angelo" → "D'Angelo" e "DELL'ORTO" → "Dell'Orto". Controlla i cognomi con apostrofi e particelle.
 
---- Slide 10 ---
+--- Slide 11 ---
 Caso pratico 
  Pulizia in catena 
  Dal modulo online arriva "&nbsp;&nbsp;mario&nbsp;&nbsp;ROSSI " . Per la rubrica clienti serve "Mario Rossi". Le funzioni si annidano: il risultato di una è l'ingresso della successiva. 
@@ -202,7 +220,7 @@ Caso pratico
  
  Ogni passaggio ripulisce un difetto
 
---- Slide 11 ---
+--- Slide 12 ---
 Riepilogo 
  La cassetta degli attrezzi del testo 
  
@@ -247,9 +265,14 @@ Riepilogo
  Maiuscole uniformi 
  
  
+ VALORE 
+ =VALORE(t) 
+ Testo → numero vero 
+ 
+ 
  Regola: le funzioni di testo non modificano mai la cella originale — producono una copia corretta altrove.
 
---- Slide 12 ---
+--- Slide 13 ---
 Verifica 
  Sapresti rispondere ? 
  
@@ -275,7 +298,7 @@ Verifica
  Il CERCA.VERT che fallisce 
  Un CERCA.VERT dà #N/D ma il valore "esiste" nel foglio. Quale funzione usi per diagnosticare e quale per correggere?
 
---- Slide 13 ---
+--- Slide 14 ---
 Fine SU12 
  Testo sporco,
  dati puliti. 

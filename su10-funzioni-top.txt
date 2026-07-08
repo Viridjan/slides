@@ -5,8 +5,8 @@ Suite Ufficio · SU10 — Le 10 funzioni più usate
 Fogli di calcolo 
  Le 10 funzioni
  più usate 
- SOMMA.SE, SOMMA.PIÙ.SE, CONTA.PIÙ.SE, SE.ERRORE, ARROTONDA, TESTO, CONCATENA, OGGI e MATR.SOMMA.PRODOTTO — quelle che i professionisti usano ogni giorno. 
- 15 slide 
+ SOMMA.SE, SOMMA.PIÙ.SE, CONTA.PIÙ.SE, MEDIA.SE, SUBTOTALE, SE.ERRORE, ARROTONDA, TESTO, OGGI e MATR.SOMMA.PRODOTTO — quelle che i professionisti usano ogni giorno. 
+ 13 slide 
  
  
  ⚡
@@ -27,9 +27,9 @@ INDICE · CONFRONTA · CERCA.X
  
  ★ Nuove in questo modulo 
  SOMMA.SE · SOMMA.PIÙ.SE
-CONTA.PIÙ.SE · SE.ERRORE
+CONTA.PIÙ.SE · MEDIA.SE
+SUBTOTALE · SE.ERRORE
 ARROTONDA · TESTO
-CONCATENA / &amp;
 OGGI · ADESSO · DATA
 MATR.SOMMA.PRODOTTO
 
@@ -78,7 +78,45 @@ MATR.SOMMA.PRODOTTO
  In pratica: SOMMA.SE e CONTA.SE per 1 condizione. SOMMA.PIÙ.SE e CONTA.PIÙ.SE per 2 o più — stessa logica, sintassi estesa.
 
 --- Slide 5 ---
-4. SE.ERRORE 
+4. MEDIA.SE 
+ La media che sceglie 
+ MEDIA.SE completa la famiglia: come SOMMA.SE, ma calcola la media dei soli valori che rispettano la condizione. 
+ =MEDIA.SE( intervallo ; criterio ; media_range ) 
+ 
+ → =MEDIA.SE(A:A;"Roma";B:B) 
+ Spesa media dei soli clienti di Roma 
+ → =MEDIA.SE(B:B;"&gt;0") 
+ Media senza gli zeri che la falserebbero 
+ 
+ 💡 Anche a più condizioni Come per SOMMA e CONTA esiste MEDIA.PIÙ.SE : stessa sintassi estesa con coppie intervallo/criterio. 
+ 
+ 
+ 
+ A B (€) 
+ 1 Città Spesa 
+ 2 Roma 100 
+ 3 Milano 300 
+ 4 Roma 140 
+ 5 MEDIA.SE → 120 
+ 
+ Solo le righe "Roma": (100+140)/2 = 120
+
+--- Slide 6 ---
+5. SUBTOTALE 
+ Totali che seguono i filtri 
+ SOMMA somma tutto, anche le righe nascoste da un filtro. SUBTOTALE ricalcola solo sulle righe visibili: filtri "Roma" e il totale diventa il totale di Roma. 
+ =SUBTOTALE( 9 ; B2:B100) 
+ 
+ → 9 = SOMMA &nbsp;·&nbsp; 1 = MEDIA &nbsp;·&nbsp; 3 = CONTA.VALORI 
+ 
+ In pratica: metti SUBTOTALE sopra la tabella filtrata — il numero cambia insieme al filtro, come un cruscotto. 
+ 
+ 
+ 💡 Già la usi La "Riga totali" delle tabelle (SU09) usa SUBTOTALE dietro le quinte: per questo i suoi totali rispettano i filtri. 
+ ⚠️ Righe nascoste a mano I codici 1–11 ignorano solo le righe escluse dal filtro. Per ignorare anche quelle nascoste manualmente usa i codici 101–111 (es. 109 per la somma).
+
+--- Slide 7 ---
+6. SE.ERRORE 
  Gestire gli errori con grazia 
  SE.ERRORE valuta un'espressione: se produce un errore (qualsiasi errore) restituisce il valore alternativo che specifichi invece di mostrare #N/D, #DIV/0! ecc. 
  =SE.ERRORE( formula ; valore_se_errore ) 
@@ -99,8 +137,8 @@ MATR.SOMMA.PRODOTTO
  💡 Errori gestibili SE.ERRORE intercetta tutti i codici di errore: #N/D, #DIV/0!, #VALORE!, #RIF!, #NOME?, #NULLO!, #NUMERO! 
  ⚠️ Non nascondere troppo SE.ERRORE che restituisce "" (stringa vuota) può nascondere errori reali. Usa un messaggio leggibile come "Non trovato" o "—".
 
---- Slide 6 ---
-5. ARROTONDA 
+--- Slide 8 ---
+7. ARROTONDA 
  Arrotondare i decimali 
  ARROTONDA restituisce un numero arrotondato al numero di cifre decimali specificato. Indispensabile nei calcoli finanziari per evitare residui da floating point. 
  =ARROTONDA( numero ; cifre_decimali ) 
@@ -122,8 +160,8 @@ MATR.SOMMA.PRODOTTO
  
  2 decimali: 3.14159 → 3,14
 
---- Slide 7 ---
-6. TESTO 
+--- Slide 9 ---
+8. TESTO 
  Formattare numeri come testo 
  TESTO converte un numero in una stringa formattata secondo un codice che specifichi tu. Indispensabile per creare messaggi, etichette e report con numeri ben presentati. 
  =TESTO( valore ; " formato ") 
@@ -137,26 +175,8 @@ MATR.SOMMA.PRODOTTO
  💡 Uso tipico Combina TESTO con &amp; per creare messaggi: "Totale: "&amp;TESTO(B10;"€ #.##0,00") → "Totale: € 1.234,50". 
  ⚠️ Risultato testo TESTO restituisce testo, non un numero. Non puoi sommare i risultati di TESTO. Usalo solo per visualizzare, non per calcolare.
 
---- Slide 8 ---
-7. CONCATENA / &amp; 
- Unire testi 
- Unisce due o più stringhe di testo in una sola. Disponibile come funzione (CONCATENA) o come operatore (&amp;) — preferisci &amp; perché è più leggibile. 
- =A2 &amp; " " &amp; B2 
- Se A2 = "Maria" e B2 = "Rossi" → "Maria Rossi" . Lo spazio tra virgolette è letterale. 
- In pratica: Crea email, etichette, messaggi. "Gentile "&amp;A2&amp;", il tuo appuntamento è "&amp;TESTO(C2;"GG/MM"). 
- 
- 
- 
- A B C 
- 1 Nome Cognome Completo 
- 2 Maria Rossi Maria Rossi 
- 3 Giulia Bianchi Giulia Bianchi 
- 
- =A2 &amp; " " &amp; B2 
- Spazio tra virgolette = separatore letterale
-
---- Slide 9 ---
-8. Date e ore 
+--- Slide 10 ---
+9. Date e ore 
  OGGI, ADESSO e DATA 
  Funzioni per lavorare con la data corrente, la data/ora, e costruire date da componenti separati. 
  
@@ -192,9 +212,9 @@ MATR.SOMMA.PRODOTTO
  =GIORNO.SETTIMANA(A2; 2) 
  Restituisce il numero del giorno nella settimana. Con argomento 2: 1=lunedì, 7=domenica.
 
---- Slide 10 ---
-9. MATR.SOMMA.PRODOTTO 
- La funzione svizzera 
+--- Slide 11 ---
+10. MATR.SOMMA.PRODOTTO 
+ Il coltellino svizzero 
  MATR.SOMMA.PRODOTTO moltiplica gli elementi corrispondenti di due o più array e ne somma i prodotti. Molto usata per calcoli pesati e aggregazioni con condizioni. 
  =MATR.SOMMA.PRODOTTO( array1 ; array2 ; …) 
  Analogia: Media ponderata, sconto su quantità, totale con più criteri — tutto con un'unica formula senza helper columns. 
@@ -211,32 +231,6 @@ MATR.SOMMA.PRODOTTO
  
  =MATR.SOMMA.PRODOTTO(A2:A4; B2:B4) → 331
 (senza colonna C di supporto)
-
---- Slide 11 ---
-10. Funzioni testo 
- SINISTRA, DESTRA, STRINGA.ESTRAI 
- Estrai parti di una stringa di testo. Indispensabili per pulire dati importati e isolare codici, prefissi, sigle. 
- 
- 
- SINISTRA 
- =SINISTRA(testo; n_caratteri) 
- Prende i primi N caratteri da sinistra.
- =SINISTRA("IT12345"; 2) → "IT" (prefisso paese) 
- 
- 
- DESTRA 
- =DESTRA(testo; n_caratteri) 
- Prende gli ultimi N caratteri da destra.
- =DESTRA("FATTURA-2025"; 4) → "2025" 
- 
- 
- STRINGA.ESTRAI 
- =STRINGA.ESTRAI(testo; inizio; n) 
- Estrae N caratteri a partire dalla posizione indicata.
- =STRINGA.ESTRAI("IT12345"; 3; 5) → "12345" 
- 
- 
- 💡 Combinazione potente Usa insieme a TROVA o RICERCA per trovare la posizione di un carattere (es. "-") e poi estrarre dinamicamente la parte prima o dopo.
 
 --- Slide 12 ---
 Riepilogo 
@@ -258,6 +252,16 @@ Riepilogo
  Conta con N condizioni 
  
  
+ MEDIA.SE 
+ =MEDIA.SE(int;crit;med) 
+ Media con condizione 
+ 
+ 
+ SUBTOTALE 
+ =SUBTOTALE(9;range) 
+ Totale sulle righe visibili 
+ 
+ 
  SE.ERRORE 
  =SE.ERRORE(f;alt) 
  Fallback sugli errori 
@@ -273,11 +277,6 @@ Riepilogo
  Numero → stringa 
  
  
- CONCATENA / &amp; 
- =A2&amp;" "&amp;B2 
- Unire stringhe 
- 
- 
  OGGI / DATA 
  =OGGI() 
  Data corrente 
@@ -285,18 +284,13 @@ Riepilogo
  
  MATR.SOMMA.PROD. 
  =MATR.SOMMA.PROD(...) 
- Prodotto + somma array 
- 
- 
- SINISTRA / DESTRA 
- =SINISTRA(t;n) 
- Estrai parti di testo
+ Prodotto + somma array
 
 --- Slide 13 ---
 Fine SU10 
  Strumenti da
  professionista. 
- Hai completato il percorso sui fogli di calcolo. Prossimo: presentazioni con impatto. 
+ Prossimo: le funzioni per manipolare il testo — unire, dividere, cercare e pulire. 
  
- Prossimo → SU11 · Dillo con una slide 
+ Prossimo → SU12 · Manipolare il testo 
  ↩ Indice del corso

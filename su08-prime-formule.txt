@@ -5,7 +5,7 @@ Suite Ufficio · SU08 — Prime formule
 Fogli di calcolo 
  Prime formule 
  Come funzionano le formule, gli operatori, e le funzioni fondamentali: SOMMA, MEDIA, MIN, MAX, CONTA, CONTA.SE e SE. 
- 14 slide 
+ 13 slide 
  
  
  🧮
@@ -207,7 +207,7 @@ SE
 
 --- Slide 10 ---
 Riepilogo 
- Le 7 funzioni di questo modulo 
+ Le 8 funzioni di questo modulo 
  
  
  SOMMA 
@@ -235,6 +235,11 @@ Riepilogo
  Celle con numeri 
  
  
+ CONTA.VALORI 
+ =CONTA.VALORI(A:A) 
+ Celle non vuote (qualsiasi tipo) 
+ 
+ 
  CONTA.SE 
  =CONTA.SE(A:A;"x") 
  Celle che rispettano una condizione 
@@ -242,12 +247,7 @@ Riepilogo
  
  SE 
  =SE(cond;vero;falso) 
- Decisione automatica in base a una condizione 
- 
- 
- CONTA.VALORI 
- =CONTA.VALORI(A:A) 
- Celle non vuote (qualsiasi tipo)
+ Decisione automatica in base a una condizione
 
 --- Slide 11 ---
 Errori 

@@ -95,8 +95,8 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
     <div class="title-left">
       <div class="eyebrow reveal" style="margin-top:40px;">Fogli di calcolo</div>
       <h1 class="h-mega reveal">Le 10 funzioni<br><em class="hot">più usate</em></h1>
-      <p class="lead reveal" style="margin-top:30px;">SOMMA.SE, SOMMA.PIÙ.SE, CONTA.PIÙ.SE, SE.ERRORE, ARROTONDA, TESTO, CONCATENA, OGGI e MATR.SOMMA.PRODOTTO — quelle che i professionisti usano ogni giorno.</p>
-      <div class="chips reveal" style="margin-top:46px;"><span class="chip">15 slide</span></div>
+      <p class="lead reveal" style="margin-top:30px;">SOMMA.SE, SOMMA.PIÙ.SE, CONTA.PIÙ.SE, MEDIA.SE, SUBTOTALE, SE.ERRORE, ARROTONDA, TESTO, OGGI e MATR.SOMMA.PRODOTTO — quelle che i professionisti usano ogni giorno.</p>
+      <div class="chips reveal" style="margin-top:46px;"><span class="chip">13 slide</span></div>
     </div>
     <div class="title-right">
       <div class="reveal" style="font-size:210px;line-height:1;">⚡</div>
@@ -116,7 +116,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
         </div>
         <div class="card" style="border-color:var(--teal);background:#d2f0e8;">
           <h3 style="font-size:26px;color:var(--teal);">★ Nuove in questo modulo</h3>
-          <p style="font-family:var(--font-mono);font-size:20px;color:var(--teal-2);line-height:1.6;">SOMMA.SE · SOMMA.PIÙ.SE<br>CONTA.PIÙ.SE · SE.ERRORE<br>ARROTONDA · TESTO<br>CONCATENA / &amp;<br>OGGI · ADESSO · DATA<br>MATR.SOMMA.PRODOTTO</p>
+          <p style="font-family:var(--font-mono);font-size:20px;color:var(--teal-2);line-height:1.6;">SOMMA.SE · SOMMA.PIÙ.SE<br>CONTA.PIÙ.SE · MEDIA.SE<br>SUBTOTALE · SE.ERRORE<br>ARROTONDA · TESTO<br>OGGI · ADESSO · DATA<br>MATR.SOMMA.PRODOTTO</p>
         </div>
       </div>
     </div>
@@ -175,11 +175,61 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
     <div class="page-num"></div>
   </section>
 
-  <!-- 5. SE.ERRORE -->
+  <!-- 5. MEDIA.SE -->
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape gold reveal">4. SE.ERRORE</div>
+        <div class="tape gold reveal">4. MEDIA.SE</div>
+        <h2 class="h-big reveal">La media <em class="hot">che sceglie</em></h2>
+        <p class="lead reveal d1">MEDIA.SE completa la famiglia: come SOMMA.SE, ma calcola la media dei soli valori che rispettano la condizione.</p>
+        <div class="formula reveal d2" style="font-size:21px;">=MEDIA.SE(<b>intervallo</b>; <b>criterio</b>; <b>media_range</b>)</div>
+        <div class="stack reveal d3" style="margin-top:14px;">
+          <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;"><span style="font-size:26px;min-width:40px;">→</span><div><span style="font-family:var(--font-mono);font-size:22px;color:var(--teal);">=MEDIA.SE(A:A;"Roma";B:B)</span><br><span style="font-size:20px;color:var(--ink-faint);">Spesa media dei soli clienti di Roma</span></div></div>
+          <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;"><span style="font-size:26px;min-width:40px;">→</span><div><span style="font-family:var(--font-mono);font-size:22px;color:var(--teal);">=MEDIA.SE(B:B;"&gt;0")</span><br><span style="font-size:20px;color:var(--ink-faint);">Media senza gli zeri che la falserebbero</span></div></div>
+        </div>
+        <div class="note reveal d4"><div class="lbl">💡 Anche a più condizioni</div><p>Come per SOMMA e CONTA esiste <b>MEDIA.PIÙ.SE</b>: stessa sintassi estesa con coppie intervallo/criterio.</p></div>
+      </div>
+      <div class="illu reveal d1">
+        <table class="sheet" style="width:300px;">
+          <tr><th></th><th>A</th><th>B (€)</th></tr>
+          <tr><td class="rowh">1</td><td style="background:var(--paper-2);font-weight:700;font-size:16px;">Città</td><td style="background:var(--paper-2);font-weight:700;font-size:16px;">Spesa</td></tr>
+          <tr><td class="rowh">2</td><td style="font-size:16px;color:var(--teal);font-weight:700;">Roma</td><td>100</td></tr>
+          <tr><td class="rowh">3</td><td style="font-size:16px;">Milano</td><td>300</td></tr>
+          <tr><td class="rowh">4</td><td style="font-size:16px;color:var(--teal);font-weight:700;">Roma</td><td>140</td></tr>
+          <tr><td class="rowh">5</td><td colspan="2" class="sel" style="font-size:15px;">MEDIA.SE → 120</td></tr>
+        </table>
+        <div class="illu-cap">Solo le righe "Roma": (100+140)/2 = 120</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 6. SUBTOTALE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape teal reveal">5. SUBTOTALE</div>
+        <h2 class="h-big reveal">Totali che seguono i <em class="hot">filtri</em></h2>
+        <p class="lead reveal d1">SOMMA somma tutto, anche le righe nascoste da un filtro. SUBTOTALE ricalcola solo sulle righe visibili: filtri "Roma" e il totale diventa il totale di Roma.</p>
+        <div class="formula reveal d2" style="font-size:22px;">=SUBTOTALE(<b>9</b>; B2:B100)</div>
+        <div class="stack reveal d3" style="margin-top:14px;">
+          <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;"><span style="font-size:26px;min-width:40px;">→</span><div><span style="font-family:var(--font-mono);font-size:22px;color:var(--teal);">9</span> = SOMMA &nbsp;·&nbsp; <span style="font-family:var(--font-mono);font-size:22px;color:var(--teal);">1</span> = MEDIA &nbsp;·&nbsp; <span style="font-family:var(--font-mono);font-size:22px;color:var(--teal);">3</span> = CONTA.VALORI</div></div>
+        </div>
+        <div class="analogy reveal d4"><span class="big">In pratica:</span> metti SUBTOTALE sopra la tabella filtrata — il numero cambia insieme al filtro, come un cruscotto.</div>
+      </div>
+      <div class="col stack reveal d1" style="justify-content:center;gap:18px;">
+        <div class="note teal"><div class="lbl">💡 Già la usi</div><p>La "Riga totali" delle tabelle (SU09) usa SUBTOTALE dietro le quinte: per questo i suoi totali rispettano i filtri.</p></div>
+        <div class="note red"><div class="lbl">⚠️ Righe nascoste a mano</div><p>I codici 1–11 ignorano solo le righe escluse dal filtro. Per ignorare anche quelle nascoste manualmente usa i codici 101–111 (es. 109 per la somma).</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 7. SE.ERRORE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">6. SE.ERRORE</div>
         <h2 class="h-big reveal">Gestire gli <em class="hot">errori</em> con grazia</h2>
         <p class="lead reveal d1">SE.ERRORE valuta un'espressione: se produce un errore (qualsiasi errore) restituisce il valore alternativo che specifichi invece di mostrare #N/D, #DIV/0! ecc.</p>
         <div class="formula reveal d2" style="font-size:22px;">=SE.ERRORE(<b>formula</b>; <b>valore_se_errore</b>)</div>
@@ -206,7 +256,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">5. ARROTONDA</div>
+        <div class="tape reveal">7. ARROTONDA</div>
         <h2 class="h-big reveal">Arrotondare i <em class="hot">decimali</em></h2>
         <p class="lead reveal d1">ARROTONDA restituisce un numero arrotondato al numero di cifre decimali specificato. Indispensabile nei calcoli finanziari per evitare residui da floating point.</p>
         <div class="formula reveal d2" style="font-size:23px;">=ARROTONDA(<b>numero</b>; <b>cifre_decimali</b>)</div>
@@ -236,7 +286,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape sky reveal">6. TESTO</div>
+        <div class="tape sky reveal">8. TESTO</div>
         <h2 class="h-big reveal">Formattare numeri come <em class="hot">testo</em></h2>
         <p class="lead reveal d1">TESTO converte un numero in una stringa formattata secondo un codice che specifichi tu. Indispensabile per creare messaggi, etichette e report con numeri ben presentati.</p>
         <div class="formula reveal d2" style="font-size:22px;">=TESTO(<b>valore</b>; "<b>formato</b>")</div>
@@ -254,35 +304,10 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
     <div class="page-num"></div>
   </section>
 
-  <!-- 8. CONCATENA -->
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape gold reveal">7. CONCATENA / &amp;</div>
-        <h2 class="h-big reveal">Unire <em class="hot">testi</em></h2>
-        <p class="lead reveal d1">Unisce due o più stringhe di testo in una sola. Disponibile come funzione (CONCATENA) o come operatore (&amp;) — preferisci &amp; perché è più leggibile.</p>
-        <div class="formula reveal d2" style="font-size:22px;">=A2 &amp; " " &amp; B2</div>
-        <p class="body reveal d3" style="margin-top:12px;">Se A2 = "Maria" e B2 = "Rossi" → <span style="font-family:var(--font-mono);color:var(--teal);">"Maria Rossi"</span>. Lo spazio tra virgolette è letterale.</p>
-        <div class="analogy reveal d4"><span class="big">In pratica:</span> Crea email, etichette, messaggi. "Gentile "&amp;A2&amp;", il tuo appuntamento è "&amp;TESTO(C2;"GG/MM").</div>
-      </div>
-      <div class="illu reveal d1">
-        <table class="sheet" style="width:300px;">
-          <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
-          <tr><td class="rowh">1</td><td style="background:var(--paper-2);font-weight:700;font-size:16px;">Nome</td><td style="background:var(--paper-2);font-weight:700;font-size:16px;">Cognome</td><td style="background:var(--paper-2);font-weight:700;font-size:16px;">Completo</td></tr>
-          <tr><td class="rowh">2</td><td style="font-size:16px;">Maria</td><td style="font-size:16px;">Rossi</td><td class="sel" style="font-size:16px;">Maria Rossi</td></tr>
-          <tr><td class="rowh">3</td><td style="font-size:16px;">Giulia</td><td style="font-size:16px;">Bianchi</td><td style="font-size:16px;color:var(--teal);">Giulia Bianchi</td></tr>
-        </table>
-        <div style="margin:12px 0;" class="formula" style="font-size:18px;padding:10px 16px;">=A2 &amp; " " &amp; B2</div>
-        <div class="illu-cap">Spazio tra virgolette = separatore letterale</div>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
   <!-- 9. OGGI / ADESSO / DATA -->
   <section class="slide">
     <div class="col stack">
-      <div class="tape teal reveal">8. Date e ore</div>
+      <div class="tape teal reveal">9. Date e ore</div>
       <h2 class="h-sec reveal">OGGI, ADESSO e <em class="hot">DATA</em></h2>
       <p class="lead reveal d1">Funzioni per lavorare con la data corrente, la data/ora, e costruire date da componenti separati.</p>
       <div class="grid3 reveal d2">
@@ -327,8 +352,8 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape gold reveal">9. MATR.SOMMA.PRODOTTO</div>
-        <h2 class="h-big reveal">La funzione <em class="hot">svizzera</em></h2>
+        <div class="tape gold reveal">10. MATR.SOMMA.PRODOTTO</div>
+        <h2 class="h-big reveal">Il coltellino <em class="hot">svizzero</em></h2>
         <p class="lead reveal d1">MATR.SOMMA.PRODOTTO moltiplica gli elementi corrispondenti di due o più array e ne somma i prodotti. Molto usata per calcoli pesati e aggregazioni con condizioni.</p>
         <div class="formula reveal d2" style="font-size:20px;">=MATR.SOMMA.PRODOTTO(<b>array1</b>; <b>array2</b>; …)</div>
         <div class="analogy reveal d3"><span class="big">Analogia:</span> Media ponderata, sconto su quantità, totale con più criteri — tutto con un'unica formula senza helper columns.</div>
@@ -345,34 +370,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
         </table>
         <div class="illu-cap">=MATR.SOMMA.PRODOTTO(A2:A4; B2:B4) → 331<br>(senza colonna C di supporto)</div>
       </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
-  <!-- 11. SINISTRA / DESTRA / STRINGA.ESTRAI -->
-  <section class="slide">
-    <div class="col stack">
-      <div class="tape sky reveal">10. Funzioni testo</div>
-      <h2 class="h-sec reveal">SINISTRA, DESTRA, <em class="hot">STRINGA.ESTRAI</em></h2>
-      <p class="lead reveal d1">Estrai parti di una stringa di testo. Indispensabili per pulire dati importati e isolare codici, prefissi, sigle.</p>
-      <div class="grid3 reveal d2">
-        <div class="fn-card">
-          <h3>SINISTRA</h3>
-          <div class="syntax">=SINISTRA(testo; n_caratteri)</div>
-          <p>Prende i primi N caratteri da sinistra.<br><span style="font-family:var(--font-mono);">=SINISTRA("IT12345"; 2)</span> → <b>"IT"</b> (prefisso paese)</p>
-        </div>
-        <div class="fn-card">
-          <h3>DESTRA</h3>
-          <div class="syntax">=DESTRA(testo; n_caratteri)</div>
-          <p>Prende gli ultimi N caratteri da destra.<br><span style="font-family:var(--font-mono);">=DESTRA("FATTURA-2025"; 4)</span> → <b>"2025"</b></p>
-        </div>
-        <div class="fn-card">
-          <h3>STRINGA.ESTRAI</h3>
-          <div class="syntax">=STRINGA.ESTRAI(testo; inizio; n)</div>
-          <p>Estrae N caratteri a partire dalla posizione indicata.<br><span style="font-family:var(--font-mono);">=STRINGA.ESTRAI("IT12345"; 3; 5)</span> → <b>"12345"</b></p>
-        </div>
-      </div>
-      <div class="note reveal d3" style="margin-top:16px;"><div class="lbl">💡 Combinazione potente</div><p>Usa insieme a TROVA o RICERCA per trovare la posizione di un carattere (es. "-") e poi estrarre dinamicamente la parte prima o dopo.</p></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -399,6 +396,16 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
           <p style="font-size:17px;">Conta con N condizioni</p>
         </div>
         <div class="fn-card" style="padding:14px 16px;">
+          <h3 style="font-size:22px;">MEDIA.SE</h3>
+          <div class="syntax" style="font-size:16px;">=MEDIA.SE(int;crit;med)</div>
+          <p style="font-size:17px;">Media con condizione</p>
+        </div>
+        <div class="fn-card" style="padding:14px 16px;">
+          <h3 style="font-size:22px;">SUBTOTALE</h3>
+          <div class="syntax" style="font-size:16px;">=SUBTOTALE(9;range)</div>
+          <p style="font-size:17px;">Totale sulle righe visibili</p>
+        </div>
+        <div class="fn-card" style="padding:14px 16px;">
           <h3 style="font-size:22px;">SE.ERRORE</h3>
           <div class="syntax" style="font-size:16px;">=SE.ERRORE(f;alt)</div>
           <p style="font-size:17px;">Fallback sugli errori</p>
@@ -414,11 +421,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
           <p style="font-size:17px;">Numero → stringa</p>
         </div>
         <div class="fn-card" style="padding:14px 16px;">
-          <h3 style="font-size:22px;">CONCATENA / &amp;</h3>
-          <div class="syntax" style="font-size:16px;">=A2&amp;" "&amp;B2</div>
-          <p style="font-size:17px;">Unire stringhe</p>
-        </div>
-        <div class="fn-card" style="padding:14px 16px;">
           <h3 style="font-size:22px;">OGGI / DATA</h3>
           <div class="syntax" style="font-size:16px;">=OGGI()</div>
           <p style="font-size:17px;">Data corrente</p>
@@ -427,11 +429,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
           <h3 style="font-size:22px;">MATR.SOMMA.PROD.</h3>
           <div class="syntax" style="font-size:16px;">=MATR.SOMMA.PROD(...)</div>
           <p style="font-size:17px;">Prodotto + somma array</p>
-        </div>
-        <div class="fn-card" style="padding:14px 16px;">
-          <h3 style="font-size:22px;">SINISTRA / DESTRA</h3>
-          <div class="syntax" style="font-size:16px;">=SINISTRA(t;n)</div>
-          <p style="font-size:17px;">Estrai parti di testo</p>
         </div>
       </div>
     </div>

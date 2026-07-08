@@ -2,696 +2,346 @@ Intelligenza Artificiale · IA_01 — Concetti Generali
 ====================================================
 
 --- Slide 1 ---
-Intelligenza Artificiale 
- Concetti
- generali 
- Cos'è l'IA, come si definisce, le sue applicazioni quotidiane e i concetti chiave: ML, deep learning, deepfake, filter bubble. 
- 
- IA_01 Intelligenza Artificiale 
- 
- 
- 
- 🤖
+Intelligenza Artificiale Concetti
+generali
+Cos'è l'IA, come si definisce, le sue applicazioni quotidiane e i concetti chiave: ML, deep learning, deepfake, filter bubble.
+IA_01 Intelligenza Artificiale 🤖
 
 --- Slide 2 ---
-In questo modulo 
- Cosa vedremo 
- 
- 01 Cos'è l'IA — storia, definizione, IA debole vs forte 
- 02 ML, reti neurali, NLP — come impara una macchina 
- 03 Applicazioni — auto, contenuti, immagini, deepfake 
- 04 Filter bubble, echo chamber, bot, fake news 
- 05 ChatGPT, prompt engineering, bias, etica, futuro
+In questo modulo Cosa vedremo
+01 Cos'è l'IA — storia, definizione, IA debole vs forte 02 ML, reti neurali, NLP — come impara una macchina 03 Applicazioni — auto, contenuti, immagini, deepfake 04 Filter bubble, echo chamber, bot, fake news 05 ChatGPT, prompt engineering, bias, etica, futuro
 
 --- Slide 3 ---
-Definizione 
- Cos'è l' Intelligenza Artificiale ? 
- La capacità o il tentativo di un sistema artificiale di simulare una forma di intelligenza — Wikipedia. 
- 
- ⚠️ Campo in evoluzione 
- La definizione cambia continuamente. Ciò che oggi chiamiamo "IA" domani potrebbe essere semplicemente "informatica". 
- 
- 
- 
- 
- 🧭 
- Autonomia 
- Eseguire compiti in ambienti complessi senza guida costante da parte dell'utente. 
- 
- 
- 📈 
- Adattabilità 
- Migliorare le prestazioni imparando dall'esperienza e dai dati.
+Definizione Cos'è l' Intelligenza Artificiale ?
+La capacità o il tentativo di un sistema artificiale di simulare una forma di intelligenza — Wikipedia.
+⚠️ Campo in evoluzione La definizione cambia continuamente. Ciò che oggi chiamiamo "IA" domani potrebbe essere semplicemente "informatica".
+🧭 Autonomia
+Eseguire compiti in ambienti complessi senza guida costante da parte dell'utente.
+📈 Adattabilità
+Migliorare le prestazioni imparando dall'esperienza e dai dati.
 
 --- Slide 4 ---
-Contesto storico 
- Breve storia dell' IA 
- 
- 
- 🧪 
- 1950 — Le origini 
- Alan Turing propone il "Gioco dell'imitazione" (Test di Turing). Nasce la domanda: una macchina può pensare? 
- 
- 
- 🏔️ 
- 1956 — Conferenza Dartmouth 
- Nasce ufficialmente il termine "Intelligenza Artificiale". I ricercatori credono di poter replicare l'intelligenza in pochi decenni. 
- 
- 
- ❄️ 
- 1970–1980 — "AI Winter" 
- I fondi si esauriscono. Le promesse non vengono mantenute. La ricerca subisce due lunghe pause. 
- 
- 
- 🚀 
- 2010–oggi — Rinascita 
- Big data, GPU potenti e deep learning trasformano tutto. IA batte i campioni umani a Go, scacchi, Jeopardy! e ora genera testo e immagini.
+Contesto storico Breve storia dell' IA
+🧪 1950 — Le origini
+Alan Turing propone il "Gioco dell'imitazione" (Test di Turing). Nasce la domanda: una macchina può pensare?
+🏔️ 1956 — Conferenza Dartmouth
+Nasce ufficialmente il termine "Intelligenza Artificiale". I ricercatori credono di poter replicare l'intelligenza in pochi decenni.
+❄️ 1970–1980 — "AI Winter"
+I fondi si esauriscono. Le promesse non vengono mantenute. La ricerca subisce due lunghe pause.
+🚀 2010–oggi — Rinascita
+Big data, GPU potenti e deep learning trasformano tutto. IA batte i campioni umani a Go, scacchi, Jeopardy! e ora genera testo e immagini.
 
 --- Slide 5 ---
-Il problema della definizione 
- La battuta dei ricercatori 
- L'IA è "tutto ciò che i computer non sanno ancora fare" . Non appena troviamo un modo per farlo, smette di chiamarsi IA. 
- 
- 
- 📅 
- 50 anni fa 
- Ricerca e pianificazione automatica erano considerate IA. Oggi si insegnano a tutti gli studenti di informatica. 
- 
- 
- 🔮 
- Domani 
- Alcuni metodi per gestire l'incertezza si avviano a diventare semplice statistica — non più "IA".
+Il problema della definizione La battuta dei ricercatori
+L'IA è "tutto ciò che i computer non sanno ancora fare" . Non appena troviamo un modo per farlo, smette di chiamarsi IA.
+📅 50 anni fa
+Ricerca e pianificazione automatica erano considerate IA. Oggi si insegnano a tutti gli studenti di informatica.
+🔮 Domani
+Alcuni metodi per gestire l'incertezza si avviano a diventare semplice statistica — non più "IA".
 
 --- Slide 6 ---
-🎯 
- IA Debole
- Narrow AI 
- Eccelle in un solo compito : giocare a scacchi, riconoscere volti, tradurre testi, guidare un'auto. Non può fare altro. 
- 
- Oggi 
- Tutta l'IA esistente oggi — compreso ChatGPT — è IA debole, per quanto impressionante sembri. 
- 
- 
- 
- 🌐 
- IA Forte
- AGI 
- Un sistema capace di qualsiasi compito cognitivo che un essere umano può svolgere — ragionamento, creatività, apprendimento autonomo in nuovi contesti. 
- 
- Futuro 
- Non esiste ancora. I ricercatori non concordano su quando — o se — arriverà.
+🎯 IA Debole
+Narrow AI
+Eccelle in un solo compito : giocare a scacchi, riconoscere volti, tradurre testi, guidare un'auto. Non può fare altro.
+Oggi Tutta l'IA esistente oggi — compreso ChatGPT — è IA debole, per quanto impressionante sembri.
+🌐 IA Forte
+AGI
+Un sistema capace di qualsiasi compito cognitivo che un essere umano può svolgere — ragionamento, creatività, apprendimento autonomo in nuovi contesti.
+Futuro Non esiste ancora. I ricercatori non concordano su quando — o se — arriverà.
 
 --- Slide 7 ---
-Mappa concettuale 
- I concetti correlati 
- 
- 
- 🤖 
- Machine Learning 
- Sistemi che migliorano le prestazioni con l'aumentare dell'esperienza o dei dati. Sottoinsieme dell'IA. 
- 
- 
- 🧠 
- Deep Learning 
- Sottoinsieme del ML. Usa reti neurali profonde e complesse. Ha reso possibile il salto qualitativo degli ultimi anni. 
- 
- 
- 📊 
- Data Science 
- Include ML, statistica, algoritmi e sviluppo applicazioni. Richiede comprensione del settore applicato (business, medicina…). 
- 
- 
- 🦾 
- Robotica 
- Costruzione e programmazione di robot per scenari complessi. La sfida definitiva dell'IA: richiede quasi tutte le sue aree. 
- 
- 
- 
- 
- 
- 
- 
- IA 
- ML 
- DL 
- 
- Intelligenza Artificiale — il campo intero 
- 
- Machine Learning — impara dai dati 
- 
- Deep Learning — reti neurali profonde 
- 
- Ogni cerchio è un sottoinsieme del precedente: IA ⊃ ML ⊃ DL
+Mappa concettuale I concetti correlati
+🤖 Machine Learning
+Sistemi che migliorano le prestazioni con l'aumentare dell'esperienza o dei dati. Sottoinsieme dell'IA.
+🧠 Deep Learning
+Sottoinsieme del ML. Usa reti neurali profonde e complesse. Ha reso possibile il salto qualitativo degli ultimi anni.
+📊 Data Science
+Include ML, statistica, algoritmi e sviluppo applicazioni. Richiede comprensione del settore applicato (business, medicina…).
+🦾 Robotica
+Costruzione e programmazione di robot per scenari complessi. La sfida definitiva dell'IA: richiede quasi tutte le sue aree.
+Ogni cerchio è un sottoinsieme del precedente: IA ⊃ ML ⊃ DL
 
 --- Slide 8 ---
-Deep Learning 
- Reti neurali 
- Ispirate (lontanamente) al cervello umano: nodi connessi in strati che trasformano l'input in output. 
- Strato di input → strati nascosti (dove avviene l'apprendimento) → strato di output . La "profondità" è il numero di strati nascosti. 
- 
- 💡 Perché funzionano 
- Con abbastanza dati e potenza di calcolo, le reti neurali trovano pattern che nessun programmatore avrebbe saputo codificare a mano. 
- 
- 
- 
- 
- INPUT 
-
- ↓
-
- strato 1 
-
- ↓
-
- strato 2 
-
- ↓
-
- strato 3… 
-
- ↓
-
- OUTPUT
+Deep Learning Reti neurali
+Ispirate (lontanamente) al cervello umano: nodi connessi in strati che trasformano l'input in output.
+Strato di input → strati nascosti (dove avviene l'apprendimento) → strato di output . La "profondità" è il numero di strati nascosti.
+💡 Perché funzionano Con abbastanza dati e potenza di calcolo, le reti neurali trovano pattern che nessun programmatore avrebbe saputo codificare a mano.
+INPUT
+↓
+strato 1
+↓
+strato 2
+↓
+strato 3…
+↓
+OUTPUT
 
 --- Slide 9 ---
-Natural Language Processing 
- Capire il linguaggio naturale 
- L'NLP permette alle macchine di leggere, capire e generare testo umano — il ramo dell'IA con la crescita più esplosiva degli ultimi anni. 
- 
- 
- 🌍 
- Traduzione automatica 
- Google Translate, DeepL — milioni di frasi per addestramento. La qualità è esplosa con il deep learning. 
- 
- 
- 🤖 
- Chatbot e assistenti 
- Siri, Alexa, ChatGPT capiscono il contesto di una conversazione e generano risposte coerenti. 
- 
- 
- 📧 
- Spam e sentiment 
- Filtri antispam, analisi recensioni, rilevamento discorsi d'odio — tutti usano NLP per classificare il testo. 
- 
- 
- 
- Collegamento 
- ChatGPT è un Large Language Model (LLM) — un modello NLP addestrato su enormi quantità di testo disponibile in internet.
+Natural Language Processing Capire il linguaggio naturale
+L'NLP permette alle macchine di leggere, capire e generare testo umano — il ramo dell'IA con la crescita più esplosiva degli ultimi anni.
+🌍 Traduzione automatica
+Google Translate, DeepL — milioni di frasi per addestramento. La qualità è esplosa con il deep learning.
+🤖 Chatbot e assistenti
+Siri, Alexa, ChatGPT capiscono il contesto di una conversazione e generano risposte coerenti.
+📧 Spam e sentiment
+Filtri antispam, analisi recensioni, rilevamento discorsi d'odio — tutti usano NLP per classificare il testo.
+Collegamento ChatGPT è un Large Language Model (LLM) — un modello NLP addestrato su enormi quantità di testo disponibile in internet.
 
 --- Slide 10 ---
-Machine Learning 
- Come impara una macchina? 
- 
- Dati di addestramento — migliaia (o miliardi) di esempi etichettati: foto di gatti e non-gatti, email spam e non-spam, traduzioni corrette. 
- Modello — un algoritmo che trova pattern nei dati. Commette errori, li misura, si corregge — milioni di volte. 
- Previsione — dato un input nuovo, il modello applica i pattern appresi e produce un output: "questa è una foto di gatto" con 94% di confidenza. 
- 
- Analogia: il ML impara dagli esempi come un bambino, non dalle regole come un impiegato.
+Machine Learning Come impara una macchina?
+Dati di addestramento — migliaia (o miliardi) di esempi etichettati: foto di gatti e non-gatti, email spam e non-spam, traduzioni corrette. Modello — un algoritmo che trova pattern nei dati. Commette errori, li misura, si corregge — milioni di volte. Previsione — dato un input nuovo, il modello applica i pattern appresi e produce un output: "questa è una foto di gatto" con 94% di confidenza. Analogia: il ML impara dagli esempi come un bambino, non dalle regole come un impiegato.
 
 --- Slide 11 ---
-Applicazione 
- Auto a guida autonoma 
- Un caso che combina quasi tutte le tecniche di IA in un unico sistema. 
- 
- Ricerca e pianificazione — trovare il percorso ottimale da A a B 
- Visione artificiale — identificare ostacoli, pedoni, segnali 
- Decisione in incertezza — reagire a situazioni imprevedibili 
- 
- 
- 
- 
- ✅ 
- Vantaggi attesi 
- Sicurezza stradale migliorata, catene logistiche più efficienti, meno incidenti causati da errore umano. 
- 
- 
- 🚗 
- Non solo auto 
- Robot per consegne, droni autonomi, navi senza equipaggio: le stesse tecnologie si estendono ovunque. 
- 
- 
- Ruolo umano 
- Gli umani assumeranno sempre più un ruolo di supervisione mentre le macchine gestiscono l'esecuzione.
+Applicazione Auto a guida autonoma
+Un caso che combina quasi tutte le tecniche di IA in un unico sistema.
+Ricerca e pianificazione — trovare il percorso ottimale da A a B Visione artificiale — identificare ostacoli, pedoni, segnali Decisione in incertezza — reagire a situazioni imprevedibili ✅ Vantaggi attesi
+Sicurezza stradale migliorata, catene logistiche più efficienti, meno incidenti causati da errore umano.
+🚗 Non solo auto
+Robot per consegne, droni autonomi, navi senza equipaggio: le stesse tecnologie si estendono ovunque.
+Ruolo umano Gli umani assumeranno sempre più un ruolo di supervisione mentre le macchine gestiscono l'esecuzione.
 
 --- Slide 12 ---
-Applicazione · Approfondimento 
- Auto autonoma — sfide reali 
- 
- 
- ⚠️ 
- Il problema etico 
- Se l'incidente è inevitabile, chi colpisce l'auto? Chi decide? Il programmatore, l'azienda o la legge? 
- 
- 
- 🌧️ 
- Condizioni avverse 
- Pioggia forte, neve, cantieri improvvisati, gesti non standard di un vigile — l'IA fatica con tutto ciò che esula dai dati di addestramento. 
- 
- 
- 💼 
- Impatto sul lavoro 
- Autisti, corrieri, piloti di droni: intere categorie professionali potrebbero essere ridisegnate. Stima: decine di milioni di posti globali a rischio. 
- 
- 
- 📜 
- Quadro normativo 
- Chi è responsabile in caso di incidente? L'utente, il produttore o il software? Le leggi in Europa stanno ancora evolvendo.
+Applicazione · Approfondimento Auto autonoma — sfide reali
+⚠️ Il problema etico
+Se l'incidente è inevitabile, chi colpisce l'auto? Chi decide? Il programmatore, l'azienda o la legge?
+🌧️ Condizioni avverse
+Pioggia forte, neve, cantieri improvvisati, gesti non standard di un vigile — l'IA fatica con tutto ciò che esula dai dati di addestramento.
+💼 Impatto sul lavoro
+Autisti, corrieri, piloti di droni: intere categorie professionali potrebbero essere ridisegnate. Stima: decine di milioni di posti globali a rischio.
+📜 Quadro normativo
+Chi è responsabile in caso di incidente? L'utente, il produttore o il software? Le leggi in Europa stanno ancora evolvendo.
 
 --- Slide 13 ---
-Isaac Asimov · 1942 
- Le tre leggi della robotica 
- 
- Un robot non può recare danno a un essere umano né permettere che, per mancato intervento, un essere umano riceva danno. 
- Un robot deve obbedire agli ordini degli esseri umani , purché non contrastino la Prima Legge. 
- Un robot deve proteggere la propria esistenza , purché non contrasti con la Prima o la Seconda Legge. 
- 
- 
- 💡 Perché conta ancora 
- Scritte per la fantascienza, queste leggi anticipano le domande etiche sull'IA che affrontiamo oggi nella realtà.
+Isaac Asimov · 1942 Le tre leggi della robotica
+Un robot non può recare danno a un essere umano né permettere che, per mancato intervento, un essere umano riceva danno. Un robot deve obbedire agli ordini degli esseri umani , purché non contrastino la Prima Legge. Un robot deve proteggere la propria esistenza , purché non contrasti con la Prima o la Seconda Legge. 💡 Perché conta ancora Scritte per la fantascienza, queste leggi anticipano le domande etiche sull'IA che affrontiamo oggi nella realtà.
 
 --- Slide 14 ---
-Applicazione 
- Contenuti personalizzati 
- Gran parte delle informazioni che riceviamo ogni giorno sono scelte da un algoritmo su misura per noi. 
- Social media, streaming musicale e video, motori di ricerca, giornali online — tutti personalizzano in base alla nostra storia di navigazione. 
- 
- 
- 
- 📱 
- Social 
- Facebook, Instagram, TikTok, X — il feed non è cronologico: è scelto dall'algoritmo. 
- 
- 
- 🎵 
- Streaming 
- Spotify, Netflix, Max — i suggerimenti si basano su ciò che hai già ascoltato o visto. 
- 
- 
- 🔍 
- Ricerca 
- Google personalizza i risultati: due utenti che cercano la stessa cosa vedono risultati diversi.
+Applicazione Contenuti personalizzati
+Gran parte delle informazioni che riceviamo ogni giorno sono scelte da un algoritmo su misura per noi.
+Social media, streaming musicale e video, motori di ricerca, giornali online — tutti personalizzano in base alla nostra storia di navigazione.
+📱 Social
+Facebook, Instagram, TikTok, X — il feed non è cronologico: è scelto dall'algoritmo.
+🎵 Streaming
+Spotify, Netflix, Max — i suggerimenti si basano su ciò che hai già ascoltato o visto.
+🔍 Ricerca
+Google personalizza i risultati: due utenti che cercano la stessa cosa vedono risultati diversi.
 
 --- Slide 15 ---
-Rischio 
- Filter bubble 
- — la bolla di filtraggio 
- Quando un algoritmo registra il comportamento dell'utente e sceglie selettivamente solo ciò che vuole vedere , isolandolo da informazioni in contrasto con il suo punto di vista. 
- 
- 
- Effetto 
- L'utente viene escluso da notizie, opinioni e dati che contraddicono la propria visione del mondo — senza rendersene conto. 
- 
- 
- Esempi 
- Google Search personalizzata e Facebook News Feed sono i casi più studiati e documentati di filter bubble.
+Rischio Filter bubble
+— la bolla di filtraggio
+Quando un algoritmo registra il comportamento dell'utente e sceglie selettivamente solo ciò che vuole vedere , isolandolo da informazioni in contrasto con il suo punto di vista.
+Effetto L'utente viene escluso da notizie, opinioni e dati che contraddicono la propria visione del mondo — senza rendersene conto.
+Esempi Google Search personalizzata e Facebook News Feed sono i casi più studiati e documentati di filter bubble.
 
 --- Slide 16 ---
-Rischi sociali 
- Echo chamber, troll e fake news 
- 
- 
- 🔊 
- Echo chamber 
- Le idee vengono amplificate e rafforzate dalla ripetizione all'interno di un gruppo chiuso. Le fonti alternative sono censurate o ignorate. 
- 
- 
- 😈 
- Troll 
- Utenti che interagiscono con messaggi provocatori, fuori tema o falsi con l'unico scopo di disturbare la comunicazione e creare nervosismo. 
- 
- 
- 📰 
- Fake news 
- Informazioni false o fuorvianti diffuse intenzionalmente per produrre misinformazione (errore) o disinformazione (inganno deliberato). 
- 
- 
- 
- Connessione con l'IA 
- Gli algoritmi di raccomandazione massimizzano l'engagement — spesso promuovendo contenuti emotivi o polarizzanti, alimentando tutti e tre questi fenomeni.
+Rischi sociali Echo chamber, troll e fake news
+🔊 Echo chamber
+Le idee vengono amplificate e rafforzate dalla ripetizione all'interno di un gruppo chiuso. Le fonti alternative sono censurate o ignorate.
+😈 Troll
+Utenti che interagiscono con messaggi provocatori, fuori tema o falsi con l'unico scopo di disturbare la comunicazione e creare nervosismo.
+📰 Fake news
+Informazioni false o fuorvianti diffuse intenzionalmente per produrre misinformazione (errore) o disinformazione (inganno deliberato).
+Connessione con l'IA Gli algoritmi di raccomandazione massimizzano l'engagement — spesso promuovendo contenuti emotivi o polarizzanti, alimentando tutti e tre questi fenomeni.
 
 --- Slide 17 ---
-Difesa attiva 
- Come uscire dalla bolla 
- 
- Diversifica le fonti — leggi almeno un organo di informazione che sai di non preferire. Il discomfort è un buon segnale. 
- Naviga in incognito — riduce (non elimina) la profilazione. Usa motori che non tracciano: DuckDuckGo, Startpage. 
- Segui persone con visioni diverse — sui social, seguire voci che non conosci già rompe il loop dell'algoritmo. 
- Verifica prima di condividere — cerca la fonte primaria, non restare nella versione già filtrata della notizia.
+Difesa attiva Come uscire dalla bolla
+Diversifica le fonti — leggi almeno un organo di informazione che sai di non preferire. Il discomfort è un buon segnale. Naviga in incognito — riduce (non elimina) la profilazione. Usa motori che non tracciano: DuckDuckGo, Startpage. Segui persone con visioni diverse — sui social, seguire voci che non conosci già rompe il loop dell'algoritmo. Verifica prima di condividere — cerca la fonte primaria, non restare nella versione già filtrata della notizia.
 
 --- Slide 18 ---
-Manipolazione digitale 
- Bot e troll farm 
- Account automatizzati e reti coordinate di persone reali usati per amplificare messaggi, creare falsa consenso e polarizzare l'opinione pubblica . 
- 
- Come si riconosce un bot 
- Account creato di recente, nessuna foto personale, pubblica decine di volte al giorno, commenta sempre lo stesso tema, spesso senza profilo completo. 
- 
- 
- 
- 
- ⚙️ 
- Bot semplici 
- Script automatici che ripubblicano contenuti, mettono like o seguono account in massa per gonfiare le metriche. 
- 
- 
- 🏭 
- Troll farm 
- Fabbriche di disinformazione: team di persone reali (spesso in paesi diversi) pagate per diffondere narrativi coordinati. 
- 
- 
- 🤖 
- IA generativa 
- I modelli linguistici rendono facile produrre testo persuasivo su scala. La propaganda automatizzata è un rischio concreto.
+Manipolazione digitale Bot e troll farm
+Account automatizzati e reti coordinate di persone reali usati per amplificare messaggi, creare falsa consenso e polarizzare l'opinione pubblica .
+Come si riconosce un bot Account creato di recente, nessuna foto personale, pubblica decine di volte al giorno, commenta sempre lo stesso tema, spesso senza profilo completo.
+⚙️ Bot semplici
+Script automatici che ripubblicano contenuti, mettono like o seguono account in massa per gonfiare le metriche.
+🏭 Troll farm
+Fabbriche di disinformazione: team di persone reali (spesso in paesi diversi) pagate per diffondere narrativi coordinati.
+🤖 IA generativa
+I modelli linguistici rendono facile produrre testo persuasivo su scala. La propaganda automatizzata è un rischio concreto.
 
 --- Slide 19 ---
-Applicazione 
- Elaborazione immagini 
- L'IA può riconoscere ciò che vede e generare immagini nuove, sempre più indistinguibili dalla realtà. 
- 
- 
- 
- 👤 
- Riconoscimento facciale 
- Organizzazione foto, tag automatico sui social, controllo passaporti, stima popolazioni animali. 
- 
- 
- 🚗 
- Guida autonoma 
- Riconoscere auto, pedoni, segnali stradali in tempo reale con precisione quasi perfetta. 
- 
- 
- 🎨 
- Style transfer 
- Adattare una foto per farla sembrare dipinta da Van Gogh. Personaggi CGI nei film (Avatar, Pixar).
+Applicazione Elaborazione immagini
+L'IA può riconoscere ciò che vede e generare immagini nuove, sempre più indistinguibili dalla realtà.
+👤 Riconoscimento facciale
+Organizzazione foto, tag automatico sui social, controllo passaporti, stima popolazioni animali.
+🚗 Guida autonoma
+Riconoscere auto, pedoni, segnali stradali in tempo reale con precisione quasi perfetta.
+🎨 Style transfer
+Adattare una foto per farla sembrare dipinta da Van Gogh. Personaggi CGI nei film (Avatar, Pixar).
 
 --- Slide 20 ---
-Come funziona 
- Computer vision — come vede una macchina 
- Un'immagine è solo una griglia di numeri (pixel). Il modello impara a riconoscere pattern di numeri associati a oggetti — dopo milioni di esempi etichettati. 
- 
- 
- 🏷️ 
- Classificazione 
- "Questa immagine contiene un gatto" — identifica la categoria principale dell'immagine. 
- 
- 
- 📦 
- Object detection 
- "Qui c'è un gatto (coord. 120,80), qui un cane (coord. 340,200)" — localizza oggetti multipli. 
- 
- 
- 🧍 
- Segmentazione 
- Identifica ogni pixel come parte di un oggetto — usato in medicina (radiografie) e guida autonoma. 
- 
- 
- 
- Ogni giorno 
- Face ID dello smartphone, filtri AR di Instagram, traduzione live di testo con la fotocamera, riconoscimento della scrittura — tutte computer vision.
+Come funziona Computer vision — come vede una macchina
+Un'immagine è solo una griglia di numeri (pixel). Il modello impara a riconoscere pattern di numeri associati a oggetti — dopo milioni di esempi etichettati.
+🏷️ Classificazione
+"Questa immagine contiene un gatto" — identifica la categoria principale dell'immagine.
+📦 Object detection
+"Qui c'è un gatto (coord. 120,80), qui un cane (coord. 340,200)" — localizza oggetti multipli.
+🧍 Segmentazione
+Identifica ogni pixel come parte di un oggetto — usato in medicina (radiografie) e guida autonoma.
+Ogni giorno Face ID dello smartphone, filtri AR di Instagram, traduzione live di testo con la fotocamera, riconoscimento della scrittura — tutte computer vision.
 
 --- Slide 21 ---
-Implicazione critica 
- Deepfake — "vedere non è credere" 
- Con l'aumento della potenza di calcolo, creare video falsi dall'aspetto autentico — indistinguibili da filmati reali — è diventato accessibile a chiunque. 
- 
- 
- Come funziona 
- Il modello apprende il volto e la voce di una persona da molte immagini/video e li sovrappone su un altro soggetto con precisione crescente. 
- 
- 
- Cosa fare 
- Verificare la fonte originale. Cercare incongruenze (occhi, denti, bordi). Non condividere video sensazionali senza verifica.
+Implicazione critica Deepfake — "vedere non è credere"
+Con l'aumento della potenza di calcolo, creare video falsi dall'aspetto autentico — indistinguibili da filmati reali — è diventato accessibile a chiunque.
+Come funziona Il modello apprende il volto e la voce di una persona da molte immagini/video e li sovrappone su un altro soggetto con precisione crescente.
+Cosa fare Verificare la fonte originale. Cercare incongruenze (occhi, denti, bordi). Non condividere video sensazionali senza verifica.
 
 --- Slide 22 ---
-Difesa pratica 
- Come riconoscere un deepfake 
- 
- 
- 
- 👁️ 
- Segnali visivi 
- Bordi sfumati intorno a capelli/orecchie, occhiali con riflessi strani, denti irregolari, pelle troppo liscia o che "galleggia". 
- 
- 
- 👄 
- Labbra e voce 
- Sincronia labiale imperfetta, tono della voce piatto o metallico, emozioni facciali che non corrispondono al parlato. 
- 
- 
- 
- 
- 🔍 
- Verifica la fonte 
- Chi ha pubblicato il video originale? Su quale canale ufficiale? Cerca la notizia su più fonti indipendenti. 
- 
- 
- 🛠️ 
- Strumenti digitali 
- FotoForensics, Deepware Scanner, Sensity AI — strumenti online gratuiti che analizzano immagini e video per segni di manipolazione. 
- 
- 
- 
- 
- ⚠️ Regola d'oro 
- Se un video ti fa arrabbiare molto o ti sembra incredibile, fermati. È esattamente ciò che chi ha creato il deepfake voleva provocare.
+Difesa pratica Come riconoscere un deepfake
+👁️ Segnali visivi
+Bordi sfumati intorno a capelli/orecchie, occhiali con riflessi strani, denti irregolari, pelle troppo liscia o che "galleggia".
+👄 Labbra e voce
+Sincronia labiale imperfetta, tono della voce piatto o metallico, emozioni facciali che non corrispondono al parlato.
+🔍 Verifica la fonte
+Chi ha pubblicato il video originale? Su quale canale ufficiale? Cerca la notizia su più fonti indipendenti.
+🛠️ Strumenti digitali
+FotoForensics, Deepware Scanner, Sensity AI — strumenti online gratuiti che analizzano immagini e video per segni di manipolazione.
+⚠️ Regola d'oro Se un video ti fa arrabbiare molto o ti sembra incredibile, fermati. È esattamente ciò che chi ha creato il deepfake voleva provocare.
 
 --- Slide 23 ---
-Strumenti IA 
- ChatGPT — cosa può fare 
- Un modello linguistico che genera testo, risponde a domande, traduce, riassume, scrive codice e molto altro. 
- 
- ⚠️ Attenzione 
- Molte operazioni possono sostituire il tempo di studio e risolvere compiti — azzerandone l'utilità formativa se usate acriticamente. 
- 
- 
- 
- 
- ✅ 
- Cosa sa fare bene 
- Riassumere testi, tradurre, generare bozze, spiegare concetti, scrivere codice, fare brainstorming. 
- 
- 
- 🚫 
- Dove non può arrivare 
- Conoscenza aggiornata in tempo reale, giudizio etico autonomo, esperienze pratiche, emozioni autentiche.
+Strumenti IA ChatGPT — cosa può fare
+Un modello linguistico che genera testo, risponde a domande, traduce, riassume, scrive codice e molto altro.
+⚠️ Attenzione Molte operazioni possono sostituire il tempo di studio e risolvere compiti — azzerandone l'utilità formativa se usate acriticamente.
+✅ Cosa sa fare bene
+Riassumere testi, tradurre, generare bozze, spiegare concetti, scrivere codice, fare brainstorming.
+🚫 Dove non può arrivare
+Conoscenza aggiornata in tempo reale, giudizio etico autonomo, esperienze pratiche, emozioni autentiche.
 
 --- Slide 24 ---
-Ogni giorno 
- L'IA che usi senza saperlo 
- 
- 
- 🗣️ 
- Assistenti vocali 
- Siri, Alexa, Google Assistant riconoscono la voce e interpretano richieste in linguaggio naturale. 
- 
- 
- 🗺️ 
- GPS e traffico 
- Google Maps prevede il traffico in tempo reale e suggerisce il percorso ottimale su milioni di utenti. 
- 
- 
- 📧 
- Filtro spam 
- Il client email usa ML per classificare automaticamente spam, promozioni e messaggi importanti. 
- 
- 
- 💳 
- Antifrode 
- La banca blocca la carta in 50 ms se un acquisto è anomalo rispetto alle tue abitudini — tutto IA. 
- 
- 
- 
- 💡 Conclusione 
- L'IA non è fantascienza: è già parte invisibile della tua giornata. Conoscerla significa poterne usare i vantaggi e riconoscerne i limiti.
+Ogni giorno L'IA che usi senza saperlo
+🗣️ Assistenti vocali
+Siri, Alexa, Google Assistant riconoscono la voce e interpretano richieste in linguaggio naturale.
+🗺️ GPS e traffico
+Google Maps prevede il traffico in tempo reale e suggerisce il percorso ottimale su milioni di utenti.
+📧 Filtro spam
+Il client email usa ML per classificare automaticamente spam, promozioni e messaggi importanti.
+💳 Antifrode
+La banca blocca la carta in 50 ms se un acquisto è anomalo rispetto alle tue abitudini — tutto IA.
+💡 Conclusione L'IA non è fantascienza: è già parte invisibile della tua giornata. Conoscerla significa poterne usare i vantaggi e riconoscerne i limiti.
 
 --- Slide 25 ---
-Usare bene l'IA 
- Prompt engineering — chiedi meglio 
- Il risultato di un modello IA dipende enormemente da come poni la domanda . Un prompt vago dà risposte vaghe. 
- 
- 
- 🎭 
- Dai un ruolo 
- "Sei un esperto di marketing per saloni di bellezza. Aiutami a…" — il contesto migliora drasticamente la risposta. 
- 
- 
- 📋 
- Sii specifico 
- Specifica lunghezza, tono, pubblico, formato. "Scrivi 3 caption Instagram per un salone, tono amichevole, max 100 caratteri". 
- 
- 
- 🔄 
- Itera 
- Se la risposta non è quella giusta, correggila: "Riscrivi il terzo punto in modo più diretto" — il modello ricorda il contesto della conversazione. 
- 
- 
- 
- Non fidarti ciecamente 
- ChatGPT può "allucinare" : inventare fatti, citare fonti inesistenti, sbagliare calcoli. Verifica sempre le informazioni critiche.
+Usare bene l'IA Prompt engineering — chiedi meglio
+Il risultato di un modello IA dipende enormemente da come poni la domanda . Un prompt vago dà risposte vaghe.
+🎭 Dai un ruolo
+"Sei un esperto di marketing per saloni di bellezza. Aiutami a…" — il contesto migliora drasticamente la risposta.
+📋 Sii specifico
+Specifica lunghezza, tono, pubblico, formato. "Scrivi 3 caption Instagram per un salone, tono amichevole, max 100 caratteri".
+🔄 Itera
+Se la risposta non è quella giusta, correggila: "Riscrivi il terzo punto in modo più diretto" — il modello ricorda il contesto della conversazione.
+Non fidarti ciecamente ChatGPT può "allucinare" : inventare fatti, citare fonti inesistenti, sbagliare calcoli. Verifica sempre le informazioni critiche.
 
 --- Slide 26 ---
-Pensiero critico 
- Riconoscere gli elaborati IA 
- 
- 
- 🔍 
- Pattern linguistici 
- L'IA tende a usare strutture ripetitive, frasi bilanciate, transizioni prevedibili e un tono sempre uniforme — mai troppo colloquiale. 
- 
- 
- 📐 
- Valutare la conoscenza 
- Verificare se il livello dell'elaborato è coerente con le competenze dimostrate dallo studente in altri contesti. 
- 
- 
- 
- 💡 Due approcci 
- Vietare l'uso (aggirabile) vs trasformare l'IA in strumento didattico: usarla come punto di partenza critico, non come risposta finale.
+Pensiero critico Riconoscere gli elaborati IA
+🔍 Pattern linguistici
+L'IA tende a usare strutture ripetitive, frasi bilanciate, transizioni prevedibili e un tono sempre uniforme — mai troppo colloquiale.
+📐 Valutare la conoscenza
+Verificare se il livello dell'elaborato è coerente con le competenze dimostrate dallo studente in altri contesti.
+💡 Due approcci Vietare l'uso (aggirabile) vs trasformare l'IA in strumento didattico: usarla come punto di partenza critico, non come risposta finale.
 
 --- Slide 27 ---
-Problema critico 
- Bias nell'IA 
- Un modello impara dai dati. Se i dati riflettono pregiudizi umani, il modello li amplifica e automatizza . 
- 
- Impatto reale 
- Algoritmi usati in tribunali USA per prevedere la recidiva hanno mostrato bias razziali. Sistemi di riconoscimento facciale falliscono di più con pelli scure. 
- 
- 
- 
- 
- 📊 
- Bias nei dati 
- Se addestri un modello su CV storici dove i manager erano quasi tutti uomini, il modello preferirà candidati maschili. 
- 
- 
- 🔬 
- Bias di conferma 
- Il modello può rinforzare le aspettative dei suoi creatori se i test sono fatti solo su certi tipi di dati. 
- 
- 
- 🛡️ 
- Cosa si fa 
- Dati più diversificati, audit regolari, team di sviluppo eterogenei — e normative come l'AI Act europeo.
+Problema critico Bias nell'IA
+Un modello impara dai dati. Se i dati riflettono pregiudizi umani, il modello li amplifica e automatizza .
+Impatto reale Algoritmi usati in tribunali USA per prevedere la recidiva hanno mostrato bias razziali. Sistemi di riconoscimento facciale falliscono di più con pelli scure.
+📊 Bias nei dati
+Se addestri un modello su CV storici dove i manager erano quasi tutti uomini, il modello preferirà candidati maschili.
+🔬 Bias di conferma
+Il modello può rinforzare le aspettative dei suoi creatori se i test sono fatti solo su certi tipi di dati.
+🛡️ Cosa si fa
+Dati più diversificati, audit regolari, team di sviluppo eterogenei — e normative come l'AI Act europeo.
 
 --- Slide 28 ---
-Strumenti IA 
- Generazione di immagini 
- Strumenti come Midjourney , DALL-E e Stable Diffusion creano immagini a partire da una descrizione testuale (prompt). 
- 
- 
- ✍️ 
- Il prompt 
- Una descrizione dettagliata guida il modello: stile, soggetto, illuminazione, composizione. 
- 
- 
- 🎨 
- Stili possibili 
- Fotorealistico, acquerello, fumetto, concept art, rinascimentale — il modello li mescola su richiesta. 
- 
- 
- 🧐 
- Trovare i difetti 
- Mani con dita extra, testo illeggibile, riflessi incoerenti: l'IA commette ancora errori caratteristici.
+Strumenti IA Generazione di immagini
+Strumenti come Midjourney , DALL-E e Stable Diffusion creano immagini a partire da una descrizione testuale (prompt).
+✍️ Il prompt
+Una descrizione dettagliata guida il modello: stile, soggetto, illuminazione, composizione.
+🎨 Stili possibili
+Fotorealistico, acquerello, fumetto, concept art, rinascimentale — il modello li mescola su richiesta.
+🧐 Trovare i difetti
+Mani con dita extra, testo illeggibile, riflessi incoerenti: l'IA commette ancora errori caratteristici.
 
 --- Slide 29 ---
-Le domande aperte 
- Etica dell'IA 
- 
- 
- ⚖️ 
- Responsabilità 
- Se un'IA medica sbaglia diagnosi, chi risponde? Il medico, il produttore, l'ospedale? La legge non ha ancora risposte chiare. 
- 
- 
- 👁️ 
- Trasparenza 
- "Black box" — molti modelli non spiegano perché hanno deciso. Il GDPR richiede già il diritto a una spiegazione. 
- 
- 
- 🏛️ 
- Governance 
- Chi regola l'IA? Aziende private, governi, organizzazioni internazionali? Ognuno ha interessi diversi. 
- 
- 
- 🎨 
- Creatività e diritti 
- Le immagini generate da IA usano opere di artisti reali. Chi possiede il copyright del risultato?
+Le domande aperte Etica dell'IA
+⚖️ Responsabilità
+Se un'IA medica sbaglia diagnosi, chi risponde? Il medico, il produttore, l'ospedale? La legge non ha ancora risposte chiare.
+👁️ Trasparenza
+"Black box" — molti modelli non spiegano perché hanno deciso. Il GDPR richiede già il diritto a una spiegazione.
+🏛️ Governance
+Chi regola l'IA? Aziende private, governi, organizzazioni internazionali? Ognuno ha interessi diversi.
+🎨 Creatività e diritti
+Le immagini generate da IA usano opere di artisti reali. Chi possiede il copyright del risultato?
 
 --- Slide 30 ---
-Prospettive 
- Il futuro dell' IA 
- I ricercatori non concordano su cosa succederà — ma concordano che il cambiamento sarà profondo . 
- 
- AGI — Artificial General Intelligence 
- Un sistema capace di imparare qualsiasi compito come un umano. Alcune stime: 10 anni. Altre: mai. Nessuno lo sa davvero. 
- 
- 
- 
- 
- 🏥 
- Medicina 
- Diagnosi precoce di tumori, scoperta di farmaci, chirurgia robotica — l'IA potrebbe salvare milioni di vite. 
- 
- 
- 🌍 
- Clima 
- Ottimizzazione energetica, modelli climatici più precisi, nuovi materiali per batterie e pannelli solari. 
- 
- 
- 💼 
- Mercato del lavoro 
- Stima McKinsey: 300 milioni di posti a rischio automazione entro 2030. Ma anche nuovi mestieri ancora da inventare.
+Etica applicata Auto autonome: il caso difficile
+✅ Perché promettono sicurezza
+Non dormono, non si distraggono, usano sensori più precisi dell'occhio umano e migliorano con aggiornamenti software.
+⚠️ Perché restano rischiose
+Gli errori sono difficili da prevedere. Se succede un incidente, la responsabilità può ricadere su produttore, software, proprietario o passeggero.
+⚖️ Scelte morali
+Nel problema del carrello non basta frenare: qualcuno deve decidere quali criteri usare quando ogni scelta produce danni.
+🔐 Regole e hacking
+Chi possiede la patente di un'auto senza guidatore? E cosa succede se il sistema viene compromesso?
 
 --- Slide 31 ---
-Riflessione 
- L'IA è creativa ? 
- L'IA genera testo, musica, immagini, codice — ma non ha intenzioni, emozioni o esperienze vissute . Combina pattern visti nei dati. 
- 
- 
- Cosa riesce bene 
- Variazioni su temi esistenti, combinazioni inaspettate, produzione rapida di bozze, sperimentazione di stili. Ottimo assistente creativo. 
- 
- 
- Cosa non riesce 
- Originalità vera, rottura consapevole delle regole, vissuto personale, intenzione artistica autentica, comprensione del contesto culturale profondo. 
- 
- 
- 
- 💡 Posizione equilibrata 
- L'IA è uno strumento straordinariamente potente nelle mani di chi sa cosa vuole creare — non un sostituto della creatività umana.
+Rischi pratici Deepfake, voce e truffe
+🎭 Clonazione
+Immagini e video falsi sono sempre più comuni; la voce può essere clonata anche in tempo reale.
+📞 Verifica fuori canale
+Se una voce chiede soldi o dati, interrompi e ricontatta la persona su un canale diverso.
+🔑 Protezione account
+Password robuste aiutano, ma 2FA, passkey e chiavi fisiche FIDO2 riducono molto il rischio.
+Idea chiave Il problema non è solo riconoscere il falso: è costruire procedure che funzionino anche quando non riusciamo a riconoscerlo subito.
 
 --- Slide 32 ---
-Attenzione 
- Privacy e dati personali nell'era IA 
- I modelli IA sono addestrati su enormi quantità di dati. Quando usi uno strumento IA, spesso stai anche fornendo dati . 
- 
- 
- 📤 
- Cosa condividi 
- Testo che scrivi, immagini che carichi, conversazioni — potenzialmente usati per migliorare il modello. 
- 
- 
- 📄 
- Leggi i termini 
- Ogni servizio IA ha una privacy policy diversa. OpenAI, Google, Meta hanno politiche di data retention diverse. 
- 
- 
- 🔒 
- Buone pratiche 
- Non inserire dati sensibili (nome clienti, informazioni mediche, codici fiscali) in strumenti IA pubblici. 
- 
- 
- 
- 🇺 AI Act 
- Il regolamento europeo sull'IA (2024) classifica i sistemi per livello di rischio e impone obblighi di trasparenza — il più avanzato al mondo.
+Riconoscimento Segnali tipici dei contenuti IA
+🖼️ Immagini
+Fermati e chiediti se ha senso. Controlla mani, occhi, proporzioni, testi inventati, lettere e numeri deformati.
+🎬 Video
+Qualità bassa, watermark nascosti dal blur, timestamp strani, testi incoerenti e dettagli che cambiano nel tempo.
+📝 Testi
+Strutture ripetitive, coppie o triadi di aggettivi, tono positivo grandioso, liste puntate, emoji e formule troppo ordinate.
+Attenzione Nessun segnale basta da solo. Serve una valutazione complessiva: contenuto, fonte, contesto e coerenza con ciò che già sappiamo.
 
 --- Slide 33 ---
-Fine IA_01 
- L'IA sei
- anche tu. 
- 
- Capire l'IA significa capire meglio il mondo che ci circonda — i contenuti che vediamo, le decisioni che le macchine prendono per noi, e come possiamo usarla con senso critico .
- 
- 
- Prossimo → IA_02 · Esercizio 
- ↩ Indice del corso
+Creatività e lavoro IA come strumento , non scorciatoia
+❌ Falsi miti
+"L'arte è morta", "tutti possono copiare un esperto", "la creatività non serve più": sono semplificazioni sbagliate.
+✅ Uso sensato
+L'IA può accorciare tempi, produrre bozze, proporre varianti e aiutare chi ha già intenzione, gusto e capacità critica.
+🎨 Lavoro creativo
+Il miglior artista non è sempre il più tecnico: conta l'idea, la scelta, la direzione e la capacità di valutare il risultato.
+📚 Diritti
+La discussione su copyright, dataset e opere derivate resta aperta: usare IA richiede trasparenza e responsabilità.
+
+--- Slide 34 ---
+Prospettive Il futuro dell' IA
+I ricercatori non concordano su cosa succederà — ma concordano che il cambiamento sarà profondo .
+AGI — Artificial General Intelligence Un sistema capace di imparare qualsiasi compito come un umano. Alcune stime: 10 anni. Altre: mai. Nessuno lo sa davvero.
+🏥 Medicina
+Diagnosi precoce di tumori, scoperta di farmaci, chirurgia robotica — l'IA potrebbe salvare milioni di vite.
+🌍 Clima
+Ottimizzazione energetica, modelli climatici più precisi, nuovi materiali per batterie e pannelli solari.
+💼 Mercato del lavoro
+Stima McKinsey: 300 milioni di posti a rischio automazione entro 2030. Ma anche nuovi mestieri ancora da inventare.
+
+--- Slide 35 ---
+Riflessione L'IA è creativa ?
+L'IA genera testo, musica, immagini, codice — ma non ha intenzioni, emozioni o esperienze vissute . Combina pattern visti nei dati.
+Cosa riesce bene Variazioni su temi esistenti, combinazioni inaspettate, produzione rapida di bozze, sperimentazione di stili. Ottimo assistente creativo.
+Cosa non riesce Originalità vera, rottura consapevole delle regole, vissuto personale, intenzione artistica autentica, comprensione del contesto culturale profondo.
+💡 Posizione equilibrata L'IA è uno strumento straordinariamente potente nelle mani di chi sa cosa vuole creare — non un sostituto della creatività umana.
+
+--- Slide 36 ---
+Attenzione Privacy e dati personali nell'era IA
+I modelli IA sono addestrati su enormi quantità di dati. Quando usi uno strumento IA, spesso stai anche fornendo dati .
+📤 Cosa condividi
+Testo che scrivi, immagini che carichi, conversazioni — potenzialmente usati per migliorare il modello.
+📄 Leggi i termini
+Ogni servizio IA ha una privacy policy diversa. OpenAI, Google, Meta hanno politiche di data retention diverse.
+🔒 Buone pratiche
+Non inserire dati sensibili (nome clienti, informazioni mediche, codici fiscali) in strumenti IA pubblici.
+🇺 AI Act Il regolamento europeo sull'IA (2024) classifica i sistemi per livello di rischio e impone obblighi di trasparenza — il più avanzato al mondo.
+
+--- Slide 37 ---
+Fine IA_01 L'IA sei
+anche tu.
+Capire l'IA significa capire meglio il mondo che ci circonda — i contenuti che vediamo, le decisioni che le macchine prendono per noi, e come possiamo usarla con senso critico .
+Prossimo → IA_02 · Esercizio ↩ Indice del corso
