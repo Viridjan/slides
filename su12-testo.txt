@@ -1,0 +1,285 @@
+Suite Ufficio · SU12 — Manipolare il testo
+==========================================
+
+--- Slide 1 ---
+Fogli di calcolo · Google Sheets 
+ Manipolare
+ il testo 
+ Unire, dividere, cercare, sostituire e pulire il testo con le funzioni di Google Sheets. 
+ 13 slide 
+ 
+ 
+ ✂️
+
+--- Slide 2 ---
+In questo modulo 
+ I dati veri sono sporchi 
+ Export dal gestionale, moduli compilati a mano, copia-incolla da email: il testo arriva quasi sempre nel formato sbagliato. Le funzioni di testo lo rimettono in ordine senza riscrivere nulla a mano. 
+ Analogia: forbici, colla e gomma per le tue celle — tagli, unisci e cancelli senza toccare l'originale. 
+ 
+ 
+ 🔗 Unire 
+ &amp; e TESTO.UNISCI: da colonne separate a una sola 
+ ✂️ Dividere 
+ SPLIT e "Dividi il testo in colonne" 
+ 🔍 Cercare e sostituire 
+ TROVA, RICERCA, SOSTITUISCI 
+ 🧼 Pulire 
+ ANNULLA.SPAZI, MAIUSC.INIZ, LUNGHEZZA
+
+--- Slide 3 ---
+1. Unire 
+ Da tante celle a una 
+ L'operatore &amp; lo conosci già. Quando le celle da unire sono tante, TESTO.UNISCI fa la stessa cosa con un separatore unico e salta le celle vuote. 
+ =TESTO.UNISCI( "; " ; VERO ; A2:A10) 
+ Il primo argomento è il separatore, il secondo (VERO) dice di ignorare le celle vuote, il terzo è l'intervallo. In inglese la stessa funzione si chiama TEXTJOIN. 
+ 💡 Quando quale &amp; per 2–3 pezzi con separatori diversi. TESTO.UNISCI per liste lunghe con lo stesso separatore. 
+ 
+ 
+ 
+ A 
+ 2 Trucco 
+ 3 Piega 
+ 4 (vuota) 
+ 5 Manicure 
+ 7 Trucco; Piega; Manicure 
+ 
+ =TESTO.UNISCI("; ";VERO;A2:A5)
+la cella vuota sparisce dal risultato
+
+--- Slide 4 ---
+2. Dividere 
+ SPLIT: una cella, più colonne 
+ SPLIT è l'inverso dell'unione: prende un testo e lo spezza in celle separate ogni volta che incontra il delimitatore. È una funzione esclusiva di Google Sheets e mantiene il nome inglese. 
+ =SPLIT( A2 ; "-" ) 
+ Il risultato "trabocca" nelle celle a destra: servono colonne libere, altrimenti Sheets segnala errore #RIF!. 
+ 💡 Senza formula Per una divisione una tantum: seleziona la colonna e usa il menu Dati → Dividi il testo in colonne . Sheets rileva il separatore da solo. 
+ 
+ 
+ 
+ 
+ TAGLIO-COLORE-PIEGA 
+ 
+ 
+ SPLIT("-") 
+ 
+ TAGLIO 
+ 
+ COLORE 
+ 
+ PIEGA 
+ un delimitatore, tre celle 
+ 
+ Ogni "-" diventa un confine di cella
+
+--- Slide 5 ---
+3. Cercare 
+ TROVA e RICERCA : dov'è quel carattere? 
+ Entrambe restituiscono la posizione (un numero) di un testo dentro un altro. Non estraggono nulla da sole: danno la coordinata che poi passi a STRINGA.ESTRAI, SINISTRA o DESTRA. 
+ 
+ 
+ TROVA 
+ =TROVA(testo_cercato; dentro; [inizio]) 
+ Distingue maiuscole e minuscole.
+ =TROVA("@";"info@azienda.it") → 5 
+ 
+ 
+ RICERCA 
+ =RICERCA(testo_cercato; dentro; [inizio]) 
+ Ignora maiuscole/minuscole e accetta jolly (? e *).
+ =RICERCA("ROSSI";"Mario Rossi") → 7 
+ 
+ 
+ 
+ 💡 Regola pratica Nel dubbio usa RICERCA : perdona le maiuscole. TROVA serve quando la differenza tra "IT" e "it" conta. 
+ ⚠️ Se non trova Entrambe restituiscono l'errore #VALORE! quando il testo non c'è. Avvolgile in SE.ERRORE per un messaggio leggibile.
+
+--- Slide 6 ---
+4. Estrarre in modo dinamico 
+ TROVA + estrazione 
+ SINISTRA e DESTRA con un numero fisso funzionano solo se i testi hanno tutti la stessa lunghezza. Con TROVA la posizione diventa calcolata, e la formula funziona su qualsiasi riga. 
+ =SINISTRA(A2; TROVA("@";A2) -1 ) 
+ Prende tutto ciò che sta prima della "@": il nome utente di qualsiasi email, corta o lunga. Il -1 esclude la "@" stessa. 
+ In pratica: TROVA è il metro, SINISTRA sono le forbici: prima misuri dove tagliare, poi tagli. 
+ 
+ 
+ 
+ A (email) B (utente) 
+ 2 anna@azienda.it anna 
+ 3 g.bianchi@salone.it g.bianchi 
+ 4 mr@studio.it mr 
+ 
+ Stessa formula per tutte le righe:
+la posizione della @ è calcolata, non fissa
+
+--- Slide 7 ---
+5. Sostituire 
+ SOSTITUISCI e RIMPIAZZA 
+ Due modi per cambiare un pezzo di testo: per contenuto (sai cosa cercare) o per posizione (sai dove sta). 
+ 
+ 
+ SOSTITUISCI 
+ =SOSTITUISCI(testo; vecchio; nuovo; [occorrenza]) 
+ Cambia per contenuto.
+ =SOSTITUISCI("347.123.4567";".";"") → 3471234567 
+Senza il 4° argomento le cambia tutte. 
+ 
+ 
+ RIMPIAZZA 
+ =RIMPIAZZA(testo; inizio; n_car; nuovo) 
+ Cambia per posizione.
+ =RIMPIAZZA("2024-BOLLA";1;4;"2025") → 2025-BOLLA 
+ 
+ 
+ 💡 E per tutto il foglio? Per una correzione una tantum su tutto il foglio c'è Modifica → Trova e sostituisci (Ctrl+H). Le funzioni servono quando la sostituzione deve restare automatica.
+
+--- Slide 8 ---
+6. Pulire 
+ Spazi invisibili 
+ "Roma " con lo spazio finale non è uguale a "Roma": CERCA.VERT e CONTA.SE lo trattano come un valore diverso. È l'errore invisibile più comune nei dati incollati. 
+ 
+ → =ANNULLA.SPAZI(A2) 
+ Toglie spazi iniziali, finali e doppi 
+ → =LUNGHEZZA(A2) 
+ Conta i caratteri: se "Roma" dà 5, c'è uno spazio nascosto 
+ 
+ Regola: dati incollati da fuori? Prima ANNULLA.SPAZI, poi tutto il resto. 
+ 
+ 
+ 💡 Diagnosi rapida Un CERCA.VERT che dà #N/D su un valore che "vedi" nel foglio? Confronta LUNGHEZZA della cella cercata e di quella nella tabella: se i numeri differiscono, il colpevole è uno spazio. 
+ 💡 Cugina utile PULISCI rimuove i caratteri non stampabili (a capo strani, tab) che arrivano da export e PDF. Si combina: =ANNULLA.SPAZI(PULISCI(A2))
+
+--- Slide 9 ---
+7. Maiuscole e minuscole 
+ MAIUSC, MINUSC, MAIUSC.INIZ 
+ Uniformare il formato dei nomi scritti in dieci modi diversi da dieci persone diverse: tre funzioni, zero fatica. 
+ 
+ 
+ MAIUSC 
+ =MAIUSC(testo) 
+ Tutto maiuscolo.
+ =MAIUSC("it") → "IT" 
+Per sigle e codici. 
+ 
+ 
+ MINUSC 
+ =MINUSC(testo) 
+ Tutto minuscolo.
+ =MINUSC("Anna@AZIENDA.it") → "anna@azienda.it" 
+Standard per le email. 
+ 
+ 
+ MAIUSC.INIZ 
+ =MAIUSC.INIZ(testo) 
+ Prima lettera di ogni parola maiuscola.
+ =MAIUSC.INIZ("mario ROSSI") → "Mario Rossi" 
+Per nomi e cognomi. 
+ 
+ 
+ ⚠️ Limite di MAIUSC.INIZ Mette la maiuscola a ogni parola, anche dove non va: "de luca" → "De Luca" (bene), ma "d'angelo" → "D'Angelo" e "DELL'ORTO" → "Dell'Orto". Controlla i cognomi con apostrofi e particelle.
+
+--- Slide 10 ---
+Caso pratico 
+ Pulizia in catena 
+ Dal modulo online arriva "&nbsp;&nbsp;mario&nbsp;&nbsp;ROSSI " . Per la rubrica clienti serve "Mario Rossi". Le funzioni si annidano: il risultato di una è l'ingresso della successiva. 
+ =MAIUSC.INIZ( ANNULLA.SPAZI( A2 ) ) 
+ Si legge da dentro verso fuori: prima ANNULLA.SPAZI toglie gli spazi di troppo, poi MAIUSC.INIZ sistema le maiuscole. 
+ 💡 Colonna di appoggio Crea la formula in una colonna nuova, verifica il risultato, poi copia → Incolla speciale → Solo valori sopra l'originale ed elimina la colonna di appoggio. 
+ 
+ 
+ 
+ 
+ " mario ROSSI " 
+ 
+ 
+ ANNULLA.SPAZI 
+ 
+ "mario ROSSI" 
+ 
+ MAIUSC.INIZ 
+ 
+ "Mario Rossi" 
+ 
+ Ogni passaggio ripulisce un difetto
+
+--- Slide 11 ---
+Riepilogo 
+ La cassetta degli attrezzi del testo 
+ 
+ 
+ &amp; / TESTO.UNISCI 
+ =TESTO.UNISCI(sep;VERO;range) 
+ Unire celle 
+ 
+ 
+ SPLIT 
+ =SPLIT(testo;delim) 
+ Dividere in colonne 
+ 
+ 
+ TROVA / RICERCA 
+ =TROVA(cosa;dove) 
+ Posizione di un testo 
+ 
+ 
+ SOSTITUISCI 
+ =SOSTITUISCI(t;vec;nuovo) 
+ Cambiare per contenuto 
+ 
+ 
+ RIMPIAZZA 
+ =RIMPIAZZA(t;pos;n;nuovo) 
+ Cambiare per posizione 
+ 
+ 
+ ANNULLA.SPAZI 
+ =ANNULLA.SPAZI(t) 
+ Spazi di troppo via 
+ 
+ 
+ LUNGHEZZA 
+ =LUNGHEZZA(t) 
+ Contare i caratteri 
+ 
+ 
+ MAIUSC.INIZ 
+ =MAIUSC.INIZ(t) 
+ Maiuscole uniformi 
+ 
+ 
+ Regola: le funzioni di testo non modificano mai la cella originale — producono una copia corretta altrove.
+
+--- Slide 12 ---
+Verifica 
+ Sapresti rispondere ? 
+ 
+ 
+ 🔗 
+ Unire con separatore 
+ Hai 20 servizi in A2:A21, alcune celle vuote. Che formula produce un'unica cella con i servizi separati da virgola, senza virgole doppie? 
+ 
+ 
+ ✂️ 
+ Dividere un codice 
+ La cella A2 contiene "TAGLIO-COLORE-PIEGA". In due modi diversi (formula e menu) come lo porti su tre colonne? 
+ 
+ 
+ 
+ 
+ 🔍 
+ Estrarre il dominio 
+ Da "anna@azienda.it" vuoi la parte dopo la @. Quali due funzioni combini, e a cosa serve TROVA nel calcolo? 
+ 
+ 
+ 🧼 
+ Il CERCA.VERT che fallisce 
+ Un CERCA.VERT dà #N/D ma il valore "esiste" nel foglio. Quale funzione usi per diagnosticare e quale per correggere?
+
+--- Slide 13 ---
+Fine SU12 
+ Testo sporco,
+ dati puliti. 
+ Unire, dividere, cercare, sostituire, pulire: qualunque forma abbia il testo in ingresso, ora sai riportarlo in ordine con una formula. 
+ 
+ Prossimo → SU11 · Dillo con una slide 
+ ↩ Indice del corso

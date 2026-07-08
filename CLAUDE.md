@@ -290,7 +290,9 @@ Navigation chain: sm01 → … → sm11
 
 ### Suite Ufficio
 
-Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 → su08 → su09 → su10 → su11
+Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 → su08 → su09 → su10 → su12 → su11
+(su12 sits between su10 and su11: text functions belong to the spreadsheet
+block, su11 stays the course finale)
 
 | File | Title |
 | --- | --- |
@@ -305,6 +307,7 @@ Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 →
 | `su09-analisi.html` | Analizzare e cercare |
 | `su10-funzioni-top.html` | Le 10 funzioni più usate |
 | `su11-presentazioni.html` | Dillo con una slide |
+| `su12-testo.html` | Manipolare il testo |
 
 ### Intelligenza Artificiale
 
