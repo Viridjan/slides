@@ -39,7 +39,7 @@ Le basi
  🕳️ 
  Vulnerabilità (Vulnerability) 
  Un difetto nel nostro sistema che permette alla minaccia di fare danno: software non aggiornato, password debole, configurazione errata. Questa la controlliamo noi. 
- Esempio: usare Windows XP senza aggiornamenti nel 2024. 
+ Esempio: usare oggi un sistema operativo fuori supporto, senza aggiornamenti di sicurezza. 
  
  
  
@@ -91,7 +91,7 @@ digitale
  Cifra tutti i tuoi file — foto, documenti, lavoro — e chiede un riscatto in criptovaluta per restituirli. Spesso non li restituisce neanche dopo il pagamento. 
  Un click su un allegato email sbagliato può cifrare in pochi minuti l'intero disco fisso, tutti i file di rete condivisi, tutti gli hard disk collegati via USB. 
  
- 📊 Impatto reale 2023 
+ Impatto reale 2023 
  Il riscatto medio richiesto alle PMI italiane nel 2023 è stato di € 82.000 . Il 40% delle aziende colpite ha chiuso entro 12 mesi dall'attacco. 
  
  
@@ -150,7 +150,7 @@ Inganno digitale
  
  
  
- 📊 Lo sapevi? 
+ Lo sapevi? 
  Il 36% di tutte le violazioni di dati nel 2023 è iniziato con un attacco di phishing. È la porta d'ingresso più usata dagli hacker, proprio perché funziona.
 
 --- Slide 7 ---
@@ -229,7 +229,7 @@ Reti wireless
  
  
  
- 🛡️ Regole per il WiFi pubblico 
+ Regole per il WiFi pubblico 
  Non fare operazioni bancarie su WiFi pubblico. Usa sempre HTTPS (🔒 nel browser). Se possibile, attiva una VPN per cifrare tutto il traffico.
 
 --- Slide 9 ---
@@ -240,7 +240,7 @@ Intercettazione
  Immagina di mandare una lettera a qualcuno. Il postino la apre, la legge, eventualmente cambia il contenuto e la richiude. Tu e il destinatario non sapete nulla. 
  
  
- ✅ Come difendersi 
+ Come difendersi 
  Controlla sempre il lucchetto 🔒 nella barra del browser (HTTPS). Non ignorare gli avvisi di certificato SSL scaduto o non valido — segnalano spesso un MITM. 
  
  
@@ -281,7 +281,7 @@ Attacchi di rete
  Una botnet è una rete di dispositivi infetti controllati a distanza da un hacker — a tua insaputa. Il tuo computer potrebbe farne parte adesso. 
  Le botnet vengono usate per lanciare attacchi DDoS (Distributed Denial of Service): migliaia di dispositivi bombardano un sito con richieste fino a farlo crashare. 
  
- 📊 Scala reale 
+ Scala reale 
  La botnet Mirai nel 2016 ha usato 600.000 dispositivi IoT (telecamere, router, frigoriferi smart) per abbattere Netflix, Twitter e Reddit con un singolo attacco. 
  
  Analogia: 10.000 persone che bloccano l'ingresso di un negozio. 
@@ -290,7 +290,7 @@ Attacchi di rete
  
  
  
- C&C 
+ C&amp;C 
  
  
  
@@ -335,11 +335,11 @@ Minacce avanzate
  
  
  
- 🛡️ Come difendersi 
+ Come difendersi 
  Contro le zero-day non esiste patch. L'unica difesa è la difesa in profondità : più strati di sicurezza, così che una sola vulnerabilità non basti a compromettere tutto. 
  
  
- 📊 Esempio famoso 
+ Esempio famoso 
  WannaCry (2017): zero-day in Windows usata da NSA, rubata e pubblicata. Colpì 230.000 computer in 150 paesi in un solo weekend. Incluso il NHS britannico.
 
 --- Slide 12 ---
@@ -447,7 +447,7 @@ Strumenti di difesa
  
  
  ⚡ EDR 
- Endpoint Detection & Response. Analizza il comportamento dei processi in tempo reale. Rileva anche minacce mai viste prima. 
+ Endpoint Detection &amp; Response. Analizza il comportamento dei processi in tempo reale. Rileva anche minacce mai viste prima. 
  CrowdStrike, SentinelOne, Defender ATP 
  
  
@@ -525,7 +525,7 @@ Tunnel sicuro
  Particolarmente utile su WiFi pubblici, per aggirare censure geografiche, e per mascherare il tuo indirizzo IP dal sito che visiti. 
  
  
- ✅ VPN consigliate (no log) 
+ VPN consigliate (no log) 
  Mullvad — massima privacy, pagamento anonimo. ProtonVPN — free plan disponibile, open source. Wireguard — protocollo moderno, molto veloce. 
  
  
@@ -582,21 +582,7 @@ Cosa fare se
  Il pagamento non garantisce il ripristino dei dati — e finanzia il gruppo criminale. Con un buon backup, il riscatto diventa irrilevante.
 
 --- Slide 19 ---
-Verifica veloce 
- È tutto chiaro? 
- Prova a rispondere a mente: 
- 
- 1. Qual è la differenza tra un virus e un worm? Quale si diffonde più velocemente e perché? 
- 2. Perché il ransomware è considerato la minaccia più distruttiva per le aziende? 
- 3. Cosa devi controllare PRIMA di cliccare su un link in una email urgente? 
- 4. Hai subito un attacco. Qual è la prima azione da compiere? E la seconda? 
- 
- 
- 🎯 Scenario pratico 
- Ti arriva un SMS: "Il tuo conto Intesa Sanpaolo è stato bloccato. Clicca qui per sbloccare: bit.ly/3xZ9q" . Cosa fai? Nomina tutti i segnali d'allarme che vedi.
-
---- Slide 20 ---
 Fine Concetto 02 
- Armati! 🛡️ 
+ Armati! 
  Ora conosci le principali minacce della rete. Nel prossimo e ultimo concetto esploriamo la Privacy, l'Anonimato e il Pseudonimato : come proteggere la propria identità digitale. 
  Prossimo → C3 · Privacy e Anonimato ↩ Indice del corso

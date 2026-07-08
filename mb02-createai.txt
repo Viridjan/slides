@@ -2,34 +2,79 @@ Programmare con Micro:bit · MB02 — CreateAI
 ===========================================
 
 --- Slide 1 ---
-Programmare con Micro:bit MB02 Introduzione a Micro:bit CreateAI: sessioni, campioni, dati live, azioni e addestramento del modello.
+Programmare con Micro:bit · MB02 Micro:bit
+ CreateAI Sessioni, campioni, dati live, azioni e addestramento del modello con Micro:bit CreateAI. CreateAI Campioni Training
 
 --- Slide 2 ---
-Cosa vedremo: Ambiente online; Azioni; Samples; Live data; Train model
+In questo modulo Cosa vedremo 📍 Ambiente online 
+ createai.microbit.org e nuova sessione 🧩 Azioni 
+ categorie che il modello deve riconoscere 🛠 Samples 
+ campioni registrati per ciascuna azione 🎯 Live data 
+ dati in tempo reale dalla scheda 🔁 Training 
+ addestrare e testare un modello 💡 Qualita 
+ dataset, errori, iterazione e documentazione
 
 --- Slide 3 ---
-CreateAI in breve Il secondo modulo Micro:bit introduce CreateAI: un ambiente online per raccogliere esempi, addestrare un modello e usarlo con la scheda.
+IA applicata CreateAI in breve CreateAI porta Micro:bit dentro un flusso di machine learning: si registrano esempi, si etichettano azioni, si addestra e si testa un modello. In pratica: invece di scrivere ogni regola, mostriamo esempi e verifichiamo se il modello impara la distinzione. Dati, campioni e modello entrano nel laboratorio Micro:bit.
 
 --- Slide 4 ---
-Avviare una sessione Si apre createai.microbit.org, si crea una nuova sessione e si lavora interamente online. Browser: Il software è online, come MakeCode. New Session: Il pulsante crea l'ambiente di lavoro per registrare dati e azioni. Salva: La sessione deve essere salvata per non perdere campioni e modello. Scheda collegata: Micro:bit fornisce dati reali da usare nel progetto.
+Accesso Avviare una sessione Il vecchio file parte dal browser: createai.microbit.org, New Session e lavoro interamente online. 🌐 Browser L'ambiente è online, come MakeCode. ➕ New Session Crea lo spazio di lavoro per azioni, campioni e modello. 🔗 Scheda collegata Micro:bit fornisce dati reali da registrare. 💾 Salva La sessione va salvata per non perdere lavoro e campioni.
 
 --- Slide 5 ---
-Le aree dell'IDE Il vecchio file elenca le aree principali: azioni, rappresentazione, record, samples, live data, aggiunta azione, train model e salvataggio. Azioni: Le categorie che vogliamo far riconoscere al modello. Rappresentazione: Visualizza i dati raccolti e aiuta a capire se sono distinguibili. Record: Registra esempi reali da associare a ogni azione. Samples: Raccoglie i campioni su cui il modello imparerà.
+Interfaccia Le aree dell IDE Il file originale elenca le parti fondamentali: azioni, rappresentazione, record, samples, live data, aggiungi azione, train model e salva. 🏷 Azioni Le classi da riconoscere: per esempio gesto A e gesto B. 📈 Rappresentazione Mostra i dati raccolti e aiuta a vedere differenze tra azioni. ⏺ Record Registra esempi reali mentre si compie l azione. 🧪 Samples Contiene i campioni registrati. 📡 Live data Mostra dati in tempo reale dalla scheda. 🧠 Train model Addestra il modello sui campioni raccolti.
 
 --- Slide 6 ---
-Dati live e campioni CreateAI rende esplicita una parte fondamentale dell'IA: un modello dipende dalla qualità degli esempi raccolti. Live data: Mostra cosa sta leggendo Micro:bit in tempo reale. Esempi coerenti: Ogni azione deve avere campioni puliti e rappresentativi. Equilibrio: Le azioni dovrebbero avere quantità simili di esempi. Pulizia: Campioni sbagliati o rumorosi rendono il modello meno affidabile.
+Metodo Pipeline CreateAI Il lavoro non è un singolo clic: è una pipeline ripetibile di definizione, raccolta dati, training e test. definisci azioni → registra samples → osserva live data → train model → testa → correggi dataset → salva
 
 --- Slide 7 ---
-Addestrare il modello Train model usa i campioni registrati per costruire un classificatore capace di riconoscere le azioni definite. Training: Il modello cerca pattern nei dati associati alle azioni. Test: Dopo l'addestramento si verifica se riconosce nuovi movimenti o situazioni. Iterazione: Se sbaglia, si raccolgono nuovi campioni e si riaddestra. Salvataggio: Il modello va salvato insieme alla sessione.
+Dataset Azioni come etichette Una azione è una categoria: assegniamo un nome a un comportamento che vogliamo riconoscere. 🏷 Etichetta Il nome dice al modello cosa rappresenta un gruppo di campioni. 🧍 Gesto chiaro Le azioni devono essere distinguibili tra loro. 🚫 Categorie confuse Azioni troppo simili generano errori frequenti. ✏️ Nome esplicito Nomi come fermo, shake, sinistra, destra sono più utili di A e B.
 
 --- Slide 8 ---
-Cosa cambia rispetto ai blocchi Con MakeCode classico si scrivono regole esplicite; con CreateAI si lavora per esempi, dati e verifica empirica. Regole: Se accade X, fai Y: logica esplicita e controllabile. Esempi: Questa sequenza appartiene all'azione A: apprendimento dai campioni. Incertezza: Il modello può sbagliare; va testato con casi nuovi. Pensiero critico: L'IA non sostituisce il progetto: richiede scelte, dati e controlli.
+Campioni Registrare samples I campioni sono esempi concreti. Il modello non capisce intenzioni: vede solo dati associati a etichette. ⏺ Record Registra mentre l azione viene eseguita. 📦 Samples Ogni registrazione diventa un esempio nel dataset. 🔁 Ripetizioni Servono più esempi per rappresentare la variabilita reale. 🧹 Scarta errori Campioni sbagliati insegnano cose sbagliate.
 
 --- Slide 9 ---
-Routine di laboratorio Una buona attività CreateAI segue passaggi ordinati per evitare modelli fragili. Definisci le azioni: Scegli categorie chiare e distinguibili. Registra campioni: Raccogli più esempi per ogni azione, variando leggermente l'esecuzione. Allena il modello: Usa Train model e osserva il comportamento. Prova con dati nuovi: Testa movimenti non registrati e correggi il dataset. Salva e documenta: Annota cosa funziona, cosa confonde il modello e come migliorarlo.
+Osservazione Live data Prima di addestrare, guardare i dati live aiuta a capire se le azioni producono segnali distinguibili. 📡 Tempo reale Mostra cosa sta leggendo la scheda mentre la muovi. 📈 Pattern Se due azioni disegnano segnali diversi, il modello avra più chance. 🔇 Rumore Movimenti casuali o mani instabili rendono il dato meno pulito. 🧭 Decisione Se i dati sono confusi, cambia gesto o raccogli esempi migliori.
 
 --- Slide 10 ---
-Dal sensore all'IA CreateAI collega Micro:bit ai concetti chiave dell'intelligenza artificiale: dati, etichette, campioni, addestramento, test e iterazione. Etichette: Ogni campione ha un significato assegnato dallo studente. Dataset: Il modello vede solo gli esempi che raccogliamo. Validazione: La qualità si misura su prove nuove, non solo sui campioni di training. Miglioramento: Aggiungere dati migliori è spesso più utile che cambiare interfaccia.
+Dataset Qualità del dataset La qualità degli esempi conta più della magia dell'IA. Un dataset debole produce un modello debole. ⚖️ Bilanciamento Ogni azione dovrebbe avere una quantita simile di campioni. 🎯 Coerenza Ogni campione deve mostrare davvero l azione dichiarata. 🌱 Variabilita sana Raccogli esempi leggermente diversi, non copie identiche. 🧹 Pulizia Elimina registrazioni fatte male o partite in ritardo.
 
 --- Slide 11 ---
-IA concreta, non magica CreateAI mostra che un modello nasce da esempi, scelte e verifiche. Micro:bit rende tutto osservabile in laboratorio.
+Confronto Pensare per esempi Nel codice classico scriviamo regole. In CreateAI costruiamo un insieme di esempi da cui il sistema ricava una distinzione. 💡 Lettura Il modello può sbagliare: per questo test e iterazione fanno parte del lavoro, non sono opzionali. Regole:
+ se accelerazione &gt; soglia allora shake
+
+Esempi:
+ campioni etichettati &quot;shake&quot;
+ campioni etichettati &quot;fermo&quot;
+ train model
+ test su dati nuovi
+
+--- Slide 12 ---
+Training Train model Train model usa i campioni per costruire un classificatore capace di riconoscere nuove letture simili. 🧠 Apprendimento Il modello cerca differenze ricorrenti tra le azioni. 📊 Separazione Azioni ben separate nei dati sono più facili da riconoscere. ⏳ Attesa Il training richiede tempo e va ripetuto dopo modifiche al dataset. 💾 Salvataggio Salvare conserva sessione e lavoro svolto.
+
+--- Slide 13 ---
+Verifica Testare dopo il training Il test va fatto con movimenti nuovi, non solo ripetendo esattamente i campioni usati per addestrare. 🆕 Dati nuovi Prova esempi non registrati nel dataset. ✅ Riconoscimento corretto Il modello assegna l azione giusta? ❌ Errore Se confonde due azioni, osserva quali campioni sono troppo simili. 🔁 Iterazione Aggiungi o pulisci dati e riaddestra.
+
+--- Slide 14 ---
+Metodo Routine di laboratorio Una buona attività CreateAI segue passaggi ordinati per evitare modelli fragili. Definisci le azioni 
+Scegli poche categorie chiare e distinguibili. Prepara il gesto 
+Spiega come deve essere eseguito prima di registrare. Registra campioni 
+Raccogli più esempi per ogni azione. Controlla live data 
+Verifica se i segnali sono diversi e leggibili. Allena il modello 
+Usa Train model e osserva i risultati. Testa con dati nuovi 
+Prova movimenti non presenti nei campioni. Correggi e salva 
+Migliora il dataset e salva la sessione.
+
+--- Slide 15 ---
+Debug Quando il modello sbaglia Gli errori sono informazioni utili: indicano dove il dataset o la definizione delle azioni non sono chiari. 🔀 Azioni simili Due gesti producono dati troppo vicini. 📉 Pochi campioni Il modello ha visto troppi pochi esempi. ⚖️ Dataset sbilanciato Una azione ha molti più campioni delle altre. 🧹 Campioni sporchi Registrazioni sbagliate o rumorose confondono il training. 🧪 Test troppo facile Ripetere solo gli esempi noti non misura generalizzazione. ✏️ Etichette deboli Nomi e categorie non corrispondono a gesti ben definiti.
+
+--- Slide 16 ---
+Confronto Regole vs modello MakeCode classico e CreateAI insegnano due modi diversi di costruire comportamento. 🧱 Regole esplicite Se accade X, fai Y. Si capisce subito cosa succede. 📊 Esempi etichettati Mostriamo casi e lasciamo che il modello impari pattern. 🔍 Controllabilita Le regole sono più trasparenti; il modello richiede test. 🧭 Scelta didattica Usa regole per logica chiara, esempi per riconoscimenti difficili da descrivere.
+
+--- Slide 17 ---
+Metodo Documentare il modello La documentazione serve per capire perché un modello funziona o fallisce e per ripetere l esperimento. 📝 Azioni scelte Scrivi quali categorie vuoi riconoscere. 📦 Numero campioni Segna quanti esempi hai per ogni azione. 🧪 Test effettuati Annota quali prove nuove hai fatto. 🛠 Correzioni Registra cosa hai cambiato prima del training successivo.
+
+--- Slide 18 ---
+Sintesi Dal sensore all'IA CreateAI collega sensori, dati ed etichette: il modello non nasce dal nulla, nasce dal modo in cui raccogliamo esempi. sensore → live data → samples → etichette → train model → test → decisione
+
+--- Slide 19 ---
+Fine MB02 IA concreta, non magica CreateAI mostra che un modello nasce da esempi, scelte, test e correzioni. Micro:bit rende il processo osservabile in laboratorio. ↩ Indice del corso

@@ -89,7 +89,7 @@ Tester
  
  Black box Grey box White box 
  
- 🎓 Certificazioni di riferimento 
+ Certificazioni di riferimento 
  CEH (Certified Ethical Hacker) · OSCP (Offensive Security Certified Professional) · eJPT (eLearnSecurity Junior Penetration Tester) 
  
  
@@ -148,11 +148,11 @@ Responder
  L'Incident Responder lavora spesso sotto pressione estrema, con sistemi critici offline e management in attesa. Serve sangue freddo e metodo rigoroso. 
  
  
- 🔬 Digital Forensics 
+ Digital Forensics 
  Spesso abbinato al Digital Forensics (DFIR): analisi delle prove digitali, recupero dati, ricostruzione della timeline dell'attacco per fini legali e investigativi. 
  
  
- 🏢 Dove lavora 
+ Dove lavora 
  Presente nelle grandi organizzazioni con SOC interno, nelle aziende di sicurezza gestita (MSSP) e nelle forze dell'ordine con unità di cybercrime.
 
 --- Slide 7 ---
@@ -189,7 +189,7 @@ Security Officer
  Compliance 
  
  
- 🏢 Contesto organizzativo 
+ Contesto organizzativo 
  Presente in aziende medio-grandi, banche, pubblica amministrazione, aziende sanitarie, operatori di infrastrutture critiche. In piccole realtà il ruolo è spesso assorbito dall'IT Manager. 
  
  
@@ -261,7 +261,7 @@ Internetworking
  L' internetworking è l'insieme delle tecnologie (protocolli, dispositivi, standard) che permettono a queste reti diverse di comunicare come se fossero una sola. 
  
  
- 📊 La scala di Internet 
+ La scala di Internet 
  Oltre 5 miliardi di utenti · 1,7 miliardi di siti web · 5 miliardi di email inviate al giorno · 400 ore di video caricate su YouTube ogni minuto. 
  
  Analogia: una rete di strade locali collegate in un'unica autostrada globale. 
@@ -332,15 +332,15 @@ i dati in rete
  Internet non trasmette i dati come un unico blocco — li spezza in pacchetti numerati, li invia per percorsi diversi e li riassembla a destinazione. 
  
  
- 📦 IP — Indirizzo Internet 
+ IP — Indirizzo Internet 
  Ogni dispositivo ha un indirizzo IP univoco (es. 192.168.1.1). È come l'indirizzo postale: indica dove mandare i dati. 
  
  
- 🤝 TCP — Consegna garantita 
+ TCP — Consegna garantita 
  Stabilisce una connessione, invia i pacchetti in ordine, conferma la ricezione di ogni pacchetto. Usato per HTTP, email. Lento ma affidabile. 
  
  
- ⚡ UDP — Velocità senza garanzie 
+ UDP — Velocità senza garanzie 
  Invia i pacchetti senza conferma. Più veloce ma può perdere dati. Usato per videochiamata, gaming, streaming — dove una piccola perdita è accettabile. 
  
  
@@ -483,21 +483,7 @@ Riepilogo
  Direttivo
 
 --- Slide 16 ---
-Verifica veloce 
- È tutto chiaro? 
- Prova a rispondere a mente: 
- 
- 1. Qual è la differenza tra un SOC Analyst e un Penetration Tester? Uno è difensivo, l'altro offensivo — spiega. 
- 2. Cosa fa un Firewall che uno Switch non può fare? Perché entrambi sono necessari? 
- 3. Cos'è il DNS? Cosa succederebbe se fosse compromesso? 
- 4. Cosa fa esattamente un Security Architect? In cosa differisce da un Security Engineer? 
- 
- 
- 🎯 Discussione 
- Quale tra i ruoli descritti ti sembra più vicino al lavoro di un informatico che già conosci? Esistono figure simili in altri settori (medicina, diritto, ingegneria)?
-
---- Slide 17 ---
 Fine Concetto 04 
- Connessi! 🌐 
+ Connessi! 
  Conosci le figure professionali della cybersecurity e come funziona Internet. Nel prossimo concetto entriamo nel dettaglio di Vulnerability Assessment, Compliance digitale e controllo dei dati personali . 
  Prossimo → C5 · Assessment e Compliance ↩ Indice del corso

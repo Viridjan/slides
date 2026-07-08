@@ -2,34 +2,98 @@ Programmare con Micro:bit · MB01 — Fondamenti
 =============================================
 
 --- Slide 1 ---
-Programmare con Micro:bit MB01 MakeCode, microcontrollore, simulatore, download e primi progetti con sensori e LED.
+Programmare con Micro:bit · MB01 Programmare
+ Micro:bit MakeCode, microcontrollore, simulatore, download e primi progetti con sensori e LED. Micro:bit MakeCode Sensori
 
 --- Slide 2 ---
-Cosa vedremo: Cos'è Micro:bit; MakeCode; Primi output; Sensori; Progetti guidati
+In questo modulo Cosa vedremo 📍 Micro:bit 
+ scheda embedded per robotica educativa 🧩 MakeCode 
+ simulatore, toolbox, workspace e download 🛠 Output 
+ LED, stringhe, numeri e icone 🎯 Input 
+ shake, pin, suono, bussola e movimento 🔁 Progetti 
+ Love, dado, Love Meter, clap, bussola e contapassi 💡 Metodo 
+ test, caricamento e debug fisico
 
 --- Slide 3 ---
-Micro:bit in breve Micro:bit è un sistema embedded progettato per la formazione informatica: una piccola scheda programmabile con LED, pulsanti, sensori e pin.
+Definizione Micro:bit in breve Micro:bit è un sistema embedded progettato per la formazione informatica: una piccola scheda programmabile con LED, pulsanti, sensori e pin. In pratica: è un computer minimo che trasforma codice in comportamento fisico osservabile. LED, pulsanti, pin e sensori diventano materiali didattici.
 
 --- Slide 4 ---
-Microcontrollore Il corso originale introduce Micro:bit come microcontrollore: un circuito integrato nato per applicazioni specifiche di controllo digitale. Embedded: Esegue compiti mirati dentro oggetti, prototipi e sistemi di controllo. Output: La matrice LED mostra icone, numeri e stringhe. Input: Pulsanti, pin, accelerometro, microfono e bussola generano eventi. Progetto fisico: Il codice non resta sullo schermo: viene caricato sulla scheda.
+Hardware Microcontrollore Il vecchio corso introduce il microcontrollore come un circuito integrato per applicazioni specifiche di controllo digitale. 🔌 Embedded Esegue compiti mirati dentro oggetti, prototipi e sistemi di controllo. 🧠 Alternativa al processore Non è un PC generico: è pensato per controllare input e output. 💡 Output immediato La matrice LED mostra icone, numeri e stringhe. 📦 Progetto fisico Il codice viene caricato sulla scheda e produce un comportamento reale.
 
 --- Slide 5 ---
-Usare MakeCode Si lavora online su makecode.microbit.org: nuovo progetto, nome, creazione e programmazione a blocchi. Simulatore: Permette di vedere il comportamento del programma prima del download. Toolbox: I blocchi sono divisi per colore e funzione, come in Scratch. Workspace: Area centrale in cui si compone l'algoritmo. Download: Il pulsante download carica il programma sul Micro:bit seguendo i passaggi indicati.
+Hardware Tour della scheda Anche senza entrare nei dettagli elettronici, conviene nominare i pezzi che useremo nei progetti. 💡 Matrice LED Output principale: icone, numeri, frecce, testo scorrevole. 🔘 Pulsanti Input semplici per giochi e controlli. 📌 Pin Punti di contatto per circuiti è interazioni fisiche. 🤝 Accelerometro Rileva shake, passi e movimento. 🧭 Bussola Misura direzione e orientamento. 🎙 Microfono Permette progetti basati su suono e clap, dove disponibile.
 
 --- Slide 6 ---
-Love! Il primo esercizio usa due blocchi show leds e un blocco forever per creare una piccola animazione sulla matrice LED. Show leds: Disegna un'icona direttamente sulla griglia di LED. Forever: Ripete continuamente la sequenza scelta. Feedback immediato: Il simulatore mostra subito il risultato. Caricamento: Dopo il test si scarica il programma sulla scheda.
+IDE Entrare in MakeCode Si lavora online su makecode.microbit.org: nuovo progetto, nome, creazione e programmazione a blocchi. 🌐 Browser Il software è online e non richiede installazioni per iniziare. ➕ New Project Crea un progetto nuovo e chiede un nome. 🧰 Toolbox Blocchi divisi per funzione e colore. 🧱 Workspace Area in cui si costruisce l'algoritmo.
 
 --- Slide 7 ---
-Dado a 6 facce Il dado usa on shake, show number e pick random per trasformare un gesto fisico in un numero casuale. On shake: L'accelerometro rileva lo scuotimento della scheda. Pick random: Genera un numero casuale da 1 a 6. Show number: Mostra il risultato sulla matrice LED. Evento: Il programma reagisce a un input invece di partire solo all'avvio.
+Interfaccia Le aree dell IDE Il file originale nomina simulator, toolbox, linguaggio, azioni rapide, workspace, salvataggio e download. 🖥 Simulator Mostra cosa farebbe la scheda prima del caricamento. 🧰 Toolbox Dove si cercano i blocchi. 🔤 Linguaggio Si può lavorare a blocchi e, se previsto, passare a testo. ⚡ Azioni rapide Comandi utili per modificare o gestire il progetto. ⬇️ Download Scarica il programma da copiare sulla scheda. 💾 Salvataggio Conserva il progetto per riprenderlo o condividerlo.
 
 --- Slide 8 ---
-Love Meter Il Love Meter usa on pin pressed: due persone toccano pin 0 e GND per chiudere il circuito e generare un valore. Pin 0 e GND: I pin diventano input fisici semplici da sperimentare. Show string: All'avvio si può mostrare una scritta introduttiva. Numero casuale: Come nel dado, si può visualizzare un valore generato dal programma. Interazione: Il progetto richiede partecipazione e rende visibile il circuito.
+Flusso Dal simulatore alla scheda Il ciclo di lavoro e sempre lo stesso: costruire, provare, caricare, osservare e correggere. crea progetto → aggiungi blocchi → test simulatore → download → carica su Micro:bit → prova fisica → modifica
 
 --- Slide 9 ---
-Clap, bussola, contapassi Gli esercizi successivi introducono variabili e sensori: suono, direzione e movimento. Clap! Clap!: Una variabile lightsOn tiene traccia dello stato acceso/spento. Bussola: Una variabile degrees conserva la direzione rilevata. Contapassi: Una variabile steps aumenta con il movimento. Leggere il codice: Il corso invita a capire il funzionamento dei blocchi, non solo copiarli.
+Output LED Love! Il primo progetto usa due disegni LED dentro un ciclo per sempre. 💡 Lettura Il simulatore permette di vedere subito l animazione prima del download. per sempre
+ mostra led a forma di cuore grande
+ pausa 500 ms
+ mostra led a forma di cuore piccolo
+ pausa 500 ms
 
 --- Slide 10 ---
-Metodo di lavoro Ogni progetto segue una routine didattica ripetibile: trova i blocchi, componi, prova nel simulatore, scarica, osserva, modifica. Individuare i blocchi: I colori della toolbox aiutano a trovare le funzioni richieste. Comporre algoritmo: Si incastrano eventi, output, condizioni, cicli e variabili. Testare: Il simulatore riduce errori prima del caricamento. Sperimentare: La scheda rende il debugging concreto: si prova con mani, suoni e movimento.
+Output Show leds e show string La matrice LED e limitata, ma didatticamente molto efficace: obbliga a ragionare su rappresentazioni semplici. ❤️ Show leds Disegna una piccola icona nella griglia. 🔢 Show number Mostra numeri come punteggi, dado o misure. 🔤 Show string Fa scorrere testo breve sulla matrice. ⏱ Pause Le pause rendono leggibile l animazione.
 
 --- Slide 11 ---
-Dal codice al mondo fisico Micro:bit rende visibile il legame tra algoritmo, sensore, evento e comportamento della scheda.
+Random Dado a 6 facce Il dado trasforma un gesto fisico, scuotere la scheda, in un numero casuale. 💡 Lettura Attenzione agli estremi: se il random parte da 0, il dado può mostrare uno zero non desiderato. quando shake
+ mostra numero pick random da 1 a 6
+
+--- Slide 12 ---
+Input Eventi fisici Micro:bit è utile perché gli eventi non arrivano solo da mouse e tastiera: arrivano dal corpo e dall'ambiente. 🤝 Shake Attivato dall accelerometro quando la scheda viene scossa. 🔘 Button pressed I pulsanti permettono menu, reset, conferme e giochi. 📌 Pin pressed Il contatto elettrico diventa input. 👏 Sound Il clap può diventare comando quando il dispositivo lo supporta.
+
+--- Slide 13 ---
+Pin Love Meter Il progetto usa i pin come input fisico: toccare P0 e GND chiude il circuito e genera una lettura. 💡 Lettura È un esercizio semplice per mostrare che il codice può reagire a un contatto fisico. all'avvio
+ mostra stringa &quot;Love meter&quot;
+
+quando pin P0 premuto
+ mostra numero pick random da 0 a 100
+
+--- Slide 14 ---
+Stato Clap! Clap! Per accendere e spegnere qualcosa con lo stesso evento serve ricordare lo stato precedente. 💡 Lettura La variabile lightsOn è una memoria: senza memoria non sappiamo se dobbiamo accendere o spegnere. quando suono forte
+ se lightsOn = falso allora
+ porta lightsOn a vero
+ mostra icona acceso
+ altrimenti
+ porta lightsOn a falso
+ cancella schermo
+
+--- Slide 15 ---
+Sensori Bussola La bussola usa una variabile degrees per conservare la direzione rilevata. 💡 Lettura Il valore grezzo del sensore diventa informazione comprensibile solo dopo una regola di interpretazione. per sempre
+ porta degrees a direzione bussola
+ se degrees &lt; 45 allora
+ mostra stringa &quot;N&quot;
+ altrimenti se degrees &lt; 135 allora
+ mostra stringa &quot;E&quot;
+
+--- Slide 16 ---
+Movimento Contapassi Il contapassi usa una variabile steps che cresce quando la scheda rileva movimento. 💡 Lettura È un primo esempio di contatore: evento fisico + incremento + output. all'avvio
+ porta steps a 0
+
+quando shake
+ cambia steps di 1
+ mostra numero steps
+
+--- Slide 17 ---
+Memoria Variabili su Micro:bit Gli esercizi Clap, Bussola e Contapassi usano variabili per ricordare numeri o stati. 🔢 steps Conta quante volte è stato rilevato un movimento. 🧭 degrees Conserva la direzione misurata. 💡 lightsOn Ricorda se una luce o icona è attiva. 🔁 Aggiornamento Ogni evento può cambiare il valore della variabile.
+
+--- Slide 18 ---
+Dispositivo Download e caricamento Il vecchio corso evidenzia il pulsante Download: e il passaggio dal codice nel browser al dispositivo fisico. ⬇️ Scarica MakeCode genera un file per la scheda. 🔌 Collega La scheda deve essere connessa al computer. 📁 Copia Il file viene trasferito sul Micro:bit come su una memoria. 🧪 Prova Dopo il caricamento si verifica il comportamento reale.
+
+--- Slide 19 ---
+Laboratorio Debug fisico Con Micro:bit il debug non è solo guardare lo schermo: bisogna osservare il dispositivo e il gesto. Testa nel simulatore 
+Prima controlla se i blocchi fanno ciò che promettono. Carica sulla scheda 
+Solo il dispositivo reale conferma sensori e contatti. Ripeti il gesto 
+Scuoti, premi, tocca o batti le mani più volte. Cambia un elemento 
+Modifica una soglia, una pausa o un messaggio alla volta. Annota il risultato 
+Segna cosa cambia tra simulatore e scheda reale.
+
+--- Slide 20 ---
+Fine MB01 Dal codice al mondo fisico Micro:bit rende visibile il legame tra algoritmo, sensore, evento e comportamento della scheda. ↩ Indice del corso Prossimo: CreateAI

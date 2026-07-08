@@ -75,8 +75,8 @@ Prima del file system
  Schema mentale 
  Disco fisico
 └─ Partizione 1
- └─ File system
- └─ File e cartelle
+&nbsp;&nbsp;└─ File system
+&nbsp;&nbsp;&nbsp;&nbsp;└─ File e cartelle
 
 --- Slide 8 ---
 Il catalogo 
@@ -98,13 +98,13 @@ Albero delle cartelle
 
  ├─ home
 
- │ └─ sara
+ │&nbsp;&nbsp;└─ sara
 
- │ ├─ Documenti
+ │&nbsp;&nbsp;&nbsp;&nbsp;├─ Documenti
 
- │ │ └─ curriculum.pdf
+ │&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;└─ curriculum.pdf
 
- │ └─ Foto
+ │&nbsp;&nbsp;&nbsp;&nbsp;└─ Foto
 
  └─ programmi
 
@@ -205,18 +205,6 @@ Scorciatoie evolute
  Collegamento Windows I classici file .lnk sono scorciatoie gestite da Windows, simili come idea ma diverse tecnicamente.
 
 --- Slide 19 ---
-Verifica veloce 
- È tutto chiaro? 
- Prova a rispondere a mente: 
- 
- 1. Qual è la differenza pratica tra HDD e SSD? 
- 2. Perché FAT32 può essere un problema con file video grandi? 
- 3. Cosa fa un file system oltre a salvare i byte? 
- 4. Che differenza c'è tra link simbolico e hard link? 
- 
- Bonus Scegli il formato migliore per una chiavetta da usare tra Windows, macOS e Linux con file più grandi di 4 GB.
-
---- Slide 20 ---
 Fine Modulo 11 
  Archiviato,
  ma con ordine. 

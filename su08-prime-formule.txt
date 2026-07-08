@@ -286,26 +286,6 @@ Metodo
  Il programma suggerisce mentre scrivi — usa i suggerimenti, non memorizzare la sintassi
 
 --- Slide 13 ---
-Verifica 
- Hai capito le prime formule? 
- 
- 
- SOMMA vs CONTA 
- Hai 10 vendite da 50€ ciascuna. =SOMMA(B:B) dà 500. Cosa dà =CONTA.NUMERI(B:B) ? E =MEDIA(B:B) ? 
- 
- 
- CONTA.SE 
- In colonna C hai gli stati "Pagato", "Aperto", "Annullato". Scrivi la formula per contare solo le righe "Aperto". 
- 
- 
- SE 
- Scrivi una formula SE che scriva "Scorta bassa" se la cella B2 è inferiore a 10, altrimenti "OK". 
- 
- 
- Errore 
- La formula =SOMMA(A1:A5) mostra #VALORE!. Qual è la causa più probabile e come controlli?
-
---- Slide 14 ---
 Fine SU08 
  I calcoli girano
  da soli. 

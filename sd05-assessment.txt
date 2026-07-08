@@ -46,7 +46,7 @@ Trovare le falle
  È un'analisi osservativa, non distruttiva. Non sfrutta le vulnerabilità trovate (quello è il Penetration Test). L'obiettivo è produrre un inventario ragionato dei rischi con le relative priorità di correzione. 
  
  
- 📋 Output principale 
+ Output principale 
  Un report dettagliato con elenco vulnerabilità, livello di criticità (CVSS score), possibile impatto, e raccomandazioni di remediation ordinate per priorità. 
  
  Analogia: Ispezione medica — trova problemi prima che diventino emergenze. 
@@ -138,7 +138,7 @@ Gravità vulnerabilità
  
  
  
- 📌 CVE — Common Vulnerabilities and Exposures 
+ CVE — Common Vulnerabilities and Exposures 
  Database pubblico di vulnerabilità note. Ogni vulnerabilità ha un ID univoco: CVE-2024-1234 . Consultabile su nvd.nist.gov. 
  
  
@@ -306,11 +306,11 @@ e perché
  
  
  
- 💸 Quanto valgono i tuoi dati 
+ Quanto valgono i tuoi dati 
  Il profilo medio di un utente europeo viene venduto a €0,02–€5 per impression pubblicitaria. Ma il tuo profilo completo su un data broker può valere €100–€500 all'anno. Tu non vedi un centesimo. 
  
  
- 🔍 Data Broker: chi sono 
+ Data Broker: chi sono 
  Aziende come Acxiom, Experian, Oracle Data Cloud aggregano dati da centinaia di fonti per costruire profili di 5.000+ attributi per persona. Spesso non ne hai mai sentito il nome. 
  
  Regola: Se il prodotto è gratis, il prodotto sei tu.
@@ -362,7 +362,7 @@ Riepilogo
  
  
  
- 🎯 VA vs Pentest — in sintesi 
+ VA vs Pentest — in sintesi 
  VA = inventario completo delle vulnerabilità (ampio, periodico). Pentest = verifica dell'impatto reale su target specifici (in profondità, annuale). 
  
  
@@ -370,22 +370,8 @@ Riepilogo
  Sicurezza = consapevolezza + strumenti + processo continuo. Non esiste "sicuri per sempre" — esiste "più sicuri di ieri".
 
 --- Slide 13 ---
-Verifica finale 
- Quiz del modulo 
- Rispondi a mente: 
- 
- 1. Quali sono le 5 fasi di un Vulnerability Assessment? Elencale in ordine. 
- 2. Cosa misura il CVSS score? Un punteggio 9.5 che urgenza richiede? 
- 3. Qual è la differenza tra GDPR e NIS2? A chi si applica ciascuno? 
- 4. Fai tre esempi di dati personali che condividi quotidianamente in rete senza pensarci. Chi li riceve? 
- 
- 
- 🎯 Scenario pratico 
- Sei responsabile sicurezza di una PMI italiana che vende online. Devi pianificare le attività di sicurezza del prossimo anno. Quale normativa devi rispettare? Cosa fai prima: VA o Pentest? Perché?
-
---- Slide 14 ---
 Fine del Corso 
- Bravi! 🎓 
+ Bravi! 
  Hai completato tutti e 5 i concetti del corso di Sicurezza Digitale . Dalla triade CID alle professioni, dalle reti al Vulnerability Assessment, dalla compliance al controllo dei dati personali. La sicurezza digitale non è un prodotto — è un modo di pensare . 
  
  ← C1 · Introduzione 

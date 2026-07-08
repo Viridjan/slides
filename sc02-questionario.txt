@@ -2,34 +2,114 @@ Programmare con Scratch · SC02 — Questionario
 =============================================
 
 --- Slide 1 ---
-Programmare con Scratch SC02 Variabili, sensori, condizioni, timer, punteggio e liste per costruire un quiz interattivo.
+Programmare con Scratch · SC02 Questionari
+ con Scratch Variabili, sensori, condizioni, timer, punteggio e liste per costruire un quiz interattivo. Variabili If Liste
 
 --- Slide 2 ---
-Cosa vedremo: Nuovo progetto; Variabili; Interazione; Condizioni e timer; Liste
+In questo modulo Cosa vedremo 📍 Obiettivo 
+ costruire un questionario narrativo a tempo 🧩 Variabili 
+ tempo, punti, risposta e posizione 🛠 Input 
+ domande e risposte dell'utente 🎯 Condizioni 
+ if, confronti e diramazioni 🔁 Timer 
+ countdown e messaggio tempo scaduto 💡 Liste 
+ domande e risposte scalabili 🧪 Collaudo 
+ test specifici del quiz
 
 --- Slide 3 ---
-Un questionario a tempo Il modulo parte da un nuovo file Scratch e costruisce un questionario con personaggi, stage, tempo limite e punteggio.
+Progetto Il progetto quiz L'obiettivo è realizzare un questionario a tempo con personaggi, domande, risposte controllate, punteggio e fine automatica. In pratica: un quiz è una conversazione guidata, ma con memoria, regole e stato. Sprite, variabili, domande e messaggi lavorano insieme.
 
 --- Slide 4 ---
-Preparare la scena Si importano gli sprite necessari, si sceglie uno stage e si scrive il codice comune nello stage quando riguarda tutto il progetto. Sprite narrativi: Nel corso originale compaiono Dante e Paolo e Francesca come personaggi del quiz. Variabile tempo: Serve per controllare il countdown e chiudere la partita. Messaggio iniziale: Lo stage può inviare un segnale di avvio agli sprite. Inizializzazione: All'inizio alcuni sprite sono visibili, altri invisibili, secondo la scena.
+Setup Preparare i materiali Il vecchio corso usa un progetto narrativo: personaggi importati, uno stage dalla libreria e codice comune sullo stage. 🧑‍🎨 Personaggi Dante e Paolo e Francesca sono esempi di sprite importati per rendere il quiz narrativo. 🖼 Stage Lo sfondo definisce il contesto e può contenere il codice comune. ⏱ Tempo La variabile tempo controlla il limite della prova. 🏆 Punti La variabile punti tiene traccia delle risposte corrette.
 
 --- Slide 5 ---
-Variabili e liste Variabili e liste permettono di memorizzare dati, usarli nei blocchi e cambiare il comportamento del progetto. Variabile: Contiene una singola informazione: numero, parola o frase senza tipo dichiarato. Lista: Contiene più valori ordinati; ogni elemento ha una posizione numerata. Nomi chiari: Nomi semplici come tempo, punti e pos rendono il progetto più leggibile. Aggiornamento: Porta X a Y assegna un valore; cambia X di Y modifica un numero esistente.
+Setup Nuovo file ordinato Prima del codice, conviene preparare una struttura prevedibile. Questo evita di inseguire errori mentre il quiz cresce. Crea un nuovo progetto 
+File &gt; Nuovo e nome chiaro per il progetto. Importa gli sprite 
+Aggiungi i personaggi necessari o cercali come sprite PNG. Scegli lo stage 
+Usa uno sfondo coerente con il tema del quiz. Crea le variabili 
+tempo, punti, risposta e poi pos se userai le liste. Decidi i messaggi 
+Start, Domanda1, Domanda2, TempoScaduto, Fine.
 
 --- Slide 6 ---
-Fare domande Il blocco domanda raccoglie l'input dell'utente e lo salva nella variabile risposta. Da lì può essere controllato e combinato. Risposta: Scratch memorizza sempre l'ultima risposta digitata. Case sensitive: Maiuscole, minuscole e spazi contano: le verifiche devono tenerne conto. Unione: Il blocco unione concatena variabili e testo per costruire frasi dinamiche. Annidamento: I comandi possono essere inseriti dentro altri comandi per comporre espressioni.
+Memoria Variabili: cassetti In Scratch una variabile non ha tipo rigido: può contenere numeri, lettere o parole. Questo e comodo, ma richiede attenzione nei controlli. 📦 Una informazione tempo contiene un numero; risposta contiene il testo digitato. 🔢 Cambia di Aumenta o diminuisce un valore numerico, per esempio punti +1. ✏️ Porta a Imposta un valore preciso, per esempio tempo = 60. 🏷 Nome leggibile Nomi semplici riducono errori: punti, tempo, pos, risposta.
 
 --- Slide 7 ---
-If / then / else Le condizioni decidono se eseguire un blocco oppure un'alternativa. In Scratch sono rappresentate da forme esagonali. If / then: Se la condizione è vera, esegue le istruzioni interne; altrimenti le salta. If / then / else: Permette due strade: una se la condizione è vera, una se è falsa. Aritmetica: Confronti numerici come maggiore, minore o uguale. Logica: Combinazioni come e, o, non per controlli più complessi.
+Avvio Inizializzare il quiz All'avvio bisogna riportare tutto allo stato corretto: punti, tempo, sprite visibili e messaggio di partenza. 💡 Lettura Inizializzare significa decidere esplicitamente lo stato iniziale di variabili e oggetti. quando si clicca la bandierina verde
+ porta punti a 0
+ porta tempo a 60
+ mostra il gatto
+ nascondi Dante
+ nascondi PaoloFrancesca
+ invia Start
 
 --- Slide 8 ---
-Timer e cicli Il timer usa un ciclo per sempre: riduce il tempo di 1, aspetta 1 secondo e controlla se il valore è arrivato a zero. Per sempre: Utile per controlli costanti, ma da usare senza appesantire troppo il progetto. Countdown: Ogni ripetizione riduce tempo e aggiorna lo stato del quiz. Tempo scaduto: Quando il valore arriva a zero viene inviato un messaggio a tutti. Punteggio: La variabile punti tiene traccia della qualità delle risposte.
+Sensori Domande e risposta Il blocco domanda della categoria Sensori salva ciò che l'utente scrive nella variabile risposta. ⌨️ Chiedi e attendi Mostra una domanda e aspetta input. 📥 Risposta Scratch conserva sempre l ultima risposta digitata. 🔗 Unione Concatena testo e variabili per frasi dinamiche. 🧹 Pulizia input Spazi, maiuscole e minuscole possono cambiare il risultato del controllo.
 
 --- Slide 9 ---
-Completare il quiz I codici dei tre sprite sono simili: cambiano domande, messaggi di attivazione e reazioni. Questo suggerisce una struttura ripetibile. Pattern: Ogni personaggio può ricevere un messaggio, fare una domanda, controllare la risposta e aggiornare punti. Finale: Quando il tempo termina, il gatto può annunciare il punteggio. Estensioni: Si possono aggiungere penalità, suggerimenti, tentativi o domande extra. Debug: Cercare l'errore nel timer è parte del lavoro: leggere i blocchi uno per uno.
+Input Prima domanda Una domanda minima raccoglie input, controlla una risposta e aggiorna il punteggio. 💡 Lettura Il confronto e sensibile al testo: &quot;Si&quot;, &quot;sì&quot; e &quot;si &quot; possono essere diversi se non li gestiamo. quando ricevo Domanda1
+ chiedi &quot;Dante scrive la Divina Commedia?&quot; e attendi
+ se risposta = &quot;si&quot; allora
+ cambia punti di 1
+ dire &quot;Corretto&quot; per 2 secondi
+ altrimenti
+ dire &quot;Riprova a studiare&quot; per 2 secondi
+ invia Domanda2
 
 --- Slide 10 ---
-Questionari con liste Le liste domande e risposte rendono il codice più rapido da compilare e più facile da modificare. Domande: Una lista contiene il testo delle domande in ordine. Risposte: Una seconda lista può contenere la risposta corretta nella stessa posizione. Posizione: La variabile pos scorre gli indici e seleziona la domanda corrente. Manutenzione: Aggiungere, rimuovere o cambiare domande non richiede riscrivere tutto il codice.
+Controllo Case sensitive Il corso richiama un problema concreto: il computer non capisce il nostro linguaggio, memorizza esattamente ciò che scriviamo. 🔤 Maiuscole si e Si possono essere letti come risposte diverse. ␠ Spazi Uno spazio prima o dopo può far fallire il confronto. 🗣 Sinonimi si, certo, vero non sono equivalenti se non li prevediamo. ✅ Soluzione didattica Chiedere risposte guidate oppure accettare più varianti con condizioni logiche.
 
 --- Slide 11 ---
-Dati, regole, interazione Il secondo modulo porta Scratch oltre l'animazione: input, condizioni, cicli, timer e strutture dati.
+Condizioni If / then / else Le condizioni permettono al quiz di prendere decisioni: passare avanti, assegnare punti, mostrare feedback o chiudere. ✅ If / then Esegue il codice interno solo se la condizione e vera. 🔀 If / else Gestisce sia risposta corretta sia risposta sbagliata. ⬡ Esagoni Le condizioni in Scratch hanno forma esagonale. 🧠 Logica Operatori e/o/non permettono controlli con più varianti.
+
+--- Slide 12 ---
+Condizioni Accettare più risposte Per gestire varianti si possono combinare più confronti con oppure. 💡 Lettura Questa scelta va progettata prima: troppe varianti rendono il codice lungo, ma poche varianti frustrano chi risponde correttamente. se (risposta = &quot;si&quot;) oppure (risposta = &quot;sì&quot;) allora
+ cambia punti di 1
+ dire &quot;Risposta valida&quot; per 2 secondi
+altrimenti
+ dire &quot;Risposta non valida&quot; per 2 secondi
+
+--- Slide 13 ---
+Tempo Timer countdown Il timer riduce il valore di tempo ogni secondo è invia un messaggio quando arriva a zero. 💡 Lettura Nel vecchio file compare anche un ciclo per sempre: funziona, ma bisogna evitare controlli infiniti non necessari. quando ricevo Start
+ripeti fino a quando tempo = 0
+ attendi 1 secondo
+ cambia tempo di -1
+invia TempoScaduto
+
+--- Slide 14 ---
+Tempo Cicli senza intasare I cicli sono potenti ma vanno usati con criterio, soprattutto quando più sprite fanno controlli continui. 🔁 Per sempre Utile per sensori o timer sempre attivi. 🛑 Ripeti fino a Spesso più chiaro quando esiste una condizione di fine. ⏱ Attendi Evita di eseguire migliaia di controlli al secondo. 📣 Messaggio fine TempoScaduto comunica a tutti che il quiz deve cambiare stato.
+
+--- Slide 15 ---
+Regole Punteggio Il punteggio rende il quiz misurabile, ma va aggiornato in un solo punto chiaro per ogni domanda. 🏆 punti Parte da 0 e aumenta con risposte corrette. ➖ Penalita Si può togliere un punto per risposte sbagliate se previsto. 📢 Feedback Dire corretto o sbagliato aiuta chi gioca a capire cosa e successo. 🐱 Annuncio finale Alla fine il gatto può dire il punteggio totale.
+
+--- Slide 16 ---
+Architettura Architettura a messaggi Quando il quiz cresce, ogni domanda può essere una piccola scena attivata da un messaggio. Start → Domanda1 → Domanda2 → Domanda3 → TempoScaduto o Fine → Punteggio
+
+--- Slide 17 ---
+Architettura Tre sprite, stessa logica Il vecchio file mostra codici simili su più sprite: cambiano domande e messaggi, ma la struttura si ripete. 🎭 Sprite diversi Ogni personaggio può fare una domanda o reagire a una risposta. 📣 Messaggi diversi Domanda1, Domanda2 e Domanda3 tengono ordinata la sequenza. 🏆 Variabile comune punti e condivisa e aggiornata dai diversi script. 🧩 Pattern Ricevi messaggio, chiedi, controlla, aggiorna, invia prossimo messaggio.
+
+--- Slide 18 ---
+Fine Tempo scaduto Quando il timer finisce, il quiz deve fermare le domande e mostrare il risultato. 💡 Lettura Il messaggio Fine evita che ogni sprite resti in uno stato casuale. quando ricevo TempoScaduto
+ dire unione di &quot;Tempo scaduto! Punti: &quot; e punti per 4 secondi
+ invia Fine
+
+quando ricevo Fine
+ nascondi Dante
+ nascondi PaoloFrancesca
+ mostra il gatto
+
+--- Slide 19 ---
+Estensioni Strade infinite Il corso propone di immaginare estensioni: più domande, penalita, suggerimenti, tentativi e possibilità di riprovare. ➕ Domande extra Aumentano durata e difficoltà. 💡 Suggerimenti Aiutano prima di segnare errore. 🔁 Tentativi Permettono seconda risposta con punteggio ridotto. ⚖️ Penalita Rendono il quiz più competitivo. 🎚 Difficoltà Domande facili e difficili possono valere punti diversi. 📊 Report Alla fine si può mostrare percentuale o giudizio.
+
+--- Slide 20 ---
+Liste Liste: più valori Quando le domande diventano molte, una variabile non basta. Le liste contengono più valori ordinati sotto un unico nome. 📚 Lista domande Ogni elemento è una domanda. ✅ Lista risposte Alla stessa posizione si trova la risposta corretta. 📍 Indice La variabile pos indica quale elemento leggere. 🛠 Manutenzione Per cambiare quiz si modifica la lista, non tutta la sequenza di blocchi.
+
+--- Slide 21 ---
+Liste Quiz con liste La lista rende il quiz più compatto: lo stesso algoritmo scorre domande e risposte. 💡 Lettura Questo introduce una struttura dati vera: i dati cambiano, l'algoritmo resta quasi uguale. porta pos a 1
+ripeti lunghezza di domande volte
+ chiedi elemento pos di domande e attendi
+ se risposta = elemento pos di risposte allora
+ cambia punti di 1
+ cambia pos di 1
+dire unione di &quot;Punti: &quot; e punti
+
+--- Slide 22 ---
+Fine SC02 Dati, regole, interazione Il secondo modulo porta Scratch oltre l animazione: input, condizioni, cicli, timer, punteggio e strutture dati. ↩ Indice del corso
