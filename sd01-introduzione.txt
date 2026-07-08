@@ -525,7 +525,39 @@ Riepilogo pratico
  10 Backup regolari dei dati importanti
 
 --- Slide 19 ---
-Fine Concetto 01 
- Protetti! 
- Conosci le basi della sicurezza digitale. Nel prossimo concetto entriamo nel dettaglio delle Minacce e Vulnerabilità della Rete : virus, malware, ransomware e come difendersi in pratica. 
- Prossimo → C2 · Minacce e Vulnerabilità ↩ Indice del corso
+Protezione dei dati 
+ Crittografia
+ end-to-end 
+ La crittografia rende un messaggio illeggibile a chiunque non abbia la chiave. End-to-end (E2EE) significa che solo mittente e destinatario possono leggere il contenuto — nemmeno il servizio che trasporta il messaggio. 
+ 
+ 
+ Come funziona 
+ Il messaggio viene cifrato sul dispositivo del mittente e decifrato solo sul dispositivo del destinatario. Il server vede pacchetti cifrati, non il testo in chiaro. 
+ 
+ 
+ Esempi pratici 
+ App con E2EE: Signal, WhatsApp (chat private), iMessage. Backup cifrati. HTTPS cifra il trasporto ma non garantisce E2EE tra gli utenti. 
+ 
+ 
+ Regola: La crittografia protegge il canale, non corregge utenti ingannati o dispositivi infetti. 
+ 
+ 
+ 
+ 
+ 📱 
+ 
+ 📱 
+ 
+ 🔒 cifrato 
+ 
+ 
+ 
+ server: 🔐 ??? 
+ chiave solo su A e B 
+ 
+ Il server trasporta ma non legge
+
+--- Slide 20 ---
+Protetti! 
+ CIA triad (riservatezza, integrità, disponibilità), attori di minaccia, superficie d'attacco e principio del minimo privilegio. 
+ Prossimo → C2 · Minacce e Vulnerabilità

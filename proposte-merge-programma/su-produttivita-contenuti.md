@@ -1,4 +1,4 @@
-# SU / SM - Produttivita collaborativa e creazione contenuti digitali
+# SU / SM - Produttività collaborativa e creazione contenuti digitali
 
 ## Target merge
 
@@ -10,191 +10,65 @@
 - `sm08-fotocamera-contenuti.html`
 - eventuale collegamento con `su03-adobe.html` e `su04-alternativi.html`
 
-## Lacune principali
+## Stato implementazione
 
-Il programma richiede una copertura piu esplicita di:
-
-- suite collaborative per documenti, fogli e presentazioni
-- lavagne online per brainstorming e design thinking
-- mappe mentali e concettuali
-- contenuti visuali: immagini, banner, volantini, post social
-- fotografia digitale: regola dei terzi, scatti multipli, colore, esposizione
-- editing fotografico e app di fotoritocco
-- immagini prese dal web, licenze, formati e fornitori gratuiti/a pagamento
-
----
-
-## SU02/SU05/SU06/SU11 - Suite collaborative
-
-### Slide proposta: Lavorare nello stesso file
-
-**Lacuna coperta:** organizzare il lavoro con strumenti collaborativi e suite office.
-
-Contenuto:
-
-- Documenti: testi condivisi, commenti, revisioni, cronologia versioni.
-- Fogli di calcolo: dati, formule, filtri, grafici, tabelle condivise.
-- Presentazioni: slide, layout, immagini, note relatore, commenti.
-- Cloud: il file non viene inviato in copia, ma condiviso con permessi.
-- Permessi: visualizzazione, commento, modifica.
-- Versioni: recuperare modifiche precedenti ed evitare file `finale_definitivo_3`.
-
-Regola:
-
-> Se piu persone lavorano allo stesso contenuto, meglio un file condiviso che dieci allegati email.
+| Proposta | Deck | Stato |
+|---|---|---|
+| Suite collaborative (doc condivisi, versioni, permessi) | su02/su05/su06 | ⏭ già presente in su02 (collaborazione) e su05 |
+| Lavagne online (Miro, FigJam, ecc.) | su02 | ✅ aggiunto |
+| Mappe mentali e concettuali | su02 | ✅ aggiunto |
+| Contenuti visuali (banner, volantini, Canva) | su11/in | ⏰ da aggiungere in su11 |
+| Fotografia composizione (regola dei terzi) | sm08 | ✅ aggiunto |
+| Color correction (esposizione, contrasto, saturazione) | sm08 | ✅ aggiunto (con editing/ritocco/filtri) |
+| Editing fotografico (app, GIMP, Lightroom) | sm08 | ✅ incluso nella slide color correction |
+| Immagini dal web (Unsplash/Pexels, licenze, Google Immagini) | rw08/sm08 | ⏰ da aggiungere in rw08 o sm08 |
 
 ---
 
-## SU - Lavagne online
+## SU02 - Suite collaborative ⏭
 
-### Slide proposta: Lavagne digitali per pensare insieme
-
-**Lacuna coperta:** lavagne online con testi, forme e oggetti per brainstorming e design thinking.
-
-Contenuto:
-
-- Post-it digitali per idee rapide.
-- Forme e frecce per collegare concetti.
-- Votazioni per scegliere priorita.
-- Template per brainstorming, customer journey, retrospettive.
-- Immagini e screenshot per ragionare su esempi reali.
-- Regole: tempo limitato, una idea per post-it, raggruppare dopo la raccolta.
-
-Esempi tool:
-
-- Miro
-- FigJam
-- Canva Whiteboard
-- Microsoft Whiteboard
-- Google Jamboard legacy/alternative
+Già coperto in su02 "Il flusso di lavoro tipico" e "File Google, Office e PDF". Concetti di condivisione, permessi e versioni già presenti.
 
 ---
 
-## SU - Mappe mentali e concettuali
+## SU02 - Lavagne online ✅
 
-### Slide proposta: Organizzare informazioni in forma visuale
+**Slide aggiunta in su02** prima del closing.
 
-**Lacuna coperta:** mappe mentali e concettuali, informazioni e dati in forma visuale e gerarchica.
-
-Contenuto:
-
-- Mappa mentale: parte da un tema centrale e si espande per associazioni.
-- Mappa concettuale: collega concetti con relazioni esplicite.
-- Gerarchia: dal generale al particolare.
-- Colori e icone: aiutano a distinguere categorie.
-- Collegamenti: mostrano dipendenze e relazioni.
-- Uso: studio, progettazione, presentazioni, riassunti.
-
-Nota:
-
-> Una mappa non deve essere bella prima di essere chiara.
+Contenuto implementato: post-it digitali, forme e connessioni, votazioni, template brainstorming/design thinking. Tool: Miro, FigJam, Canva Whiteboard, Microsoft Whiteboard, Mural. Regola: una idea per post-it, raggruppare dopo la raccolta.
 
 ---
 
-## SU/IN - Contenuti visuali semplici
+## SU02 - Mappe mentali e concettuali ✅
 
-### Slide proposta: Banner, volantini e post social
+**Slide aggiunta in su02** dopo lavagne online.
 
-**Lacuna coperta:** funzioni base dei tool collaborativi per creare contenuti visuali.
-
-Contenuto:
-
-- Scegliere formato: post quadrato, storia verticale, banner, volantino A4.
-- Usare template come punto di partenza, non come gabbia.
-- Gerarchia visiva: titolo, immagine, informazioni, call to action.
-- Colori coerenti con brand o contesto.
-- Font leggibili e pochi.
-- Esportare nel formato corretto: PNG/JPG per immagini, PDF per stampa.
-
-Esempi tool:
-
-- Canva
-- Adobe Express
-- PowerPoint/Google Slides
-- LibreOffice Draw
+Contenuto implementato: mappa mentale (espansione per associazioni) vs mappa concettuale (relazioni etichettate). Colori, icone, gerarchie. Tool: MindMeister, Miro, draw.io, XMind, Canva. Regola: chiara prima che bella.
 
 ---
 
-## SM08 - Fotografia digitale: composizione
+## SU11 - Contenuti visuali (banner, volantini, post social) ⏰
 
-### Slide proposta: Scattare meglio prima di modificare
-
-**Lacuna coperta:** teoria e pratica fotografica, regola dei terzi, scatti multipli, inquadratura.
-
-Contenuto:
-
-- Regola dei terzi: posizionare soggetto e punti importanti sulle linee guida.
-- Inquadratura: eliminare elementi inutili ai bordi.
-- Orizzonte dritto: correggere prospettiva e inclinazione.
-- Luce: preferire luce morbida e frontale/laterale.
-- Scatti multipli: provare piu angoli e scegliere dopo.
-- Fuoco: toccare il soggetto sullo schermo prima dello scatto.
-
-Regola:
-
-> Una buona foto nasce prima del filtro.
+Da aggiungere in su11-presentazioni.html come slide introduttiva o in su03-adobe.html / su04-alternativi.html. Contenuto proposto: scegliere formato (post/storia/banner/A4), template come punto di partenza, gerarchia visiva (titolo→immagine→info→CTA), colori coerenti, pochi font, esportare PNG/PDF. Tool: Canva, Adobe Express, PowerPoint/Slides, LibreOffice Draw.
 
 ---
 
-## SM08 - Color correction
+## SM08 - Fotografia composizione ✅
 
-### Slide proposta: Esposizione, luminosita, contrasto
+**Slide aggiunta in sm08** prima del closing.
 
-**Lacuna coperta:** teoria di color correction.
-
-Contenuto:
-
-- Esposizione: quanta luce entra nello scatto.
-- Luminosita: schiarisce o scurisce l'immagine complessiva.
-- Contrasto: aumenta o riduce distanza tra chiari e scuri.
-- Saturazione: intensita dei colori.
-- Temperatura: immagine piu calda o piu fredda.
-- Ombre e alte luci: recuperare dettagli senza esagerare.
-
-Errore tipico:
-
-> Aumentare tutto rende la foto artificiale: meglio piccoli interventi mirati.
+Contenuto implementato: regola dei terzi (griglia 3×3, soggetto sui punti di intersezione), orizzonte dritto, luce naturale, scatti multipli, messa a fuoco toccando lo schermo. SVG griglia dei terzi. Regola: una buona foto nasce prima del filtro.
 
 ---
 
-## SM08/SU03/SU04 - Editing fotografico
+## SM08 - Color correction + Editing ✅
 
-### Slide proposta: Ritocco e post-produzione
+**Slide aggiunta in sm08** dopo composizione.
 
-**Lacuna coperta:** editing fotografico, post-produzione, ritocco, filtri e app.
-
-Contenuto:
-
-- Ritaglio: cambiare composizione e formato.
-- Raddrizzamento: correggere orizzonte e prospettiva.
-- Ritocco: rimuovere piccoli elementi di disturbo.
-- Filtri: usare con coerenza, non per nascondere problemi.
-- App smartphone: editor galleria, Snapseed, Lightroom Mobile.
-- Computer: GIMP, Photoshop, darktable, Photopea.
-
-Nota:
-
-> L'editing deve migliorare leggibilita e intenzione, non falsificare il contenuto quando serve documentare la realta.
+Contenuto implementato: esposizione, luminosità, contrasto, saturazione, temperatura, alte luci e ombre. Ritaglio, raddrizzamento, ritocco. App smartphone (Snapseed, Lightroom Mobile) e PC (GIMP, darktable, Photopea). Filtri: usare con coerenza. Regola: editing migliora leggibilità, non falsifica.
 
 ---
 
-## RW08/SM08 - Immagini dal web
+## RW08/SM08 - Immagini dal web ⏰
 
-### Slide proposta: Usare immagini trovate online
-
-**Lacuna coperta:** Google Immagini, immagini dal web, fornitori gratuiti/a pagamento, formato giusto.
-
-Contenuto:
-
-- Google Immagini non e una banca immagini: mostra immagini ospitate altrove.
-- Controllare sempre fonte, autore e licenza.
-- Usare filtri per licenza quando disponibili.
-- Fonti gratuite: Unsplash, Pexels, Pixabay, Wikimedia Commons.
-- Fonti a pagamento: Adobe Stock, iStock, Shutterstock.
-- Freepik: attenzione a licenza, attribuzione e limiti d'uso.
-- Formati: JPG per foto, PNG per trasparenza, SVG per loghi/vettoriale, WebP per web moderno.
-
-Regola:
-
-> Se lo pubblichi, devi sapere da dove viene e se puoi usarlo.
-
+Da aggiungere in rw08 (già ha slide su copyright/CC aggiunta) o sm08. Contenuto proposto: Google Immagini ≠ banca immagini (mostra immagini di terzi), controllare fonte/autore/licenza, filtri per licenza. Fonti gratuite: Unsplash, Pexels, Pixabay, Wikimedia Commons. Fonti a pagamento: Adobe Stock, iStock. Freepik: attenzione attribuzione e limiti. Formati: JPG/PNG/SVG/WebP. Regola: se lo pubblichi, devi sapere da dove viene.

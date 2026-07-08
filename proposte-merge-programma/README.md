@@ -23,12 +23,16 @@ Non sono modifiche ai deck esistenti. Ogni file contiene:
 - `sd-sicurezza-troubleshooting.md`
   Sicurezza digitale, normative, crittografia, sistemi operativi, troubleshooting, MOOC e certificazioni.
 
+- `td-tinkercad-modellazione-3d.md`
+  Modellazione 3D con TinkerCAD, formati 3D, solidi/vuoti, esportazione e stampa 3D, classi e attivita didattiche.
+
 ## Ordine consigliato di merge
 
 1. RW: ricerca, contenuti, email e collaborazione.
 2. IN: identita digitale, PA, social e reputazione.
 3. SU/SM: produzione contenuti, suite, fotografia e immagini.
 4. SD/HS: sicurezza avanzata e problemi tecnici.
+5. TD/3D: TinkerCAD, modellazione e stampa 3D.
 
 ## Nota
 
