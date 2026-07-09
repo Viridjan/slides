@@ -567,7 +567,7 @@ class SlidePresentation{
     addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
   wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
 }
-const deck=new SlidePresentation();
+const deck=new SlidePresentation();(()=>{const target=()=>{const m=location.hash.match(/(?:slide-|slide=|^#)(\d+)/);return m?Number(m[1])-1:null};const showHash=()=>{const n=target();if(Number.isInteger(n))deck.show(n)};showHash();addEventListener('hashchange',showHash)})();
 const editor={isActive:false,
   toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
   key(){return 'inf-sec-nav-edits';},

@@ -27,6 +27,7 @@ Inside any deck:
 - Arrow keys / Space / PageUp / PageDown — advance or go back
 - Mouse wheel — advance/back
 - Touch swipe — left/right
+- `#slide-N` in the URL — open a deck directly at slide N
 - `I` key — jump to the course index
 - `E` key / top-left hotzone — toggle inline editor (saves to `localStorage`, does not modify the HTML file)
 - Bottom bar — progress indicator

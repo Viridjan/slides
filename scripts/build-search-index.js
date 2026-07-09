@@ -20,6 +20,19 @@ const stripTags = value => value
   .replace(/\s+/g, ' ')
   .trim();
 
+const extractSlides = text => {
+  const slides = [];
+  const pattern = /--- Slide (\d+) ---\n([\s\S]*?)(?=\n--- Slide \d+ ---|$)/g;
+  let match;
+  while ((match = pattern.exec(text))) {
+    slides.push({
+      number: Number(match[1]),
+      text: match[2].trim()
+    });
+  }
+  return slides;
+};
+
 const pick = (block, className) => {
   const pattern = new RegExp(`<div class="${className}[^"]*"[^>]*>([\\s\\S]*?)<\\/div>`);
   const match = block.match(pattern);
@@ -41,6 +54,7 @@ while ((match = cardPattern.exec(html))) {
   const block = match[2];
   const txtPath = path.join(root, href.replace(/\.html$/, '.txt'));
   const text = fs.existsSync(txtPath) ? fs.readFileSync(txtPath, 'utf8') : '';
+  const slides = extractSlides(text);
 
   cards.push({
     href,
@@ -49,7 +63,8 @@ while ((match = cardPattern.exec(html))) {
     title: pick(block, 'card-title'),
     description: pick(block, 'card-desc'),
     topics: pick(block, 'card-topics'),
-    text
+    text,
+    slides
   });
 }
 

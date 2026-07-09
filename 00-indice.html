@@ -1447,6 +1447,19 @@ const normalizeSearch=text=>(text||'')
   .replace(/[\u0300-\u036f]/g,'')
   .replace(/\s+/g,' ')
   .trim();
+const searchTokens=text=>normalizeSearch(text).match(/[a-z0-9]+/g)||[];
+const hasPartialMatch=(text,terms)=>terms.every(term=>normalizeSearch(text).includes(term));
+const hasWholeMatch=(tokens,terms)=>terms.every(term=>tokens.includes(term));
+const firstMatchingSlide=(slides,terms,preferWhole)=>{
+  if(!slides?.length)return null;
+  const matches=slide=>{
+    const text=slide.text||'';
+    return preferWhole
+      ? hasWholeMatch(searchTokens(text),terms)
+      : hasPartialMatch(text,terms);
+  };
+  return slides.find(matches)||null;
+};
 const cards=[...document.querySelectorAll('.module-card[href]')].map(card=>{
   const group=card.closest('.section-group');
   const href=card.getAttribute('href')||'';
@@ -1467,7 +1480,14 @@ const cards=[...document.querySelectorAll('.module-card[href]')].map(card=>{
     indexed.topics,
     indexed.text
   ].join(' ');
-  return {card,group,haystack:normalizeSearch(text)};
+  card.dataset.baseHref=href;
+  return {
+    card,
+    group,
+    indexed,
+    haystack:normalizeSearch(text),
+    tokens:searchTokens(text)
+  };
 });
 const applySearch=()=>{
   const query=normalizeSearch(searchInput?.value||'');
@@ -1477,7 +1497,10 @@ const applySearch=()=>{
   sectionGroups.forEach(group=>{
     group.classList.remove('search-match','search-hidden');
   });
-  cards.forEach(({card})=>card.classList.remove('search-hidden'));
+  cards.forEach(({card})=>{
+    card.classList.remove('search-hidden');
+    card.setAttribute('href',card.dataset.baseHref||card.getAttribute('href'));
+  });
   if(!active){
     sectionGroups.forEach(group=>{
       group.querySelector('.section-label')?.setAttribute('aria-expanded',group.classList.contains('collapsed')?'false':'true');
@@ -1486,14 +1509,24 @@ const applySearch=()=>{
     return;
   }
   const terms=query.split(' ').filter(Boolean);
-  let matches=0;
+  const foundCards=cards.map(item=>{
+    const partial=terms.every(term=>item.haystack.includes(term));
+    const whole=partial&&terms.every(term=>item.tokens.includes(term));
+    return {...item,partial,whole};
+  }).filter(item=>item.partial);
+  const preferWhole=foundCards.some(item=>item.whole);
+  const visibleCards=foundCards.filter(item=>preferWhole?item.whole:item.partial);
+  const visibleCardElements=new Set(visibleCards.map(item=>item.card));
   const groupsWithMatches=new Set();
-  cards.forEach(({card,group,haystack})=>{
-    const found=terms.every(term=>haystack.includes(term));
-    card.classList.toggle('search-hidden',!found);
+  cards.forEach(item=>{
+    const found=visibleCardElements.has(item.card);
+    item.card.classList.toggle('search-hidden',!found);
     if(found){
-      matches++;
-      if(group)groupsWithMatches.add(group);
+      if(item.group)groupsWithMatches.add(item.group);
+      const slide=firstMatchingSlide(item.indexed.slides,terms,preferWhole);
+      if(slide?.number){
+        item.card.setAttribute('href',`${item.card.dataset.baseHref}#slide-${slide.number}`);
+      }
     }
   });
   sectionGroups.forEach(group=>{
@@ -1502,6 +1535,7 @@ const applySearch=()=>{
     group.classList.toggle('search-hidden',!found);
     group.querySelector('.section-label')?.setAttribute('aria-expanded',found?'true':'false');
   });
+  const matches=visibleCards.length;
   searchMeta.textContent=matches===0?'Nessun risultato':`${matches} risultat${matches===1?'o':'i'}`;
 };
 searchInput?.addEventListener('input',applySearch);

@@ -1117,7 +1117,7 @@ class SlidePresentation{
       setTimeout(()=>lock=false,700);},{passive:true});
   }
 }
-const deck=new SlidePresentation();
+const deck=new SlidePresentation();(()=>{const target=()=>{const m=location.hash.match(/(?:slide-|slide=|^#)(\d+)/);return m?Number(m[1])-1:null};const showHash=()=>{const n=target();if(Number.isInteger(n))deck.show(n)};showHash();addEventListener('hashchange',showHash)})();
 
 /* ============================================================
    INLINE EDITING — hover top-left or press E. Saves to localStorage.

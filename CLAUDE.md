@@ -418,6 +418,10 @@ companions, or index cards:
 node scripts/build-search-index.js
 ```
 
+Search prefers whole-word matches when at least one whole-word result exists.
+Matching cards link to the first matching slide via `deck.html#slide-N`; deck
+scripts must keep supporting `#slide-N` URL fragments.
+
 When adding a published deck:
 
 1. Add a card to the correct section in `00-indice.html`.
