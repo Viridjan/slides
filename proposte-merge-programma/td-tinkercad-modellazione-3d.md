@@ -4,6 +4,19 @@
 
 - `corsi/TinkerCAD 01.pptx`
 
+## Stato implementazione
+
+| Deck | Slide | Stato |
+|---|---|---|
+| `td01-tinkercad-introduzione.html` | 8 | ✅ creato |
+| `td02-modellazione-base.html` | 9 | ✅ creato (compatto — piano prevedeva 16) |
+| `td03-esportazione-stampa-3d.html` | 8 | ✅ creato |
+| `td04-classi-attivita.html` | 7 | ✅ creato |
+
+Fatto anche: card nell'indice (`00-indice.html`), `.txt` companion per tutti e 4, prefisso `td` in CLAUDE.md e README.
+
+**Espansione possibile**: td02 è più sintetico del piano — le proposte non implementate come slide dedicate (mouse e precisione, colori RGB/esadecimali, rotazione separata, mini-esercizio portachiavi) restano disponibili nelle sezioni sotto.
+
 ## Target merge suggerito
 
 Implementato come nuova sezione/deck dedicata, per non appesantire troppo SU o PM.
@@ -551,8 +564,7 @@ Nota:
 
 ## Note di merge
 
-- Verificare se il corso vuole una nuova sezione pubblicata nell'indice o solo materiali di supporto.
-- Se si crea nuova sezione, aggiornare `00-indice.html`.
-- Se si crea nuova sezione, generare `.txt` companion per ogni deck.
-- Evitare slide di domande riepilogative finali.
-- Usare esempi pratici semplici: targhetta, portachiavi, pedina, supporto cavo, etichetta con testo.
+- ✅ Nuova sezione pubblicata nell'indice (`00-indice.html`).
+- ✅ `.txt` companion generati per ogni deck.
+- ✅ Nessuna slide di domande riepilogative finali.
+- Esempi pratici semplici (targhetta, portachiavi, pedina, supporto cavo) — da usare in eventuali espansioni di td02/td03.

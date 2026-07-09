@@ -1,38 +1,20 @@
 # Proposte merge programma competenze digitali
 
-File provvisori creati per integrare nel corso le lacune emerse dagli screenshot del programma.
+File creati per integrare nel corso le lacune emerse dagli screenshot del programma.
+Ogni file contiene la tabella di stato implementazione in cima, seguita dai contenuti proposti.
 
-Non sono modifiche ai deck esistenti. Ogni file contiene:
+## Stato complessivo
 
-- deck o area suggerita
-- lacuna coperta
-- contenuti pronti da trasformare in slide
-- note di merge
+| File | Argomenti | Stato |
+|---|---|---|
+| `rw-ricerca-web-collaborazione.md` | SERP, strategie ricerca, rubrica/filtri email, Creative Commons, immagini dal web | ✅ completato |
+| `in-identita-social-pa.md` | CIE/TS-CNS, PA digitale, blog, empowerment, cosa non pubblicare | ✅ completato |
+| `su-produttivita-contenuti.md` | Lavagne online, mappe mentali, contenuti visuali, fotografia, color correction | ✅ completato |
+| `sd-sicurezza-troubleshooting.md` | Doxing, rootkit/RAT, darknet, E2EE, normative, mappatura dati, deck hs05 (19 slide) | ✅ completato |
+| `td-tinkercad-modellazione-3d.md` | Nuova sezione td01–td04: TinkerCAD, modellazione, stampa 3D, classi | ✅ completato |
 
-## File
-
-- `rw-ricerca-web-collaborazione.md`
-  Ricerca web, SERP, fonti, archiviazione contenuti, email, chat, videoconferenze, collaborazione online.
-
-- `in-identita-social-pa.md`
-  Identita digitale, servizi pubblici, social media, blog, reputazione, privacy e empowerment.
-
-- `su-produttivita-contenuti.md`
-  Suite collaborative, lavagne online, mappe mentali, contenuti visuali, fotografia e immagini.
-
-- `sd-sicurezza-troubleshooting.md`
-  Sicurezza digitale, normative, crittografia, sistemi operativi, troubleshooting, MOOC e certificazioni.
-
-- `td-tinkercad-modellazione-3d.md`
-  Modellazione 3D con TinkerCAD, formati 3D, solidi/vuoti, esportazione e stampa 3D, classi e attivita didattiche.
-
-## Ordine consigliato di merge
-
-1. RW: ricerca, contenuti, email e collaborazione.
-2. IN: identita digitale, PA, social e reputazione.
-3. SU/SM: produzione contenuti, suite, fotografia e immagini.
-4. SD/HS: sicurezza avanzata e problemi tecnici.
-5. TD/3D: TinkerCAD, modellazione e stampa 3D.
+Tutti i merge principali sono stati implementati. Restano nei singoli file le proposte
+di espansione facoltative (es. td02 versione estesa, esempi pratici stampa 3D).
 
 ## Nota
 
