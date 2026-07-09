@@ -175,8 +175,7 @@ of each word in the section name (e.g. `HS` = Hardware e **S**oftware):
 | `su` | Suite Ufficio | `su01-microsoft.html` |
 | `ia` | Intelligenza Artificiale | `ia01-concetti-generali.html` |
 | `pm` | Project Management | `pm01-introduzione.html` |
-| `sc` | Programmare con Scratch | `sc01-introduzione.html` |
-| `mb` | Programmare con Micro:bit | `mb01-microbit.html` |
+| `sc` / `mb` | Programmare | `sc01-introduzione.html`, `mb01-microbit.html` |
 | `td` | TinkerCAD e stampa 3D | `td01-tinkercad-introduzione.html` |
 | `gd` | Game Design | `gd01-introduzione.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
@@ -292,9 +291,7 @@ Navigation chain: sm01 → … → sm11
 
 ### Suite Ufficio
 
-Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 → su08 → su09 → su10 → su12 → su11
-(su12 sits between su10 and su11: text functions belong to the spreadsheet
-block, su11 stays the course finale)
+Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 → su08 → su09 → su10 → su11 → su12
 
 | File | Title |
 | --- | --- |
@@ -308,8 +305,8 @@ block, su11 stays the course finale)
 | `su08-prime-formule.html` | Prime formule |
 | `su09-analisi.html` | Analizzare e cercare |
 | `su10-funzioni-top.html` | Le 10 funzioni più usate |
-| `su11-presentazioni.html` | Dillo con una slide |
-| `su12-testo.html` | Manipolare il testo |
+| `su11-testo.html` | Manipolare il testo |
+| `su12-presentazioni.html` | Dillo con una slide |
 
 ### Intelligenza Artificiale
 
@@ -332,18 +329,18 @@ Navigation chain: pm01 → pm02 → pm03 → pm04
 | `pm03-metodologie.html` | Metodologie |
 | `pm04-strumenti.html` | Strumenti Digitali |
 
-### Programmare con Scratch
+### Programmare
 
-Navigation chain: sc01 → sc02
+Index numbering uses `PR01.xx` for Scratch and `PR02.xx` for Micro:bit.
+
+Scratch navigation chain: sc01 → sc02
 
 | File | Title |
 | --- | --- |
 | `sc01-introduzione.html` | Introduzione a Scratch |
 | `sc02-questionario.html` | Questionari con Scratch |
 
-### Programmare con Micro:bit
-
-Navigation chain: mb01 → mb02
+Micro:bit navigation chain: mb01 → mb02
 
 | File | Title |
 | --- | --- |

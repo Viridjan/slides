@@ -44,8 +44,7 @@ Inside any deck:
 | `su` | Suite Ufficio | su01–su12 |
 | `ia` | Intelligenza Artificiale | ia01–ia03 |
 | `pm` | Project Management | pm01–pm04 |
-| `sc` | Programmare con Scratch | sc01–sc02 |
-| `mb` | Programmare con Micro:bit | mb01–mb02 |
+| `sc` / `mb` | Programmare | Scratch sc01–sc02, Micro:bit mb01–mb02 |
 | `td` | TinkerCAD e stampa 3D | td01–td04 |
 | `gd` | Game Design | gd01–gd08 |
 

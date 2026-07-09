@@ -5,8 +5,8 @@
 - `su02-google-workspace.html`
 - `su05-documenti.html`
 - `su06-sistema.html`
-- `su11-presentazioni.html`
-- `su12-testo.html`
+- `su12-presentazioni.html`
+- `su11-testo.html`
 - `sm08-fotocamera-contenuti.html`
 - eventuale collegamento con `su03-adobe.html` e `su04-alternativi.html`
 
@@ -17,7 +17,7 @@
 | Suite collaborative (doc condivisi, versioni, permessi) | su02/su05/su06 | ⏭ già presente in su02 (collaborazione) e su05 |
 | Lavagne online (Miro, FigJam, ecc.) | su02 | ✅ aggiunto |
 | Mappe mentali e concettuali | su02 | ✅ aggiunto |
-| Contenuti visuali (banner, volantini, Canva) | su11 | ✅ aggiunto |
+| Contenuti visuali (banner, volantini, Canva) | su12 | ✅ aggiunto |
 | Fotografia composizione (regola dei terzi) | sm08 | ✅ aggiunto |
 | Color correction (esposizione, contrasto, saturazione) | sm08 | ✅ aggiunto (con editing/ritocco/filtri) |
 | Editing fotografico (app, GIMP, Lightroom) | sm08 | ✅ incluso nella slide color correction |
@@ -47,9 +47,9 @@ Contenuto implementato: mappa mentale (espansione per associazioni) vs mappa con
 
 ---
 
-## SU11 - Contenuti visuali (banner, volantini, post social) ✅
+## SU12 - Contenuti visuali (banner, volantini, post social) ✅
 
-**Slide aggiunta in su11-presentazioni.html** prima del closing. Contenuto implementato: scegliere formato (post/storia/banner/A4), template come punto di partenza, gerarchia visiva (titolo→immagine→info→CTA), colori coerenti, pochi font, esportare PNG/PDF. Tool: Canva, Adobe Express, PowerPoint/Slides, LibreOffice Draw.
+**Slide aggiunta in su12-presentazioni.html** prima del closing. Contenuto implementato: scegliere formato (post/storia/banner/A4), template come punto di partenza, gerarchia visiva (titolo→immagine→info→CTA), colori coerenti, pochi font, esportare PNG/PDF. Tool: Canva, Adobe Express, PowerPoint/Slides, LibreOffice Draw.
 
 ---
 
