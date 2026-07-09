@@ -17,11 +17,11 @@
 | Suite collaborative (doc condivisi, versioni, permessi) | su02/su05/su06 | ⏭ già presente in su02 (collaborazione) e su05 |
 | Lavagne online (Miro, FigJam, ecc.) | su02 | ✅ aggiunto |
 | Mappe mentali e concettuali | su02 | ✅ aggiunto |
-| Contenuti visuali (banner, volantini, Canva) | su11/in | ⏰ da aggiungere in su11 |
+| Contenuti visuali (banner, volantini, Canva) | su11 | ✅ aggiunto |
 | Fotografia composizione (regola dei terzi) | sm08 | ✅ aggiunto |
 | Color correction (esposizione, contrasto, saturazione) | sm08 | ✅ aggiunto (con editing/ritocco/filtri) |
 | Editing fotografico (app, GIMP, Lightroom) | sm08 | ✅ incluso nella slide color correction |
-| Immagini dal web (Unsplash/Pexels, licenze, Google Immagini) | rw08/sm08 | ⏰ da aggiungere in rw08 o sm08 |
+| Immagini dal web (Unsplash/Pexels, licenze, Google Immagini) | rw08 | ✅ aggiunto |
 
 ---
 
@@ -47,9 +47,9 @@ Contenuto implementato: mappa mentale (espansione per associazioni) vs mappa con
 
 ---
 
-## SU11 - Contenuti visuali (banner, volantini, post social) ⏰
+## SU11 - Contenuti visuali (banner, volantini, post social) ✅
 
-Da aggiungere in su11-presentazioni.html come slide introduttiva o in su03-adobe.html / su04-alternativi.html. Contenuto proposto: scegliere formato (post/storia/banner/A4), template come punto di partenza, gerarchia visiva (titolo→immagine→info→CTA), colori coerenti, pochi font, esportare PNG/PDF. Tool: Canva, Adobe Express, PowerPoint/Slides, LibreOffice Draw.
+**Slide aggiunta in su11-presentazioni.html** prima del closing. Contenuto implementato: scegliere formato (post/storia/banner/A4), template come punto di partenza, gerarchia visiva (titolo→immagine→info→CTA), colori coerenti, pochi font, esportare PNG/PDF. Tool: Canva, Adobe Express, PowerPoint/Slides, LibreOffice Draw.
 
 ---
 
@@ -69,6 +69,6 @@ Contenuto implementato: esposizione, luminosità, contrasto, saturazione, temper
 
 ---
 
-## RW08/SM08 - Immagini dal web ⏰
+## RW08/SM08 - Immagini dal web ✅
 
-Da aggiungere in rw08 (già ha slide su copyright/CC aggiunta) o sm08. Contenuto proposto: Google Immagini ≠ banca immagini (mostra immagini di terzi), controllare fonte/autore/licenza, filtri per licenza. Fonti gratuite: Unsplash, Pexels, Pixabay, Wikimedia Commons. Fonti a pagamento: Adobe Stock, iStock. Freepik: attenzione attribuzione e limiti. Formati: JPG/PNG/SVG/WebP. Regola: se lo pubblichi, devi sapere da dove viene.
+**Slide aggiunta in rw08-contenuti.html** prima del closing. Contenuto implementato: Google Immagini ≠ banca immagini (mostra immagini di terzi), controllare fonte/autore/licenza, filtri per licenza. Fonti gratuite: Unsplash, Pexels, Pixabay, Wikimedia Commons. Fonti a pagamento: Adobe Stock, iStock. Freepik: attenzione attribuzione e limiti. Formati: JPG/PNG/SVG/WebP. Regola: se lo pubblichi, devi sapere da dove viene.

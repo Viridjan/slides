@@ -1,0 +1,69 @@
+Hardware e Software · HS05 — Troubleshooting
+============================================
+
+--- Slide 1 ---
+Hardware e Software · HS05 Trouble
+shooting
+Metodo, manutenzione e strumenti pratici per risolvere problemi tecnici in contesti digitali.
+🧰
+
+--- Slide 2 ---
+Percorso Cosa vedremo
+Metodo per descrivere un problema tecnico Aggiornamenti, virus, quarantena e analisi disco Account admin, browser, motori di ricerca e player video Immagini, formati, MOOC e certificazioni digitali
+
+--- Slide 3 ---
+Metodo Prima capire, poi intervenire
+Descrivi il sintomo: cosa succede, quando, con quale messaggio. Chiediti cosa è cambiato: aggiornamenti, app, periferiche, rete. Prova soluzioni reversibili prima di interventi invasivi. Cerca il messaggio esatto e documenta cosa hai già provato. In pratica: Un problema tecnico si risolve meglio quando è descritto bene.
+
+--- Slide 4 ---
+Manutenzione Aggiornamenti, virus e disco
+🔄 Aggiornamenti
+Correggono bug e vulnerabilità. I Service Pack erano raccolte importanti di aggiornamenti.
+🧪 Quarantena
+L’antivirus isola file sospetti: non sono cancellati subito, ma non possono agire.
+💽 Disco
+Analisi errori e spazio libero aiutano. Deframmentare ha senso sui vecchi HDD, non sugli SSD.
+Regola Prima di interventi rischiosi: backup.
+
+--- Slide 5 ---
+Configurazione Admin, browser e strumenti
+👤 Account admin
+Serve per installare e modificare impostazioni. Per uso quotidiano è più sicuro un account standard.
+🌐 Browser
+Homepage, motore di ricerca, estensioni e privacy vanno controllati: troppe estensioni aumentano rischi e confusione.
+🎬 Player video
+Windows Media Player e VLC aprono formati diversi. Installare da fonti ufficiali e controllare associazioni file.
+
+--- Slide 6 ---
+Formati Immagini e conversioni
+📷 JPG
+Foto e immagini realistiche: leggero, ma con perdita di qualità.
+🪟 PNG
+Grafica e trasparenze: più pesante, ma pulito per screenshot e loghi semplici.
+🔷 SVG / WebP
+SVG per vettoriale, WebP per web moderno. Convertire solo sapendo dove verrà usato.
+Regola Formato corretto = meno peso, più qualità, meno problemi di compatibilità.
+
+--- Slide 7 ---
+Aiuto online Forum, MOOC e certificazioni
+💬 Comunità
+Blog, forum e canali tematici aiutano se fornisci errore, sistema, versione e prove già fatte.
+🎓 MOOC
+Coursera, edX, FutureLearn, Khan Academy o Moodle permettono formazione online con moduli e quiz.
+🏅 Certificazioni
+Attestati e badge digitali valgono di più se ente, identità ed esame sono verificabili.
+
+--- Slide 8 ---
+Ambiente di test Macchine virtuali per provare senza rischiare
+🖥️ Cos'è
+Una macchina virtuale è un computer simulato dentro il computer reale: ha disco, RAM, sistema operativo e programmi propri.
+📸 Snapshot
+Salva lo stato prima di una prova. Se qualcosa va storto, puoi tornare indietro senza reinstallare tutto.
+🧪 Uso didattico
+Serve per testare sistemi, configurazioni e software senza toccare il sistema principale o dati personali reali.
+Strumenti VirtualBox, VMware, Hyper-V e UTM sono ambienti comuni. L'isolamento riduce il rischio, ma non sostituisce prudenza e backup.
+
+--- Slide 9 ---
+Risolto.
+Hai un metodo: descrivere, isolare, provare, documentare e chiedere aiuto con informazioni utili.
+← HS04 · OS concetti Indice

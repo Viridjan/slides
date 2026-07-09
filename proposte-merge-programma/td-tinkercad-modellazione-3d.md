@@ -6,9 +6,9 @@
 
 ## Target merge suggerito
 
-Opzione consigliata: creare una nuova sezione/deck dedicata, per non appesantire troppo SU o PM.
+Implementato come nuova sezione/deck dedicata, per non appesantire troppo SU o PM.
 
-- nuovo prefisso possibile: `td` = TinkerCAD / 3D
+- nuovo prefisso: `td` = TinkerCAD / 3D
 - `td01-tinkercad-introduzione.html`
 - `td02-modellazione-base.html`
 - `td03-esportazione-stampa-3d.html`
@@ -492,7 +492,7 @@ Nota:
 
 ---
 
-## Proposta struttura deck
+## Struttura deck implementata
 
 ### `td01-tinkercad-introduzione.html`
 

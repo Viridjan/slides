@@ -17,18 +17,18 @@
 | Phishing, vishing, smishing | sd02 | ⏭ già presente |
 | Doxing | sd02 | ✅ aggiunto |
 | Malware avanzato (rootkit, RAT, scareware) | sd02 | ✅ aggiunto |
-| Darknet e exploit kit | sd02 | ⏰ da aggiungere |
+| Darknet e exploit kit | sd02 | ✅ aggiunto |
 | Crittografia E2EE | sd01 | ✅ aggiunto |
-| Come si attacca la crittografia | sd05 | ⏰ da aggiungere |
+| Come si attacca la crittografia | sd05 | ✅ aggiunto |
 | Confronto OS (Windows/Linux/macOS) | hs03 | ⏭ già presente |
-| Quadro normativo (GDPR/NIS2/Cybersecurity Act/IPR) | sd05 | ⏰ parziale (GDPR/NIS2 già presenti, manca Cybersecurity Act/IPR) |
-| Macchine virtuali | sd06 proposta | ⏰ richiede nuovo deck |
-| Mappatura e monitoraggio dati | sd05 | ⏰ da aggiungere |
-| Troubleshooting base | hs05 proposta | ⏰ richiede nuovo deck |
-| Aggiornamenti, virus, disco | hs05 proposta | ⏰ richiede nuovo deck |
-| Account admin e personalizzazioni | hs05 proposta | ⏰ richiede nuovo deck |
-| Immagini e formati | hs05 proposta | ⏰ richiede nuovo deck (vedi anche su-produttivita) |
-| MOOC e certificazioni | hs05 proposta | ⏰ richiede nuovo deck |
+| Quadro normativo (GDPR/NIS2/Cybersecurity Act/IPR) | sd05 | ✅ completato |
+| Macchine virtuali | hs05 | ✅ aggiunto in nuovo deck |
+| Mappatura e monitoraggio dati | sd05 | ✅ aggiunto |
+| Troubleshooting base | hs05 | ✅ aggiunto in nuovo deck |
+| Aggiornamenti, virus, disco | hs05 | ✅ aggiunto in nuovo deck |
+| Account admin e personalizzazioni | hs05 | ✅ aggiunto in nuovo deck |
+| Immagini e formati | hs05/rw08 | ✅ aggiunto |
+| MOOC e certificazioni | hs05 | ✅ aggiunto in nuovo deck |
 
 ---
 
@@ -56,9 +56,9 @@ Nota: Spyware e Adware già nel "Bestiario del Malware" (slide 4).
 
 ---
 
-## SD02 - Darknet e exploit kit ⏰
+## SD02 - Darknet e exploit kit ✅
 
-Da aggiungere in sd02. Contenuto proposto: darknet (reti non raggiungibili con browser standard), dark market (dati rubati, malware, credenziali), exploit kit (pacchetti per sfruttare vulnerabilità note). Nota: non serve visitarli per subirne gli effetti.
+**Slide aggiunta in sd02-minacce.html** prima del closing. Contenuto implementato: darknet (reti non raggiungibili con browser standard), dark market (dati rubati, malware, credenziali), exploit kit (pacchetti per sfruttare vulnerabilità note). Nota: non serve visitarli per subirne gli effetti.
 
 ---
 
@@ -70,9 +70,9 @@ Contenuto implementato: definizione E2EE, come funziona (cifratura sul dispositi
 
 ---
 
-## SD05 - Come si attacca la crittografia ⏰
+## SD05 - Come si attacca la crittografia ✅
 
-Da aggiungere in sd05. Contenuto proposto: phishing (rubare la password invece di decifrare), malware (leggere dati prima/dopo cifratura sul dispositivo), SIM swap, backup non cifrati, password deboli, social engineering. Nota: gli attacchi reali cercano il punto debole più economico, spesso umano.
+**Slide aggiunta in sd05-assessment.html** prima del closing. Contenuto implementato: phishing (rubare la password invece di decifrare), malware (leggere dati prima/dopo cifratura sul dispositivo), SIM swap, backup non cifrati, password deboli, social engineering. Nota: gli attacchi reali cercano il punto debole più economico, spesso umano.
 
 ---
 
@@ -82,22 +82,23 @@ Già coperto estesamente in hs03: slide Windows, macOS, Linux, tabella comparati
 
 ---
 
-## SD05 - Quadro normativo ⏰ parziale
+## SD05 - Quadro normativo ✅
 
-GDPR e NIS2 già presenti in sd05 ("Le principali normative"). Mancano Cybersecurity Act EU, IPR (proprietà intellettuale) e Open Resources/licenze aperte. Da aggiungere come nota o slide separata.
-
----
-
-## SD05 - Mappatura e monitoraggio dati ⏰
-
-Da aggiungere in sd05. Contenuto proposto: tabella dati (Dato | Sistema | Responsabile | Permessi | Retention | Backup). Domande guida: che dati raccogliamo? dove sono? chi accede? per quanto? cifrati? backup?
+**Slide aggiunta in sd05-assessment.html** con GDPR, NIS2, Cybersecurity Act, IPR e Open Resources/licenze aperte.
 
 ---
 
-## HS05 proposta - Nuovo deck troubleshooting
+## SD05 - Mappatura e monitoraggio dati ✅
 
-Contenuti identificati per un futuro `hs05-troubleshooting.html`:
+**Slide aggiunta in sd05-assessment.html** prima del closing. Contenuto implementato: tabella dati (Dato | Sistema | Responsabile | Permessi | Retention | Backup). Domande guida: che dati raccogliamo? dove sono? chi accede? per quanto? cifrati? backup?
+
+---
+
+## HS05 - Nuovo deck troubleshooting ✅
+
+Creato `hs05-troubleshooting.html` con:
 - Metodo troubleshooting base (descrivere sintomo, cosa è cambiato, soluzioni reversibili prima)
+- Macchine virtuali per ambiente di test e snapshot
 - Manutenzione ordinaria (aggiornamenti, Service Pack, conflitti, quarantena, analisi disco, deframmentazione HDD vs SSD)
 - Account admin vs standard, browser, motori di ricerca, player video
 - Immagini e formati (JPG/PNG/SVG/WebP/PDF), librerie immagini con licenze
