@@ -7,7 +7,7 @@ Game Design
  Sonora 
  Come la musica dei videogiochi è passata da traccia fissa a sistema reattivo — e come può diventare essa stessa una meccanica. 
  
- GD_02 Audio & Musica 
+ GD_02 Audio &amp; Musica 
  
  
  
@@ -52,6 +52,17 @@ Livello 1
  🚫 Nessuna reazione La musica non sa se stai combattendo o esplorando: suona identica in ogni situazione. 
  
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  La stessa traccia, in loop, per tutto il livello
 
 --- Slide 5 ---
@@ -68,6 +79,20 @@ Livello 2
  OST procedurale random 
  La musica non è una traccia unica: è composta di strati ricombinati in tempo reale. Ogni sessione suona diversa. 
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ DRUM 
+ BASS 
+ SYNTH 
+ GTR 
  
  Ogni stem ha il suo volume: il motore li miscela dal vivo 
  
@@ -95,6 +120,16 @@ Come funziona
 Livello 3 
  OST a feedback 
  Il salto finale: la musica non reagisce solo all'atmosfera, ma allo stato preciso del gameplay . 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  Evento di gioco ↔ musica: un dialogo continuo 
@@ -138,13 +173,10 @@ Attività
  Guarda un video di DOOM Eternal a volume alto: prova a indovinare l'evento di gioco dal cambio di musica, senza guardare lo schermo.
 
 --- Slide 12 ---
-Fine GD_02 
- Non sottofondo.
- Sistema. 
+Non sottofondo.
+Sistema. 
  
- Da traccia fissa a strumento reattivo: la musica migliore di un gioco è quella che sa cosa stai facendo .
+ Da traccia fissa a strumento reattivo: la musica migliore di un gioco è quella che sa cosa stai facendo.
  
  
- ← GD_01 · Introduzione 
- → GD_03 · SFX e Audio 
- ↩ Indice del corso
+ → GD_03 · SFX e Audio

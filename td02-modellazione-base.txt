@@ -3,61 +3,28 @@ Modellazione 3D · TD02 — Modellazione base
 
 --- Slide 1 ---
 Modellazione 3D · TD02 Modellazione
-base
-Workplane, camera, forme, snap, solidi e vuoti: le operazioni fondamentali in TinkerCAD.
-📐
+ base Workplane, camera, forme, snap, solidi e vuoti: le operazioni fondamentali in TinkerCAD. 📐
 
 --- Slide 2 ---
-Percorso Cosa vedremo
-Orientarsi nell’interfaccia Usare workplane, camera, viste e griglia di snap Modificare forme, misure, colori e testo Combinare solidi e vuoti con unione e separazione
+Percorso Cosa vedremo Orientarsi nell’interfaccia Usare workplane, camera, viste e griglia di snap Modificare forme, misure, colori e testo Combinare solidi e vuoti con unione e separazione
 
 --- Slide 3 ---
-Interfaccia Le parti dell’ambiente
-🟫 Workplane
-La superficie magnetica su cui appoggiare e costruire le forme.
-🎥 Camera
-Il punto di vista: ruotare e cambiare vista serve a controllare profondità e proporzioni.
-🧱 Forme
-Geometrie, lettere, numeri e componenti da trascinare nel progetto.
+Interfaccia Le parti dell’ambiente 🟫 Workplane La superficie magnetica su cui appoggiare e costruire le forme. 🎥 Camera Il punto di vista: ruotare e cambiare vista serve a controllare profondità e proporzioni. 🧱 Forme Geometrie, lettere, numeri e componenti da trascinare nel progetto.
 
 --- Slide 4 ---
-Precisione Snap e viste
-🧲 Snap
-Allinea alla griglia con passo regolabile: grande per muoversi veloce, piccolo per precisione.
-👁️ Prospettica
-Simile all’occhio umano: gli oggetti lontani sembrano più piccoli.
-📏 Ortogonale
-Meno realistica ma tecnica: utile per controllare misure e allineamenti.
-Regola In 3D non basta guardare da davanti: controlla alto, lato, retro e profondità.
+Precisione Snap e viste 🧲 Snap Allinea alla griglia con passo regolabile: grande per muoversi veloce, piccolo per precisione. 👁️ Prospettica Simile all’occhio umano: gli oggetti lontani sembrano più piccoli. 📏 Ortogonale Meno realistica ma tecnica: utile per controllare misure e allineamenti. Regola In 3D non basta guardare da davanti: controlla alto, lato, retro e profondità.
 
 --- Slide 5 ---
-Forme Inserire e modificare
-Trascina una forma sul piano di lavoro. Ridimensionala dai vertici o inserendo misure in millimetri. Usa lucchetto e lampadina per bloccare o nascondere temporaneamente. Assegna colori diversi per distinguere parti del modello.
+Forme Inserire e modificare Trascina una forma sul piano di lavoro. Ridimensionala dai vertici o inserendo misure in millimetri. Usa lucchetto e lampadina per bloccare o nascondere temporaneamente. Assegna colori diversi per distinguere parti del modello.
 
 --- Slide 6 ---
-Colore RGB ed esadecimali
-🔴 RGB
-Rosso, verde e blu sono canali additivi da 0 a 255.
-#️⃣ Hex
-Il codice esadecimale rappresenta RGB in sei caratteri, per esempio #FF0000.
-🧵 Materiale
-Il colore in TinkerCAD aiuta a progettare; in stampa dipenderà anche dal filamento.
+Colore RGB ed esadecimali 🔴 RGB Rosso, verde e blu sono canali additivi da 0 a 255. #️⃣ Hex Il codice esadecimale rappresenta RGB in sei caratteri, per esempio #FF0000. 🧵 Materiale Il colore in TinkerCAD aiuta a progettare; in stampa dipenderà anche dal filamento.
 
 --- Slide 7 ---
-Operazioni Solidi e vuoti
-➕ Solido
-Rappresenta materiale da aggiungere.
-➖ Vuoto
-Rappresenta materiale da rimuovere quando viene unito a un solido.
-🔀 Unione
-Solido + solido somma; solido + vuoto sottrae. Se serve, puoi separare.
-Regola I pieni sono numeri positivi, i vuoti numeri negativi: insieme costruiscono la forma finale.
+Operazioni Solidi e vuoti ➕ Solido Rappresenta materiale da aggiungere. ➖ Vuoto Rappresenta materiale da rimuovere quando viene unito a un solido. 🔀 Unione Solido + solido somma; solido + vuoto sottrae. Se serve, puoi separare. Regola I pieni sono numeri positivi, i vuoti numeri negativi: insieme costruiscono la forma finale.
 
 --- Slide 8 ---
-Spazio Muovere e ruotare
-Usa le frecce per spostare lungo gli assi. Controlla la profondità cambiando vista. Ruota con le doppie frecce e angoli precisi. Se una maniglia è nascosta, ruota la camera prima di modificare.
+Spazio Muovere e ruotare Usa le frecce per spostare lungo gli assi. Controlla la profondità cambiando vista. Ruota con le doppie frecce e angoli precisi. Se una maniglia è nascosta, ruota la camera prima di modificare.
 
 --- Slide 9 ---
-Forma creata.
-Ora il modello può uscire da TinkerCAD: formati, esportazione, slicer e stampa 3D.
-← TD01 · Introduzione Prossimo → TD03 · Stampa 3D
+Forma creata. Ora il modello può uscire da TinkerCAD: formati, esportazione, slicer e stampa 3D. Prossimo → TD03 · Stampa 3D
