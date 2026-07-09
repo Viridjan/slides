@@ -74,4 +74,10 @@ Inside any deck:
 2. Generate the `.txt` companion (see `CLAUDE.md` → TXT companion files).
 3. Add a card to `00-indice.html`.
 4. Update the previous deck's "Prossimo" closing chip.
-5. Update `CLAUDE.md` inventory and navigation chain.
+5. Rebuild the full-text search index:
+
+```bash
+node scripts/build-search-index.js
+```
+
+6. Update `CLAUDE.md` inventory and navigation chain.

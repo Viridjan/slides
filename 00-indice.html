@@ -1405,6 +1405,7 @@ body.search-active .module-card.search-hidden{display:none;}
   </footer>
 
 </div>
+<script src="search-index.js"></script>
 <script>
 const sectionGroups=[...document.querySelectorAll('.section-group')];
 const closeGroup=group=>{
@@ -1439,6 +1440,7 @@ sectionGroups.forEach(group=>{
 const searchInput=document.getElementById('courseSearch');
 const searchClear=document.getElementById('courseSearchClear');
 const searchMeta=document.getElementById('courseSearchMeta');
+const deckSearchIndex=new Map((window.COURSE_SEARCH_INDEX||[]).map(item=>[item.href,item]));
 const normalizeSearch=text=>(text||'')
   .toLowerCase()
   .normalize('NFD')
@@ -1447,15 +1449,23 @@ const normalizeSearch=text=>(text||'')
   .trim();
 const cards=[...document.querySelectorAll('.module-card[href]')].map(card=>{
   const group=card.closest('.section-group');
+  const href=card.getAttribute('href')||'';
+  const indexed=deckSearchIndex.get(href)||{};
   const section=group?.querySelector('.section-label')?.textContent||'';
   const text=[
     section,
-    card.getAttribute('href'),
+    href,
     card.querySelector('.card-num')?.textContent,
     card.querySelector('.card-tag')?.textContent,
     card.querySelector('.card-title')?.textContent,
     card.querySelector('.card-desc')?.textContent,
-    card.querySelector('.card-topics')?.textContent
+    card.querySelector('.card-topics')?.textContent,
+    indexed.section,
+    indexed.code,
+    indexed.title,
+    indexed.description,
+    indexed.topics,
+    indexed.text
   ].join(' ');
   return {card,group,haystack:normalizeSearch(text)};
 });

@@ -36,28 +36,28 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);}
 .tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
 .tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal-2);}.tape.dark{background:var(--teal);}
 .eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--gold-deep);}
-.h-mega{font-family:var(--font-display);font-weight:900;font-size:142px;line-height:.86;letter-spacing:-4px;}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
 .h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
 .h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
 em.hot{font-style:italic;color:var(--red);}
 em.warm{font-style:italic;color:var(--gold-deep);}
 em.teal{font-style:italic;color:var(--teal-2);}
 code{font-family:var(--font-mono);}
-.lead{font-size:33px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
-.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 32px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
-.card h3{font-family:var(--font-display);font-weight:900;font-size:38px;margin-bottom:10px;line-height:1;}
-.card p{font-size:25px;line-height:1.4;color:var(--ink-soft);}
+.lead{font-size:32px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:10px;line-height:1;}
+.card p{font-size:24px;line-height:1.4;color:var(--ink-soft);}
 .chips{display:flex;gap:16px;flex-wrap:wrap;}
 .chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
 .chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
-.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:24px 30px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
 .note.teal{background:var(--teal-2);}.note.teal *{color:#fff !important;}.note.teal .lbl{color:var(--gold) !important;}
 .note.dark{background:var(--teal);}.note.dark *{color:var(--paper) !important;}.note.dark .lbl{color:var(--gold) !important;}
 .note.red{background:#f3b6aa;}
 .note.sky{background:rgba(63,126,140,.12);border-color:var(--sky);}
 .note.warm{background:#fde8cc;border-color:var(--gold-deep);}
 .note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
-.note p{font-size:26px;line-height:1.4;color:var(--ink);}
+.note p{font-size:25px;line-height:1.4;color:var(--ink);}
 .col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
 .split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
 .split.even{grid-template-columns:1fr 1fr;}
@@ -146,7 +146,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
       <p class="lead reveal d1">Ogni giorno consultiamo, scarichiamo e condividiamo grandi quantità di informazioni provenienti dal Web. Per usarle efficacemente occorrono le tecniche giuste.</p>
     </div>
     <div class="col stack reveal d1">
-      <h3 style="font-family:var(--font-display);font-size:36px;margin-bottom:14px;">In questo modulo imparerai a</h3>
+      <h3 style="font-family:var(--font-display);margin-bottom:14px;">In questo modulo imparerai a</h3>
       <div class="check-row"><span class="ck">👁️</span><div class="tx"><b>Visualizzare</b> contenuti in diversi formati</div></div>
       <div class="check-row"><span class="ck">💾</span><div class="tx"><b>Salvare e stampare</b> pagine web e documenti</div></div>
       <div class="check-row"><span class="ck">⬇️</span><div class="tx"><b>Scaricare e copiare</b> file in modo sicuro</div></div>
@@ -274,7 +274,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
       </div>
     </div>
     <div class="col stack reveal d1">
-      <h3 style="font-family:var(--font-display);font-size:34px;margin-bottom:16px;">Zoom: adattare la visualizzazione</h3>
+      <h3 style="font-family:var(--font-display);margin-bottom:16px;">Zoom: adattare la visualizzazione</h3>
       <div class="card" style="border-color:var(--gold-deep);padding:24px 28px;">
         <h3>⌨️ Tastiera</h3>
         <p style="margin-top:8px;">Nel browser: <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">Ctrl +</code> per ingrandire, <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">Ctrl -</code> per ridurre, <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">Ctrl 0</code> per resettare.</p>
@@ -371,7 +371,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
       </div>
     </div>
     <div class="col stack reveal d1">
-      <h3 style="font-family:var(--font-display);font-size:36px;margin-bottom:14px;">Cosa verificare nell'anteprima</h3>
+      <h3 style="font-family:var(--font-display);margin-bottom:14px;">Cosa verificare nell'anteprima</h3>
       <div class="check-row"><span class="ck">📐</span><div class="tx"><b>Impaginazione</b> — il testo rientra nei margini?</div></div>
       <div class="check-row"><span class="ck">📄</span><div class="tx"><b>Numero di pagine</b> — sono davvero necessarie tutte?</div></div>
       <div class="check-row"><span class="ck">🖼️</span><div class="tx"><b>Immagini</b> — sono visibili e di qualità accettabile?</div></div>
@@ -427,7 +427,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
       </div>
     </div>
     <div class="col stack reveal d1">
-      <h3 style="font-family:var(--font-display);font-size:34px;margin-bottom:16px;">Struttura di esempio</h3>
+      <h3 style="font-family:var(--font-display);margin-bottom:16px;">Struttura di esempio</h3>
       <div class="illu" style="padding:32px 36px;">
         <div class="folder-tree">
           <div>📁 <span class="folder">Documenti</span></div>
@@ -482,7 +482,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
       </div>
     </div>
     <div class="col stack reveal d1">
-      <h3 style="font-family:var(--font-display);font-size:36px;margin-bottom:18px;">Procedura</h3>
+      <h3 style="font-family:var(--font-display);margin-bottom:18px;">Procedura</h3>
       <div class="card" style="border-color:var(--gold-deep);padding:26px 30px;">
         <div style="display:flex;flex-direction:column;gap:16px;">
           <div style="display:flex;align-items:center;gap:16px;"><span style="font-size:28px;min-width:36px;">1️⃣</span><span style="font-size:26px;">Seleziona il testo con il mouse (click e trascina)</span></div>
@@ -540,7 +540,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
       </div>
     </div>
     <div class="col stack reveal d1">
-      <h3 style="font-family:var(--font-display);font-size:34px;margin-bottom:16px;">Dove puoi incollare</h3>
+      <h3 style="font-family:var(--font-display);margin-bottom:16px;">Dove puoi incollare</h3>
       <div class="check-row"><span class="ck">📝</span><div class="tx"><b>Word / LibreOffice Writer</b> — documenti formali, relazioni, rapporti</div></div>
       <div class="check-row"><span class="ck">📊</span><div class="tx"><b>Excel / Google Sheets</b> — dati, tabelle, confronti</div></div>
       <div class="check-row"><span class="ck">🎨</span><div class="tx"><b>PowerPoint / Google Slides</b> — presentazioni con contenuti da web</div></div>
@@ -658,7 +658,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
       </div>
     </div>
     <div class="col stack reveal d1">
-      <h3 style="font-family:var(--font-display);font-size:34px;margin-bottom:16px;">Metodi di archiviazione</h3>
+      <h3 style="font-family:var(--font-display);margin-bottom:16px;">Metodi di archiviazione</h3>
       <div class="check-row"><span class="ck">📸</span><div class="tx"><b>Screenshot</b> — il metodo più rapido. Include testo, immagini e contesto visivo del post</div></div>
       <div class="check-row"><span class="ck">📄</span><div class="tx"><b>Salva come PDF</b> — Ctrl+P dalla pagina del post. Conserva link e testo formattato</div></div>
       <div class="check-row"><span class="ck">🔗</span><div class="tx"><b>Copia il link</b> — archivialo nei segnalibri o in un documento di riferimento</div></div>
@@ -774,7 +774,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
       </div>
     </div>
     <div class="col stack reveal d1">
-      <h3 style="font-family:var(--font-display);font-size:34px;margin-bottom:16px;">Cloud o in locale?</h3>
+      <h3 style="font-family:var(--font-display);margin-bottom:16px;">Cloud o in locale?</h3>
       <div class="card" style="border-color:var(--teal-2);padding:24px 28px;">
         <h3>☁️ Meglio il cloud quando…</h3>
         <p style="margin-top:8px;">…ti servono i dati da <b>più luoghi e dispositivi</b>, devi condividerli con altri o vuoi una copia di sicurezza. Richiede però una connessione Internet.</p>
@@ -805,7 +805,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
       </div>
     </div>
     <div class="col stack reveal d1">
-      <h3 style="font-family:var(--font-display);font-size:34px;margin-bottom:16px;">Tre pilastri dell'organizzazione</h3>
+      <h3 style="font-family:var(--font-display);margin-bottom:16px;">Tre pilastri dell'organizzazione</h3>
       <div class="card" style="border-color:var(--gold-deep);padding:22px 26px;">
         <h3>📁 Cartelle tematiche</h3>
         <p style="margin-top:8px;">Organizza per argomento o progetto, non per tipo di file. Tutti i file di un progetto insieme.</p>

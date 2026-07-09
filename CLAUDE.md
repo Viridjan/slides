@@ -410,6 +410,14 @@ positioned at the right edge, stacked vertically, both 80px wide.
 The index has an inline JS snippet that auto-injects `↓ TXT` download buttons
 into every `.module-card[href]` at page load — no manual button markup needed.
 
+The index search reads `search-index.js`, generated from the index cards and
+their sibling `.txt` files. Rebuild it after changing deck text, `.txt`
+companions, or index cards:
+
+```bash
+node scripts/build-search-index.js
+```
+
 When adding a published deck:
 
 1. Add a card to the correct section in `00-indice.html`.
@@ -418,6 +426,7 @@ When adding a published deck:
 4. Keep a fallback `↩ Indice del corso` link in closing slides.
 5. Check links with `rg 'href="[^"]+\.html"'`.
 6. Generate the `.txt` companion file (see TXT companion files section).
+7. Rebuild `search-index.js` with `node scripts/build-search-index.js`.
 
 ## Quizzes
 
