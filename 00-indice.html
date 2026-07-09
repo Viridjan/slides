@@ -26,6 +26,20 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
 .nav-chev:not(.dim):hover{color:var(--paper);}
 .nav-chev.dim{color:rgba(244,236,224,.15);pointer-events:none;}
 
+/* Search */
+.search-panel{margin-top:34px;max-width:820px;}
+.search-box{position:relative;}
+.search-box::before{content:"⌕";position:absolute;left:18px;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-weight:900;font-size:26px;color:var(--gold-deep);pointer-events:none;}
+.course-search{width:100%;appearance:none;background:rgba(244,236,224,.07);border:1px solid rgba(216,201,180,.22);border-left:4px solid var(--gold-deep);border-radius:12px;color:var(--paper);font-family:var(--font-body);font-size:20px;line-height:1.2;padding:16px 52px 16px 56px;outline:none;box-shadow:0 12px 32px rgba(0,0,0,.18);transition:background .2s ease,border-color .2s ease,box-shadow .2s ease;}
+.course-search::placeholder{color:rgba(244,236,224,.42);}
+.course-search:focus{background:rgba(244,236,224,.11);border-color:rgba(216,201,180,.46);box-shadow:0 16px 40px rgba(0,0,0,.26);}
+.search-clear{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:32px;height:32px;border:1px solid rgba(216,201,180,.20);border-radius:999px;background:rgba(244,236,224,.06);color:rgba(244,236,224,.56);font-family:var(--font-mono);font-size:18px;line-height:1;cursor:pointer;display:none;}
+.search-clear:hover{color:var(--paper);background:rgba(244,236,224,.14);border-color:rgba(216,201,180,.42);}
+.search-meta{margin-top:10px;font-family:var(--font-mono);font-size:13px;letter-spacing:.4px;color:rgba(244,236,224,.46);min-height:18px;}
+body.search-active .section-group.search-match.collapsed .module-grid{display:grid;}
+body.search-active .section-group.search-hidden{display:none;}
+body.search-active .module-card.search-hidden{display:none;}
+
 /* Section group */
 .section-group{margin-bottom:22px;}
 .section-label{font-family:var(--font-mono);font-size:18px;letter-spacing:3px;text-transform:uppercase;color:rgba(244,236,224,.72);margin-bottom:16px;display:flex;align-items:center;gap:16px;cursor:pointer;user-select:none;background:rgba(244,236,224,.06);border:1px solid rgba(216,201,180,.16);border-left:4px solid var(--gold-deep);border-radius:12px;padding:16px 18px;box-shadow:0 10px 28px rgba(0,0,0,.16);transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease;}
@@ -96,6 +110,13 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
       <a class="nav-chev" href="00-indice-gd.html" title="Game Design"><<<</a>
       <h1>Educazione digitale</h1>
       <a class="nav-chev" href="00-indice-gd.html" title="Game Design">>>></a>
+    </div>
+    <div class="search-panel" role="search">
+      <div class="search-box">
+        <input id="courseSearch" class="course-search" type="search" autocomplete="off" placeholder="Cerca per parola chiave, modulo o argomento">
+        <button id="courseSearchClear" class="search-clear" type="button" aria-label="Cancella ricerca">×</button>
+      </div>
+      <div id="courseSearchMeta" class="search-meta" aria-live="polite"></div>
     </div>
   </header>
 
@@ -1413,6 +1434,71 @@ sectionGroups.forEach(group=>{
       toggle();
     }
   });
+});
+
+const searchInput=document.getElementById('courseSearch');
+const searchClear=document.getElementById('courseSearchClear');
+const searchMeta=document.getElementById('courseSearchMeta');
+const normalizeSearch=text=>(text||'')
+  .toLowerCase()
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g,'')
+  .replace(/\s+/g,' ')
+  .trim();
+const cards=[...document.querySelectorAll('.module-card[href]')].map(card=>{
+  const group=card.closest('.section-group');
+  const section=group?.querySelector('.section-label')?.textContent||'';
+  const text=[
+    section,
+    card.getAttribute('href'),
+    card.querySelector('.card-num')?.textContent,
+    card.querySelector('.card-tag')?.textContent,
+    card.querySelector('.card-title')?.textContent,
+    card.querySelector('.card-desc')?.textContent,
+    card.querySelector('.card-topics')?.textContent
+  ].join(' ');
+  return {card,group,haystack:normalizeSearch(text)};
+});
+const applySearch=()=>{
+  const query=normalizeSearch(searchInput?.value||'');
+  const active=query.length>0;
+  document.body.classList.toggle('search-active',active);
+  searchClear.style.display=active?'block':'none';
+  sectionGroups.forEach(group=>{
+    group.classList.remove('search-match','search-hidden');
+  });
+  cards.forEach(({card})=>card.classList.remove('search-hidden'));
+  if(!active){
+    sectionGroups.forEach(group=>{
+      group.querySelector('.section-label')?.setAttribute('aria-expanded',group.classList.contains('collapsed')?'false':'true');
+    });
+    searchMeta.textContent='';
+    return;
+  }
+  const terms=query.split(' ').filter(Boolean);
+  let matches=0;
+  const groupsWithMatches=new Set();
+  cards.forEach(({card,group,haystack})=>{
+    const found=terms.every(term=>haystack.includes(term));
+    card.classList.toggle('search-hidden',!found);
+    if(found){
+      matches++;
+      if(group)groupsWithMatches.add(group);
+    }
+  });
+  sectionGroups.forEach(group=>{
+    const found=groupsWithMatches.has(group);
+    group.classList.toggle('search-match',found);
+    group.classList.toggle('search-hidden',!found);
+    group.querySelector('.section-label')?.setAttribute('aria-expanded',found?'true':'false');
+  });
+  searchMeta.textContent=matches===0?'Nessun risultato':`${matches} risultat${matches===1?'o':'i'}`;
+};
+searchInput?.addEventListener('input',applySearch);
+searchClear?.addEventListener('click',()=>{
+  searchInput.value='';
+  applySearch();
+  searchInput.focus();
 });
 </script>
 <script>
