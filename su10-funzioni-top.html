@@ -95,7 +95,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
     <div class="title-left">
       <div class="eyebrow reveal" style="margin-top:40px;">Fogli di calcolo</div>
       <h1 class="h-mega reveal">Le 10 funzioni<br><em class="hot">più usate</em></h1>
-      <p class="lead reveal" style="margin-top:30px;">SOMMA.SE, SOMMA.PIÙ.SE, CONTA.PIÙ.SE, MEDIA.SE, SUBTOTALE, SE.ERRORE, ARROTONDA, TESTO, OGGI e MATR.SOMMA.PRODOTTO — quelle che i professionisti usano ogni giorno.</p>
+      <p class="lead reveal" style="margin-top:30px;">SOMMA.SE, SOMMA.PIÙ.SE, CONTA.PIÙ.SE, MEDIA.SE, SUBTOTALE, SE.ERRORE, ARROTONDA, TESTO e OGGI — quelle che i professionisti usano ogni giorno.</p>
       <div class="chips reveal" style="margin-top:46px;"><span class="chip">13 slide</span></div>
     </div>
     <div class="title-right">
@@ -116,7 +116,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
         </div>
         <div class="card" style="border-color:var(--teal);background:#d2f0e8;">
           <h3 style="font-size:26px;color:var(--teal);">★ Nuove in questo modulo</h3>
-          <p style="font-family:var(--font-mono);font-size:20px;color:var(--teal-2);line-height:1.6;">SOMMA.SE · SOMMA.PIÙ.SE<br>CONTA.PIÙ.SE · MEDIA.SE<br>SUBTOTALE · SE.ERRORE<br>ARROTONDA · TESTO<br>OGGI · ADESSO · DATA<br>MATR.SOMMA.PRODOTTO</p>
+          <p style="font-family:var(--font-mono);font-size:20px;color:var(--teal-2);line-height:1.6;">SOMMA.SE · SOMMA.PIÙ.SE<br>CONTA.PIÙ.SE · MEDIA.SE<br>SUBTOTALE · SE.ERRORE<br>ARROTONDA · TESTO<br>OGGI · ADESSO · DATA</p>
         </div>
       </div>
     </div>
@@ -348,37 +348,11 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
     <div class="page-num"></div>
   </section>
 
-  <!-- 10. MATR.SOMMA.PRODOTTO -->
-  <section class="slide">
-    <div class="split">
-      <div class="col stack">
-        <div class="tape gold reveal">10. MATR.SOMMA.PRODOTTO</div>
-        <h2 class="h-big reveal">Il coltellino <em class="hot">svizzero</em></h2>
-        <p class="lead reveal d1">MATR.SOMMA.PRODOTTO moltiplica gli elementi corrispondenti di due o più array e ne somma i prodotti. Molto usata per calcoli pesati e aggregazioni con condizioni.</p>
-        <div class="formula reveal d2" style="font-size:20px;">=MATR.SOMMA.PRODOTTO(<b>array1</b>; <b>array2</b>; …)</div>
-        <div class="analogy reveal d3"><span class="big">Analogia:</span> Media ponderata, sconto su quantità, totale con più criteri — tutto con un'unica formula senza helper columns.</div>
-        <div class="note reveal d4"><div class="lbl">💡 Caso tipico</div><p>Media ponderata dei voti: <span style="font-family:var(--font-mono);font-size:19px;">=MATR.SOMMA.PRODOTTO(voti;pesi)/SOMMA(pesi)</span></p></div>
-      </div>
-      <div class="illu reveal d1">
-        <table class="sheet" style="width:300px;">
-          <tr><th></th><th>A (Qty)</th><th>B (€/cad)</th><th>C = A×B</th></tr>
-          <tr><td class="rowh">1</td><td style="background:var(--paper-2);font-weight:700;font-size:16px;">Qtà</td><td style="background:var(--paper-2);font-weight:700;font-size:16px;">Prezzo</td><td style="background:var(--paper-2);font-weight:700;font-size:16px;">Subtot.</td></tr>
-          <tr><td class="rowh">2</td><td>5</td><td>20</td><td style="font-size:16px;color:var(--ink-faint);">[100]</td></tr>
-          <tr><td class="rowh">3</td><td>3</td><td>45</td><td style="font-size:16px;color:var(--ink-faint);">[135]</td></tr>
-          <tr><td class="rowh">4</td><td>8</td><td>12</td><td style="font-size:16px;color:var(--ink-faint);">[96]</td></tr>
-          <tr><td class="rowh">5</td><td colspan="2" class="sel" style="font-size:15px;">MATR.SOMMA.PRODOTTO = 331</td><td></td></tr>
-        </table>
-        <div class="illu-cap">=MATR.SOMMA.PRODOTTO(A2:A4; B2:B4) → 331<br>(senza colonna C di supporto)</div>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
-
   <!-- 12. RIEPILOGO TOP 10 -->
   <section class="slide tight-slide">
     <div class="center">
       <div class="tape teal reveal">Riepilogo</div>
-      <h2 class="h-sec reveal" style="margin-top:16px;">Le <em class="hot">10 funzioni</em> di questo modulo</h2>
+      <h2 class="h-sec reveal" style="margin-top:16px;">Le <em class="hot">9 funzioni</em> di questo modulo</h2>
       <div class="grid5 reveal d1" style="margin-top:22px;">
         <div class="fn-card" style="padding:14px 16px;">
           <h3 style="font-size:22px;">SOMMA.SE</h3>
@@ -425,11 +399,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
           <div class="syntax" style="font-size:16px;">=OGGI()</div>
           <p style="font-size:17px;">Data corrente</p>
         </div>
-        <div class="fn-card" style="padding:14px 16px;">
-          <h3 style="font-size:22px;">MATR.SOMMA.PROD.</h3>
-          <div class="syntax" style="font-size:16px;">=MATR.SOMMA.PROD(...)</div>
-          <p style="font-size:17px;">Prodotto + somma array</p>
-        </div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -442,7 +411,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide closing">
     <div class="center" style="text-align:center;">
       <h2 class="h-mega reveal" style="margin-top:10px;">Strumenti da<br>professionista.</h2>
-      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">SOMMA.SE, MEDIA.SE, SUBTOTALE, SE.ERRORE, ARROTONDA, TESTO, le funzioni data e MATR.SOMMA.PRODOTTO: le funzioni che trasformano un foglio in uno strumento professionale.</p>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">SOMMA.SE, MEDIA.SE, SUBTOTALE, SE.ERRORE, ARROTONDA, TESTO e le funzioni data: le funzioni che trasformano un foglio in uno strumento professionale.</p>
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a class="chip" href="su12-testo.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → SU12 · Manipolare il testo</a>
       </div>
