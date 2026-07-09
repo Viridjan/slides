@@ -58,6 +58,9 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
 /* home button */
 .home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
 .home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+/* analogy strip */
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
 </style>
 <link rel="stylesheet" href="theme-corsi.css">
 </head>
@@ -79,6 +82,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
     <div class="center">
       <div class="tape teal reveal">In questo modulo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
+      <p class="body reveal" style="margin-top:12px;max-width:1100px;">Dalla fisica dei piatti magnetici al modo in cui il sistema operativo trova un file in millisecondi: in questo modulo esploriamo tutta la catena di archiviazione. Capiremo perché scegliere il file system sbagliato può bloccarti, come la frammentazione rallenta un HDD, e quali abitudini pratiche salvaguardano i tuoi dati nel lungo periodo. Un percorso completo.</p>
       <div class="agenda-list reveal d1">
         <div class="agenda-item"><span class="n">01</span><span class="t">Dove vivono i file</span></div>
         <div class="agenda-item"><span class="n">02</span><span class="t">Hard disk e SSD</span></div>
@@ -100,14 +104,15 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <div class="col stack">
         <div class="tape reveal">Il problema</div>
         <h2 class="h-big reveal">Salvare non vuol dire <em class="hot">capire</em></h2>
-        <p class="lead reveal d1">Quando premi "Salva", il computer deve decidere <b>dove</b> mettere i dati, <b>come</b> ritrovarli e <b>chi</b> può leggerli.</p>
-        <p class="body reveal d2">Il disco è il magazzino. Il file system è l'inventario. Le cartelle sono scaffali. I file sono gli oggetti.</p>
+        <p class="lead reveal d1">Quando premi "Salva", il computer deve decidere <b>dove</b> mettere i dati, <b>come</b> ritrovarli e <b>chi</b> può leggerli. Questo non avviene per magia: è un processo a più strati.</p>
+        <p class="body reveal d2">Il disco è il magazzino fisico. Il file system è l'inventario che mappa nomi e posizioni. Le cartelle sono scaffali logici. I file sono gli oggetti conservati, identificati da un percorso univoco.</p>
+        <div class="analogy reveal d3"><span class="big">Analogia:</span> Un archivio cartaceo senza indice è inutile quanto un disco pieno senza file system.</div>
       </div>
       <div class="grid2">
-        <div class="card reveal d1"><span class="ic">📦</span><h3>File</h3><p>Un contenitore di dati: testo, immagine, video, programma, archivio.</p></div>
-        <div class="card reveal d2"><span class="ic">🗂️</span><h3>Cartella</h3><p>Un modo per organizzare nomi e percorsi, non una scatola fisica.</p></div>
-        <div class="card reveal d3"><span class="ic">🧭</span><h3>Percorso</h3><p>L'indirizzo che porta a un file dentro l'albero delle cartelle.</p></div>
-        <div class="card reveal d4"><span class="ic">🧾</span><h3>Metadati</h3><p>Informazioni sul file: dimensione, date, permessi, proprietario.</p></div>
+        <div class="card reveal d1"><span class="ic">📦</span><h3>File</h3><p>Un contenitore di dati con contenuto e nome: testo, immagine, video, programma o archivio compresso.</p></div>
+        <div class="card reveal d2"><span class="ic">🗂️</span><h3>Cartella</h3><p>Un nodo logico che raggruppa nomi e percorsi. Non è una scatola fisica, ma un riferimento nel catalogo del file system.</p></div>
+        <div class="card reveal d3"><span class="ic">🧭</span><h3>Percorso</h3><p>La sequenza di cartelle che porta a un file, dalla radice del volume fino al nome del file stesso.</p></div>
+        <div class="card reveal d4"><span class="ic">🧾</span><h3>Metadati</h3><p>Informazioni associate al file: dimensione, data di creazione e modifica, permessi di accesso, proprietario.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -118,8 +123,9 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <div class="col stack">
         <div class="tape gold reveal">Dischi magnetici</div>
         <h2 class="h-big reveal">Hard Disk <em class="hot">HDD</em></h2>
-        <p class="lead reveal d1">Un HDD usa piatti magnetici che girano e una testina che legge e scrive dati. È economico e capiente, ma ha parti meccaniche.</p>
-        <div class="note reveal d2"><div class="lbl">Idea chiave</div><p>È ottimo per grandi archivi: foto, video, backup. È meno veloce e più delicato negli urti rispetto a un SSD.</p></div>
+        <p class="lead reveal d1">Un HDD usa uno o più piatti di metallo rivestiti di materiale magnetico che ruotano a 5400 o 7200 giri al minuto. Una testina galleggia a pochi nanometri dalla superficie e magnetizza o rileva piccole aree per scrivere e leggere bit.</p>
+        <p class="body reveal d2">I dati sono organizzati in tracce circolari, suddivise in settori. Il controller traduce indirizzi logici in posizioni fisiche sul piatto. Il tempo necessario a posizionare la testina si chiama <em class="hot">latenza di ricerca</em>.</p>
+        <div class="note reveal d3"><div class="lbl">💡 Idea chiave</div><p>Ottimo per grandi archivi: foto, video, backup a basso costo per gigabyte. Più lento e più delicato negli urti rispetto a un SSD proprio perché ha parti meccaniche in movimento.</p></div>
       </div>
       <div class="illu reveal d1"><div class="disk"></div><div class="illu-cap">Piatti, tracce, settori e testina</div></div>
     </div>
@@ -130,12 +136,13 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape teal reveal">Memoria flash</div>
       <h2 class="h-big reveal">SSD: veloce, silenzioso, <em class="hot">senza parti mobili</em></h2>
+      <p class="lead reveal" style="margin-bottom:4px;">Un SSD memorizza dati in celle di memoria flash NAND. Non ha piatti né testine: i dati vengono letti e scritti elettronicamente in microsecondi, rendendo l'accesso casuale molto più rapido di qualsiasi HDD.</p>
       <div class="grid3 reveal d1">
-        <div class="card"><span class="ic">⚡</span><h3>Veloce</h3><p>Tempi di accesso bassi: sistema operativo e programmi si avviano più rapidamente.</p></div>
-        <div class="card"><span class="ic">🔇</span><h3>Silenzioso</h3><p>Non ci sono piatti che girano né testine da spostare.</p></div>
-        <div class="card"><span class="ic">🧮</span><h3>Usura gestita</h3><p>Le celle flash hanno cicli di scrittura limitati, distribuiti dal controller.</p></div>
+        <div class="card"><span class="ic">⚡</span><h3>Veloce</h3><p>Tempi di accesso nell'ordine dei microsecondi. Sistema operativo e programmi si avviano in pochi secondi.</p></div>
+        <div class="card"><span class="ic">🔇</span><h3>Silenzioso</h3><p>Nessun piatto in rotazione, nessuna testina meccanica. Perfetto per laptop e ambienti silenziosi.</p></div>
+        <div class="card"><span class="ic">🧮</span><h3>Usura gestita</h3><p>Le celle flash supportano un numero limitato di cicli di scrittura. Il controller distribuisce le scritture uniformemente tramite <em>wear leveling</em>.</p></div>
       </div>
-      <div class="note reveal d2" style="margin-top:8px;"><div class="lbl">TRIM</div><p>Il comando TRIM informa l'SSD quali blocchi non servono più, aiutandolo a mantenere prestazioni e durata.</p></div>
+      <div class="note reveal d2" style="margin-top:8px;"><div class="lbl">TRIM</div><p>Il comando TRIM informa l'SSD quali blocchi non sono più usati dal file system, permettendogli di prepararli per la prossima scrittura e mantenere velocità e durata nel tempo.</p></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -144,14 +151,15 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
     <div class="center">
       <div class="tape reveal">Unità di misura</div>
       <h2 class="h-sec reveal">Bit, byte, KB, MB, GB, TB</h2>
-      <table class="cmp reveal d1" style="margin-top:22px;">
+      <p class="body reveal" style="margin-top:10px;max-width:1100px;">Tutto ciò che un computer archivia è composto da bit. Conoscere le unità di misura aiuta a capire quanto spazio occupa un file e quanta capacità ha un disco.</p>
+      <table class="cmp reveal d1" style="margin-top:16px;">
         <tr><th>Unità</th><th>Cosa significa</th><th>Esempio pratico</th></tr>
-        <tr><td>bit</td><td>La più piccola informazione: 0 oppure 1.</td><td>Serve alla logica digitale.</td></tr>
-        <tr><td>byte</td><td>8 bit.</td><td>Un carattere di testo semplice può occupare circa 1 byte.</td></tr>
-        <tr><td>MB / GB</td><td>Milioni / miliardi di byte circa.</td><td>Foto, app, documenti, video brevi.</td></tr>
-        <tr><td>TB</td><td>Migliaia di GB circa.</td><td>Archivi grandi, backup, video ad alta qualità.</td></tr>
+        <tr><td>bit</td><td>La più piccola unità di informazione digitale: 0 oppure 1.</td><td>La base di tutta la logica digitale e delle trasmissioni.</td></tr>
+        <tr><td>byte</td><td>8 bit raggruppati insieme. È l'unità base per i file.</td><td>Un carattere ASCII occupa 1 byte; un carattere UTF-8 può occuparne fino a 4.</td></tr>
+        <tr><td>KB / MB / GB</td><td>Kilo, Mega, Gigabyte: mille, un milione, un miliardo di byte circa (potenze di 10 dei produttori).</td><td>Foto JPG ≈ 3–8 MB; film HD ≈ 4–15 GB; sistema operativo ≈ 20–50 GB.</td></tr>
+        <tr><td>TB</td><td>Terabyte: mille gigabyte circa. I dischi moderni arrivano a 20 TB e oltre.</td><td>Archivi fotografici, backup aziendali, server NAS domestici.</td></tr>
       </table>
-      <p class="body reveal d2" style="margin-top:24px;">Nota: i produttori spesso usano multipli decimali; i sistemi operativi possono mostrare valori leggermente diversi.</p>
+      <p class="body reveal d2" style="margin-top:16px;"><b>Attenzione:</b> i produttori dichiarano capacità in multipli decimali (1 TB = 1.000.000.000.000 byte). Il sistema operativo, che usa potenze di 2, mostra un valore leggermente inferiore (es. circa 931 GiB invece di 1 TB).</p>
     </div>
     <div class="page-num"></div>
   </section>
@@ -161,12 +169,13 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <div class="col stack">
         <div class="tape gold reveal">Prima del file system</div>
         <h2 class="h-big reveal">Partizioni e <em class="hot">formattazione</em></h2>
-        <p class="lead reveal d1">Un disco può essere diviso in partizioni: aree separate che il sistema vede come volumi distinti.</p>
-        <p class="body reveal d2">Formattare significa preparare una partizione con un file system. Di solito cancella l'indice dei file e rende lo spazio riutilizzabile.</p>
+        <p class="lead reveal d1">Un disco fisico può essere diviso in partizioni: aree logicamente separate che il sistema operativo riconosce come volumi indipendenti, ognuno con il proprio file system e lettera di unità (su Windows) o punto di mount (su Linux/macOS).</p>
+        <p class="body reveal d2">Un uso tipico è avere una partizione per il sistema operativo e un'altra per i dati personali: così si può reinstallare l'OS senza toccare i file utente. Un disco può ospitare anche più sistemi operativi su partizioni separate.</p>
+        <p class="body reveal d3">Formattare significa inizializzare una partizione con un file system specifico, creando le strutture dati necessarie per gestire file e cartelle. Di norma cancella l'indice e rende lo spazio riutilizzabile, anche se i dati fisici restano finché non vengono sovrascritti.</p>
       </div>
       <div class="card reveal d1">
         <h3>Schema mentale</h3>
-        <p style="font-family:var(--font-mono);font-size:28px;line-height:1.6;">Disco fisico<br>└─ Partizione 1<br>&nbsp;&nbsp;└─ File system<br>&nbsp;&nbsp;&nbsp;&nbsp;└─ File e cartelle</p>
+        <p style="font-family:var(--font-mono);font-size:28px;line-height:1.6;">Disco fisico<br>├─ Partizione 1 (sistema)<br>│&nbsp;&nbsp;└─ File system (NTFS)<br>│&nbsp;&nbsp;&nbsp;&nbsp;└─ Windows, programmi<br>└─ Partizione 2 (dati)<br>&nbsp;&nbsp;&nbsp;└─ File system (NTFS)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ Documenti, foto</p>
       </div>
     </div>
     <div class="page-num"></div>
@@ -176,11 +185,12 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
     <div class="col stack" style="justify-content:center;height:100%;">
       <div class="tape teal reveal">Il catalogo</div>
       <h2 class="h-big reveal">Cos'è un <em class="hot">file system</em></h2>
-      <p class="lead reveal d1">È il metodo con cui il sistema operativo organizza nomi, cartelle, posizione dei dati, permessi e spazio libero.</p>
-      <div class="grid3 reveal d2">
-        <div class="card"><span class="ic">🏷️</span><h3>Nomi</h3><p>Associa un nome leggibile a dati sparsi sul disco.</p></div>
-        <div class="card"><span class="ic">🧱</span><h3>Blocchi</h3><p>Divide lo spazio in unità gestibili: cluster o blocchi.</p></div>
-        <div class="card"><span class="ic">🔐</span><h3>Regole</h3><p>Può gestire permessi, quote, cifratura, snapshot e journaling.</p></div>
+      <p class="lead reveal d1">È il metodo con cui il sistema operativo organizza nomi, cartelle, posizione dei blocchi dati, permessi e spazio libero su una partizione. Senza file system, il disco sarebbe solo una sequenza anonima di bit inaccessibili.</p>
+      <p class="body reveal d2" style="max-width:1100px;">Il file system mantiene un indice: sa dove inizia ogni file, quanto è grande, chi può leggerlo e quando è stato modificato l'ultima volta. Quando elimini un file, di solito viene rimosso solo dall'indice; i dati fisici restano sul disco finché nuove scritture li sovrascrivono.</p>
+      <div class="grid3 reveal d3">
+        <div class="card"><span class="ic">🏷️</span><h3>Nomi e struttura</h3><p>Associa nomi leggibili a blocchi fisici sul disco, organizzandoli in una gerarchia di cartelle navigabile.</p></div>
+        <div class="card"><span class="ic">🧱</span><h3>Blocchi e cluster</h3><p>Divide la partizione in unità di allocazione (cluster). Un file occupa uno o più cluster contigui o sparsi.</p></div>
+        <div class="card"><span class="ic">🔐</span><h3>Funzioni avanzate</h3><p>I file system moderni aggiungono journaling per la resilienza, permessi per la sicurezza, snapshot e cifratura.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -191,8 +201,10 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <div class="col stack">
         <div class="tape reveal">Albero delle cartelle</div>
         <h2 class="h-big reveal">Percorsi: dove si trova un file</h2>
-        <p class="lead reveal d1">Un file non è solo "sul computer": ha un percorso. Il percorso racconta la strada dalla radice fino al nome del file.</p>
-        <div class="chips reveal d2"><span class="chip red">Windows: C:\Utenti\...</span><span class="chip alt">Linux/macOS: /home/...</span></div>
+        <p class="lead reveal d1">Un file non è solo "sul computer": ha un percorso preciso. Il percorso descrive la strada dalla radice del volume fino al nome del file, cartella per cartella. È l'indirizzo univoco che il sistema usa per trovarlo.</p>
+        <p class="body reveal d2">Esistono due tipi di percorso: <b>assoluto</b>, che parte dalla radice e identifica il file senza ambiguità, e <b>relativo</b>, che parte dalla cartella corrente ed è più corto ma dipende dal contesto.</p>
+        <div class="chips reveal d3"><span class="chip red">Windows: C:\Utenti\Sara\cv.pdf</span><span class="chip alt">Linux/macOS: /home/sara/cv.pdf</span></div>
+        <p class="body reveal d4">Su Windows la radice è la lettera dell'unità (es. <b>C:\</b>). Su Linux e macOS esiste una sola radice (<b>/</b>) e i dischi aggiuntivi vengono montati come sottocartelle.</p>
       </div>
       <div class="tree reveal d1">
         <b>/</b><br>
@@ -201,6 +213,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
         │&nbsp;&nbsp;&nbsp;&nbsp;├─ Documenti<br>
         │&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;└─ curriculum.pdf<br>
         │&nbsp;&nbsp;&nbsp;&nbsp;└─ Foto<br>
+        │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ vacanze_2025.jpg<br>
         └─ programmi
       </div>
     </div>
@@ -211,12 +224,13 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
     <div class="center">
       <div class="tape gold reveal">Informazioni nascoste</div>
       <h2 class="h-sec reveal">Metadati e permessi</h2>
-      <div class="grid3 reveal d1" style="margin-top:22px;">
-        <div class="card"><span class="ic">📏</span><h3>Dimensione</h3><p>Quanti byte occupa il file e, a volte, quanto spazio reale usa su disco.</p></div>
-        <div class="card"><span class="ic">🕒</span><h3>Date</h3><p>Creazione, modifica, ultimo accesso: utili per ricerca e backup.</p></div>
-        <div class="card"><span class="ic">🔑</span><h3>Permessi</h3><p>Chi può leggere, modificare o eseguire un file.</p></div>
+      <p class="body reveal" style="margin-top:10px;max-width:1100px;">Ogni file porta con sé informazioni che vanno oltre il contenuto. I metadati sono gestiti dal file system e sono invisibili nella navigazione quotidiana, ma fondamentali per sicurezza, backup e ricerca.</p>
+      <div class="grid3 reveal d1" style="margin-top:18px;">
+        <div class="card"><span class="ic">📏</span><h3>Dimensione</h3><p>Quanti byte occupa il contenuto del file e quanti blocchi reali usa sul disco. Possono differire per via della granularità dei cluster.</p></div>
+        <div class="card"><span class="ic">🕒</span><h3>Date</h3><p>Data di creazione, ultima modifica e ultimo accesso. Utili per ordinare file, pianificare backup incrementali e risolvere conflitti di versione.</p></div>
+        <div class="card"><span class="ic">🔑</span><h3>Permessi</h3><p>Chi può leggere, modificare o eseguire il file. Su sistemi multiutente determinano la sicurezza e la privacy dei dati personali.</p></div>
       </div>
-      <div class="note reveal d2" style="margin-top:10px;"><div class="lbl">Attenzione</div><p>Copiare un file tra file system diversi può perdere alcuni metadati: permessi, tag, date o attributi speciali.</p></div>
+      <div class="note reveal d2" style="margin-top:12px;"><div class="lbl">⚠️ Attenzione</div><p>Copiare un file tra file system diversi può far perdere metadati: permessi NTFS su FAT32, tag estesi, date di creazione o attributi speciali. Usare strumenti di backup che preservano i metadati quando necessario.</p></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -225,12 +239,13 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
     <div class="center">
       <div class="tape reveal">Compatibilità</div>
       <h2 class="h-sec reveal">FAT32 ed exFAT</h2>
-      <table class="cmp reveal d1" style="margin-top:22px;">
-        <tr><th>Formato</th><th>Punti forti</th><th>Limiti</th></tr>
-        <tr><td>FAT32</td><td>Molto compatibile: PC, TV, console, dispositivi vecchi.</td><td>File singoli fino a circa 4 GB; pochi strumenti moderni di sicurezza.</td></tr>
-        <tr><td>exFAT</td><td>Buono per chiavette e dischi esterni tra Windows, macOS e Linux moderni.</td><td>Meno robusto di file system pensati per dischi di sistema.</td></tr>
+      <p class="body reveal" style="margin-top:10px;max-width:1100px;">FAT32 è uno dei file system più antichi ancora in uso, nato negli anni Novanta con Windows 95. La sua longevità è dovuta alla compatibilità quasi universale: lo riconoscono PC, Mac, TV, fotocamere, console di gioco e lettori multimediali di ogni generazione.</p>
+      <table class="cmp reveal d1" style="margin-top:16px;">
+        <tr><th>Formato</th><th>Punti forti</th><th>Limiti principali</th></tr>
+        <tr><td>FAT32</td><td>Compatibilità massima: supportato da quasi tutti i dispositivi prodotti negli ultimi 30 anni, incluse TV, console e fotocamere.</td><td>Un singolo file non può superare i 4 GB (limite storico a 32 bit). Nessun journaling, nessun permesso utente, nessuna cifratura nativa.</td></tr>
+        <tr><td>exFAT</td><td>Supera il limite dei 4 GB di FAT32. Buona compatibilità tra Windows, macOS e Linux moderni. Ideale per schede SD e chiavette USB ad alta capacità.</td><td>Non ha journaling integrato: uno spegnimento improvviso durante la scrittura può corrompere l'indice. Non adatto come file system di sistema.</td></tr>
       </table>
-      <p class="body reveal d2" style="margin-top:24px;">Regola pratica: FAT32 per massima compatibilità vecchia; exFAT per trasferire file grandi su dispositivi esterni.</p>
+      <p class="body reveal d2" style="margin-top:16px;"><b>Regola pratica:</b> usa FAT32 per dispositivi e lettori vecchi dove la compatibilità è prioritaria; usa exFAT per trasferire file grandi (video, ISO) su dischi e chiavette condivisi tra sistemi diversi.</p>
     </div>
     <div class="page-num"></div>
   </section>
@@ -240,14 +255,14 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <div class="col stack">
         <div class="tape teal reveal">Windows</div>
         <h2 class="h-big reveal">NTFS</h2>
-        <p class="lead reveal d1">È il file system tipico dei dischi di sistema Windows. Gestisce permessi, file grandi, journaling e funzioni avanzate.</p>
-        <p class="body reveal d2">È adatto a Windows, ma non è sempre la scelta migliore per chiavette da usare ovunque: alcuni sistemi lo leggono ma non lo scrivono senza supporto aggiuntivo.</p>
+        <p class="lead reveal d1">NTFS (New Technology File System) è il file system di default per i dischi di sistema Windows dalla versione NT in poi. Progettato per ambienti professionali, offre robustezza, sicurezza e funzioni avanzate che FAT32 non può garantire.</p>
+        <p class="body reveal d2">Su Linux e macOS è possibile leggere partizioni NTFS quasi sempre, ma scrivere richiede driver aggiuntivi (es. NTFS-3G su Linux). Per chiavette da condividere con sistemi non Windows, exFAT resta una scelta più universale.</p>
       </div>
       <div class="grid2">
-        <div class="card reveal d1"><span class="ic">🧾</span><h3>Journaling</h3><p>Tiene traccia delle operazioni per recuperare meglio dopo spegnimenti improvvisi.</p></div>
-        <div class="card reveal d2"><span class="ic">🔐</span><h3>ACL</h3><p>Permessi dettagliati per utenti e gruppi.</p></div>
-        <div class="card reveal d3"><span class="ic">📦</span><h3>File grandi</h3><p>Niente limite pratico da 4 GB come FAT32.</p></div>
-        <div class="card reveal d4"><span class="ic">🪟</span><h3>Windows</h3><p>È la scelta naturale per il disco principale di un PC Windows.</p></div>
+        <div class="card reveal d1"><span class="ic">🧾</span><h3>Journaling</h3><p>Registra le operazioni in un log prima di eseguirle. Se il sistema si spegne improvvisamente, il disco può recuperare uno stato coerente all'avvio successivo.</p></div>
+        <div class="card reveal d2"><span class="ic">🔐</span><h3>ACL e cifratura</h3><p>Permessi granulari per utenti e gruppi tramite Access Control List. Supporta anche la cifratura EFS (Encrypted File System) a livello di cartella o file.</p></div>
+        <div class="card reveal d3"><span class="ic">📦</span><h3>File grandi</h3><p>Nessun limite pratico da 4 GB. Un singolo file video può occupare decine di GB senza problemi su NTFS.</p></div>
+        <div class="card reveal d4"><span class="ic">🪟</span><h3>Scelta naturale</h3><p>È la scelta standard per il disco principale e le partizioni dati di un PC Windows moderno. Ottimizzato per prestazioni su sistemi Windows.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -257,12 +272,13 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
     <div class="center">
       <div class="tape gold reveal">Linux e macOS</div>
       <h2 class="h-sec reveal">Btrfs, ext4, APFS</h2>
-      <div class="grid3 reveal d1" style="margin-top:18px;">
-        <div class="card"><h3>Btrfs</h3><p>File system moderno per Linux: snapshot, checksum, compressione trasparente, gestione avanzata dei volumi.</p></div>
-        <div class="card"><h3>ext4</h3><p>Molto diffuso su Linux: stabile, semplice, affidabile. Spesso è la scelta conservativa.</p></div>
-        <div class="card"><h3>APFS</h3><p>File system Apple moderno per macOS, ottimizzato per SSD, snapshot e cifratura.</p></div>
+      <p class="body reveal" style="margin-top:10px;max-width:1100px;">Il mondo Linux e Apple ha sviluppato file system propri, ottimizzati per i rispettivi sistemi operativi e carichi di lavoro. Ogni formato risolve priorità diverse: stabilità consolidata, funzioni avanzate o integrazione con l'hardware Apple.</p>
+      <div class="grid3 reveal d1" style="margin-top:16px;">
+        <div class="card"><h3>Btrfs</h3><p>File system moderno per Linux con snapshot istantanei, checksum dei dati per rilevare corruzione silenziosa, compressione trasparente e gestione flessibile di volumi e sottovolumi. Usato di default su Fedora e openSUSE.</p></div>
+        <div class="card"><h3>ext4</h3><p>Il cavallo di battaglia di Linux: stabile, ben testato, supportato ovunque. Journaling affidabile, buone prestazioni generali. È ancora la scelta di default su Debian, Ubuntu e molte distribuzioni server.</p></div>
+        <div class="card"><h3>APFS</h3><p>Apple File System, introdotto con macOS High Sierra e iOS 10.3. Ottimizzato per SSD, con snapshot, cifratura nativa, clonazione efficiente dei file e timestamp ad alta precisione. Sostituisce il vecchio HFS+.</p></div>
       </div>
-      <div class="note reveal d2" style="margin-top:8px;"><div class="lbl">Nota sul nome</div><p>Si scrive <b>Btrfs</b>, spesso pronunciato "butter FS". Non è "BRTFS", anche se l'errore è comune.</p></div>
+      <div class="note reveal d2" style="margin-top:10px;"><div class="lbl">💡 Nota sul nome</div><p>Si scrive <b>Btrfs</b> (B-Tree FS), spesso pronunciato "butter FS". Non è "BRTFS" e non si legge lettera per lettera. Il nome deriva dalla struttura dati B-tree che usa internamente per indicizzare file e metadati.</p></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -272,13 +288,14 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <div class="col stack">
         <div class="tape reveal">Metodo</div>
         <h2 class="h-big reveal">Organizzare i file</h2>
-        <p class="lead reveal d1">Un buon archivio digitale non dipende solo dal disco: dipende da nomi, cartelle e regole coerenti.</p>
-        <p class="body reveal d2">Se non riesci a ritrovare un file, per te è quasi come se fosse perso.</p>
+        <p class="lead reveal d1">Un buon archivio digitale non dipende solo dal disco o dal file system: dipende da nomi chiari, strutture di cartelle coerenti e abitudini mantenute nel tempo. Il file system sa dove sono i tuoi file; solo tu sai cosa contengono.</p>
+        <p class="body reveal d2">Se non riesci a ritrovare un file in meno di trenta secondi, per te è quasi come se fosse perso. Investire cinque secondi in un buon nome al momento del salvataggio fa risparmiare ore di ricerca in futuro.</p>
+        <div class="analogy reveal d3"><span class="big">Regola:</span> Nomina i file come se dovessi ritrovarli tra cinque anni, senza ricordare nulla del contesto.</div>
       </div>
       <div class="col stack">
-        <div class="card reveal d1"><h3>1. Nomi chiari</h3><p><b>2026-06-25_preventivo_rossi.pdf</b> è meglio di <b>nuovo2_finale_OK.pdf</b>.</p></div>
-        <div class="card reveal d2"><h3>2. Cartelle per progetto</h3><p>Raggruppa ciò che serve insieme: documenti, immagini, fatture, versioni.</p></div>
-        <div class="card reveal d3"><h3>3. Versioni controllate</h3><p>Usa date o numeri di versione. Evita dieci file "finale".</p></div>
+        <div class="card reveal d1"><h3>1. Nomi chiari e ordinabili</h3><p><b>2026-06-25_preventivo_rossi.pdf</b> è meglio di <b>nuovo2_finale_OK.pdf</b>. La data ISO all'inizio ordina i file cronologicamente in qualsiasi strumento.</p></div>
+        <div class="card reveal d2"><h3>2. Cartelle per progetto</h3><p>Raggruppa tutto ciò che serve insieme: documenti, immagini, fatture, versioni bozza. Una cartella per progetto, sottocartelle per tipo di file.</p></div>
+        <div class="card reveal d3"><h3>3. Versioni esplicite</h3><p>Usa date o numeri di versione nel nome. Evita dieci file chiamati "finale" — usa <b>v1</b>, <b>v2</b>, o la data come suffisso.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -288,12 +305,13 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
     <div class="center">
       <div class="tape teal reveal">Prestazioni</div>
       <h2 class="h-sec reveal">Frammentazione, spazio libero e salute</h2>
-      <div class="grid3 reveal d1" style="margin-top:22px;">
-        <div class="card"><span class="ic">🧩</span><h3>Frammentazione</h3><p>Sugli HDD i pezzi di un file possono finire lontani. La testina deve muoversi di più.</p></div>
-        <div class="card"><span class="ic">🚫</span><h3>Non deframmentare SSD</h3><p>Gli SSD non hanno testine: deframmentarli è inutile e aggiunge scritture.</p></div>
-        <div class="card"><span class="ic">📉</span><h3>Spazio libero</h3><p>Tenere un po' di spazio libero aiuta aggiornamenti, cache, prestazioni e gestione dell'SSD.</p></div>
+      <p class="body reveal" style="margin-top:10px;max-width:1100px;">Con il tempo i dischi si riempiono e le prestazioni possono degradare. Capire la frammentazione e la gestione dello spazio aiuta a mantenere il sistema veloce e i dati al sicuro.</p>
+      <div class="grid3 reveal d1" style="margin-top:16px;">
+        <div class="card"><span class="ic">🧩</span><h3>Frammentazione HDD</h3><p>Sugli HDD i blocchi di un file possono finire in aree fisicamente distanti del piatto. La testina deve spostarsi tra posizioni diverse, rallentando la lettura. La deframmentazione riordina i blocchi per renderli contigui.</p></div>
+        <div class="card"><span class="ic">🚫</span><h3>Non deframmentare gli SSD</h3><p>Gli SSD accedono a qualsiasi blocco alla stessa velocità: la frammentazione non li rallenta. Deframmentarli aggiunge scritture inutili che consumano i cicli delle celle flash, riducendo la vita del disco.</p></div>
+        <div class="card"><span class="ic">📉</span><h3>Spazio libero</h3><p>Un disco quasi pieno rallenta sia HDD che SSD. Gli SSD hanno bisogno di spazio libero per il wear leveling e le operazioni TRIM. Lasciare almeno il 10–15% libero è una buona pratica generale.</p></div>
       </div>
-      <p class="body reveal d2" style="margin-top:22px;">Per la salute del disco controlla segnali SMART, errori frequenti, rumori strani sugli HDD e backup aggiornati.</p>
+      <p class="body reveal d2" style="margin-top:18px;"><b>Salute del disco:</b> monitora i segnali SMART (Self-Monitoring, Analysis and Reporting Technology) con strumenti come CrystalDiskInfo o smartmontools. Rumori di clic ripetuti su un HDD sono un segnale di guasto imminente: fai subito un backup.</p>
     </div>
     <div class="page-num"></div>
   </section>
@@ -303,14 +321,14 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <div class="col stack">
         <div class="tape gold reveal">Ridurre peso</div>
         <h2 class="h-big reveal">File compressi</h2>
-        <p class="lead reveal d1">La compressione cerca ripetizioni e schemi nei dati per rappresentarli occupando meno spazio.</p>
-        <div class="note reveal d2"><div class="lbl">Due famiglie</div><p><b>Senza perdita</b>: ZIP, PNG, FLAC. Puoi ricostruire l'originale. <br><b>Con perdita</b>: JPEG, MP3, video compressi. Perdi dettagli per risparmiare spazio.</p></div>
+        <p class="lead reveal d1">La compressione analizza i dati alla ricerca di sequenze ripetute e schemi prevedibili, poi li rappresenta in forma più compatta. Un file di testo con molte parole ripetute può ridursi del 70–80%; un video già codificato quasi per niente.</p>
+        <div class="note reveal d2"><div class="lbl">Due famiglie</div><p><b>Senza perdita (lossless):</b> ZIP, PNG, FLAC. Puoi ricostruire esattamente l'originale, bit per bit.<br><b>Con perdita (lossy):</b> JPEG, MP3, video H.264/H.265. Si eliminano dettagli meno percepibili per risparmiare spazio. Non si può tornare all'originale.</p></div>
       </div>
       <div class="grid2 reveal d1">
-        <div class="card"><span class="ic">📝</span><h3>Testo</h3><p>Si comprime molto bene: contiene tante ripetizioni.</p></div>
-        <div class="card"><span class="ic">📷</span><h3>Foto JPEG</h3><p>Spesso è già compressa: zippandola guadagni poco.</p></div>
-        <div class="card"><span class="ic">🎬</span><h3>Video</h3><p>È già compresso con codec: ridurlo ancora può peggiorare la qualità.</p></div>
-        <div class="card"><span class="ic">📁</span><h3>Cartelle</h3><p>Un archivio può impacchettare molti file in un solo contenitore.</p></div>
+        <div class="card"><span class="ic">📝</span><h3>Testo e codice</h3><p>Si comprime molto bene perché contiene molte parole e sequenze ripetute. Un file di testo di 1 MB può diventare 100–200 KB in ZIP.</p></div>
+        <div class="card"><span class="ic">📷</span><h3>Foto JPEG</h3><p>È già compressa con perdita: aggiungere un archivio ZIP attorno porta pochissimo beneficio e solo confusione.</p></div>
+        <div class="card"><span class="ic">🎬</span><h3>Video</h3><p>Già compresso con codec come H.264 o H.265. Comprimerlo ulteriormente spesso aumenta le dimensioni o degrada la qualità.</p></div>
+        <div class="card"><span class="ic">📁</span><h3>Cartelle intere</h3><p>Un archivio compresso raccoglie molti file in un solo contenitore: pratico per allegati email e condivisione.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -320,12 +338,13 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
     <div class="center">
       <div class="tape reveal">Archivi</div>
       <h2 class="h-sec reveal">ZIP, 7z, RAR, TAR.GZ</h2>
-      <table class="cmp reveal d1" style="margin-top:22px;">
-        <tr><th>Formato</th><th>Uso tipico</th><th>Nota</th></tr>
-        <tr><td>ZIP</td><td>Inviare cartelle, allegati, materiale scolastico o lavorativo.</td><td>Molto compatibile.</td></tr>
-        <tr><td>7z</td><td>Compressione spesso più efficace.</td><td>Richiede software compatibile.</td></tr>
-        <tr><td>RAR</td><td>Archivi compressi diffusi online.</td><td>Formato proprietario; decompressione comune.</td></tr>
-        <tr><td>TAR.GZ</td><td>Mondo Linux/server: prima impacchetta, poi comprime.</td><td>TAR non comprime da solo.</td></tr>
+      <p class="body reveal" style="margin-top:10px;max-width:1100px;">Ogni formato di archivio ha una storia e un caso d'uso specifico. Conoscerli aiuta a scegliere lo strumento giusto e a non restare bloccati davanti a un file sconosciuto.</p>
+      <table class="cmp reveal d1" style="margin-top:16px;">
+        <tr><th>Formato</th><th>Uso tipico</th><th>Nota tecnica</th></tr>
+        <tr><td>ZIP</td><td>Inviare cartelle via email, distribuire materiale scolastico e lavorativo, condividere software su Windows e macOS.</td><td>Compatibile nativamente con Windows, macOS e Linux senza software aggiuntivo. Ogni file è compresso separatamente.</td></tr>
+        <tr><td>7z</td><td>Archivi personali e backup dove la dimensione finale è importante. Compressione generalmente migliore di ZIP a parità di tempo.</td><td>Formato aperto, richiede 7-Zip o software compatibile. Supporta cifratura AES-256 con password.</td></tr>
+        <tr><td>RAR</td><td>Archivi multi-volume scaricati online, dove i file sono stati divisi in parti da 100–500 MB per facilitare il download.</td><td>Formato proprietario di WinRAR. La decompressione è gratuita; la creazione di nuovi archivi RAR richiede la licenza.</td></tr>
+        <tr><td>TAR.GZ</td><td>Distribuire codice sorgente, pacchetti software e backup su sistemi Linux e server Unix. Standard de facto nel mondo open source.</td><td>TAR raccoglie i file in un unico contenitore senza comprimerli; GZ comprime il risultato. Separazione netta tra packaging e compressione.</td></tr>
       </table>
     </div>
     <div class="page-num"></div>
@@ -336,12 +355,14 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <div class="col stack">
         <div class="tape teal reveal">Scorciatoie evolute</div>
         <h2 class="h-big reveal">Link simbolici e hard link</h2>
-        <p class="lead reveal d1">Un collegamento può far apparire un file in un posto diverso senza copiarne davvero il contenuto.</p>
+        <p class="lead reveal d1">Un collegamento può far apparire un file in una cartella diversa senza duplicarne il contenuto fisico sul disco. I due tipi principali, link simbolico e hard link, funzionano in modo molto diverso a livello di file system.</p>
+        <p class="body reveal d2">Questi meccanismi sono usati dal sistema operativo per tenere strutture pulite: cartelle di configurazione che puntano a versioni aggiornate, librerie condivise tra programmi, backup efficienti senza copia dei dati.</p>
+        <div class="analogy reveal d3"><span class="big">Analogia:</span> Un hard link è come avere due targhe sulla stessa porta; un link simbolico è un cartello che indica dove si trova la porta.</div>
       </div>
       <div class="col stack">
-        <div class="card reveal d1"><h3>Link simbolico</h3><p>È un file speciale che punta a un percorso. Se sposti o cancelli la destinazione, il link si rompe.</p></div>
-        <div class="card reveal d2"><h3>Hard link</h3><p>È un secondo nome per lo stesso contenuto sullo stesso file system. Il dato resta finché esiste almeno un nome.</p></div>
-        <div class="card reveal d3"><h3>Collegamento Windows</h3><p>I classici file <b>.lnk</b> sono scorciatoie gestite da Windows, simili come idea ma diverse tecnicamente.</p></div>
+        <div class="card reveal d1"><h3>Link simbolico (symlink)</h3><p>È un file speciale che contiene il percorso della destinazione. Se la destinazione viene spostata o cancellata, il link risulta "rotto" e non punta più a nulla di valido. Funziona tra partizioni diverse.</p></div>
+        <div class="card reveal d2"><h3>Hard link</h3><p>È un secondo nome nello stesso file system che punta allo stesso inode (blocco dati) del file originale. Il dato resta sul disco finché esiste almeno un nome che vi fa riferimento. Non può attraversare partizioni diverse.</p></div>
+        <div class="card reveal d3"><h3>Collegamento Windows (.lnk)</h3><p>I classici file <b>.lnk</b> sono scorciatoie gestite da Esplora risorse: simili concettualmente ai symlink, ma non equivalenti a livello di sistema. Windows supporta anche symlink nativi tramite <b>mklink</b>.</p></div>
       </div>
     </div>
     <div class="page-num"></div>

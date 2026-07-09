@@ -54,22 +54,22 @@ Audio e voce
  
  🎵 
  Suno 
- Genera brani musicali completi (voce + strumenti) da un prompt testuale. Scegli genere, umore, testo. Risultati sorprendenti in secondi. 
+ Genera brani musicali completi (voce + strumenti) da un prompt testuale. Scegli genere, umore, testo e persino la struttura della canzone. Risultati sorprendenti in pochi secondi, pronti da scaricare. 
  
  
  🎸 
  Udio 
- Alternativa a Suno per generazione musicale. Ottimo per stili particolari: jazz, classica, elettronica, folk. 
+ Alternativa a Suno per generazione musicale. Ottimo per stili particolari: jazz, classica, elettronica, folk. Permette di estendere o variare sezioni già generate per affinare il brano finale. 
  
  
  🗣️ 
  ElevenLabs 
- Clona voci o usa voci sintetiche realistiche. Testo → audio parlato in qualsiasi lingua. Usato per audiolibri, doppiaggio, podcast. 
+ Clona voci o usa voci sintetiche realistiche. Testo → audio parlato in qualsiasi lingua. Usato per audiolibri, doppiaggio, podcast e assistenti vocali personalizzati. 
  
  
  ✂️ 
  Descript 
- Editing audio/video guidato dal testo: modifichi la trascrizione e il media si aggiorna. Rimuove silenzi, "uhm", rumori di fondo.
+ Editing audio/video guidato dal testo: modifichi la trascrizione e il media si aggiorna automaticamente. Rimuove silenzi, "uhm", rumori di fondo e parole ripetute con un solo clic.
 
 --- Slide 4 ---
 Immagini, video e 3D 
@@ -110,11 +110,11 @@ Come lavoriamo
  Metodologia dell' esercizio 
  
  
- Target — Definiamo insieme un obiettivo comune da realizzare. 
- Task — Dividiamo il lavoro in compiti individuali o per piccoli gruppi. 
- Pick yours! — Ogni persona (o gruppo) sceglie il proprio compito. 
- A bit of work — Usiamo gli strumenti IA per risolvere il compito assegnato. 
- Assemble! — Raccogliamo tutti i risultati e costruiamo il prodotto finale insieme. 
+ Target — Definiamo insieme un obiettivo comune da realizzare: un prodotto, una campagna, un gioco, un articolo. 
+ Task — Dividiamo il lavoro in compiti individuali o per piccoli gruppi: testo, immagini, audio, video, codice. 
+ Pick yours! — Ogni persona o gruppo sceglie il proprio compito in base alle competenze o allo strumento che vuole esplorare. 
+ A bit of work — Usiamo gli strumenti IA per risolvere il compito assegnato: sperimentiamo, affiniamo il prompt, iteriamo. 
+ Assemble! — Raccogliamo tutti i risultati, li combiniamo e costruiamo insieme il prodotto finale da condividere con il gruppo. 
  
  
  
@@ -137,57 +137,57 @@ Al lavoro
  
  
  💡 Buone pratiche 
- Prompt dettagliati danno risultati migliori. Se il primo output non va bene, affina la richiesta invece di ripartire da zero. 
+ Prompt dettagliati danno risultati migliori. Se il primo output non soddisfa, affina la richiesta aggiungendo contesto, formato o vincoli specifici, invece di ripartire completamente da zero. 
  
  
  ⚠️ Attenzione 
- Non inserire dati personali reali negli strumenti IA. Verifica sempre i fatti prima di usare l'output in un contesto professionale. 
+ Non inserire dati personali reali o informazioni riservate negli strumenti IA. Verifica sempre i fatti prima di usare l'output in un contesto professionale o pubblico: i modelli possono commettere errori. 
  
  
  
  Punto di partenza 
- Puoi partire da app.ludo.ai per un esercizio guidato di creazione collaborativa con IA.
+ Puoi partire da app.ludo.ai per un esercizio guidato di creazione collaborativa con IA: genera meccaniche, personaggi e arte per un gioco originale in pochi minuti.
 
 --- Slide 7 ---
 Prompt per il testo 
  Scrivere richieste chiare 
  
- 🎯 Sii specifico Non "descrivi un gatto", ma "descrivi caratteristiche fisiche e comportamentali di un gatto domestico europeo". 
- 👥 Dai contesto Indica pubblico, tono e situazione: giovani adulti, tono amichevole, testo motivante. 
- ▶️ Usa verbi d'azione Scrivi, riassumi, confronta, correggi, crea, adatta. Il verbo chiarisce il compito. 
- 📏 Formato e lunghezza Specifica se vuoi elenco, tabella, email, articolo, massimo 100 parole o una struttura precisa.
+ 🎯 Sii specifico Non "descrivi un gatto", ma "descrivi le caratteristiche fisiche e comportamentali di un gatto domestico europeo adulto in tono scientifico e accessibile". Più dettagli fornisci, più l'output si avvicina all'obiettivo. 
+ 👥 Dai contesto Indica pubblico, tono e situazione: "scrivi per giovani adulti di 18-25 anni, tono amichevole e motivante, senza gergo tecnico". Il modello adatta lo stile al lettore che descrivi. 
+ ▶️ Usa verbi d'azione Scrivi, riassumi, confronta, correggi, crea, adatta, traduci, espandi. Il verbo iniziale chiarisce subito il compito e riduce interpretazioni errate da parte del modello. 
+ 📏 Formato e lunghezza Specifica se vuoi un elenco puntato, una tabella, un'email, un articolo, massimo 100 parole o una struttura precisa con titolo, tre paragrafi e conclusione.
 
 --- Slide 8 ---
 Template 
  Prompt per testi 
  
- Task: tipo di testo da produrre. 
- Contesto: tema, target, tono e lunghezza. 
- Output: obiettivo comunicativo del testo. 
- Formato: struttura richiesta, sezioni, elenco o tabella. 
+ Task: tipo di testo da produrre — articolo, email, script, post social, sinossi, dialogo. 
+ Contesto: tema principale, pubblico target, tono desiderato e lunghezza approssimativa in parole. 
+ Output: obiettivo comunicativo del testo — informare, persuadere, intrattenere, istruire, motivare. 
+ Formato: struttura richiesta: sezioni, sottotitoli, elenco puntato, tabella comparativa o testo scorrevole. 
  
- Esempio Scrivi un articolo di blog di 800 parole sull'alimentazione sana per giovani adulti, tono amichevole e motivante, con titolo, introduzione, tre paragrafi, cinque ricette rapide e conclusione con invito all'azione.
+ Esempio completo Scrivi un articolo di blog di 800 parole sull'alimentazione sana per giovani adulti, tono amichevole e motivante, con titolo accattivante, introduzione, tre paragrafi tematici, cinque ricette rapide e conclusione con invito all'azione. Usa sottotitoli e paragrafi brevi per favorire la lettura su mobile.
 
 --- Slide 9 ---
 Prompt per immagini 
  Descrivere ciò che vuoi vedere 
  
- 🦁 Soggetto Metti subito il soggetto principale: "un leone maestoso", "una città cyberpunk", "una classe in laboratorio". 
- 🌫️ Contesto Aggiungi sfondo e situazione: castello antico, foresta nella nebbia, notte piovosa, laboratorio scolastico. 
- 🎨 Stile Acquerello, realistico HD, fumetto, fotografia editoriale, colori pastello, luce calda. 
- 📷 Composizione Mezzo busto, grandangolo, primo piano, sfondo sfocato, colori saturi, texture e atmosfera.
+ 🦁 Soggetto Metti subito il soggetto principale: "un leone maestoso dalla criniera dorata", "una città cyberpunk affollata", "una classe in laboratorio che lavora con visori VR". Sii preciso sull'aspetto e le azioni del soggetto. 
+ 🌫️ Contesto Aggiungi sfondo e situazione per ancorare la scena: castello medievale in rovina, foresta pluviale nella nebbia mattutina, notte piovosa in una metropoli, laboratorio scolastico illuminato al neon. 
+ 🎨 Stile Indica la tecnica estetica: acquerello, realistico HD, stile fumetto manga, fotografia editoriale patinata, illustrazione libro per ragazzi, colori pastello anni '90, luce calda al tramonto. 
+ 📷 Composizione Specifica inquadratura e distanza: mezzo busto centrato, grandangolo dall'alto, primo piano con sfondo sfocato (bokeh), colori saturi, texture granulosa, atmosfera onirica o drammatica.
 
 --- Slide 10 ---
 Template visuale 
  Prompt per immagini 
  
- Soggetto: cosa deve essere rappresentato. 
- Contesto: luogo, epoca, sfondo, situazione. 
- Stile: tecnica, qualità, riferimento estetico. 
- Composizione: inquadratura, distanza, punto di vista. 
- Dettagli: colori, texture, luce, atmosfera. 
+ Soggetto: cosa o chi deve essere rappresentato, con dettagli fisici e azioni specifiche. 
+ Contesto: luogo, epoca, stagione, sfondo e situazione che incornicia il soggetto. 
+ Stile: tecnica artistica, qualità dell'immagine e riferimento estetico (pittore, genere, software). 
+ Composizione: inquadratura, distanza dal soggetto e punto di vista (frontale, dall'alto, dal basso). 
+ Dettagli: palette di colori dominanti, texture, tipo di luce e atmosfera emotiva complessiva. 
  
- Esempio completo Una città cyberpunk in una notte piovosa, insegne al neon riflesse sull'asfalto, stile realistico HD, grandangolo, colori saturi, atmosfera nebbiosa.
+ Esempio completo Una città cyberpunk affollata in una notte piovosa, insegne al neon giapponesi riflesse sull'asfalto bagnato, stile realistico HD con dettagli fotografici, grandangolo dal basso verso l'alto, colori saturi viola e arancio, atmosfera nebbiosa e misteriosa.
 
 --- Slide 11 ---
 Ora

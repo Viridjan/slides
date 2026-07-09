@@ -141,16 +141,17 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <section class="slide">
     <div class="tape gold reveal">In questo modulo</div>
     <h2 class="h-sec reveal" style="margin-top:32px;">Cosa vedremo</h2>
-    <div class="grid2 reveal d1" style="margin-top:28px;">
+    <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;max-width:1400px;">Quattro generazioni di OST, una distinzione tecnica fondamentale e un'attività pratica per allenare l'orecchio da designer. La musica di gioco non è decorazione: è design.</p>
+    <div class="grid2 reveal d2" style="margin-top:22px;">
       <div class="steps" style="counter-reset:st;">
-        <div class="step"><div class="t" contenteditable="false"><b>OST statica</b> — la traccia fissa e i limiti hardware degli anni '90</div></div>
-        <div class="step"><div class="t" contenteditable="false"><b>OST procedurale random</b> — musica che si ricombina a strati (STEMS)</div></div>
-        <div class="step"><div class="t" contenteditable="false"><b>OST a feedback</b> — la musica reagisce allo stato del gameplay</div></div>
+        <div class="step"><div class="t" contenteditable="false"><b>OST statica</b> — la traccia fissa e i limiti hardware degli anni '90; nasce il chiptune</div></div>
+        <div class="step"><div class="t" contenteditable="false"><b>OST procedurale random</b> — musica che si ricombina a strati (STEMS) in tempo reale</div></div>
+        <div class="step"><div class="t" contenteditable="false"><b>OST a feedback</b> — la musica reagisce allo stato preciso del gameplay evento per evento</div></div>
       </div>
       <div class="steps" style="counter-reset:st 3;">
-        <div class="step"><div class="t" contenteditable="false"><b>Musica come meccanica</b> — quando il ritmo è il gioco stesso</div></div>
-        <div class="step"><div class="t" contenteditable="false"><b>Diegetico vs non-diegetico</b> — da dove viene il suono</div></div>
-        <div class="step"><div class="t" contenteditable="false"><b>Attività</b> — analizza la colonna sonora di un gioco</div></div>
+        <div class="step"><div class="t" contenteditable="false"><b>Musica come meccanica</b> — quando il ritmo è il gioco stesso: Beat Saber, Guitar Hero</div></div>
+        <div class="step"><div class="t" contenteditable="false"><b>Diegetico vs non-diegetico</b> — da dove viene il suono nel mondo di gioco</div></div>
+        <div class="step"><div class="t" contenteditable="false"><b>Attività</b> — analizza la colonna sonora di un gioco che conosci bene</div></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -162,13 +163,13 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="col stack">
         <div class="tape sky reveal">Definizione</div>
         <h2 class="h-big reveal" style="margin-top:18px;">Cos'è una <em class="hot">OST</em></h2>
-        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">La <b>Original Soundtrack</b> è la musica composta per un'opera. Nel gioco non è sottofondo: guida l'emozione, segnala lo stato, scandisce il ritmo dell'azione.</p>
-        <div class="analogy reveal d2" style="margin-top:20px;"><span class="big">Regola:</span> <span contenteditable="false">la musica migliore è quella che non noti — ma che sentiresti mancare.</span></div>
+        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">La <b>Original Soundtrack</b> è la musica composta appositamente per un'opera. Nel videogioco non è semplice sottofondo: guida l'emozione del giocatore, segnala i cambi di stato del mondo e scandisce il ritmo dell'azione in ogni momento.</p>
+        <div class="analogy reveal d2" style="margin-top:20px;"><span class="big">Regola:</span> <span contenteditable="false">la musica migliore è quella che non noti — ma che sentiresti mancare appena sparisce.</span></div>
       </div>
       <div class="col stack">
-        <div class="card reveal d1"><span class="ic">🎬</span><h3 contenteditable="false">Emozione</h3><p contenteditable="false">Tensione, trionfo, malinconia: la traccia costruisce lo stato d'animo della scena.</p></div>
-        <div class="card sky reveal d2"><span class="ic">🚦</span><h3 contenteditable="false">Segnale</h3><p contenteditable="false">Un cambio di musica comunica un cambio di stato: nemico in arrivo, boss, pericolo.</p></div>
-        <div class="card gold reveal d3"><span class="ic">🥁</span><h3 contenteditable="false">Ritmo</h3><p contenteditable="false">Scandisce il tempo dell'azione, dà energia o calma al momento di gioco.</p></div>
+        <div class="card reveal d1"><span class="ic">🎬</span><h3 contenteditable="false">Emozione</h3><p contenteditable="false">Tensione, trionfo, malinconia: la traccia costruisce lo stato d'animo della scena prima ancora che l'immagine parli.</p></div>
+        <div class="card sky reveal d2"><span class="ic">🚦</span><h3 contenteditable="false">Segnale</h3><p contenteditable="false">Un cambio di musica comunica un cambio di stato: nemico in arrivo, boss, pericolo imminente o zona sicura.</p></div>
+        <div class="card gold reveal d3"><span class="ic">🥁</span><h3 contenteditable="false">Ritmo</h3><p contenteditable="false">Scandisce il tempo dell'azione: un BPM alto accelera la sensazione, un BPM basso crea respiro e distanza.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -180,15 +181,15 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="col stack">
         <div class="tape gold reveal">Livello 1</div>
         <h2 class="h-big reveal" style="margin-top:18px;">OST <em class="hot">statica</em></h2>
-        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">La traccia suona uguale ogni volta. Parte, va in loop, non sa cosa sta facendo il giocatore.</p>
+        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">La traccia suona uguale ogni volta: parte, va in loop per tutta la durata del livello, e non sa nulla di quello che sta facendo il giocatore.</p>
         <div class="note reveal d2" style="margin-top:20px;">
           <div class="lbl">Bobby Prince</div>
-          <p contenteditable="false">Compositore di <b>Wolfenstein 3D</b> (1992) e <b>DOOM</b> (1993). Riff metal in MIDI, loop fissi caricati per livello.</p>
+          <p contenteditable="false">Compositore di <b>Wolfenstein 3D</b> (1992) e <b>DOOM</b> (1993). Riff metal scritti in MIDI e caricati come loop fissi a inizio livello — un intero brano compresso in pochi kilobyte.</p>
         </div>
       </div>
       <div class="col stack">
-        <div class="card red reveal d1"><span class="ic">🔁</span><h3 contenteditable="false">Loop fisso</h3><p contenteditable="false">Stessa traccia dall'inizio alla fine del livello. Semplice, economica, prevedibile.</p></div>
-        <div class="card reveal d2"><span class="ic">🚫</span><h3 contenteditable="false">Nessuna reazione</h3><p contenteditable="false">La musica non sa se stai combattendo o esplorando: suona identica in ogni situazione.</p></div>
+        <div class="card red reveal d1"><span class="ic">🔁</span><h3 contenteditable="false">Loop fisso</h3><p contenteditable="false">Stessa traccia dall'inizio alla fine del livello. Semplice, economica e prevedibile: ascolti la stessa melodia decine di volte per partita.</p></div>
+        <div class="card reveal d2"><span class="ic">🚫</span><h3 contenteditable="false">Nessuna reazione</h3><p contenteditable="false">La musica non distingue esplorazione da combattimento: suona identica in ogni situazione, indipendentemente dal ritmo del gameplay.</p></div>
         <div class="illu reveal d3">
           <svg viewBox="0 0 280 190" style="max-width:240px;margin:0 auto;" role="img" aria-label="Musicassetta con freccia di loop">
             <rect x="30" y="52" width="220" height="112" rx="12" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
@@ -213,12 +214,13 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <section class="slide">
     <div class="tape gold reveal">Vincolo</div>
     <h2 class="h-sec reveal" style="margin-top:24px;">Limiti <em class="hot">hardware</em></h2>
-    <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;max-width:1300px;">Negli anni '80–'90 la musica doveva stare in pochi kilobyte e in pochi canali audio. Il vincolo tecnico ha plasmato un'estetica.</p>
+    <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;max-width:1300px;">Negli anni '80–'90 la musica doveva stare in pochi kilobyte e in pochissimi canali audio. Quel vincolo tecnico durissimo ha plasmato un'estetica sonora ancora oggi riconoscibile e amata.</p>
     <div class="grid3 reveal d2" style="margin-top:24px;">
-      <div class="card"><span class="ic">🎛️</span><h3 contenteditable="false">8-bit / NES</h3><p contenteditable="false">Solo 5 canali audio. Melodie iconiche nate dal vincolo: meno note, più memorabilità.</p></div>
-      <div class="card sky"><span class="ic">🎹</span><h3 contenteditable="false">SNES</h3><p contenteditable="false">Chip SPC700, 8 canali con campioni. Salto di qualità: Koji Kondo, Nobuo Uematsu.</p></div>
-      <div class="card gold"><span class="ic">💾</span><h3 contenteditable="false">Il vincolo crea stile</h3><p contenteditable="false">Il "chiptune" oggi è un'estetica ricercata, non più un limite subìto.</p></div>
+      <div class="card"><span class="ic">🎛️</span><h3 contenteditable="false">8-bit / NES</h3><p contenteditable="false">Solo 5 canali audio. Melodie iconiche nate dal vincolo: meno frequenze disponibili, più ogni nota deve essere memorabile e riconoscibile.</p></div>
+      <div class="card sky"><span class="ic">🎹</span><h3 contenteditable="false">SNES</h3><p contenteditable="false">Chip SPC700, 8 canali con campioni PCM. Enorme salto qualitativo: nacquero le OST di Koji Kondo e Nobuo Uematsu, ancora citate oggi.</p></div>
+      <div class="card gold"><span class="ic">💾</span><h3 contenteditable="false">Il vincolo crea stile</h3><p contenteditable="false">Il "chiptune" è oggi un genere musicale ricercato, non più un limite subìto: il vincolo tecnico è diventato scelta estetica consapevole.</p></div>
     </div>
+    <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">In pratica:</span> <span contenteditable="false">meno risorse hai, più ogni scelta conta — i vincoli forzano la creatività.</span></div>
     <div class="page-num"></div>
   </section>
 
@@ -228,7 +230,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="col stack">
         <div class="tape teal reveal">Livello 2</div>
         <h2 class="h-big reveal" style="margin-top:18px;">OST procedurale <em class="hot">random</em></h2>
-        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">La musica non è una traccia unica: è composta di <b>strati</b> ricombinati in tempo reale. Ogni sessione suona diversa.</p>
+        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">La musica non è una traccia unica: è composta di <b>strati separati</b> (stem) ricombinati in tempo reale dal motore di gioco. Ogni sessione può suonare diversa mantenendo la stessa identità sonora.</p>
         <div class="illu reveal d2">
           <svg viewBox="0 0 280 200" style="max-width:280px;margin:0 auto;" role="img" aria-label="Mixer con quattro fader, uno per ogni stem">
             <rect x="26" y="20" width="228" height="160" rx="14" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
@@ -253,7 +255,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
           <div class="lbl">Mick Gordon · DOOM (2016)</div>
           <p contenteditable="false">La colonna sonora è costruita a <b>STEMS</b>: tracce separate — batteria, basso, sintetizzatori, chitarre — miscelate dinamicamente dal motore di gioco invece di essere un unico file audio.</p>
         </div>
-        <div class="card sky reveal d2"><span class="ic">🎲</span><h3 contenteditable="false">Varietà infinita</h3><p contenteditable="false">La stessa libreria di strati genera combinazioni sempre nuove: la musica non stanca.</p></div>
+        <div class="card sky reveal d2"><span class="ic">🎲</span><h3 contenteditable="false">Varietà infinita</h3><p contenteditable="false">La stessa libreria di strati genera combinazioni sempre diverse: la musica non diventa ripetitiva anche dopo decine di ore di gioco.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -263,14 +265,14 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <section class="slide">
     <div class="tape teal reveal">Come funziona</div>
     <h2 class="h-sec reveal" style="margin-top:24px;">Gli <em class="hot">STEMS</em></h2>
-    <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;max-width:1300px;">Uno <b>stem</b> è una singola traccia strumentale isolata. Il gioco tiene N stems allineati sullo stesso tempo e accende o spegne i livelli in base al contesto.</p>
+    <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;max-width:1300px;">Uno <b>stem</b> è una singola traccia strumentale isolata — batteria, basso, melodia, ambience. Il motore di gioco mantiene tutti gli stem sincronizzati sullo stesso BPM e li accende o spegne in base al contesto narrativo e di gioco.</p>
     <div class="grid2 reveal d2" style="margin-top:24px;">
-      <div class="card teal"><span class="ic">🥁</span><h3 contenteditable="false">Layering</h3><p contenteditable="false">Pochi nemici → solo basso e atmosfera. Più nemici → entrano batteria e chitarre.</p></div>
-      <div class="card sky"><span class="ic">🎚️</span><h3 contenteditable="false">Mix dinamico</h3><p contenteditable="false">Nessuna transizione brusca: i volumi salgono e scendono, la musica "respira" col gioco.</p></div>
+      <div class="card teal"><span class="ic">🥁</span><h3 contenteditable="false">Layering progressivo</h3><p contenteditable="false">Zona tranquilla → solo basso e atmosfera. Nemici in avvicinamento → entra la batteria. Combattimento acceso → chitarre e ritmo pieno.</p></div>
+      <div class="card sky"><span class="ic">🎚️</span><h3 contenteditable="false">Mix dinamico</h3><p contenteditable="false">Nessuna transizione brusca o stacco: i volumi salgono e scendono gradualmente, la musica "respira" col ritmo reale del gioco.</p></div>
     </div>
     <div class="note sky reveal d3" style="margin-top:22px;">
       <div class="lbl">💡 Perché conta</div>
-      <p contenteditable="false">La musica resta sempre <em>sincronizzata</em> all'intensità reale del momento — senza che il compositore debba scrivere una traccia per ogni possibile situazione.</p>
+      <p contenteditable="false">La musica resta sempre <em>sincronizzata</em> all'intensità reale del momento — senza che il compositore debba scrivere una traccia separata per ogni possibile situazione o evento.</p>
     </div>
     <div class="page-num"></div>
   </section>
@@ -281,7 +283,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="col stack">
         <div class="tape red reveal">Livello 3</div>
         <h2 class="h-big reveal" style="margin-top:18px;">OST a <em class="hot">feedback</em></h2>
-        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Il salto finale: la musica non reagisce solo all'atmosfera, ma allo <b>stato preciso del gameplay</b>.</p>
+        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Il salto finale: la musica non reagisce solo all'atmosfera generale, ma ad ogni singolo <b>evento preciso del gameplay</b> — un'arena che si apre, una uccisione, un colpo subìto, l'ingresso di un boss.</p>
         <div class="illu reveal d2">
           <svg viewBox="0 0 280 200" style="max-width:270px;margin:0 auto;" role="img" aria-label="Onda musicale collegata a un gamepad da una doppia freccia">
             <path d="M18 52 H58 L70 24 L86 84 L102 36 L116 68 L128 52 H170 L182 30 L196 74 L208 52 H262" fill="none" stroke="#e6533b" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -298,8 +300,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         </div>
       </div>
       <div class="col stack">
-        <div class="card red reveal d1"><span class="ic">🎮</span><h3 contenteditable="false">DOOM Eternal</h3><p contenteditable="false">Mick Gordon lega gli stem a eventi di gioco: entrare in un'arena, uccisioni, boss. La traccia si costruisce <em>mentre</em> giochi.</p></div>
-        <div class="card gold reveal d2"><span class="ic">🔗</span><h3 contenteditable="false">Musica = HUD</h3><p contenteditable="false">Il suono diventa informazione: capisci lo stato della battaglia dall'orecchio, non solo dagli occhi.</p></div>
+        <div class="card red reveal d1"><span class="ic">🎮</span><h3 contenteditable="false">DOOM Eternal</h3><p contenteditable="false">Mick Gordon lega ogni stem a trigger di gioco: entrare in un'arena attiva la batteria, le uccisioni "en fuoco" aggiungono chitarre distorte, il boss porta il tema principale al massimo volume.</p></div>
+        <div class="card gold reveal d2"><span class="ic">🔗</span><h3 contenteditable="false">Musica = HUD</h3><p contenteditable="false">Il suono diventa informazione di gioco: puoi capire lo stato della battaglia dall'orecchio, senza guardare la barra della vita o la minimappa.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -309,12 +311,13 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <section class="slide">
     <div class="tape sky reveal">Livello 4</div>
     <h2 class="h-sec reveal" style="margin-top:24px;">Musica come <em class="hot">meccanica</em></h2>
-    <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;max-width:1300px;">Il caso estremo: la musica non accompagna il gioco — <b>è</b> il gioco. Il ritmo detta le regole.</p>
+    <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;max-width:1300px;">Il caso estremo: la musica non accompagna il gioco — <b>è</b> il gioco. Il ritmo detta le regole di interazione: perdere il tempo significa perdere la partita.</p>
     <div class="grid3 reveal d2" style="margin-top:24px;">
-      <div class="card sky"><span class="ic">🎵</span><h3 contenteditable="false">Beat Saber</h3><p contenteditable="false">Colpisci i blocchi a tempo. La traccia genera il livello.</p></div>
-      <div class="card red"><span class="ic">🎸</span><h3 contenteditable="false">Guitar Hero</h3><p contenteditable="false">Premi i tasti sulle note. Sbagli il ritmo → sbagli il gioco.</p></div>
-      <div class="card"><span class="ic">💀</span><h3 contenteditable="false">Crypt of the NecroDancer</h3><p contenteditable="false">Ti muovi solo a tempo di musica. Un roguelike ritmico.</p></div>
+      <div class="card sky"><span class="ic">🎵</span><h3 contenteditable="false">Beat Saber</h3><p contenteditable="false">Colpisci i blocchi colorati a tempo di musica con le sciabole VR. La traccia audio genera l'intera coreografia del livello: zero musica, zero gioco.</p></div>
+      <div class="card red"><span class="ic">🎸</span><h3 contenteditable="false">Guitar Hero</h3><p contenteditable="false">Premi i tasti esattamente sulle note della canzone. Sbagli il ritmo, sbagli il gioco: la folla fischia e il brano si interrompe.</p></div>
+      <div class="card"><span class="ic">💀</span><h3 contenteditable="false">Crypt of the NecroDancer</h3><p contenteditable="false">Un roguelike in cui puoi muoverti solo a battere del BPM: ogni passo, ogni attacco, ogni schivata deve cadere sul ritmo. Sbagliare tempo rompe la combo.</p></div>
     </div>
+    <div class="analogy reveal d3" style="margin-top:18px;"><span class="big">Regola:</span> <span contenteditable="false">quando la musica è meccanica, toglierla non riduce l'atmosfera — distrugge la giocabilità.</span></div>
     <div class="page-num"></div>
   </section>
 
@@ -323,12 +326,12 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="tape gold reveal">Origine del suono</div>
     <h2 class="h-sec reveal" style="margin-top:24px;">Diegetico vs <em class="hot">non-diegetico</em></h2>
     <div class="grid2 reveal d1" style="margin-top:24px;">
-      <div class="card teal"><span class="ic">🔊</span><h3 contenteditable="false">Diegetico</h3><p contenteditable="false">Il suono <b>esiste nel mondo</b> di gioco: la radio in-game, lo stereo di un'auto, un NPC che suona. Anche i personaggi lo sentono.</p></div>
-      <div class="card sky"><span class="ic">🎼</span><h3 contenteditable="false">Non-diegetico</h3><p contenteditable="false">La colonna sonora "dall'esterno": solo il giocatore la sente. La musica di tensione che parte quando arriva il nemico.</p></div>
+      <div class="card teal"><span class="ic">🔊</span><h3 contenteditable="false">Diegetico</h3><p contenteditable="false">Il suono <b>esiste nel mondo</b> di gioco: la radio in-game, lo stereo di un'auto in GTA, un NPC che suona la chitarra in un villaggio. Anche i personaggi lo sentono e possono reagire.</p></div>
+      <div class="card sky"><span class="ic">🎼</span><h3 contenteditable="false">Non-diegetico</h3><p contenteditable="false">La colonna sonora "dall'esterno": solo il giocatore la sente, i personaggi no. La musica di tensione che si alza quando arriva il nemico è un segnale per noi, non per l'eroe.</p></div>
     </div>
     <div class="note red reveal d2" style="margin-top:22px;">
       <div class="lbl">Design intent</div>
-      <p contenteditable="false">Spostare un suono da non-diegetico a diegetico (o viceversa) cambia <em>chi sa cosa</em> — uno strumento narrativo potente.</p>
+      <p contenteditable="false">Spostare un suono da non-diegetico a diegetico (o viceversa) cambia <em>chi sa cosa</em>. In <b>Cyberpunk 2077</b> la musica dei club è diegetica: uscire dall'edificio la interrompe davvero, rinforzando l'immersione nel mondo.</p>
     </div>
     <div class="page-num"></div>
   </section>
@@ -338,14 +341,15 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="tape gold reveal">Attività</div>
     <h2 class="h-sec reveal" style="margin-top:24px;">Analizza una <em class="hot">OST</em></h2>
     <div class="steps reveal d1" style="margin-top:24px;">
-      <div class="step"><div class="t" contenteditable="false"><b>Scegli un gioco</b> che conosci bene.</div></div>
-      <div class="step"><div class="t" contenteditable="false">La musica è <b>statica, a strati o a feedback</b>? Come lo capisci?</div></div>
-      <div class="step"><div class="t" contenteditable="false">Trova un suono <b>diegetico</b> e uno <b>non-diegetico</b>.</div></div>
-      <div class="step"><div class="t" contenteditable="false">La musica è mai una <b>meccanica</b>? Cosa succederebbe togliendola?</div></div>
+      <div class="step"><div class="t" contenteditable="false"><b>Scegli un gioco</b> che conosci bene: un videogioco qualsiasi, anche mobile.</div></div>
+      <div class="step"><div class="t" contenteditable="false">La musica è <b>statica, a strati o a feedback</b>? Descrivi come lo hai capito ascoltando.</div></div>
+      <div class="step"><div class="t" contenteditable="false">Identifica almeno un suono <b>diegetico</b> (esiste nel mondo) e uno <b>non-diegetico</b> (solo per noi).</div></div>
+      <div class="step"><div class="t" contenteditable="false">La musica è mai una <b>meccanica</b> di gioco? Cosa cambierebbe nell'esperienza togliendola completamente?</div></div>
+      <div class="step"><div class="t" contenteditable="false"><b>Condividi</b> le tue osservazioni con un compagno: paragonate giochi diversi e cercate similitudini di design.</div></div>
     </div>
-    <div class="note reveal d2" style="margin-top:22px;">
+    <div class="note reveal d2" style="margin-top:18px;">
       <div class="lbl">💡 Bonus</div>
-      <p contenteditable="false">Guarda un video di DOOM Eternal a volume alto: prova a indovinare l'evento di gioco dal cambio di musica, senza guardare lo schermo.</p>
+      <p contenteditable="false">Guarda un video di DOOM Eternal a volume alto e chiudi gli occhi per 30 secondi: prova a indovinare solo dall'ascolto se il giocatore è in esplorazione, in combattimento normale o contro un boss.</p>
     </div>
     <div class="page-num"></div>
   </section>

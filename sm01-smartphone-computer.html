@@ -45,6 +45,7 @@
       <div class="tape teal reveal">In questo capitolo</div>
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa vedremo</h2>
       <div class="agenda-list reveal d1" style="grid-template-rows:repeat(6,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">Computer tascabile</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Scheda logica</span></div><div class="agenda-item"><span class="n">03</span><span class="t">CPU, SoC e RAM</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Memoria interna</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Batteria e ricarica</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Schermo touch</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Fotocamere</span></div><div class="agenda-item"><span class="n">08</span><span class="t">GPS e posizione</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Sensori invisibili</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Microfoni e altoparlanti</span></div><div class="agenda-item"><span class="n">11</span><span class="t">Smartphone, tablet o PC</span></div><div class="agenda-item"><span class="n">12</span><span class="t">Limiti fisici e calore</span></div></div>
+      <p class="body reveal d2" style="margin-top:20px;font-size:26px;color:var(--ink-faint);">In questo modulo analizziamo ogni componente del tuo smartphone: dal processore SoC alla batteria, dallo schermo ai sensori — e confrontiamo smartphone, tablet e PC per capire quando usare quale dispositivo. Conoscere l'hardware ti aiuta a scegliere il telefono giusto, a capire perché si surriscalda, perché la batteria si scarica rapidamente e come gestire lo spazio di archiviazione.</p>
     </div>
     <div class="page-num"></div>
   </section>
@@ -61,12 +62,12 @@
         <div class="card reveal d1">
           <span class="ic">🔍</span>
           <h3>Cosa c'è dietro il vetro</h3>
-          <ul><li>Gli stessi ingredienti di un PC, miniaturizzati: un processore (SoC), la RAM, una memoria per i dati, una batteria.</li><li>In più: antenne per rete mobile, WiFi, Bluetooth e GPS, due o più fotocamere e decine di sensori.</li></ul>
+          <ul><li>Gli stessi ingredienti di un PC, miniaturizzati: un processore (SoC), la RAM, una memoria per i dati, una batteria.</li><li>In più: antenne per rete mobile, WiFi, Bluetooth e GPS, due o più fotocamere e decine di sensori.</li><li>Il SoC (System on Chip) integra CPU, GPU, modem e NPU per l'AI in un unico componente delle dimensioni di un'unghia.</li></ul>
         </div>
         <div class="card reveal d2">
           <span class="ic">✋</span>
           <h3>Un'interfaccia diversa</h3>
-          <ul><li>Niente mouse né tastiera fisica: si comanda con tocchi, gesti e voce.</li><li>In questo capitolo apriamo il "cofano" e guardiamo i pezzi uno per uno.</li></ul>
+          <ul><li>Niente mouse né tastiera fisica: si comanda con tocchi, gesti e voce.</li><li>In questo capitolo apriamo il "cofano" e guardiamo i pezzi uno per uno.</li><li>A differenza del PC da scrivania, lo smartphone è progettato per essere usato con una mano sola, in mobilità, con la connettività sempre attiva — un paradigma completamente diverso.</li></ul>
         </div>
       </div>
     </div>
@@ -110,7 +111,7 @@
         <div class="tape reveal">Hardware</div>
         <h2 class="h-big reveal">Scheda logica</h2>
         <p class="lead reveal d1">Il "pavimento" su cui vive tutta l'elettronica: ogni componente ci è fissato sopra e comunica attraverso di essa.</p>
-        <div class="note reveal d2"><div class="lbl">Riparabilità</div><p>Quasi tutto è saldato: RAM, processore e memoria non si sostituiscono. In pratica si riparano solo schermo e batteria. Prima di acquistare, verifica costi e politica di riparazione del produttore.</p></div>
+        <div class="note reveal d2"><div class="lbl">Riparabilità</div><p>Quasi tutto è saldato: RAM, processore e memoria non si sostituiscono. In pratica si riparano solo schermo e batteria su modelli mainstream — e solo da tecnici specializzati. Gli smartphone progettati per la riparazione (come Fairphone) sono eccezioni: la norma del mercato è che un componente guasto equivale a sostituire l'intero telefono. Prima di acquistare, verifica i costi di riparazione e la politica di ricambi ufficiali del produttore.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -159,13 +160,13 @@
       <div class="col stack">
         <div class="tape reveal">Hardware</div>
         <h2 class="h-big reveal">Batteria e ricarica</h2>
-        <p class="lead reveal d1">La batteria degrada nel tempo; la ricarica rapida accelera il processo se usata male.</p>
+        <p class="lead reveal d1">La batteria degrada nel tempo; la ricarica rapida accelera il processo se usata male. La capacità si misura in mAh ma l'autonomia reale dipende anche da schermo, rete mobile, luminosità e intensità d'uso delle app.</p>
         <div class="analogy reveal d3"><span class="big">Regola:</span> evita il calore, carica tra 20–80%, usa caricatori certificati.</div>
       </div>
       <div class="stack reveal d2">
         <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🔋</span><div><b style="font-size:27px;">Capacità in mAh</b><br><span style="font-size:23px;color:var(--ink-faint);">ma l'autonomia reale dipende da schermo, rete, app e processore</span></div></div>
         <div class="agenda-item" style="border-color:var(--gold-deep);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📉</span><div><b style="font-size:27px;">Con il tempo perde capacità</b><br><span style="font-size:23px;color:var(--ink-faint);">cicli, calore e ricariche a 0% accelerano il degrado</span></div></div>
-        <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🔌</span><div><b style="font-size:27px;">USB-C è lo standard comune</b><br><span style="font-size:23px;color:var(--ink-faint);">la ricarica rapida richiede caricatore, cavo e telefono compatibili</span></div></div>
+        <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🔌</span><div><b style="font-size:27px;">USB-C è lo standard comune</b><br><span style="font-size:23px;color:var(--ink-faint);">la ricarica rapida richiede caricatore, cavo e telefono compatibili — senza tutti e tre, la velocità di ricarica scende sensibilmente</span></div></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -182,7 +183,7 @@
       <div class="card reveal d1">
         <span class="ic">🛡️</span>
         <h3>Tocco, luminosità, protezione</h3>
-        <ul><li>Tocchi, gesture, swipe e pinch sostituiscono mouse e tastiera.</li><li>Luminosità, risoluzione e refresh rate incidono su comfort visivo e autonomia.</li><li>Il vetro protettivo (Gorilla Glass e simili) riduce rischi da caduta o graffi.</li></ul>
+        <ul><li>Tocchi, gesture, swipe e pinch sostituiscono mouse e tastiera.</li><li>Luminosità, risoluzione e refresh rate incidono su comfort visivo e autonomia.</li><li>Il vetro protettivo (Gorilla Glass e simili) riduce rischi da caduta o graffi.</li><li>I modelli recenti usano tecnologia LTPO che varia il refresh da 1 Hz a 120 Hz automaticamente per risparmiare batteria quando lo schermo è fermo.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -199,7 +200,7 @@
       <div class="card reveal d1">
         <span class="ic">🧩</span>
         <h3>Sensori più software</h3>
-        <ul><li>Le fotocamere sono sensori ottici collegati a software di elaborazione avanzata.</li><li>La fotocamera frontale è ottimizzata per selfie e videochiamate; le posteriori per foto e video.</li><li>Sistemi multi-obiettivo: grandangolo, normale, teleobiettivo, macro — diversi usi diversi lenti.</li></ul>
+        <ul><li>Le fotocamere sono sensori ottici collegati a software di elaborazione avanzata.</li><li>La fotocamera frontale è ottimizzata per selfie e videochiamate; le posteriori per foto e video.</li><li>Sistemi multi-obiettivo: grandangolo, normale, teleobiettivo, macro — ogni lente è ottimizzata per un caso d'uso specifico. La videoregistrazione usa tutti i sensori in modo coordinato, abilitando zoom fluido e stabilizzazione avanzata durante le riprese.</li></ul>
       </div>
     </div>
     <div class="page-num"></div>
@@ -211,7 +212,7 @@
         <div class="tape reveal">Hardware</div>
         <h2 class="h-big reveal">GPS e posizione</h2>
         <p class="lead reveal d1">Il telefono combina GPS, WiFi e celle telefoniche per una localizzazione rapida e precisa.</p>
-        <div class="note reveal d2"><div class="lbl">GPS assistito (A-GPS)</div><p>Senza assistenza, il primo fix può richiedere minuti. Con WiFi e reti mobili (A-GPS), bastano secondi. Disattiva la localizzazione per le app che non ne hanno realmente bisogno.</p></div>
+        <div class="note reveal d2"><div class="lbl">GPS assistito (A-GPS)</div><p>Senza assistenza, il primo fix può richiedere minuti. Con WiFi e reti mobili (A-GPS), bastano secondi. Disattiva la localizzazione per le app che non ne hanno realmente bisogno: risparmia batteria e limita la raccolta dei tuoi spostamenti.</p></div>
       </div>
       <div class="card reveal d1">
         <span class="ic">⚙️</span>
@@ -230,10 +231,10 @@
         <p class="lead reveal d1">Lo smartphone include decine di sensori invisibili che arricchiscono l'esperienza.</p>
       </div>
       <div class="stack reveal d2">
-        <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🧭</span><div><b style="font-size:27px;">Accelerometro e giroscopio</b><br><span style="font-size:23px;color:var(--ink-faint);">rilevano movimento, rotazione e orientamento — schermo, giochi, fitness, realtà aumentata</span></div></div>
-        <div class="agenda-item" style="border-color:var(--gold-deep);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📵</span><div><b style="font-size:27px;">Sensore di prossimità</b><br><span style="font-size:23px;color:var(--ink-faint);">spegne lo schermo durante le telefonate per evitare tocchi accidentali</span></div></div>
-        <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">💡</span><div><b style="font-size:27px;">Sensore di luce ambientale</b><br><span style="font-size:23px;color:var(--ink-faint);">regola la luminosità automaticamente in base all'ambiente</span></div></div>
-        <div class="agenda-item" style="border-color:var(--teal-2);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🌡️</span><div><b style="font-size:27px;">Barometro e motore aptico</b><br><span style="font-size:23px;color:var(--ink-faint);">misura della pressione e vibrazione al tocco completano il set</span></div></div>
+        <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🧭</span><div><b style="font-size:27px;">Accelerometro e giroscopio</b><br><span style="font-size:23px;color:var(--ink-faint);">rilevano movimento, rotazione e orientamento in tempo reale — fondamentali per giochi, fitness tracking, realtà aumentata e rotazione automatica dello schermo</span></div></div>
+        <div class="agenda-item" style="border-color:var(--gold-deep);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📵</span><div><b style="font-size:27px;">Sensore di prossimità</b><br><span style="font-size:23px;color:var(--ink-faint);">spegne lo schermo durante le chiamate per evitare tocchi accidentali con il viso e risparmia batteria</span></div></div>
+        <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">💡</span><div><b style="font-size:27px;">Sensore di luce ambientale</b><br><span style="font-size:23px;color:var(--ink-faint);">regola la luminosità del display automaticamente in base alla luce ambiente, proteggendo la vista e risparmiando batteria</span></div></div>
+        <div class="agenda-item" style="border-color:var(--teal-2);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🌡️</span><div><b style="font-size:27px;">Barometro e motore aptico</b><br><span style="font-size:23px;color:var(--ink-faint);">il barometro misura la pressione atmosferica per meteo e altimetro; il motore aptico simula il feedback fisico al tocco</span></div></div>
       </div>
     </div>
     <div class="page-num"></div>

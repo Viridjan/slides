@@ -18,53 +18,54 @@ In questo modulo
  Cosa vedremo 
  
  
- Meccaniche comuni — i mattoni ricorrenti dei board game 
- Tipi di interazione — competitivo, cooperativo, coopetitivo 
- Cooperativi e coopetitivi — quando si vince (o si tradisce) insieme 
+ Meccaniche comuni — i mattoni ricorrenti dei board game: draft, set collection, area control e altri schemi che si ritrovano in decine di titoli diversi 
+ Tipi di interazione — competitivo, cooperativo, coopetitivo: come la struttura del gioco determina le dinamiche sociali tra i giocatori al tavolo 
+ Cooperativi e coopetitivi — quando si vince (o si tradisce) insieme: l'alpha player problem e il fascino dell'ambiguità nei giochi ibridi 
  
  
- Game vs Play — gioco strutturato e gioco libero 
- Sincronizzazione — turni, simultaneità, tempo reale 
- Bilanciamento — cosa rende un sistema equilibrato
+ Game vs Play — la distinzione di Caillois tra gioco libero (paidia) e gioco strutturato da regole esplicite (ludus) 
+ Sincronizzazione — turni, simultaneità, tempo reale: come la gestione del tempo cambia ritmo, tensione e downtime percepito 
+ Bilanciamento — cosa rende un sistema equilibrato: chiarezza, fluidità, durata, divertimento e assenza di strategie dominanti
 
 --- Slide 3 ---
 I mattoni · 1/2 
  Meccaniche comuni 
- I board game hanno un vocabolario di meccaniche ricorrenti. Conoscerle significa saper leggere qualsiasi gioco — e progettarne di nuovi. 
+ I board game hanno un vocabolario di meccaniche ricorrenti. Conoscerle significa saper leggere qualsiasi gioco — e combinare schemi collaudati per progettarne di nuovi. 
  
- 🃏 Draft Scegli una carta da un pool comune e passi il resto al vicino. Ogni scelta è anche una rinuncia. Es. 7 Wonders . 
- 📦 Set collection Raccogli combinazioni di elementi — colori, famiglie, sequenze — che valgono punti solo se completate. 
- 🗺️ Area control Domini le zone della mappa dove hai più presenza. Chi controlla il territorio, controlla i punti. Es. Risiko .
+ 🃏 Draft Scegli una carta da un pool comune e passi il resto al vicino. Ogni scelta è anche una rinuncia strategica che influenza tutte le mani successive. Es. 7 Wonders . 
+ 📦 Set collection Raccogli combinazioni di elementi — colori, famiglie, sequenze — che valgono punti solo se completate. La tensione sta nel decidere quando smettere di raccogliere e quando segnare. 
+ 🗺️ Area control Domini le zone della mappa dove hai più presenza militare o risorse. Chi controlla il territorio controlla i punti e blocca gli avversari. Es. Risiko , El Grande .
 
 --- Slide 4 ---
 I mattoni · 2/2 
  Ancora meccaniche 
  
- 👷 Worker placement Piazzi i tuoi lavoratori su azioni disponibili in numero limitato: chi arriva prima blocca gli altri. Es. Agricola . 
- 🏗️ Deck building Il tuo mazzo cresce e migliora durante la partita: ogni acquisto plasma le tue mosse future. Es. Dominion . 
- 🎲 Push your luck Continui a rischiare per ottenere di più — ma un passo di troppo e perdi tutto. Es. Can't Stop . 
+ 👷 Worker placement Piazzi i tuoi lavoratori su azioni disponibili in numero limitato: chi arriva prima blocca gli altri, creando una pressione costante sulla pianificazione. Es. Agricola , Viticulture . 
+ 🏗️ Deck building Il tuo mazzo cresce e si affina durante la partita: ogni acquisto plasma le tue mosse future. Diluire il mazzo con carte deboli è l'errore più comune dei principianti. Es. Dominion . 
+ 🎲 Push your luck Continui a rischiare per ottenere di più — ma un passo di troppo e perdi tutto ciò che hai accumulato nel turno. La tensione è il cuore di questa meccanica. Es. Can't Stop . 
  
- Regola: un gioco raramente usa una sola meccanica — il design nasce dall'incastro.
+ Regola: un gioco raramente usa una sola meccanica — il design nasce dall'incastro tra più sistemi che si amplificano a vicenda.
 
 --- Slide 5 ---
 Al tavolo 
  Tipi di interazione 
- Come i giocatori si influenzano a vicenda? La risposta definisce l'esperienza sociale del gioco. 
+ Come i giocatori si influenzano a vicenda? La risposta definisce l'esperienza sociale del gioco e il tipo di emozioni che genera a ogni partita. 
  
- ⚔️ Competitivo Uno contro l'altro: la tua vittoria è la sconfitta degli altri. Il modello classico. 
- 🤝 Cooperativo Tutti contro il gioco: si vince e si perde insieme, come una squadra. 
- 🔀 Coopetitivo Cooperi e competi nello stesso gioco: alleanze necessarie ma interessi divergenti. 
+ ⚔️ Competitivo Uno contro l'altro: la tua vittoria è la sconfitta degli altri. Il modello classico genera tensione, rivalità e il desiderio di rivalsa dopo ogni partita persa. 
+ 🤝 Cooperativo Tutti contro il gioco: si vince e si perde insieme come una squadra. Favorisce comunicazione, inclusività e un'atmosfera diversa dal classico confronto diretto. 
+ 🔀 Coopetitivo Cooperi e competi nello stesso gioco: alleanze necessarie ma interessi divergenti. La fiducia è sempre in bilico, il tradimento è sempre possibile. 
  
  Regola: dimmi come si interagisce e ti dirò che aria si respira al tavolo.
 
 --- Slide 6 ---
 Insieme 
  Giochi cooperativi 
- Tutti contro il gioco: vittoria e sconfitta sono condivise . In Pandemic la squadra ferma le epidemie o crolla insieme. Cambia la dinamica sociale: si discute, si pianifica, si decide come gruppo. 
+ Tutti contro il gioco: vittoria e sconfitta sono condivise . In Pandemic la squadra ferma le epidemie o crolla insieme. Cambia radicalmente la dinamica sociale: si discute, si pianifica, si negozia e si decide come gruppo, non come avversari. 
  
  ⚠️ Alpha player 
- Il rischio: un giocatore esperto che decide per tutti . Il design deve prevenirlo — informazione nascosta, ruoli personali, decisioni segrete. 
+ Il rischio principale nei cooperativi: un giocatore esperto che decide per tutti , privando gli altri dell'agency. Il design deve prevenirlo — informazione nascosta, ruoli personali con abilità uniche, decisioni prese in segreto prima di rivelarle. 
  
+ In pratica: nei cooperativi il vero avversario è il gioco stesso — e questo cambia tutto. 
  
  
  
@@ -95,15 +96,15 @@ Insieme
 --- Slide 7 ---
 Insieme, ma… 
  Giochi coopetitivi 
- Cooperi e competi nello stesso gioco : alleanze mutevoli, tensione costante, fiducia sempre in bilico. 
+ Cooperi e competi nello stesso gioco : alleanze mutevoli, tensione costante, fiducia sempre in bilico. Devi collaborare per sopravvivere, ma alla fine vince uno solo — o un tradimento può far crollare tutto. 
  
- Ambiguità 
- Il bello sta nell'ambiguità: non sai di chi fidarti — e nemmeno gli altri sanno se fidarsi di te. 
+ ⚠️ Ambiguità 
+ Il bello sta nell'ambiguità progettata: non sai di chi fidarti — e nemmeno gli altri sanno se fidarsi di te. Ogni gesto di aiuto può nascondere un calcolo egoista. È questa tensione che rende i coopetitivi memorabili. 
  
  
  
- 👑 King's Dilemma Il consiglio del regno vota decisioni collettive — ma ogni casata ha un' agenda segreta da portare avanti. 
- 🛸 Battlestar Galactica La squadra collabora per sopravvivere, ma tra voi si nasconde un traditore : ogni errore diventa sospetto.
+ 👑 King's Dilemma Il consiglio del regno vota decisioni collettive che cambiano la storia — ma ogni casata ha un' agenda segreta da portare avanti, spesso in conflitto con il bene comune. 
+ 🛸 Battlestar Galactica La squadra collabora per sopravvivere nello spazio, ma tra voi si nasconde un Cylone infiltrato : ogni errore, ogni ritardo, diventa automaticamente un sospetto.
 
 --- Slide 8 ---
 Teoria 
@@ -115,7 +116,7 @@ Teoria
  
  
  Un asse, non una scelta 
- Ogni gioco vive su un asse tra questi due estremi : Minecraft in creativa è quasi pura paidia, una partita a scacchi è quasi puro ludus.
+ Ogni gioco vive su un asse tra questi due estremi : Minecraft in creativa è quasi pura paidia, una partita a scacchi è quasi puro ludus. Progettare significa scegliere dove posizionarsi su questo asse in base all'esperienza che si vuole offrire.
 
 --- Slide 9 ---
 Il tempo del gioco 
@@ -138,38 +139,38 @@ Il tempo del gioco
 --- Slide 10 ---
 Equilibrio 
  Bilanciamento: 4 criteri 
- Cosa rende un gioco "ben bilanciato"? Quattro qualità da verificare a ogni playtest. 
+ Cosa rende un gioco "ben bilanciato"? Non si tratta solo di simmetria tra giocatori, ma di quattro qualità distinte da verificare a ogni sessione di playtest. 
  
- 🔍 Chiarezza Le regole si capiscono e le scelte sono leggibili: il giocatore sa sempre cosa può fare e perché. 
- 🌊 Fluidità Il gioco scorre senza intoppi, consultazioni continue del regolamento o downtime eccessivo. 
- ⏳ Durata La giusta lunghezza: non così corto da sembrare vuoto, non così lungo da diventare estenuante. 
- 🎉 Divertimento Le scelte sono significative e piacevoli: alla fine della partita viene voglia di rigiocare.
+ 🔍 Chiarezza Le regole si capiscono e le scelte sono leggibili: il giocatore sa sempre cosa può fare, perché, e quali conseguenze aspettarsi. L'ambiguità non è equilibrio. 
+ 🌊 Fluidità Il gioco scorre senza intoppi, senza consultazioni continue del regolamento o downtime eccessivo tra un turno e l'altro. La frizione deve essere intenzionale, non accidentale. 
+ ⏳ Durata La giusta lunghezza per l'esperienza promessa: non così corto da sembrare vuoto, non così lungo da diventare estenuante. La durata percepita conta tanto quanto quella reale. 
+ 🎉 Divertimento Le scelte sono significative e piacevoli: ogni turno offre decisioni interessanti e alla fine della partita viene naturalmente voglia di ricominciare.
 
 --- Slide 11 ---
 In pratica 
  Bilanciare le meccaniche 
- Nessuna strategia deve dominare: se esiste una "mossa vincente" ovvia, il gioco si riduce a eseguirla. Ogni scelta deve avere pro e contro . 
+ Nessuna strategia deve dominare: se esiste una "mossa vincente" ovvia, il gioco si riduce a eseguirla meccanicamente. Ogni percorso verso la vittoria deve avere pro e contro che dipendono dal contesto. 
  
- Scelte significative 
- Una scelta senza conseguenze è finta; una scelta ovvia non è una scelta. Il gioco vive nel mezzo. 
+ 💡 Scelte significative 
+ Una scelta senza conseguenze è finta; una scelta ovvia non è davvero una scelta. Il gioco vive nello spazio tra questi due estremi, dove ogni decisione pesa e il risultato non è scontato. 
  
  
  
- ❌ Strategia dominante Una via sempre migliore delle altre rompe il gioco : tutte le altre opzioni diventano decorazione. 
- ✅ Scelte equilibrate Ogni via è valida in situazioni diverse: la partita resta aperta e le decisioni contano davvero.
+ ❌ Strategia dominante Una via sempre migliore delle altre rompe il gioco : appena scoperta, tutte le altre opzioni diventano semplice decorazione e la partita perde senso. 
+ ✅ Scelte equilibrate Ogni via è valida in situazioni diverse: la partita resta aperta fino all'ultimo, le decisioni contano davvero e la rigiocabilità rimane alta.
 
 --- Slide 12 ---
 Attività 
  Smonta le meccaniche 
  
- Scegli un gioco — da tavolo o videogioco — che conosci bene. 
- Elenca 3 meccaniche che usa: draft? set collection? deck building? 
- Che tipo di interazione crea: competitivo, cooperativo o coopetitivo? 
- C'è una strategia dominante ? Come la bilanceresti? 
+ Scegli un gioco — da tavolo o videogioco — che conosci bene e che hai giocato abbastanza da capirne le regole fondamentali. 
+ Elenca 3 meccaniche che usa: riconosci un draft? set collection? deck building? worker placement? area control? push your luck? 
+ Che tipo di interazione genera tra i giocatori: competitivo diretto, cooperativo contro il gioco, o coopetitivo con tensione interna? 
+ Esiste una strategia dominante che rende le altre opzioni inutili? Se sì, come cambieresti una regola per ribilanciare il gioco? 
  
  
  💡 Bonus 
- Prova a combinare due meccaniche di giochi diversi: worker placement + push your luck? Funzionerebbero insieme?
+ Prova a combinare due meccaniche di giochi diversi: worker placement + push your luck? Draft + area control? Chiediti quali tensioni creative nascerebbero dall'incastro e se il risultato sarebbe giocabile.
 
 --- Slide 13 ---
 Regole che

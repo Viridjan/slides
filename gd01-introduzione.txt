@@ -18,14 +18,14 @@ In questo modulo
  Cosa vedremo 
  
  
- Tipologie di giochi — board, card, dice, party, eurogame, family, cooperative 
- Eccezioni e giochi ibridi — quando le categorie non bastano più 
- Il paradigma MDA — Meccaniche, Dinamiche, Estetiche 
+ Tipologie di giochi — board, card, dice, party, eurogame, family, cooperative: ogni categoria rivela aspettative diverse nel giocatore e scelte diverse nel designer 
+ Eccezioni e giochi ibridi — quando le categorie non bastano più e i giochi di maggior successo le attraversano tutte 
+ Il paradigma MDA — Meccaniche, Dinamiche, Estetiche: il modello formale di Hunicke, LeBlanc e Zubek (2004) per analizzare e progettare esperienze di gioco 
  
  
- Prospettiva designer vs giocatore — chi costruisce e chi vive l'esperienza 
- Giochi agonistici e non agonistici — competizione, cooperazione e vie di mezzo 
- Attività pratica — analizza un gioco che conosci con il framework MDA
+ Prospettiva designer vs giocatore — chi costruisce parte dalle meccaniche; chi gioca arriva prima all'estetica: due percorsi opposti lungo lo stesso asse MDA 
+ Giochi agonistici e non agonistici — competizione diretta, cooperazione pura e le zone grigie in mezzo: i semi-cooperativi con il traditore nascosto 
+ Attività pratica — scegli un gioco che conosci e applicagli il framework MDA: elenca le meccaniche, identifica le dinamiche emergenti, descrivi l'estetica che ne risulta
 
 --- Slide 3 ---
 Definizione 
@@ -60,17 +60,17 @@ Tipologie
  
  🎲 
  Board Game 
- Gioco da tavolo con plancia. Esempi: Catan , Monopoly . Spazio fisico condiviso, spesso competitivo. 
+ Gioco da tavolo con plancia. Esempi: Catan , Monopoly . Lo spazio fisico condiviso crea una mappa comune su cui si svolge la competizione o la cooperazione. Ogni plancia è già un sistema di regole visivo. 
  
  
  🃏 
  Card Game 
- Meccanica basata su mazzo di carte. Esempi: Exploding Kittens , UNO . Veloce, portatile, alta variabilità. 
+ Meccanica basata su mazzo di carte. Esempi: Exploding Kittens , UNO . La carta è al tempo stesso risorsa, regola e componente: leggera, portatile, ad alta variabilità per effetto della casualità del pesco. 
  
  
  🎯 
  Dice Game 
- Il dado è il motore principale del gioco. Esempi: Yahtzee , King of Tokyo . Forte componente di fortuna.
+ Il dado è il motore principale del gioco. Esempi: Yahtzee , King of Tokyo . La forte componente di fortuna è bilanciata dalle scelte su quando tenere, rilancire o rischiare — il designer controlla l'aleatorietà tramite le decisioni consentite.
 
 --- Slide 5 ---
 Tipologie 
@@ -79,17 +79,17 @@ Tipologie
  
  🎉 
  Party Game 
- Pensato per gruppi grandi (4-10+ giocatori): regole semplici, partite brevi, alta interazione sociale. Esempi: Codenames , Taboo , Dobble . 
+ Pensato per gruppi grandi (4-10+ giocatori): regole semplici, partite brevi, alta interazione sociale. Il divertimento viene dalla comunicazione e dall'imbarazzo, non dalla strategia. Esempi: Codenames , Taboo , Dobble . 
  
  
  🧩 
  Eurogame 
- Meccaniche profonde, poca fortuna, alta strategia. Raramente prevede l'eliminazione diretta dei giocatori. Esempi: Terraforming Mars , Agricola , Wingspan . 
+ Meccaniche profonde, poca fortuna, alta strategia. Raramente prevede l'eliminazione diretta dei giocatori: tutti restano in gioco fino alla fine, con diversi gradi di vantaggio. Esempi: Terraforming Mars , Agricola , Wingspan . 
  
  
  👨‍👩‍👧‍👦 
  Family Game 
- Equilibrio tra semplicità e profondità, adatto a tavoli con età miste (8+). Esempi: Ticket to Ride , Pandemic , Dixit .
+ Equilibrio tra semplicità e profondità, adatto a tavoli con età miste (8+). Il design abbassa le barriere di ingresso senza eliminare le scelte significative. Esempi: Ticket to Ride , Pandemic , Dixit .
 
 --- Slide 6 ---
 Cooperativo 
@@ -142,7 +142,7 @@ Eccezioni
 --- Slide 8 ---
 Teoria 
  MDA 
- Il paradigma che ogni game designer dovrebbe conoscere. 
+ Il paradigma che ogni game designer dovrebbe conoscere. Proposto da Robin Hunicke, Marc LeBlanc e Robert Zubek nel 2004, MDA descrive come le regole formali di un gioco producano comportamenti emergenti che a loro volta generano l'esperienza emotiva del giocatore. Il modello è potente perché fornisce un vocabolario condiviso per analizzare e progettare giochi di ogni tipo. 
  
  🔩 Meccaniche 
  → 
@@ -153,10 +153,10 @@ Teoria
 --- Slide 9 ---
 MDA Paradigm 
  Come nasce un' esperienza 
- Le Meccaniche sono le regole del gioco. Dalle meccaniche emergono le Dinamiche — i comportamenti dei giocatori. Le dinamiche generano le Estetiche — le emozioni vissute. 
+ Le Meccaniche sono le regole del gioco — le azioni disponibili, i vincoli, i sistemi di ricompensa. Dalle meccaniche emergono le Dinamiche — i comportamenti dei giocatori in gioco. Le dinamiche generano le Estetiche — le emozioni vissute durante la sessione di gioco. 
  
  Fonte 
- "MDA: A Formal Approach to Game Design and Game Research" — Robin Hunicke, Marc LeBlanc, Robert Zubek (2004). 
+ "MDA: A Formal Approach to Game Design and Game Research" — Robin Hunicke, Marc LeBlanc, Robert Zubek (2004). Il paper ha influenzato profondamente la critica e la pratica del game design moderno. 
  
  
  
@@ -185,10 +185,10 @@ MDA Paradigm
 --- Slide 10 ---
 M — Meccanica 
  Le regole del gioco 
- Le meccaniche sono i componenti formali del gioco: le azioni disponibili, i vincoli, i sistemi di ricompensa, le condizioni di vittoria. Sono il livello su cui lavora principalmente il designer . 
+ Le meccaniche sono i componenti formali del gioco: le azioni disponibili, i vincoli, i sistemi di ricompensa, le condizioni di vittoria. Sono il livello su cui lavora principalmente il designer . Una buona meccanica è chiara, interagisce con le altre senza creare scorciatoie dominanti, e genera comportamenti interessanti che il designer non aveva necessariamente previsto. 
  
  Esempi di meccaniche 
- Draft (scegliere carte da un pool), worker placement , deck building , gestione risorse , push your luck . 
+ Draft (scegliere carte da un pool), worker placement , deck building , gestione risorse , push your luck . Ogni meccanica porta con sé aspettative precise nel giocatore esperto. 
  
  
  
@@ -205,10 +205,10 @@ M — Meccanica
 --- Slide 11 ---
 D — Dinamica 
  Comportamenti emergenti 
- Le dinamiche non si progettano direttamente — emergono dall'interazione tra meccaniche e giocatori. Un designer progetta meccaniche sperando che producano le dinamiche volute. 
+ Le dinamiche non si progettano direttamente — emergono dall'interazione tra meccaniche e giocatori. Un designer progetta meccaniche sperando che producano le dinamiche volute, ma spesso i giocatori trovano comportamenti inattesi: strategie dominanti, kingmaking, turtling. Il playtesting esiste proprio per osservare queste dinamiche e correggerle prima del rilascio. 
  
  Esempio 
- In Diplomazia (1959) la meccanica è "scrivi ordini segreti". La dinamica che emerge è la negoziazione , l'inganno e l'alleanza — nulla di questo è scritto nelle regole. 
+ In Diplomazia (1959) la meccanica è "scrivi ordini segreti e rivelali contemporaneamente". La dinamica che emerge è la negoziazione, l'inganno e l'alleanza — nulla di questo è scritto nelle regole. 
  
  
  
@@ -225,10 +225,10 @@ D — Dinamica
 --- Slide 12 ---
 E — Estetica 
  L' esperienza del giocatore 
- L'estetica è il livello emotivo — cosa il giocatore sente mentre gioca. Non è decorazione: è l' obiettivo finale del design. Le meccaniche e le dinamiche esistono per produrre un'estetica specifica. 
+ L'estetica è il livello emotivo — cosa il giocatore sente mentre gioca. Non è decorazione: è l' obiettivo finale del design. Le meccaniche e le dinamiche esistono per produrre un'estetica specifica. Un gioco che mira alla Fellowship deve avere meccaniche che forzano la comunicazione; un gioco che mira al Challenge deve avere sistemi che puniscono l'errore in modo equo. 
  
  Le 8 estetiche di MDA 
- Sensation · Fantasy · Narrative · Challenge · Fellowship · Discovery · Expression · Submission 
+ Sensation · Fantasy · Narrative · Challenge · Fellowship · Discovery · Expression · Submission — ogni gioco può puntare a una o più di queste esperienze, ma conoscerle aiuta a progettare con intenzione. 
  
  
  
@@ -261,12 +261,16 @@ Due prospettive
  ← 
  🔩 Meccaniche 
  
- In pratica: il designer pensa in regole , il giocatore in emozioni — il buon design è il ponte.
+ 
+ Il gap empatico 
+ Il designer conosce ogni meccanica perché le ha progettate; il giocatore le scopre per la prima volta. Questa asimmetria è una delle principali cause di giochi mal calibrati: il designer dà per scontato ciò che il giocatore non ha ancora capito. Per colmarla si usa il playtesting con giocatori che non conoscono il gioco. 
+ 
+ In pratica: il designer pensa in regole , il giocatore in emozioni — il buon design è il ponte tra i due.
 
 --- Slide 14 ---
 MDA in pratica 
  Caso: DOOM (2016) 
- Analizziamo DOOM 2016 attraverso il paradigma MDA per capire come meccaniche precise producano un' estetica specifica . 
+ Analizziamo DOOM 2016 attraverso il paradigma MDA per capire come meccaniche precise producano un' estetica specifica . id Software e il designer Hugo Martin hanno lavorato a ritroso: prima hanno definito l'estetica desiderata — adrenalina e flusso aggressivo — poi hanno costruito le meccaniche che la rendessero inevitabile. 
  
  
  
@@ -307,7 +311,7 @@ Competizione
 --- Slide 16 ---
 Discussione 
  Cosa ti viene in mente pensando a Super Mario ? 
- Prenditi 2 minuti. Scrivi o dì ad alta voce le prime 5-10 cose che ti vengono in mente. 
+ Prenditi 2 minuti. Scrivi o dì ad alta voce le prime 5-10 cose che ti vengono in mente — senza filtrare. Poi prova a classificarle: stai descrivendo regole, comportamenti o emozioni? Questo esercizio mostra da quale livello dell'esperienza di gioco partiamo naturalmente quando parliamo di un titolo che conosciamo bene. 
  
  
  
@@ -343,7 +347,7 @@ Attività
  
  
  💡 Bonus 
- In che categoria rientra il gioco scelto? È agonistico o no? Dove si posiziona nel framework MDA?
+ In che categoria rientra il gioco scelto? È agonistico o no? Dove si posiziona nel framework MDA? Se avessi da modificare una sola meccanica per cambiare l'estetica finale, quale sceglieresti e come cambierebbe l'esperienza del giocatore? Confronta la tua analisi con quella di un compagno che ha scelto lo stesso gioco: avete identificato le stesse meccaniche e dinamiche, o avete visto cose diverse?
 
 --- Slide 18 ---
 Regole.

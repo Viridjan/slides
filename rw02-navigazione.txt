@@ -42,12 +42,12 @@ sul Web
  Navigare significa richiedere e ricevere contenuti da server remoti tramite un programma chiamato browser . L'azione appare semplice; il processo sottostante è complesso. 
  
  
- 🌐 Il browser 
+ Il browser 
  Il programma che usi per accedere al Web. Invia richieste ai server, riceve i dati (HTML, CSS, JS) e li trasforma in pagine leggibili.
  Esempi: Chrome · Firefox · Safari · Edge · Opera 
  
  
- 📋 Come si naviga 
+ Come si naviga 
  Digiti un indirizzo (URL) nella barra del browser, fai clic su un link, o usi una cronologia. Il browser fa tutto il resto: richiede, riceve, interpreta, mostra. 
  
  
@@ -119,7 +119,7 @@ Transfer
  Il protocollo che definisce come browser e server si scambiano documenti ipertestuali (pagine web). Alla base di tutto il World Wide Web. 
  
  
- ⚙️ Come funziona 
+ Come funziona 
  Richiesta (Request): il browser chiede una pagina o risorsa.
  Risposta (Response): il server risponde con i dati e un codice di stato (200 OK, 404 Not Found, 301 Redirect…) 
  
@@ -167,7 +167,7 @@ Comunicazione sicura
  Browser e server negoziano una chiave segreta (handshake). Tutti i dati successivi vengono cifrati con quella chiave. Solo il destinatario può decifrarli. 
  
  
- 🔑 Certificato digitale 
+ Certificato digitale 
  HTTPS richiede un certificato SSL/TLS — un documento digitale che verifica l'identità del sito. Il lucchetto verde/grigio nel browser indica che il certificato è valido. 
  
  
@@ -229,7 +229,7 @@ Confronto
  HTTPS garantisce che la connessione sia cifrata, non che il sito sia affidabile. Un sito fraudolento può usare HTTPS. Controlla sempre anche il dominio. 
  
  
- ✅ Regola pratica 
+ Regola pratica 
  Se devi inserire dati personali (username, password, carta di credito), verifica sempre il lucchetto e che l'indirizzo inizi con https:// .
 
 --- Slide 8 ---
@@ -292,12 +292,13 @@ Nomi della rete
  Il dominio è il nome leggibile di un server su Internet. Gli indirizzi IP (come 192.168.1.1) sono numeri difficili da ricordare — i domini li rendono comprensibili. 
  
  
- 🏷️ Come funziona 
+ Come funziona 
  Il DNS (Domain Name System) traduce automaticamente il nome in un indirizzo IP. Digiti google.com → il DNS trova l'IP → il browser si connette. 
  
  
- 📝 Struttura del dominio 
+ Struttura del dominio 
  www . wikipedia . org 
+
 
  www = sottodominio (opzionale)
 
@@ -346,7 +347,7 @@ Il tessuto del Web
  🔗 
  Caratteristiche 
  Un link collega qualsiasi risorsa: pagina web, immagine, file da scaricare, email, numero di telefono, sezione della stessa pagina. Può essere testo, un'immagine, un pulsante. 
- <a href="url">testo</a> 
+ &lt;a href="url"&gt;testo&lt;/a&gt; 
  
  
  🕸️ 
@@ -357,17 +358,15 @@ Il tessuto del Web
  
  
  
- 🔵 Link interni 
+ Link interni 
  Puntano a un'altra pagina o sezione dello stesso sito. Es: menu di navigazione, sommario di un articolo. 
  
  
- 🌐 Link esterni 
+ Link esterni 
  Puntano a un sito diverso. Es: una fonte citata, un social network, una risorsa esterna. Si aprono spesso in una nuova scheda.
 
 --- Slide 12 ---
-Fine Modulo M2.1 
- Navigazione! 🌐 
- HTTP, HTTPS, URL, domini e hyperlink — hai le basi per capire come funziona il Web. Il modulo M2.2 approfondisce la struttura dei domini e le estensioni internet. 
+Navigazione! 🌐 
+ URL, HTTP/HTTPS, browser, cookie, cache e certificati SSL: cosa succede davvero ogni volta che visiti un sito. 
  
- Prossimo → W08 · Domini e Estensioni 
- ↩ Indice del corso
+ Prossimo → W08 · Domini e Estensioni

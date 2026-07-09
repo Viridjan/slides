@@ -124,6 +124,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
         <div class="agenda-item"><span class="n">09</span><span class="t">Errori delle formule</span></div>
         <div class="agenda-item"><span class="n">10</span><span class="t">Buone abitudini</span></div>
       </div>
+      <p class="body reveal d2" style="margin-top:18px;font-size:26px;color:var(--ink-faint);">In questo modulo impariamo a usare le formule fondamentali del foglio di calcolo. Partendo dal segno uguale che avvia ogni calcolo, vedremo come combinare operatori aritmetici e funzioni per sommare totali, calcolare medie, trovare valori minimi e massimi, contare celle con o senza condizione e prendere decisioni automatiche. Queste otto funzioni coprono la grande maggioranza dei casi d'uso pratici e comuni.</p>
     </div>
     <div class="page-num"></div>
   </section>
@@ -136,7 +137,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
         <h2 class="h-big reveal">Come funziona<br>una <em class="hot">formula</em></h2>
         <p class="lead reveal d1">Ogni formula inizia con <b style="font-family:var(--font-mono);color:var(--red);">=</b> e può usare valori fissi, riferimenti a celle, operatori e funzioni. Il risultato si aggiorna automaticamente quando cambiano i dati.</p>
         <div class="analogy reveal d2"><span class="big">Regola:</span> Senza = il foglio tratta ciò che scrivi come testo. Con = lo calcola.</div>
-        <div class="note reveal d3"><div class="lbl">💡 Niente calcolatrice</div><p>Imposti la formula una volta — il foglio ricalcola tutto da solo ad ogni modifica. Cambia un dato, tutti i risultati si aggiornano.</p></div>
+        <div class="note reveal d3"><div class="lbl">💡 Niente calcolatrice</div><p>Imposti la formula una volta — il foglio ricalcola tutto da solo ad ogni modifica dei dati sorgente. Cambia un valore di partenza, e tutti i risultati collegati si aggiornano immediatamente, senza dover aprire una calcolatrice o riscrivere nulla.</p></div>
       </div>
       <div class="illu reveal d1">
         <div class="fbar" style="margin-bottom:16px;"><span class="ref">C1</span><span class="eq">=</span><span>A1 + B1</span></div>
@@ -178,7 +179,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
           <p>Unisce testo: <span style="font-family:var(--font-mono);">=A2&" "&B2</span> → "Mario Rossi". Utile per nomi completi.</p>
         </div>
       </div>
-      <div class="note reveal d3" style="margin-top:16px;"><div class="lbl">💡 Precedenza</div><p>Come in matematica: * e / prima di + e −. Usa le parentesi per cambiare l'ordine: <span style="font-family:var(--font-mono);">=(A+B)*C</span>.</p></div>
+      <div class="note reveal d3" style="margin-top:16px;"><div class="lbl">💡 Precedenza</div><p>Come in matematica: * e / hanno precedenza su + e −. Usa le parentesi per controllare l'ordine di calcolo: <span style="font-family:var(--font-mono);">=(A+B)*C</span> anziché <span style="font-family:var(--font-mono);">=A+B*C</span>.</p></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -189,20 +190,20 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       <div class="col stack">
         <div class="tape gold reveal">SOMMA</div>
         <h2 class="h-big reveal">La funzione<br>più <em class="hot">usata</em></h2>
-        <p class="lead reveal d1">SOMMA aggiunge tutti i numeri in un intervallo. È la funzione più usata per totali, incassi, spese e quantità.</p>
+        <p class="lead reveal d1">SOMMA aggiunge tutti i valori numerici in un intervallo, ignorando automaticamente le celle vuote e quelle con testo. È la funzione più usata nei fogli di calcolo: totali, incassi, spese, quantità e qualsiasi altra somma di numeri.</p>
         <div class="formula reveal d2" style="font-size:26px;">=SOMMA(<b>B2:B6</b>)</div>
         <div class="stack reveal d3">
           <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;">
             <span style="font-size:28px;min-width:40px;">✓</span>
-            <div><span style="font-size:24px;font-family:var(--font-mono);color:var(--teal);">=SOMMA(B2:B6)</span> — range continuo</div>
+            <div><span style="font-size:24px;font-family:var(--font-mono);color:var(--teal);">=SOMMA(B2:B6)</span> — somma tutte le celle da B2 a B6 in sequenza continuativa</div>
           </div>
           <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;">
             <span style="font-size:28px;min-width:40px;">✓</span>
-            <div><span style="font-size:24px;font-family:var(--font-mono);color:var(--teal);">=SOMMA(B2;B4;B6)</span> — celle separate</div>
+            <div><span style="font-size:24px;font-family:var(--font-mono);color:var(--teal);">=SOMMA(B2;B4;B6)</span> — somma solo le celle indicate, saltando quelle in mezzo</div>
           </div>
           <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;">
             <span style="font-size:28px;min-width:40px;">✓</span>
-            <div><span style="font-size:24px;font-family:var(--font-mono);color:var(--teal);">=SOMMA(B:B)</span> — intera colonna</div>
+            <div><span style="font-size:24px;font-family:var(--font-mono);color:var(--teal);">=SOMMA(B:B)</span> — somma tutti i valori della colonna, incluse le righe aggiunte in seguito</div>
           </div>
         </div>
       </div>
@@ -261,12 +262,12 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
           <div class="fn-card">
             <h3>CONTA.NUMERI</h3>
             <div class="syntax">=CONTA.NUMERI(B:B)</div>
-            <p>Conta solo le celle che contengono <b>numeri</b>. Testo, date e celle vuote vengono ignorati.</p>
+            <p>Conta solo le celle che contengono <b>numeri</b> interi o decimali. Testo, date, celle vuote e formule che producono testo vengono tutti ignorati.</p>
           </div>
           <div class="fn-card">
             <h3>CONTA.VALORI</h3>
             <div class="syntax">=CONTA.VALORI(A:A)</div>
-            <p>Conta le celle <b>non vuote</b> — qualsiasi contenuto (testo, numero, formula). Utile per contare righe compilate.</p>
+            <p>Conta le celle <b>non vuote</b> — qualsiasi contenuto: testo, numero, formula o riferimento. Utile per sapere quante righe sono state compilate in un elenco o tabella.</p>
           </div>
         </div>
       </div>
@@ -308,7 +309,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
             <div><span style="font-family:var(--font-mono);font-size:22px;color:var(--sky);">=CONTA.SE(C:C;E1)</span> — criterio in E1</div>
           </div>
         </div>
-        <div class="note red reveal d4"><div class="lbl">⚠️ Più condizioni</div><p>CONTA.SE gestisce una sola condizione. Per più condizioni usa <span style="font-family:var(--font-mono);">CONTA.PIÙ.SE</span> — trattato in SU10.</p></div>
+        <div class="note red reveal d4"><div class="lbl">⚠️ Più condizioni</div><p>CONTA.SE gestisce una sola condizione per volta. Per verificare più condizioni contemporaneamente sulla stessa riga, usa <span style="font-family:var(--font-mono);">CONTA.PIÙ.SE</span> — trattato in SU10.</p></div>
       </div>
       <div class="illu reveal d1">
         <table class="sheet" style="width:280px;">
@@ -334,7 +335,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
         <p class="lead reveal d1">SE valuta una condizione: se è vera restituisce un valore, altrimenti un altro. È la funzione logica base da cui nascono tutte le decisioni nel foglio.</p>
         <div class="formula reveal d2" style="font-size:22px;">=SE(<b>condizione</b>; se_vero; se_falso)</div>
         <div class="formula reveal d3" style="font-size:20px;margin-top:12px;">=SE(B2&gt;100; "Ottimo"; "Da migliorare")</div>
-        <p class="body reveal d4" style="margin-top:12px;">Se la spesa in B2 supera 100€ → scrive "Ottimo", altrimenti "Da migliorare".</p>
+        <p class="body reveal d4" style="margin-top:12px;">Se la spesa in B2 supera 100€ → scrive "Ottimo", altrimenti "Da migliorare". La formula si copia verso il basso sulle righe successive, valutando ogni riga in modo indipendente senza dover riscrivere nulla.</p>
       </div>
       <div class="illu reveal d1">
         <div class="fbar" style="font-size:18px;margin-bottom:16px;"><span class="ref">C2</span><span class="eq">=</span><span style="font-size:16px;">SE(B2&gt;100;"Ottimo";"Basso")</span></div>
@@ -360,42 +361,42 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
         <div class="fn-card">
           <h3>SOMMA</h3>
           <div class="syntax">=SOMMA(A1:A10)</div>
-          <p>Totale numerico di un intervallo</p>
+          <p>Somma tutti i numeri nell'intervallo, saltando automaticamente celle vuote e testo</p>
         </div>
         <div class="fn-card">
           <h3>MEDIA</h3>
           <div class="syntax">=MEDIA(A1:A10)</div>
-          <p>Valore medio</p>
+          <p>Media aritmetica: somma totale divisa per il numero di celle numeriche presenti</p>
         </div>
         <div class="fn-card">
           <h3>MIN</h3>
           <div class="syntax">=MIN(A1:A10)</div>
-          <p>Valore minimo</p>
+          <p>Restituisce il valore numerico più piccolo nell'intervallo dato</p>
         </div>
         <div class="fn-card">
           <h3>MAX</h3>
           <div class="syntax">=MAX(A1:A10)</div>
-          <p>Valore massimo</p>
+          <p>Restituisce il valore numerico più grande nell'intervallo dato</p>
         </div>
         <div class="fn-card">
           <h3>CONTA.NUMERI</h3>
           <div class="syntax">=CONTA.NUMERI(A:A)</div>
-          <p>Celle con numeri</p>
+          <p>Conta quante celle contengono un numero, ignorando testo e celle vuote</p>
         </div>
         <div class="fn-card">
           <h3>CONTA.VALORI</h3>
           <div class="syntax">=CONTA.VALORI(A:A)</div>
-          <p>Celle non vuote (qualsiasi tipo)</p>
+          <p>Conta quante celle non sono vuote, indipendentemente dal tipo di contenuto</p>
         </div>
         <div class="fn-card">
           <h3>CONTA.SE</h3>
           <div class="syntax">=CONTA.SE(A:A;"x")</div>
-          <p>Celle che rispettano una condizione</p>
+          <p>Conta le celle che soddisfano la condizione specificata come criterio</p>
         </div>
         <div class="fn-card">
           <h3>SE</h3>
           <div class="syntax">=SE(cond;vero;falso)</div>
-          <p>Decisione automatica in base a una condizione</p>
+          <p>Valuta una condizione e restituisce un risultato diverso a seconda che sia vera o falsa</p>
         </div>
       </div>
     </div>
@@ -407,7 +408,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
     <div class="col stack">
       <div class="tape red reveal">Errori</div>
       <h2 class="h-sec reveal">Errori tipici delle <em class="hot">formule</em></h2>
-      <p class="lead reveal d1">Quando qualcosa non torna, il foglio mostra un codice di errore. Ogni codice ha una causa precisa e una soluzione.</p>
+      <p class="lead reveal d1">Quando qualcosa non torna, il foglio mostra un codice di errore. Ogni codice ha una causa precisa e una soluzione. Riconoscere e interpretare questi codici è fondamentale per lavorare in modo autonomo e corretto.</p>
       <div class="grid2 reveal d2" style="margin-top:16px;">
         <div class="err-card"><h3>#DIV/0!</h3><p>Divisione per zero o per cella vuota. Usa SE.ERRORE o controlla che il denominatore non sia 0.</p></div>
         <div class="err-card"><h3>#VALORE!</h3><p>Tipo di dato sbagliato: stai sommando testo. Controlla il formato delle celle — i numeri devono essere allineati a destra.</p></div>
@@ -433,7 +434,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
         </div>
         <div class="agenda-item" style="border-color:var(--gold-deep);padding:14px 8px;">
           <span style="font-size:32px;min-width:48px;">2.</span>
-          <div><b style="font-size:26px;">Una formula, poi copia</b><br><span style="font-size:22px;color:var(--ink-faint);">Scrivi la formula corretta in una cella, poi trascinala — non riscrivere ogni volta</span></div>
+          <div><b style="font-size:26px;">Una formula, poi copia</b><br><span style="font-size:22px;color:var(--ink-faint);">Scrivi la formula corretta in una cella, poi trascinala sulle righe successive — non riscrivere ogni volta: risparmi tempo ed eviti errori di battitura</span></div>
         </div>
         <div class="agenda-item" style="border-color:var(--gold-deep);padding:14px 8px;">
           <span style="font-size:32px;min-width:48px;">3.</span>

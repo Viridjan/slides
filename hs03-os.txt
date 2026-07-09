@@ -82,15 +82,15 @@ Architettura
  
  
  
- ⚙️ Kernel 
+ Kernel 
  È il componente più basso dell'OS. Gestisce direttamente memoria, CPU e periferiche. Non si vede mai: lavora in background ogni microsecondo. 
  
  
- 🖥️ GUI 
+ GUI 
  L'interfaccia grafica che l'utente vede e usa. È separata dal kernel: su Linux puoi sostituire la GUI senza cambiare il kernel. 
  
  
- 💻 CLI 
+ CLI 
  Alternativa alla GUI: il terminale . Comandi testuali, meno intuitivo ma molto più potente per operazioni automatizzate e server.
 
 --- Slide 5 ---
@@ -231,7 +231,7 @@ Linux
  Un OS open source creato da Linus Torvalds nel 1991. Il codice sorgente è pubblico, modificabile e redistribuibile. Non è un unico OS: esistono centinaia di distribuzioni (distro), ognuna con scopi diversi. 
  
  
- 📦 Distribuzioni popolari 
+ Distribuzioni popolari 
  Ubuntu / Mint — per principianti, GUI simile a Windows.
  Fedora — aggiornata, preferita dagli sviluppatori.
  Debian — stabile, base di molte distro.
@@ -251,7 +251,7 @@ Linux
  Curva di apprendimento : il terminale è spesso necessario. Software : Adobe, Office (nativo), alcuni giochi non disponibili. Driver : hardware di nicchia a volte non supportato. 
  
  
- 🌍 Linux nel mondo 
+ Linux nel mondo 
  Android è Linux. I server Amazon, Google e Meta girano su Linux. Il 100% dei supercomputer nel Top500 usa Linux. L'80% dei telefonini del mondo gira su un kernel Linux.
 
 --- Slide 9 ---
@@ -428,7 +428,7 @@ Sicurezza
  
  
  
- 🚨 Aggiornamenti: non rimandare mai 
+ Aggiornamenti: non rimandare mai 
  Le vulnerabilità sfruttate dagli attacchi più gravi sono spesso già note e corrette da patch disponibili. Il problema è che gli utenti non aggiornano. WannaCry (2017) ha infettato 200.000 PC usando una vulnerabilità per cui Microsoft aveva rilasciato la patch 60 giorni prima.
 
 --- Slide 14 ---
@@ -500,19 +500,19 @@ Usi tipici
  Luoghi comuni sbagliati 
  
  
- ❌ "Linux è solo per hacker" 
+ "Linux è solo per hacker" 
  Ubuntu è usato da milioni di persone comuni. ChromeOS (Google) è Linux. Android è Linux. La difficoltà dipende dalla distro scelta. 
  
  
- ❌ "I Mac non prendono virus" 
+ "I Mac non prendono virus" 
  Falso. I malware per macOS esistono e crescono. La minore diffusione li rende meno bersagliati, non immuni. Xprotect di Apple non è infallibile. 
  
  
- ❌ "Windows è lento" 
+ "Windows è lento" 
  Windows 10/11 su SSD è veloce. Il rallentamento viene da hardware vecchio, troppi programmi in avvio automatico o mancanza di manutenzione. 
  
  
- ❌ "Android è insicuro" 
+ "Android è insicuro" 
  Android con aggiornamenti regolari e Play Store è sicuro. Il rischio aumenta con dispositivi non aggiornati e APK da fonti sconosciute.
 
 --- Slide 16 ---
@@ -545,12 +545,8 @@ Conclusione
  Prova. Ubuntu ha una versione live che puoi usare da chiavetta USB senza installare nulla. macOS puoi provarlo nei negozi Apple. Nessuna scelta è permanente — e conoscere più sistemi è una competenza professionale.
 
 --- Slide 17 ---
-Fine Modulo 11 🖥️ 
- Conosci
- il tuo OS. 
+Conosci
+il tuo OS. 
+ Windows, macOS e Linux: cosa fa un sistema operativo, come gestisce processi, memoria, permessi e aggiornamenti. 
  
- Ogni sistema operativo nasce con obiettivi diversi. Capire come funzionano ti rende un utente consapevole — e ti apre le porte a carriere tecniche in qualsiasi settore.
- 
- 
- Prossimo → M13 · Concetti fondamentali OS 
- ↩ Indice del corso
+ Prossimo → M13 · Concetti fondamentali OS

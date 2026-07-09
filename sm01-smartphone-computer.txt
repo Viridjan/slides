@@ -10,7 +10,8 @@ S01 — Hardware
 --- Slide 2 ---
 In questo capitolo 
  Cosa vedremo 
- 01 Computer tascabile 02 Scheda logica 03 CPU, SoC e RAM 04 Memoria interna 05 Batteria e ricarica 06 Schermo touch 07 Fotocamere 08 GPS e posizione 09 Sensori invisibili 10 Microfoni e altoparlanti 11 Smartphone, tablet o PC 12 Limiti fisici e calore
+ 01 Computer tascabile 02 Scheda logica 03 CPU, SoC e RAM 04 Memoria interna 05 Batteria e ricarica 06 Schermo touch 07 Fotocamere 08 GPS e posizione 09 Sensori invisibili 10 Microfoni e altoparlanti 11 Smartphone, tablet o PC 12 Limiti fisici e calore 
+ In questo modulo analizziamo ogni componente del tuo smartphone: dal processore SoC alla batteria, dallo schermo ai sensori — e confrontiamo smartphone, tablet e PC per capire quando usare quale dispositivo. Conoscere l'hardware ti aiuta a scegliere il telefono giusto, a capire perché si surriscalda, perché la batteria si scarica rapidamente e come gestire lo spazio di archiviazione.
 
 --- Slide 3 ---
 Hardware 
@@ -22,12 +23,12 @@ Hardware
  
  🔍 
  Cosa c'è dietro il vetro 
- Gli stessi ingredienti di un PC, miniaturizzati: un processore (SoC), la RAM, una memoria per i dati, una batteria. In più: antenne per rete mobile, WiFi, Bluetooth e GPS, due o più fotocamere e decine di sensori. 
+ Gli stessi ingredienti di un PC, miniaturizzati: un processore (SoC), la RAM, una memoria per i dati, una batteria. In più: antenne per rete mobile, WiFi, Bluetooth e GPS, due o più fotocamere e decine di sensori. Il SoC (System on Chip) integra CPU, GPU, modem e NPU per l'AI in un unico componente delle dimensioni di un'unghia. 
  
  
  ✋ 
  Un'interfaccia diversa 
- Niente mouse né tastiera fisica: si comanda con tocchi, gesti e voce. In questo capitolo apriamo il "cofano" e guardiamo i pezzi uno per uno.
+ Niente mouse né tastiera fisica: si comanda con tocchi, gesti e voce. In questo capitolo apriamo il "cofano" e guardiamo i pezzi uno per uno. A differenza del PC da scrivania, lo smartphone è progettato per essere usato con una mano sola, in mobilità, con la connettività sempre attiva — un paradigma completamente diverso.
 
 --- Slide 4 ---
 SoC 
@@ -44,7 +45,7 @@ SoC
  Hardware 
  Scheda logica 
  Il "pavimento" su cui vive tutta l'elettronica: ogni componente ci è fissato sopra e comunica attraverso di essa. 
- Riparabilità Quasi tutto è saldato: RAM, processore e memoria non si sostituiscono. In pratica si riparano solo schermo e batteria. Prima di acquistare, verifica costi e politica di riparazione del produttore.
+ Riparabilità Quasi tutto è saldato: RAM, processore e memoria non si sostituiscono. In pratica si riparano solo schermo e batteria su modelli mainstream — e solo da tecnici specializzati. Gli smartphone progettati per la riparazione (come Fairphone) sono eccezioni: la norma del mercato è che un componente guasto equivale a sostituire l'intero telefono. Prima di acquistare, verifica i costi di riparazione e la politica di ricambi ufficiali del produttore.
 
 --- Slide 5 ---
 Hardware 
@@ -77,7 +78,7 @@ Hardware
 --- Slide 7 ---
 Hardware 
  Batteria e ricarica 
- La batteria degrada nel tempo; la ricarica rapida accelera il processo se usata male. 
+ La batteria degrada nel tempo; la ricarica rapida accelera il processo se usata male. La capacità si misura in mAh ma l'autonomia reale dipende anche da schermo, rete mobile, luminosità e intensità d'uso delle app. 
  Regola: evita il calore, carica tra 20–80%, usa caricatori certificati. 
  
  
@@ -86,7 +87,7 @@ Hardware
  📉 Con il tempo perde capacità 
  cicli, calore e ricariche a 0% accelerano il degrado 
  🔌 USB-C è lo standard comune 
- la ricarica rapida richiede caricatore, cavo e telefono compatibili
+ la ricarica rapida richiede caricatore, cavo e telefono compatibili — senza tutti e tre, la velocità di ricarica scende sensibilmente
 
 --- Slide 8 ---
 Hardware 
@@ -97,7 +98,7 @@ Hardware
  
  🛡️ 
  Tocco, luminosità, protezione 
- Tocchi, gesture, swipe e pinch sostituiscono mouse e tastiera. Luminosità, risoluzione e refresh rate incidono su comfort visivo e autonomia. Il vetro protettivo (Gorilla Glass e simili) riduce rischi da caduta o graffi.
+ Tocchi, gesture, swipe e pinch sostituiscono mouse e tastiera. Luminosità, risoluzione e refresh rate incidono su comfort visivo e autonomia. Il vetro protettivo (Gorilla Glass e simili) riduce rischi da caduta o graffi. I modelli recenti usano tecnologia LTPO che varia il refresh da 1 Hz a 120 Hz automaticamente per risparmiare batteria quando lo schermo è fermo.
 
 --- Slide 9 ---
 Hardware 
@@ -108,13 +109,13 @@ Hardware
  
  🧩 
  Sensori più software 
- Le fotocamere sono sensori ottici collegati a software di elaborazione avanzata. La fotocamera frontale è ottimizzata per selfie e videochiamate; le posteriori per foto e video. Sistemi multi-obiettivo: grandangolo, normale, teleobiettivo, macro — diversi usi diversi lenti.
+ Le fotocamere sono sensori ottici collegati a software di elaborazione avanzata. La fotocamera frontale è ottimizzata per selfie e videochiamate; le posteriori per foto e video. Sistemi multi-obiettivo: grandangolo, normale, teleobiettivo, macro — ogni lente è ottimizzata per un caso d'uso specifico. La videoregistrazione usa tutti i sensori in modo coordinato, abilitando zoom fluido e stabilizzazione avanzata durante le riprese.
 
 --- Slide 10 ---
 Hardware 
  GPS e posizione 
  Il telefono combina GPS, WiFi e celle telefoniche per una localizzazione rapida e precisa. 
- GPS assistito (A-GPS) Senza assistenza, il primo fix può richiedere minuti. Con WiFi e reti mobili (A-GPS), bastano secondi. Disattiva la localizzazione per le app che non ne hanno realmente bisogno. 
+ GPS assistito (A-GPS) Senza assistenza, il primo fix può richiedere minuti. Con WiFi e reti mobili (A-GPS), bastano secondi. Disattiva la localizzazione per le app che non ne hanno realmente bisogno: risparmia batteria e limita la raccolta dei tuoi spostamenti. 
  
  
  ⚙️ 
@@ -128,13 +129,13 @@ Hardware
  
  
  🧭 Accelerometro e giroscopio 
- rilevano movimento, rotazione e orientamento — schermo, giochi, fitness, realtà aumentata 
+ rilevano movimento, rotazione e orientamento in tempo reale — fondamentali per giochi, fitness tracking, realtà aumentata e rotazione automatica dello schermo 
  📵 Sensore di prossimità 
- spegne lo schermo durante le telefonate per evitare tocchi accidentali 
+ spegne lo schermo durante le chiamate per evitare tocchi accidentali con il viso e risparmia batteria 
  💡 Sensore di luce ambientale 
- regola la luminosità automaticamente in base all'ambiente 
+ regola la luminosità del display automaticamente in base alla luce ambiente, proteggendo la vista e risparmiando batteria 
  🌡️ Barometro e motore aptico 
- misura della pressione e vibrazione al tocco completano il set
+ il barometro misura la pressione atmosferica per meteo e altimetro; il motore aptico simula il feedback fisico al tocco
 
 --- Slide 12 ---
 Hardware 
@@ -190,10 +191,8 @@ Hardware
  Meno spazio = meno dissipazione: il calore è il limite principale delle prestazioni mobile. Cover pesanti, sole diretto e ricarica durante uso intenso aumentano il problema. Il software monitora temperatura e riduce clock CPU/GPU in automatico per proteggersi.
 
 --- Slide 15 ---
-Fine S01 
- Smartphone computer
- in pratica. 
- Ora hai una mappa operativa del capitolo: concetti chiave, rischi e controlli da applicare sullo smartphone. 
+Smartphone computer
+in pratica. 
+ Lo smartphone è un computer tascabile: CPU, RAM, storage, sensori, sistema operativo e le differenze concrete con un PC fisso. 
  
- Prossimo → SMA02 · Connessioni e reti mobili 
- ↩ Indice del corso
+ Prossimo → SMA02 · Connessioni e reti mobili

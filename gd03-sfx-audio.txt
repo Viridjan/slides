@@ -18,14 +18,14 @@ In questo modulo
  Cosa vedremo 
  
  
- Cos'è un SFX — il suono come feedback immediato 
- Categorie di effetti sonori — foley, impatti, UI, ambientali 
- Voice SFX — lingue inventate e parlato simulato 
+ Cos'è un SFX — il suono come feedback immediato per azioni, eventi e ambienti di gioco 
+ Categorie di effetti sonori — foley, impatti, UI e suoni ambientali: quattro famiglie distinte con regole proprie 
+ Voice SFX — lingue inventate e parlato simulato: come dare voce ai personaggi senza traduzione 
  
  
- Messaggi nascosti e il silenzio — cosa dice l'audio quando non parla 
- Produzione audio — DAW, onde sonore e sampling 
- Effetti e mixing — dare forma e coerenza al suono
+ Messaggi nascosti e il silenzio — cosa dice l'audio quando non parla: easter egg, diegesi e pausa come scelta creativa 
+ Produzione audio — DAW, onde sonore e sampling: il flusso dalla registrazione al file finale pronto per il motore di gioco 
+ Effetti e mixing — riverbero, distorsione, compressione: dare forma, spazio e coerenza all'intero paesaggio sonoro
 
 --- Slide 3 ---
 Definizione 
@@ -43,41 +43,46 @@ Tassonomia
  Categorie di SFX 
  
  🦶 Foley 
- Suoni quotidiani ricreati in studio: passi, vestiti, oggetti maneggiati. Il termine viene dal cinema, dal nome di Jack Foley. 
+ Suoni quotidiani ricreati in studio: passi su superfici diverse, fruscio di vestiti, oggetti maneggiati. Il termine viene dal cinema, dal nome di Jack Foley, pioniere della tecnica negli anni '20. 
  💥 Impatti 
- Colpi, esplosioni, collisioni. Spesso esagerati rispetto alla realtà, per dare enfasi e peso all'azione. 
+ Colpi, esplosioni, collisioni. Spesso esagerati rispetto alla realtà per dare enfasi e peso all'azione: il cervello vuole sentire il "potere" del colpo, non la fisica esatta. 
  🎛️ UI / Interfaccia 
- Click, conferme, notifiche. Devono essere puliti e discreti: li sentirai migliaia di volte, non devono stancare. 
+ Click, conferme, notifiche, errori. Devono essere puliti e discreti: il giocatore li sentirà migliaia di volte e non devono mai stancare né distrarre dall'azione principale. 
  🌧️ Ambientali 
- Suoni di sottofondo che definiscono un luogo: un bosco, una città, una caverna. Costruiscono lo spazio con l'orecchio.
+ Loop di sottofondo che definiscono il luogo: un bosco pieno di uccelli, una città rumorosa, una caverna gocciolante. Costruiscono lo spazio con l'orecchio anche quando la grafica non basta.
 
 --- Slide 5 ---
 Voice SFX 
  Lingue inventate 
- Molti giochi non usano voci reali ma linguaggi inventati (gibberish): suoni vocali senza significato letterale. Costano meno, non serve tradurli, e danno carattere ai personaggi. 
+ Molti giochi non usano voci reali ma linguaggi inventati (gibberish): suoni vocali privi di significato letterale. Costano meno della recitazione professionale, non richiedono localizzazione per ogni mercato, e donano ai personaggi un carattere unico e memorabile. 
+ 
+ ⚠️ Attenzione 
+ Anche il gibberish richiede direzione artistica: tono, ritmo e intensità devono restare coerenti col personaggio, altrimenti suona casuale e distrae. 
  
  
- 🏠 Simlish In The Sims : lingua inventata da suoni improvvisati. Emotiva ma incomprensibile — il giocatore proietta il significato. 
- 🐾 Animalese In Animal Crossing : voci generate accelerando il parlato registrato. Ogni personaggio "parla" senza una vera lingua. 
- 🎮 Banjo-Kazooie / Undertale Grunt e beep sincronizzati col testo per simulare il parlato, dando a ogni personaggio una voce riconoscibile.
+ 
+ 🏠 Simlish In The Sims : lingua inventata da suoni improvvisati in studio. Emotiva ma incomprensibile — il giocatore proietta il significato sul tono e il contesto. 
+ 🐾 Animalese In Animal Crossing : voci generate accelerando il parlato registrato lettera per lettera. Ogni personaggio "parla" in sincronia col testo a schermo. 
+ 🎮 Banjo-Kazooie / Undertale Grunt e beep sincronizzati col dialogo scritto per simulare il parlato, dando a ogni personaggio una voce riconoscibile a costo quasi zero.
 
 --- Slide 6 ---
 Dettagli nascosti 
  Messaggi nel suono 
- Il sonoro può nascondere informazioni e sorprese: messaggi in codice, easter egg audio, suoni che rivelano meccaniche a chi sa ascoltare. 
+ Il sonoro può nascondere informazioni e sorprese: messaggi in codice, easter egg audio, suoni che rivelano meccaniche a chi sa ascoltare con attenzione. L'orecchio diventa uno strumento di esplorazione tanto quanto gli occhi. 
  
- Esempi 
- Spettrogrammi nascosti nella musica — codici visibili solo analizzando l'onda — messaggi al contrario, cambi di traccia che segnalano segreti vicini. 
+ Esempi reali 
+ Spettrogrammi nascosti nell'onda sonora di Aphex Twin e ripresi in alcuni giochi indie — messaggi scritti al contrario nella traccia audio — cambi di timbro nella musica che segnalano l'avvicinarsi di un segreto o di un nemico. 
  
  
  
- 👂 Diegesi audio Un suono fuori posto avverte il giocatore attento: qualcosa in questo posto non è come sembra. 
- 🗝️ Design della scoperta Premiare chi ascolta con attenzione: il segreto sonoro trasforma l'orecchio in uno strumento di gioco.
+ 👂 Diegesi audio Un suono fuori posto avverte il giocatore attento: qualcosa in questo posto non è come sembra. La musica cambia tono? C'è qualcosa oltre quella porta. 
+ 🗝️ Design della scoperta Premiare chi ascolta con attenzione trasforma il sonoro in meccanica: il segreto audio è una ricompensa per i giocatori più coinvolti. 
+ 🔁 Audio adattivo La traccia reagisce allo stato del gioco: la musica si intensifica in combattimento, si abbassa nell'esplorazione, segnalando il pericolo prima che appaia sullo schermo.
 
 --- Slide 7 ---
 Assenza 
  Il silenzio 
- Togliere il suono è una scelta di design potente. Il silenzio crea tensione, isola un momento, o dà peso a ciò che viene dopo. 
+ Togliere il suono è una delle scelte di design più potenti nell'audio di gioco. Il silenzio crea tensione immediata, isola un momento chiave e dà peso drammatico a ciò che arriverà subito dopo. Non è assenza di contenuto: è contenuto. 
  Regola: il silenzio è un effetto sonoro. 
  
  
@@ -105,25 +110,26 @@ Assenza
  
  
  Uso del silenzio 
- Un boss che entra nel silenzio totale; la musica che si ferma di colpo prima di un evento; il silenzio dopo una morte. Il contrasto amplifica l'impatto del suono successivo.
+ Un boss che entra nel silenzio totale; la musica che si ferma di colpo prima di un cutscene; il silenzio assoluto dopo la morte del personaggio. Il contrasto tra quiete e suono amplifica l'impatto emotivo del momento e prepara il giocatore al cambiamento.
 
 --- Slide 8 ---
 Produzione 
  La DAW 
- La Digital Audio Workstation è il software dove si registra, monta e mixa l'audio. È lo studio di registrazione digitale: Ableton, Reaper, FL Studio, Audacity. 
+ La Digital Audio Workstation è il software dove si registra, monta e mixa l'audio. È lo studio di registrazione nella forma digitale: Ableton Live e FL Studio per la produzione musicale, Reaper e Audacity (gratuito) per il sound design orientato al gioco. 
+ Analogia: la DAW è alla produzione audio come Photoshop è alla grafica. 
  
  
- 🎙️ Registrazione Catturare suoni reali col microfono: voci, oggetti, ambienti. 
- 🧩 Editing Tagliare, allineare, pulire: dal materiale grezzo al suono utilizzabile. 
- 🎚️ Mixing Bilanciare i livelli delle tracce perché ogni suono trovi il suo spazio.
+ 🎙️ Registrazione Catturare suoni reali col microfono: voci, oggetti colpiti, ambienti esterni. La qualità del microfono e la silenziosità della stanza fanno la differenza. 
+ 🧩 Editing Tagliare, allineare, pulire i rumori indesiderati: dal materiale grezzo si ricava il suono utilizzabile. Fondamentale per i loop ambientali. 
+ 🎚️ Mixing Bilanciare i livelli delle tracce affinché ogni suono trovi il suo spazio nel mix finale senza coprire gli altri elementi.
 
 --- Slide 9 ---
 Fondamenti 
  Onde e sampling 
- Il suono è un'onda. Registrarlo digitalmente significa campionarlo (sampling): misurare l'ampiezza dell'onda migliaia di volte al secondo. 
+ Il suono è una vibrazione che si propaga nell'aria come onda. Registrarlo digitalmente significa campionarlo (sampling): misurare l'ampiezza dell'onda migliaia di volte al secondo e convertire ogni misurazione in un numero. 
  
- Sample rate 
- 44.100 campioni al secondo ( 44.1 kHz ) è lo standard CD. Più campioni = più fedeltà, ma anche più spazio occupato. 
+ Sample rate e bit depth 
+ 44.100 campioni al secondo ( 44.1 kHz ) è lo standard audio CD. Più campioni al secondo significano maggiore fedeltà, ma anche file più pesanti. La bit depth (16 o 24 bit) determina la gamma dinamica: quanto dettaglio tra il suono più silenzioso e il più forte. 
  
  
  
@@ -143,22 +149,23 @@ Fondamenti
  
  Il sampling misura l'onda a intervalli regolari 
  
- 📏 Ampiezza = volume L'altezza dell'onda determina quanto il suono è forte o debole. 
- 〰️ Frequenza = altezza Quanto il suono è acuto o grave: si misura in Hertz (Hz), oscillazioni al secondo.
+ 📏 Ampiezza = volume L'altezza dell'onda determina quanto il suono è forte o debole. Si misura in decibel (dB): 0 dB è il limite massimo prima della distorsione digitale. 
+ 〰️ Frequenza = altezza Quanto il suono è acuto o grave: si misura in Hertz (Hz), oscillazioni al secondo. L'orecchio umano percepisce tra 20 Hz e 20.000 Hz.
 
 --- Slide 10 ---
 Effetti 
  Dare forma al suono 
+ Gli effetti audio trasformano un suono grezzo in qualcosa di specifico: definiscono lo spazio, il carattere e l'intensità. Sono i mattoni del sound design. 
  
- 🔥 Overdrive / Distorsione Satura il segnale per un suono sporco e aggressivo. Usato per impatti e armi. 
- 🗜️ Compressione Riduce la differenza tra suoni forti e deboli. Rende il mix coeso e sempre udibile. 
- 🌀 Riverbero Simula lo spazio: una caverna, una stanza. Colloca il suono in un ambiente. 
- ⏱️ Delay / Eco Ripete il suono con un ritardo. Crea profondità e ritmo.
+ 🔥 Overdrive / Distorsione Satura il segnale per un suono sporco e aggressivo. Usato per impatti pesanti, spari e armi: dà peso fisico all'azione senza aumentare il volume. 
+ 🗜️ Compressione Riduce la differenza dinamica tra suoni forti e deboli. Rende il mix coeso e garantisce che tutto sia sempre udibile anche sugli altoparlanti più piccoli. 
+ 🌀 Riverbero Simula l'acustica di uno spazio: una caverna profonda, una stanza vuota, una cattedrale. Colloca fisicamente il suono in un ambiente e ne rafforza il realismo. 
+ ⏱️ Delay / Eco Ripete il suono con un ritardo regolabile. Crea profondità spaziale, senso di vastità e, se sincronizzato col tempo musicale, aggiunge ritmo all'effetto.
 
 --- Slide 11 ---
 Assemblaggio 
  Sequencing e mixing 
- Mettere insieme i suoni nel tempo ( sequencing ) e bilanciarli tra loro ( mixing ) è ciò che trasforma tracce isolate in un paesaggio sonoro coerente. 
+ Mettere insieme i suoni nel tempo ( sequencing ) e bilanciarli tra loro ( mixing ) è ciò che trasforma tracce isolate in un paesaggio sonoro coerente e coinvolgente. Nessun suono vive da solo: tutto convive nel mix. 
  
  
  
@@ -186,23 +193,24 @@ Assemblaggio
  
  
  
- Disporre i suoni sulla timeline, nell'ordine e nel momento giusto. 
- Regolare i volumi relativi: cosa deve emergere, cosa restare dietro. 
- Posizionare nello spazio stereo : sinistra, destra, centro. 
- EQ — tagliare le frequenze che si sovrappongono tra le tracce.
+ Disporre i suoni sulla timeline, nell'ordine e nel momento giusto: la sincronizzazione col gameplay è tutto. 
+ Regolare i volumi relativi — cosa deve emergere in primo piano, cosa restare in sottofondo senza sparire. 
+ Posizionare nello spazio stereo : sinistra, destra, centro. In 3D audio, anche la profondità e l'altezza. 
+ EQ (equalizzazione) — tagliare le frequenze che si sovrappongono tra le tracce per evitare "fango" nel mix finale.
 
 --- Slide 12 ---
 Attività 
  Progetta il suono di un'azione 
+ Applica quello che hai imparato progettando da zero l'identità sonora di un'azione di gioco. Pensa in strati: un buon SFX è quasi sempre la somma di più suoni sovrapposti. 
  
- Scegli un'azione di gioco : un salto, un colpo, la raccolta di un oggetto. 
- Elenca i suoni che la compongono: quanti strati servono davvero? 
- Sono suoni reali (foley) o sintetici ? Come li otterresti? 
- Quale effetto (riverbero, distorsione) la renderebbe più soddisfacente? 
+ Scegli un'azione di gioco : un salto, un colpo con la spada, la raccolta di una moneta, l'apertura di uno scrigno. 
+ Elenca i suoni che la compongono : quanti strati servono davvero? Separa il layer principale dai dettagli di contorno. 
+ Sono suoni reali (foley) o sintetici ? Come li otterresti concretamente: registrazione, libreria gratuita, sintesi? 
+ Quale effetto di processing (riverbero, distorsione, pitch shift) la renderebbe più soddisfacente e adatta al genere del gioco? 
  
  
  💡 Bonus 
- Registra col telefono 3 suoni di casa e immagina a quale azione di gioco potrebbero servire.
+ Registra col telefono 3 suoni di casa (una porta, il rubinetto, un cucchiaio) e immagina a quale azione di gioco potrebbero servire dopo un po' di editing.
 
 --- Slide 13 ---
 Ogni suono
