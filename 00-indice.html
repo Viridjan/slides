@@ -58,7 +58,7 @@ body.search-active .module-card.search-hidden{display:none;}
 .module-card{
   display:grid;grid-template-columns:min-content 1fr;grid-template-areas:"num title" "num desc";align-items:center;gap:2px 28px;
   background:rgba(244,236,224,.04);border:1px solid rgba(216,201,180,.12);border-radius:10px;
-  padding:14px 212px 14px 24px;text-decoration:none;color:var(--paper);
+  padding:14px 232px 14px 24px;text-decoration:none;color:var(--paper);
   transition:background .2s ease, border-color .2s ease;
   cursor:pointer;position:relative;overflow:hidden;
 }
@@ -83,9 +83,10 @@ body.search-active .module-card.search-hidden{display:none;}
 .module-card.pre .card-tag{color:rgba(63,126,140,.8);}
 .module-card.sec .card-tag{color:rgba(230,83,59,.7);}
 .card-title{grid-area:title;font-family:var(--font-display);font-weight:900;font-size:24px;line-height:1.1;margin-bottom:2px;align-self:end;}
-.card-difficulty{position:absolute;right:24px;top:calc(50% - 33px);width:80px;text-align:center;box-sizing:border-box;font-family:var(--font-mono);font-size:12px;line-height:1;padding:4px 0;border:1px solid rgba(216,201,180,.22);border-radius:999px;color:var(--gold);background:rgba(230,193,74,.08);letter-spacing:1px;white-space:nowrap;}
-.compl-badge{position:absolute;right:24px;top:calc(50% - 9px);width:80px;text-align:center;box-sizing:border-box;font-family:var(--font-mono);font-size:12px;line-height:1;padding:4px 0;border:1px solid rgba(63,126,140,.30);border-radius:5px;color:rgba(63,126,140,.9);background:rgba(63,126,140,.07);letter-spacing:.5px;white-space:nowrap;}
-.quality-badge{position:absolute;right:112px;top:calc(50% - 9px);width:80px;text-align:center;box-sizing:border-box;font-family:var(--font-mono);font-size:12px;line-height:1;padding:4px 0;border:1px solid rgba(230,83,59,.30);border-radius:5px;color:rgba(230,83,59,.9);background:rgba(230,83,59,.07);letter-spacing:.5px;white-space:nowrap;}
+.card-difficulty{position:absolute;right:128px;top:calc(50% - 25px);width:80px;text-align:center;box-sizing:border-box;font-family:var(--font-mono);font-size:12px;line-height:1;padding:4px 0;border:1px solid rgba(216,201,180,.22);border-radius:999px;color:var(--gold);background:rgba(230,193,74,.08);letter-spacing:1px;white-space:nowrap;}
+.stats-badge{position:absolute;right:24px;top:50%;transform:translateY(-50%);width:88px;text-align:center;box-sizing:border-box;font-family:var(--font-mono);font-size:12px;line-height:1.2;padding:6px 0;border:1px solid rgba(63,126,140,.32);border-radius:7px;color:rgba(244,236,224,.72);background:rgba(63,126,140,.08);letter-spacing:.3px;white-space:nowrap;}
+.stats-badge .density{display:block;color:rgba(63,126,140,.95);}
+.stats-badge .quality{display:block;margin-top:3px;color:rgba(230,83,59,.95);}
 .card-desc{grid-area:desc;font-size:15px;color:rgba(244,236,224,.5);line-height:1.3;align-self:start;}
 /* Topics inline */
 .card-topics{display:none;}
@@ -100,7 +101,7 @@ body.search-active .module-card.search-hidden{display:none;}
 .footer-author{font-family:var(--font-mono);font-size:16px;color:rgba(244,236,224,.38);letter-spacing:1px;}
 
 /* Download button */
-.dl-btn{position:absolute;right:24px;top:calc(50% + 15px);width:80px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:4px 0;background:rgba(244,236,224,.08);border:1px solid rgba(216,201,180,.22);border-radius:5px;color:rgba(244,236,224,.5);font-family:var(--font-mono);font-size:12px;letter-spacing:.5px;cursor:pointer;transition:background .15s,color .15s,border-color .15s;z-index:2;}
+.dl-btn{position:absolute;right:128px;top:calc(50% + 7px);width:80px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:4px 0;background:rgba(244,236,224,.08);border:1px solid rgba(216,201,180,.22);border-radius:5px;color:rgba(244,236,224,.5);font-family:var(--font-mono);font-size:12px;letter-spacing:.5px;cursor:pointer;transition:background .15s,color .15s,border-color .15s;z-index:2;}
 .dl-btn:hover{background:rgba(244,236,224,.18);color:var(--paper);border-color:rgba(216,201,180,.5);}
 </style>
 <script src="completeness-index.js"></script>
@@ -284,10 +285,35 @@ body.search-active .module-card.search-hidden{display:none;}
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="rw05-email.html">
+      <a class="module-card pre" href="rw07-affidabilita.html">
         <div class="card-num">RW01.05</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW01.05</div>
+          <div class="card-title">Navigare con Spirito Critico</div>
+          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
+          <div class="card-desc">Valutare l'affidabilità delle informazioni online, riconoscere siti sicuri, HTTPS, tipologie di siti, autori e fonti, dati personali e strumenti di controllo.</div>
+          <div class="card-topics">
+            <span class="topic">Fake news</span>
+            <span class="topic">Fonti</span>
+            <span class="topic">Privacy</span>
+            <span class="topic">Parental control</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- EMAIL E COMUNICAZIONE -->
+  <div class="section-group collapsed">
+    <div class="section-label">Email e Comunicazione</div>
+    <div class="module-grid cols2">
+
+      <a class="module-card pre" href="rw05-email.html">
+        <div class="card-num">RW02.01</div>
+        <div class="card-body">
+          <div class="card-tag">EMAIL E COMUNICAZIONE · RW02.01</div>
           <div class="card-title">La Posta Elettronica</div>
           <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Indirizzi email, struttura di un messaggio, piattaforme, A/CC/CCN, oggetto, tono professionale, allegati, risposta, sicurezza e netiquette.</div>
@@ -302,9 +328,9 @@ body.search-active .module-card.search-hidden{display:none;}
       </a>
 
       <a class="module-card pre" href="rw06-firma.html">
-        <div class="card-num">RW01.06</div>
+        <div class="card-num">RW02.02</div>
         <div class="card-body">
-          <div class="card-tag">RETI E WEB · RW01.06</div>
+          <div class="card-tag">EMAIL E COMUNICAZIONE · RW02.02</div>
           <div class="card-title">La Firma Email</div>
           <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Cos'è una firma email, informazioni essenziali, formattazione, errori comuni, disclaimer legali e configurazione in Gmail e Outlook.</div>
@@ -318,27 +344,10 @@ body.search-active .module-card.search-hidden{display:none;}
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="rw07-affidabilita.html">
-        <div class="card-num">RW01.07</div>
-        <div class="card-body">
-          <div class="card-tag">RETI E WEB · RW01.07</div>
-          <div class="card-title">Navigare con Spirito Critico</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
-          <div class="card-desc">Valutare l'affidabilità delle informazioni online, riconoscere siti sicuri, HTTPS, tipologie di siti, autori e fonti, dati personali e strumenti di controllo.</div>
-          <div class="card-topics">
-            <span class="topic">Fake news</span>
-            <span class="topic">Fonti</span>
-            <span class="topic">Privacy</span>
-            <span class="topic">Parental control</span>
-          </div>
-        </div>
-        <div class="card-arrow">→</div>
-      </a>
-
       <a class="module-card pre" href="rw08-contenuti.html">
-        <div class="card-num">RW01.08</div>
+        <div class="card-num">RW02.03</div>
         <div class="card-body">
-          <div class="card-tag">RETI E WEB · RW01.08</div>
+          <div class="card-tag">EMAIL E COMUNICAZIONE · RW02.03</div>
           <div class="card-title">Gestire e Archiviare Contenuti</div>
           <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Visualizzare, salvare, stampare e scaricare file dal web. Copiare contenuti da pagine, documenti e immagini. Organizzare l'archivio digitale nel cloud.</div>
@@ -353,9 +362,9 @@ body.search-active .module-card.search-hidden{display:none;}
       </a>
 
       <a class="module-card pre" href="rw09-collaborazione-digitale.html">
-        <div class="card-num">RW01.09</div>
+        <div class="card-num">RW02.04</div>
         <div class="card-body">
-          <div class="card-tag">RETI E WEB · RW01.09</div>
+          <div class="card-tag">EMAIL E COMUNICAZIONE · RW02.04</div>
           <div class="card-title">Collaborazione Digitale</div>
           <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Netiquette, comunicazione sincrona e asincrona, versionamento cloud, permessi granulari, project management, videoconferenze, identità digitale professionale e collaborazione aperta.</div>
@@ -733,10 +742,18 @@ body.search-active .module-card.search-hidden{display:none;}
         <div class="card-arrow">→</div>
       </a>
 
+    </div>
+  </div>
+
+  <!-- DOCUMENTI -->
+  <div class="section-group collapsed">
+    <div class="section-label">Documenti</div>
+    <div class="module-grid cols2">
+
       <a class="module-card inf" href="su05-documenti.html">
-        <div class="card-num">SU01.05</div>
+        <div class="card-num">SU02.01</div>
         <div class="card-body">
-          <div class="card-tag">SUITE UFFICIO · SU01.05</div>
+          <div class="card-tag">DOCUMENTI · SU02.01</div>
           <div class="card-title">Mettere tutto per iscritto</div>
           <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">I documenti che servono davvero sul lavoro: la scheda cliente, un curriculum che fa notare e un listino prezzi fatto bene con Word o Writer.</div>
@@ -750,10 +767,18 @@ body.search-active .module-card.search-hidden{display:none;}
         <div class="card-arrow">→</div>
       </a>
 
+    </div>
+  </div>
+
+  <!-- FOGLI DI CALCOLO -->
+  <div class="section-group collapsed">
+    <div class="section-label">Fogli di Calcolo</div>
+    <div class="module-grid cols2">
+
       <a class="module-card inf" href="su06-sistema.html">
-        <div class="card-num">SU01.06</div>
+        <div class="card-num">SU03.01</div>
         <div class="card-body">
-          <div class="card-tag">SUITE UFFICIO · SU01.06</div>
+          <div class="card-tag">FOGLI DI CALCOLO · SU03.01</div>
           <div class="card-title">Il foglio di calcolo: sistema di lavoro</div>
           <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Interfaccia, celle e indirizzi, tipi di dati, più fogli, formattazione, grafici, stampa e condivisione, errori comuni.</div>
@@ -768,9 +793,9 @@ body.search-active .module-card.search-hidden{display:none;}
       </a>
 
       <a class="module-card inf" href="su07-riferimenti.html">
-        <div class="card-num">SU01.07</div>
+        <div class="card-num">SU03.02</div>
         <div class="card-body">
-          <div class="card-tag">SUITE UFFICIO · SU01.07</div>
+          <div class="card-tag">FOGLI DI CALCOLO · SU03.02</div>
           <div class="card-title">Riferimenti e range</div>
           <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Riferimenti relativi, assoluti e misti, range e intervalli, celle nominate, tabelle strutturate, riferimenti tra fogli e funzione LET.</div>
@@ -785,9 +810,9 @@ body.search-active .module-card.search-hidden{display:none;}
       </a>
 
       <a class="module-card inf" href="su08-prime-formule.html">
-        <div class="card-num">SU01.08</div>
+        <div class="card-num">SU03.03</div>
         <div class="card-body">
-          <div class="card-tag">SUITE UFFICIO · SU01.08</div>
+          <div class="card-tag">FOGLI DI CALCOLO · SU03.03</div>
           <div class="card-title">Prime formule</div>
           <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Come funziona una formula, operatori, SOMMA, MEDIA, MIN, MAX, CONTA.NUMERI, CONTA.VALORI, CONTA.SE e SE — le funzioni fondamentali.</div>
@@ -802,9 +827,9 @@ body.search-active .module-card.search-hidden{display:none;}
       </a>
 
       <a class="module-card inf" href="su09-analisi.html">
-        <div class="card-num">SU01.09</div>
+        <div class="card-num">SU03.04</div>
         <div class="card-body">
-          <div class="card-tag">SUITE UFFICIO · SU01.09</div>
+          <div class="card-tag">FOGLI DI CALCOLO · SU03.04</div>
           <div class="card-title">Analizzare e cercare</div>
           <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Tabelle, ordinamento, filtri, pivot, condivisione, CERCA.VERT, CERCA.ORIZZ, CONFRONTA, INDICE, INDICE+CONFRONTA e CERCA.X.</div>
@@ -819,9 +844,9 @@ body.search-active .module-card.search-hidden{display:none;}
       </a>
 
       <a class="module-card inf" href="su10-funzioni-top.html">
-        <div class="card-num">SU01.10</div>
+        <div class="card-num">SU03.05</div>
         <div class="card-body">
-          <div class="card-tag">SUITE UFFICIO · SU01.10</div>
+          <div class="card-tag">FOGLI DI CALCOLO · SU03.05</div>
           <div class="card-title">Le 10 funzioni più usate</div>
           <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">SOMMA.SE, SOMMA.PIÙ.SE, CONTA.PIÙ.SE, MEDIA.SE, SUBTOTALE, SE.ERRORE, ARROTONDA, TESTO, OGGI e MATR.SOMMA.PRODOTTO.</div>
@@ -836,9 +861,9 @@ body.search-active .module-card.search-hidden{display:none;}
       </a>
 
       <a class="module-card inf" href="su11-testo.html">
-        <div class="card-num">SU01.11</div>
+        <div class="card-num">SU03.06</div>
         <div class="card-body">
-          <div class="card-tag">SUITE UFFICIO · SU01.11</div>
+          <div class="card-tag">FOGLI DI CALCOLO · SU03.06</div>
           <div class="card-title">Manipolare il testo</div>
           <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Unire, dividere, cercare, sostituire, pulire e convertire il testo in Google Sheets: TESTO.UNISCI, SPLIT, TROVA, RICERCA, SOSTITUISCI, ANNULLA.SPAZI, MAIUSC.INIZ, VALORE e le combinazioni per pulire dati importati.</div>
@@ -852,10 +877,18 @@ body.search-active .module-card.search-hidden{display:none;}
         <div class="card-arrow">→</div>
       </a>
 
+    </div>
+  </div>
+
+  <!-- PRESENTAZIONI -->
+  <div class="section-group collapsed">
+    <div class="section-label">Presentazioni</div>
+    <div class="module-grid cols2">
+
       <a class="module-card inf" href="su12-presentazioni.html">
-        <div class="card-num">SU01.12</div>
+        <div class="card-num">SU04.01</div>
         <div class="card-body">
-          <div class="card-tag">SUITE UFFICIO · SU01.12</div>
+          <div class="card-tag">PRESENTAZIONI · SU04.01</div>
           <div class="card-title">Dillo con una slide</div>
           <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">PowerPoint, Google Slides e alternative: principi di design per slide efficaci, gerarchia visiva, colori, font, struttura e preparazione alla presentazione.</div>
@@ -1579,22 +1612,30 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
     document.body.removeChild(a);
   });
   card.appendChild(btn);
-  // Completeness badge
-  if (window.COMPLETENESS && window.COMPLETENESS[href] !== undefined) {
-    const score = window.COMPLETENESS[href];
-    const badge = document.createElement('div');
-    badge.className = 'compl-badge';
-    badge.title = `Densità contenuto: ${score}/9`;
-    badge.textContent = `${score}/9`;
-    card.appendChild(badge);
-  }
-  if (window.QUALITY_INDEX && window.QUALITY_INDEX[href]) {
+  // Combined density + editorial quality badge.
+  const density = window.COMPLETENESS?.[href];
+  if (density !== undefined || (window.QUALITY_INDEX && window.QUALITY_INDEX[href])) {
     const q = window.QUALITY_INDEX[href];
-    const total = q.coverage + q.clarity + q.examples + q.correctness + q.freshness;
+    const total = q ? q.coverage + q.clarity + q.examples + q.correctness + q.freshness : null;
+    const titleLines = [];
+    if (density !== undefined) titleLines.push(`Densità contenuto: ${density}/9`);
+    if (q) {
+      titleLines.push(
+        `Qualità informazione: ${total}/10`,
+        `Copertura: ${q.coverage}/2`,
+        `Chiarezza: ${q.clarity}/2`,
+        `Esempi: ${q.examples}/2`,
+        `Correttezza: ${q.correctness}/2`,
+        `Aggiornamento: ${q.freshness}/2`
+      );
+    }
     const badge = document.createElement('div');
-    badge.className = 'quality-badge';
-    badge.title = `Qualità informazione: ${total}/10 · Copertura ${q.coverage}/2 · Chiarezza ${q.clarity}/2 · Esempi ${q.examples}/2 · Correttezza ${q.correctness}/2 · Aggiornamento ${q.freshness}/2`;
-    badge.textContent = `Q ${total}/10`;
+    badge.className = 'stats-badge';
+    badge.title = titleLines.join('\n');
+    badge.innerHTML = [
+      density !== undefined ? `<span class="density">${density}/9</span>` : '',
+      q ? `<span class="quality">Q ${total}/10</span>` : ''
+    ].join('');
     card.appendChild(badge);
   }
 });
