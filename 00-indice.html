@@ -1450,15 +1450,30 @@ const normalizeSearch=text=>(text||'')
 const searchTokens=text=>normalizeSearch(text).match(/[a-z0-9]+/g)||[];
 const hasPartialMatch=(text,terms)=>terms.every(term=>normalizeSearch(text).includes(term));
 const hasWholeMatch=(tokens,terms)=>terms.every(term=>tokens.includes(term));
+const matchingSlideScore=(slide,terms,preferWhole)=>{
+  const text=slide.text||'';
+  const normalized=normalizeSearch(text);
+  const tokens=searchTokens(text);
+  const found=preferWhole
+    ? hasWholeMatch(tokens,terms)
+    : hasPartialMatch(text,terms);
+  if(!found)return -Infinity;
+  let score=0;
+  terms.forEach(term=>{
+    score += tokens.filter(token=>token===term).length * 8;
+    score += Math.max(0,(normalized.match(new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'))||[]).length - 1);
+  });
+  if(slide.number===1)score-=30;
+  if(/\b(cosa vedremo|in questo modulo|percorso|fine|risolto)\b/i.test(text))score-=18;
+  if(/\b(cos.e|definizione|metodo|interfaccia|strumenti|periferiche|applicazioni|formati|rete|driver|browser|file)\b/i.test(text))score+=4;
+  return score;
+};
 const firstMatchingSlide=(slides,terms,preferWhole)=>{
   if(!slides?.length)return null;
-  const matches=slide=>{
-    const text=slide.text||'';
-    return preferWhole
-      ? hasWholeMatch(searchTokens(text),terms)
-      : hasPartialMatch(text,terms);
-  };
-  return slides.find(matches)||null;
+  return slides
+    .map(slide=>({slide,score:matchingSlideScore(slide,terms,preferWhole)}))
+    .filter(item=>Number.isFinite(item.score))
+    .sort((a,b)=>b.score-a.score || a.slide.number-b.slide.number)[0]?.slide||null;
 };
 const cards=[...document.querySelectorAll('.module-card[href]')].map(card=>{
   const group=card.closest('.section-group');
