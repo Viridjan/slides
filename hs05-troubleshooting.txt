@@ -64,6 +64,51 @@ Serve per testare sistemi, configurazioni e software senza toccare il sistema pr
 Strumenti VirtualBox, VMware, Hyper-V e UTM sono ambienti comuni. L'isolamento riduce il rischio, ma non sostituisce prudenza e backup.
 
 --- Slide 9 ---
+Blocco improvviso Schermo fermo, mouse bloccato
+⌨️ Prima prova
+Usa Ctrl+Alt+Canc su Windows o Cmd+Option+Esc su macOS: verifica se il sistema risponde e prova a chiudere solo l'app bloccata.
+💾 Proteggi i dati
+Evita subito spegnimento forzato o cavo staccato: potresti perdere dati non salvati o corrompere file aperti.
+🧭 Diagnosi
+Se il sistema risponde, controlla app aperte, memoria, processi e spazio disco prima di riavviare.
+
+--- Slide 10 ---
+Rete Internet non funziona: dal semplice al complesso
+Controlla cavo Ethernet, Wi-Fi attivo, modalità aereo e icona rete. Riavvia modem/router e attendi che la linea torni stabile. Usa la diagnostica di rete del sistema operativo e leggi il messaggio. Solo dopo valuta provider, driver o configurazioni avanzate. Regola: non formattare un PC per un cavo staccato.
+
+--- Slide 11 ---
+Patch e app Aggiornamenti mirati e crash
+🩹 Patch
+Una patch è un aggiornamento mirato: corregge un bug, una vulnerabilità o un malfunzionamento specifico senza sostituire tutto il programma.
+📱 App che crasha
+Prima prova: aggiorna l'app dallo store, svuota cache/dati temporanei, riavvia il telefono. Reinstallare è un passaggio successivo.
+🧪 Isolare variabili
+Cambia una cosa alla volta: se modifichi rete, app, impostazioni e driver insieme non sai cosa ha risolto o peggiorato.
+📝 Traccia prove
+Annota versione, errore, orario e passaggi fatti. È utile sia per te sia per chi ti aiuta.
+
+--- Slide 12 ---
+Periferiche e prestazioni Stampante, ventole e rallentamenti
+🖨️ Documento in coda
+Se resta “1 documento in coda”, può essersi bloccato lo spooler: svuota la coda di stampa o riavvia il servizio/stampante.
+🌡️ Ventole al massimo
+Rumore e lentezza con programmi leggeri indicano possibile surriscaldamento o processo anomalo al 100% di CPU/RAM.
+🧹 Controlli
+Verifica prese d'aria, polvere, superficie d'appoggio e Gestione attività/Monitoraggio attività.
+⏳ Non forzare subito
+Chiudere tutto o spegnere di colpo può peggiorare: identifica prima il processo o la periferica bloccata.
+
+--- Slide 13 ---
+File e supporto ZIP, FAQ ed errore 404
+🗜️ File .zip
+È un archivio compresso: va estratto con l'utility del sistema o un programma di decompressione. Non rinominare l'estensione a caso.
+❓ FAQ
+Frequently Asked Questions: raccolta di domande frequenti e soluzioni pronte. È spesso il primo posto dove cercare.
+404 Not Found
+HTTP 404 significa che la pagina o risorsa richiesta non esiste più a quell'URL: rimossa, spostata o link scritto male.
+Metodo Prima di chiedere aiuto: cerca FAQ, messaggio esatto, codice errore e verifica se il problema riguarda file, applicazione, rete o pagina web.
+
+--- Slide 14 ---
 Risolto.
 Hai un metodo: descrivere, isolare, provare, documentare e chiedere aiuto con informazioni utili.
 ← HS04 · OS concetti Indice
