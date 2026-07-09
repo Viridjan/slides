@@ -26,6 +26,11 @@
 | Mappatura e monitoraggio dati | sd05 | ✅ aggiunto |
 | Troubleshooting base | hs05 | ✅ aggiunto in nuovo deck |
 | Aggiornamenti, virus, disco | hs05 | ✅ aggiunto in nuovo deck |
+| Blocco schermo e app non responsive | hs05 | ✅ aggiunto |
+| Diagnostica rete progressiva | hs05 | ✅ aggiunto |
+| Patch, crash app e isolamento variabili | hs05 | ✅ aggiunto |
+| Coda stampa, spooler e prestazioni | hs05 | ✅ aggiunto |
+| ZIP, FAQ ed errore HTTP 404 | hs05 | ✅ aggiunto |
 | Account admin e personalizzazioni | hs05 | ✅ aggiunto in nuovo deck |
 | Immagini e formati | hs05/rw08 | ✅ aggiunto |
 | MOOC e certificazioni | hs05 | ✅ aggiunto in nuovo deck |
@@ -100,6 +105,28 @@ Creato `hs05-troubleshooting.html` con:
 - Metodo troubleshooting base (descrivere sintomo, cosa è cambiato, soluzioni reversibili prima)
 - Macchine virtuali per ambiente di test e snapshot
 - Manutenzione ordinaria (aggiornamenti, Service Pack, conflitti, quarantena, analisi disco, deframmentazione HDD vs SSD)
+- Blocco improvviso dello schermo: uso di Ctrl+Alt+Canc o Cmd+Option+Esc prima dello spegnimento forzato
+- Diagnostica rete dal semplice al complesso: cavi/Wi-Fi, riavvio modem/router, strumenti del sistema operativo, poi provider/driver/configurazioni
+- Patch come aggiornamento mirato per bug, vulnerabilità e malfunzionamenti specifici
+- Crash app su smartphone: aggiornamento, cache/dati temporanei, riavvio e reinstallazione solo come passaggio successivo
+- Isolamento delle variabili: cambiare un elemento alla volta e tracciare le prove
+- Stampante con documento in coda: svuotamento coda o riavvio spooler/servizio di stampa
+- Ventole al massimo e rallentamenti: possibile surriscaldamento o processo anomalo al 100% di CPU/RAM
+- File ZIP: estrazione con utility di sistema o software di decompressione, senza rinominare l'estensione
+- FAQ come primo livello di supporto e ricerca autonoma
+- Errore HTTP 404: risorsa rimossa, spostata o URL errato
 - Account admin vs standard, browser, motori di ricerca, player video
 - Immagini e formati (JPG/PNG/SVG/WebP/PDF), librerie immagini con licenze
 - MOOC e certificazioni digitali (Coursera, edX, FutureLearn, badge digitali)
+
+### Arricchimento successivo (Claude) ✅
+
+Slide aggiuntive con argomenti collegati (deck ora a 19 slide):
+
+- **Modalità provvisoria e ripristino**: avvio minimale per isolare software/driver, punti di ripristino Windows, reset di sistema come ultima opzione. Regola: dalla soluzione più reversibile alla più invasiva.
+- **Driver e periferiche**: cos'è un driver, aggiornamento da fonti ufficiali, rollback da Gestione dispositivi, segnali di problemi driver (risoluzione bassa, audio assente, punto esclamativo giallo).
+- **Spazio disco pieno**: sotto 10–15% liberi il sistema rallenta; cestino, Download, temporanei, cache; strumenti integrati (Pulizia disco / Sensore memoria) invece di "ottimizzatori" di terze parti. Con SVG illu barra disco.
+- **Codici di errore**: BSOD e codici Windows, codici applicazione (0x…), Visualizzatore eventi / Console macOS, come cercare (codice esatto + programma + versione OS).
+- **Chiedere aiuto bene**: confronto richiesta inutile vs efficace (sistema, quando, messaggio esatto, cosa già provato). Regola: descrivi il sintomo, non la tua diagnosi.
+
+Aggiornati anche: agenda "Cosa vedremo" (6 punti), closing (lead riassuntivo, rimosso chip Indice per convenzioni), chip "Prossimo → HS05" nel closing di hs04.

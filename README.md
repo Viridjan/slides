@@ -35,7 +35,7 @@ Inside any deck:
 
 | Prefix | Area | Decks |
 |--------|------|-------|
-| `hs` | Hardware e Software | hs01–hs04 |
+| `hs` | Hardware e Software | hs01–hs05 |
 | `rw` | Reti e Web | rw01–rw09 |
 | `sd` | Sicurezza Digitale | sd01–sd05 |
 | `in` | Identità digitale | in01–in05 |
@@ -45,6 +45,7 @@ Inside any deck:
 | `pm` | Project Management | pm01–pm04 |
 | `sc` | Programmare con Scratch | sc01–sc02 |
 | `mb` | Programmare con Micro:bit | mb01–mb02 |
+| `td` | TinkerCAD e stampa 3D | td01–td04 |
 | `gd` | Game Design | gd01–gd08 |
 
 ## Quizzes

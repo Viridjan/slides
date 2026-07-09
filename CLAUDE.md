@@ -177,6 +177,7 @@ of each word in the section name (e.g. `HS` = Hardware e **S**oftware):
 | `pm` | Project Management | `pm01-introduzione.html` |
 | `sc` | Programmare con Scratch | `sc01-introduzione.html` |
 | `mb` | Programmare con Micro:bit | `mb01-microbit.html` |
+| `td` | TinkerCAD e stampa 3D | `td01-tinkercad-introduzione.html` |
 | `gd` | Game Design | `gd01-introduzione.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
 
@@ -221,7 +222,7 @@ EOF
 
 ### Hardware e Software
 
-Navigation chain: hs01 → hs02 → hs03 → hs04
+Navigation chain: hs01 → hs02 → hs03 → hs04 → hs05
 
 | File | Title |
 | --- | --- |
@@ -229,6 +230,7 @@ Navigation chain: hs01 → hs02 → hs03 → hs04
 | `hs02-hard-disk-filesystem.html` | Hard disk e file system |
 | `hs03-os.html` | Sistemi Operativi |
 | `hs04-os-concetti.html` | OS: concetti fondamentali |
+| `hs05-troubleshooting.html` | Troubleshooting |
 
 ### Reti e Web
 
@@ -348,6 +350,17 @@ Navigation chain: mb01 → mb02
 | `mb01-microbit.html` | Fondamenti Micro:bit |
 | `mb02-createai.html` | Micro:bit CreateAI |
 
+### TinkerCAD e stampa 3D
+
+Navigation chain: td01 → td02 → td03 → td04
+
+| File | Title |
+| --- | --- |
+| `td01-tinkercad-introduzione.html` | TinkerCAD 3D |
+| `td02-modellazione-base.html` | Modellazione base |
+| `td03-esportazione-stampa-3d.html` | Esportazione e stampa 3D |
+| `td04-classi-attivita.html` | TinkerCAD in classe |
+
 ### Game Design
 
 Navigation chain: gd01 → gd02 → gd03 → gd04 → gd05 → gd06 → gd07 → gd08
@@ -424,4 +437,4 @@ deduplicated by MD5, organized per source deck with slide numbers in filenames
 Regenerable from the PPTX files; do not commit it.
 
 Topics still mainly represented by original course files, not fully converted
-in this root-level HTML course set, include Arduino, Blender/3D, and TinkerCAD.
+in this root-level HTML course set, include Arduino and Blender/3D.

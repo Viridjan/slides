@@ -3,112 +3,59 @@ Hardware e Software · HS05 — Troubleshooting
 
 --- Slide 1 ---
 Hardware e Software · HS05 Trouble
-shooting
-Metodo, manutenzione e strumenti pratici per risolvere problemi tecnici in contesti digitali.
-🧰
+ shooting Metodo, manutenzione e strumenti pratici per risolvere problemi tecnici in contesti digitali. 🧰
 
 --- Slide 2 ---
-Percorso Cosa vedremo
-Metodo per descrivere un problema tecnico Aggiornamenti, virus, quarantena e analisi disco Account admin, browser, motori di ricerca e player video Immagini, formati, MOOC e certificazioni digitali
+Percorso Cosa vedremo Metodo per descrivere e isolare un problema tecnico Blocchi, modalità provvisoria, ripristino e macchine virtuali Rete, driver, patch, crash delle app e spazio disco Manutenzione: aggiornamenti, quarantena virus, analisi disco Account admin, browser, stampanti, prestazioni e formati immagine Codici di errore, FAQ, MOOC e come chiedere aiuto bene
 
 --- Slide 3 ---
-Metodo Prima capire, poi intervenire
-Descrivi il sintomo: cosa succede, quando, con quale messaggio. Chiediti cosa è cambiato: aggiornamenti, app, periferiche, rete. Prova soluzioni reversibili prima di interventi invasivi. Cerca il messaggio esatto e documenta cosa hai già provato. In pratica: Un problema tecnico si risolve meglio quando è descritto bene.
+Metodo Prima capire, poi intervenire Descrivi il sintomo: cosa succede, quando, con quale messaggio. Chiediti cosa è cambiato: aggiornamenti, app, periferiche, rete. Prova soluzioni reversibili prima di interventi invasivi. Cerca il messaggio esatto e documenta cosa hai già provato. In pratica: Un problema tecnico si risolve meglio quando è descritto bene.
 
 --- Slide 4 ---
-Manutenzione Aggiornamenti, virus e disco
-🔄 Aggiornamenti
-Correggono bug e vulnerabilità. I Service Pack erano raccolte importanti di aggiornamenti.
-🧪 Quarantena
-L’antivirus isola file sospetti: non sono cancellati subito, ma non possono agire.
-💽 Disco
-Analisi errori e spazio libero aiutano. Deframmentare ha senso sui vecchi HDD, non sugli SSD.
-Regola Prima di interventi rischiosi: backup.
+Manutenzione Aggiornamenti, virus e disco 🔄 Aggiornamenti Correggono bug e vulnerabilità. I Service Pack erano raccolte importanti di aggiornamenti. 🧪 Quarantena L’antivirus isola file sospetti: non sono cancellati subito, ma non possono agire. 💽 Disco Analisi errori e spazio libero aiutano. Deframmentare ha senso sui vecchi HDD, non sugli SSD. Regola Prima di interventi rischiosi: backup.
 
 --- Slide 5 ---
-Configurazione Admin, browser e strumenti
-👤 Account admin
-Serve per installare e modificare impostazioni. Per uso quotidiano è più sicuro un account standard.
-🌐 Browser
-Homepage, motore di ricerca, estensioni e privacy vanno controllati: troppe estensioni aumentano rischi e confusione.
-🎬 Player video
-Windows Media Player e VLC aprono formati diversi. Installare da fonti ufficiali e controllare associazioni file.
+Configurazione Admin, browser e strumenti 👤 Account admin Serve per installare e modificare impostazioni. Per uso quotidiano è più sicuro un account standard. 🌐 Browser Homepage, motore di ricerca, estensioni e privacy vanno controllati: troppe estensioni aumentano rischi e confusione. 🎬 Player video Windows Media Player e VLC aprono formati diversi. Installare da fonti ufficiali e controllare associazioni file.
 
 --- Slide 6 ---
-Formati Immagini e conversioni
-📷 JPG
-Foto e immagini realistiche: leggero, ma con perdita di qualità.
-🪟 PNG
-Grafica e trasparenze: più pesante, ma pulito per screenshot e loghi semplici.
-🔷 SVG / WebP
-SVG per vettoriale, WebP per web moderno. Convertire solo sapendo dove verrà usato.
-Regola Formato corretto = meno peso, più qualità, meno problemi di compatibilità.
+Formati Immagini e conversioni 📷 JPG Foto e immagini realistiche: leggero, ma con perdita di qualità. 🪟 PNG Grafica e trasparenze: più pesante, ma pulito per screenshot e loghi semplici. 🔷 SVG / WebP SVG per vettoriale, WebP per web moderno. Convertire solo sapendo dove verrà usato. Regola Formato corretto = meno peso, più qualità, meno problemi di compatibilità.
 
 --- Slide 7 ---
-Aiuto online Forum, MOOC e certificazioni
-💬 Comunità
-Blog, forum e canali tematici aiutano se fornisci errore, sistema, versione e prove già fatte.
-🎓 MOOC
-Coursera, edX, FutureLearn, Khan Academy o Moodle permettono formazione online con moduli e quiz.
-🏅 Certificazioni
-Attestati e badge digitali valgono di più se ente, identità ed esame sono verificabili.
+Aiuto online Forum, MOOC e certificazioni 💬 Comunità Blog, forum e canali tematici aiutano se fornisci errore, sistema, versione e prove già fatte. 🎓 MOOC Coursera, edX, FutureLearn, Khan Academy o Moodle permettono formazione online con moduli e quiz. 🏅 Certificazioni Attestati e badge digitali valgono di più se ente, identità ed esame sono verificabili.
 
 --- Slide 8 ---
-Ambiente di test Macchine virtuali per provare senza rischiare
-🖥️ Cos'è
-Una macchina virtuale è un computer simulato dentro il computer reale: ha disco, RAM, sistema operativo e programmi propri.
-📸 Snapshot
-Salva lo stato prima di una prova. Se qualcosa va storto, puoi tornare indietro senza reinstallare tutto.
-🧪 Uso didattico
-Serve per testare sistemi, configurazioni e software senza toccare il sistema principale o dati personali reali.
-Strumenti VirtualBox, VMware, Hyper-V e UTM sono ambienti comuni. L'isolamento riduce il rischio, ma non sostituisce prudenza e backup.
+Ambiente di test Macchine virtuali per provare senza rischiare 🖥️ Cos'è Una macchina virtuale è un computer simulato dentro il computer reale: ha disco, RAM, sistema operativo e programmi propri. 📸 Snapshot Salva lo stato prima di una prova. Se qualcosa va storto, puoi tornare indietro senza reinstallare tutto. 🧪 Uso didattico Serve per testare sistemi, configurazioni e software senza toccare il sistema principale o dati personali reali. Strumenti VirtualBox, VMware, Hyper-V e UTM sono ambienti comuni. L'isolamento riduce il rischio, ma non sostituisce prudenza e backup.
 
 --- Slide 9 ---
-Blocco improvviso Schermo fermo, mouse bloccato
-⌨️ Prima prova
-Usa Ctrl+Alt+Canc su Windows o Cmd+Option+Esc su macOS: verifica se il sistema risponde e prova a chiudere solo l'app bloccata.
-💾 Proteggi i dati
-Evita subito spegnimento forzato o cavo staccato: potresti perdere dati non salvati o corrompere file aperti.
-🧭 Diagnosi
-Se il sistema risponde, controlla app aperte, memoria, processi e spazio disco prima di riavviare.
+Blocco improvviso Schermo fermo, mouse bloccato ⌨️ Prima prova Usa Ctrl+Alt+Canc su Windows o Cmd+Option+Esc su macOS: verifica se il sistema risponde e prova a chiudere solo l'app bloccata. 💾 Proteggi i dati Evita subito spegnimento forzato o cavo staccato: potresti perdere dati non salvati o corrompere file aperti. 🧭 Diagnosi Se il sistema risponde, controlla app aperte, memoria, processi e spazio disco prima di riavviare.
 
 --- Slide 10 ---
-Rete Internet non funziona: dal semplice al complesso
-Controlla cavo Ethernet, Wi-Fi attivo, modalità aereo e icona rete. Riavvia modem/router e attendi che la linea torni stabile. Usa la diagnostica di rete del sistema operativo e leggi il messaggio. Solo dopo valuta provider, driver o configurazioni avanzate. Regola: non formattare un PC per un cavo staccato.
+Ripartire Modalità provvisoria e ripristino 🛟 Modalità provvisoria Avvia il sistema con il minimo indispensabile: niente driver extra né programmi in avvio automatico. Se in provvisoria il problema sparisce, la causa è un software o driver installato. ⏪ Punto di ripristino Windows salva "fotografie" della configurazione di sistema. Ripristinare un punto precedente annulla installazioni e aggiornamenti recenti senza toccare i file personali. 🔁 Reset del sistema L'opzione più drastica: reinstalla il sistema operativo mantenendo (o cancellando) i file personali. Solo dopo aver provato tutto il resto — e con backup fatto. Regola: dalla soluzione più reversibile alla più invasiva, mai il contrario.
 
 --- Slide 11 ---
-Patch e app Aggiornamenti mirati e crash
-🩹 Patch
-Una patch è un aggiornamento mirato: corregge un bug, una vulnerabilità o un malfunzionamento specifico senza sostituire tutto il programma.
-📱 App che crasha
-Prima prova: aggiorna l'app dallo store, svuota cache/dati temporanei, riavvia il telefono. Reinstallare è un passaggio successivo.
-🧪 Isolare variabili
-Cambia una cosa alla volta: se modifichi rete, app, impostazioni e driver insieme non sai cosa ha risolto o peggiorato.
-📝 Traccia prove
-Annota versione, errore, orario e passaggi fatti. È utile sia per te sia per chi ti aiuta.
+Rete Internet non funziona: dal semplice al complesso Controlla cavo Ethernet, Wi-Fi attivo, modalità aereo e icona rete. Riavvia modem/router e attendi che la linea torni stabile. Usa la diagnostica di rete del sistema operativo e leggi il messaggio. Solo dopo valuta provider, driver o configurazioni avanzate. Regola: non formattare un PC per un cavo staccato.
 
 --- Slide 12 ---
-Periferiche e prestazioni Stampante, ventole e rallentamenti
-🖨️ Documento in coda
-Se resta “1 documento in coda”, può essersi bloccato lo spooler: svuota la coda di stampa o riavvia il servizio/stampante.
-🌡️ Ventole al massimo
-Rumore e lentezza con programmi leggeri indicano possibile surriscaldamento o processo anomalo al 100% di CPU/RAM.
-🧹 Controlli
-Verifica prese d'aria, polvere, superficie d'appoggio e Gestione attività/Monitoraggio attività.
-⏳ Non forzare subito
-Chiudere tutto o spegnere di colpo può peggiorare: identifica prima il processo o la periferica bloccata.
+Driver Il traduttore tra hardware e sistema 🔌 Cos'è un driver Il software che insegna al sistema operativo a parlare con una periferica: stampante, scheda video, audio, webcam. Senza driver (o con driver sbagliato) la periferica non funziona o funziona male. ⬆️ Aggiornare Driver aggiornati risolvono bug e migliorano compatibilità. Scaricarli solo dal sito del produttore o tramite gli aggiornamenti di sistema — mai da siti "driver gratis". ↩️ Rollback Se il problema è iniziato dopo un aggiornamento driver, si può tornare alla versione precedente da Gestione dispositivi. Sintomo classico: periferica ok ieri, ko oggi. ⚠️ Segnali di problemi driver Schermo a bassa risoluzione, audio assente, stampante "non riconosciuta", punto esclamativo giallo in Gestione dispositivi.
 
 --- Slide 13 ---
-File e supporto ZIP, FAQ ed errore 404
-🗜️ File .zip
-È un archivio compresso: va estratto con l'utility del sistema o un programma di decompressione. Non rinominare l'estensione a caso.
-❓ FAQ
-Frequently Asked Questions: raccolta di domande frequenti e soluzioni pronte. È spesso il primo posto dove cercare.
-404 Not Found
-HTTP 404 significa che la pagina o risorsa richiesta non esiste più a quell'URL: rimossa, spostata o link scritto male.
-Metodo Prima di chiedere aiuto: cerca FAQ, messaggio esatto, codice errore e verifica se il problema riguarda file, applicazione, rete o pagina web.
+Patch e app Aggiornamenti mirati e crash 🩹 Patch Una patch è un aggiornamento mirato: corregge un bug, una vulnerabilità o un malfunzionamento specifico senza sostituire tutto il programma. 📱 App che crasha Prima prova: aggiorna l'app dallo store, svuota cache/dati temporanei, riavvia il telefono. Reinstallare è un passaggio successivo. 🧪 Isolare variabili Cambia una cosa alla volta: se modifichi rete, app, impostazioni e driver insieme non sai cosa ha risolto o peggiorato. 📝 Traccia prove Annota versione, errore, orario e passaggi fatti. È utile sia per te sia per chi ti aiuta.
 
 --- Slide 14 ---
-Risolto.
-Hai un metodo: descrivere, isolare, provare, documentare e chiedere aiuto con informazioni utili.
-← HS04 · OS concetti Indice
+Periferiche e prestazioni Stampante, ventole e rallentamenti 🖨️ Documento in coda Se resta “1 documento in coda”, può essersi bloccato lo spooler: svuota la coda di stampa o riavvia il servizio/stampante. 🌡️ Ventole al massimo Rumore e lentezza con programmi leggeri indicano possibile surriscaldamento o processo anomalo al 100% di CPU/RAM. 🧹 Controlli Verifica prese d'aria, polvere, superficie d'appoggio e Gestione attività/Monitoraggio attività. ⏳ Non forzare subito Chiudere tutto o spegnere di colpo può peggiorare: identifica prima il processo o la periferica bloccata.
+
+--- Slide 15 ---
+Spazio esaurito Disco pieno ,
+sistema lento Un disco quasi pieno rallenta tutto: il sistema non ha più spazio per i file temporanei e la memoria virtuale. Sotto il 10–15% di spazio libero i problemi iniziano. Dove guardare Cestino mai svuotato · cartella Download · file temporanei · vecchi backup locali · app mai usate · cache dei browser. In pratica: usa lo strumento integrato (Pulizia disco / Sensore memoria) prima di installare "ottimizzatori" di terze parti. 92% occupato ⚠ meno del 10% libero dopo la pulizia ✓ sistema di nuovo reattivo Il disco ha bisogno di respiro per lavorare
+
+--- Slide 16 ---
+File e supporto ZIP, FAQ ed errore 404 🗜️ File .zip È un archivio compresso: va estratto con l'utility del sistema o un programma di decompressione. Non rinominare l'estensione a caso. ❓ FAQ Frequently Asked Questions: raccolta di domande frequenti e soluzioni pronte. È spesso il primo posto dove cercare. 404 Not Found HTTP 404 significa che la pagina o risorsa richiesta non esiste più a quell'URL: rimossa, spostata o link scritto male. Metodo Prima di chiedere aiuto: cerca FAQ, messaggio esatto, codice errore e verifica se il problema riguarda file, applicazione, rete o pagina web.
+
+--- Slide 17 ---
+Leggere gli errori Il codice di errore è un indizio, non una condanna 🟦 Schermata blu Su Windows il BSOD indica un errore critico, spesso driver o hardware. Il codice in basso (es. MEMORY_MANAGEMENT) è la chiave: cercalo esattamente com'è scritto. 🔢 Codici applicazione Le app mostrano codici propri (es. "errore 0x80070005"). Copiali esatti nella ricerca insieme al nome del programma: qualcuno li ha quasi sempre già incontrati. 📜 Registro eventi Windows (Visualizzatore eventi) e macOS (Console) registrano errori con data e ora. Utile quando il problema è avvenuto "ieri sera" e non ricordi il messaggio. 💡 Come cercare Codice esatto + nome programma + versione sistema. Tra virgolette se il messaggio è lungo. Le fonti migliori: documentazione ufficiale, forum del produttore, community tecniche.
+
+--- Slide 18 ---
+Escalation Chiedere aiuto nel modo giusto Quando il fai-da-te non basta, la qualità della richiesta determina la velocità della risposta — con un tecnico, un forum o l'assistenza clienti. ✗ Richiesta inutile "Il computer non va, potete aiutarmi? Grazie." Nessun sintomo, nessun contesto: chi legge deve fare dieci domande prima di poter iniziare. ✓ Richiesta efficace "Windows 11, dopo l'aggiornamento di ieri la stampante HP non stampa. Errore: 'driver non disponibile'. Ho già riavviato PC e stampante." Sistema, quando è iniziato, messaggio esatto, cosa hai già provato. Regola: descrivi il sintomo, non la tua diagnosi — "non stampa" è un fatto, "è rotto il driver" è un'ipotesi.
+
+--- Slide 19 ---
+Risolto. Metodo di diagnosi, modalità provvisoria e ripristino, driver, patch, spazio disco, codici di errore, macchine virtuali e come chiedere aiuto con informazioni utili: gli strumenti per non farsi bloccare da un problema tecnico.

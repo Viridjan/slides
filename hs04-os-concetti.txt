@@ -49,8 +49,9 @@ Non possono girare senza un OS sottostante.
  
  
  
- 🔄 Come collaborano 
+ Come collaborano 
  Quando avvii un'app, l'OS:
+
 
  1 — La carica nella RAM 
 
@@ -59,6 +60,7 @@ Non possono girare senza un OS sottostante.
  3 — Gestisce l'accesso a disco e rete 
 
  4 — Controlla permessi e errori 
+
 
  L'utente vede solo l'app. L'OS è invisibile, ma presente. 
  
@@ -101,7 +103,7 @@ Driver
  Il ponte tra OS e hardware 
  Un driver è un software che traduce i comandi generici dell'OS in istruzioni specifiche per un componente hardware. Senza il driver corretto, l'hardware non funziona — o funziona in modo limitato. 
  
- ⚙️ Perché aggiornarli 
+ Perché aggiornarli 
  Un driver aggiornato può: migliorare le prestazioni (es. driver GPU per giochi nuovi), correggere errori e crash, aumentare la sicurezza (vulnerabilità nei driver sono bersagli reali), abilitare nuove funzionalità (es. nuova risoluzione). 
  
  
@@ -146,11 +148,11 @@ Aggiornamenti
  
  
  
- 🚨 WannaCry 2017 
+ WannaCry 2017 
  Il ransomware che ha infettato 200.000 sistemi in 150 paesi sfruttava una vulnerabilità di Windows per cui Microsoft aveva rilasciato la patch 60 giorni prima . Chi aveva aggiornato era immune. Chi no, ha perso tutti i file. 
  
  
- ✅ Buone pratiche 
+ Buone pratiche 
  
  • Abilita aggiornamenti automatici sull'OS
 
@@ -199,7 +201,7 @@ Focus sulla libertà dell'utente , non solo sul codice aperto. Gratis ≠ libero
  
  
  
- 🔁 Come si sovrappongono 
+ Come si sovrappongono 
  Quasi tutto il software libero è anche open source. Non tutto l'open source è "libero" nel senso politico (alcune licenze open source limitano usi commerciali). Molti software appartengono a entrambe le categorie: Linux, Firefox, Git, Python.
 
 --- Slide 8 ---
@@ -230,7 +232,7 @@ App Store
  
  
  
- ✅ Vantaggi degli store 
+ Vantaggi degli store 
  • App verificate (riduzione malware)
 • Aggiornamenti automatici 
 • Disinstallazione pulita 
@@ -264,11 +266,11 @@ Account e Permessi
  
  
  
- 🛡️ Principio del minimo privilegio 
+ Principio del minimo privilegio 
  Ogni utente (e ogni app) dovrebbe avere solo i permessi strettamente necessari. Un malware che gira come utente standard fa molto meno danno di uno che gira come amministratore. 
  
  
- 👨‍👩‍👧 Account separati 
+ ‍👩‍👧 Account separati 
  Su un PC condiviso (famiglia, ufficio) ogni persona dovrebbe avere il proprio account:
 
 • Impostazioni personali separate
@@ -277,7 +279,7 @@ Account e Permessi
 • Nessuna contaminazione tra profili 
  
  
- 📱 Su Android / iOS 
+ Su Android / iOS 
  Le app chiedono permessi espliciti (fotocamera, posizione, microfono, contatti). Concedili solo se l'app ne ha bisogno per funzionare. Un torcia-app non ha bisogno dei tuoi contatti.
 
 --- Slide 10 ---
@@ -300,6 +302,7 @@ Backup e Ripristino
 
  ☁️ Cloud — Google Drive, OneDrive, iCloud, Backblaze — accesso ovunque
 
+
  La regola 3-2-1 : 3 copie, su 2 supporti diversi, 1 fuori sede. 
  
  
@@ -308,6 +311,7 @@ Backup e Ripristino
  🔄 
  Ripristino 
  Recuperare documenti, impostazioni o l'intero sistema dal backup. Strumenti nativi:
+
 
  🪟 Windows : Cronologia file, Punto di ripristino, Backup e ripristino
 
@@ -416,12 +420,8 @@ Riepilogo
  Impostazioni → Informazioni su tutti i sistemi. Sai se sei aggiornato e supportato.
 
 --- Slide 13 ---
-Fine Modulo 12 ⚙️ 
- Utente
- consapevole. 
+Utente
+consapevole. 
+ Shell, filesystem, daemon, permessi utente/root, terminale e GUI: i concetti fondamentali che stanno sotto ogni sistema operativo. 
  
- Capire come funziona il sistema operativo non è roba da tecnici: è la base per usare qualsiasi dispositivo in modo sicuro, efficiente e libero .
- 
- 
- Prossimo → M14 · Software Google 
- ↩ Indice del corso
+ Prossimo → HS05 · Troubleshooting
