@@ -1,36 +1,304 @@
-/* === TEMA COLORI PER SEZIONE ===
-   Un colore di sfondo per ogni sezione del corso.
-   Modifica qui per cambiare tutti i deck di una sezione. */
+/* === TEMA VISIVO CONDIVISO ===
+   Questo file viene caricato dopo il CSS incorporato nei deck: le regole qui
+   sotto migliorano tutti i moduli senza modificare i singoli contenuti. */
 
-/* Hardware e Software — grigio acciaio */
-body.course-hs{--slide-bg:#eef0f2;--line:#c3ccd3;}
+:root{
+  --ink:#17191d;
+  --ink-soft:#343941;
+  --ink-faint:#65707c;
+  --paper:#f7f2e9;
+  --paper-2:#eee5d8;
+  --stage-bg:#15171b;
+  --red:#d94f38;
+  --teal:#123f3a;
+  --teal-2:#19554e;
+  --gold:#e7c85a;
+  --gold-deep:#c78322;
+  --sky:#2f7d95;
+  --line:#d6c8b7;
+}
 
-/* Reti e Web — azzurro cielo */
-body.course-rw{--slide-bg:#e9f2f4;--line:#b0cdd8;}
+body[class*="course-"]{
+  --slide-bg:#f4efe7;
+  --card-bg:rgba(255,252,246,.86);
+  --accent:var(--sky);
+  --accent-2:var(--gold-deep);
+  --course-dark:var(--teal);
+  --line:rgba(84,92,102,.22);
+  background:
+    radial-gradient(circle at 50% 0, rgba(255,255,255,.06), transparent 34%),
+    var(--stage-bg);
+}
 
-/* Sicurezza Digitale — rosso tenue */
-body.course-sd{--slide-bg:#f7eae6;--line:#dcb4aa;}
+/* Hardware e Software */
+body.course-hs{--slide-bg:#eef2f4;--line:rgba(82,101,113,.22);--accent:#4f7182;--accent-2:#c37a2c;--course-dark:#243844;}
 
-/* Informatica — ambra */
-body.course-in{--slide-bg:#f7f0dc;--line:#ddc89a;}
+/* Reti e Web */
+body.course-rw{--slide-bg:#eaf4f6;--line:rgba(64,120,137,.22);--accent:#2e7890;--accent-2:#d1842a;--course-dark:#113f50;}
 
-/* Smartphones — verde salvia */
-body.course-sm{--slide-bg:#edf3ee;--line:#afc9b8;}
+/* Sicurezza Digitale */
+body.course-sd{--slide-bg:#f7ece8;--line:rgba(154,82,68,.22);--accent:#c94b36;--accent-2:#2e7c82;--course-dark:#592d29;}
 
-/* Suite Ufficio — ocra */
-body.course-su{--slide-bg:#f5edda;--line:#d4bd9a;}
+/* Informatica */
+body.course-in{--slide-bg:#f7f0dc;--line:rgba(143,115,55,.24);--accent:#bc7a1b;--accent-2:#2c758b;--course-dark:#443820;}
 
-/* Intelligenza Artificiale — lilla */
-body.course-ia{--slide-bg:#f0ecf5;--line:#c5bcd6;}
+/* Smartphones */
+body.course-sm{--slide-bg:#edf4ee;--line:rgba(80,128,94,.22);--accent:#4d8761;--accent-2:#c06b34;--course-dark:#254b35;}
 
-/* Project Management — verde acqua */
-body.course-pm{--slide-bg:#e8f2ef;--line:#a9cdc2;}
+/* Suite Ufficio */
+body.course-su{--slide-bg:#f5edda;--line:rgba(137,111,62,.22);--accent:#b47b26;--accent-2:#426f91;--course-dark:#4a3a21;}
 
-/* Programmare con Scratch — arancio tenue */
-body.course-sc{--slide-bg:#f7eadf;--line:#d9b59b;}
+/* Intelligenza Artificiale */
+body.course-ia{--slide-bg:#f1eef7;--line:rgba(103,89,142,.22);--accent:#6d5aa6;--accent-2:#2e8790;--course-dark:#322b58;}
 
-/* Programmare con Micro:bit — verde menta */
-body.course-mb{--slide-bg:#e7f1e8;--line:#a9c8ae;}
+/* Project Management */
+body.course-pm{--slide-bg:#e8f3ef;--line:rgba(62,126,108,.22);--accent:#367c6b;--accent-2:#b67f24;--course-dark:#214d44;}
 
-/* Game Design — salmone caldo */
-body.course-gd{--slide-bg:#f5e9e0;--line:#d4aa98;}
+/* Programmare con Scratch */
+body.course-sc{--slide-bg:#f7eadf;--line:rgba(157,102,63,.22);--accent:#d06f34;--accent-2:#35788c;--course-dark:#56351f;}
+
+/* Programmare con Micro:bit */
+body.course-mb{--slide-bg:#e8f4eb;--line:rgba(63,125,80,.22);--accent:#3f8959;--accent-2:#7661a8;--course-dark:#234b34;}
+
+/* Game Design */
+body.course-gd{--slide-bg:#f5e9e0;--line:rgba(145,86,61,.22);--accent:#c25f39;--accent-2:#2f7d95;--course-dark:#4f3026;}
+
+/* TinkerCAD e stampa 3D */
+body.course-td{--slide-bg:#e9f2f5;--line:rgba(58,116,138,.22);--accent:#33768e;--accent-2:#c2762b;--course-dark:#1d4553;}
+
+.deck-viewport{
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.055), rgba(255,255,255,0) 42%),
+    var(--stage-bg) !important;
+}
+
+.deck-stage{
+  background:var(--slide-bg) !important;
+  box-shadow:0 26px 90px rgba(0,0,0,.34);
+}
+
+.slide{
+  color:var(--ink) !important;
+  background:
+    linear-gradient(155deg, rgba(255,255,255,.48), rgba(255,255,255,0) 42%),
+    linear-gradient(0deg, rgba(255,255,255,.16), rgba(255,255,255,.16)),
+    var(--slide-bg) !important;
+  padding:92px 112px !important;
+}
+
+.slide::before{
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px) !important;
+  background-size:44px 44px !important;
+  opacity:.20 !important;
+}
+
+.slide > :not(.page-num):not(.num){position:relative;z-index:1;}
+
+.h-mega,.h-big,.h-sec,.h1,.h2,
+.header-left h1,.header-nav h1{
+  letter-spacing:0 !important;
+  text-wrap:balance;
+}
+
+.h-mega{font-size:126px !important;line-height:.9 !important;}
+.h-big{font-size:84px !important;line-height:.96 !important;}
+.h-sec{font-size:68px !important;line-height:1 !important;}
+
+/* === SCALA TIPOGRAFICA STANDARD ===
+   Ogni classe ha UNA sola dimensione in tutto il corso: i deck hanno CSS
+   incorporato con valori divergenti (es. .body a 24px in alcuni, 27px in
+   altri), queste regole li uniformano. Il lead si distingue dal body per
+   peso e colore, mai solo per dimensione. */
+.lead{font-size:30px !important;font-weight:500;color:var(--ink) !important;line-height:1.42 !important;}
+.body{font-size:26px !important;color:var(--ink-soft) !important;line-height:1.45 !important;}
+.eyebrow{font-size:34px !important;}
+.tape,.tag{font-size:22px !important;}
+.card h3{font-size:34px !important;}
+.card p,.card li{font-size:24px !important;line-height:1.38 !important;}
+.note p{font-size:25px !important;line-height:1.38 !important;}
+.note .lbl{font-size:20px !important;}
+.step .t{font-size:25px !important;line-height:1.35 !important;}
+.chip{font-size:23px !important;}
+.codebox{font-size:24px !important;line-height:1.45 !important;}
+.illu-cap{font-size:21px !important;}
+.analogy{font-size:26px !important;}
+.analogy .big{font-size:32px !important;}
+.agenda-item b{font-size:26px !important;}
+.agenda-item small{font-size:21px !important;}
+.page-num,.num{font-size:22px !important;}
+.page-num b,.num b{font-size:28px !important;}
+
+.tape,.tag{
+  background:var(--accent) !important;
+  color:#fff !important;
+  border-radius:999px !important;
+  box-shadow:none !important;
+  transform:none !important;
+  letter-spacing:2px !important;
+}
+
+.tape.teal,.tag{background:var(--course-dark) !important;}
+.tape.gold{background:var(--accent-2) !important;}
+.tape.sky{background:var(--accent) !important;}
+
+.eyebrow,
+em.hot,
+.page-num b,
+.step::before,
+.agenda-item .n{
+  color:var(--accent) !important;
+}
+
+em.sky,.accent{color:var(--accent-2) !important;}
+
+.card,.note,.step,.flow-box,.blockquote,.illu{
+  position:relative;
+  background:var(--card-bg) !important;
+  border:1px solid rgba(23,25,29,.16) !important;
+  border-top-color:rgba(255,255,255,.72) !important;
+  border-radius:8px !important;
+  box-shadow:0 18px 40px rgba(30,24,18,.10) !important;
+}
+
+.card::after,.note::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  border-left:5px solid var(--accent);
+  opacity:.85;
+}
+
+.card h3{
+  color:var(--ink) !important;
+  line-height:1.08 !important;
+  text-wrap:balance;
+}
+
+.card p,.card li,.step .t{
+  color:var(--ink-soft) !important;
+}
+
+.card.red::after,.note.red::after{border-left-color:var(--red);}
+.card.teal::after,.note.teal::after{border-left-color:var(--teal);}
+.card.sky::after,.note.sky::after{border-left-color:var(--sky);}
+.card.gold::after{border-left-color:var(--gold-deep);}
+
+.note{
+  background:rgba(255,248,224,.90) !important;
+}
+
+.note .lbl{
+  color:var(--course-dark) !important;
+  letter-spacing:.8px !important;
+}
+
+.chip{
+  background:var(--course-dark) !important;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.26) !important;
+  box-shadow:0 8px 22px rgba(0,0,0,.10);
+}
+
+.chip.alt{
+  background:rgba(255,255,255,.52) !important;
+  color:var(--ink) !important;
+  border-color:rgba(23,25,29,.18) !important;
+}
+
+.split{gap:64px !important;}
+.grid2{gap:26px !important;}
+.grid3{gap:22px !important;}
+.grid4{gap:18px !important;}
+.stack>*+*{margin-top:18px !important;}
+
+.grid2:has(> .step),
+.grid3:has(> .step),
+.grid4:has(> .step),
+.stack:has(> .step){
+  counter-reset:st;
+}
+
+.agenda-item{
+  border-bottom-color:var(--line) !important;
+}
+
+.agenda-item .t{
+  color:var(--ink) !important;
+  line-height:1.22 !important;
+}
+
+.title-slide{
+  padding:0 !important;
+  grid-template-columns:1.18fr .82fr !important;
+}
+
+.title-left{
+  padding:112px 92px !important;
+}
+
+.title-right{
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--course-dark) 86%, #000 14%), var(--course-dark)) !important;
+}
+
+.title-right::before{
+  background:
+    radial-gradient(circle at 35% 35%, rgba(255,255,255,.30), transparent 0 18%, transparent 19%),
+    linear-gradient(135deg, var(--accent-2), var(--accent)) !important;
+  opacity:.95;
+}
+
+.title-slide .lead{
+  display:block !important;
+  max-width:980px !important;
+}
+
+.title-slide .chips{
+  display:flex !important;
+}
+
+.closing{
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--course-dark) 88%, #000 12%), var(--course-dark)) !important;
+}
+
+.closing::before{opacity:.10 !important;}
+.closing .lead,.closing .body,.closing p{color:rgba(255,255,255,.88) !important;}
+.closing .gold{color:var(--gold) !important;}
+
+.page-num{
+  position:absolute !important;
+  color:rgba(23,25,29,.46) !important;
+  right:112px !important;
+  bottom:50px !important;
+  z-index:5 !important;
+}
+
+.num{
+  position:absolute !important;
+  right:112px !important;
+  bottom:50px !important;
+  z-index:5 !important;
+  color:rgba(23,25,29,.46) !important;
+}
+
+.num b{
+  color:var(--accent) !important;
+}
+
+.progress{background:var(--accent) !important;height:5px !important;}
+
+.home-btn{
+  background:rgba(21,23,27,.68) !important;
+  border:1px solid rgba(255,255,255,.24) !important;
+  color:#fff !important;
+}
+
+@media print{
+  .deck-stage{box-shadow:none !important;}
+  .slide{background:var(--slide-bg) !important;}
+}
