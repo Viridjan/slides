@@ -1,0 +1,54 @@
+Programmare - PR00.03 - Algoritmi
+=================================
+
+--- Slide 1 ---
+Algoritmi e problemi
+Dal problema alla soluzione: istruzioni ordinate, variabili, condizioni, cicli, diagrammi di flusso e pseudocodice.
+
+--- Slide 2 ---
+Prima si capisce, poi si codifica
+Programmare parte dalla comprensione del problema: dati disponibili, risultato atteso, vincoli e casi particolari.
+Input: quali dati entrano?
+Elaborazione: quali passaggi trasformano i dati?
+Output: quale risultato deve essere prodotto?
+Questa analisi evita di scrivere codice prima di sapere cosa deve fare davvero il programma. Anche un esercizio semplice diventa piu chiaro se separiamo cosa viene fornito, cosa dobbiamo calcolare e come riconoscere che il risultato e corretto. Il linguaggio di programmazione arriva dopo questa fase.
+
+--- Slide 3 ---
+Che cos'e un algoritmo?
+Un algoritmo e una procedura finita e ordinata che, partendo da dati iniziali, permette di ottenere un risultato.
+Puo essere descritto in linguaggio naturale, diagramma di flusso, pseudocodice o codice.
+La forma usata per descriverlo dipende dallo scopo. Il linguaggio naturale e utile per iniziare, il diagramma aiuta a vedere il flusso, lo pseudocodice prepara la traduzione e il codice rende l'algoritmo eseguibile. L'idea rimane la stessa: una sequenza controllata di decisioni e azioni.
+
+--- Slide 4 ---
+Caratteristiche
+Un buon algoritmo deve essere finito, non ambiguo, eseguibile, generale e verificabile.
+Finito significa che non deve proseguire senza termine. Non ambiguo significa che ogni passo deve essere interpretabile in un solo modo. Eseguibile significa che ogni operazione deve essere realizzabile. Generale significa che funziona per molti casi simili. Verificabile significa che possiamo controllare se produce il risultato atteso.
+
+--- Slide 5 ---
+Variabili
+Le variabili sono nomi associati a valori che possono cambiare durante l'esecuzione. Servono per ricordare dati, risultati parziali, contatori e stati.
+Una variabile ben nominata rende l'algoritmo piu leggibile. Per esempio totale, prezzo, eta e risposta comunicano subito il ruolo del valore. Nei diagrammi e nello pseudocodice le variabili permettono di seguire come cambia lo stato del problema passo dopo passo.
+
+--- Slide 6 ---
+Istruzioni
+Azioni fondamentali: assegnazione, input/output, calcolo, decisione, ripetizione e chiamata di una procedura o funzione.
+Quasi ogni programma combina queste istruzioni di base. L'assegnazione aggiorna i dati, input e output comunicano con l'esterno, il calcolo produce nuovi valori, la decisione sceglie un ramo, la ripetizione automatizza operazioni simili e la chiamata riusa una soluzione gia definita.
+
+--- Slide 7 ---
+Diagrammi di flusso
+I diagrammi di flusso visualizzano il percorso dell'algoritmo. Ovale per inizio/fine, rettangolo per operazioni, rombo per decisioni.
+La forza del diagramma e rendere visibile la struttura: dove il procedimento parte, quali passaggi sono lineari, quali punti aprono alternative e quali frecce riportano a un ciclo. Prima di scrivere codice, un diagramma puo far emergere passaggi mancanti o condizioni non considerate.
+
+--- Slide 8 ---
+Pseudocodice
+Lo pseudocodice usa una forma vicina al linguaggio naturale, ma ordinata come un programma.
+Non ha una sintassi universale rigida, ma deve essere coerente e leggibile. Usa parole come leggi, scrivi, se, allora, altrimenti, ripeti e fine. Il suo compito e descrivere la logica senza obbligare ancora a rispettare tutti i dettagli di Python, Scratch o altri linguaggi.
+
+--- Slide 9 ---
+Verifica
+Prima di tradurre in codice conviene simulare l'algoritmo con pochi esempi, tracciando le variabili e provando casi limite.
+La prova a mano e un primo test. Si scelgono input semplici, si segue l'algoritmo riga per riga e si annotano i valori assunti dalle variabili. Se il risultato non torna, si corregge la logica prima che l'errore venga trasferito nel codice.
+
+--- Slide 10 ---
+Un algoritmo chiaro rende il codice piu semplice.
+Quando il procedimento e comprensibile, la traduzione in linguaggio di programmazione diventa piu controllabile.

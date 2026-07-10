@@ -175,7 +175,7 @@ of each word in the section name (e.g. `HS` = Hardware e **S**oftware):
 | `su` | Suite Ufficio | `su01-microsoft.html` |
 | `ia` | Intelligenza Artificiale | `ia01-concetti-generali.html` |
 | `pm` | Project Management | `pm01-introduzione.html` |
-| `sc` / `mb` | Programmare | `sc01-introduzione.html`, `mb01-microbit.html` |
+| `pr` / `sc` / `mb` | Programmare | `pr00-introduzione-programmazione.html`, `sc01-introduzione.html`, `mb01-microbit.html` |
 | `td` | TinkerCAD e stampa 3D | `td01-tinkercad-introduzione.html` |
 | `gd` | Game Design | `gd01-introduzione.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
@@ -291,7 +291,7 @@ Navigation chain: sm01 → … → sm11
 
 ### Suite Ufficio
 
-Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 → su08 → su09 → su10 → su11 → su12
+Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 → su08 → su09 → su10 → su11 → su12-pivot → su12-presentazioni
 
 | File | Title |
 | --- | --- |
@@ -306,6 +306,7 @@ Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 →
 | `su09-analisi.html` | Analizzare e cercare |
 | `su10-funzioni-top.html` | Le 10 funzioni più usate |
 | `su11-testo.html` | Manipolare il testo |
+| `su12-tabelle-pivot.html` | Tabelle pivot |
 | `su12-presentazioni.html` | Dillo con una slide |
 
 ### Intelligenza Artificiale
@@ -331,7 +332,21 @@ Navigation chain: pm01 → pm02 → pm03 → pm04
 
 ### Programmare
 
-Index numbering uses `PR01.xx` for Scratch and `PR02.xx` for Micro:bit.
+Index numbering uses `PR00.xx` for general programming theory, `PR01.xx` for Scratch and `PR02.xx` for Micro:bit.
+
+General programming navigation chain: pr00-introduzione-programmazione → pr00-dati-codifica → pr00-algoritmi → pr00-fondamenti-programmazione
+
+| File | Title |
+| --- | --- |
+| `pr00-introduzione-programmazione.html` | Introduzione alla programmazione |
+| `pr00-dati-codifica.html` | Dati e codifica |
+| `pr00-algoritmi.html` | Algoritmi e problemi |
+| `pr00-fondamenti-programmazione.html` | Fondamenti di programmazione |
+
+Codex note: the `PR00.02`-`PR00.04` theory blocks are paraphrased and reorganized
+from the public PDF "Fondamenti di Informatica e Programmazione" by Edizioni
+Manna, requested by the user on 2026-07-10. Keep them in the Programmare group
+before Scratch and do not split them into Hardware/Software or other sections.
 
 Scratch navigation chain: sc01 → sc02
 
