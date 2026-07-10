@@ -4,6 +4,7 @@ Programmare - PR00.04 - Fondamenti di programmazione
 --- Slide 1 ---
 Fondamenti di programmazione
 Logica, linguaggi, programmi, pseudocodice e primi esempi in Python: il ponte tra algoritmo e codice eseguibile.
+22 slide
 
 --- Slide 2 ---
 Rappresentare prima di elaborare
@@ -55,5 +56,85 @@ Alternare progettazione, scrittura, esecuzione e correzione. Scrivere poco, eseg
 Questo metodo riduce il rischio di accumulare molti errori insieme. Ogni piccolo incremento deve avere un comportamento osservabile. Quando qualcosa non funziona, e piu facile individuare l'ultima modifica responsabile e correggere il programma senza riscriverlo da capo.
 
 --- Slide 11 ---
+Input
+Leggere dati dall'esterno
+Un programma diventa utile quando riceve dati variabili: da tastiera, file, sensori, rete o interfaccia grafica. L'input va sempre interpretato e controllato.
+Formato: il dato arriva come testo, numero, scelta o struttura?
+Validita: il dato rispetta cio che il programma si aspetta?
+Nota didattica: controllare l input protegge il programma. Anche un esercizio semplice deve considerare cosa succede se l utente scrive testo al posto di un numero o lascia un campo vuoto.
+
+--- Slide 12 ---
+Output
+Restituire risultati comprensibili
+L'output non e solo stampare un valore. Deve comunicare il risultato nel formato giusto, con messaggi chiari e senza nascondere errori importanti.
+Output possibili: schermo, file, rete, interfacce grafiche, messaggi per altri programmi.
+Nota didattica: un buon output aiuta l utente a capire cosa e successo. Messaggi generici o risultati senza contesto rendono difficile usare e correggere il programma.
+
+--- Slide 13 ---
+Conversioni
+Quando il tipo deve cambiare
+Molti input arrivano come testo, anche quando rappresentano numeri. Convertire significa trasformare il valore nel tipo necessario per l'operazione successiva.
+Esempio: "18" come stringa deve diventare 18 come numero prima di confrontarlo con una soglia.
+Nota didattica: la conversione di tipo e una delle prime fonti di errore. Il valore visivamente sembra un numero, ma il programma potrebbe trattarlo ancora come testo.
+
+--- Slide 14 ---
+Operatori
+Aritmetici, relazionali e logici
+Gli operatori sono simboli o parole che combinano valori.
+Aritmetici: +, -, *, / per calcoli numerici.
+Relazionali: ==, !=, >, < per confrontare.
+Logici: and, or, not per combinare condizioni.
+Nota didattica: gli operatori determinano il significato delle espressioni. Confondere assegnazione, confronto e combinazione logica porta a condizioni sbagliate o risultati inattesi.
+
+--- Slide 15 ---
+Indentazione
+La forma puo avere significato
+In Python l'indentazione non e decorativa: delimita blocchi di istruzioni. Un rientro sbagliato puo cambiare il comportamento o generare errore.
+Questa regola rende visibile la struttura del programma, ma richiede coerenza.
+Nota didattica: l indentazione rende leggibile la gerarchia del codice. Nei linguaggi che la usano come sintassi, un rientro comunica appartenenza a un blocco.
+
+--- Slide 16 ---
+Liste
+Conservare piu valori insieme
+Una lista raccoglie piu elementi in una sola struttura. Permette di attraversare dati simili con un ciclo, calcolare statistiche o cercare elementi.
+Le liste collegano dati e iterazione: il programma puo ripetere la stessa operazione su ogni elemento.
+Nota didattica: le liste introducono il passaggio da un singolo valore a una collezione. Questo permette di scrivere algoritmi generali che lavorano su molti dati simili.
+
+--- Slide 17 ---
+Funzioni
+Separare una responsabilita
+Una funzione riceve dati, esegue un compito e puo restituire un risultato. Aiuta a rendere il programma piu corto, leggibile e testabile.
+Una buona funzione ha un nome chiaro, parametri comprensibili e un risultato definito.
+Nota didattica: una funzione ben progettata riduce duplicazione. Se una regola cambia, modificarla in un solo punto e piu sicuro che cercarla in molte parti del programma.
+
+--- Slide 18 ---
+Scope
+Dove vive una variabile
+Lo scope indica in quale parte del programma un nome e visibile. Capirlo evita confusione tra variabili locali, parametri e valori globali.
+Le variabili locali rendono piu facile ragionare su una funzione; i valori globali vanno usati con prudenza.
+Nota didattica: lo scope limita la visibilita dei nomi e riduce interferenze. Capire dove nasce e dove muore una variabile aiuta a evitare modifiche impreviste.
+
+--- Slide 19 ---
+Debug
+Osservare il programma mentre lavora
+Fare debug significa ricostruire cosa succede davvero durante l'esecuzione. Si controllano input, valori intermedi, rami scelti e punto in cui il comportamento diverge dalle attese.
+Strumenti: stampe temporanee, breakpoint, tabella di traccia, controllo dei valori.
+Nota didattica: il debug richiede metodo. Cambiare molte cose insieme rende difficile sapere cosa ha risolto il problema; meglio isolare una ipotesi alla volta.
+
+--- Slide 20 ---
+Test
+Controllare funzioni piccole
+Una funzione con input e output chiari puo essere testata con esempi semplici. Questo riduce il rischio che errori nascosti si sommino nel programma completo.
+Esempio: area_rettangolo(5, 3) deve restituire 15; area_rettangolo(0, 3) deve restituire 0.
+Nota didattica: testare funzioni piccole crea fiducia progressiva. Quando ogni pezzo e verificato, diventa piu facile diagnosticare problemi nel programma completo.
+
+--- Slide 21 ---
+Documentare
+Spiegare cio che il codice non dice da solo
+I commenti non devono ripetere istruzioni ovvie. Servono per chiarire scelte, vincoli, casi limite e motivi per cui una soluzione e stata preferita a un'altra.
+Un commento utile spiega il perche; un commento inutile ripete il cosa.
+Nota didattica: documentare non sostituisce codice chiaro. Serve a registrare ragioni, limiti e decisioni che non emergono dalla sola lettura delle istruzioni.
+
+--- Slide 22 ---
 Ora i concetti possono diventare blocchi.
 Dati, algoritmi, logica e codice preparano il passaggio a Scratch.

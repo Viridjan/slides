@@ -348,6 +348,19 @@ from the public PDF "Fondamenti di Informatica e Programmazione" by Edizioni
 Manna, requested by the user on 2026-07-10. Keep them in the Programmare group
 before Scratch and do not split them into Hardware/Software or other sections.
 
+Codex update 2026-07-10: the `PR00` theory blocks were expanded without changing
+their topic boundaries. Current slide counts are:
+
+| File | Slides | Expansion focus |
+| --- | ---: | --- |
+| `pr00-introduzione-programmazione.html` | 30 | readability, maintenance, components, types, expressions, control flow, functions, errors, testing, paradigms and computability limits |
+| `pr00-dati-codifica.html` | 18 | text encoding, images, audio, compression, file formats, overflow, byte order and representation choices |
+| `pr00-algoritmi.html` | 20 | decomposition, preconditions, postconditions, sequence, decisions, loops, accumulators, counters, trace tables and efficiency |
+| `pr00-fondamenti-programmazione.html` | 22 | input/output, type conversion, operators, indentation, lists, functions, scope, debugging, tests and documentation |
+
+The matching `.txt` files include additional explanatory notes for search and
+course completeness. `search-index.js` has been regenerated after the expansion.
+
 Scratch navigation chain: sc01 → sc02
 
 | File | Title |

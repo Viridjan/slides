@@ -5,7 +5,7 @@ Programmare - PR00.01 - Introduzione alla programmazione
 Programmare - PR00.01
 Introduzione alla programmazione
 Linguaggi, stile, ciclo di vita del software, categorie di linguaggi, sintassi, semantica, testing e computabilita.
-15 slide
+30 slide
 Teoria
 Linguaggi
 
@@ -127,6 +127,133 @@ Paradigmi: procedurale, object-oriented, funzionale e logico organizzano il prog
 Limiti: la computabilita spiega perche alcuni problemi non sono risolvibili da programmi generali.
 
 --- Slide 15 ---
+Leggibilita
+Un programma comunica intenzioni
+La macchina non ha bisogno di nomi espressivi, ma le persone si. Un nome ben scelto riduce il carico mentale e rende piu chiaro il ruolo di dati, funzioni e procedure.
+Nome utile: totaleOrdine spiega cosa contiene il valore.
+Nome opaco: x puo essere accettabile solo in contesti molto brevi.
+Contesto: il nome deve chiarire perche il dato esiste nel problema.
+Nota didattica: questa slide serve a distinguere codice che funziona da codice che si lascia capire. In esercizi brevi la differenza sembra piccola; in progetti reali diventa decisiva per correzioni, collaborazione e manutenzione.
+
+--- Slide 16 ---
+Manutenzione
+Il costo vero arriva dopo la prima versione
+Molto software vive piu a lungo di quanto previsto. Dopo la consegna iniziale arrivano correzioni, nuove esigenze, aggiornamenti dell'ambiente e passaggi di responsabilita tra persone diverse.
+Correggere: capire perche un comportamento non e quello atteso.
+Estendere: aggiungere una funzionalita senza riscrivere tutto.
+Adattare: far funzionare il programma in un contesto nuovo.
+Nota didattica: mantenere significa modificare un programma senza perderne il controllo. Per questo conviene scrivere moduli piccoli, evitare dipendenze inutili e lasciare chiari i motivi delle scelte principali.
+
+--- Slide 17 ---
+Componenti
+Dividere per capire
+Un linguaggio efficace aiuta a separare il programma in parti con responsabilita riconoscibili. Ogni parte dovrebbe avere un compito chiaro e un confine comprensibile.
+Obiettivo: ridurre le dipendenze inutili tra componenti, cosi una modifica locale non produce effetti imprevedibili altrove.
+Nota didattica: la scomposizione e un criterio di progettazione. Ogni componente dovrebbe ricevere dati comprensibili, produrre un risultato definito e nascondere dettagli che non servono al resto del programma.
+
+--- Slide 18 ---
+Scelte
+Il trade-off non e un difetto
+Un linguaggio puo essere molto permissivo, molto rigido, molto veloce o molto espressivo. Ogni scelta favorisce alcune attivita e ne rende altre piu difficili.
+Piu liberta: scrittura rapida e prototipi veloci, ma piu responsabilita nel testare.
+Piu vincoli: controlli migliori prima dell'esecuzione, ma maggiore attenzione a tipi, strutture e dichiarazioni.
+Nota didattica: scegliere un linguaggio significa accettare compromessi. La liberta aiuta a sperimentare, i vincoli aiutano a prevenire errori; la scelta corretta dipende dal contesto didattico, tecnico e organizzativo.
+
+--- Slide 19 ---
+Variabile
+Un nome per un valore che puo cambiare
+La variabile permette di ricordare informazioni durante l'esecuzione. Puo contenere un dato iniziale, un risultato parziale, uno stato o un contatore.
+Valore: il contenuto attuale.
+Nome: il riferimento usato nel programma.
+Uso: il motivo per cui quel dato serve all'algoritmo.
+Nota didattica: una variabile non e solo una scatola. E un punto della memoria con un nome, un valore e un ruolo nell algoritmo. Nomi chiari aiutano a seguire lo stato del programma.
+
+--- Slide 20 ---
+Tipo
+Il tipo limita e protegge le operazioni
+Sapere se un valore e numero, testo, valore logico o struttura composta permette al linguaggio di stabilire quali operazioni sono sensate.
+Numero: partecipa a somme, confronti e calcoli.
+Stringa: puo essere concatenata, cercata o divisa.
+Booleano: guida condizioni, controlli e decisioni.
+Nota didattica: i tipi proteggono dalle operazioni prive di senso. Sommare due numeri e diverso da concatenare due testi; confrontare valori logici richiede regole diverse rispetto al calcolo aritmetico.
+
+--- Slide 21 ---
+Espressioni
+Calcolare un valore a partire da altri valori
+Una espressione combina variabili, costanti, operatori e chiamate per produrre un risultato. Puo essere semplice come una somma o complessa come una condizione composta.
+Esempi: prezzo * quantita; eta >= 18; nome + cognome.
+Una espressione puo costruire testi, verificare condizioni o selezionare dati.
+Nota didattica: le espressioni sono il luogo in cui i dati vengono trasformati. Capire precedenza degli operatori, tipi coinvolti e risultato prodotto evita molti errori logici difficili da vedere.
+
+--- Slide 22 ---
+Controllo
+Il flusso decide l'ordine delle azioni
+Le strutture di controllo stabiliscono se una parte del programma viene eseguita, quante volte e in quale ordine.
+Sequenza: istruzioni una dopo l'altra.
+Selezione: rami diversi in base a una condizione.
+Iterazione: ripetizione finche serve o per ogni elemento.
+Nota didattica: il controllo del flusso rende il programma adattabile. Senza condizioni e cicli, il codice eseguirebbe sempre gli stessi passi e non potrebbe reagire a input diversi.
+
+--- Slide 23 ---
+Sottoprogrammi
+Dare un nome a una procedura
+Funzioni e procedure permettono di isolare una parte dell'algoritmo, riusarla e testarla separatamente. Sono uno strumento di organizzazione prima ancora che di sintassi.
+Quando una funzione ha un compito chiaro, il programma principale diventa piu leggibile.
+Nota didattica: i sottoprogrammi permettono di dare un nome a una parte del ragionamento. Un buon sottoprogramma ha input chiari, un effetto limitato e un risultato facile da verificare.
+
+--- Slide 24 ---
+Errori
+Gli errori non sono tutti uguali
+Un linguaggio e i suoi strumenti possono intercettare alcuni errori prima, altri durante l'esecuzione e altri solo confrontando il risultato con cio che ci aspettavamo.
+Sintassi: forma non valida.
+Runtime: blocco in una situazione specifica.
+Logica: risultato errato.
+Nota didattica: distinguere la famiglia dell errore accelera la diagnosi. Se il codice non parte guardo la sintassi; se si blocca guardo il caso; se produce risultati sbagliati torno all algoritmo.
+
+--- Slide 25 ---
+Testing
+Un test e un esempio controllato
+Testare significa scegliere un input, conoscere il risultato atteso ed eseguire il programma per verificare se il comportamento coincide con la previsione.
+Caso normale: esempio tipico.
+Caso limite: valore minimo, massimo, vuoto o insolito.
+Caso errato: input non valido da gestire senza danni.
+Nota didattica: un test non dimostra che il programma sia perfetto, ma aumenta la fiducia. Test diversi coprono comportamenti diversi e aiutano a scoprire errori prima che emergano nell uso reale.
+
+--- Slide 26 ---
+Compilati e interpretati
+Nei linguaggi compilati una fase preliminare analizza e traduce il codice. Questo fornisce feedback prima dell'esecuzione.
+Negli ambienti interpretati il programma puo essere provato in modo piu immediato. La rapidita di sperimentazione va accompagnata da test accurati.
+Nota didattica: compilazione e interpretazione cambiano il momento in cui riceviamo feedback. In entrambi i casi resta necessario progettare bene e provare comportamenti significativi.
+
+--- Slide 27 ---
+Paradigmi
+Un paradigma e un modo di pensare
+Procedurale, object-oriented, funzionale e logico non sono solo etichette: propongono modi diversi di organizzare dati, operazioni e responsabilita.
+Procedurale: sequenza di passi.
+Oggetti: stato e comportamento insieme.
+Funzionale: trasformazioni di valori.
+Logico: fatti, regole e inferenza.
+Nota didattica: i paradigmi influenzano come organizziamo il pensiero. Lo stesso problema puo essere visto come sequenza di passi, collaborazione tra oggetti, trasformazione di valori o insieme di regole.
+
+--- Slide 28 ---
+Limiti
+La computabilita definisce il campo di gioco
+Un linguaggio puo essere potente, ma non puo superare i limiti teorici del calcolo. Alcuni problemi non hanno una soluzione algoritmica generale.
+Gli strumenti automatici possono aiutare molto, ma non possono dimostrare ogni proprieta interessante di ogni programma possibile.
+Nota didattica: i limiti teorici impediscono soluzioni universali per alcune domande sui programmi. Questo non rende inutili gli strumenti automatici, ma chiarisce perche servono anche progettazione e test.
+
+--- Slide 29 ---
+Metodo
+Dal concetto al programma affidabile
+Capire: definire dati, obiettivo e vincoli.
+Progettare: separare componenti e responsabilita.
+Scrivere: usare sintassi e stile coerenti.
+Provare: eseguire test rappresentativi.
+Correggere: isolare causa ed effetto.
+Mantenere: lasciare codice comprensibile a chi arrivera dopo.
+Nota didattica: il metodo collega teoria e pratica. Capire, progettare, scrivere, provare, correggere e mantenere sono fasi iterative: spesso si torna indietro quando un test mostra un problema.
+
+--- Slide 30 ---
 Prima capiamo il linguaggio, poi scriviamo codice.
 Programmare significa scegliere rappresentazioni, istruzioni, controlli e test per trasformare un'idea in comportamento affidabile.
-Prossimo: PR01.01 - Scratch
+Prossimo: PR00.02 - Dati e codifica

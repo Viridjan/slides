@@ -4,6 +4,7 @@ Programmare - PR00.02 - Dati e codifica
 --- Slide 1 ---
 Dati e codifica
 Informazioni, rappresentazione binaria, bit, byte, memoria e conversioni: le basi che rendono programmabile qualunque contenuto digitale.
+18 slide
 
 --- Slide 2 ---
 Dal significato al dato
@@ -47,5 +48,71 @@ L'esadecimale usa 16 simboli e permette di scrivere lunghe sequenze binarie in m
 Per questo motivo l'esadecimale compare spesso quando gli sviluppatori devono leggere valori vicini alla memoria o alla rappresentazione interna. Nei colori web, per esempio, coppie di cifre esadecimali indicano intensita di rosso, verde e blu. Non sostituisce il binario: lo rende piu compatto da leggere.
 
 --- Slide 9 ---
+Codici
+Una tabella collega numeri e simboli
+Per trasformare testo in dati serve una convenzione condivisa. Una tabella di codifica stabilisce quale numero rappresenta ogni carattere, cosi programmi diversi possono interpretare lo stesso file.
+ASCII e una codifica storica per lettere, cifre e simboli di base. Unicode estende la rappresentazione a molti alfabeti, simboli e caratteri internazionali.
+Nota didattica: senza una tabella condivisa, la stessa sequenza numerica potrebbe essere interpretata in modo diverso. La codifica del testo e quindi un accordo tecnico che rende possibile lo scambio di documenti.
+
+--- Slide 10 ---
+Testo
+Anche una frase e una sequenza di numeri
+Quando salviamo un documento, ogni carattere viene trasformato in un codice. Spazi, accenti, punteggiatura e ritorni a capo occupano spazio e devono essere interpretati correttamente.
+La stessa sequenza di byte puo essere visualizzata male se il programma usa la codifica sbagliata. Per questo nei file e nei protocolli e importante indicare quale standard di codifica viene usato.
+Nota didattica: problemi con accenti e simboli strani spesso dipendono da una codifica interpretata male. Questo mostra che il dato salvato e il significato visualizzato non sono automaticamente la stessa cosa.
+
+--- Slide 11 ---
+Immagini
+Pixel, risoluzione e colore
+Una immagine raster e una griglia di pixel. Ogni pixel conserva valori numerici che descrivono il colore; piu pixel e piu dettagli di colore significano file piu grandi.
+Risoluzione: numero di pixel in larghezza e altezza.
+Profondita: quanti bit descrivono il colore di ogni pixel.
+Compressione: metodo per ridurre la dimensione del file.
+Nota didattica: una foto piu grande non pesa solo perche contiene piu soggetti, ma perche contiene piu pixel e piu informazioni di colore. Risoluzione e profondita agiscono insieme.
+
+--- Slide 12 ---
+Audio
+Campionare un segnale nel tempo
+Un suono digitale nasce misurando il segnale sonoro molte volte al secondo. Ogni misurazione diventa un numero; piu campioni e piu precisione aumentano qualita e peso del file.
+Frequenza di campionamento e profondita di bit sono quindi parametri pratici: influenzano sia la fedelta del suono sia la quantita di memoria necessaria.
+Nota didattica: l audio digitale e una sequenza di misure. Se campioniamo troppo poco perdiamo dettagli; se campioniamo molto otteniamo qualita maggiore ma consumiamo piu memoria e banda.
+
+--- Slide 13 ---
+Compressione
+Ridurre lo spazio senza perdere il significato utile
+La compressione cerca ridondanze nei dati o elimina dettagli poco percepibili. E una scelta importante quando salviamo immagini, audio, video o archivi.
+Lossless: permette di ricostruire i dati originali senza perdita.
+Lossy: riduce di piu il peso, ma sacrifica parte dell'informazione.
+Nota didattica: scegliere tra lossless e lossy dipende dallo scopo. Un archivio di lavoro richiede fedelta; una anteprima web puo preferire peso ridotto e caricamento rapido.
+
+--- Slide 14 ---
+Formati
+Il formato dice come leggere i byte
+Un file non e solo una sequenza di byte: ha una struttura. Il formato specifica dove sono i metadati, come sono organizzati i contenuti e quale programma puo interpretarli.
+TXT, PNG, MP3 e PDF non differiscono solo per estensione, ma per regole interne di codifica e organizzazione dei dati.
+Nota didattica: cambiare estensione non cambia davvero il formato. Un programma deve trovare dentro al file una struttura coerente con cio che si aspetta di leggere.
+
+--- Slide 15 ---
+Overflow
+Anche i numeri hanno un limite pratico
+Se usiamo un numero fisso di bit, possiamo rappresentare solo un intervallo finito di valori. Superare quel limite puo produrre errori o risultati inattesi.
+Con 8 bit senza segno il minimo e 0 e il massimo e 255; per rappresentare 256 serve piu spazio.
+Nota didattica: i limiti numerici sono invisibili finche non li superiamo. Nei programmi reali e importante scegliere tipi e dimensioni adatti ai valori che possono comparire.
+
+--- Slide 16 ---
+Endianness
+L'ordine dei byte puo cambiare
+Quando un valore occupa piu byte, sistemi diversi possono memorizzare prima la parte piu significativa o quella meno significativa. E un dettaglio tecnico, ma conta nello scambio di dati a basso livello.
+Little endian: prima il byte meno significativo.
+Big endian: prima il byte piu significativo.
+Nota didattica: l ordine dei byte e un tema avanzato, ma spiega perche nello scambio tra sistemi non basta inviare numeri: bisogna concordare anche come sono rappresentati.
+
+--- Slide 17 ---
+Pratica
+Domande da farsi quando si sceglie una rappresentazione
+Quanti dettagli devo conservare? Quanto puo pesare il file o la struttura? Quali programmi devono leggerla? Quanto spesso verra elaborata? Cosa succede se un dato e corrotto? Deve viaggiare su rete o tra sistemi diversi?
+Nota didattica: queste domande trasformano la codifica in una scelta progettuale. Non esiste un formato migliore in assoluto: esiste un formato adatto al vincolo del problema.
+
+--- Slide 18 ---
 Ogni programma lavora su rappresentazioni.
 Prima di scrivere istruzioni dobbiamo sapere come le informazioni diventano dati. Da qui possiamo passare agli algoritmi.
