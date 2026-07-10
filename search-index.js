@@ -3248,7 +3248,7 @@ globalThis.COURSE_SEARCH_INDEX = [
     ]
   },
   {
-    "href": "su12-presentazioni.html",
+    "href": "su13-presentazioni.html",
     "section": "Suite Ufficio",
     "code": "SU04.01",
     "title": "Dillo con una slide",

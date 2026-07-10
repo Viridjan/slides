@@ -291,7 +291,7 @@ Navigation chain: sm01 → … → sm11
 
 ### Suite Ufficio
 
-Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 → su08 → su09 → su10 → su11 → su12-pivot → su12-presentazioni
+Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 → su08 → su09 → su10 → su11 → su12 → su13
 
 | File | Title |
 | --- | --- |
@@ -307,7 +307,7 @@ Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 →
 | `su10-funzioni-top.html` | Le 10 funzioni più usate |
 | `su11-testo.html` | Manipolare il testo |
 | `su12-tabelle-pivot.html` | Tabelle pivot |
-| `su12-presentazioni.html` | Dillo con una slide |
+| `su13-presentazioni.html` | Dillo con una slide |
 
 ### Intelligenza Artificiale
 

@@ -44,7 +44,7 @@ window.QUALITY_INDEX = {
   "su10-funzioni-top.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "su11-testo.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "su12-tabelle-pivot.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
-  "su12-presentazioni.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
+  "su13-presentazioni.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "sd01-introduzione.html": { coverage: 2, clarity: 2, examples: 2, correctness: 1, freshness: 1 },
   "sd02-minacce.html": { coverage: 2, clarity: 2, examples: 2, correctness: 1, freshness: 1 },
   "sd03-privacy.html": { coverage: 2, clarity: 2, examples: 2, correctness: 1, freshness: 1 },
