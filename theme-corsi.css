@@ -257,8 +257,10 @@ em.sky,.accent{color:var(--accent-2) !important;}
   max-width:980px !important;
 }
 
+/* Niente chip codice+corso sulle slide di apertura: l'argomento è nel
+   titolo; sulle slide di contenuto lo identifica il .tape. */
 .title-slide .chips{
-  display:flex !important;
+  display:none !important;
 }
 
 .closing{
