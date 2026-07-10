@@ -131,6 +131,11 @@ body.course-td{--slide-bg:#e9f2f5;--line:rgba(58,116,138,.22);--accent:#33768e;-
 .page-num b,.num b{font-size:28px !important;}
 
 .tape,.tag{
+  /* base completa: alcuni deck non definiscono .tape nel proprio CSS */
+  display:inline-block;
+  padding:10px 22px;
+  font-weight:700;
+  text-transform:uppercase;
   background:var(--accent) !important;
   color:#fff !important;
   border-radius:999px !important;
