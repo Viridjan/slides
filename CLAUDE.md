@@ -502,6 +502,37 @@ script. The script computes the total from `.question` elements, so adding or
 removing questions should not require changing scoring code. Still update the
 visible score text and index card labels when the question count changes.
 
+## Codex slide skills
+
+Codex update 2026-07-10: after pushing commit `665671a`, the user asked Codex to
+check `https://github.com/ToseaAI/awesome-html-slide-skills` and install whatever
+was usable. Codex scanned the linked repositories for `SKILL.md` files and
+installed 34 slide-related skills into `~/.codex/skills/`.
+
+Notable installed skills include:
+
+- `frontend-slides`
+- `frontend-slides-editable`
+- `html-ppt-skill`
+- `html-slide`
+- `html-slide-plan`
+- `html-slide-prompt`
+- `html-slide-render`
+- `html-slide-to-pptx`
+- `slide-design`
+- `slide-creator`
+- `slide-writer`
+- `ppt-workflow`
+- `ppt-master`
+- `ppt-forge`
+- `ppt-design`
+- `visual-explainer`
+- `visual-cognition-slides`
+
+These skills are installed locally but require restarting Codex before they are
+listed as active skills in a new session. Until then, continue using the repo's
+existing HTML/TXT/index workflow.
+
 ## Source materials
 
 Original PPTX/PDF/source files live in `corsi/`. Some files are large. The
