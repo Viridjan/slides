@@ -1,209 +1,103 @@
-Suite Ufficio · SU18 — Google Apps Script
-=========================================
+Suite Ufficio · SU03.12 — Google Apps Script
+============================================
 
 --- Slide 1 ---
-Automazione · SU18
-Google Apps Script
-Automatizzare Google Workspace con JavaScript: Sheets, Drive, Gmail, trigger, web app, autorizzazioni, API e procedure cloud.
+Automazione · SU03.12 Google Apps
+ Script Automatizzare Google Workspace con JavaScript: Sheets, Drive, Gmail, trigger, web app, autorizzazioni, API e procedure cloud. 25 slide SU03.12 Apps Script Sheets
+ ↓ Apps Script
+Drive / Gmail / API
+ ↓ trigger
+workflow cloud
 
 --- Slide 2 ---
-Cosa vedremo
-1. Che cos’è Apps Script
-2. Editor e progetto
-3. JavaScript essenziale
-4. SpreadsheetApp
-5. getValues e setValues
-6. Range e fogli
-7. Menu personalizzati
-8. Trigger semplici
-9. Trigger installabili
-10. Autorizzazioni
-11. GmailApp
-12. DriveApp
-13. UrlFetchApp
-14. JSON e oggetti
-15. HTML Service
-16. Web app
-17. PropertiesService
-18. LockService
-19. Logger e debug
-20. Quote e limiti
-21. Deployment e versioni
-22. Progetto finale Apps Script
+Percorso Cosa vedremo 01 · Che cos’è Apps Script Google Apps Script è JavaScript nel cloud Google: automatizza Sheets, Docs, Drive, Gmail, Calendar e servizi esterni. 02 · Editor e progetto Ogni progetto ha file .gs, manifest, trigger e autorizzazioni. Il codice vive online ed è legato a un account Google. 03 · JavaScript essenziale Variabili let/const, funzioni, array, oggetti e template string sono la base per scrivere script leggibili. 04 · SpreadsheetApp SpreadsheetApp apre file, fogli, range e valori. È l’API centrale per lavorare con Google Sheets. 05 · getValues e setValues Leggere e scrivere in blocco è molto più veloce che cella per cella: usa array bidimensionali. 06 · Range e fogli getSheetByName, getRange, appendRow, clearContent e setBackground sono operazioni quotidiane. 07 · Menu personalizzati onOpen può aggiungere un menu al foglio: Aggiorna report, Importa dati, Invia email. 08 · Trigger semplici onOpen e onEdit reagiscono ad apertura e modifica. Sono comodi ma hanno limiti di autorizzazione. 09 · Trigger installabili Trigger a tempo o su evento eseguono script con autorizzazioni più forti: report giornalieri, pulizia notturna, invii programmati. 10 · Autorizzazioni La prima esecuzione chiede permessi. Spiega sempre perché uno script vuole accedere a Gmail, Drive o Sheets. 11 · GmailApp Puoi inviare email automatiche, reminder e report. Attenzione a quote, privacy e destinatari. 12 · DriveApp DriveApp crea cartelle, cerca file, copia template e salva PDF o CSV generati dallo script.
 
 --- Slide 3 ---
-Che cos’è Apps Script
-Google Apps Script è JavaScript nel cloud Google: automatizza Sheets, Docs, Drive, Gmail, Calendar e servizi esterni.
-Idea chiave: Google Apps Script è JavaScript nel cloud Google: automatizza Sheets, Docs, Drive, Gmail, Calendar e servizi esterni.
-Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
-Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
-Esercizio: Prova a descrivere il caso reale del tuo lavoro in tre passaggi prima di scrivere codice.
+Fondamenti Che cos’è Apps Script Google Apps Script è JavaScript nel cloud Google: automatizza Sheets, Docs, Drive, Gmail, Calendar e servizi esterni. Idea chiave Google Apps Script è JavaScript nel cloud Google: automatizza Sheets, Docs, Drive, Gmail, Calendar e servizi esterni. Quando serve Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano. Errore comune Scrivere codice prima di chiarire input, output e casi limite. Esercizio Prova a descrivere il caso reale del tuo lavoro in tre passaggi prima di scrivere codice.
 
 --- Slide 4 ---
-Editor e progetto
-Ogni progetto ha file .gs, manifest, trigger e autorizzazioni. Il codice vive online ed è legato a un account Google.
-
-function esempio2() {
-  // Editor e progetto
-  console.log('passo 2');
+Fondamenti Editor e progetto Ogni progetto ha file .gs, manifest, trigger e autorizzazioni. Il codice vive online ed è legato a un account Google. function esempio2() {
+ // Editor e progetto
+ console.log('passo 2');
 }
 
 --- Slide 5 ---
-JavaScript essenziale
-Variabili let/const, funzioni, array, oggetti e template string sono la base per scrivere script leggibili.
-Idea chiave: Variabili let/const, funzioni, array, oggetti e template string sono la base per scrivere script leggibili.
-Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
-Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+Fondamenti JavaScript essenziale Variabili let/const, funzioni, array, oggetti e template string sono la base per scrivere script leggibili. Idea chiave Variabili let/const, funzioni, array, oggetti e template string sono la base per scrivere script leggibili. Quando serve Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano. Errore comune Scrivere codice prima di chiarire input, output e casi limite.
 
 --- Slide 6 ---
-SpreadsheetApp
-SpreadsheetApp apre file, fogli, range e valori. È l’API centrale per lavorare con Google Sheets.
-Idea chiave: SpreadsheetApp apre file, fogli, range e valori. È l’API centrale per lavorare con Google Sheets.
-Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
-Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+Costrutti SpreadsheetApp SpreadsheetApp apre file, fogli, range e valori. È l’API centrale per lavorare con Google Sheets. Idea chiave SpreadsheetApp apre file, fogli, range e valori. È l’API centrale per lavorare con Google Sheets. Quando serve Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano. Errore comune Scrivere codice prima di chiarire input, output e casi limite.
 
 --- Slide 7 ---
-getValues e setValues
-Leggere e scrivere in blocco è molto più veloce che cella per cella: usa array bidimensionali.
-
-function esempio5() {
-  // getValues e setValues
-  console.log('passo 5');
+Costrutti getValues e setValues Leggere e scrivere in blocco è molto più veloce che cella per cella: usa array bidimensionali. function esempio5() {
+ // getValues e setValues
+ console.log('passo 5');
 }
 
 --- Slide 8 ---
-Range e fogli
-getSheetByName, getRange, appendRow, clearContent e setBackground sono operazioni quotidiane.
-Idea chiave: getSheetByName, getRange, appendRow, clearContent e setBackground sono operazioni quotidiane.
-Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
-Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
-Esercizio: Prova a descrivere il caso reale del tuo lavoro in tre passaggi prima di scrivere codice.
+Costrutti Range e fogli getSheetByName, getRange, appendRow, clearContent e setBackground sono operazioni quotidiane. Idea chiave getSheetByName, getRange, appendRow, clearContent e setBackground sono operazioni quotidiane. Quando serve Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano. Errore comune Scrivere codice prima di chiarire input, output e casi limite. Esercizio Prova a descrivere il caso reale del tuo lavoro in tre passaggi prima di scrivere codice.
 
 --- Slide 9 ---
-Menu personalizzati
-onOpen può aggiungere un menu al foglio: Aggiorna report, Importa dati, Invia email.
-Idea chiave: onOpen può aggiungere un menu al foglio: Aggiorna report, Importa dati, Invia email.
-Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
-Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+Costrutti Menu personalizzati onOpen può aggiungere un menu al foglio: Aggiorna report, Importa dati, Invia email. Idea chiave onOpen può aggiungere un menu al foglio: Aggiorna report, Importa dati, Invia email. Quando serve Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano. Errore comune Scrivere codice prima di chiarire input, output e casi limite.
 
 --- Slide 10 ---
-Trigger semplici
-onOpen e onEdit reagiscono ad apertura e modifica. Sono comodi ma hanno limiti di autorizzazione.
-
-function esempio8() {
-  // Trigger semplici
-  console.log('passo 8');
+Costrutti Trigger semplici onOpen e onEdit reagiscono ad apertura e modifica. Sono comodi ma hanno limiti di autorizzazione. function esempio8() {
+ // Trigger semplici
+ console.log('passo 8');
 }
 
 --- Slide 11 ---
-Trigger installabili
-Trigger a tempo o su evento eseguono script con autorizzazioni più forti: report giornalieri, pulizia notturna, invii programmati.
-Idea chiave: Trigger a tempo o su evento eseguono script con autorizzazioni più forti: report giornalieri, pulizia notturna, invii programmati.
-Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
-Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+Costrutti Trigger installabili Trigger a tempo o su evento eseguono script con autorizzazioni più forti: report giornalieri, pulizia notturna, invii programmati. Idea chiave Trigger a tempo o su evento eseguono script con autorizzazioni più forti: report giornalieri, pulizia notturna, invii programmati. Quando serve Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano. Errore comune Scrivere codice prima di chiarire input, output e casi limite.
 
 --- Slide 12 ---
-Autorizzazioni
-La prima esecuzione chiede permessi. Spiega sempre perché uno script vuole accedere a Gmail, Drive o Sheets.
-Idea chiave: La prima esecuzione chiede permessi. Spiega sempre perché uno script vuole accedere a Gmail, Drive o Sheets.
-Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
-Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+Costrutti Autorizzazioni La prima esecuzione chiede permessi. Spiega sempre perché uno script vuole accedere a Gmail, Drive o Sheets. Idea chiave La prima esecuzione chiede permessi. Spiega sempre perché uno script vuole accedere a Gmail, Drive o Sheets. Quando serve Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano. Errore comune Scrivere codice prima di chiarire input, output e casi limite.
 
 --- Slide 13 ---
-GmailApp
-Puoi inviare email automatiche, reminder e report. Attenzione a quote, privacy e destinatari.
-
-function esempio11() {
-  // GmailApp
-  console.log('passo 11');
+Automazione GmailApp Puoi inviare email automatiche, reminder e report. Attenzione a quote, privacy e destinatari. Esercizio Prova a descrivere il caso reale del tuo lavoro in tre passaggi prima di scrivere codice. function esempio11() {
+ // GmailApp
+ console.log('passo 11');
 }
-Esercizio: Prova a descrivere il caso reale del tuo lavoro in tre passaggi prima di scrivere codice.
 
 --- Slide 14 ---
-DriveApp
-DriveApp crea cartelle, cerca file, copia template e salva PDF o CSV generati dallo script.
-Idea chiave: DriveApp crea cartelle, cerca file, copia template e salva PDF o CSV generati dallo script.
-Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
-Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+Automazione DriveApp DriveApp crea cartelle, cerca file, copia template e salva PDF o CSV generati dallo script. Idea chiave DriveApp crea cartelle, cerca file, copia template e salva PDF o CSV generati dallo script. Quando serve Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano. Errore comune Scrivere codice prima di chiarire input, output e casi limite.
 
 --- Slide 15 ---
-UrlFetchApp
-Permette di chiamare API esterne: CRM, gestionali, servizi web, endpoint JSON.
-Idea chiave: Permette di chiamare API esterne: CRM, gestionali, servizi web, endpoint JSON.
-Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
-Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+Automazione UrlFetchApp Permette di chiamare API esterne: CRM, gestionali, servizi web, endpoint JSON. Idea chiave Permette di chiamare API esterne: CRM, gestionali, servizi web, endpoint JSON. Quando serve Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano. Errore comune Scrivere codice prima di chiarire input, output e casi limite.
 
 --- Slide 16 ---
-JSON e oggetti
-Le API parlano spesso JSON. Devi saper leggere proprietà, array e oggetti annidati.
-
-function esempio14() {
-  // JSON e oggetti
-  console.log('passo 14');
+Automazione JSON e oggetti Le API parlano spesso JSON. Devi saper leggere proprietà, array e oggetti annidati. function esempio14() {
+ // JSON e oggetti
+ console.log('passo 14');
 }
 
 --- Slide 17 ---
-HTML Service
-Apps Script può mostrare sidebar, dialoghi e piccole web app con HTML, CSS e JavaScript client.
-Idea chiave: Apps Script può mostrare sidebar, dialoghi e piccole web app con HTML, CSS e JavaScript client.
-Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
-Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+Automazione HTML Service Apps Script può mostrare sidebar, dialoghi e piccole web app con HTML, CSS e JavaScript client. Idea chiave Apps Script può mostrare sidebar, dialoghi e piccole web app con HTML, CSS e JavaScript client. Quando serve Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano. Errore comune Scrivere codice prima di chiarire input, output e casi limite.
 
 --- Slide 18 ---
-Web app
-Pubblicare come web app consente moduli personalizzati, dashboard e endpoint semplici.
-Idea chiave: Pubblicare come web app consente moduli personalizzati, dashboard e endpoint semplici.
-Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
-Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
-Esercizio: Prova a descrivere il caso reale del tuo lavoro in tre passaggi prima di scrivere codice.
+Automazione Web app Pubblicare come web app consente moduli personalizzati, dashboard e endpoint semplici. Idea chiave Pubblicare come web app consente moduli personalizzati, dashboard e endpoint semplici. Quando serve Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano. Errore comune Scrivere codice prima di chiarire input, output e casi limite. Esercizio Prova a descrivere il caso reale del tuo lavoro in tre passaggi prima di scrivere codice.
 
 --- Slide 19 ---
-PropertiesService
-Salva configurazioni persistenti: ID cartelle, email responsabili, ultimo aggiornamento, token.
-
-function esempio17() {
-  // PropertiesService
-  console.log('passo 17');
+Automazione PropertiesService Salva configurazioni persistenti: ID cartelle, email responsabili, ultimo aggiornamento, token. function esempio17() {
+ // PropertiesService
+ console.log('passo 17');
 }
 
 --- Slide 20 ---
-LockService
-Evita che due esecuzioni simultanee modifichino gli stessi dati nello stesso momento.
-Idea chiave: Evita che due esecuzioni simultanee modifichino gli stessi dati nello stesso momento.
-Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
-Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+Produzione LockService Evita che due esecuzioni simultanee modifichino gli stessi dati nello stesso momento. Idea chiave Evita che due esecuzioni simultanee modifichino gli stessi dati nello stesso momento. Quando serve Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano. Errore comune Scrivere codice prima di chiarire input, output e casi limite.
 
 --- Slide 21 ---
-Logger e debug
-Logger.log, console e Execution transcript aiutano a capire cosa succede durante l’esecuzione.
-Idea chiave: Logger.log, console e Execution transcript aiutano a capire cosa succede durante l’esecuzione.
-Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
-Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+Produzione Logger e debug Logger.log, console e Execution transcript aiutano a capire cosa succede durante l’esecuzione. Idea chiave Logger.log, console e Execution transcript aiutano a capire cosa succede durante l’esecuzione. Quando serve Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano. Errore comune Scrivere codice prima di chiarire input, output e casi limite.
 
 --- Slide 22 ---
-Quote e limiti
-Apps Script ha limiti giornalieri e temporali. Gli script professionali devono rispettarli.
-
-function esempio20() {
-  // Quote e limiti
-  console.log('passo 20');
+Produzione Quote e limiti Apps Script ha limiti giornalieri e temporali. Gli script professionali devono rispettarli. function esempio20() {
+ // Quote e limiti
+ console.log('passo 20');
 }
 
 --- Slide 23 ---
-Deployment e versioni
-Distribuzioni, versioni e autorizzazioni determinano chi può usare lo script e quale codice gira.
-Idea chiave: Distribuzioni, versioni e autorizzazioni determinano chi può usare lo script e quale codice gira.
-Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
-Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
-Esercizio: Prova a descrivere il caso reale del tuo lavoro in tre passaggi prima di scrivere codice.
+Produzione Deployment e versioni Distribuzioni, versioni e autorizzazioni determinano chi può usare lo script e quale codice gira. Idea chiave Distribuzioni, versioni e autorizzazioni determinano chi può usare lo script e quale codice gira. Quando serve Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano. Errore comune Scrivere codice prima di chiarire input, output e casi limite. Esercizio Prova a descrivere il caso reale del tuo lavoro in tre passaggi prima di scrivere codice.
 
 --- Slide 24 ---
-Progetto finale Apps Script
-Un progetto completo legge un foglio, filtra righe, genera PDF, invia email e scrive un log.
-Idea chiave: Un progetto completo legge un foglio, filtra righe, genera PDF, invia email e scrive un log.
-Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
-Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+Produzione Progetto finale Apps Script Un progetto completo legge un foglio, filtra righe, genera PDF, invia email e scrive un log. Idea chiave Un progetto completo legge un foglio, filtra righe, genera PDF, invia email e scrive un log. Quando serve Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano. Errore comune Scrivere codice prima di chiarire input, output e casi limite.
 
 --- Slide 25 ---
-Apps Script collega i fogli agli strumenti Google.
-È ideale quando il lavoro parte da Sheets ma deve produrre email, file, report e azioni programmate.
+Apps Script collega i fogli agli strumenti Google. È ideale quando il lavoro parte da Sheets ma deve produrre email, file, report e azioni programmate. Torna all'indice

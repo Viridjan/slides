@@ -42,6 +42,7 @@ body.search-active .module-card.search-hidden{display:none;}
 
 /* Section group */
 .section-group{margin-bottom:22px;}
+.series-divider{grid-column:1/-1;height:2px;background:linear-gradient(90deg,transparent,rgba(216,201,180,.45),transparent);margin:12px 0 4px;}
 .section-label{font-family:var(--font-mono);font-size:18px;letter-spacing:3px;text-transform:uppercase;color:rgba(244,236,224,.72);margin-bottom:16px;display:flex;align-items:center;gap:16px;cursor:pointer;user-select:none;background:rgba(244,236,224,.06);border:1px solid rgba(216,201,180,.16);border-left:4px solid var(--gold-deep);border-radius:12px;padding:16px 18px;box-shadow:0 10px 28px rgba(0,0,0,.16);transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease;}
 .section-label::before{content:"▾";font-size:20px;color:var(--gold);transition:transform .2s ease,color .2s ease;}
 .section-label::after{content:"";flex:1;height:1px;background:rgba(216,201,180,.18);}
@@ -865,9 +866,9 @@ body.search-active .module-card.search-hidden{display:none;}
         <div class="card-arrow">→</div>
       </a>
       <a class="module-card inf" href="su14-fogli-calcolo-avanzati.html">
-        <div class="card-num">SU14</div>
+        <div class="card-num">SU03.08</div>
         <div class="card-body">
-          <div class="card-tag">SUITE UFFICIO · SU14</div>
+          <div class="card-tag">SUITE UFFICIO · SU03.08</div>
           <div class="card-title">Fogli di calcolo avanzati</div>
           <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Struttura dati, convalida, formattazione condizionale, import CSV, protezioni, collaborazione, dashboard e checklist per fogli professionali.</div>
@@ -876,9 +877,9 @@ body.search-active .module-card.search-hidden{display:none;}
       </a>
 
       <a class="module-card inf" href="su15-query-fogli-calcolo.html">
-        <div class="card-num">SU15</div>
+        <div class="card-num">SU03.09</div>
         <div class="card-body">
-          <div class="card-tag">SUITE UFFICIO · SU15</div>
+          <div class="card-tag">SUITE UFFICIO · SU03.09</div>
           <div class="card-title">Query nei fogli di calcolo</div>
           <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">QUERY in Google Sheets, logica SQL, SELECT, WHERE, ORDER BY, GROUP BY, PIVOT, Power Query, join, pulizia dati e debug.</div>
@@ -887,9 +888,9 @@ body.search-active .module-card.search-hidden{display:none;}
       </a>
 
       <a class="module-card inf" href="su16-macro-fogli-calcolo.html">
-        <div class="card-num">SU16</div>
+        <div class="card-num">SU03.10</div>
         <div class="card-body">
-          <div class="card-tag">SUITE UFFICIO · SU16</div>
+          <div class="card-tag">SUITE UFFICIO · SU03.10</div>
           <div class="card-title">Macro nei fogli di calcolo</div>
           <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Registrare macro, automatizzare report, riferimenti relativi e assoluti, pulsanti, sicurezza, input, errori, test e limiti.</div>
@@ -898,9 +899,9 @@ body.search-active .module-card.search-hidden{display:none;}
       </a>
 
       <a class="module-card inf" href="su17-vba.html">
-        <div class="card-num">SU17</div>
+        <div class="card-num">SU03.11</div>
         <div class="card-body">
-          <div class="card-tag">SUITE UFFICIO · SU17</div>
+          <div class="card-tag">SUITE UFFICIO · SU03.11</div>
           <div class="card-title">VBA per Excel</div>
           <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Visual Basic for Applications: editor, Sub e Function, variabili, Range, cicli, condizioni, errori, file, eventi, UserForm e distribuzione.</div>
@@ -909,9 +910,9 @@ body.search-active .module-card.search-hidden{display:none;}
       </a>
 
       <a class="module-card inf" href="su18-google-apps-script.html">
-        <div class="card-num">SU18</div>
+        <div class="card-num">SU03.12</div>
         <div class="card-body">
-          <div class="card-tag">SUITE UFFICIO · SU18</div>
+          <div class="card-tag">SUITE UFFICIO · SU03.12</div>
           <div class="card-title">Google Apps Script</div>
           <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Automazione Google Workspace con JavaScript: Sheets, Drive, Gmail, trigger, autorizzazioni, web app, API, quote e deployment.</div>
@@ -1741,6 +1742,22 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
     badge.innerHTML = `<span class="summary">S ${summary}/10</span>`;
     card.appendChild(badge);
   }
+});
+
+// Divisore orizzontale a ogni cambio di sotto-serie (es. RW01.xx → RW02.xx)
+document.querySelectorAll('.module-grid').forEach(grid => {
+  let prev = null;
+  [...grid.querySelectorAll('.module-card')].forEach(card => {
+    const num = card.querySelector('.card-num')?.textContent.trim() || '';
+    const m = num.match(/^([A-Z]+\d+)\./);
+    const key = m ? m[1] : null;
+    if (key && prev && key !== prev) {
+      const d = document.createElement('div');
+      d.className = 'series-divider';
+      grid.insertBefore(d, card);
+    }
+    if (key) prev = key;
+  });
 });
 </script>
 </body>
