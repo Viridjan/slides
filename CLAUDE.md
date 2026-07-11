@@ -175,7 +175,7 @@ of each word in the section name (e.g. `HS` = Hardware e **S**oftware):
 | `su` | Suite Ufficio | `su01-microsoft.html` |
 | `ia` | Intelligenza Artificiale | `ia01-concetti-generali.html` |
 | `pm` | Project Management | `pm01-introduzione.html` |
-| `pr` / `sc` / `mb` | Programmare | `pr00-introduzione-programmazione.html`, `sc01-introduzione.html`, `mb01-microbit.html` |
+| `pr` / `sc` / `mb` | Programmare | `pr01-introduzione-programmazione.html`, `sc01-introduzione.html`, `mb01-microbit.html` |
 | `td` | TinkerCAD e stampa 3D | `td01-tinkercad-introduzione.html` |
 | `gd` | Game Design | `gd01-introduzione.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
@@ -332,31 +332,31 @@ Navigation chain: pm01 → pm02 → pm03 → pm04
 
 ### Programmare
 
-Index numbering uses `PR00.xx` for general programming theory, `PR01.xx` for Scratch and `PR02.xx` for Micro:bit.
+Index numbering uses `PR01.01`-`PR01.04` for general programming theory, `PR02.xx` for Scratch and `PR03.xx` for Micro:bit.
 
-General programming navigation chain: pr00-introduzione-programmazione → pr00-dati-codifica → pr00-algoritmi → pr00-fondamenti-programmazione
+General programming navigation chain: pr01-introduzione-programmazione → pr02-dati-codifica → pr03-algoritmi → pr04-fondamenti-programmazione
 
 | File | Title |
 | --- | --- |
-| `pr00-introduzione-programmazione.html` | Introduzione alla programmazione |
-| `pr00-dati-codifica.html` | Dati e codifica |
-| `pr00-algoritmi.html` | Algoritmi e problemi |
-| `pr00-fondamenti-programmazione.html` | Fondamenti di programmazione |
+| `pr01-introduzione-programmazione.html` | Introduzione alla programmazione |
+| `pr02-dati-codifica.html` | Dati e codifica |
+| `pr03-algoritmi.html` | Algoritmi e problemi |
+| `pr04-fondamenti-programmazione.html` | Fondamenti di programmazione |
 
-Codex note: the `PR00.02`-`PR00.04` theory blocks are paraphrased and reorganized
+Codex note: the `PR01.02`-`PR01.04` theory blocks are paraphrased and reorganized
 from the public PDF "Fondamenti di Informatica e Programmazione" by Edizioni
 Manna, requested by the user on 2026-07-10. Keep them in the Programmare group
 before Scratch and do not split them into Hardware/Software or other sections.
 
-Codex update 2026-07-10: the `PR00` theory blocks were expanded without changing
+Codex update 2026-07-10: the `PR01.01` theory blocks were expanded without changing
 their topic boundaries. Current slide counts are:
 
 | File | Slides | Expansion focus |
 | --- | ---: | --- |
-| `pr00-introduzione-programmazione.html` | 30 | readability, maintenance, components, types, expressions, control flow, functions, errors, testing, paradigms and computability limits |
-| `pr00-dati-codifica.html` | 18 | text encoding, images, audio, compression, file formats, overflow, byte order and representation choices |
-| `pr00-algoritmi.html` | 20 | decomposition, preconditions, postconditions, sequence, decisions, loops, accumulators, counters, trace tables and efficiency |
-| `pr00-fondamenti-programmazione.html` | 22 | input/output, type conversion, operators, indentation, lists, functions, scope, debugging, tests and documentation |
+| `pr01-introduzione-programmazione.html` | 30 | readability, maintenance, components, types, expressions, control flow, functions, errors, testing, paradigms and computability limits |
+| `pr02-dati-codifica.html` | 18 | text encoding, images, audio, compression, file formats, overflow, byte order and representation choices |
+| `pr03-algoritmi.html` | 20 | decomposition, preconditions, postconditions, sequence, decisions, loops, accumulators, counters, trace tables and efficiency |
+| `pr04-fondamenti-programmazione.html` | 37 | input/output, type conversion, expanded arithmetic/logical/assignment operators, symbols, indentation, lists, functions, scope, debugging, tests and documentation |
 
 The matching `.txt` files include additional explanatory notes for search and
 course completeness. `search-index.js` has been regenerated after the expansion.

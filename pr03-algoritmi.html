@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Programmare · PR00.03 — Algoritmi</title>
+<title>Programmare · PR01.03 — Algoritmi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="theme-corsi.css">
 </head>
 <body class="course-sc"><main class="deck-stage" id="deckStage">
-<section class="slide title visible"><div><div class="eyebrow">Programmare · PR00.03</div><h1 class="h1">Algoritmi e<br><span class="accent">problemi</span></h1><p class="lead">Dal problema alla soluzione: istruzioni ordinate, variabili, condizioni, cicli, diagrammi di flusso e pseudocodice.</p><p><span class="chip">20 slide</span><span class="chip">Algoritmi</span><span class="chip">Flowchart</span></p></div><div class="code">problema
+<section class="slide title visible"><div><div class="eyebrow">Programmare · PR01.03</div><h1 class="h1">Algoritmi e<br><span class="accent">problemi</span></h1><p class="lead">Dal problema alla soluzione: istruzioni ordinate, variabili, condizioni, cicli, diagrammi di flusso e pseudocodice.</p><p><span class="chip">20 slide</span><span class="chip">Algoritmi</span><span class="chip">Flowchart</span></p></div><div class="code">problema
   ↓ analisi
 algoritmo
   ↓ codifica
@@ -53,7 +53,7 @@ fine ciclo</div><div class="num"></div></section>
 1     | 1 | 5
 2     | 2 | 12</div><div class="num"></div></section>
 <section class="slide"><span class="tag">Efficienza</span><h2 class="h2">Non tutte le soluzioni costano uguale</h2><p class="lead">Due algoritmi possono produrre lo stesso risultato ma richiedere tempi o memoria molto diversi. Valutare l'efficienza aiuta a scegliere una soluzione adatta alla dimensione del problema.</p><div class="grid2"><div class="card"><h3>Tempo</h3><p>Quanti passaggi servono al crescere dei dati?</p></div><div class="card"><h3>Spazio</h3><p>Quanta memoria aggiuntiva viene usata?</p></div></div><div class="num"></div></section>
-<section class="slide closing"><h2 class="h2">Un algoritmo chiaro rende il codice più semplice.</h2><p class="lead">Quando il procedimento è comprensibile, la traduzione in linguaggio di programmazione diventa più controllabile.</p><p><a class="chip" href="pr00-fondamenti-programmazione.html">Prossimo → PR00.04 · Fondamenti</a></p><div class="num"></div></section>
+<section class="slide closing"><h2 class="h2">Un algoritmo chiaro rende il codice più semplice.</h2><p class="lead">Quando il procedimento è comprensibile, la traduzione in linguaggio di programmazione diventa più controllabile.</p><p><a class="chip" href="pr04-fondamenti-programmazione.html">Prossimo → PR01.04 · Fondamenti</a></p><div class="num"></div></section>
 </main><a class="home-btn" href="00-indice.html">↩ Indice</a><div class="progress"></div><script>
 const slides=[...document.querySelectorAll('.slide')],stage=document.getElementById('deckStage'),progress=document.querySelector('.progress');let current=0;function resize(){const s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform=`scale(${s})`;stage.style.left=`${(innerWidth-1920*s)/2}px`;stage.style.top=`${(innerHeight-1080*s)/2}px`}function show(i){current=Math.max(0,Math.min(slides.length-1,i));slides.forEach((sl,n)=>sl.classList.toggle('visible',n===current));progress.style.width=`${(current+1)/slides.length*100}%`;location.hash=current+1}function move(d){show(current+d)}document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();move(1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();move(-1)}if(e.key.toLowerCase()==='i')location.href='00-indice.html'});addEventListener('wheel',e=>{if(Math.abs(e.deltaY)>30)move(e.deltaY>0?1:-1)},{passive:true});document.querySelectorAll('.num').forEach((n,i)=>n.innerHTML=`<b>${i+1}</b>/${slides.length}`);addEventListener('resize',resize);resize();{const hm=location.hash.match(/(?:slide-|slide=|^#)(\d+)/);show(Math.max(1,hm?parseInt(hm[1],10):1)-1);}addEventListener('hashchange',()=>{const m=location.hash.match(/(?:slide-|slide=|^#)(\d+)/);if(m){const n=parseInt(m[1],10)-1;if(Number.isInteger(n))show(n);}});
 </script></body></html>

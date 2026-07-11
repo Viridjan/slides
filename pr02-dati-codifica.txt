@@ -1,0 +1,75 @@
+Programmare · PR01.02 — Dati e codifica
+========================================
+
+--- Slide 1 ---
+Programmare · PR01.02 Dati e
+ codifica Informazioni, rappresentazione binaria, bit, byte, memoria e conversioni: le basi che rendono programmabile qualunque contenuto digitale. 18 slide Codifica Binario A = 01000001
+0/1 = stati elettrici
+8 bit = 1 byte
+
+--- Slide 2 ---
+Informazione Dal significato al dato Per una persona un'informazione ha senso nel contesto: un nome, una foto, una misura, un messaggio. Per il computer quella stessa informazione deve diventare dato: una rappresentazione precisa, memorizzabile ed elaborabile. Testo Caratteri codificati con sequenze numeriche. Immagini Pixel descritti da coordinate e valori di colore. Suoni Campioni numerici presi nel tempo.
+
+--- Slide 3 ---
+Sistema binario Perché proprio zero e uno? L'elettronica digitale distingue facilmente due stati: presenza o assenza di segnale. Il sistema binario usa questa semplicità fisica per rappresentare numeri, lettere, immagini, istruzioni e programmi. 0 Stato spento, falso, aperto, non attivo: il significato dipende dal circuito o dal programma. 1 Stato acceso, vero, chiuso, attivo: una scelta elementare che può combinarsi con molte altre.
+
+--- Slide 4 ---
+Bit e byte Le unità minime della memoria Bit È una cifra binaria: può assumere solo valore 0 oppure 1. Byte È una sequenza di 8 bit. Storicamente è l'unità pratica per rappresentare un carattere o una piccola quantità di dati. 1 byte = 8 bit
+01000001 = codice numerico del carattere "A"
+01100001 = codice numerico del carattere "a"
+
+--- Slide 5 ---
+Misure Quanto spazio occupano i dati? La memoria si misura aggregando byte. Capire le unità aiuta a stimare peso dei file, spazio su disco e trasferimenti di rete. KB / MB Documenti leggeri, immagini compresse, piccoli allegati. GB Video, archivi, applicazioni, cartelle personali. TB Backup, raccolte multimediali, server, grandi dataset.
+
+--- Slide 6 ---
+Conversioni Dal decimale al binario Il sistema decimale usa potenze di 10; il binario usa potenze di 2. Convertire significa riscrivere lo stesso valore usando una base diversa. 13 in decimale
+= 8 + 4 + 1
+= 2^3 + 2^2 + 2^0
+= 1101 in binario Metodo operativo Trova le potenze di 2 utili. Segna 1 quando la potenza serve. Segna 0 quando la potenza non serve. Leggi la sequenza finale.
+
+--- Slide 7 ---
+Memoria Dati e programmi condividono la stessa materia In memoria tutto è rappresentato come sequenze di bit. Il significato cambia in base al modo in cui il programma interpreta quella sequenza. Numero Una sequenza può essere trattata come valore aritmetico. Carattere La stessa sequenza può indicare un simbolo secondo una tabella di codifica. Istruzione Nel linguaggio macchina può rappresentare un'operazione da eseguire.
+
+--- Slide 8 ---
+Esadecimale Una forma compatta per leggere il binario L'esadecimale usa 16 simboli e permette di scrivere lunghe sequenze binarie in modo più breve. È comune in colori web, indirizzi di memoria e debugging. 1111 1111
+= FF
+
+0000 1010
+= 0A Perché serve Quattro bit corrispondono a una cifra esadecimale. Questo rende più leggibili dati che altrimenti sarebbero sequenze molto lunghe di 0 e 1.
+
+--- Slide 9 ---
+Codici Una tabella collega numeri e simboli Per trasformare testo in dati serve una convenzione condivisa. Una tabella di codifica stabilisce quale numero rappresenta ogni carattere, così programmi diversi possono interpretare lo stesso file. ASCII Codifica storica per lettere, cifre e simboli di base. Unicode Estende la rappresentazione a molti alfabeti, simboli e caratteri internazionali.
+
+--- Slide 10 ---
+Testo Anche una frase è una sequenza di numeri Quando salviamo un documento, ogni carattere viene trasformato in un codice. Spazi, accenti, punteggiatura e ritorni a capo occupano spazio e devono essere interpretati correttamente. Ciao
+C → codice del carattere C
+i → codice del carattere i
+a → codice del carattere a
+o → codice del carattere o
+
+--- Slide 11 ---
+Immagini Pixel, risoluzione e colore Una immagine raster è una griglia di pixel. Ogni pixel conserva valori numerici che descrivono il colore; più pixel e più dettagli di colore significano file più grandi. Risoluzione Numero di pixel in larghezza e altezza. Profondità Quanti bit descrivono il colore di ogni pixel. Compressione Metodo per ridurre la dimensione del file.
+
+--- Slide 12 ---
+Audio Campionare un segnale nel tempo Un suono digitale nasce misurando il segnale sonoro molte volte al secondo. Ogni misurazione diventa un numero; più campioni e più precisione aumentano qualità e peso del file. Frequenza Quante misurazioni vengono prese ogni secondo. Profondità Quanti bit descrivono ciascun campione.
+
+--- Slide 13 ---
+Compressione Ridurre lo spazio senza perdere il significato utile La compressione cerca ridondanze nei dati o elimina dettagli poco percepibili. È una scelta importante quando salviamo immagini, audio, video o archivi. Lossless Permette di ricostruire i dati originali senza perdita. Lossy Riduce di più il peso, ma sacrifica parte dell'informazione.
+
+--- Slide 14 ---
+Formati Il formato dice come leggere i byte Un file non è solo una sequenza di byte: ha una struttura. Il formato specifica dove sono i metadati, come sono organizzati i contenuti e quale programma può interpretarli. TXT Testo semplice con poche informazioni aggiuntive. PNG Immagine compressa senza perdita. MP3 Audio compresso con perdita controllata.
+
+--- Slide 15 ---
+Overflow Anche i numeri hanno un limite pratico Se usiamo un numero fisso di bit, possiamo rappresentare solo un intervallo finito di valori. Superare quel limite può produrre errori o risultati inattesi. con 8 bit senza segno:
+minimo = 0
+massimo = 255
+256 richiede più spazio
+
+--- Slide 16 ---
+Endianness L'ordine dei byte può cambiare Quando un valore occupa più byte, sistemi diversi possono memorizzare prima la parte più significativa o quella meno significativa. È un dettaglio tecnico, ma conta nello scambio di dati a basso livello. Little endian Prima il byte meno significativo. Big endian Prima il byte più significativo.
+
+--- Slide 17 ---
+Pratica Domande da farsi quando si sceglie una rappresentazione Precisione Quanti dettagli devo conservare? Spazio Quanto può pesare il file o la struttura? Compatibilità Quali programmi devono leggerla? Velocità Quanto spesso verrà elaborata? Errore Cosa succede se un dato è corrotto? Scambio Deve viaggiare su rete o tra sistemi diversi?
+
+--- Slide 18 ---
+Ogni programma lavora su rappresentazioni. Prima di scrivere istruzioni dobbiamo sapere come le informazioni diventano dati. Da qui possiamo passare agli algoritmi. Prossimo → PR01.03 · Algoritmi

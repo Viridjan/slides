@@ -1,0 +1,124 @@
+Suite Ufficio · SU15 — Query nei fogli di calcolo
+=================================================
+
+--- Slide 1 ---
+Fogli di calcolo · SU15
+Query nei fogli
+Estrarre, filtrare, ordinare, raggruppare e combinare dati con QUERY di Google Sheets, Power Query di Excel e logica SQL di base.
+
+--- Slide 2 ---
+Cosa vedremo
+1. Che cos’è una query
+2. SELECT, WHERE, ORDER BY
+3. La funzione QUERY in Google Sheets
+4. Scegliere solo le colonne utili
+5. Condizioni numeriche, testuali e date
+6. Ordinare e limitare i risultati
+7. GROUP BY: riassumere per categoria
+8. PIVOT nella QUERY di Sheets
+9. Power Query in Excel
+10. Unire tabelle con una chiave
+11. Query come pipeline di pulizia
+12. Come controllare una query
+
+--- Slide 3 ---
+Che cos’è una query
+Una query è una richiesta strutturata: prendi questi dati, tieni solo certe righe, scegli certe colonne, ordina o raggruppa il risultato.
+Non copia: Il risultato dipende dalla sorgente e può aggiornarsi.
+Non formula singola: Lavora su tabelle intere, non solo su una cella.
+Domanda esplicita: “Mostrami le vendite 2026 per categoria sopra 500 euro”.
+
+--- Slide 4 ---
+SELECT, WHERE, ORDER BY
+La sintassi di molte query deriva da SQL: SELECT sceglie colonne, WHERE filtra righe, ORDER BY ordina.
+
+SELECT A, B, E
+WHERE E > 500
+ORDER BY E DESC
+Lettura: Scegli colonne A, B, E; tieni solo righe con E maggiore di 500; ordina dal valore più alto.
+
+--- Slide 5 ---
+La funzione QUERY in Google Sheets
+In Google Sheets, QUERY prende un intervallo e una stringa di interrogazione. È molto potente per creare report dinamici.
+
+=QUERY(A1:E200; "select A, B, E where E > 500 order by E desc"; 1)
+Parametro finale: Il numero 1 indica che la prima riga contiene intestazioni.
+
+--- Slide 6 ---
+Scegliere solo le colonne utili
+Una query può ridurre una tabella larga a una vista essenziale. Meno colonne significa meno distrazione e meno rischio di modifiche sbagliate.
+Report clienti: Nome, telefono, ultimo appuntamento, stato.
+Report vendite: Data, categoria, importo, margine.
+Report magazzino: SKU, prodotto, scorta, punto di riordino.
+
+--- Slide 7 ---
+Condizioni numeriche, testuali e date
+Le condizioni cambiano secondo il tipo di dato. Numeri, testo e date hanno regole diverse.
+
+where E >= 100
+where B = "Roma"
+where C contains "promo"
+where A >= date "2026-01-01"
+Attenzione: Le date in QUERY usano spesso il formato ISO anno-mese-giorno.
+
+--- Slide 8 ---
+Ordinare e limitare i risultati
+ORDER BY mette in alto ciò che conta; LIMIT evita liste troppo lunghe quando servono solo i primi risultati.
+
+select A, B, E
+where E is not null
+order by E desc
+limit 10
+
+--- Slide 9 ---
+GROUP BY: riassumere per categoria
+GROUP BY aggrega molte righe in un riepilogo, simile a una pivot ma scritto come domanda.
+
+select B, sum(E), count(A)
+group by B
+label sum(E) "Totale", count(A) "Righe"
+Uso tipico: Totale vendite per servizio, ore per progetto, spese per categoria.
+
+--- Slide 10 ---
+PIVOT nella QUERY di Sheets
+La clausola PIVOT trasforma valori di una colonna in intestazioni, creando una tabella incrociata.
+
+select B, sum(E)
+group by B
+pivot C
+Esempio: Righe = servizio, colonne = mese, valori = incasso.
+
+--- Slide 11 ---
+Power Query in Excel
+Power Query importa, pulisce e trasforma dati da file, cartelle, web, database e fogli. Le trasformazioni vengono salvate e ripetute con Aggiorna.
+Importa: CSV, Excel, cartelle, web, database.
+Trasforma: Rimuovi colonne, cambia tipi, dividi testo, unisci tabelle.
+Carica: Risultato in tabella, pivot o modello dati.
+Aggiorna: Ripete i passaggi sui nuovi dati.
+
+--- Slide 12 ---
+Unire tabelle con una chiave
+Una query può combinare due tabelle quando condividono una chiave: codice cliente, SKU prodotto, ID ordine.
+Chiave primaria: Identifica una riga in modo univoco.
+Lookup: Aggiungi informazioni da una tabella anagrafica.
+Errori: Chiavi duplicate o mancanti generano risultati sbagliati.
+
+--- Slide 13 ---
+Query come pipeline di pulizia
+Invece di correggere manualmente ogni esportazione, costruisci una pipeline: import, pulizia, filtro, trasformazione, report.
+Trim: Rimuovi spazi iniziali e finali.
+Normalize: Uniforma maiuscole, categorie e formati.
+Filter: Escludi righe vuote, test o annullate.
+Cast: Converti importi e date nel tipo corretto.
+
+--- Slide 14 ---
+Come controllare una query
+Le query vanno testate a piccoli passi: prima selezione, poi filtro, poi ordinamento, poi aggregazione. Così l’errore resta localizzabile.
+Parti semplice: Verifica che l’intervallo sia giusto.
+Aggiungi condizioni: Una clausola alla volta.
+Conta righe: Controlla se il numero di risultati ha senso.
+Confronta manualmente: Verifica un piccolo campione a mano.
+
+--- Slide 15 ---
+Una query è una domanda ripetibile fatta ai dati.
+Quando la domanda è scritta bene, il report si aggiorna invece di essere ricostruito a mano.

@@ -1,0 +1,115 @@
+Suite Ufficio · SU16 — Macro nei fogli di calcolo
+=================================================
+
+--- Slide 1 ---
+Fogli di calcolo · SU16
+Macro nei fogli
+Automatizzare azioni ripetitive in Excel e Google Sheets: registrazione, sicurezza, pulsanti, limiti e progettazione di procedure affidabili.
+
+--- Slide 2 ---
+Cosa vedremo
+1. Che cos’è una macro
+2. Automatizzare solo processi stabili
+3. Registrare una macro
+4. Macro di formattazione report
+5. Relativo o assoluto
+6. Macro e rischio sicurezza
+7. Assegnare macro a pulsanti e menu
+8. Macro con parametri e celle di controllo
+9. Gestire errori senza bloccare il lavoro
+10. Testare su copie e mantenere versioni
+11. Quando una macro non basta
+12. Checklist di una macro affidabile
+
+--- Slide 3 ---
+Che cos’è una macro
+Una macro è una sequenza di azioni salvata e rieseguita: formattare report, pulire dati, esportare PDF, creare fogli o inviare riepiloghi.
+Ripetizione: Ha senso quando fai spesso gli stessi passaggi.
+Coerenza: Riduce differenze tra file prodotti da persone diverse.
+Velocità: Trasforma minuti di click in un comando.
+
+--- Slide 4 ---
+Automatizzare solo processi stabili
+Una macro funziona bene quando la procedura è chiara. Se cambi regola ogni volta, prima serve stabilizzare il flusso.
+Buon caso: Ogni lunedì importi CSV, pulisci colonne, generi report.
+Cattivo caso: Ogni file ha struttura diversa e decisioni manuali non documentate.
+Regola: Se non riesci a scrivere i passaggi, non sei pronto per la macro.
+
+--- Slide 5 ---
+Registrare una macro
+Excel e Google Sheets permettono di registrare azioni. È il modo più accessibile per iniziare, ma il codice generato va letto e pulito.
+Esegui: Fai i passaggi una volta mentre il registratore è attivo.
+Salva: Dai un nome chiaro e assegna scorciatoia se serve.
+Testa: Prova su una copia del file, non sull’unico originale.
+
+--- Slide 6 ---
+Macro di formattazione report
+Una macro semplice può uniformare intestazioni, larghezze, filtri e formato numerico.
+
+1. Seleziona riga intestazioni
+2. Grassetto + sfondo
+3. Attiva filtro
+4. Adatta larghezza colonne
+5. Formatta importi in euro
+6. Blocca prima riga
+
+--- Slide 7 ---
+Relativo o assoluto
+Una macro può ricordare celle esatte o movimenti relativi. La scelta cambia completamente il comportamento quando la esegui altrove.
+Assoluto: Agisce sempre su A1:E20. Utile per template fissi.
+Relativo: Parte dalla cella selezionata. Utile per azioni ripetute in zone diverse.
+Rischio: Se il riferimento è sbagliato, la macro modifica celle inattese.
+
+--- Slide 8 ---
+Macro e rischio sicurezza
+Le macro possono eseguire codice. Per questo molti sistemi le bloccano o chiedono conferma. Non abilitare macro in file ricevuti da fonti non affidabili.
+File esterni: Diffida di allegati che chiedono “abilita contenuto”.
+Firma: In contesti aziendali usa macro firmate o da fonti controllate.
+Principio: Una macro ha accesso al documento e può alterare dati.
+
+--- Slide 9 ---
+Assegnare macro a pulsanti e menu
+Un pulsante riduce errori: l’utente non deve cercare la macro, preme “Aggiorna report” o “Esporta PDF”.
+Etichetta: Usa verbi chiari: Aggiorna, Pulisci, Esporta, Invia.
+Posizione: Metti i pulsanti in un foglio Dashboard o Comandi.
+Feedback: Mostra un messaggio quando l’azione termina.
+
+--- Slide 10 ---
+Macro con parametri e celle di controllo
+Una macro può leggere valori da celle dedicate: mese, sede, responsabile, cartella di output. Così resta flessibile senza modificare codice.
+Celle input: B2 = mese, B3 = sede, B4 = formato export.
+Validazione: Menu a tendina evita parametri impossibili.
+Log: Scrivi quando è stata eseguita e da chi.
+
+--- Slide 11 ---
+Gestire errori senza bloccare il lavoro
+Una macro professionale controlla prerequisiti e segnala problemi comprensibili: file mancante, foglio non trovato, colonne rinominate.
+Controlli iniziali: Esistono i fogli richiesti? Le colonne hanno nome corretto?
+Messaggi: Errore chiaro, non codice incomprensibile.
+Stop sicuro: Se mancano dati, fermati prima di modificare il file.
+
+--- Slide 12 ---
+Testare su copie e mantenere versioni
+Una macro sbagliata può modificare molte celle in un attimo. Lavora su copie, conserva backup e documenta cosa cambia.
+Copia test: Prima prova su un duplicato del file.
+Backup: Mantieni una versione prima della macro.
+Change log: Annota data, autore e modifica della macro.
+
+--- Slide 13 ---
+Quando una macro non basta
+Se l’automazione deve collegarsi a servizi esterni, API, email o database, potresti aver bisogno di VBA, Apps Script, Power Query o un’app dedicata.
+Macro registrata: Ottima per click ripetitivi.
+Codice: Serve per condizioni, cicli, controlli complessi.
+Sistema: Se coinvolge più persone e dati critici, serve progettazione.
+
+--- Slide 14 ---
+Checklist di una macro affidabile
+Una buona macro ha uno scopo chiaro, input controllati, output verificabile e istruzioni per l’utente.
+Nome: AggiornaReportMensile, non Macro1.
+Scopo: Una macro, una responsabilità.
+Controlli: Verifica dati prima di agire.
+Documentazione: Spiega cosa fa e cosa non deve essere cambiato.
+
+--- Slide 15 ---
+Una macro utile elimina lavoro ripetitivo senza nascondere il controllo.
+Prima progetta la procedura, poi automatizzala; non automatizzare confusione.

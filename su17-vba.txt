@@ -1,0 +1,209 @@
+Suite Ufficio · SU17 — VBA per Excel
+====================================
+
+--- Slide 1 ---
+Automazione · SU17
+VBA per Excel
+Imparare le basi di Visual Basic for Applications per automatizzare Excel: celle, cicli, condizioni, file, eventi, errori e procedure professionali.
+
+--- Slide 2 ---
+Cosa vedremo
+1. Introduzione a VBA
+2. Editor VBA e moduli
+3. Sub e Function
+4. Variabili e tipi
+5. Option Explicit
+6. Range e Cells
+7. With...End With
+8. If, ElseIf, Else
+9. Select Case
+10. For...Next
+11. For Each
+12. Do While e Do Until
+13. Trovare ultima riga
+14. Tabelle Excel ListObject
+15. Messaggi e input
+16. Gestione errori
+17. Performance
+18. File e cartelle
+19. Eventi del workbook
+20. UserForm
+21. Sicurezza e distribuzione
+22. Progetto finale VBA
+
+--- Slide 3 ---
+Introduzione a VBA
+VBA è il linguaggio integrato in Excel e nelle applicazioni Office. Permette di controllare fogli, celle, file, finestre e procedure ripetitive.
+Idea chiave: VBA è il linguaggio integrato in Excel e nelle applicazioni Office. Permette di controllare fogli, celle, file, finestre e procedure ripetitive.
+Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
+Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+Esercizio: Prova a descrivere il caso reale del tuo lavoro in tre passaggi prima di scrivere codice.
+
+--- Slide 4 ---
+Editor VBA e moduli
+Il codice vive nell’editor VBA: moduli standard, oggetti foglio, ThisWorkbook e finestre Immediate/Watch per controllare l’esecuzione.
+
+Sub Esempio2()
+  ' Editor VBA e moduli
+  Debug.Print "passo 2"
+End Sub
+
+--- Slide 5 ---
+Sub e Function
+Una Sub esegue azioni; una Function restituisce un valore. In Excel puoi usare funzioni personalizzate anche dentro celle.
+Idea chiave: Una Sub esegue azioni; una Function restituisce un valore. In Excel puoi usare funzioni personalizzate anche dentro celle.
+Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
+Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+
+--- Slide 6 ---
+Variabili e tipi
+Dim nome As String, Dim totale As Double, Dim riga As Long: dichiarare tipi rende il codice più chiaro e meno fragile.
+Idea chiave: Dim nome As String, Dim totale As Double, Dim riga As Long: dichiarare tipi rende il codice più chiaro e meno fragile.
+Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
+Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+
+--- Slide 7 ---
+Option Explicit
+Obbliga a dichiarare le variabili. È una delle abitudini più importanti per evitare errori di battitura difficili da trovare.
+
+Sub Esempio5()
+  ' Option Explicit
+  Debug.Print "passo 5"
+End Sub
+
+--- Slide 8 ---
+Range e Cells
+Range("A1") è leggibile, Cells(riga, colonna) è utile nei cicli. Conoscere entrambi è essenziale per automatizzare fogli.
+Idea chiave: Range("A1") è leggibile, Cells(riga, colonna) è utile nei cicli. Conoscere entrambi è essenziale per automatizzare fogli.
+Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
+Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+Esercizio: Prova a descrivere il caso reale del tuo lavoro in tre passaggi prima di scrivere codice.
+
+--- Slide 9 ---
+With...End With
+Evita ripetizioni quando lavori sullo stesso oggetto: foglio, range, grafico o tabella. Il codice diventa più compatto.
+Idea chiave: Evita ripetizioni quando lavori sullo stesso oggetto: foglio, range, grafico o tabella. Il codice diventa più compatto.
+Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
+Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+
+--- Slide 10 ---
+If, ElseIf, Else
+Le condizioni decidono quali istruzioni eseguire: controllare valori mancanti, soglie, stati e casi particolari.
+
+Sub Esempio8()
+  ' If, ElseIf, Else
+  Debug.Print "passo 8"
+End Sub
+
+--- Slide 11 ---
+Select Case
+Quando ci sono molte alternative, Select Case è spesso più chiaro di una lunga catena di If.
+Idea chiave: Quando ci sono molte alternative, Select Case è spesso più chiaro di una lunga catena di If.
+Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
+Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+
+--- Slide 12 ---
+For...Next
+Il ciclo For ripete azioni un numero noto di volte: scorrere righe, colonne, fogli o file numerati.
+Idea chiave: Il ciclo For ripete azioni un numero noto di volte: scorrere righe, colonne, fogli o file numerati.
+Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
+Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+
+--- Slide 13 ---
+For Each
+For Each è naturale quando attraversi collezioni: ogni cella in un range, ogni foglio in una cartella, ogni grafico.
+
+Sub Esempio11()
+  ' For Each
+  Debug.Print "passo 11"
+End Sub
+Esercizio: Prova a descrivere il caso reale del tuo lavoro in tre passaggi prima di scrivere codice.
+
+--- Slide 14 ---
+Do While e Do Until
+Servono quando non sai quante iterazioni servono: continua finché trovi righe piene o finché una condizione diventa vera.
+Idea chiave: Servono quando non sai quante iterazioni servono: continua finché trovi righe piene o finché una condizione diventa vera.
+Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
+Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+
+--- Slide 15 ---
+Trovare ultima riga
+Una macro robusta non presume che i dati finiscano sempre alla stessa riga. Calcola dinamicamente l’ultima riga usata.
+Idea chiave: Una macro robusta non presume che i dati finiscano sempre alla stessa riga. Calcola dinamicamente l’ultima riga usata.
+Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
+Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+
+--- Slide 16 ---
+Tabelle Excel ListObject
+Le tabelle strutturate sono più affidabili dei range fissi: hanno nomi, colonne, righe dati e si espandono.
+
+Sub Esempio14()
+  ' Tabelle Excel ListObject
+  Debug.Print "passo 14"
+End Sub
+
+--- Slide 17 ---
+Messaggi e input
+MsgBox comunica con l’utente; InputBox raccoglie un valore rapido. Non abusarne nei processi automatici.
+Idea chiave: MsgBox comunica con l’utente; InputBox raccoglie un valore rapido. Non abusarne nei processi automatici.
+Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
+Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+
+--- Slide 18 ---
+Gestione errori
+On Error non deve nascondere problemi: serve a intercettarli, mostrare messaggi utili e uscire in modo controllato.
+Idea chiave: On Error non deve nascondere problemi: serve a intercettarli, mostrare messaggi utili e uscire in modo controllato.
+Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
+Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+Esercizio: Prova a descrivere il caso reale del tuo lavoro in tre passaggi prima di scrivere codice.
+
+--- Slide 19 ---
+Performance
+ScreenUpdating, Calculation e lettura in array possono rendere una macro molto più veloce su migliaia di righe.
+
+Sub Esempio17()
+  ' Performance
+  Debug.Print "passo 17"
+End Sub
+
+--- Slide 20 ---
+File e cartelle
+VBA può aprire cartelle, scorrere file, importare dati, salvare copie e produrre PDF.
+Idea chiave: VBA può aprire cartelle, scorrere file, importare dati, salvare copie e produrre PDF.
+Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
+Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+
+--- Slide 21 ---
+Eventi del workbook
+Worksheet_Change, Workbook_Open e altri eventi eseguono codice quando succede qualcosa nel file.
+Idea chiave: Worksheet_Change, Workbook_Open e altri eventi eseguono codice quando succede qualcosa nel file.
+Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
+Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+
+--- Slide 22 ---
+UserForm
+Le maschere raccolgono input in modo guidato: campi, pulsanti, menu a tendina, controlli obbligatori.
+
+Sub Esempio20()
+  ' UserForm
+  Debug.Print "passo 20"
+End Sub
+
+--- Slide 23 ---
+Sicurezza e distribuzione
+Macro firmate, cartelle attendibili, file .xlsm e policy aziendali determinano dove il codice può girare.
+Idea chiave: Macro firmate, cartelle attendibili, file .xlsm e policy aziendali determinano dove il codice può girare.
+Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
+Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+Esercizio: Prova a descrivere il caso reale del tuo lavoro in tre passaggi prima di scrivere codice.
+
+--- Slide 24 ---
+Progetto finale VBA
+Un buon progetto finale importa dati, li valida, aggiorna una tabella, genera report e registra un log.
+Idea chiave: Un buon progetto finale importa dati, li valida, aggiorna una tabella, genera report e registra un log.
+Quando serve: Usalo quando il passaggio diventa ripetitivo, rischioso o troppo lento da fare a mano.
+Errore comune: Scrivere codice prima di chiarire input, output e casi limite.
+
+--- Slide 25 ---
+VBA controlla Excel come un’app programmabile.
+Con pochi costrutti solidi puoi trasformare un file ripetitivo in uno strumento di lavoro.

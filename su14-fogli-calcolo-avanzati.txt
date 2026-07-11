@@ -1,0 +1,116 @@
+Suite Ufficio · SU14 — Fogli di calcolo avanzati
+================================================
+
+--- Slide 1 ---
+Fogli di calcolo · SU14
+Fogli di calcolo avanzati
+Modellare dati, controllare errori, creare viste di lavoro e preparare tabelle pronte per formule, pivot, query e automazioni.
+
+--- Slide 2 ---
+Cosa vedremo
+1. Il foglio non è solo una griglia
+2. Una tabella pulita batte cento formule
+3. Tipi di dato: numero, testo, data, booleano
+4. Impedire errori prima che entrino
+5. Formattazione condizionale come controllo visivo
+6. Intervalli nominati e tabelle strutturate
+7. Errori comuni e come leggerli
+8. Importare CSV senza distruggere i dati
+9. Proteggere formule e celle sensibili
+10. Lavorare in cloud senza perdere controllo
+11. Dal foglio al cruscotto
+12. Checklist prima di consegnare un foglio
+
+--- Slide 3 ---
+Il foglio non è solo una griglia
+Un foglio di calcolo diventa potente quando è progettato come sistema: input chiari, elaborazione controllata e output leggibile.
+Input: Dati inseriti o importati: vendite, presenze, ordini, appuntamenti.
+Logica: Formule, controlli, regole di validazione e tabelle di appoggio.
+Output: Report, grafici, pivot, esportazioni PDF o dashboard condivise.
+
+--- Slide 4 ---
+Una tabella pulita batte cento formule
+La qualità del risultato dipende prima dalla forma dei dati. Ogni colonna deve rappresentare una sola informazione e ogni riga un solo evento.
+Una riga = record: Una vendita, un cliente, un appuntamento, una riga di magazzino.
+Una colonna = campo: Data, categoria, quantità, prezzo, stato, referente.
+Niente celle unite: Sono comode da vedere ma rompono ordinamenti, filtri e importazioni.
+Niente totali in mezzo: I totali stanno nei report, non nella tabella sorgente.
+
+--- Slide 5 ---
+Tipi di dato: numero, testo, data, booleano
+Molti errori nascono da valori che sembrano corretti ma sono del tipo sbagliato: numeri salvati come testo, date ambigue, spazi invisibili.
+Numeri: Servono per calcoli. Evita simboli digitati a mano dentro la cella.
+Testo: Nomi, codici, categorie. Attenzione a maiuscole, accenti e spazi.
+Date: Devono essere date vere, non testo: così puoi filtrare per mese e anno.
+Booleani: Vero/falso, sì/no, completato/non completato: utili per controlli e filtri.
+
+--- Slide 6 ---
+Impedire errori prima che entrino
+La convalida dati limita cosa può essere inserito in una cella: menu a tendina, intervalli numerici, date consentite, valori obbligatori.
+Liste: Scegli categoria da un elenco invece di scriverla ogni volta.
+Numeri: Accetta solo quantità maggiori di zero o sconti tra 0% e 100%.
+Date: Blocca date fuori periodo o scadenze precedenti all’inizio.
+Messaggi: Spiega all’utente cosa inserire e perché.
+
+--- Slide 7 ---
+Formattazione condizionale come controllo visivo
+Colori e icone devono aiutare a leggere lo stato dei dati, non decorare. Usali per evidenziare eccezioni, scadenze e valori fuori soglia.
+Scadenze: Rosso se la data è passata, giallo se manca meno di una settimana.
+Budget: Evidenzia righe che superano il costo previsto.
+Duplicati: Trova codici cliente o numeri fattura ripetuti.
+Priorità: Usa icone o scale solo quando migliorano la scansione.
+
+--- Slide 8 ---
+Intervalli nominati e tabelle strutturate
+Dare un nome ai dati riduce errori e rende le formule leggibili. Una formula che usa Prezzi[Listino] è più chiara di una formula piena di coordinate.
+Nomi: IVA, Listino, Clienti, SogliaMinima: nomi brevi e descrittivi.
+Tabelle: Le tabelle si espandono quando aggiungi righe e mantengono formule coerenti.
+Manutenzione: Quando cambia il range, aggiorni il nome o la tabella, non cento formule.
+
+--- Slide 9 ---
+Errori comuni e come leggerli
+Gli errori non sono tutti uguali: alcuni indicano dati mancanti, altri sintassi sbagliata, altri riferimenti rotti.
+
+
+--- Slide 10 ---
+Importare CSV senza distruggere i dati
+I CSV sembrano semplici ma possono cambiare separatori, accenti, date e zeri iniziali. Un import controllato evita problemi invisibili.
+Separatore: Virgola, punto e virgola o tabulazione: dipende dalla provenienza.
+Codifica: UTF-8 evita caratteri strani in nomi e descrizioni.
+Date: 01/02/2026 può essere 1 febbraio o 2 gennaio secondo il formato.
+Codici: CAP e SKU devono restare testo per conservare zeri iniziali.
+
+--- Slide 11 ---
+Proteggere formule e celle sensibili
+Un foglio condiviso deve distinguere tra celle da compilare e celle da non toccare. Protezioni leggere evitano modifiche accidentali.
+Celle input: Colori e istruzioni indicano dove scrivere.
+Formule bloccate: Blocca colonne calcolate e fogli di appoggio.
+Permessi: In cloud assegna modifica, commento o sola lettura secondo il ruolo.
+
+--- Slide 12 ---
+Lavorare in cloud senza perdere controllo
+Excel online e Google Sheets permettono modifiche simultanee, commenti, cronologia e condivisione. Serve però una regola di lavoro.
+Una fonte ufficiale: Evita copie “finale2_definitivo”. Link condiviso, versione unica.
+Commenti: Le domande stanno nei commenti, non in celle sparse.
+Cronologia: Recupera versioni precedenti e capisci chi ha modificato cosa.
+Proprietario: Un responsabile decide struttura e cambiamenti importanti.
+
+--- Slide 13 ---
+Dal foglio al cruscotto
+Una dashboard mostra pochi indicatori chiave, aggiornati e leggibili. Non è una copia colorata della tabella sorgente.
+KPI: Scegli 3–6 numeri davvero decisivi.
+Filtri: Periodo, sede, categoria, responsabile.
+Grafici: Linee per trend, barre per confronti, torte solo per composizioni semplici.
+Aggiornamento: Stabilisci quando e come i dati vengono aggiornati.
+
+--- Slide 14 ---
+Checklist prima di consegnare un foglio
+Prima di inviare un file, controlla struttura, formule, filtri, protezioni e leggibilità. Un foglio professionale deve resistere all’uso reale.
+Dati: Niente righe vuote, duplicati imprevisti o formati misti.
+Formule: Controlla errori e riferimenti assoluti/relativi.
+Uso: Istruzioni chiare per chi inserisce dati.
+Output: Stampa, PDF e visualizzazione su schermo verificati.
+
+--- Slide 15 ---
+Un buon foglio è un piccolo sistema informativo.
+Più la struttura è chiara, più formule, query e automazioni diventano semplici da mantenere.

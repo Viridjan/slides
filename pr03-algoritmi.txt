@@ -1,0 +1,83 @@
+Programmare · PR01.03 — Algoritmi
+========================================
+
+--- Slide 1 ---
+Programmare · PR01.03 Algoritmi e
+ problemi Dal problema alla soluzione: istruzioni ordinate, variabili, condizioni, cicli, diagrammi di flusso e pseudocodice. 20 slide Algoritmi Flowchart problema
+ ↓ analisi
+algoritmo
+ ↓ codifica
+programma
+
+--- Slide 2 ---
+Dal problema Prima si capisce, poi si codifica Programmare non parte dal linguaggio, ma dalla comprensione del problema. Bisogna individuare dati disponibili, risultato atteso, vincoli e casi particolari. Input Quali dati entrano nel procedimento? Elaborazione Quali passaggi trasformano i dati? Output Quale risultato deve essere prodotto?
+
+--- Slide 3 ---
+Definizione Che cos'è un algoritmo? Un algoritmo è una procedura finita e ordinata che, partendo da dati iniziali, permette di ottenere un risultato. Deve essere abbastanza preciso da poter essere eseguito da una persona o da una macchina. Non è solo codice Può essere descritto in linguaggio naturale, diagramma di flusso, pseudocodice o linguaggio di programmazione. È una strategia Dice cosa fare, in quale ordine e con quali decisioni intermedie.
+
+--- Slide 4 ---
+Caratteristiche Un buon algoritmo deve essere controllabile Finito Non deve procedere all'infinito: prima o poi termina. Non ambiguo Ogni istruzione deve avere un significato chiaro. Eseguibile Ogni passo deve essere realizzabile con gli strumenti disponibili. Generale Deve funzionare per una classe di casi, non per un solo esempio fortunato. Verificabile Deve permettere controlli su risultati intermedi e finali.
+
+--- Slide 5 ---
+Variabili Conservare valori durante il procedimento Le variabili sono nomi associati a valori che possono cambiare durante l'esecuzione. Servono per ricordare dati, risultati parziali, contatori e stati. totale = 0
+prezzo = 12
+quantita = 3
+totale = prezzo * quantita
+
+--- Slide 6 ---
+Istruzioni Le azioni fondamentali Assegnazione Memorizza un valore in una variabile. Input / output Legge dati dall'esterno o mostra risultati. Calcolo Combina valori con operazioni aritmetiche o logiche. Decisione Sceglie un ramo in base a una condizione. Ripetizione Ripete istruzioni finché serve. Chiamata Usa una procedura o funzione già definita.
+
+--- Slide 7 ---
+Flowchart Rappresentare il flusso I diagrammi di flusso visualizzano il percorso dell'algoritmo. Aiutano a vedere sequenze, scelte, cicli e punti di ingresso o uscita. Ovale Inizio o fine del procedimento. Rettangolo Operazione o elaborazione. Rombo Decisione con uscite alternative.
+
+--- Slide 8 ---
+Pseudocodice Scrivere l'algoritmo prima del linguaggio Lo pseudocodice usa una forma vicina al linguaggio naturale, ma già ordinata come un programma. È utile per ragionare senza preoccuparsi subito della sintassi. leggi eta
+se eta >= 18 allora
+ scrivi "maggiorenne"
+altrimenti
+ scrivi "minorenne"
+fine se
+
+--- Slide 9 ---
+Verifica Provare l'algoritmo a mano Prima di tradurre in codice conviene simulare l'algoritmo con pochi esempi. Questo controllo permette di scoprire passaggi mancanti, condizioni sbagliate e casi limite. Traccia Segna valore delle variabili dopo ogni passo. Casi limite Prova valori minimi, massimi, nulli o insoliti.
+
+--- Slide 10 ---
+Scomposizione Dividere il problema in sottoproblemi Un problema grande diventa gestibile quando lo dividiamo in parti più piccole. Ogni sottoproblema deve avere input, output e responsabilità chiari. Riduce complessità Si ragiona su una parte alla volta. Favorisce riuso Una soluzione parziale può servire più volte. Facilita test Ogni parte può essere verificata separatamente.
+
+--- Slide 11 ---
+Precondizioni Cosa deve essere vero prima di iniziare Le precondizioni descrivono ciò che l'algoritmo si aspetta dagli input. Se non sono rispettate, il risultato può essere errato o il procedimento può bloccarsi. Esempio Per dividere due numeri, il divisore deve essere diverso da zero. Controllo Prima del calcolo si verifica se l'input è valido.
+
+--- Slide 12 ---
+Postcondizioni Cosa deve essere vero alla fine Le postcondizioni descrivono il risultato atteso dopo l'esecuzione. Sono utili per verificare se l'algoritmo ha davvero risolto il problema. precondizione: lista non vuota
+algoritmo: trova massimo
+postcondizione: massimo >= ogni elemento della lista
+
+--- Slide 13 ---
+Sequenza L'ordine cambia il risultato In un algoritmo, spostare una istruzione può cambiare completamente il comportamento. Alcuni passi devono avvenire prima perché preparano dati usati dai passi successivi. Prima inizializzo Creo valori di partenza, contatori e accumuli. Poi aggiorno Uso quei valori per calcolare risultati successivi.
+
+--- Slide 14 ---
+Decisioni Le condizioni devono essere verificabili Una decisione efficace usa una condizione chiara, valutabile come vera o falsa. Condizioni vaghe producono algoritmi ambigui. Vaga "Se il valore è abbastanza alto" non basta senza soglia. Verificabile "Se il valore è maggiore o uguale a 18" è controllabile.
+
+--- Slide 15 ---
+Cicli Ripetere senza perdere il controllo Un ciclo deve avere una condizione di continuazione e un modo per avvicinarsi alla fine. Altrimenti rischia di non terminare. Inizializza Prepara contatore o stato iniziale. Controlla Decide se ripetere. Aggiorna Modifica qualcosa a ogni iterazione.
+
+--- Slide 16 ---
+Accumulatore Costruire un risultato passo dopo passo L'accumulatore è una variabile che conserva un risultato parziale. A ogni iterazione viene aggiornato con una nuova informazione. totale = 0
+per ogni prezzo nella lista:
+ totale = totale + prezzo
+fine ciclo
+
+--- Slide 17 ---
+Contatore Sapere quante volte qualcosa accade Il contatore aumenta o diminuisce secondo una regola. Serve per ripetere un numero definito di volte, indicizzare elementi o contare occorrenze. Indice Indica quale elemento stiamo osservando. Occorrenze Conta quante volte una condizione è vera.
+
+--- Slide 18 ---
+Traccia La tabella di traccia rende visibile l'esecuzione Durante la prova a mano possiamo costruire una tabella con una riga per ogni passo e una colonna per ogni variabile importante. passo | i | totale
+0 | 0 | 0
+1 | 1 | 5
+2 | 2 | 12
+
+--- Slide 19 ---
+Efficienza Non tutte le soluzioni costano uguale Due algoritmi possono produrre lo stesso risultato ma richiedere tempi o memoria molto diversi. Valutare l'efficienza aiuta a scegliere una soluzione adatta alla dimensione del problema. Tempo Quanti passaggi servono al crescere dei dati? Spazio Quanta memoria aggiuntiva viene usata?
+
+--- Slide 20 ---
+Un algoritmo chiaro rende il codice più semplice. Quando il procedimento è comprensibile, la traduzione in linguaggio di programmazione diventa più controllabile. Prossimo → PR01.04 · Fondamenti
