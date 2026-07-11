@@ -12,7 +12,7 @@ progetto
 --- Slide 2 ---
 In questo modulo 
  Dal "che bello sarebbe" al piano 
- In PM01 hai visto che la pianificazione è la fase 2 del ciclo di vita. Qui la apriamo: come si trasforma un obiettivo in un piano che il team può eseguire davvero ? 
+ In PM01 hai visto che la pianificazione è la fase 2 del ciclo di vita. Qui la apriamo: come si trasforma un obiettivo in un piano che il team può eseguire davvero ? Il banco di prova sarà il salone "Belli e Brillanti" già incontrato in PM01. 
  
  
  🎯 
@@ -42,7 +42,7 @@ Il caso guida
  Il progetto che pianificheremo 
  
  
- Per tutto il modulo useremo lo stesso esempio: il salone "Belli e Brillanti" vuole lanciare un servizio di prenotazione online entro tre mesi, con un budget di 5.000&nbsp;€. 
+ Riprendiamo il caso conosciuto in PM01: il salone "Belli e Brillanti" vuole lanciare un servizio di prenotazione online entro tre mesi, con un budget di 5.000&nbsp;€. Stavolta il piano lo costruiamo noi, passo per passo. 
  
  Perché un caso concreto 
  SMART, WBS e Gantt sembrano sigle astratte finché non le applichi. Vedrai ogni strumento all'opera sullo stesso progetto, dall'inizio alla fine. 
@@ -117,6 +117,24 @@ Primo passo
  Regola: se non puoi dire come misurerai il successo, non hai ancora un obiettivo.
 
 --- Slide 6 ---
+Primo passo 
+ Dentro o fuori: il perimetro 
+ L'obiettivo SMART dice dove arrivare; prima di scomporre il lavoro serve un confine esplicito: cosa il progetto include e — soprattutto — cosa non include . Ogni "ovviamente c'è anche…" non scritto è uno scope creep che aspetta il momento peggiore per presentarsi. 
+ 
+ 
+ ✓ 
+ Dentro il progetto 
+ Prenotazione online di tagli e trattamenti · promemoria automatico via email · pagina con listino e orari · formazione dello staff all'uso del sistema. 
+ 
+ 
+ ✗ 
+ Fuori dal progetto 
+ Vendita di prodotti online · app da scaricare · programma fedeltà a punti · gestione del magazzino. Magari in un progetto futuro — non in questo, non con questi soldi. 
+ 
+ 
+ Regola: ciò che non è scritto "dentro" è fuori — le aggiunte si negoziano, non si scivolano.
+
+--- Slide 7 ---
 Secondo passo 
  WBS: scomporre l'elefante 
  
@@ -162,7 +180,7 @@ Secondo passo
  
  La WBS del caso guida: tre rami, poi attività concrete
 
---- Slide 7 ---
+--- Slide 8 ---
 Secondo passo 
  Le dipendenze: cosa aspetta cosa 
  Le attività della WBS non sono tutte indipendenti: alcune non possono iniziare finché altre non finiscono. Ignorare le dipendenze produce piani impossibili. 
@@ -175,7 +193,7 @@ Secondo passo
  💡 L'intuizione chiave 
  Le dipendenze rivelano cosa può correre in parallelo : è lì che si recupera tempo. La sequenza più lunga di attività dipendenti tra loro si chiama percorso critico — e decide la durata minima del progetto.
 
---- Slide 8 ---
+--- Slide 9 ---
 Terzo passo 
  Stimare senza mentirsi 
  Quanto dura "configurare i servizi"? Le stime sono la parte più fragile del piano: tendiamo tutti a essere ottimisti . Tre tecniche per difendersi da se stessi: 
@@ -200,7 +218,7 @@ Terzo passo
  ⚠️ Il buffer non è grasso da tagliare 
  Aggiungere un margine per gli imprevisti (10–20%) non è pessimismo: è statistica. Un piano senza riserve è un piano che fallisce al primo raffreddore.
 
---- Slide 9 ---
+--- Slide 10 ---
 Quarto passo 
  Il diagramma di Gantt 
  Attività, durate e dipendenze si mettono infine sul calendario. Il Gantt è la vista d'insieme: ogni barra un'attività, la sua lunghezza la durata, la posizione il periodo. 
@@ -225,9 +243,13 @@ Quarto passo
  agosto 
  settembre 
  
- Il Gantt del caso guida: contenuti in parallelo al software, poi tutto converge sul test
+ Il Gantt del caso guida: contenuti in parallelo al software, poi tutto converge sul test 
+ 
+ 
+ 💡 Leggere il Gantt 
+ Le linee tratteggiate sono le dipendenze della slide precedente. La catena piattaforma → configurazione → test → lancio è il percorso critico : se una di quelle barre slitta, slitta il 1° ottobre. Le foto e i testi, invece, hanno margine.
 
---- Slide 10 ---
+--- Slide 11 ---
 Quarto passo 
  Le milestone: i traguardi intermedi 
  
@@ -260,7 +282,7 @@ Quarto passo
  1° ottobre — online 
  la milestone finale coincide con l'obiettivo T di SMART
 
---- Slide 11 ---
+--- Slide 12 ---
 Le persone 
  Chi fa cosa: niente zone grigie 
  Ogni attività della WBS ha bisogno di un solo responsabile . "Ce ne occupiamo insieme" è la formula magica con cui le attività non le fa nessuno. 
@@ -278,7 +300,7 @@ Le persone
  
  Nel caso guida: le foto le fa Sara (titolare), i testi Marco (receptionist), la piattaforma la configura il consulente esterno — e ogni scelta di spesa la approva Sara. Scritto, condiviso, niente sorprese.
 
---- Slide 12 ---
+--- Slide 13 ---
 I soldi 
  Il budget: la WBS con i prezzi 
  
@@ -310,7 +332,7 @@ I soldi
  
  Il budget del caso guida: 5.000 € — riserva inclusa, non rubata
 
---- Slide 13 ---
+--- Slide 14 ---
 Quinto passo 
  I rischi: pensarci prima 
  Un rischio è un evento incerto che, se accade, impatta il progetto. La domanda non è "se" qualcosa andrà storto, ma cosa — e la risposta si cerca a piano fatto, non a disastro avvenuto. 
@@ -323,7 +345,7 @@ Quinto passo
  ⚠️ Nel caso guida 
  "A causa delle ferie di agosto, il consulente potrebbe non essere disponibile due settimane, con effetto di ritardo sul test di settembre." Identificato a luglio, si risolve con una telefonata. Scoperto a settembre, fa saltare il lancio.
 
---- Slide 14 ---
+--- Slide 15 ---
 Quinto passo 
  Probabilità × impatto 
  
@@ -331,7 +353,7 @@ Quinto passo
  Non tutti i rischi meritano la stessa attenzione. Ognuno si valuta su due assi: quanto è probabile e quanto farebbe male . Il prodotto dei due decide la priorità. 
  
  Dove guardare per primi 
- L'angolo in alto a destra: probabile e grave. Questi rischi richiedono un piano di risposta pronto prima che si presentino. 
+ L'angolo in alto a destra: probabile e grave. Questi rischi richiedono un piano di risposta pronto prima che si presentino. Quelli in basso a sinistra, invece, si accettano e basta: presidiare tutto equivale a non presidiare niente. 
  
  In pratica: l'ombrello si compra quando c'è il sole — a pioggia iniziata restano solo quelli cari. 
  
@@ -354,7 +376,7 @@ Quinto passo
  
  La matrice dei rischi del caso guida: rosso = agire subito
 
---- Slide 15 ---
+--- Slide 16 ---
 Quinto passo 
  Le quattro risposte a un rischio 
  Per ogni rischio prioritario si sceglie una strategia. Quattro opzioni, dalla più drastica alla più serena: 
@@ -382,7 +404,7 @@ Quinto passo
  
  Regola: ogni rischio rosso della matrice deve avere un nome accanto: chi lo tiene d'occhio.
 
---- Slide 16 ---
+--- Slide 17 ---
 Ultimo tassello 
  Il piano di comunicazione 
  L'ultimo pezzo del piano risponde a una domanda semplice: chi deve sapere cosa, quando, e come ? Deciderlo prima evita sia il silenzio totale sia la riunione perenne. 
@@ -407,7 +429,7 @@ Ultimo tassello
  💡 Collegamento 
  Canali sincroni e asincroni, riunioni efficaci e netiquette: tutto quello che serve qui l'hai visto nel modulo RW09 · Collaborazione Digitale .
 
---- Slide 17 ---
+--- Slide 18 ---
 Ricapitolando 
  Il piano completo, in una pagina 
  Sette domande, sette risposte scritte. Se riesci a compilare questa lista, il tuo progetto ha un piano vero — qualunque sia la sua dimensione. 
@@ -418,9 +440,11 @@ Ricapitolando
  Chi? → un responsabile per attività, matrice condivisa 
  Quanto? → budget dal basso, riserva di contingenza inclusa 
  E se? → rischi mappati per probabilità × impatto, risposte pronte 
- Come ci parliamo? → piano di comunicazione per team, sponsor e utenti
+ Come ci parliamo? → piano di comunicazione per team, sponsor e utenti 
+ 
+ Regola: se una delle sette risposte manca, non l'hai evitata — l'hai solo rimandata a quando costerà di più.
 
---- Slide 18 ---
+--- Slide 19 ---
 Un piano non prevede il futuro:
 lo rende gestibile 
  Obiettivo SMART, lavoro scomposto, tempi onesti, responsabilità chiare, rischi già guardati in faccia. Ora il progetto può partire — e sopravvivere al primo imprevisto. 

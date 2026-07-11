@@ -148,7 +148,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 <section class="slide" id="s2">
   <div class="tape teal reveal">In questo modulo</div>
   <div class="h-sec reveal">Dal "che bello sarebbe" al piano</div>
-  <p class="lead reveal" style="margin-top:14px;margin-bottom:28px;">In PM01 hai visto che la pianificazione è la fase 2 del ciclo di vita. Qui la apriamo: come si trasforma un obiettivo in un piano che il team può <em class="hot">eseguire davvero</em>?</p>
+  <p class="lead reveal" style="margin-top:14px;margin-bottom:28px;">In PM01 hai visto che la pianificazione è la fase 2 del ciclo di vita. Qui la apriamo: come si trasforma un obiettivo in un piano che il team può <em class="hot">eseguire davvero</em>? Il banco di prova sarà il salone <em class="hot">"Belli e Brillanti"</em> già incontrato in PM01.</p>
   <div class="grid2 reveal d3" style="gap:18px;">
     <div class="agenda-item" style="border-color:var(--gold-deep);padding:12px 4px 12px 16px;">
       <span style="font-size:34px;min-width:50px;">🎯</span>
@@ -177,7 +177,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <div class="h-sec reveal">Il progetto che pianificheremo</div>
   <div class="split" style="margin-top:10px;">
     <div class="col" style="gap:24px;">
-      <p class="lead reveal d2">Per tutto il modulo useremo lo stesso esempio: il salone <em class="hot">"Belli e Brillanti"</em> vuole lanciare un <em class="hot">servizio di prenotazione online</em> entro tre mesi, con un budget di 5.000&nbsp;€.</p>
+      <p class="lead reveal d2">Riprendiamo il caso conosciuto in PM01: il salone <em class="hot">"Belli e Brillanti"</em> vuole lanciare un <em class="hot">servizio di prenotazione online</em> entro tre mesi, con un budget di 5.000&nbsp;€. Stavolta il piano lo costruiamo noi, passo per passo.</p>
       <div class="card teal reveal d3">
         <h3>Perché un caso concreto</h3>
         <p>SMART, WBS e Gantt sembrano sigle astratte finché non le applichi. Vedrai ogni strumento all'opera sullo stesso progetto, dall'inizio alla fine.</p>
@@ -260,6 +260,27 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     </div>
   </div>
   <div class="analogy reveal d4" style="margin-top:26px;"><span class="big">Regola:</span> se non puoi dire come misurerai il successo, non hai ancora un obiettivo.</div>
+  <div class="page-num"></div>
+</section>
+
+<!-- ── Slide 5b: Il perimetro ─────────────────────────────── -->
+<section class="slide" id="s5b">
+  <div class="tape gold reveal">Primo passo</div>
+  <div class="h-sec reveal">Dentro o fuori: il perimetro</div>
+  <p class="lead reveal" style="margin-top:12px;margin-bottom:24px;">L'obiettivo SMART dice dove arrivare; prima di scomporre il lavoro serve un confine esplicito: cosa il progetto <em class="hot">include</em> e — soprattutto — cosa <em class="hot">non include</em>. Ogni "ovviamente c'è anche…" non scritto è uno scope creep che aspetta il momento peggiore per presentarsi.</p>
+  <div class="grid2 reveal d3">
+    <div class="card teal">
+      <span class="ic">✓</span>
+      <h3>Dentro il progetto</h3>
+      <p>Prenotazione online di tagli e trattamenti · promemoria automatico via email · pagina con listino e orari · formazione dello staff all'uso del sistema.</p>
+    </div>
+    <div class="card red">
+      <span class="ic">✗</span>
+      <h3>Fuori dal progetto</h3>
+      <p>Vendita di prodotti online · app da scaricare · programma fedeltà a punti · gestione del magazzino. Magari in un progetto futuro — non in questo, non con questi soldi.</p>
+    </div>
+  </div>
+  <div class="analogy reveal d4" style="margin-top:26px;"><span class="big">Regola:</span> ciò che non è scritto "dentro" è fuori — le aggiunte si negoziano, non si scivolano.</div>
   <div class="page-num"></div>
 </section>
 
@@ -388,6 +409,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     </svg>
     <div class="illu-cap">Il Gantt del caso guida: contenuti in parallelo al software, poi tutto converge sul test</div>
   </div>
+  <div class="note sky reveal d4" style="margin-top:20px;">
+    <div class="lbl">💡 Leggere il Gantt</div>
+    <p>Le linee tratteggiate sono le dipendenze della slide precedente. La catena piattaforma → configurazione → test → lancio è il <b>percorso critico</b>: se una di quelle barre slitta, slitta il 1° ottobre. Le foto e i testi, invece, hanno margine.</p>
+  </div>
   <div class="page-num"></div>
 </section>
 
@@ -510,7 +535,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <p class="lead reveal d2">Non tutti i rischi meritano la stessa attenzione. Ognuno si valuta su due assi: <em class="hot">quanto è probabile</em> e <em class="hot">quanto farebbe male</em>. Il prodotto dei due decide la priorità.</p>
       <div class="card red reveal d3">
         <h3>Dove guardare per primi</h3>
-        <p>L'angolo in alto a destra: probabile <b>e</b> grave. Questi rischi richiedono un piano di risposta pronto <b>prima</b> che si presentino.</p>
+        <p>L'angolo in alto a destra: probabile <b>e</b> grave. Questi rischi richiedono un piano di risposta pronto <b>prima</b> che si presentino. Quelli in basso a sinistra, invece, si accettano e basta: presidiare tutto equivale a non presidiare niente.</p>
       </div>
       <div class="analogy reveal d4"><span class="big">In pratica:</span> l'ombrello si compra quando c'è il sole — a pioggia iniziata restano solo quelli cari.</div>
     </div>
@@ -601,7 +626,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 <section class="slide" id="s17">
   <div class="tape reveal">Ricapitolando</div>
   <div class="h-sec reveal">Il piano completo, in una pagina</div>
-  <p class="lead reveal" style="margin-top:12px;margin-bottom:24px;">Sette domande, sette risposte scritte. Se riesci a compilare questa lista, il tuo progetto ha un piano vero — qualunque sia la sua dimensione.</p>
+  <p class="lead reveal" style="margin-top:10px;margin-bottom:18px;">Sette domande, sette risposte scritte. Se riesci a compilare questa lista, il tuo progetto ha un piano vero — qualunque sia la sua dimensione.</p>
   <div class="steps reveal d3">
     <div class="step"><div class="t"><b>Perché?</b> → obiettivo SMART, condiviso con lo sponsor</div></div>
     <div class="step"><div class="t"><b>Cosa?</b> → WBS: tutto il lavoro, scomposto in attività assegnabili</div></div>
@@ -611,6 +636,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="step"><div class="t"><b>E se?</b> → rischi mappati per probabilità × impatto, risposte pronte</div></div>
     <div class="step"><div class="t"><b>Come ci parliamo?</b> → piano di comunicazione per team, sponsor e utenti</div></div>
   </div>
+  <div class="analogy reveal d4" style="margin-top:16px;"><span class="big">Regola:</span> se una delle sette risposte manca, non l'hai evitata — l'hai solo rimandata a quando costerà di più.</div>
   <div class="page-num"></div>
 </section>
 
