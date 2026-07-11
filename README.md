@@ -41,7 +41,7 @@ Inside any deck:
 | `sd` | Sicurezza Digitale | sd01–sd05 |
 | `in` | Identità digitale | in01–in05 |
 | `sm` | Smartphones | sm01–sm11 |
-| `su` | Suite Ufficio | su01–su12 |
+| `su` | Suite Ufficio | su01–su13 |
 | `ia` | Intelligenza Artificiale | ia01–ia03 |
 | `pm` | Project Management | pm01–pm04 |
 | `sc` / `mb` | Programmare | Scratch sc01–sc02, Micro:bit mb01–mb02 |
