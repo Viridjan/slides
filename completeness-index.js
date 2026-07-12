@@ -66,7 +66,7 @@ window.COMPLETENESS = {
   "su01-02-google-workspace.html": 5,
   "su01-03-adobe.html": 3,
   "su01-04-alternativi.html": 3,
-  "su02-01-documenti.html": 5,
+  "su02-01-documenti.html": 3,
   "su02-02-word-scrivere-formattare.html": 2,
   "su02-03-word-impaginare-revisionare.html": 2,
   "su02-04-word-documenti-professionali.html": 2,
