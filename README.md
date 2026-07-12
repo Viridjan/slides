@@ -42,8 +42,8 @@ Inside any deck:
 | `sm` | Smartphones | sm01–sm11 |
 | `su` | Suite Ufficio | su01-01–su04-01 (codici gerarchici dell’indice) |
 | `ia` | Intelligenza Artificiale | ia01–ia03 |
+| `pr` | Programmazione | teoria pr01-01–pr01-04, Scratch pr02-01–pr02-02, Micro:bit pr03-01–pr03-02 |
 | `pm` | Project Management | pm01–pm04 |
-| `pr` | Programmare | teoria pr01-01–pr01-04, Scratch pr02-01–pr02-02, Micro:bit pr03-01–pr03-02 |
 | `ms` | Modellazione e stampa 3D | ms01–ms04 |
 | `gd` | Game Design | gd01–gd08 |
 

@@ -196,7 +196,7 @@ published area, and record that exception here before creating files:
 | `su` | Suite Ufficio | `su01-01-microsoft.html` |
 | `ia` | Intelligenza Artificiale | `ia01-concetti-generali.html` |
 | `pm` | Project Management | `pm01-introduzione.html` |
-| `pr` | Programmare | `pr01-01-introduzione-programmazione.html`, `pr02-01-introduzione.html`, `pr03-01-microbit.html` |
+| `pr` | Programmazione | `pr01-01-introduzione-programmazione.html`, `pr02-01-introduzione.html`, `pr03-01-microbit.html` |
 | `ms` | Modellazione e stampa 3D | `ms01-tinkercad-introduzione.html` |
 | `gd` | Game Design | `gd01-introduzione.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
@@ -356,7 +356,7 @@ Navigation chain: pm01 → pm02 → pm03 → pm04
 | `pm03-metodologie.html` | Metodologie |
 | `pm04-strumenti.html` | Strumenti Digitali |
 
-### Programmare
+### Programmazione
 
 Index numbering uses `PR01.01`-`PR01.04` for general programming theory, `PR02.xx` for Scratch and `PR03.xx` for Micro:bit.
 
@@ -371,7 +371,7 @@ General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-0
 
 Codex note: the `PR01.02`-`PR01.04` theory blocks are paraphrased and reorganized
 from the public PDF "Fondamenti di Informatica e Programmazione" by Edizioni
-Manna, requested by the user on 2026-07-10. Keep them in the Programmare group
+Manna, requested by the user on 2026-07-10. Keep them in the Programmazione group
 before Scratch and do not split them into Hardware/Software or other sections.
 
 Codex update 2026-07-10: the `PR01.01` theory blocks were expanded without changing
