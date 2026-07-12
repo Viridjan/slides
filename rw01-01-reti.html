@@ -122,9 +122,9 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 <!-- === SLIDE 1: TITLE === -->
 <section class="slide title-slide active visible">
   <div class="title-left">
-    <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="false">Modulo 1 — Reti e Internet</div>
-    <h1 class="h-big reveal" style="font-size:100px;" contenteditable="false">Reti<br>Informatiche<br>e <em class="hot">Internet</em></h1>
-    <p class="lead reveal" style="margin-top:26px;" contenteditable="false">Come i dispositivi comunicano tra loro, cos'è Internet, cos'è il Web e come funziona una richiesta online.</p>
+    <div class="eyebrow reveal" style="margin-top:40px;">Modulo 1 — Reti e Internet</div>
+    <h1 class="h-big reveal" style="font-size:100px;">Reti<br>Informatiche<br>e <em class="hot">Internet</em></h1>
+    <p class="lead reveal" style="margin-top:26px;">Come i dispositivi comunicano tra loro, cos'è Internet, cos'è il Web e come funziona una richiesta online.</p>
     <div class="chips reveal" style="margin-top:40px;"><span class="chip">Modulo 1</span><span class="chip alt">Basi</span></div>
   </div>
   <div class="title-right">
@@ -593,8 +593,8 @@ class SlidePresentation{
     if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
     else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
     else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
-  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
-    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  touch(){let x0=null;
+    }
   wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
 }
 const deck=new SlidePresentation();(()=>{const target=()=>{const m=location.hash.match(/(?:slide-|slide=|^#)(\d+)/);return m?Number(m[1])-1:null};const showHash=()=>{const n=target();if(Number.isInteger(n))deck.show(n)};showHash();addEventListener('hashchange',showHash)})();
@@ -611,7 +611,7 @@ hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classLi
 hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
 toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
 toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
-addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}if((e.key==='i'||e.key==='I')&&!onEd){location.href='00-indice.html';}});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}if((e.key==='i'||e.key==='I')&&!onEd){location.href='00-indice.html';}});
 </script>
 </body>
 </html>

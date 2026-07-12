@@ -260,13 +260,13 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- ============ SLIDE 1 · TITLE ============ -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="false">Modulo 01 — Componenti</div>
-      <h1 class="h-mega reveal" contenteditable="false">Dentro<br>il <em class="hot">computer</em></h1>
-      <p class="lead reveal" style="margin-top:30px;" contenteditable="false">Cos'è davvero un PC, di cosa è fatto e perché ogni pezzo conta. Partiamo da zero, senza dare niente per scontato.</p>
+      <div class="eyebrow reveal" style="margin-top:40px;">Modulo 01 — Componenti</div>
+      <h1 class="h-mega reveal">Dentro<br>il <em class="hot">computer</em></h1>
+      <p class="lead reveal" style="margin-top:30px;">Cos'è davvero un PC, di cosa è fatto e perché ogni pezzo conta. Partiamo da zero, senza dare niente per scontato.</p>
       <div class="chips reveal" style="margin-top:46px;">
         <span class="chip">8 lezioni</span>
         <span class="chip alt">Livello base</span>
-        
+
       </div>
     </div>
     <div class="title-right">
@@ -916,7 +916,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="page-num"></div>
   </section>
 
-  
+
   <!-- ============ SLIDE 15 · SOFTWARE ============ -->
   <section class="slide">
     <div class="col stack" style="justify-content:center;height:100%;">
@@ -1041,7 +1041,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <!-- ============ SLIDE 20 · DOMANDE / VERIFICA ============ -->
-  
+
 
   <!-- ============ SLIDE 21 · CHIUSURA ============ -->
   <section class="slide closing">
@@ -1106,9 +1106,8 @@ class SlidePresentation{
   }
   touch(){
     let x0=null;
-    addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
-    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;
-      if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});
+
+
   }
   wheel(){
     let lock=false;
@@ -1160,7 +1159,7 @@ toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
 toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
 addEventListener('keydown',e=>{
   const onEditable=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';
-  if((e.key==='e'||e.key==='E')&&!onEditable){editor.toggle();}
+
   if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}
   if((e.key==='i'||e.key==='I')&&!onEditable){location.href='00-indice.html';}
 });

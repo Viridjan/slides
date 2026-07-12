@@ -117,9 +117,9 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="eyebrow reveal" style="margin-top:40px;" contenteditable="false">Modulo 07 — Social media</div>
-      <h1 class="h-mega reveal" contenteditable="false">I social<br><em class="hot">giusti</em></h1>
-      <p class="lead reveal" style="margin-top:30px;" contenteditable="false">Gestire la presenza sui social, scegliere le piattaforme in base al pubblico e promuovere un'attività.</p>
+      <div class="eyebrow reveal" style="margin-top:40px;">Modulo 07 — Social media</div>
+      <h1 class="h-mega reveal">I social<br><em class="hot">giusti</em></h1>
+      <p class="lead reveal" style="margin-top:30px;">Gestire la presenza sui social, scegliere le piattaforme in base al pubblico e promuovere un'attività.</p>
       <div class="chips reveal" style="margin-top:46px;"><span class="chip">Modulo 7 / 8</span><span class="chip alt">Social</span></div>
     </div>
     <div class="title-right"><div style="position:relative;z-index:2;font-size:230px;line-height:1;">📱</div></div>
@@ -485,7 +485,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="center" style="align-items:center;text-align:center;">
       <h2 class="h-mega reveal" style="margin-top:10px;">Online!</h2>
       <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">LinkedIn, Instagram, TikTok, Behance: la funzione di ogni piattaforma, come scegliere quella giusta e come usarla con strategia.</p>
-      
+
     </div>
   </section>
 
@@ -511,8 +511,8 @@ class SlidePresentation{
     if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
     else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
     else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
-  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
-    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  touch(){let x0=null;
+    }
   wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
 }
 const deck=new SlidePresentation();(()=>{const target=()=>{const m=location.hash.match(/(?:slide-|slide=|^#)(\d+)/);return m?Number(m[1])-1:null};const showHash=()=>{const n=target();if(Number.isInteger(n))deck.show(n)};showHash();addEventListener('hashchange',showHash)})();
@@ -529,7 +529,7 @@ hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classLi
 hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
 toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
 toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
-addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}if((e.key==='i'||e.key==='I')&&!onEd){location.href='00-indice.html';}});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}if((e.key==='i'||e.key==='I')&&!onEd){location.href='00-indice.html';}});
 </script>
 </body>
 </html>

@@ -61,12 +61,22 @@ Every content deck should include:
 - fixed-stage CSS
 - progress bar
 - keyboard navigation
-- touch and wheel navigation
-- inline editor hotzone / `E` shortcut when following existing deck style
+- wheel navigation
 - a closing slide with an index link
 - a fixed `↩ Indice` home button (`.home-btn`, bottom-left, `position:fixed`)
   linking to `00-indice.html` (GD decks link to `00-indice-gd.html` and use the
   arcade variant); the `I` keyboard shortcut must point to the same index
+
+Clicking the slide canvas or either half of the stage must do nothing. Never
+attach click-to-next, click-to-previous, hotspot navigation or other actions to
+`.slide`, `.deck-stage` or the general presentation background. Navigation may
+use keyboard and wheel; clicks are reserved for explicit visible controls such
+as links, quiz inputs and the home button.
+
+Do not add swipe/touch navigation (`touchstart`, `touchmove`, `touchend`) or an
+inline editor, edit hotzone, edit toggle, `contenteditable` mode, localStorage
+editing state, `E` shortcut or editor-download behavior to any deck. Slides are
+read-only at runtime.
 
 ## Warm Study Zine tokens
 

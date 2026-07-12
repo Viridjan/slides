@@ -128,7 +128,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="title-left">
       <div class="eyebrow reveal" style="margin-top:40px;">Intelligenza Artificiale</div>
       <h1 class="h-mega reveal" style="margin-top:10px;"><em style="font-style:italic;color:var(--sky);">LLM</em><br>spiegati</h1>
-      <p class="lead reveal d1" contenteditable="false" style="margin-top:28px;">Cos'è un Large Language Model, come funziona davvero — e perché molte cose che "sa" sull'IA sono sbagliate.</p>
+      <p class="lead reveal d1" style="margin-top:28px;">Cos'è un Large Language Model, come funziona davvero — e perché molte cose che "sa" sull'IA sono sbagliate.</p>
       <div class="chips reveal d2" style="margin-top:46px;">
         <span class="chip">IA_03</span><span class="chip alt">Large Language Models</span>
       </div>
@@ -144,14 +144,14 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <h2 class="h-sec reveal" style="margin-top:32px;">Cosa vedremo</h2>
     <div class="grid2 reveal d1" style="margin-top:28px;">
       <div class="steps" style="counter-reset:st;">
-        <div class="step"><div class="t" contenteditable="false"><b>Cosa sono gli LLM</b> — definizione, architettura transformer, NLP</div></div>
-        <div class="step"><div class="t" contenteditable="false"><b>Caso studio</b> — un testo generato da IA su se stessa: quanti errori contiene?</div></div>
-        <div class="step"><div class="t" contenteditable="false"><b>Analisi degli errori</b> — 5 inesattezze nel testo IA, identificate slide per slide</div></div>
+        <div class="step"><div class="t"><b>Cosa sono gli LLM</b> — definizione, architettura transformer, NLP</div></div>
+        <div class="step"><div class="t"><b>Caso studio</b> — un testo generato da IA su se stessa: quanti errori contiene?</div></div>
+        <div class="step"><div class="t"><b>Analisi degli errori</b> — 5 inesattezze nel testo IA, identificate slide per slide</div></div>
       </div>
       <div class="steps" style="counter-reset:st 3;">
-        <div class="step"><div class="t" contenteditable="false"><b>Come funziona un LLM</b> — prompt → token → nodi → risposta</div></div>
-        <div class="step"><div class="t" contenteditable="false"><b>Cosa un LLM non fa</b> — capire, imparare, ragionare (nel senso umano)</div></div>
-        <div class="step"><div class="t" contenteditable="false"><b>Usare gli LLM bene</b> — verificare, iterare, non fidarsi ciecamente</div></div>
+        <div class="step"><div class="t"><b>Come funziona un LLM</b> — prompt → token → nodi → risposta</div></div>
+        <div class="step"><div class="t"><b>Cosa un LLM non fa</b> — capire, imparare, ragionare (nel senso umano)</div></div>
+        <div class="step"><div class="t"><b>Usare gli LLM bene</b> — verificare, iterare, non fidarsi ciecamente</div></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -163,27 +163,27 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="col stack">
         <div class="tape sky reveal">Definizione</div>
         <h2 class="h-big reveal" style="margin-top:18px;">Large Language <em class="hot">Models</em></h2>
-        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Modelli di IA basati su reti neurali addestrati su enormi quantità di testo — per imparare le <b>relazioni matematiche tra parole</b>.</p>
+        <p class="lead reveal d1" style="margin-top:14px;">Modelli di IA basati su reti neurali addestrati su enormi quantità di testo — per imparare le <b>relazioni matematiche tra parole</b>.</p>
         <div class="note sky reveal d2" style="margin-top:20px;">
           <div class="lbl">Transformer</div>
-          <p contenteditable="false">L'architettura alla base di quasi tutti gli LLM moderni. Usa "meccanismi di attenzione" per capire il contesto di ogni parola rispetto alle altre nel testo.</p>
+          <p>L'architettura alla base di quasi tutti gli LLM moderni. Usa "meccanismi di attenzione" per capire il contesto di ogni parola rispetto alle altre nel testo.</p>
         </div>
       </div>
       <div class="col stack">
         <div class="card reveal d1">
           <span class="ic">📚</span>
-          <h3 contenteditable="false">Dati di addestramento</h3>
-          <p contenteditable="false">Miliardi di pagine web, libri, articoli scientifici, codice. GPT-4 è stato addestrato su oltre un trilione di token.</p>
+          <h3>Dati di addestramento</h3>
+          <p>Miliardi di pagine web, libri, articoli scientifici, codice. GPT-4 è stato addestrato su oltre un trilione di token.</p>
         </div>
         <div class="card sky reveal d2">
           <span class="ic">🎯</span>
-          <h3 contenteditable="false">Obiettivo del training</h3>
-          <p contenteditable="false">Prevedere la parola (token) successiva, data una sequenza. Semplice come obiettivo — potente come risultato.</p>
+          <h3>Obiettivo del training</h3>
+          <p>Prevedere la parola (token) successiva, data una sequenza. Semplice come obiettivo — potente come risultato.</p>
         </div>
         <div class="card gold reveal d3">
           <span class="ic">⚙️</span>
-          <h3 contenteditable="false">Parametri</h3>
-          <p contenteditable="false">GPT-4 ha ~1.8 trilioni di parametri. Ogni parametro è un numero che codifica una relazione tra concetti.</p>
+          <h3>Parametri</h3>
+          <p>GPT-4 ha ~1.8 trilioni di parametri. Ogni parametro è un numero che codifica una relazione tra concetti.</p>
         </div>
       </div>
     </div>
@@ -195,7 +195,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="center">
       <div class="tape red reveal">Testo generato</div>
       <h2 class="h-sec reveal" style="margin-top:16px;">Perplexity: definizione di <em class="hot">LLM</em></h2>
-      <div class="blockquote reveal d1" style="margin-top:20px;max-width:1500px;font-size:25px;line-height:1.42;" contenteditable="false">
+      <div class="blockquote reveal d1" style="margin-top:20px;max-width:1500px;font-size:25px;line-height:1.42;">
         I Large Language Models (LLM) sono modelli di intelligenza artificiale basati su reti neurali <b>profonde</b> specializzate nell'elaborazione del linguaggio naturale (<b>NLP</b>). Sono addestrati su enormi quantità di testo per apprendere le relazioni tra parole, frasi e concetti, permettendo loro di generare testo coerente e comprensibile, rispondere a domande, tradurre, riassumere e <b>svolgere molte altre attività linguistiche</b>. Il funzionamento di un LLM si basa su architetture chiamate transformer, che elaborano sequenze di testo utilizzando meccanismi di attenzione per capire il contesto e prevedere la parola successiva in una frase. L'addestramento avviene in più fasi, spesso partendo da un apprendimento non supervisionato su dati non etichettati, per poi affinare la precisione.
       </div>
     </div>
@@ -207,12 +207,12 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="center">
       <div class="tape red reveal">Testo generato</div>
       <h2 class="h-sec reveal" style="margin-top:16px;">Perplexity: cosa sostiene il testo</h2>
-      <div class="blockquote reveal d1" style="margin-top:20px;max-width:1500px;font-size:31px;line-height:1.42;" contenteditable="false">
+      <div class="blockquote reveal d1" style="margin-top:20px;max-width:1500px;font-size:31px;line-height:1.42;">
         Grazie a questa struttura, gli LLM possono <b>comprendere</b> il significato implicito, lo stile e il contesto, rendendoli strumenti potenti per la generazione automatica di contenuti e l'elaborazione avanzata del linguaggio. In sintesi, un LLM è un modello AI che "impara" come funziona <b>il linguaggio umano</b> leggendo e analizzando grandi testi, per poi usarlo per creare contenuti testuali o comprendere query complesse con alta precisione.
       </div>
       <div class="note red reveal d2" style="margin-top:24px;max-width:1300px;">
         <div class="lbl">Punto critico</div>
-        <p contenteditable="false">Le parole in grassetto sono quelle da controllare: sembrano naturali, ma introducono imprecisioni tecniche o salti concettuali.</p>
+        <p>Le parole in grassetto sono quelle da controllare: sembrano naturali, ma introducono imprecisioni tecniche o salti concettuali.</p>
       </div>
     </div>
     <div class="page-num"></div>
@@ -223,7 +223,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="center">
       <div class="tape red reveal">Testo generato</div>
       <h2 class="h-sec reveal" style="margin-top:16px;">Perplexity: definizione di <em class="hot">NLP</em></h2>
-      <div class="blockquote reveal d1" style="margin-top:18px;max-width:1540px;font-size:23px;line-height:1.38;" contenteditable="false">
+      <div class="blockquote reveal d1" style="margin-top:18px;max-width:1540px;font-size:23px;line-height:1.38;">
         Il Natural Language Processing (NLP), o elaborazione del linguaggio naturale, è una branca dell'intelligenza artificiale che permette ai computer di comprendere, interpretare e generare il linguaggio umano, sia scritto che parlato. Il suo obiettivo è colmare il divario tra la comunicazione umana e la capacità dei computer di capire il linguaggio naturale. L'NLP combina linguistica computazionale con tecniche di machine learning e deep learning per analizzare testi e parole, <b>identificarne il significato, il contesto e l'intento</b>. Tra le sue funzioni principali ci sono la tokenizzazione, l'analisi sintattica, la riconoscenza di entità e il rilevamento del sentiment. Questo consente di trasformare dati linguistici grezzi in informazioni utili per rispondere a domande, tradurre testi, generare contenuti e molto altro. In sintesi, l'NLP è la tecnologia che consente ai computer di "parlare" e capire il linguaggio umano <b>in modo naturale</b> e utile.
       </div>
     </div>
@@ -235,11 +235,11 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="center">
       <div class="tape red reveal">Caso studio</div>
       <h2 class="h-big reveal" style="margin-top:18px;">Il testo era <em class="hot">generato</em></h2>
-      <p class="lead reveal d1" contenteditable="false" style="margin-top:18px;max-width:1300px;">Il testo appena letto è stato generato con <b>Perplexity.ai</b> e contiene una serie di inesattezze. Le analizziamo una per una, slide per slide.</p>
+      <p class="lead reveal d1" style="margin-top:18px;max-width:1300px;">Il testo appena letto è stato generato con <b>Perplexity.ai</b> e contiene una serie di inesattezze. Le analizziamo una per una, slide per slide.</p>
       <div class="grid3 reveal d2" style="margin-top:28px;max-width:1400px;">
-        <div class="card red"><span class="ic">⚠️</span><h3 contenteditable="false">Tono sicuro</h3><p contenteditable="false">La forma è fluida e convincente, anche quando il contenuto è impreciso.</p></div>
-        <div class="card gold"><span class="ic">🔎</span><h3 contenteditable="false">Parole spia</h3><p contenteditable="false">Le parole in grassetto sono i punti dove il testo scivola dal tecnico al suggestivo.</p></div>
-        <div class="card sky"><span class="ic">🧭</span><h3 contenteditable="false">Metodo</h3><p contenteditable="false">Isoliamo una frase, identifichiamo il problema, riscriviamo il concetto corretto.</p></div>
+        <div class="card red"><span class="ic">⚠️</span><h3>Tono sicuro</h3><p>La forma è fluida e convincente, anche quando il contenuto è impreciso.</p></div>
+        <div class="card gold"><span class="ic">🔎</span><h3>Parole spia</h3><p>Le parole in grassetto sono i punti dove il testo scivola dal tecnico al suggestivo.</p></div>
+        <div class="card sky"><span class="ic">🧭</span><h3>Metodo</h3><p>Isoliamo una frase, identifichiamo il problema, riscriviamo il concetto corretto.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -251,12 +251,12 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="col stack">
         <div class="tape red reveal">Errore 1 / 5</div>
         <h2 class="h-big reveal" style="margin-top:18px;">Reti neurali <em class="hot">profonde</em></h2>
-        <div class="blockquote reveal d1" style="margin-top:18px;" contenteditable="false">"modelli di intelligenza artificiale basati su reti neurali <b>profonde</b>"</div>
-        <div class="note red reveal d2" style="margin-top:20px;"><div class="lbl">Perché è un problema</div><p contenteditable="false">La parola è una scorciatoia ambigua: deriva dall'associazione con <i>deep learning</i>, ma non spiega cosa rende specifico un LLM.</p></div>
+        <div class="blockquote reveal d1" style="margin-top:18px;">"modelli di intelligenza artificiale basati su reti neurali <b>profonde</b>"</div>
+        <div class="note red reveal d2" style="margin-top:20px;"><div class="lbl">Perché è un problema</div><p>La parola è una scorciatoia ambigua: deriva dall'associazione con <i>deep learning</i>, ma non spiega cosa rende specifico un LLM.</p></div>
       </div>
       <div class="col stack">
-        <div class="card teal reveal d1"><span class="ok-label">✓ Corretto</span><h3 contenteditable="false">Transformer, non solo profondità</h3><p contenteditable="false">Gli LLM moderni sono soprattutto modelli basati su architetture transformer, addestrati a predire token in grandi sequenze di testo.</p></div>
-        <div class="card gold reveal d2"><span class="ic">🧪</span><h3 contenteditable="false">Come nasce l'imprecisione</h3><p contenteditable="false">Il modello collega parole statisticamente vicine: IA, deep learning, reti neurali, profondità. Il risultato suona tecnico, ma è poco preciso.</p></div>
+        <div class="card teal reveal d1"><span class="ok-label">✓ Corretto</span><h3>Transformer, non solo profondità</h3><p>Gli LLM moderni sono soprattutto modelli basati su architetture transformer, addestrati a predire token in grandi sequenze di testo.</p></div>
+        <div class="card gold reveal d2"><span class="ic">🧪</span><h3>Come nasce l'imprecisione</h3><p>Il modello collega parole statisticamente vicine: IA, deep learning, reti neurali, profondità. Il risultato suona tecnico, ma è poco preciso.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -268,12 +268,12 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="col stack">
         <div class="tape red reveal">Errore 2 / 5</div>
         <h2 class="h-big reveal" style="margin-top:18px;">Solo attività <em class="hot">linguistiche</em>?</h2>
-        <div class="blockquote reveal d1" style="margin-top:18px;" contenteditable="false">"rispondere a domande, tradurre, riassumere e <b>svolgere molte altre attività linguistiche</b>"</div>
-        <div class="note red reveal d2" style="margin-top:20px;"><div class="lbl">Non è falso, è incompleto</div><p contenteditable="false">Gli LLM nascono sul linguaggio, ma oggi sono integrati in sistemi che lavorano anche con codice, immagini, audio, video e strumenti esterni.</p></div>
+        <div class="blockquote reveal d1" style="margin-top:18px;">"rispondere a domande, tradurre, riassumere e <b>svolgere molte altre attività linguistiche</b>"</div>
+        <div class="note red reveal d2" style="margin-top:20px;"><div class="lbl">Non è falso, è incompleto</div><p>Gli LLM nascono sul linguaggio, ma oggi sono integrati in sistemi che lavorano anche con codice, immagini, audio, video e strumenti esterni.</p></div>
       </div>
       <div class="col stack">
-        <div class="card sky reveal d1"><span class="ic">🧩</span><h3 contenteditable="false">Il limite della frase</h3><p contenteditable="false">Dire "attività linguistiche" fa perdere il punto: il modello manipola token e può essere collegato a domini non puramente testuali.</p></div>
-        <div class="card reveal d2"><span class="ic">🔧</span><h3 contenteditable="false">Esempi</h3><p contenteditable="false">Scrivere codice, descrivere immagini, comandare strumenti, generare prompt per video o sintetizzare dati sono usi che superano la semplice lingua.</p></div>
+        <div class="card sky reveal d1"><span class="ic">🧩</span><h3>Il limite della frase</h3><p>Dire "attività linguistiche" fa perdere il punto: il modello manipola token e può essere collegato a domini non puramente testuali.</p></div>
+        <div class="card reveal d2"><span class="ic">🔧</span><h3>Esempi</h3><p>Scrivere codice, descrivere immagini, comandare strumenti, generare prompt per video o sintetizzare dati sono usi che superano la semplice lingua.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -285,12 +285,12 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="col stack">
         <div class="tape red reveal">Errore 3 / 5</div>
         <h2 class="h-big reveal" style="margin-top:18px;">L'LLM <em class="hot">comprende</em>?</h2>
-        <div class="blockquote reveal d1" style="margin-top:18px;" contenteditable="false">"gli LLM possono <b>comprendere</b> il significato implicito, lo stile e il contesto"</div>
-        <div class="note red reveal d2" style="margin-top:20px;"><div class="lbl">Perché è sbagliato</div><p contenteditable="false">Un LLM non comprende nel senso umano: calcola relazioni tra token e produce una continuazione plausibile.</p></div>
+        <div class="blockquote reveal d1" style="margin-top:18px;">"gli LLM possono <b>comprendere</b> il significato implicito, lo stile e il contesto"</div>
+        <div class="note red reveal d2" style="margin-top:20px;"><div class="lbl">Perché è sbagliato</div><p>Un LLM non comprende nel senso umano: calcola relazioni tra token e produce una continuazione plausibile.</p></div>
       </div>
       <div class="col stack">
-        <div class="card gold reveal d1"><span class="ic">🖥️</span><h3 contenteditable="false">Analogia</h3><p contenteditable="false">Un computer può rappresentare il giallo come <code>#ffff00</code>, ma questo non significa che "capisca" il giallo.</p></div>
-        <div class="note sky reveal d2"><div class="lbl">Differenza chiave</div><p contenteditable="false">L'output può sembrare comprensione perché imita schemi linguistici umani molto ricorrenti nei dati di addestramento.</p></div>
+        <div class="card gold reveal d1"><span class="ic">🖥️</span><h3>Analogia</h3><p>Un computer può rappresentare il giallo come <code>#ffff00</code>, ma questo non significa che "capisca" il giallo.</p></div>
+        <div class="note sky reveal d2"><div class="lbl">Differenza chiave</div><p>L'output può sembrare comprensione perché imita schemi linguistici umani molto ricorrenti nei dati di addestramento.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -302,12 +302,12 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="col stack">
         <div class="tape red reveal">Errore 4 / 5</div>
         <h2 class="h-big reveal" style="margin-top:18px;">"Impara" <em class="hot">il linguaggio umano</em></h2>
-        <div class="blockquote reveal d1" style="margin-top:18px;" contenteditable="false">"un modello AI che impara come funziona <b>il linguaggio umano</b> leggendo e analizzando grandi testi"</div>
-        <div class="note red reveal d2" style="margin-top:20px;"><div class="lbl">Perché è impreciso</div><p contenteditable="false">Il modello non studia regole come farebbe una persona: ottimizza pesi numerici per prevedere il token successivo.</p></div>
+        <div class="blockquote reveal d1" style="margin-top:18px;">"un modello AI che impara come funziona <b>il linguaggio umano</b> leggendo e analizzando grandi testi"</div>
+        <div class="note red reveal d2" style="margin-top:20px;"><div class="lbl">Perché è impreciso</div><p>Il modello non studia regole come farebbe una persona: ottimizza pesi numerici per prevedere il token successivo.</p></div>
       </div>
       <div class="col stack">
-        <div class="card sky reveal d1"><span class="ic">📊</span><h3 contenteditable="false">Cosa apprende davvero</h3><p contenteditable="false">Relazioni matematiche tra termini, contesti e sequenze frequenti. Non intenzioni, esperienza o significato vissuto.</p></div>
-        <div class="card reveal d2"><span class="ic">🎲</span><h3 contenteditable="false">Perché sembra magico</h3><p contenteditable="false">La generazione è probabilistica e può apparire creativa, ma rimane una produzione token per token guidata da calcoli.</p></div>
+        <div class="card sky reveal d1"><span class="ic">📊</span><h3>Cosa apprende davvero</h3><p>Relazioni matematiche tra termini, contesti e sequenze frequenti. Non intenzioni, esperienza o significato vissuto.</p></div>
+        <div class="card reveal d2"><span class="ic">🎲</span><h3>Perché sembra magico</h3><p>La generazione è probabilistica e può apparire creativa, ma rimane una produzione token per token guidata da calcoli.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -319,12 +319,12 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="col stack">
         <div class="tape red reveal">Errore 5 / 5</div>
         <h2 class="h-big reveal" style="margin-top:18px;">NLP "in modo <em class="hot">naturale</em>"</h2>
-        <div class="blockquote reveal d1" style="margin-top:18px;" contenteditable="false">"consente ai computer di parlare e capire il linguaggio umano <b>in modo naturale</b> e utile"</div>
-        <div class="note red reveal d2" style="margin-top:20px;"><div class="lbl">Perché è una formulazione debole</div><p contenteditable="false">Attribuisce al computer capacità umane: parlare e capire. Tecnicamente l'NLP elabora, classifica, trasforma e genera dati linguistici.</p></div>
+        <div class="blockquote reveal d1" style="margin-top:18px;">"consente ai computer di parlare e capire il linguaggio umano <b>in modo naturale</b> e utile"</div>
+        <div class="note red reveal d2" style="margin-top:20px;"><div class="lbl">Perché è una formulazione debole</div><p>Attribuisce al computer capacità umane: parlare e capire. Tecnicamente l'NLP elabora, classifica, trasforma e genera dati linguistici.</p></div>
       </div>
       <div class="col stack">
-        <div class="card teal reveal d1"><span class="ok-label">✓ Definizione più precisa</span><h3 contenteditable="false">Natural Language Processing</h3><p contenteditable="false">Area dell'IA che analizza e produce testo o parlato con metodi computazionali: tokenizzazione, parsing, entità, sentiment, traduzione.</p></div>
-        <div class="note reveal d2"><div class="lbl">Conclusione operativa</div><p contenteditable="false">Quando leggi un testo IA, cerca verbi troppo umani: capire, volere, sapere, parlare. Spesso nascondono semplificazioni.</p></div>
+        <div class="card teal reveal d1"><span class="ok-label">✓ Definizione più precisa</span><h3>Natural Language Processing</h3><p>Area dell'IA che analizza e produce testo o parlato con metodi computazionali: tokenizzazione, parsing, entità, sentiment, traduzione.</p></div>
+        <div class="note reveal d2"><div class="lbl">Conclusione operativa</div><p>Quando leggi un testo IA, cerca verbi troppo umani: capire, volere, sapere, parlare. Spesso nascondono semplificazioni.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -335,11 +335,11 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="center">
       <div class="tape reveal">Lezione pratica</div>
       <h2 class="h-big reveal" style="margin-top:18px;">Verificare <em class="hot">sempre</em> l'output</h2>
-      <p class="lead reveal d1" contenteditable="false" style="margin-top:18px;max-width:1300px;">Un LLM può generare testo scorretto con la stessa fluidità e sicurezza con cui genera testo corretto. Il tono sicuro non è garanzia di accuratezza.</p>
+      <p class="lead reveal d1" style="margin-top:18px;max-width:1300px;">Un LLM può generare testo scorretto con la stessa fluidità e sicurezza con cui genera testo corretto. Il tono sicuro non è garanzia di accuratezza.</p>
       <div class="grid3 reveal d2" style="margin-top:28px;max-width:1400px;">
-        <div class="card red"><span class="ic">⚠️</span><h3 contenteditable="false">Allucinazioni</h3><p contenteditable="false">Può inventare fatti, citazioni, riferimenti bibliografici, nomi o date con sicurezza apparente.</p></div>
-        <div class="card sky"><span class="ic">🔍</span><h3 contenteditable="false">Cosa fare</h3><p contenteditable="false">Usa gli LLM come punto di partenza, non come fonte primaria. Verifica le affermazioni importanti.</p></div>
-        <div class="card gold"><span class="ic">🎓</span><h3 contenteditable="false">Valore didattico</h3><p contenteditable="false">Far trovare gli errori in un testo IA è un esercizio efficace di pensiero critico.</p></div>
+        <div class="card red"><span class="ic">⚠️</span><h3>Allucinazioni</h3><p>Può inventare fatti, citazioni, riferimenti bibliografici, nomi o date con sicurezza apparente.</p></div>
+        <div class="card sky"><span class="ic">🔍</span><h3>Cosa fare</h3><p>Usa gli LLM come punto di partenza, non come fonte primaria. Verifica le affermazioni importanti.</p></div>
+        <div class="card gold"><span class="ic">🎓</span><h3>Valore didattico</h3><p>Far trovare gli errori in un testo IA è un esercizio efficace di pensiero critico.</p></div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -350,7 +350,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="center">
       <div class="tape sky reveal">Meccanismo interno</div>
       <h2 class="h-big reveal" style="margin-top:18px;">Come funziona un <em class="hot">LLM</em>?</h2>
-      <p class="lead reveal d1" contenteditable="false" style="margin-top:16px;max-width:1200px;">Tutto inizia con il <b>prompt</b> — il testo che scrivi all'LLM. È l'input che guida tutta la generazione successiva.</p>
+      <p class="lead reveal d1" style="margin-top:16px;max-width:1200px;">Tutto inizia con il <b>prompt</b> — il testo che scrivi all'LLM. È l'input che guida tutta la generazione successiva.</p>
       <div class="flow-row reveal d2" style="margin-top:32px;justify-content:center;">
         <div class="flow-box" style="background:var(--gold);border-color:var(--gold-deep);">✍️ Prompt</div>
         <div class="flow-arrow">→</div>
@@ -362,7 +362,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
       <div class="note sky reveal d3" style="margin-top:28px;max-width:1200px;">
         <div class="lbl">Il prompt è tutto</div>
-        <p contenteditable="false">La qualità del prompt determina la qualità della risposta. Un prompt vago → risposta vaga. Un prompt dettagliato con contesto → risposta utile.</p>
+        <p>La qualità del prompt determina la qualità della risposta. Un prompt vago → risposta vaga. Un prompt dettagliato con contesto → risposta utile.</p>
       </div>
     </div>
     <div class="page-num"></div>
@@ -374,11 +374,11 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="col stack">
         <div class="tape sky reveal">Passo 1</div>
         <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Tokenizzazione</em></h2>
-        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Il prompt viene spezzato in <b>token</b> — pacchetti più piccoli del testo originale.</p>
-        <p class="body reveal d2" contenteditable="false" style="margin-top:12px;">Un token non corrisponde a una parola: può essere una sillaba, un simbolo, una parola intera o una sequenza comune. "gatto" = 1 token. "intelligenza" = 3+ token.</p>
+        <p class="lead reveal d1" style="margin-top:14px;">Il prompt viene spezzato in <b>token</b> — pacchetti più piccoli del testo originale.</p>
+        <p class="body reveal d2" style="margin-top:12px;">Un token non corrisponde a una parola: può essere una sillaba, un simbolo, una parola intera o una sequenza comune. "gatto" = 1 token. "intelligenza" = 3+ token.</p>
         <div class="note sky reveal d3" style="margin-top:16px;">
           <div class="lbl">Perché i token?</div>
-          <p contenteditable="false">Lavorare su token invece di parole intere permette di gestire lingue diverse, parole nuove e contesti tecnici senza vocabolario fisso.</p>
+          <p>Lavorare su token invece di parole intere permette di gestire lingue diverse, parole nuove e contesti tecnici senza vocabolario fisso.</p>
         </div>
       </div>
       <div class="col" style="justify-content:center;">
@@ -407,11 +407,11 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="col stack">
         <div class="tape teal reveal">Passo 2</div>
         <h2 class="h-big reveal" style="margin-top:18px;">Reti di <em class="hot">nodi</em></h2>
-        <p class="lead reveal d1" contenteditable="false" style="margin-top:14px;">Ogni token viene inviato alla rete neurale. I nodi rispondono ai token e si inviano segnali a vicenda — come neuroni nel cervello.</p>
-        <p class="body reveal d2" contenteditable="false" style="margin-top:12px;">Il processo si propaga attraverso tutti gli strati della rete, trasformando il segnale ad ogni passaggio, finché l'LLM produce un output finale.</p>
+        <p class="lead reveal d1" style="margin-top:14px;">Ogni token viene inviato alla rete neurale. I nodi rispondono ai token e si inviano segnali a vicenda — come neuroni nel cervello.</p>
+        <p class="body reveal d2" style="margin-top:12px;">Il processo si propaga attraverso tutti gli strati della rete, trasformando il segnale ad ogni passaggio, finché l'LLM produce un output finale.</p>
         <div class="note teal reveal d3" style="margin-top:16px;">
           <div class="lbl">Velocità</div>
-          <p contenteditable="false">Questo processo avviene in millisecondi grazie a GPU potentissime che eseguono miliardi di operazioni matematiche in parallelo.</p>
+          <p>Questo processo avviene in millisecondi grazie a GPU potentissime che eseguono miliardi di operazioni matematiche in parallelo.</p>
         </div>
       </div>
       <div class="col" style="justify-content:center;align-items:center;">
@@ -451,22 +451,22 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="center">
       <div class="tape gold reveal">Passo 3</div>
       <h2 class="h-big reveal" style="margin-top:18px;">L'LLM si <em class="hot">interroga</em> sul prompt</h2>
-      <p class="lead reveal d1" contenteditable="false" style="margin-top:18px;max-width:1300px;">Nella maggior parte dei modelli moderni, quando fornisci un prompt l'IA prima <b>chiede a se stessa cosa significhi</b> quel prompt — prima di rispondere.</p>
+      <p class="lead reveal d1" style="margin-top:18px;max-width:1300px;">Nella maggior parte dei modelli moderni, quando fornisci un prompt l'IA prima <b>chiede a se stessa cosa significhi</b> quel prompt — prima di rispondere.</p>
       <div class="grid2 reveal d2" style="margin-top:28px;max-width:1300px;">
         <div class="card sky">
           <span class="ic">🤔</span>
-          <h3 contenteditable="false">Chain of thought</h3>
-          <p contenteditable="false">Tecnica in cui il modello genera un "ragionamento" intermedio prima della risposta finale. Migliora significativamente l'accuratezza su problemi complessi.</p>
+          <h3>Chain of thought</h3>
+          <p>Tecnica in cui il modello genera un "ragionamento" intermedio prima della risposta finale. Migliora significativamente l'accuratezza su problemi complessi.</p>
         </div>
         <div class="card gold">
           <span class="ic">🔄</span>
-          <h3 contenteditable="false">Attenzione (Attention)</h3>
-          <p contenteditable="false">Il meccanismo transformer pesa ogni parola del prompt rispetto alle altre: quali parti sono più importanti per capire il contesto della richiesta?</p>
+          <h3>Attenzione (Attention)</h3>
+          <p>Il meccanismo transformer pesa ogni parola del prompt rispetto alle altre: quali parti sono più importanti per capire il contesto della richiesta?</p>
         </div>
       </div>
       <div class="note reveal d3" style="margin-top:24px;max-width:1300px;">
         <div class="lbl">Risultato</div>
-        <p contenteditable="false">L'output non è una ricerca in un database — è una sequenza di token generata token per token, ognuno influenzato da tutti i precedenti.</p>
+        <p>L'output non è una ricerca in un database — è una sequenza di token generata token per token, ognuno influenzato da tutti i precedenti.</p>
       </div>
     </div>
     <div class="page-num"></div>
@@ -479,30 +479,30 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="grid2 reveal d1" style="margin-top:22px;">
       <div class="card red">
         <span class="ic">🧠</span>
-        <h3 contenteditable="false">Non capisce</h3>
-        <p contenteditable="false">Non ha un modello interno del mondo. Non sa cosa sia un cane — sa che "cane" è statisticamente vicino a "zampe", "abbaiare", "animale domestico".</p>
+        <h3>Non capisce</h3>
+        <p>Non ha un modello interno del mondo. Non sa cosa sia un cane — sa che "cane" è statisticamente vicino a "zampe", "abbaiare", "animale domestico".</p>
       </div>
       <div class="card">
         <span class="ic">📖</span>
-        <h3 contenteditable="false">Non impara in conversazione</h3>
-        <p contenteditable="false">Quello che scrivi non modifica i pesi del modello. La "memoria" è solo il contesto della conversazione corrente — si azzera alla chiusura.</p>
+        <h3>Non impara in conversazione</h3>
+        <p>Quello che scrivi non modifica i pesi del modello. La "memoria" è solo il contesto della conversazione corrente — si azzera alla chiusura.</p>
       </div>
       <div class="card gold">
         <span class="ic">🌐</span>
-        <h3 contenteditable="false">Non naviga in tempo reale</h3>
-        <p contenteditable="false">Ha una data di taglio. Non conosce notizie recenti a meno che non abbia accesso a strumenti di ricerca web — non per default.</p>
+        <h3>Non naviga in tempo reale</h3>
+        <p>Ha una data di taglio. Non conosce notizie recenti a meno che non abbia accesso a strumenti di ricerca web — non per default.</p>
       </div>
       <div class="card sky">
         <span class="ic">🎭</span>
-        <h3 contenteditable="false">Non è neutro</h3>
-        <p contenteditable="false">Riflette i bias presenti nei dati di addestramento — ideologici, culturali, linguistici. Non è una fonte oggettiva di verità.</p>
+        <h3>Non è neutro</h3>
+        <p>Riflette i bias presenti nei dati di addestramento — ideologici, culturali, linguistici. Non è una fonte oggettiva di verità.</p>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
 
   <!-- SLIDE 15 · QUIZ -->
-  
+
 
   <!-- SLIDE 16 · CLOSING -->
   <section class="slide closing">
@@ -534,8 +534,8 @@ class SlidePresentation{
     if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
     else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
     else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
-  touch(){let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
-    addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){dx<0?this.next():this.prev();}x0=null;},{passive:true});}
+  touch(){let x0=null;
+    }
   wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
 }
 const deck=new SlidePresentation();(()=>{const target=()=>{const m=location.hash.match(/(?:slide-|slide=|^#)(\d+)/);return m?Number(m[1])-1:null};const showHash=()=>{const n=target();if(Number.isInteger(n))deck.show(n)};showHash();addEventListener('hashchange',showHash)})();
@@ -552,7 +552,7 @@ hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classLi
 hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
 toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
 toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
-addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.key==='e'||e.key==='E')&&!onEd){editor.toggle();}if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}if((e.key==='i'||e.key==='I')&&!onEd){location.href='00-indice.html';}});
+addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}if((e.key==='i'||e.key==='I')&&!onEd){location.href='00-indice.html';}});
 </script>
 </body>
 </html>

@@ -66,6 +66,9 @@ body.course-gd{--slide-bg:#f5e9e0;--line:rgba(145,86,61,.22);--accent:#c25f39;--
 /* TinkerCAD e stampa 3D */
 body.course-ms{--slide-bg:#e9f2f5;--line:rgba(58,116,138,.22);--accent:#33768e;--accent-2:#c2762b;--course-dark:#1d4553;}
 
+/* Deck interaction policy: inline editing controls are disabled globally. */
+.edit-hotzone,.edit-toggle,.edit-hint{display:none!important;pointer-events:none!important;}
+
 .deck-viewport{
   background:
     linear-gradient(135deg, rgba(255,255,255,.055), rgba(255,255,255,0) 42%),
