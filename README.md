@@ -37,9 +37,8 @@ Inside any deck:
 | Prefix | Area | Decks |
 |--------|------|-------|
 | `hs` | Hardware e Software | hs01–hs05 |
-| `rw` | Reti e Web | rw01-01–rw02-04 |
+| `rw` | Reti e Web | rw01-01–rw03-05 |
 | `sd` | Sicurezza Digitale | sd01–sd05 |
-| `id` | Identità digitale | id01–id05 |
 | `sm` | Smartphones | sm01–sm11 |
 | `su` | Suite Ufficio | su01-01–su04-01 (codici gerarchici dell’indice) |
 | `ia` | Intelligenza Artificiale | ia01–ia03 |

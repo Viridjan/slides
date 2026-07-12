@@ -181,8 +181,9 @@ Never keep a legacy flat number that disagrees with the index.
 
 Published decks use a two-letter area prefix. Flat index codes use `xx##`;
 hierarchical index codes use `xx##-##`. Each letter is the initial of each word
-in the section name (e.g. `HS` = Hardware e **S**oftware). `ID` is reserved for
-**Identità Digitale** and `MS` for **Modellazione e Stampa 3D**. Use a different
+in the section name (e.g. `HS` = Hardware e **S**oftware). `MS` is reserved for
+**Modellazione e Stampa 3D**. Identità digitale is now the `RW03` block inside
+Reti e Web. Use a different
 abbreviation only when the natural initials are already assigned to another
 published area, and record that exception here before creating files:
 
@@ -191,7 +192,6 @@ published area, and record that exception here before creating files:
 | `hs` | Hardware e Software | `hs01-componenti.html` |
 | `rw` | Reti e Web | `rw01-01-reti.html` |
 | `sd` | Sicurezza Digitale | `sd01-introduzione.html` |
-| `id` | Identità digitale (ex Informatica) | `id01-identita.html` |
 | `sm` | Smartphones | `sm01-smartphone-computer.html` |
 | `su` | Suite Ufficio | `su01-01-microsoft.html` |
 | `ia` | Intelligenza Artificiale | `ia01-concetti-generali.html` |
@@ -254,7 +254,7 @@ Navigation chain: hs01 → hs02 → hs03 → hs04 → hs05
 
 ### Reti e Web
 
-Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw02-01 → rw02-02 → rw02-03 → rw02-04
+Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw02-01 → rw02-02 → rw02-03 → rw02-04 → rw03-01 → rw03-02 → rw03-03 → rw03-04 → rw03-05
 
 | File | Title |
 | --- | --- |
@@ -267,6 +267,11 @@ Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw
 | `rw01-05-affidabilita.html` | Navigare con Spirito Critico |
 | `rw02-03-contenuti.html` | Gestire e Archiviare Contenuti |
 | `rw02-04-collaborazione-digitale.html` | Collaborazione Digitale |
+| `rw03-01-identita.html` | La tua identità online |
+| `rw03-02-societa.html` | Tecnologia e Società |
+| `rw03-03-vr-ar.html` | VR, AR e Metaverso |
+| `rw03-04-branding.html` | Farsi riconoscere |
+| `rw03-05-social.html` | I social giusti |
 
 ### Sicurezza Digitale
 
@@ -279,18 +284,6 @@ Navigation chain: sd01 → sd02 → sd03 → sd04 → sd05
 | `sd03-privacy.html` | Privacy, Anonimato e Pseudonimia |
 | `sd04-professioni.html` | Professioni nella Sicurezza Informatica |
 | `sd05-assessment.html` | Assessment, Compliance e Dati Personali |
-
-### Identità digitale
-
-Navigation chain: id01 → id02 → id03 → id04 → id05
-
-| File | Title |
-| --- | --- |
-| `id01-identita.html` | La tua identità online |
-| `id02-societa.html` | Tecnologia e Società |
-| `id03-vr-ar.html` | VR, AR e Metaverso |
-| `id04-branding.html` | Farsi riconoscere |
-| `id05-social.html` | I social giusti |
 
 ### Smartphones
 
@@ -454,7 +447,7 @@ Card color classes:
 
 - `.pre` for Reti e Web
 - `.sec` for Sicurezza Digitale
-- `.inf` for Identità digitale and the other course sections that use the gold theme
+- `.inf` for course sections that use the gold theme
 
 Sections start collapsed. Opening one section closes the others. The course
 header title is `Educazione digitale`; do not reintroduce the old "Indice del
