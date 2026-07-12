@@ -101,6 +101,9 @@ body.search-active .module-card.search-hidden{display:none;}
 .stats-row.quality{margin-bottom:3px;border-bottom:1px solid rgba(216,201,180,.11);border-radius:5px 5px 0 0;}
 .stats-row.sub{padding-left:15px;}
 .stats-value{color:var(--gold);font-weight:700;white-space:nowrap;}
+.pips{display:inline-flex;gap:5px;vertical-align:middle;}
+.pip{width:9px;height:9px;border-radius:50%;border:1px solid rgba(230,193,74,.42);background:transparent;}
+.pip.on{background:var(--gold);border-color:var(--gold);}
 .stats-row::after{content:attr(data-tip);position:absolute;right:calc(100% + 11px);top:50%;width:285px;padding:9px 11px;border:1px solid rgba(216,201,180,.28);border-radius:7px;background:#0e0c0b;color:rgba(244,236,224,.9);font:12px/1.4 var(--font-body);letter-spacing:0;box-shadow:0 12px 34px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:translate(5px,-50%);transition:opacity .12s ease,transform .12s ease;pointer-events:none;white-space:normal;}
 .stats-row:hover::after,.stats-row:focus-visible::after{opacity:1;visibility:visible;transform:translate(0,-50%);}
 @media(max-width:760px){.stats-panel{right:8px;width:230px}.stats-row::after{position:fixed;left:8px;right:8px;top:auto;bottom:8px;width:auto;transform:translateY(5px)}.stats-row:hover::after,.stats-row:focus-visible::after{transform:none}}
@@ -1753,6 +1756,10 @@ const closeStatsPanel = () => {
   activeStatsBadge = null;
 };
 
+// I criteri editoriali valgono 0-2: due pallini, accesi quanto il punteggio.
+const pips = n =>
+  `<span class="pips" role="img" aria-label="${n} su 2"><span class="pip${n >= 1 ? ' on' : ''}"></span><span class="pip${n >= 2 ? ' on' : ''}"></span></span>`;
+
 const statRow = (label, value, tip, className = '') =>
   `<div class="stats-row ${className}" tabindex="0" data-tip="${tip.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}"><span>${label}</span><span class="stats-value">${value}</span></div>`;
 
@@ -1782,17 +1789,16 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
   if (density !== undefined || (window.QUALITY_INDEX && window.QUALITY_INDEX[href])) {
     const q = window.QUALITY_INDEX[href];
     const total = q ? q.coverage + q.clarity + q.examples + q.correctness + q.freshness : null;
-    const density10 = density !== undefined ? Math.round((density / 9) * 10) : null;
-    const summary = density10 !== null && total !== null
-      ? Math.round((density10 + total) / 2)
-      : (total ?? density10);
+    const summary = density !== undefined && total !== null
+      ? Math.round((density + total) / 2)
+      : (total ?? density ?? null);
     const badge = document.createElement('div');
     badge.className = 'stats-badge';
     badge.setAttribute('role', 'button');
     badge.setAttribute('tabindex', '0');
     badge.setAttribute('aria-expanded', 'false');
     badge.setAttribute('aria-label', `Apri valutazione: indice sintetico ${summary} su 10`);
-    badge.innerHTML = `<span class="summary">${summary}/10</span><span class="chev">›</span>`;
+    badge.innerHTML = `<span class="summary">${summary}</span><span class="chev">›</span>`;
     const openPanel = e => {
       e.preventDefault();
       e.stopPropagation();
@@ -1804,20 +1810,20 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
       activeStatsBadge = badge;
       badge.setAttribute('aria-expanded', 'true');
       const densityFormula = density !== undefined
-        ? `Automatico. Per ogni slide interna: min(9, arrotondamento per difetto delle parole ÷ 25). Si escludono copertina e chiusura; poi si fa la media, ancora per difetto. Un risultato grezzo di 4/9 viene promosso a 5/9. Qui ${density}/9 diventa ${density10}/10.`
+        ? `Automatico. Per ogni slide interna, escluse copertina e chiusura: parole ÷ 25, al massimo 10. Si fa la media di questi valori e si arrotonda una sola volta, alla fine: ${density}/10.`
         : 'Non disponibile: questo elemento non ha un punteggio automatico di densità.';
-      const summaryFormula = density10 !== null && total !== null
-        ? `Media arrotondata tra densità normalizzata e qualità: round((${density10} + ${total}) ÷ 2) = ${summary}/10.`
+      const summaryFormula = density !== undefined && total !== null
+        ? `Media arrotondata tra densità e qualità: round((${density} + ${total}) ÷ 2) = ${summary}/10.`
         : `È uguale all’unico indice disponibile: ${summary}/10.`;
       const rows = [
-        statRow('Indice sintetico', `${summary}/10`, summaryFormula, 'primary'),
-        density !== undefined ? statRow('Densità', `${density}/9`, densityFormula) : '',
-        q ? statRow('Qualità', `${total}/10`, `Somma dei cinque criteri editoriali manuali: ${q.coverage} + ${q.clarity} + ${q.examples} + ${q.correctness} + ${q.freshness} = ${total}/10.`, 'quality') : '',
-        q ? statRow('Copertura', `${q.coverage}/2`, 'Valutazione manuale: 0 = temi importanti assenti; 1 = programma essenziale con lacune; 2 = argomenti previsti coperti adeguatamente.', 'sub') : '',
-        q ? statRow('Chiarezza', `${q.clarity}/2`, 'Valutazione manuale: 0 = difficile da seguire; 1 = comprensibile con spiegazioni; 2 = struttura e linguaggio chiari per lo studente medio.', 'sub') : '',
-        q ? statRow('Esempi', `${q.examples}/2`, 'Valutazione manuale: 0 = solo teoria astratta; 1 = esempi limitati; 2 = casi concreti, esercizi o applicazioni sufficienti.', 'sub') : '',
-        q ? statRow('Correttezza', `${q.correctness}/2`, 'Valutazione manuale: 0 = errori o verifiche necessarie; 1 = generalmente affidabile ma non verificato completamente; 2 = controllato e senza problemi noti.', 'sub') : '',
-        q ? statRow('Aggiornamento', `${q.freshness}/2`, 'Valutazione manuale: 0 = probabilmente obsoleto; 1 = valido ma soggetto a cambiamenti; 2 = aggiornato oppure stabile nel tempo.', 'sub') : ''
+        statRow('Indice sintetico', `${summary}`, summaryFormula, 'primary'),
+        density !== undefined ? statRow('Densità', `${density}`, densityFormula) : '',
+        q ? statRow('Qualità', `${total}`, `Somma dei cinque criteri editoriali manuali: ${q.coverage} + ${q.clarity} + ${q.examples} + ${q.correctness} + ${q.freshness} = ${total}/10.`, 'quality') : '',
+        q ? statRow('Copertura', pips(q.coverage), 'Valutazione manuale: 0 = temi importanti assenti; 1 = programma essenziale con lacune; 2 = argomenti previsti coperti adeguatamente.', 'sub') : '',
+        q ? statRow('Chiarezza', pips(q.clarity), 'Valutazione manuale: 0 = difficile da seguire; 1 = comprensibile con spiegazioni; 2 = struttura e linguaggio chiari per lo studente medio.', 'sub') : '',
+        q ? statRow('Esempi', pips(q.examples), 'Valutazione manuale: 0 = solo teoria astratta; 1 = esempi limitati; 2 = casi concreti, esercizi o applicazioni sufficienti.', 'sub') : '',
+        q ? statRow('Correttezza', pips(q.correctness), 'Valutazione manuale: 0 = errori o verifiche necessarie; 1 = generalmente affidabile ma non verificato completamente; 2 = controllato e senza problemi noti.', 'sub') : '',
+        q ? statRow('Aggiornamento', pips(q.freshness), 'Valutazione manuale: 0 = probabilmente obsoleto; 1 = valido ma soggetto a cambiamenti; 2 = aggiornato oppure stabile nel tempo.', 'sub') : ''
       ].join('');
       statsPanel.innerHTML = `<div class="stats-panel-head"><div class="stats-panel-title">${title.textContent.trim()}</div><button class="stats-panel-close" type="button" aria-label="Chiudi valutazione">‹</button></div>${rows}`;
       const rect = badge.getBoundingClientRect();
