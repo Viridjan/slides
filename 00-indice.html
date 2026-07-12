@@ -85,8 +85,25 @@ body.search-active .module-card.search-hidden{display:none;}
 .module-card.sec .card-tag{color:rgba(230,83,59,.7);}
 .card-title{grid-area:title;font-family:var(--font-display);font-weight:900;font-size:24px;line-height:1.1;margin-bottom:2px;align-self:end;}
 .card-difficulty{position:absolute;right:128px;top:calc(50% - 25px);width:80px;text-align:center;box-sizing:border-box;font-family:var(--font-mono);font-size:12px;line-height:1;padding:4px 0;border:1px solid rgba(216,201,180,.22);border-radius:999px;color:var(--gold);background:rgba(230,193,74,.08);letter-spacing:1px;white-space:nowrap;}
-.stats-badge{position:absolute;right:24px;top:50%;transform:translateY(-50%);width:88px;text-align:center;box-sizing:border-box;font-family:var(--font-mono);font-size:12px;line-height:1;padding:8px 0;border:1px solid rgba(63,126,140,.32);border-radius:7px;color:rgba(244,236,224,.78);background:linear-gradient(135deg,rgba(63,126,140,.10),rgba(230,83,59,.08));letter-spacing:.3px;white-space:nowrap;}
-.stats-badge .summary{display:block;color:rgba(244,236,224,.9);}
+.stats-badge{position:absolute;right:20px;top:50%;transform:translateY(-50%);width:96px;text-align:center;box-sizing:border-box;font-family:var(--font-mono);font-size:11px;line-height:1;padding:8px 6px;border:1px solid rgba(63,126,140,.32);border-radius:7px;color:rgba(244,236,224,.78);background:linear-gradient(135deg,rgba(63,126,140,.10),rgba(230,83,59,.08));letter-spacing:.15px;white-space:nowrap;cursor:pointer;z-index:3;}
+.stats-badge:hover,.stats-badge:focus-visible,.stats-badge[aria-expanded="true"]{color:var(--paper);border-color:rgba(63,126,140,.62);background:linear-gradient(135deg,rgba(63,126,140,.20),rgba(230,83,59,.14));outline:none;}
+.stats-badge .summary{color:rgba(244,236,224,.9);}
+.stats-badge .chev{display:inline-block;margin-left:4px;color:var(--sky);transition:transform .16s ease;}
+.stats-badge[aria-expanded="true"] .chev{transform:rotate(180deg);}
+.stats-panel{position:fixed;right:18px;width:248px;padding:10px 11px 11px;border:1px solid rgba(63,126,140,.42);border-radius:9px;background:rgba(22,18,16,.97);box-shadow:0 18px 50px rgba(0,0,0,.45);color:var(--paper);font-family:var(--font-mono);z-index:100;opacity:0;visibility:hidden;transform:translateX(8px);transition:opacity .16s ease,transform .16s ease,visibility .16s;}
+.stats-panel.open{opacity:1;visibility:visible;transform:none;}
+.stats-panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 1px 7px;margin-bottom:5px;border-bottom:1px solid rgba(216,201,180,.15);}
+.stats-panel-title{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;letter-spacing:.5px;color:rgba(244,236,224,.72);}
+.stats-panel-close{border:0;background:transparent;color:var(--sky);font:700 17px/1 var(--font-mono);padding:0 2px;cursor:pointer;}
+.stats-row{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;min-height:25px;padding:4px 6px;border-radius:5px;font-size:11px;line-height:1.1;color:rgba(244,236,224,.68);cursor:help;}
+.stats-row:hover,.stats-row:focus-visible{background:rgba(244,236,224,.07);color:var(--paper);outline:none;}
+.stats-row.primary{color:var(--paper);font-weight:700;}
+.stats-row.quality{margin-bottom:3px;border-bottom:1px solid rgba(216,201,180,.11);border-radius:5px 5px 0 0;}
+.stats-row.sub{padding-left:15px;}
+.stats-value{color:var(--gold);font-weight:700;white-space:nowrap;}
+.stats-row::after{content:attr(data-tip);position:absolute;right:calc(100% + 11px);top:50%;width:285px;padding:9px 11px;border:1px solid rgba(216,201,180,.28);border-radius:7px;background:#0e0c0b;color:rgba(244,236,224,.9);font:12px/1.4 var(--font-body);letter-spacing:0;box-shadow:0 12px 34px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:translate(5px,-50%);transition:opacity .12s ease,transform .12s ease;pointer-events:none;white-space:normal;}
+.stats-row:hover::after,.stats-row:focus-visible::after{opacity:1;visibility:visible;transform:translate(0,-50%);}
+@media(max-width:760px){.stats-panel{right:8px;width:230px}.stats-row::after{position:fixed;left:8px;right:8px;top:auto;bottom:8px;width:auto;transform:translateY(5px)}.stats-row:hover::after,.stats-row:focus-visible::after{transform:none}}
 .card-desc{grid-area:desc;font-size:15px;color:rgba(244,236,224,.5);line-height:1.3;align-self:start;}
 /* Topics inline */
 .card-topics{display:none;}
@@ -1693,6 +1710,22 @@ searchClear?.addEventListener('click',()=>{
 </script>
 <script>
 // Add download-txt button next to each card title
+const statsPanel = document.createElement('aside');
+statsPanel.className = 'stats-panel';
+statsPanel.setAttribute('aria-hidden', 'true');
+document.body.appendChild(statsPanel);
+let activeStatsBadge = null;
+
+const closeStatsPanel = () => {
+  statsPanel.classList.remove('open');
+  statsPanel.setAttribute('aria-hidden', 'true');
+  if (activeStatsBadge) activeStatsBadge.setAttribute('aria-expanded', 'false');
+  activeStatsBadge = null;
+};
+
+const statRow = (label, value, tip, className = '') =>
+  `<div class="stats-row ${className}" tabindex="0" data-tip="${tip.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}"><span>${label}</span><span class="stats-value">${value}</span></div>`;
+
 document.querySelectorAll('.module-card[href]').forEach(card => {
   const href = card.getAttribute('href');
   if (!href || !href.endsWith('.html')) return;
@@ -1723,26 +1756,62 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
     const summary = density10 !== null && total !== null
       ? Math.round((density10 + total) / 2)
       : (total ?? density10);
-    const titleLines = [];
-    titleLines.push(`Indice sintetico: ${summary}/10`);
-    if (density !== undefined) titleLines.push(`Densità contenuto: ${density}/9`);
-    if (q) {
-      titleLines.push(
-        `Qualità informazione: ${total}/10`,
-        `Copertura: ${q.coverage}/2`,
-        `Chiarezza: ${q.clarity}/2`,
-        `Esempi: ${q.examples}/2`,
-        `Correttezza: ${q.correctness}/2`,
-        `Aggiornamento: ${q.freshness}/2`
-      );
-    }
     const badge = document.createElement('div');
     badge.className = 'stats-badge';
-    badge.title = titleLines.join('\n');
-    badge.innerHTML = `<span class="summary">S ${summary}/10</span>`;
+    badge.setAttribute('role', 'button');
+    badge.setAttribute('tabindex', '0');
+    badge.setAttribute('aria-expanded', 'false');
+    badge.setAttribute('aria-label', `Apri valutazione: indice sintetico ${summary} su 10`);
+    badge.innerHTML = `<span class="summary">Indice ${summary}/10</span><span class="chev">›</span>`;
+    const openPanel = e => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (activeStatsBadge === badge) {
+        closeStatsPanel();
+        return;
+      }
+      closeStatsPanel();
+      activeStatsBadge = badge;
+      badge.setAttribute('aria-expanded', 'true');
+      const densityFormula = density !== undefined
+        ? `Automatico. Per ogni slide interna: min(9, arrotondamento per difetto delle parole ÷ 25). Si escludono copertina e chiusura; poi si fa la media, ancora per difetto. Un risultato grezzo di 4/9 viene promosso a 5/9. Qui ${density}/9 diventa ${density10}/10.`
+        : 'Non disponibile: questo elemento non ha un punteggio automatico di densità.';
+      const summaryFormula = density10 !== null && total !== null
+        ? `Media arrotondata tra densità normalizzata e qualità: round((${density10} + ${total}) ÷ 2) = ${summary}/10.`
+        : `È uguale all’unico indice disponibile: ${summary}/10.`;
+      const rows = [
+        statRow('Indice sintetico', `${summary}/10`, summaryFormula, 'primary'),
+        density !== undefined ? statRow('Densità', `${density}/9`, densityFormula) : '',
+        q ? statRow('Qualità', `${total}/10`, `Somma dei cinque criteri editoriali manuali: ${q.coverage} + ${q.clarity} + ${q.examples} + ${q.correctness} + ${q.freshness} = ${total}/10.`, 'quality') : '',
+        q ? statRow('Copertura', `${q.coverage}/2`, 'Valutazione manuale: 0 = temi importanti assenti; 1 = programma essenziale con lacune; 2 = argomenti previsti coperti adeguatamente.', 'sub') : '',
+        q ? statRow('Chiarezza', `${q.clarity}/2`, 'Valutazione manuale: 0 = difficile da seguire; 1 = comprensibile con spiegazioni; 2 = struttura e linguaggio chiari per lo studente medio.', 'sub') : '',
+        q ? statRow('Esempi', `${q.examples}/2`, 'Valutazione manuale: 0 = solo teoria astratta; 1 = esempi limitati; 2 = casi concreti, esercizi o applicazioni sufficienti.', 'sub') : '',
+        q ? statRow('Correttezza', `${q.correctness}/2`, 'Valutazione manuale: 0 = errori o verifiche necessarie; 1 = generalmente affidabile ma non verificato completamente; 2 = controllato e senza problemi noti.', 'sub') : '',
+        q ? statRow('Aggiornamento', `${q.freshness}/2`, 'Valutazione manuale: 0 = probabilmente obsoleto; 1 = valido ma soggetto a cambiamenti; 2 = aggiornato oppure stabile nel tempo.', 'sub') : ''
+      ].join('');
+      statsPanel.innerHTML = `<div class="stats-panel-head"><div class="stats-panel-title">${title.textContent.trim()}</div><button class="stats-panel-close" type="button" aria-label="Chiudi valutazione">‹</button></div>${rows}`;
+      const rect = badge.getBoundingClientRect();
+      const panelHeight = q ? 276 : 100;
+      statsPanel.style.top = `${Math.max(10, Math.min(innerHeight - panelHeight - 10, rect.top - 8))}px`;
+      statsPanel.classList.add('open');
+      statsPanel.setAttribute('aria-hidden', 'false');
+      statsPanel.querySelector('.stats-panel-close').addEventListener('click', closeStatsPanel);
+    };
+    badge.addEventListener('click', openPanel);
+    badge.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') openPanel(e);
+    });
     card.appendChild(badge);
   }
 });
+
+document.addEventListener('click', e => {
+  if (activeStatsBadge && !statsPanel.contains(e.target) && !activeStatsBadge.contains(e.target)) closeStatsPanel();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeStatsPanel();
+});
+addEventListener('resize', closeStatsPanel);
 
 // Divisore orizzontale a ogni cambio di sotto-serie (es. RW01.xx → RW02.xx)
 document.querySelectorAll('.module-grid').forEach(grid => {
