@@ -20,10 +20,10 @@ function esc(value) {
 
 function renumberProgramming() {
   const pairs = [
-    ['pr00-introduzione-programmazione', 'pr01-introduzione-programmazione'],
-    ['pr00-dati-codifica', 'pr02-dati-codifica'],
-    ['pr00-algoritmi', 'pr03-algoritmi'],
-    ['pr00-fondamenti-programmazione', 'pr04-fondamenti-programmazione'],
+    ['pr00-introduzione-programmazione', 'pr01-01-introduzione-programmazione'],
+    ['pr00-dati-codifica', 'pr01-02-dati-codifica'],
+    ['pr00-algoritmi', 'pr01-03-algoritmi'],
+    ['pr00-fondamenti-programmazione', 'pr01-04-fondamenti-programmazione'],
   ];
 
   for (const [from, to] of pairs) {
@@ -32,14 +32,14 @@ function renumberProgramming() {
   }
 
   const replacements = [
-    [/pr00-introduzione-programmazione/g, 'pr01-introduzione-programmazione'],
-    [/pr00-dati-codifica/g, 'pr02-dati-codifica'],
-    [/pr00-algoritmi/g, 'pr03-algoritmi'],
-    [/pr00-fondamenti-programmazione/g, 'pr04-fondamenti-programmazione'],
-    [/PR00\.01/g, 'PR01'],
-    [/PR00\.02/g, 'PR02'],
-    [/PR00\.03/g, 'PR03'],
-    [/PR00\.04/g, 'PR04'],
+    [/pr00-introduzione-programmazione/g, 'pr01-01-introduzione-programmazione'],
+    [/pr00-dati-codifica/g, 'pr01-02-dati-codifica'],
+    [/pr00-algoritmi/g, 'pr01-03-algoritmi'],
+    [/pr00-fondamenti-programmazione/g, 'pr01-04-fondamenti-programmazione'],
+    [/PR00\.01/g, 'PR01.01'],
+    [/PR00\.02/g, 'PR01.02'],
+    [/PR00\.03/g, 'PR01.03'],
+    [/PR00\.04/g, 'PR01.04'],
     [/PR00/g, 'PR01'],
   ];
 
@@ -47,9 +47,9 @@ function renumberProgramming() {
     let text = read(file);
     const before = text;
     for (const [from, to] of replacements) text = text.replace(from, to);
-    if (file === 'pr02-dati-codifica.html') text = text.replace(/Programmare · PR01/g, 'Programmare · PR02');
-    if (file === 'pr03-algoritmi.html') text = text.replace(/Programmare · PR01/g, 'Programmare · PR03');
-    if (file === 'pr04-fondamenti-programmazione.html') text = text.replace(/Programmare · PR01/g, 'Programmare · PR04');
+    if (file === 'pr01-02-dati-codifica.html') text = text.replace(/Programmare · PR01/g, 'Programmare · PR02');
+    if (file === 'pr01-03-algoritmi.html') text = text.replace(/Programmare · PR01/g, 'Programmare · PR03');
+    if (file === 'pr01-04-fondamenti-programmazione.html') text = text.replace(/Programmare · PR01/g, 'Programmare · PR04');
     if (text !== before) write(file, text);
   }
 }
@@ -100,13 +100,13 @@ function renderDeck(deck) {
 
 function deckDefinitions() {
   const spreadsheet = {
-    file: 'su14-fogli-calcolo-avanzati.html',
-    pageTitle: 'Suite Ufficio · SU14 — Fogli di calcolo avanzati',
-    kicker: 'Fogli di calcolo · SU14',
+    file: 'su03-08-fogli-calcolo-avanzati.html',
+    pageTitle: 'Suite Ufficio · SU03.08 — Fogli di calcolo avanzati',
+    kicker: 'Fogli di calcolo · SU03.08',
     title: 'Fogli di calcolo',
     accent: 'avanzati',
     lead: 'Modellare dati, controllare errori, creare viste di lavoro e preparare tabelle pronte per formule, pivot, query e automazioni.',
-    code: 'SU14',
+    code: 'SU03.08',
     topic: 'Spreadsheet',
     flow: 'dati grezzi\n  ↓ pulizia\nstruttura tabellare\n  ↓ formule\nreport affidabile',
     closeTitle: 'Un buon foglio è un piccolo sistema informativo.',
@@ -128,13 +128,13 @@ function deckDefinitions() {
   };
 
   const query = {
-    file: 'su15-query-fogli-calcolo.html',
-    pageTitle: 'Suite Ufficio · SU15 — Query nei fogli di calcolo',
-    kicker: 'Fogli di calcolo · SU15',
+    file: 'su03-09-query-fogli-calcolo.html',
+    pageTitle: 'Suite Ufficio · SU03.09 — Query nei fogli di calcolo',
+    kicker: 'Fogli di calcolo · SU03.09',
     title: 'Query nei',
     accent: 'fogli',
     lead: 'Estrarre, filtrare, ordinare, raggruppare e combinare dati con QUERY di Google Sheets, Power Query di Excel e logica SQL di base.',
-    code: 'SU15',
+    code: 'SU03.09',
     topic: 'Query',
     flow: 'tabella sorgente\n  ↓ condizioni\nquery\n  ↓ risultato\nvista aggiornata',
     closeTitle: 'Una query è una domanda ripetibile fatta ai dati.',
@@ -156,13 +156,13 @@ function deckDefinitions() {
   };
 
   const macros = {
-    file: 'su16-macro-fogli-calcolo.html',
-    pageTitle: 'Suite Ufficio · SU16 — Macro nei fogli di calcolo',
-    kicker: 'Fogli di calcolo · SU16',
+    file: 'su03-10-macro-fogli-calcolo.html',
+    pageTitle: 'Suite Ufficio · SU03.10 — Macro nei fogli di calcolo',
+    kicker: 'Fogli di calcolo · SU03.10',
     title: 'Macro nei',
     accent: 'fogli',
     lead: 'Automatizzare azioni ripetitive in Excel e Google Sheets: registrazione, sicurezza, pulsanti, limiti e progettazione di procedure affidabili.',
-    code: 'SU16',
+    code: 'SU03.10',
     topic: 'Macro',
     flow: 'azione manuale\n  ↓ registra\nmacro\n  ↓ ripeti\nprocedura automatica',
     closeTitle: 'Una macro utile elimina lavoro ripetitivo senza nascondere il controllo.',
@@ -211,7 +211,7 @@ function vbaDeck() {
     ['Sicurezza e distribuzione','Macro firmate, cartelle attendibili, file .xlsm e policy aziendali determinano dove il codice può girare.'],
     ['Progetto finale VBA','Un buon progetto finale importa dati, li valida, aggiorna una tabella, genera report e registra un log.'],
   ];
-  return longCodeDeck('su17-vba.html', 'Suite Ufficio · SU17 — VBA per Excel', 'Automazione · SU17', 'VBA per', 'Excel', 'Imparare le basi di Visual Basic for Applications per automatizzare Excel: celle, cicli, condizioni, file, eventi, errori e procedure professionali.', 'SU17', 'VBA', 'Excel\n  ↓ oggetti\nVBA\n  ↓ automazione\nreport e procedure', topics, 'VBA controlla Excel come un’app programmabile.', 'Con pochi costrutti solidi puoi trasformare un file ripetitivo in uno strumento di lavoro.');
+  return longCodeDeck('su03-11-vba.html', 'Suite Ufficio · SU03.11 — VBA per Excel', 'Automazione · SU03.11', 'VBA per', 'Excel', 'Imparare le basi di Visual Basic for Applications per automatizzare Excel: celle, cicli, condizioni, file, eventi, errori e procedure professionali.', 'SU03.11', 'VBA', 'Excel\n  ↓ oggetti\nVBA\n  ↓ automazione\nreport e procedure', topics, 'VBA controlla Excel come un’app programmabile.', 'Con pochi costrutti solidi puoi trasformare un file ripetitivo in uno strumento di lavoro.');
 }
 
 function gasDeck() {
@@ -239,7 +239,7 @@ function gasDeck() {
     ['Deployment e versioni','Distribuzioni, versioni e autorizzazioni determinano chi può usare lo script e quale codice gira.'],
     ['Progetto finale Apps Script','Un progetto completo legge un foglio, filtra righe, genera PDF, invia email e scrive un log.'],
   ];
-  return longCodeDeck('su18-google-apps-script.html', 'Suite Ufficio · SU18 — Google Apps Script', 'Automazione · SU18', 'Google Apps', 'Script', 'Automatizzare Google Workspace con JavaScript: Sheets, Drive, Gmail, trigger, web app, autorizzazioni, API e procedure cloud.', 'SU18', 'Apps Script', 'Sheets\n  ↓ Apps Script\nDrive / Gmail / API\n  ↓ trigger\nworkflow cloud', topics, 'Apps Script collega i fogli agli strumenti Google.', 'È ideale quando il lavoro parte da Sheets ma deve produrre email, file, report e azioni programmate.');
+  return longCodeDeck('su03-12-google-apps-script.html', 'Suite Ufficio · SU03.12 — Google Apps Script', 'Automazione · SU03.12', 'Google Apps', 'Script', 'Automatizzare Google Workspace con JavaScript: Sheets, Drive, Gmail, trigger, web app, autorizzazioni, API e procedure cloud.', 'SU03.12', 'Apps Script', 'Sheets\n  ↓ Apps Script\nDrive / Gmail / API\n  ↓ trigger\nworkflow cloud', topics, 'Apps Script collega i fogli agli strumenti Google.', 'È ideale quando il lavoro parte da Sheets ma deve produrre email, file, report e azioni programmate.');
 }
 
 function longCodeDeck(file, pageTitle, kicker, title, accent, lead, code, topic, flow, topics, closeTitle, closeLead) {
@@ -268,7 +268,7 @@ function longCodeDeck(file, pageTitle, kicker, title, accent, lead, code, topic,
 }
 
 function addOperatorBlock() {
-  const file = 'pr04-fondamenti-programmazione.html';
+  const file = 'pr01-04-fondamenti-programmazione.html';
   if (!exists(file)) return;
   let html = read(file);
   if (html.includes('Operatori aritmetici: somma, sottrazione, prodotto')) return;
@@ -294,11 +294,11 @@ function addOperatorBlock() {
   html = html.replace(/<span class="chip">22 slide<\/span>/, '<span class="chip">37 slide</span>');
   write(file, html);
 
-  if (exists('pr04-fondamenti-programmazione.txt')) {
-    let txt = read('pr04-fondamenti-programmazione.txt');
+  if (exists('pr01-04-fondamenti-programmazione.txt')) {
+    let txt = read('pr01-04-fondamenti-programmazione.txt');
     if (!txt.includes('Operatori aritmetici, logici, assegnazione e simboli')) {
       txt += '\n\nBlocco aggiunto: Operatori aritmetici, logici, assegnazione e simboli\n- Somma, sottrazione, prodotto, divisione, resto, potenza, precedenza.\n- Confronti, AND, OR, NOT, parentesi logiche.\n- Assegnazione semplice e composta.\n- Simboli comuni della sintassi di programmazione.\n';
-      write('pr04-fondamenti-programmazione.txt', txt);
+      write('pr01-04-fondamenti-programmazione.txt', txt);
     }
   }
 }
@@ -323,27 +323,27 @@ function textFromHtml(fragment) {
 }
 
 function syncPr04Text() {
-  const file = 'pr04-fondamenti-programmazione.html';
+  const file = 'pr01-04-fondamenti-programmazione.html';
   if (!exists(file)) return;
   const html = read(file);
   const slides = [...html.matchAll(/<section class="slide[^"]*"[^>]*>([\s\S]*?)<\/section>/g)]
     .map((match, index) => `--- Slide ${index + 1} ---\n${textFromHtml(match[1])}`);
   if (!slides.length) return;
   write(
-    'pr04-fondamenti-programmazione.txt',
+    'pr01-04-fondamenti-programmazione.txt',
     `Programmare - PR04 - Fondamenti di programmazione\n${'='.repeat(53)}\n\n${slides.join('\n\n')}\n`
   );
 }
 
 function updateIndex() {
   let html = read('00-indice.html');
-  if (!html.includes('su14-fogli-calcolo-avanzati.html')) {
+  if (!html.includes('su03-08-fogli-calcolo-avanzati.html')) {
     const cards = [
-      ['su14-fogli-calcolo-avanzati.html','SU14','Fogli di calcolo avanzati','Struttura dati, convalida, formattazione condizionale, import CSV, protezioni, collaborazione, dashboard e checklist per fogli professionali.'],
-      ['su15-query-fogli-calcolo.html','SU15','Query nei fogli di calcolo','QUERY in Google Sheets, logica SQL, SELECT, WHERE, ORDER BY, GROUP BY, PIVOT, Power Query, join, pulizia dati e debug.'],
-      ['su16-macro-fogli-calcolo.html','SU16','Macro nei fogli di calcolo','Registrare macro, automatizzare report, riferimenti relativi e assoluti, pulsanti, sicurezza, input, errori, test e limiti.'],
-      ['su17-vba.html','SU17','VBA per Excel','Visual Basic for Applications: editor, Sub e Function, variabili, Range, cicli, condizioni, errori, file, eventi, UserForm e distribuzione.'],
-      ['su18-google-apps-script.html','SU18','Google Apps Script','Automazione Google Workspace con JavaScript: Sheets, Drive, Gmail, trigger, autorizzazioni, web app, API, quote e deployment.'],
+      ['su03-08-fogli-calcolo-avanzati.html','SU03.08','Fogli di calcolo avanzati','Struttura dati, convalida, formattazione condizionale, import CSV, protezioni, collaborazione, dashboard e checklist per fogli professionali.'],
+      ['su03-09-query-fogli-calcolo.html','SU03.09','Query nei fogli di calcolo','QUERY in Google Sheets, logica SQL, SELECT, WHERE, ORDER BY, GROUP BY, PIVOT, Power Query, join, pulizia dati e debug.'],
+      ['su03-10-macro-fogli-calcolo.html','SU03.10','Macro nei fogli di calcolo','Registrare macro, automatizzare report, riferimenti relativi e assoluti, pulsanti, sicurezza, input, errori, test e limiti.'],
+      ['su03-11-vba.html','SU03.11','VBA per Excel','Visual Basic for Applications: editor, Sub e Function, variabili, Range, cicli, condizioni, errori, file, eventi, UserForm e distribuzione.'],
+      ['su03-12-google-apps-script.html','SU03.12','Google Apps Script','Automazione Google Workspace con JavaScript: Sheets, Drive, Gmail, trigger, autorizzazioni, web app, API, quote e deployment.'],
     ].map(([href,num,title,desc]) => `
       <a class="module-card inf" href="${href}">
         <div class="card-num">${num}</div>
@@ -356,21 +356,21 @@ function updateIndex() {
         <div class="card-arrow">→</div>
       </a>
 `).join('');
-    html = html.replace(/(\s*<a class="module-card inf" href="su13-presentazioni\.html">)/, `${cards}$1`);
+    html = html.replace(/(\s*<a class="module-card inf" href="su04-01-presentazioni\.html">)/, `${cards}$1`);
   }
   html = html
-    .replace(/href="pr00-introduzione-programmazione\.html"/g, 'href="pr01-introduzione-programmazione.html"')
-    .replace(/href="pr00-dati-codifica\.html"/g, 'href="pr02-dati-codifica.html"')
-    .replace(/href="pr00-algoritmi\.html"/g, 'href="pr03-algoritmi.html"')
-    .replace(/href="pr00-fondamenti-programmazione\.html"/g, 'href="pr04-fondamenti-programmazione.html"')
-    .replace(/<div class="card-num">PR00\.01<\/div>/g, '<div class="card-num">PR01</div>')
-    .replace(/<div class="card-num">PR00\.02<\/div>/g, '<div class="card-num">PR02</div>')
-    .replace(/<div class="card-num">PR00\.03<\/div>/g, '<div class="card-num">PR03</div>')
-    .replace(/<div class="card-num">PR00\.04<\/div>/g, '<div class="card-num">PR04</div>')
-    .replace(/PROGRAMMARE · PR00\.01/g, 'PROGRAMMARE · PR01')
-    .replace(/PROGRAMMARE · PR00\.02/g, 'PROGRAMMARE · PR02')
-    .replace(/PROGRAMMARE · PR00\.03/g, 'PROGRAMMARE · PR03')
-    .replace(/PROGRAMMARE · PR00\.04/g, 'PROGRAMMARE · PR04');
+    .replace(/href="pr00-introduzione-programmazione\.html"/g, 'href="pr01-01-introduzione-programmazione.html"')
+    .replace(/href="pr00-dati-codifica\.html"/g, 'href="pr01-02-dati-codifica.html"')
+    .replace(/href="pr00-algoritmi\.html"/g, 'href="pr01-03-algoritmi.html"')
+    .replace(/href="pr00-fondamenti-programmazione\.html"/g, 'href="pr01-04-fondamenti-programmazione.html"')
+    .replace(/<div class="card-num">PR00\.01<\/div>/g, '<div class="card-num">PR01.01</div>')
+    .replace(/<div class="card-num">PR00\.02<\/div>/g, '<div class="card-num">PR01.02</div>')
+    .replace(/<div class="card-num">PR00\.03<\/div>/g, '<div class="card-num">PR01.03</div>')
+    .replace(/<div class="card-num">PR00\.04<\/div>/g, '<div class="card-num">PR01.04</div>')
+    .replace(/PROGRAMMARE · PR00\.01/g, 'PROGRAMMARE · PR01.01')
+    .replace(/PROGRAMMARE · PR00\.02/g, 'PROGRAMMARE · PR01.02')
+    .replace(/PROGRAMMARE · PR00\.03/g, 'PROGRAMMARE · PR01.03')
+    .replace(/PROGRAMMARE · PR00\.04/g, 'PROGRAMMARE · PR01.04');
   write('00-indice.html', html);
 }
 

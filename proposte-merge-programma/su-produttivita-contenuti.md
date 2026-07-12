@@ -2,13 +2,13 @@
 
 ## Target merge
 
-- `su02-google-workspace.html`
-- `su05-documenti.html`
-- `su06-sistema.html`
-- `su13-presentazioni.html`
-- `su11-testo.html`
+- `su01-02-google-workspace.html`
+- `su02-01-documenti.html`
+- `su03-01-sistema.html`
+- `su04-01-presentazioni.html`
+- `su03-06-testo.html`
 - `sm08-fotocamera-contenuti.html`
-- eventuale collegamento con `su03-adobe.html` e `su04-alternativi.html`
+- eventuale collegamento con `su01-03-adobe.html` e `su01-04-alternativi.html`
 
 ## Stato implementazione
 
@@ -49,7 +49,7 @@ Contenuto implementato: mappa mentale (espansione per associazioni) vs mappa con
 
 ## SU12 - Contenuti visuali (banner, volantini, post social) ✅
 
-**Slide aggiunta in su13-presentazioni.html** prima del closing. Contenuto implementato: scegliere formato (post/storia/banner/A4), template come punto di partenza, gerarchia visiva (titolo→immagine→info→CTA), colori coerenti, pochi font, esportare PNG/PDF. Tool: Canva, Adobe Express, PowerPoint/Slides, LibreOffice Draw.
+**Slide aggiunta in su04-01-presentazioni.html** prima del closing. Contenuto implementato: scegliere formato (post/storia/banner/A4), template come punto di partenza, gerarchia visiva (titolo→immagine→info→CTA), colori coerenti, pochi font, esportare PNG/PDF. Tool: Canva, Adobe Express, PowerPoint/Slides, LibreOffice Draw.
 
 ---
 
@@ -71,4 +71,4 @@ Contenuto implementato: esposizione, luminosità, contrasto, saturazione, temper
 
 ## RW08/SM08 - Immagini dal web ✅
 
-**Slide aggiunta in rw08-contenuti.html** prima del closing. Contenuto implementato: Google Immagini ≠ banca immagini (mostra immagini di terzi), controllare fonte/autore/licenza, filtri per licenza. Fonti gratuite: Unsplash, Pexels, Pixabay, Wikimedia Commons. Fonti a pagamento: Adobe Stock, iStock. Freepik: attenzione attribuzione e limiti. Formati: JPG/PNG/SVG/WebP. Regola: se lo pubblichi, devi sapere da dove viene.
+**Slide aggiunta in rw02-03-contenuti.html** prima del closing. Contenuto implementato: Google Immagini ≠ banca immagini (mostra immagini di terzi), controllare fonte/autore/licenza, filtri per licenza. Fonti gratuite: Unsplash, Pexels, Pixabay, Wikimedia Commons. Fonti a pagamento: Adobe Stock, iStock. Freepik: attenzione attribuzione e limiti. Formati: JPG/PNG/SVG/WebP. Regola: se lo pubblichi, devi sapere da dove viene.

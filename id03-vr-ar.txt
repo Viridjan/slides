@@ -1,0 +1,373 @@
+Identità digitale · Modulo 9 — VR, AR e Metaverso
+=================================================
+
+--- Slide 1 ---
+Modulo 9 
+ VR, AR
+ e Metaverso 
+ Realtà virtuale, aumentata e il mondo che verrà: dai visori alle piattaforme social 3D. 
+ 
+ Modulo 9 3 temi principali 
+ 
+ 
+ 
+ 🥽
+
+--- Slide 2 ---
+Cosa vedremo 
+ Tre mondi da esplorare 
+ 
+ 01 Realtà Virtuale (VR) — hardware, funzionamento, usi 
+ 02 Realtà Aumentata (AR) — overlay digitale sul reale 
+ 03 VR vs AR — il confronto 
+ 04 Il Metaverso — cos'è e dove siamo 
+ 05 Opportunità e criticità
+
+--- Slide 3 ---
+Realtà Virtuale 
+ Immersi in un mondo digitale 
+ La Realtà Virtuale sostituisce completamente la visione del mondo reale con un ambiente 3D generato dal computer. 
+ Indossando un visore (HMD) , l'utente si trova "dentro" la scena: può guardarsi intorno a 360°, camminare nello spazio virtuale e interagire con oggetti digitali. 
+ 
+ 
+ 
+ Parola chiave 
+ Immersione : la sensazione di essere fisicamente presenti in un luogo che non esiste. 
+ 
+ 
+ Storia 
+ Il termine "Virtual Reality" fu coniato da Jaron Lanier nel 1987. Il primo visore consumer moderno fu l'Oculus Rift, lanciato nel 2016.
+
+--- Slide 4 ---
+Hardware 
+ Come funziona un sistema VR 
+ 
+ 
+ 🥽 
+ Visore (HMD) 
+ Due schermi ad alta risoluzione, uno per occhio, creano la percezione della profondità. Il tracking della testa aggiorna la scena in tempo reale. 
+ 
+ 
+ 🕹️ 
+ Controller 
+ Tracciati nello spazio 3D. Permettono di afferrare, puntare, premere. Alcuni modelli trasmettono anche il feedback aptico (vibrazione). 
+ 
+ 
+ 📡 
+ Sensori e telecamere 
+ Rilevano la posizione e l'orientamento di testa e mani nell'ambiente fisico (inside-out o outside-in tracking). 
+ 
+ 
+ 💻 
+ PC / console / standalone 
+ Elabora il rendering 3D. I visori standalone (es. Meta Quest) hanno tutto integrato; altri richiedono un PC potente via cavo. 
+ 
+ 
+ 
+ Come funziona 
+ I sensori campionano la posizione &gt;1000 volte al secondo. Il motore grafico ridisegna la scena a 90+ fps per mantenere la fluidità ed evitare il motion sickness .
+
+--- Slide 5 ---
+Usi reali 
+ Dove si usa la VR 
+ 
+ 
+ 🎮 
+ Intrattenimento 
+ Videogiochi in prima persona, esperienze cinematografiche a 360°, concerti virtuali. Il settore gaming è il più grande. 
+ 
+ 
+ 🏥 
+ Medicina e terapia 
+ Simulazione chirurgica per chirurghi in formazione. Terapia dell'esposizione per fobie e PTSD. Riabilitazione motoria gamificata. 
+ 
+ 
+ 🏗️ 
+ Architettura e design 
+ Walkthrough virtuali di edifici prima della costruzione. Permette al cliente di "camminare" nel progetto e richiedere modifiche. 
+ 
+ 
+ ✈️ 
+ Simulatori professionali 
+ Piloti, astronauti e vigili del fuoco si addestrano in ambienti VR che riproducono situazioni di emergenza senza rischi reali. 
+ 
+ 
+ 🎓 
+ Formazione aziendale 
+ Onboarding immersivo, simulazioni di vendita, training su macchinari pericolosi. Riduce costi e aumenta la ritenzione. 
+ 
+ 
+ 🌍 
+ Turismo virtuale 
+ Visite a musei, città e siti naturali inaccessibili. Utile per persone con mobilità ridotta o per il pre-viaggio.
+
+--- Slide 6 ---
+Vantaggi 
+ Perché funziona 
+ 
+ 
+ 🎯 Immersione totale 
+ Elimina le distrazioni esterne. L'utente è completamente concentrato sull'esperienza. 
+ 
+ 
+ 🧠 Apprendimento esperienziale 
+ Fare è più efficace del leggere. La VR permette di sbagliare e riprovare in sicurezza. 
+ 
+ 
+ 💰 Costi di simulazione ridotti 
+ Una simulazione VR si ripete infinite volte. Un simulatore fisico è costoso e si usura. 
+ 
+ 
+ 
+ 
+ Limiti 
+ Cosa frena l'adozione 
+ 
+ 
+ 💸 Costo hardware 
+ Un visore di qualità parte da 300 €. I sistemi professionali superano i 1.000 €. 
+ 
+ 
+ 🤢 Motion sickness 
+ Nausea da discrepanza tra movimento percepito e assenza di movimento fisico reale. Colpisce ~30% degli utenti. 
+ 
+ 
+ 👁️ Affaticamento visivo 
+ Sessioni lunghe causano stanchezza agli occhi e al collo. Consigliati max 30 min consecutivi.
+
+--- Slide 7 ---
+Realtà Aumentata 
+ Il digitale si sovrappone al reale 
+ La Realtà Aumentata non sostituisce il mondo fisico: lo arricchisce aggiungendo layer digitali visibili attraverso uno schermo o degli occhiali. 
+ L'utente vede l'ambiente circostante più informazioni, oggetti o animazioni virtuali posizionati con precisione nello spazio. 
+ 
+ Differenza chiave 
+ VR = vedi solo il virtuale. AR = vedi il reale più elementi virtuali. 
+ 
+ 
+ 
+ 📱
+
+--- Slide 8 ---
+Come funziona 
+ I componenti della AR 
+ 
+ 
+ 📷 
+ Fotocamera 
+ Acquisisce il mondo reale in tempo reale. È il "sensore" principale: senza di essa l'AR non può vedere su cosa sovrapporre il digitale. 
+ 
+ 
+ 🧭 
+ GPS e sensori 
+ Giroscopio, accelerometro e GPS geolocalizzano il dispositivo. Permettono di ancorare gli oggetti virtuali a posizioni precise nel mondo. 
+ 
+ 
+ 🤖 
+ Computer Vision / IA 
+ Algoritmi riconoscono superfici, volti, oggetti. Permettono di "agganciare" elementi digitali a superfici reali in modo stabile. 
+ 
+ 
+ 🖥️ 
+ Display 
+ Schermo del telefono, tablet o smart glasses (es. Apple Vision Pro, HoloLens). Mostra il mix reale+virtuale in tempo reale. 
+ 
+ 
+ 
+ Come usarla oggi 
+ Non serve hardware dedicato: framework come ARCore (Android) e ARKit (iOS) portano la AR su qualunque smartphone moderno tramite la sola fotocamera.
+
+--- Slide 9 ---
+Usi reali 
+ La AR nella vita quotidiana 
+ 
+ 
+ 🎮 
+ Gaming e social 
+ Pokémon GO è l'esempio più famoso: creature virtuali nel mondo reale. I filtri Instagram/Snapchat applicano maschere AR al volto in tempo reale. 
+ 
+ 
+ 🛠️ 
+ Manutenzione industriale 
+ Un tecnico indossa smart glasses: vede il macchinario reale più istruzioni di montaggio sovrapposte, senza dover consultare un manuale cartaceo. 
+ 
+ 
+ 🏥 
+ Medicina 
+ Chirurghi vedono modelli 3D degli organi sovrapposti al paziente. Vene e arterie appaiono direttamente sulla pelle per trovare il punto di iniezione. 
+ 
+ 
+ 🛋️ 
+ Shopping e arredamento 
+ App come IKEA Place permettono di posizionare virtualmente un mobile in casa prima di acquistarlo. L'ecommerce AR riduce i resi del 30%. 
+ 
+ 
+ 🎓 
+ Istruzione 
+ Libri di testo "animati": puntare il telefono su una figura fa partire un modello 3D. Anatomia, geometria spaziale e chimica diventano tangibili. 
+ 
+ 
+ 🗺️ 
+ Navigazione 
+ Google Maps Live View sovrappone frecce di navigazione sulla vista della fotocamera. Nessuna ambiguità tra mappa 2D e il mondo reale.
+
+--- Slide 10 ---
+A confronto 
+ VR vs AR: le differenze 
+ 
+ 
+ 
+ Caratteristica 
+ Realtà Virtuale (VR) 
+ Realtà Aumentata (AR) 
+ 
+ 
+ 
+ 
+ Mondo percepito 
+ Completamente virtuale — il reale è escluso 
+ Reale + elementi digitali sovrapposti 
+ 
+ 
+ Hardware necessario 
+ Visore dedicato (Meta Quest, PS VR…) 
+ Smartphone, tablet o smart glasses 
+ 
+ 
+ Interazione 
+ Controller, guanti, body tracking 
+ Touch screen, gesti, voce 
+ 
+ 
+ Uso tipico 
+ Gaming, training immersivo, simulazioni 
+ Navigazione, filtri social, manutenzione 
+ 
+ 
+ Costo di accesso 
+ Medio-alto (300–1500 €) 
+ Basso (smartphone già disponibile)
+
+--- Slide 11 ---
+Metaverso 
+ Un internet da abitare 
+ Il Metaverso è la visione di un internet tridimensionale, persistente e condiviso, in cui le persone — rappresentate da avatar — lavorano, giocano, socializzano e comprano. 
+ Non è un singolo prodotto: è un insieme di ambienti virtuali interconnessi . Come il web è fatto di molti siti, il metaverso è fatto di molti "mondi". 
+ 
+ Origine 
+ Il termine nasce nel romanzo Snow Crash di Neal Stephenson (1992), che immaginava un universo virtuale parallelo al mondo reale. 
+ 
+ 
+ 
+ 🌐
+
+--- Slide 12 ---
+Caratteristiche 
+ Cosa definisce un metaverso 
+ 
+ 
+ 🧑‍🤝‍🧑 
+ Avatar 
+ Rappresentazione digitale dell'utente. Può essere fedele alle sembianze reali o completamente fantasiosa. Porta l'identità nel virtuale. 
+ 
+ 
+ 🔄 
+ Persistenza 
+ Il mondo continua ad esistere anche quando l'utente non è connesso. Gli oggetti che costruisci restano lì. Come il mondo reale. 
+ 
+ 
+ 💰 
+ Economia digitale 
+ Valute virtuali, NFT, terreni digitali comprabili. Alcuni utenti guadagnano denaro reale creando e vendendo oggetti nel metaverso. 
+ 
+ 
+ 🤝 
+ Socializzazione 
+ Concerti, riunioni, eventi, chat vocali spaziali. Meta Horizon, VRChat e Roblox puntano sulla dimensione sociale come valore principale. 
+ 
+ 
+ 🔗 
+ Interoperabilità 
+ L'obiettivo (ancora non raggiunto) è portare avatar e oggetti da un mondo all'altro, come i siti web condividono link. Oggi ogni piattaforma è chiusa. 
+ 
+ 
+ 🥽 
+ Accesso multiplo 
+ Si entra via visore VR per l'esperienza completa, ma anche via PC, smartphone o console. L'immersività è opzionale.
+
+--- Slide 13 ---
+Piattaforme 
+ Dove esiste il metaverso oggi 
+ 
+ 
+ 🌐 
+ VRChat 
+ Mondo virtuale social puro. Avatar personalizzati, stanze create dagli utenti, accessibile con o senza visore VR. Comunità molto creativa. 
+ 
+ 
+ 🎮 
+ Roblox 
+ Piattaforma di giochi creati dagli utenti, molto popolare tra i giovani. Ha una sua valuta (Robux) e un'economia interna che genera milioni di dollari. 
+ 
+ 
+ 🏢 
+ Meta Horizon Worlds 
+ Il metaverso di Meta (Facebook). Ottimizzato per visori Quest, punta su riunioni di lavoro e eventi sociali. Ancora in sviluppo. 
+ 
+ 
+ 🎵 
+ Fortnite (eventi) 
+ Ha ospitato concerti virtuali con Travis Scott (27 M spettatori) e Ariana Grande. Il gioco si evolve verso spazio metaverso multifunzione. 
+ 
+ 
+ 🏘️ 
+ Second Life 
+ Il metaverso "originale" (2003). Ancora attivo con una sua economia. Dimostra che questi spazi possono sopravvivere decenni. 
+ 
+ 
+ 🏫 
+ Spatial e Gather 
+ Piattaforme professionali per riunioni e uffici virtuali. Usate da aziende per team distribuiti: più coinvolgenti di una videochiamata piatta.
+
+--- Slide 14 ---
+Opportunità 
+ Cosa rende il metaverso utile 
+ 
+ 
+ 🎓 Formazione immersiva 
+ Corsi in aula virtuale, simulazioni pratiche, affiancamento remoto in contesti 3D. 
+ 
+ 
+ 💼 Lavoro a distanza potenziato 
+ Riunioni con senso di presenza reale. Collaborazione su oggetti 3D condivisi (prototipi, edifici, circuiti). 
+ 
+ 
+ 🌍 Inclusione geografica 
+ Partecipare a eventi, visitare luoghi, frequentare corsi senza barriere fisiche o economiche di spostamento. 
+ 
+ 
+ 
+ 
+ Criticità 
+ Problemi aperti 
+ 
+ 
+ 🔐 Privacy e sorveglianza 
+ I visori raccolgono dati biometrici (movimenti oculari, gesti, voce). Più invasivi di qualunque social esistente. 
+ 
+ 
+ 🧠 Dipendenza e identità 
+ Il confine tra identità reale e avatar sfuma. Rischio di preferire il virtuale al reale, specie per i più giovani. 
+ 
+ 
+ ⚖️ Proprietà dei dati 
+ Chi possiede il "terreno" virtuale su cui costruisci? Piattaforme chiuse possono cancellare mondi interi.
+
+--- Slide 15 ---
+VR/AR · M9 
+ 
+ Nel futuro,
+ci siamo già. 
+ VR, AR, realtà mista e metaverso: le tecnologie immersive, gli strumenti di oggi e le implicazioni sociali delle esperienze digitali. 
+ 
+ Prossimo → ID04 · Farsi riconoscere

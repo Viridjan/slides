@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suite Ufficio · SU07 — Riferimenti e range</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.slide.visible .reveal:nth-child(5){transition-delay:.37s}
+.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}.d4{transition-delay:.56s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep)}.tape.teal{background:var(--teal)}.tape.sky{background:var(--sky)}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
+.lead{font-size:32px;line-height:1.45;color:var(--ink-soft);max-width:1120px;}
+.body{font-size:27px;line-height:1.46;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1.05;}
+.card p{font-size:24px;line-height:1.36;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa}.note.sky{background:#d9edf2}.note.teal{background:var(--teal)}.note.teal *{color:var(--paper)!important}.note.teal .lbl{color:var(--gold)!important}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.36;color:var(--ink);}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}
+.col{display:flex;flex-direction:column}.center{height:100%;display:flex;flex-direction:column;justify-content:center}
+.split{display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;height:100%}
+.split.even{grid-template-columns:1fr 1fr}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stack>*+*{margin-top:22px}
+.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .grid2{gap:18px}.tight-slide .grid3{gap:16px}.tight-slide .card{padding:18px 22px}.tight-slide .card h3{font-size:30px}.tight-slide .card p{font-size:21px;line-height:1.28}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}
+.title-right>div,.title-right>svg{position:relative;z-index:2}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04)}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}
+.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}
+.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:28px;display:grid;place-items:center;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.sheet{width:100%;border-collapse:collapse;font-family:var(--font-mono);}
+.sheet td,.sheet th{border:1px solid var(--line);height:52px;text-align:center;font-size:21px;color:var(--ink-soft);background:#fff;}
+.sheet th{background:var(--paper-2);color:var(--ink);font-weight:700;}
+.sheet .rowh{background:var(--paper-2);color:var(--ink);font-weight:700;width:50px;}
+.sheet .sel{background:var(--gold);color:var(--ink);font-weight:700;outline:3px solid var(--red);outline-offset:-3px;}
+.sheet .fix{background:#d2f0e8;color:var(--teal);font-weight:700;}
+.sheet .rel{background:#f3b6aa;color:var(--red);font-weight:700;}
+.formula{font-family:var(--font-mono);font-size:30px;background:#fff;border:2px solid var(--ink);border-radius:12px;padding:18px 24px;box-shadow:5px 6px 0 rgba(28,23,20,.12);}
+.formula b{color:var(--red)}.formula .ok{color:var(--teal);font-weight:700}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:23px}
+.cmp th{font-family:var(--font-display);font-weight:900;font-size:29px;text-align:left;padding:13px 18px;color:var(--paper);background:var(--teal)}
+.cmp th:first-child{background:var(--ink);border-radius:12px 0 0 0}.cmp th:last-child{border-radius:0 12px 0 0}
+.cmp td{padding:11px 18px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.3}
+.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2);font-family:var(--font-mono)}.cmp tr:last-child td{border-bottom:none}
+.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.title-slide .lead,.title-slide .chips{display:none;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+</style>
+<link rel="stylesheet" href="theme-corsi.css">
+</head>
+<body class="course-su">
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+  <!-- 1. TITLE -->
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <div class="eyebrow reveal" style="margin-top:40px;">Fogli di calcolo</div>
+      <h1 class="h-mega reveal">Riferimenti<br>e <em class="hot">range</em></h1>
+      <p class="lead reveal" style="margin-top:30px;">Relativi, assoluti, misti, intervalli, nomi di celle, tabelle strutturate e LET: come scrivere formule che non si rompono quando copi.</p>
+      <div class="chips reveal" style="margin-top:46px;"><span class="chip">14 slide</span></div>
+    </div>
+    <div class="title-right">
+      <svg class="reveal" viewBox="0 0 280 280" style="width:260px;height:260px;">
+        <rect x="20" y="20" width="240" height="240" rx="12" fill="none" stroke="#e6c14a" stroke-width="4"/>
+        <!-- grid inside -->
+        <line x1="100" y1="20" x2="100" y2="260" stroke="#e6c14a" stroke-width="2" opacity=".4"/>
+        <line x1="180" y1="20" x2="180" y2="260" stroke="#e6c14a" stroke-width="2" opacity=".4"/>
+        <line x1="20" y1="100" x2="260" y2="100" stroke="#e6c14a" stroke-width="2" opacity=".4"/>
+        <line x1="20" y1="180" x2="260" y2="180" stroke="#e6c14a" stroke-width="2" opacity=".4"/>
+        <!-- fixed cell highlight -->
+        <rect x="100" y="20" width="80" height="80" fill="#e6c14a" opacity=".25"/>
+        <text x="140" y="70" text-anchor="middle" fill="#e6c14a" font-family="Space Mono" font-weight="700" font-size="26">$B$2</text>
+        <!-- relative cell -->
+        <rect x="180" y="100" width="80" height="80" fill="#e6533b" opacity=".25"/>
+        <text x="220" y="148" text-anchor="middle" fill="#e6533b" font-family="Space Mono" font-weight="700" font-size="24">C3</text>
+        <!-- lock icons -->
+        <text x="140" y="44" text-anchor="middle" fill="#e6c14a" font-size="18">🔒</text>
+        <text x="220" y="126" text-anchor="middle" fill="#e6533b" font-size="18">↕</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 2. AGENDA -->
+  <section class="slide">
+    <div class="center">
+      <div class="tape teal reveal">In questo modulo</div>
+      <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
+      <div class="agenda-list reveal d1">
+        <div class="agenda-item"><span class="n">01</span><span class="t">Indirizzi di cella</span></div>
+        <div class="agenda-item"><span class="n">02</span><span class="t">Riferimenti relativi</span></div>
+        <div class="agenda-item"><span class="n">03</span><span class="t">Riferimenti assoluti ($)</span></div>
+        <div class="agenda-item"><span class="n">04</span><span class="t">Riferimenti misti</span></div>
+        <div class="agenda-item"><span class="n">05</span><span class="t">Range / intervalli</span></div>
+        <div class="agenda-item"><span class="n">06</span><span class="t">Nominare celle e range</span></div>
+        <div class="agenda-item"><span class="n">07</span><span class="t">Tabelle strutturate</span></div>
+        <div class="agenda-item"><span class="n">08</span><span class="t">Riferimento ad altro foglio</span></div>
+        <div class="agenda-item"><span class="n">09</span><span class="t">LET: variabili in formula</span></div>
+        <div class="agenda-item"><span class="n">10</span><span class="t">Errori e buone abitudini</span></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 3. INDIRIZZI -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Coordinate</div>
+        <h2 class="h-big reveal">Ogni cella ha un <em class="hot">indirizzo</em></h2>
+        <p class="lead reveal d1">Le colonne usano lettere (A, B, C…), le righe usano numeri (1, 2, 3…). La cella <b>B3</b> è l'incrocio tra colonna B e riga 3.</p>
+        <p class="body reveal d2">Le formule non usano valori fissi: usano indirizzi. Questo permette ai risultati di aggiornarsi automaticamente quando cambiano i dati.</p>
+        <div class="analogy reveal d3"><span class="big">Analogia:</span> Come le coordinate su una mappa — col + riga identificano un punto unico su tutta la griglia.</div>
+      </div>
+      <div class="illu reveal d1">
+        <table class="sheet" style="width:280px;">
+          <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+          <tr><td class="rowh">1</td><td></td><td></td><td></td></tr>
+          <tr><td class="rowh">2</td><td></td><td></td><td></td></tr>
+          <tr><td class="rowh">3</td><td></td><td class="sel">B3</td><td></td></tr>
+          <tr><td class="rowh">4</td><td></td><td></td><td></td></tr>
+        </table>
+        <div class="illu-cap">Colonna B × Riga 3 = cella B3</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 4. RIFERIMENTI RELATIVI -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">Relativi</div>
+        <h2 class="h-big reveal">Riferimenti <em class="hot">relativi</em></h2>
+        <p class="lead reveal d1">Un riferimento relativo si sposta quando la formula viene copiata. Se copi la formula in basso di una riga, il riferimento scende di una riga.</p>
+        <div class="formula reveal d2" style="font-size:26px;">=B2 * 1.22</div>
+        <p class="body reveal d3" style="margin-top:14px;">Copiando in basso: diventa <span style="font-family:var(--font-mono);color:var(--teal);">=B3 * 1.22</span>, poi <span style="font-family:var(--font-mono);color:var(--teal);">=B4 * 1.22</span> — si adatta a ogni riga.</p>
+        <div class="analogy reveal d4"><span class="big">Regola:</span> Nessun simbolo = si sposta. È il comportamento predefinito di ogni cella senza $.</div>
+      </div>
+      <div class="illu reveal d1">
+        <table class="sheet" style="width:280px;">
+          <tr><th></th><th>A</th><th>B (prezzo)</th><th>C (con IVA)</th></tr>
+          <tr><td class="rowh">2</td><td>Crema</td><td>20</td><td class="sel">24,40</td></tr>
+          <tr><td class="rowh">3</td><td>Shampoo</td><td>12</td><td class="rel">=B3*1.22</td></tr>
+          <tr><td class="rowh">4</td><td>Gel</td><td>8</td><td class="rel">=B4*1.22</td></tr>
+        </table>
+        <div class="illu-cap">Copia di C2 verso il basso → B si aggiorna</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 5. RIFERIMENTI ASSOLUTI -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">Assoluti</div>
+        <h2 class="h-big reveal">Riferimenti <em class="hot">assoluti</em> — il $</h2>
+        <p class="lead reveal d1">Il simbolo <b>$</b> blocca la parte del riferimento che lo precede. <span style="font-family:var(--font-mono);color:var(--red);">$B$1</span> resta sempre su colonna B, riga 1 — anche se copi la formula ovunque.</p>
+        <div class="formula reveal d2" style="font-size:26px;">=B3 * (1 + <b>$B$1</b>)</div>
+        <div class="stack reveal d3" style="margin-top:14px;">
+          <div class="card" style="padding:18px 22px;">
+            <h3 style="font-size:28px;">Senza $</h3>
+            <p><span style="font-family:var(--font-mono);">=B3*(1+B1)</span> copiato in basso → <span style="font-family:var(--font-mono);color:var(--red);">=B4*(1+B2)</span> — sbagliato!</p>
+          </div>
+          <div class="card" style="padding:18px 22px;border-color:var(--teal);">
+            <h3 style="font-size:28px;">Con $</h3>
+            <p><span style="font-family:var(--font-mono);">=B3*(1+$B$1)</span> copiato → <span style="font-family:var(--font-mono);color:var(--teal);">=B4*(1+$B$1)</span> — corretto!</p>
+          </div>
+        </div>
+      </div>
+      <div class="illu reveal d1">
+        <table class="sheet" style="width:280px;">
+          <tr><th></th><th>A</th><th>B</th></tr>
+          <tr><td class="rowh">1</td><td>Aliquota IVA</td><td class="fix">$B$1 = 22%</td></tr>
+          <tr><td class="rowh">2</td><td>Crema</td><td>20</td></tr>
+          <tr><td class="rowh">3</td><td>Shampoo</td><td>12</td></tr>
+          <tr><td class="rowh">4</td><td>Gel</td><td>8</td></tr>
+        </table>
+        <div class="illu-cap">$B$1 = sempre la stessa cella, sempre</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 6. RIFERIMENTI MISTI -->
+  <section class="slide tight-slide">
+    <div class="center">
+      <div class="tape reveal">Misti</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">Riferimenti <em class="hot">misti</em> — bloccare solo colonna o solo riga</h2>
+      <table class="cmp reveal d1" style="margin-top:22px;">
+        <tr><th>Tipo</th><th>Esempio</th><th>Cosa succede quando copi</th></tr>
+        <tr><td>Relativo</td><td>B2</td><td>Sia colonna che riga si spostano — comportamento predefinito</td></tr>
+        <tr><td>Assoluto</td><td>$B$2</td><td>Nulla si sposta — cella completamente bloccata</td></tr>
+        <tr><td>Misto (col fissa)</td><td>$B2</td><td>La colonna B resta; la riga si sposta quando copi in alto/basso</td></tr>
+        <tr><td>Misto (riga fissa)</td><td>B$2</td><td>La riga 2 resta; la colonna si sposta quando copi a destra/sinistra</td></tr>
+      </table>
+      <div class="note reveal d2" style="margin-top:22px;"><div class="lbl">💡 Idea chiave</div><p>Il simbolo <b>$</b> non significa denaro: significa "blocca questa dimensione". Premi <b>F4</b> per ciclare tra i 4 tipi mentre sei nella barra della formula.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 7. RANGE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape sky reveal">Intervalli</div>
+        <h2 class="h-big reveal">Range: più celle<br><em class="hot">in una volta</em></h2>
+        <p class="lead reveal d1">Un range è un gruppo di celle. Si scrive con la prima e l'ultima separate dai due punti. Le formule lo usano per lavorare su molte celle contemporaneamente.</p>
+        <div class="formula reveal d2" style="font-size:26px;">=SOMMA(<b>B2:B10</b>)</div>
+        <div class="analogy reveal d3"><span class="big">In pratica:</span> B2:B10 significa "tutte le celle da B2 a B10 incluse" — nove celle in un simbolo solo.</div>
+      </div>
+      <div class="col stack reveal d1" style="justify-content:center;gap:16px;">
+        <div class="card" style="padding:18px 22px;">
+          <h3 style="font-size:28px;font-family:var(--font-mono);">B:B</h3>
+          <p>Tutta la colonna B — utile per tabelle che crescono</p>
+        </div>
+        <div class="card" style="padding:18px 22px;">
+          <h3 style="font-size:28px;font-family:var(--font-mono);">2:2</h3>
+          <p>Tutta la riga 2</p>
+        </div>
+        <div class="card" style="padding:18px 22px;">
+          <h3 style="font-size:28px;font-family:var(--font-mono);">A2:D20</h3>
+          <p>Blocco rettangolare 4 colonne × 19 righe</p>
+        </div>
+        <div class="card" style="padding:18px 22px;border-color:var(--teal);">
+          <h3 style="font-size:28px;font-family:var(--font-mono);">B2:B5;D2:D5</h3>
+          <p>Due intervalli separati (punto e virgola)</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 8. NOMINARE CELLE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">Chiarezza</div>
+        <h2 class="h-big reveal">Nominare celle e <em class="hot">range</em></h2>
+        <p class="lead reveal d1">Puoi dare un nome a una cella o a un intervallo. La formula diventa più leggibile e meno fragile — non dipende più da dove si trova fisicamente la cella.</p>
+        <div class="formula reveal d2" style="font-size:26px;">=Prezzo * (1 + <b>AliquotaIVA</b>)</div>
+        <p class="body reveal d3" style="margin-top:14px;">Invece di <span style="font-family:var(--font-mono);color:var(--ink-faint);">=B3*(1+$B$1)</span> — che richiede di ricordare cosa contiene B1.</p>
+        <div class="note reveal d4"><div class="lbl">💡 Come farlo</div><p>Seleziona la cella → clicca nella Casella del nome → digita il nome → premi Invio. Il nome deve iniziare con una lettera e non contenere spazi.</p></div>
+      </div>
+      <div class="col stack reveal d1" style="justify-content:center;gap:18px;">
+        <div class="card">
+          <h3>Nomi buoni</h3>
+          <p><span style="font-family:var(--font-mono);">AliquotaIVA</span><br><span style="font-family:var(--font-mono);">SogliaSconto</span><br><span style="font-family:var(--font-mono);">Listino2026</span><br><span style="font-family:var(--font-mono);">TotaleVendite</span></p>
+        </div>
+        <div class="card" style="border-color:var(--red);">
+          <h3>Nomi da evitare</h3>
+          <p><span style="font-family:var(--font-mono);color:var(--red);">aliquota iva</span> (spazio)<br><span style="font-family:var(--font-mono);color:var(--red);">1dato</span> (inizia con numero)<br><span style="font-family:var(--font-mono);color:var(--red);">x</span> (troppo generico)</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 9. TABELLE STRUTTURATE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape teal reveal">Tabelle strutturate</div>
+        <h2 class="h-big reveal">Riferimenti alle <em class="hot">colonne</em></h2>
+        <p class="lead reveal d1">Quando converti un range in Tabella (Inserisci → Tabella), puoi riferirti alle colonne per nome invece che per lettera — e il range si espande automaticamente.</p>
+        <div class="formula reveal d2" style="font-size:26px;">=SOMMA(<b>Vendite[Importo]</b>)</div>
+        <p class="body reveal d3" style="margin-top:14px;">Somma la colonna "Importo" della tabella "Vendite". Aggiungendo nuove righe, la formula le include in automatico.</p>
+        <div class="analogy reveal d4"><span class="big">Regola:</span> Tabella strutturata = meno formule misteriose come <span style="font-family:var(--font-mono);">=SOMMA(D2:D487)</span>.</div>
+      </div>
+      <div class="illu reveal d1">
+        <table class="sheet" style="width:300px;">
+          <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+          <tr><td class="rowh">1</td><td class="fix" style="font-size:18px;">Data</td><td class="fix" style="font-size:18px;">Cliente</td><td class="fix" style="font-size:18px;">Importo</td></tr>
+          <tr><td class="rowh">2</td><td style="font-size:18px;">12/03</td><td style="font-size:18px;">Rossi</td><td>25</td></tr>
+          <tr><td class="rowh">3</td><td style="font-size:18px;">13/03</td><td style="font-size:18px;">Bianchi</td><td>55</td></tr>
+          <tr><td class="rowh">4</td><td style="font-size:18px;">14/03</td><td style="font-size:18px;">Verdi</td><td class="sel">80</td></tr>
+        </table>
+        <div class="illu-cap">Tabella "Vendite" — Vendite[Importo] = colonna C</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 10. ALTRO FOGLIO -->
+  <section class="slide">
+    <div class="col stack">
+      <div class="tape reveal">Fogli diversi</div>
+      <h2 class="h-sec reveal">Riferimento ad <em class="hot">altro foglio</em></h2>
+      <p class="lead reveal d1">Puoi leggere il valore di una cella che si trova su un altro foglio dello stesso file usando il punto esclamativo come separatore.</p>
+      <div class="grid3 reveal d2" style="margin-top:20px;">
+        <div class="card">
+          <h3 style="font-family:var(--font-mono);font-size:28px;">=Gennaio!B3</h3>
+          <p>Legge la cella B3 dal foglio "Gennaio". Utile per sommare dati da fogli mensili in un foglio riassuntivo.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-family:var(--font-mono);font-size:28px;">=SOMMA(Gennaio!B:B)</h3>
+          <p>Somma tutta la colonna B del foglio "Gennaio" — la formula si aggiorna ogni volta che quel foglio cambia.</p>
+        </div>
+        <div class="card">
+          <h3>Riferimento 3D</h3>
+          <p><span style="font-family:var(--font-mono);">=SOMMA(Gen:Dic!B3)</span><br>Somma la cella B3 da tutti i fogli tra "Gen" e "Dic".</p>
+        </div>
+      </div>
+      <div class="note reveal d3" style="margin-top:20px;"><div class="lbl">⚠️ Attenzione</div><p>Se rinomini il foglio sorgente, i riferimenti si aggiornano automaticamente. Se lo elimini, le formule mostrano #RIF!</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 11. LET -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">Variabili locali</div>
+        <h2 class="h-big reveal">La funzione <em class="hot">LET</em></h2>
+        <p class="lead reveal d1">LET permette di dare un nome temporaneo a parti della formula. La formula rimane compatta e leggibile — il nome scompare dopo il calcolo.</p>
+        <div class="analogy reveal d2"><span class="big">Analogia:</span> LET è come scrivere una bozza con appunti ai margini — calcoli intermedi con nome, risultato finale pulito.</div>
+        <div class="note reveal d3"><div class="lbl">💡 Compatibilità</div><p>LET è disponibile in Excel 365 e in Google Sheets. In file salvati per versioni vecchie di Excel può non funzionare.</p></div>
+      </div>
+      <div class="col stack reveal d1" style="justify-content:center;gap:22px;">
+        <div class="card">
+          <h3>Senza LET</h3>
+          <p style="font-family:var(--font-mono);font-size:21px;color:var(--teal);">=SE((B2-C2)/B2&gt;0,2;"OK";"BASSO")</p>
+          <p style="margin-top:8px;">Difficile capire cosa è il calcolo (B2-C2)/B2.</p>
+        </div>
+        <div class="card" style="border-color:var(--teal);">
+          <h3>Con LET</h3>
+          <p style="font-family:var(--font-mono);font-size:19px;color:var(--teal);">=LET(margine;(B2-C2)/B2;<br>&nbsp;&nbsp;SE(margine&gt;0,2;"OK";"BASSO"))</p>
+          <p style="margin-top:8px;">Il nome <b>margine</b> spiega il calcolo.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 12. ERRORI E REGOLE -->
+  <section class="slide tight-slide">
+    <div class="col stack">
+      <div class="tape red reveal">Errori e regole</div>
+      <h2 class="h-sec reveal">Cosa rompe le formule — e come evitarlo</h2>
+      <div class="grid3 reveal d1" style="margin-top:20px;">
+        <div class="card">
+          <span class="ic">🔁</span>
+          <h3>Copia sbagliata</h3>
+          <p>Un riferimento relativo che doveva restare fermo. Usa F4 per aggiungere $.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🧱</span>
+          <h3>Range rigidi</h3>
+          <p><span style="font-family:var(--font-mono);">A2:A100</span> ignora dati nuovi alla riga 101. Usa tabelle strutturate.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🔤</span>
+          <h3>Intestazioni vaghe</h3>
+          <p>Colonne chiamate "dato" o "x" rendono impossibile capire il file — e i riferimenti strutturati inutili.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🧩</span>
+          <h3>Formula illeggibile</h3>
+          <p>Se non riesci a rileggerla, spezzala con LET, celle di appoggio o colonne intermedie.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🧨</span>
+          <h3>Celle unite</h3>
+          <p>Le celle unite rompono filtri, ordinamenti e formule su array. Evitale nelle tabelle dati.</p>
+        </div>
+        <div class="card">
+          <span class="ic">📋</span>
+          <h3>Dati misti</h3>
+          <p>Numeri salvati come testo (allineati a sinistra) non vengono sommati correttamente.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 13. VERIFICA -->
+  
+
+  <!-- 14. CLOSING -->
+  <section class="slide closing">
+    <div class="center" style="text-align:center;">
+      <h2 class="h-mega reveal" style="margin-top:10px;">Formula copiata,<br>formula corretta.</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Riferimenti relativi, assoluti ($) e misti, range nominati e LET: costruire formule che si copiano in ogni direzione senza rompersi.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a class="chip" href="su03-03-prime-formule.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → SU08 · Prime formule</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="00-indice.html" title="Torna all'indice (I)">↩ Indice</a>
+<script>
+(function(){
+  const stage=document.getElementById('deckStage');
+  const slides=[...stage.querySelectorAll('.slide')];
+  const total=slides.length;
+  let cur=0;
+  function go(n){if(n<0||n>=total)return;slides[cur].classList.remove('active','visible');cur=n;slides[cur].classList.add('active');requestAnimationFrame(()=>requestAnimationFrame(()=>slides[cur].classList.add('visible')));document.getElementById('progress').style.width=((cur+1)/total*100)+'%';numberPages();}
+  function numberPages(){slides.forEach((s,i)=>{const p=s.querySelector('.page-num');if(p)p.innerHTML='<b>'+(i+1)+'</b>/'+total;});}
+  function scale(){const vw=window.innerWidth,vh=window.innerHeight;const s=Math.min(vw/1920,vh/1080);stage.style.transform=`scale(${s})`;stage.style.left=((vw-1920*s)/2)+'px';stage.style.top=((vh-1080*s)/2)+'px';}
+  scale();window.addEventListener('resize',scale);
+  slides[0].classList.add('visible');numberPages();
+  document.getElementById('progress').style.width=(1/total*100)+'%';
+  document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '||e.key==='ArrowDown')go(cur+1);else if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(cur-1);});
+  let tx=0;stage.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});stage.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)go(d<0?cur+1:cur-1);},{passive:true});
+  stage.addEventListener('wheel',e=>{e.preventDefault();go(e.deltaY>0?cur+1:cur-1);},{passive:false});
+  stage.addEventListener('click',e=>{const r=stage.getBoundingClientRect();go(e.clientX-r.left>r.width/2?cur+1:cur-1);});
+})();
+</script>
+</body>
+</html>

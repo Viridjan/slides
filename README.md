@@ -37,15 +37,15 @@ Inside any deck:
 | Prefix | Area | Decks |
 |--------|------|-------|
 | `hs` | Hardware e Software | hs01–hs05 |
-| `rw` | Reti e Web | rw01–rw09 |
+| `rw` | Reti e Web | rw01-01–rw02-04 |
 | `sd` | Sicurezza Digitale | sd01–sd05 |
-| `in` | Identità digitale | in01–in05 |
+| `id` | Identità digitale | id01–id05 |
 | `sm` | Smartphones | sm01–sm11 |
-| `su` | Suite Ufficio | su01–su18 |
+| `su` | Suite Ufficio | su01-01–su04-01 (codici gerarchici dell’indice) |
 | `ia` | Intelligenza Artificiale | ia01–ia03 |
 | `pm` | Project Management | pm01–pm04 |
-| `sc` / `mb` | Programmare | Scratch sc01–sc02, Micro:bit mb01–mb02 |
-| `td` | TinkerCAD e stampa 3D | td01–td04 |
+| `pr` | Programmare | teoria pr01-01–pr01-04, Scratch pr02-01–pr02-02, Micro:bit pr03-01–pr03-02 |
+| `ms` | Modellazione e stampa 3D | ms01–ms04 |
 | `gd` | Game Design | gd01–gd08 |
 
 ## Quizzes
@@ -65,7 +65,7 @@ Inside any deck:
 
 - All deck files are self-contained (inline CSS + JS). Sole shared file: `theme-corsi.css`.
 - Every deck has a sibling `.txt` companion — the index injects a `↓ TXT` button automatically.
-- Links between decks use bare filenames: `href="rw02-navigazione.html"`.
+- Links between decks use bare filenames: `href="rw01-02-navigazione.html"`.
 - `corsi/` holds source PPTX/PDF; `corsi/images/` holds extracted images (untracked, ~200 MB, regenerable).
 
 ## Adding a deck

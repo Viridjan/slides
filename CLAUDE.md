@@ -162,21 +162,32 @@ Use one of these fixes:
 
 ## Series and naming
 
-Published decks use a two-letter prefix `XX##` where each letter is the initial
-of each word in the section name (e.g. `HS` = Hardware e **S**oftware):
+**Priority rule:** `00-indice.html` is the canonical source for every published
+deck code and filename. The filename prefix must reproduce the visible
+`.card-num`, lowercased and with dots converted to hyphens (for example
+`SU03.11` → `su03-11-vba.html`). When an index code changes, rename both the
+HTML and TXT files and update every reference before doing any other deck work.
+Never keep a legacy flat number that disagrees with the index.
+
+Published decks use a two-letter area prefix. Flat index codes use `xx##`;
+hierarchical index codes use `xx##-##`. Each letter is the initial of each word
+in the section name (e.g. `HS` = Hardware e **S**oftware). `ID` is reserved for
+**Identità Digitale** and `MS` for **Modellazione e Stampa 3D**. Use a different
+abbreviation only when the natural initials are already assigned to another
+published area, and record that exception here before creating files:
 
 | Prefix | Area | Example |
 | --- | --- | --- |
 | `hs` | Hardware e Software | `hs01-componenti.html` |
-| `rw` | Reti e Web | `rw01-reti.html` |
+| `rw` | Reti e Web | `rw01-01-reti.html` |
 | `sd` | Sicurezza Digitale | `sd01-introduzione.html` |
-| `in` | Identità digitale (ex Informatica) | `in01-identita.html` |
+| `id` | Identità digitale (ex Informatica) | `id01-identita.html` |
 | `sm` | Smartphones | `sm01-smartphone-computer.html` |
-| `su` | Suite Ufficio | `su01-microsoft.html` |
+| `su` | Suite Ufficio | `su01-01-microsoft.html` |
 | `ia` | Intelligenza Artificiale | `ia01-concetti-generali.html` |
 | `pm` | Project Management | `pm01-introduzione.html` |
-| `pr` / `sc` / `mb` | Programmare | `pr01-introduzione-programmazione.html`, `sc01-introduzione.html`, `mb01-microbit.html` |
-| `td` | TinkerCAD e stampa 3D | `td01-tinkercad-introduzione.html` |
+| `pr` | Programmare | `pr01-01-introduzione-programmazione.html`, `pr02-01-introduzione.html`, `pr03-01-microbit.html` |
+| `ms` | Modellazione e stampa 3D | `ms01-tinkercad-introduzione.html` |
 | `gd` | Game Design | `gd01-introduzione.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
 
@@ -233,19 +244,19 @@ Navigation chain: hs01 → hs02 → hs03 → hs04 → hs05
 
 ### Reti e Web
 
-Navigation chain: rw01 → rw02 → rw03 → rw04 → rw05 → rw06 → rw07 → rw08 → rw09
+Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw02-01 → rw02-02 → rw02-03 → rw02-04
 
 | File | Title |
 | --- | --- |
-| `rw01-reti.html` | Reti Informatiche e Internet |
-| `rw02-navigazione.html` | Navigazione e Indirizzi Web |
-| `rw03-domini.html` | Domini e Indirizzi Internet |
-| `rw04-ricerca.html` | Ricerca e Gestione delle Informazioni |
-| `rw05-email.html` | La Posta Elettronica |
-| `rw06-firma.html` | La Firma Email |
-| `rw07-affidabilita.html` | Navigare con Spirito Critico |
-| `rw08-contenuti.html` | Gestire e Archiviare Contenuti |
-| `rw09-collaborazione-digitale.html` | Collaborazione Digitale |
+| `rw01-01-reti.html` | Reti Informatiche e Internet |
+| `rw01-02-navigazione.html` | Navigazione e Indirizzi Web |
+| `rw01-03-domini.html` | Domini e Indirizzi Internet |
+| `rw01-04-ricerca.html` | Ricerca e Gestione delle Informazioni |
+| `rw02-01-email.html` | La Posta Elettronica |
+| `rw02-02-firma.html` | La Firma Email |
+| `rw01-05-affidabilita.html` | Navigare con Spirito Critico |
+| `rw02-03-contenuti.html` | Gestire e Archiviare Contenuti |
+| `rw02-04-collaborazione-digitale.html` | Collaborazione Digitale |
 
 ### Sicurezza Digitale
 
@@ -261,15 +272,15 @@ Navigation chain: sd01 → sd02 → sd03 → sd04 → sd05
 
 ### Identità digitale
 
-Navigation chain: in01 → in02 → in03 → in04 → in05
+Navigation chain: id01 → id02 → id03 → id04 → id05
 
 | File | Title |
 | --- | --- |
-| `in01-identita.html` | La tua identità online |
-| `in02-societa.html` | Tecnologia e Società |
-| `in03-vr-ar.html` | VR, AR e Metaverso |
-| `in04-branding.html` | Farsi riconoscere |
-| `in05-social.html` | I social giusti |
+| `id01-identita.html` | La tua identità online |
+| `id02-societa.html` | Tecnologia e Società |
+| `id03-vr-ar.html` | VR, AR e Metaverso |
+| `id04-branding.html` | Farsi riconoscere |
+| `id05-social.html` | I social giusti |
 
 ### Smartphones
 
@@ -291,32 +302,32 @@ Navigation chain: sm01 → … → sm11
 
 ### Suite Ufficio
 
-Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 → su08 → su09 → su10 → su11 → su12 → su13 → su14 → su15 → su16 → su17 → su18
+Navigation chain: su01-01 → su01-02 → su01-03 → su01-04 → su02-01 → su03-01 → su03-02 → su03-03 → su03-04 → su03-05 → su03-06 → su03-07 → su03-08 → su03-09 → su03-10 → su03-11 → su03-12 → su04-01
 
-The index groups the series into sub-series: `su01`-`su04` software, `su05`
-documenti, `su06`-`su12` fogli di calcolo, `su13` presentazioni, and the
-advanced block `su14`-`su18` (index codes `SU03.08`-`SU03.12`).
+The filename prefixes mirror the index sub-series: `su01-01`-`su01-04`
+software, `su02-01` documenti, `su03-01`-`su03-12` fogli di calcolo and
+automation, and `su04-01` presentazioni.
 
 | File | Title |
 | --- | --- |
-| `su01-microsoft.html` | Software Microsoft |
-| `su02-google-workspace.html` | Software Google (intro) |
-| `su03-adobe.html` | Software Adobe |
-| `su04-alternativi.html` | Software alternativi (open source) |
-| `su05-documenti.html` | Mettere tutto per iscritto |
-| `su06-sistema.html` | Il foglio di calcolo: sistema di lavoro |
-| `su07-riferimenti.html` | Riferimenti e range |
-| `su08-prime-formule.html` | Prime formule |
-| `su09-analisi.html` | Analizzare e cercare |
-| `su10-funzioni-top.html` | Le 10 funzioni più usate |
-| `su11-testo.html` | Manipolare il testo |
-| `su12-tabelle-pivot.html` | Tabelle pivot |
-| `su13-presentazioni.html` | Dillo con una slide |
-| `su14-fogli-calcolo-avanzati.html` | Fogli di calcolo avanzati |
-| `su15-query-fogli-calcolo.html` | Query nei fogli di calcolo |
-| `su16-macro-fogli-calcolo.html` | Macro nei fogli di calcolo |
-| `su17-vba.html` | VBA per Excel |
-| `su18-google-apps-script.html` | Google Apps Script |
+| `su01-01-microsoft.html` | Software Microsoft |
+| `su01-02-google-workspace.html` | Software Google (intro) |
+| `su01-03-adobe.html` | Software Adobe |
+| `su01-04-alternativi.html` | Software alternativi (open source) |
+| `su02-01-documenti.html` | Mettere tutto per iscritto |
+| `su03-01-sistema.html` | Il foglio di calcolo: sistema di lavoro |
+| `su03-02-riferimenti.html` | Riferimenti e range |
+| `su03-03-prime-formule.html` | Prime formule |
+| `su03-04-analisi.html` | Analizzare e cercare |
+| `su03-05-funzioni-top.html` | Le 10 funzioni più usate |
+| `su03-06-testo.html` | Manipolare il testo |
+| `su03-07-tabelle-pivot.html` | Tabelle pivot |
+| `su03-08-fogli-calcolo-avanzati.html` | Fogli di calcolo avanzati |
+| `su03-09-query-fogli-calcolo.html` | Query nei fogli di calcolo |
+| `su03-10-macro-fogli-calcolo.html` | Macro nei fogli di calcolo |
+| `su03-11-vba.html` | VBA per Excel |
+| `su03-12-google-apps-script.html` | Google Apps Script |
+| `su04-01-presentazioni.html` | Dillo con una slide |
 
 ### Intelligenza Artificiale
 
@@ -343,14 +354,14 @@ Navigation chain: pm01 → pm02 → pm03 → pm04
 
 Index numbering uses `PR01.01`-`PR01.04` for general programming theory, `PR02.xx` for Scratch and `PR03.xx` for Micro:bit.
 
-General programming navigation chain: pr01-introduzione-programmazione → pr02-dati-codifica → pr03-algoritmi → pr04-fondamenti-programmazione
+General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-04
 
 | File | Title |
 | --- | --- |
-| `pr01-introduzione-programmazione.html` | Introduzione alla programmazione |
-| `pr02-dati-codifica.html` | Dati e codifica |
-| `pr03-algoritmi.html` | Algoritmi e problemi |
-| `pr04-fondamenti-programmazione.html` | Fondamenti di programmazione |
+| `pr01-01-introduzione-programmazione.html` | Introduzione alla programmazione |
+| `pr01-02-dati-codifica.html` | Dati e codifica |
+| `pr01-03-algoritmi.html` | Algoritmi e problemi |
+| `pr01-04-fondamenti-programmazione.html` | Fondamenti di programmazione |
 
 Codex note: the `PR01.02`-`PR01.04` theory blocks are paraphrased and reorganized
 from the public PDF "Fondamenti di Informatica e Programmazione" by Edizioni
@@ -362,38 +373,38 @@ their topic boundaries. Current slide counts are:
 
 | File | Slides | Expansion focus |
 | --- | ---: | --- |
-| `pr01-introduzione-programmazione.html` | 30 | readability, maintenance, components, types, expressions, control flow, functions, errors, testing, paradigms and computability limits |
-| `pr02-dati-codifica.html` | 18 | text encoding, images, audio, compression, file formats, overflow, byte order and representation choices |
-| `pr03-algoritmi.html` | 20 | decomposition, preconditions, postconditions, sequence, decisions, loops, accumulators, counters, trace tables and efficiency |
-| `pr04-fondamenti-programmazione.html` | 37 | input/output, type conversion, expanded arithmetic/logical/assignment operators, symbols, indentation, lists, functions, scope, debugging, tests and documentation |
+| `pr01-01-introduzione-programmazione.html` | 30 | readability, maintenance, components, types, expressions, control flow, functions, errors, testing, paradigms and computability limits |
+| `pr01-02-dati-codifica.html` | 18 | text encoding, images, audio, compression, file formats, overflow, byte order and representation choices |
+| `pr01-03-algoritmi.html` | 20 | decomposition, preconditions, postconditions, sequence, decisions, loops, accumulators, counters, trace tables and efficiency |
+| `pr01-04-fondamenti-programmazione.html` | 37 | input/output, type conversion, expanded arithmetic/logical/assignment operators, symbols, indentation, lists, functions, scope, debugging, tests and documentation |
 
 The matching `.txt` files include additional explanatory notes for search and
 course completeness. `search-index.js` has been regenerated after the expansion.
 
-Scratch navigation chain: sc01 → sc02
+Scratch navigation chain: pr02-01 → pr02-02
 
 | File | Title |
 | --- | --- |
-| `sc01-introduzione.html` | Introduzione a Scratch |
-| `sc02-questionario.html` | Questionari con Scratch |
+| `pr02-01-introduzione.html` | Introduzione a Scratch |
+| `pr02-02-questionario.html` | Questionari con Scratch |
 
-Micro:bit navigation chain: mb01 → mb02
-
-| File | Title |
-| --- | --- |
-| `mb01-microbit.html` | Fondamenti Micro:bit |
-| `mb02-createai.html` | Micro:bit CreateAI |
-
-### TinkerCAD e stampa 3D
-
-Navigation chain: td01 → td02 → td03 → td04
+Micro:bit navigation chain: pr03-01 → pr03-02
 
 | File | Title |
 | --- | --- |
-| `td01-tinkercad-introduzione.html` | TinkerCAD 3D |
-| `td02-modellazione-base.html` | Modellazione base |
-| `td03-esportazione-stampa-3d.html` | Esportazione e stampa 3D |
-| `td04-classi-attivita.html` | TinkerCAD in classe |
+| `pr03-01-microbit.html` | Fondamenti Micro:bit |
+| `pr03-02-createai.html` | Micro:bit CreateAI |
+
+### Modellazione e stampa 3D
+
+Navigation chain: ms01 → ms02 → ms03 → ms04
+
+| File | Title |
+| --- | --- |
+| `ms01-tinkercad-introduzione.html` | TinkerCAD 3D |
+| `ms02-modellazione-base.html` | Modellazione base |
+| `ms03-esportazione-stampa-3d.html` | Esportazione e stampa 3D |
+| `ms04-classi-attivita.html` | TinkerCAD in classe |
 
 ### Game Design
 

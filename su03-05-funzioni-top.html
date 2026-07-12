@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suite Ufficio · SU10 — Le 10 funzioni più usate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.slide.visible .reveal:nth-child(5){transition-delay:.37s}
+.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}.d4{transition-delay:.56s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep)}.tape.teal{background:var(--teal)}.tape.sky{background:var(--sky)}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
+.lead{font-size:32px;line-height:1.45;color:var(--ink-soft);max-width:1120px;}
+.body{font-size:27px;line-height:1.46;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1.05;}
+.card p{font-size:24px;line-height:1.36;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa}.note.sky{background:#d9edf2}.note.teal{background:var(--teal)}.note.teal *{color:var(--paper)!important}.note.teal .lbl{color:var(--gold)!important}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.36;color:var(--ink);}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}
+.col{display:flex;flex-direction:column}.center{height:100%;display:flex;flex-direction:column;justify-content:center}
+.split{display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;height:100%}
+.split.even{grid-template-columns:1fr 1fr}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.stack>*+*{margin-top:20px}
+.tight-slide .h-sec{font-size:60px}.tight-slide .lead{font-size:26px}.tight-slide .grid2{gap:16px}.tight-slide .grid3{gap:14px}.tight-slide .card{padding:16px 20px}.tight-slide .card h3{font-size:28px}.tight-slide .card p{font-size:20px;line-height:1.26}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}
+.title-right>div,.title-right>svg{position:relative;z-index:2}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04)}}
+.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:10px 4px}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}
+.agenda-item .t{font-size:26px;font-weight:600;color:var(--ink)}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:28px;display:grid;place-items:center;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.sheet{width:100%;border-collapse:collapse;font-family:var(--font-mono);}
+.sheet td,.sheet th{border:1px solid var(--line);height:48px;text-align:center;font-size:20px;color:var(--ink-soft);background:#fff;}
+.sheet th{background:var(--paper-2);color:var(--ink);font-weight:700;}
+.sheet .rowh{background:var(--paper-2);color:var(--ink);font-weight:700;width:44px;}
+.sheet .sel{background:var(--gold);color:var(--ink);font-weight:700;outline:3px solid var(--red);outline-offset:-3px;}
+.formula{font-family:var(--font-mono);font-size:26px;background:#fff;border:2px solid var(--ink);border-radius:12px;padding:16px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12);color:var(--ink);}
+.formula b{color:var(--red)}
+.fn-card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:20px 24px;box-shadow:6px 7px 0 rgba(28,23,20,.12);}
+.fn-card h3{font-family:var(--font-mono);font-weight:700;font-size:28px;color:var(--teal);margin-bottom:4px;}
+.fn-card .syntax{font-family:var(--font-mono);font-size:18px;color:var(--ink-faint);margin-bottom:8px;}
+.fn-card p{font-size:21px;color:var(--ink-soft);}
+.badge{display:inline-block;font-family:var(--font-mono);font-weight:700;font-size:18px;padding:5px 14px;border-radius:20px;letter-spacing:1px;}
+.badge.seen{background:var(--paper-2);color:var(--ink-faint);border:2px solid var(--line);}
+.badge.new{background:var(--teal);color:var(--gold);}
+.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.title-slide .lead,.title-slide .chips{display:none;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+</style>
+<link rel="stylesheet" href="theme-corsi.css">
+</head>
+<body class="course-su">
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+  <!-- 1. TITLE -->
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <div class="eyebrow reveal" style="margin-top:40px;">Fogli di calcolo</div>
+      <h1 class="h-mega reveal">Le 10 funzioni<br><em class="hot">più usate</em></h1>
+      <p class="lead reveal" style="margin-top:30px;">SOMMA.SE, SOMMA.PIÙ.SE, CONTA.PIÙ.SE, MEDIA.SE, SUBTOTALE, SE.ERRORE, ARROTONDA, TESTO e OGGI — quelle che i professionisti usano ogni giorno.</p>
+      <div class="chips reveal" style="margin-top:46px;"><span class="chip">13 slide</span></div>
+    </div>
+    <div class="title-right">
+      <div class="reveal" style="font-size:210px;line-height:1;">⚡</div>
+    </div>
+  </section>
+
+  <!-- 2. ROADMAP -->
+  <section class="slide tight-slide">
+    <div class="center">
+      <div class="tape teal reveal">Roadmap</div>
+      <h2 class="h-sec reveal" style="margin-top:20px;">Già viste vs <em class="hot">nuove</em></h2>
+      <p class="lead reveal d1" style="margin-top:16px;">Le funzioni fondamentali le hai già imparate. Questo modulo copre quelle che mancano per lavorare come un professionista.</p>
+      <div class="grid2 reveal d2" style="margin-top:22px;">
+        <div class="card" style="border-color:var(--line);">
+          <h3 style="font-size:26px;color:var(--ink-faint);">✓ Già viste (SU06-09)</h3>
+          <p style="font-family:var(--font-mono);font-size:20px;color:var(--ink-faint);line-height:1.6;">SOMMA · MEDIA · MIN · MAX<br>CONTA.NUMERI · CONTA.VALORI<br>CONTA.SE · SE · LET<br>CERCA.VERT · CERCA.ORIZZ<br>INDICE · CONFRONTA · CERCA.X</p>
+        </div>
+        <div class="card" style="border-color:var(--teal);background:#d2f0e8;">
+          <h3 style="font-size:26px;color:var(--teal);">★ Nuove in questo modulo</h3>
+          <p style="font-family:var(--font-mono);font-size:20px;color:var(--teal-2);line-height:1.6;">SOMMA.SE · SOMMA.PIÙ.SE<br>CONTA.PIÙ.SE · MEDIA.SE<br>SUBTOTALE · SE.ERRORE<br>ARROTONDA · TESTO<br>OGGI · ADESSO · DATA</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 3. SOMMA.SE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">1. SOMMA.SE</div>
+        <h2 class="h-big reveal">Somma <em class="hot">con condizione</em></h2>
+        <p class="lead reveal d1">SOMMA.SE somma solo le celle che rispettano una condizione — come CONTA.SE ma invece di contare, somma i valori.</p>
+        <div class="formula reveal d2" style="font-size:22px;">=SOMMA.SE(<b>intervallo</b>; <b>criterio</b>; <b>somma_range</b>)</div>
+        <div class="stack reveal d3" style="margin-top:14px;">
+          <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;"><span style="font-size:26px;min-width:40px;">→</span><div><span style="font-family:var(--font-mono);font-size:22px;color:var(--teal);">=SOMMA.SE(C:C;"Pagato";B:B)</span><br><span style="font-size:20px;color:var(--ink-faint);">Somma col. B solo dove col. C = "Pagato"</span></div></div>
+          <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;"><span style="font-size:26px;min-width:40px;">→</span><div><span style="font-family:var(--font-mono);font-size:22px;color:var(--teal);">=SOMMA.SE(A:A;"Roma";D:D)</span><br><span style="font-size:20px;color:var(--ink-faint);">Totale vendite solo per clienti di Roma</span></div></div>
+        </div>
+        <div class="note reveal d4"><div class="lbl">💡 Differenza chiave</div><p><b>intervallo</b> = colonna dove cerchi la condizione. <b>somma_range</b> = colonna con i numeri da sommare. Possono essere diverse.</p></div>
+      </div>
+      <div class="illu reveal d1">
+        <table class="sheet" style="width:300px;">
+          <tr><th></th><th>A</th><th>B (€)</th><th>C</th></tr>
+          <tr><td class="rowh">1</td><td style="background:var(--paper-2);font-weight:700;font-size:16px;">Cliente</td><td style="background:var(--paper-2);font-weight:700;font-size:16px;">Spesa</td><td style="background:var(--paper-2);font-weight:700;font-size:16px;">Stato</td></tr>
+          <tr><td class="rowh">2</td><td style="font-size:16px;">Rossi</td><td>200</td><td style="font-size:16px;color:var(--teal);font-weight:700;">Pagato</td></tr>
+          <tr><td class="rowh">3</td><td style="font-size:16px;">Bianchi</td><td>150</td><td style="font-size:16px;color:var(--red);">Aperto</td></tr>
+          <tr><td class="rowh">4</td><td style="font-size:16px;">Verdi</td><td>300</td><td style="font-size:16px;color:var(--teal);font-weight:700;">Pagato</td></tr>
+          <tr><td class="rowh">5</td><td colspan="2" class="sel" style="font-size:15px;">SOMMA.SE → 500</td><td></td></tr>
+        </table>
+        <div class="illu-cap">Solo Rossi + Verdi (Pagato): 200+300=500</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 4. SOMMA.PIÙ.SE e CONTA.PIÙ.SE -->
+  <section class="slide">
+    <div class="col stack">
+      <div class="tape teal reveal">2–3. PIÙ condizioni</div>
+      <h2 class="h-sec reveal">SOMMA.PIÙ.SE e <em class="hot">CONTA.PIÙ.SE</em></h2>
+      <p class="lead reveal d1">Somma o conta con due o più condizioni contemporaneamente. Tutte le condizioni devono essere vere (AND logico).</p>
+      <div class="grid2 reveal d2">
+        <div class="fn-card">
+          <h3>SOMMA.PIÙ.SE</h3>
+          <div class="syntax">=SOMMA.PIÙ.SE(somma_range; int1; crit1; int2; crit2; …)</div>
+          <p>Esempio: totale vendite di "Rossi" a "Gennaio"<br><span style="font-family:var(--font-mono);color:var(--teal);font-size:18px;">=SOMMA.PIÙ.SE(D:D;A:A;"Rossi";B:B;"Gennaio")</span></p>
+        </div>
+        <div class="fn-card">
+          <h3>CONTA.PIÙ.SE</h3>
+          <div class="syntax">=CONTA.PIÙ.SE(int1; crit1; int2; crit2; …)</div>
+          <p>Esempio: quante fatture "Aperto" sopra 100€<br><span style="font-family:var(--font-mono);color:var(--teal);font-size:18px;">=CONTA.PIÙ.SE(C:C;"Aperto";B:B;"&gt;100")</span></p>
+        </div>
+      </div>
+      <div class="analogy reveal d3"><span class="big">In pratica:</span> SOMMA.SE e CONTA.SE per 1 condizione. SOMMA.PIÙ.SE e CONTA.PIÙ.SE per 2 o più — stessa logica, sintassi estesa.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 5. MEDIA.SE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">4. MEDIA.SE</div>
+        <h2 class="h-big reveal">La media <em class="hot">che sceglie</em></h2>
+        <p class="lead reveal d1">MEDIA.SE completa la famiglia: come SOMMA.SE, ma calcola la media dei soli valori che rispettano la condizione.</p>
+        <div class="formula reveal d2" style="font-size:21px;">=MEDIA.SE(<b>intervallo</b>; <b>criterio</b>; <b>media_range</b>)</div>
+        <div class="stack reveal d3" style="margin-top:14px;">
+          <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;"><span style="font-size:26px;min-width:40px;">→</span><div><span style="font-family:var(--font-mono);font-size:22px;color:var(--teal);">=MEDIA.SE(A:A;"Roma";B:B)</span><br><span style="font-size:20px;color:var(--ink-faint);">Spesa media dei soli clienti di Roma</span></div></div>
+          <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;"><span style="font-size:26px;min-width:40px;">→</span><div><span style="font-family:var(--font-mono);font-size:22px;color:var(--teal);">=MEDIA.SE(B:B;"&gt;0")</span><br><span style="font-size:20px;color:var(--ink-faint);">Media senza gli zeri che la falserebbero</span></div></div>
+        </div>
+        <div class="note reveal d4"><div class="lbl">💡 Anche a più condizioni</div><p>Come per SOMMA e CONTA esiste <b>MEDIA.PIÙ.SE</b>: stessa sintassi estesa con coppie intervallo/criterio.</p></div>
+      </div>
+      <div class="illu reveal d1">
+        <table class="sheet" style="width:300px;">
+          <tr><th></th><th>A</th><th>B (€)</th></tr>
+          <tr><td class="rowh">1</td><td style="background:var(--paper-2);font-weight:700;font-size:16px;">Città</td><td style="background:var(--paper-2);font-weight:700;font-size:16px;">Spesa</td></tr>
+          <tr><td class="rowh">2</td><td style="font-size:16px;color:var(--teal);font-weight:700;">Roma</td><td>100</td></tr>
+          <tr><td class="rowh">3</td><td style="font-size:16px;">Milano</td><td>300</td></tr>
+          <tr><td class="rowh">4</td><td style="font-size:16px;color:var(--teal);font-weight:700;">Roma</td><td>140</td></tr>
+          <tr><td class="rowh">5</td><td colspan="2" class="sel" style="font-size:15px;">MEDIA.SE → 120</td></tr>
+        </table>
+        <div class="illu-cap">Solo le righe "Roma": (100+140)/2 = 120</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 6. SUBTOTALE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape teal reveal">5. SUBTOTALE</div>
+        <h2 class="h-big reveal">Totali che seguono i <em class="hot">filtri</em></h2>
+        <p class="lead reveal d1">SOMMA somma tutto, anche le righe nascoste da un filtro. SUBTOTALE ricalcola solo sulle righe visibili: filtri "Roma" e il totale diventa il totale di Roma.</p>
+        <div class="formula reveal d2" style="font-size:22px;">=SUBTOTALE(<b>9</b>; B2:B100)</div>
+        <div class="stack reveal d3" style="margin-top:14px;">
+          <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;"><span style="font-size:26px;min-width:40px;">→</span><div><span style="font-family:var(--font-mono);font-size:22px;color:var(--teal);">9</span> = SOMMA &nbsp;·&nbsp; <span style="font-family:var(--font-mono);font-size:22px;color:var(--teal);">1</span> = MEDIA &nbsp;·&nbsp; <span style="font-family:var(--font-mono);font-size:22px;color:var(--teal);">3</span> = CONTA.VALORI</div></div>
+        </div>
+        <div class="analogy reveal d4"><span class="big">In pratica:</span> metti SUBTOTALE sopra la tabella filtrata — il numero cambia insieme al filtro, come un cruscotto.</div>
+      </div>
+      <div class="col stack reveal d1" style="justify-content:center;gap:18px;">
+        <div class="note teal"><div class="lbl">💡 Già la usi</div><p>La "Riga totali" delle tabelle (SU09) usa SUBTOTALE dietro le quinte: per questo i suoi totali rispettano i filtri.</p></div>
+        <div class="note red"><div class="lbl">⚠️ Righe nascoste a mano</div><p>I codici 1–11 ignorano solo le righe escluse dal filtro. Per ignorare anche quelle nascoste manualmente usa i codici 101–111 (es. 109 per la somma).</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 7. SE.ERRORE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape gold reveal">6. SE.ERRORE</div>
+        <h2 class="h-big reveal">Gestire gli <em class="hot">errori</em> con grazia</h2>
+        <p class="lead reveal d1">SE.ERRORE valuta un'espressione: se produce un errore (qualsiasi errore) restituisce il valore alternativo che specifichi invece di mostrare #N/D, #DIV/0! ecc.</p>
+        <div class="formula reveal d2" style="font-size:22px;">=SE.ERRORE(<b>formula</b>; <b>valore_se_errore</b>)</div>
+        <div class="stack reveal d3" style="margin-top:14px;">
+          <div class="card" style="padding:16px 20px;border-color:var(--red);">
+            <h3 style="font-size:26px;">Senza SE.ERRORE</h3>
+            <p style="font-family:var(--font-mono);font-size:20px;">=CERCA.VERT("Pippo";A:B;2;0)<br>→ <span style="color:var(--red);">#N/D</span> (non trovato)</p>
+          </div>
+          <div class="card" style="padding:16px 20px;border-color:var(--teal);">
+            <h3 style="font-size:26px;">Con SE.ERRORE</h3>
+            <p style="font-family:var(--font-mono);font-size:20px;">=SE.ERRORE(CERCA.VERT(...);"Non trovato")<br>→ <span style="color:var(--teal);font-weight:700;">Non trovato</span> (leggibile)</p>
+          </div>
+        </div>
+      </div>
+      <div class="col stack reveal d1" style="justify-content:center;gap:18px;">
+        <div class="note teal"><div class="lbl">💡 Errori gestibili</div><p>SE.ERRORE intercetta tutti i codici di errore: #N/D, #DIV/0!, #VALORE!, #RIF!, #NOME?, #NULLO!, #NUMERO!</p></div>
+        <div class="note red"><div class="lbl">⚠️ Non nascondere troppo</div><p>SE.ERRORE che restituisce "" (stringa vuota) può nascondere errori reali. Usa un messaggio leggibile come "Non trovato" o "—".</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 6. ARROTONDA -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape reveal">7. ARROTONDA</div>
+        <h2 class="h-big reveal">Arrotondare i <em class="hot">decimali</em></h2>
+        <p class="lead reveal d1">ARROTONDA restituisce un numero arrotondato al numero di cifre decimali specificato. Indispensabile nei calcoli finanziari per evitare residui da floating point.</p>
+        <div class="formula reveal d2" style="font-size:23px;">=ARROTONDA(<b>numero</b>; <b>cifre_decimali</b>)</div>
+        <div class="stack reveal d3" style="margin-top:14px;">
+          <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;"><span style="min-width:40px;">→</span><div><span style="font-family:var(--font-mono);font-size:22px;color:var(--teal);">=ARROTONDA(3.14159; 2)</span> → <b>3,14</b></div></div>
+          <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;"><span style="min-width:40px;">→</span><div><span style="font-family:var(--font-mono);font-size:22px;color:var(--teal);">=ARROTONDA(2467; -2)</span> → <b>2500</b> (arrotonda a centinaia)</div></div>
+          <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;"><span style="min-width:40px;">→</span><div><span style="font-family:var(--font-mono);font-size:22px;color:var(--teal);">=ARROTONDA.ECCESSO(1.1; 0.5)</span> → <b>1,5</b></div></div>
+        </div>
+        <div class="note reveal d4"><div class="lbl">💡 Varianti</div><p><b>ARROTONDA.PER.DIF</b> arrotonda sempre verso il basso. <b>ARROTONDA.PER.ECC</b> sempre verso l'alto. <b>TRONCA</b> elimina i decimali senza arrotondare.</p></div>
+      </div>
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 260 200" style="height:200px;">
+          <rect x="10" y="10" width="240" height="180" rx="12" fill="#fff" stroke="#1c1714" stroke-width="2"/>
+          <text x="130" y="45" text-anchor="middle" font-family="Space Mono" font-size="52" font-weight="700" fill="#1c1714">3.14159</text>
+          <path d="M130 68 L130 90" stroke="#e6533b" stroke-width="3" marker-end="url(#arr2)"/>
+          <defs><marker id="arr2" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e6533b"/></marker></defs>
+          <text x="130" y="135" text-anchor="middle" font-family="Space Mono" font-size="62" font-weight="700" fill="#163b35">3,14</text>
+          <text x="130" y="165" text-anchor="middle" font-family="Space Grotesk" font-size="16" fill="#6b5f54">=ARROTONDA(A1; 2)</text>
+        </svg>
+        <div class="illu-cap">2 decimali: 3.14159 → 3,14</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 7. TESTO -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <div class="tape sky reveal">8. TESTO</div>
+        <h2 class="h-big reveal">Formattare numeri come <em class="hot">testo</em></h2>
+        <p class="lead reveal d1">TESTO converte un numero in una stringa formattata secondo un codice che specifichi tu. Indispensabile per creare messaggi, etichette e report con numeri ben presentati.</p>
+        <div class="formula reveal d2" style="font-size:22px;">=TESTO(<b>valore</b>; "<b>formato</b>")</div>
+        <div class="stack reveal d3" style="margin-top:14px;">
+          <div class="agenda-item" style="border-color:var(--sky);padding:10px 4px;"><span style="min-width:40px;">→</span><div><span style="font-family:var(--font-mono);font-size:21px;color:var(--sky);">=TESTO(45678;"GG/MM/AAAA")</span> → <b>15/03/2025</b></div></div>
+          <div class="agenda-item" style="border-color:var(--sky);padding:10px 4px;"><span style="min-width:40px;">→</span><div><span style="font-family:var(--font-mono);font-size:21px;color:var(--sky);">=TESTO(1234.5;"€ #.##0,00")</span> → <b>€ 1.234,50</b></div></div>
+          <div class="agenda-item" style="border-color:var(--sky);padding:10px 4px;"><span style="min-width:40px;">→</span><div><span style="font-family:var(--font-mono);font-size:21px;color:var(--sky);">=TESTO(0.85;"0%")</span> → <b>85%</b></div></div>
+        </div>
+      </div>
+      <div class="col stack reveal d1" style="justify-content:center;gap:18px;">
+        <div class="note sky"><div class="lbl">💡 Uso tipico</div><p>Combina TESTO con &amp; per creare messaggi: <span style="font-family:var(--font-mono);">"Totale: "&amp;TESTO(B10;"€ #.##0,00")</span> → "Totale: € 1.234,50".</p></div>
+        <div class="note red"><div class="lbl">⚠️ Risultato testo</div><p>TESTO restituisce testo, non un numero. Non puoi sommare i risultati di TESTO. Usalo solo per visualizzare, non per calcolare.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 9. OGGI / ADESSO / DATA -->
+  <section class="slide">
+    <div class="col stack">
+      <div class="tape teal reveal">9. Date e ore</div>
+      <h2 class="h-sec reveal">OGGI, ADESSO e <em class="hot">DATA</em></h2>
+      <p class="lead reveal d1">Funzioni per lavorare con la data corrente, la data/ora, e costruire date da componenti separati.</p>
+      <div class="grid3 reveal d2">
+        <div class="fn-card">
+          <h3>OGGI()</h3>
+          <div class="syntax">=OGGI()</div>
+          <p>Restituisce la data odierna. Si aggiorna ogni volta che il foglio si ricalcola. Nessun argomento.</p>
+        </div>
+        <div class="fn-card">
+          <h3>ADESSO()</h3>
+          <div class="syntax">=ADESSO()</div>
+          <p>Data e ora correnti. Cambia ogni volta che il foglio viene modificato — non fisso.</p>
+        </div>
+        <div class="fn-card">
+          <h3>DATA</h3>
+          <div class="syntax">=DATA(anno; mese; giorno)</div>
+          <p>Crea una data da tre numeri: <span style="font-family:var(--font-mono);">=DATA(2025;6;15)</span> → 15/06/2025. Utile quando anno/mese/giorno sono in colonne separate.</p>
+        </div>
+      </div>
+      <div class="grid3 reveal d3" style="margin-top:16px;">
+        <div class="fn-card">
+          <h3>GIORNO / MESE / ANNO</h3>
+          <div class="syntax">=MESE(A2)</div>
+          <p>Estrae il componente da una data: <span style="font-family:var(--font-mono);">=MESE(OGGI())</span> → numero del mese corrente.</p>
+        </div>
+        <div class="fn-card">
+          <h3>GIORNI</h3>
+          <div class="syntax">=GIORNI(fine; inizio)</div>
+          <p>Differenza in giorni tra due date: <span style="font-family:var(--font-mono);">=GIORNI(OGGI(); C2)</span> → giorni dall'appuntamento in C2.</p>
+        </div>
+        <div class="fn-card">
+          <h3>GIORNO.SETTIMANA</h3>
+          <div class="syntax">=GIORNO.SETTIMANA(A2; 2)</div>
+          <p>Restituisce il numero del giorno nella settimana. Con argomento 2: 1=lunedì, 7=domenica.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 12. RIEPILOGO TOP 10 -->
+  <section class="slide tight-slide">
+    <div class="center">
+      <div class="tape teal reveal">Riepilogo</div>
+      <h2 class="h-sec reveal" style="margin-top:16px;">Le <em class="hot">9 funzioni</em> di questo modulo</h2>
+      <div class="grid5 reveal d1" style="margin-top:22px;">
+        <div class="fn-card" style="padding:14px 16px;">
+          <h3 style="font-size:22px;">SOMMA.SE</h3>
+          <div class="syntax" style="font-size:16px;">=SOMMA.SE(int;crit;sum)</div>
+          <p style="font-size:17px;">Somma con 1 condizione</p>
+        </div>
+        <div class="fn-card" style="padding:14px 16px;">
+          <h3 style="font-size:22px;">SOMMA.PIÙ.SE</h3>
+          <div class="syntax" style="font-size:16px;">=SOMMA.PIÙ.SE(...)</div>
+          <p style="font-size:17px;">Somma con N condizioni</p>
+        </div>
+        <div class="fn-card" style="padding:14px 16px;">
+          <h3 style="font-size:22px;">CONTA.PIÙ.SE</h3>
+          <div class="syntax" style="font-size:16px;">=CONTA.PIÙ.SE(...)</div>
+          <p style="font-size:17px;">Conta con N condizioni</p>
+        </div>
+        <div class="fn-card" style="padding:14px 16px;">
+          <h3 style="font-size:22px;">MEDIA.SE</h3>
+          <div class="syntax" style="font-size:16px;">=MEDIA.SE(int;crit;med)</div>
+          <p style="font-size:17px;">Media con condizione</p>
+        </div>
+        <div class="fn-card" style="padding:14px 16px;">
+          <h3 style="font-size:22px;">SUBTOTALE</h3>
+          <div class="syntax" style="font-size:16px;">=SUBTOTALE(9;range)</div>
+          <p style="font-size:17px;">Totale sulle righe visibili</p>
+        </div>
+        <div class="fn-card" style="padding:14px 16px;">
+          <h3 style="font-size:22px;">SE.ERRORE</h3>
+          <div class="syntax" style="font-size:16px;">=SE.ERRORE(f;alt)</div>
+          <p style="font-size:17px;">Fallback sugli errori</p>
+        </div>
+        <div class="fn-card" style="padding:14px 16px;">
+          <h3 style="font-size:22px;">ARROTONDA</h3>
+          <div class="syntax" style="font-size:16px;">=ARROTONDA(n;dec)</div>
+          <p style="font-size:17px;">Decimali controllati</p>
+        </div>
+        <div class="fn-card" style="padding:14px 16px;">
+          <h3 style="font-size:22px;">TESTO</h3>
+          <div class="syntax" style="font-size:16px;">=TESTO(v;"fmt")</div>
+          <p style="font-size:17px;">Numero → stringa</p>
+        </div>
+        <div class="fn-card" style="padding:14px 16px;">
+          <h3 style="font-size:22px;">OGGI / DATA</h3>
+          <div class="syntax" style="font-size:16px;">=OGGI()</div>
+          <p style="font-size:17px;">Data corrente</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 13. VERIFICA -->
+  
+
+  <!-- 14. CLOSING -->
+  <section class="slide closing">
+    <div class="center" style="text-align:center;">
+      <h2 class="h-mega reveal" style="margin-top:10px;">Strumenti da<br>professionista.</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">SOMMA.SE, MEDIA.SE, SUBTOTALE, SE.ERRORE, ARROTONDA, TESTO e le funzioni data: le funzioni che trasformano un foglio in uno strumento professionale.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a class="chip" href="su03-06-testo.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → SU11 · Manipolare il testo</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="00-indice.html" title="Torna all'indice (I)">↩ Indice</a>
+<script>
+(function(){
+  const stage=document.getElementById('deckStage');
+  const slides=[...stage.querySelectorAll('.slide')];
+  const total=slides.length;
+  let cur=0;
+  function go(n){if(n<0||n>=total)return;slides[cur].classList.remove('active','visible');cur=n;slides[cur].classList.add('active');requestAnimationFrame(()=>requestAnimationFrame(()=>slides[cur].classList.add('visible')));document.getElementById('progress').style.width=((cur+1)/total*100)+'%';numberPages();}
+  function numberPages(){slides.forEach((s,i)=>{const p=s.querySelector('.page-num');if(p)p.innerHTML='<b>'+(i+1)+'</b>/'+total;});}
+  function scale(){const vw=window.innerWidth,vh=window.innerHeight;const s=Math.min(vw/1920,vh/1080);stage.style.transform=`scale(${s})`;stage.style.left=((vw-1920*s)/2)+'px';stage.style.top=((vh-1080*s)/2)+'px';}
+  scale();window.addEventListener('resize',scale);
+  slides[0].classList.add('visible');numberPages();
+  document.getElementById('progress').style.width=(1/total*100)+'%';
+  document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '||e.key==='ArrowDown')go(cur+1);else if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(cur-1);});
+  let tx=0;stage.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});stage.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)go(d<0?cur+1:cur-1);},{passive:true});
+  stage.addEventListener('wheel',e=>{e.preventDefault();go(e.deltaY>0?cur+1:cur-1);},{passive:false});
+  stage.addEventListener('click',e=>{const r=stage.getBoundingClientRect();go(e.clientX-r.left>r.width/2?cur+1:cur-1);});
+})();
+</script>
+</body>
+</html>

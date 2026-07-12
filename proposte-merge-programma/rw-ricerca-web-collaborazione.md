@@ -2,11 +2,11 @@
 
 ## Target merge
 
-- `rw04-ricerca.html`
-- `rw05-email.html`
-- `rw07-affidabilita.html`
-- `rw08-contenuti.html`
-- `rw09-collaborazione-digitale.html`
+- `rw01-04-ricerca.html`
+- `rw02-01-email.html`
+- `rw01-05-affidabilita.html`
+- `rw02-03-contenuti.html`
+- `rw02-04-collaborazione-digitale.html`
 
 ## Stato implementazione
 

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suite Ufficio · SU12 — Tabelle pivot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s}
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);font-family:var(--font-body)}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;visibility:hidden;opacity:0;pointer-events:none;background:var(--paper);color:var(--ink);padding:96px 110px}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}.slide.visible .reveal{opacity:1;transform:none}.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}.d4{transition-delay:.56s!important}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint)}.page-num b{color:var(--red);font-size:30px}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease}.home-btn:hover{opacity:1;background:rgba(28,23,20,.85)}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate}@keyframes float{to{transform:translate(-34px,46px) scale(1.04)}}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red)}.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px}.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px}.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px}em.hot{font-style:italic;color:var(--red)}
+.lead{font-size:32px;line-height:1.42;color:var(--ink-soft);max-width:1180px}.body{font-size:27px;line-height:1.42;color:var(--ink-soft)}.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase}.tape.gold{background:var(--gold-deep)}.tape.teal{background:var(--teal)}.tape.sky{background:var(--sky)}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.center{height:100%;display:flex;flex-direction:column;justify-content:center}.stack>*+*{margin-top:20px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:24px 28px;box-shadow:7px 8px 0 rgba(28,23,20,.13)}.card h3{font-family:var(--font-display);font-weight:900;font-size:34px;margin-bottom:8px;line-height:1.05}.card p{font-size:23px;line-height:1.34;color:var(--ink-soft)}.card .ic{font-size:42px;line-height:1;display:block;margin-bottom:8px}.card.teal{border-color:var(--teal)}.card.sky{border-color:var(--sky)}.card.gold{border-color:var(--gold-deep)}.card.red{border-color:var(--red)}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note.sky{background:#d9edf2}.note.red{background:#f3b6aa}.note.teal{background:var(--teal)}.note.teal *{color:var(--paper)!important}.note.teal .lbl{color:var(--gold)!important}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}.note p{font-size:25px;line-height:1.35;color:var(--ink)}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold)}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;text-decoration:none}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
+.table{width:100%;border-collapse:collapse;font-family:var(--font-mono);background:#fff;border:2px solid var(--ink);box-shadow:6px 7px 0 rgba(28,23,20,.13)}.table th,.table td{border:1px solid var(--line);padding:11px 12px;font-size:18px;text-align:left;color:var(--ink-soft)}.table th{background:var(--paper-2);color:var(--ink);font-weight:700}.table .num{text-align:right}.table .hi{background:var(--gold);color:var(--ink);font-weight:700}
+.pivot-box{background:#fbf5ec;border:3px solid var(--ink);border-radius:18px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:26px}.pivot-field{font-family:var(--font-mono);display:flex;align-items:center;justify-content:space-between;gap:14px;background:#fff;border:2px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:10px;font-size:20px}.pivot-field b{color:var(--red)}.arrow{font-size:42px;color:var(--red);font-weight:900;text-align:center}.tight .h-sec{font-size:60px}.tight .lead{font-size:27px}.tight .card{padding:18px 20px}.tight .card h3{font-size:29px}.tight .card p{font-size:20px}.tight .table th,.tight .table td{font-size:16px;padding:8px 9px}
+</style>
+<link rel="stylesheet" href="theme-corsi.css">
+</head>
+<body class="course-su">
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <div class="eyebrow reveal">Fogli di calcolo · SU03.07</div>
+      <h1 class="h-mega reveal">Tabelle<br><em class="hot">pivot</em></h1>
+      <p class="lead reveal d1" style="margin-top:30px;">Riassumere grandi tabelle senza scrivere formule: righe, colonne, valori, filtri e lettura dei risultati.</p>
+      <div class="chips reveal d2" style="margin-top:46px;"><span class="chip">13 slide</span><span class="chip">Excel / Sheets</span><span class="chip">Analisi dati</span></div>
+    </div>
+    <div class="title-right"><div class="reveal" style="font-size:210px;line-height:1;z-index:2;">📊</div></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="stack">
+        <div class="tape teal reveal">Perché servono</div>
+        <h2 class="h-big reveal">Quando la tabella è <em class="hot">troppo lunga</em></h2>
+        <p class="lead reveal d1">Una tabella pivot prende un elenco di righe e lo trasforma in un riepilogo leggibile. Non modifica i dati originali: crea una vista aggregata per rispondere a domande come "quanto abbiamo venduto per mese?", "quale servizio rende di più?", "chi ha più appuntamenti?".</p>
+        <div class="analogy reveal d2"><span class="big">In pratica:</span> la pivot è un report automatico sopra una tabella grezza.</div>
+      </div>
+      <div class="pivot-box reveal d1">
+        <table class="table">
+          <tr><th>Data</th><th>Servizio</th><th>Operatore</th><th class="num">Incasso</th></tr>
+          <tr><td>03/01</td><td>Taglio</td><td>Anna</td><td class="num">35</td></tr>
+          <tr><td>03/01</td><td>Colore</td><td>Luca</td><td class="num">70</td></tr>
+          <tr><td>04/01</td><td>Piega</td><td>Anna</td><td class="num">25</td></tr>
+          <tr><td>05/01</td><td>Colore</td><td>Marta</td><td class="num">80</td></tr>
+        </table>
+        <div class="arrow">↓</div>
+        <table class="table">
+          <tr><th>Servizio</th><th class="num">Totale incasso</th></tr>
+          <tr><td>Colore</td><td class="num hi">150</td></tr>
+          <tr><td>Taglio</td><td class="num">35</td></tr>
+          <tr><td>Piega</td><td class="num">25</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight">
+    <div class="center">
+      <div class="tape reveal">Dati sorgente</div>
+      <h2 class="h-sec reveal" style="margin-top:16px;">Prima regola: una riga = un record</h2>
+      <p class="lead reveal d1" style="margin-top:18px;">La pivot funziona bene solo se la tabella di partenza è ordinata come un database: intestazioni chiare, nessuna riga vuota, nessuna cella unita, ogni colonna con un solo tipo di informazione.</p>
+      <div class="grid4 reveal d2" style="margin-top:28px;">
+        <div class="card teal"><span class="ic">🏷</span><h3>Intestazioni</h3><p>Ogni colonna deve avere un nome: Data, Servizio, Operatore, Importo, Sede.</p></div>
+        <div class="card sky"><span class="ic">📏</span><h3>Formato tabella</h3><p>Niente totali intermedi dentro i dati. I totali li calcola la pivot.</p></div>
+        <div class="card gold"><span class="ic">🧹</span><h3>Dati puliti</h3><p>Stesso servizio scritto sempre allo stesso modo: "Taglio" non "taglio" o "taglio capelli".</p></div>
+        <div class="card red"><span class="ic">🔢</span><h3>Numeri veri</h3><p>Gli importi devono essere numeri, non testo con simboli scritti a mano.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:26px;"><div class="lbl">Regola pratica</div><p>Se una tabella si può filtrare e ordinare senza rompere il contenuto, di solito è pronta per una pivot.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="stack">
+        <div class="tape gold reveal">Creazione</div>
+        <h2 class="h-big reveal">Da tabella a <em class="hot">pivot</em></h2>
+        <p class="lead reveal d1">In Excel e Google Sheets il flusso è quasi identico: selezioni la tabella, scegli Inserisci → Tabella pivot e decidi dove creare il report. Il lavoro vero inizia nel pannello dei campi.</p>
+        <div class="note sky reveal d2"><div class="lbl">Excel</div><p>Seleziona i dati → Inserisci → Tabella pivot → nuovo foglio o foglio esistente.</p></div>
+        <div class="note reveal d3"><div class="lbl">Google Sheets</div><p>Seleziona i dati → Inserisci → Tabella pivot → nuovo foglio. Sheets può proporre riepiloghi automatici.</p></div>
+      </div>
+      <div class="pivot-box reveal d1">
+        <div class="pivot-field"><span>1. Seleziona dati</span><b>A1:E500</b></div>
+        <div class="pivot-field"><span>2. Inserisci pivot</span><b>Nuovo foglio</b></div>
+        <div class="pivot-field"><span>3. Scegli campi</span><b>Righe / Valori</b></div>
+        <div class="pivot-field"><span>4. Leggi report</span><b>Totali e confronti</b></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape teal reveal">Anatomia</div>
+      <h2 class="h-sec reveal" style="margin-top:16px;">Righe, colonne, valori, filtri</h2>
+      <p class="lead reveal d1" style="margin-top:18px;">Una pivot è costruita spostando campi in quattro aree. Il campo è sempre una colonna della tabella sorgente.</p>
+      <div class="grid4 reveal d2" style="margin-top:34px;">
+        <div class="card teal"><span class="ic">↕</span><h3>Righe</h3><p>Decidono le categorie verticali: Servizio, Operatore, Cliente, Mese.</p></div>
+        <div class="card sky"><span class="ic">↔</span><h3>Colonne</h3><p>Creano il confronto orizzontale: anni, mesi, sedi, canali.</p></div>
+        <div class="card gold"><span class="ic">Σ</span><h3>Valori</h3><p>Contengono i numeri da sommare, contare, mediare o confrontare.</p></div>
+        <div class="card red"><span class="ic">🔍</span><h3>Filtri</h3><p>Limitano il report: solo 2026, solo Milano, solo servizi attivi.</p></div>
+      </div>
+      <div class="analogy reveal d3" style="margin-top:36px;"><span class="big">Domanda guida:</span> "Voglio vedere quale numero, diviso per quale categoria, con quali limiti?"</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split even">
+      <div class="stack">
+        <div class="tape sky reveal">Esempio 1</div>
+        <h2 class="h-big reveal">Incasso per <em class="hot">servizio</em></h2>
+        <p class="lead reveal d1">Per sapere quali servizi generano più ricavi, metti <b>Servizio</b> nelle righe e <b>Incasso</b> nei valori con aggregazione Somma.</p>
+        <div class="pivot-box reveal d2">
+          <div class="pivot-field"><span>Righe</span><b>Servizio</b></div>
+          <div class="pivot-field"><span>Valori</span><b>Somma di Incasso</b></div>
+          <div class="pivot-field"><span>Ordina</span><b>Dal più alto</b></div>
+        </div>
+      </div>
+      <div class="pivot-box reveal d1">
+        <table class="table">
+          <tr><th>Servizio</th><th class="num">Somma incasso</th></tr>
+          <tr><td>Colore</td><td class="num hi">1.820</td></tr>
+          <tr><td>Taglio</td><td class="num">1.140</td></tr>
+          <tr><td>Trattamento</td><td class="num">860</td></tr>
+          <tr><td>Piega</td><td class="num">720</td></tr>
+        </table>
+        <div class="note sky" style="margin-top:20px;"><div class="lbl">Lettura</div><p>La pivot non dice solo "quanto": mostra subito dove concentrare attenzione, promozioni e risorse.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split even">
+      <div class="stack">
+        <div class="tape gold reveal">Esempio 2</div>
+        <h2 class="h-big reveal">Confronto per <em class="hot">mese</em></h2>
+        <p class="lead reveal d1">Aggiungendo un campo nelle colonne, la pivot diventa una matrice. Le righe mostrano i servizi, le colonne mostrano i mesi, i valori sommano gli incassi.</p>
+        <div class="pivot-box reveal d2">
+          <div class="pivot-field"><span>Righe</span><b>Servizio</b></div>
+          <div class="pivot-field"><span>Colonne</span><b>Mese</b></div>
+          <div class="pivot-field"><span>Valori</span><b>Somma Incasso</b></div>
+        </div>
+      </div>
+      <div class="pivot-box reveal d1">
+        <table class="table">
+          <tr><th>Servizio</th><th class="num">Gen</th><th class="num">Feb</th><th class="num">Mar</th><th class="num">Totale</th></tr>
+          <tr><td>Colore</td><td class="num">600</td><td class="num">540</td><td class="num">680</td><td class="num hi">1.820</td></tr>
+          <tr><td>Taglio</td><td class="num">390</td><td class="num">360</td><td class="num">390</td><td class="num">1.140</td></tr>
+          <tr><td>Piega</td><td class="num">210</td><td class="num">250</td><td class="num">260</td><td class="num">720</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight">
+    <div class="center">
+      <div class="tape reveal">Valori</div>
+      <h2 class="h-sec reveal" style="margin-top:16px;">Somma, conteggio, media</h2>
+      <p class="lead reveal d1" style="margin-top:18px;">Il campo Valori non deve per forza sommare. Cambiare aggregazione cambia completamente la domanda a cui stai rispondendo.</p>
+      <div class="grid3 reveal d2" style="margin-top:28px;">
+        <div class="card teal"><span class="ic">Σ</span><h3>Somma</h3><p>Quanto incasso totale per servizio, mese, sede o operatore?</p></div>
+        <div class="card sky"><span class="ic">#</span><h3>Conteggio</h3><p>Quanti appuntamenti, clienti, ordini o righe appartengono a ogni categoria?</p></div>
+        <div class="card gold"><span class="ic">Ø</span><h3>Media</h3><p>Qual è il valore medio di uno scontrino, di una durata o di una valutazione?</p></div>
+      </div>
+      <div class="grid2 reveal d3" style="margin-top:24px;">
+        <div class="note"><div class="lbl">Errore frequente</div><p>Se un importo viene contato invece che sommato, probabilmente è memorizzato come testo. Controlla il formato della colonna sorgente.</p></div>
+        <div class="note sky"><div class="lbl">Buona pratica</div><p>Rinomina i valori: "Somma di Incasso" può diventare "Incasso totale", più leggibile per chi consulta il report.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="stack">
+        <div class="tape teal reveal">Filtri</div>
+        <h2 class="h-big reveal">Vedere solo ciò che <em class="hot">serve</em></h2>
+        <p class="lead reveal d1">I filtri limitano il report senza cancellare dati. Puoi analizzare un solo anno, una sola sede, un operatore specifico o un insieme di servizi.</p>
+        <div class="note reveal d2"><div class="lbl">Excel</div><p>Usa filtri nel pannello pivot oppure aggiungi segmentazioni dati per controlli visuali.</p></div>
+        <div class="note sky reveal d3"><div class="lbl">Google Sheets</div><p>Usa Filtri nel pannello editor o aggiungi slicer da Dati → Aggiungi filtro dei dati.</p></div>
+      </div>
+      <div class="pivot-box reveal d1">
+        <div class="pivot-field"><span>Filtro anno</span><b>2026</b></div>
+        <div class="pivot-field"><span>Filtro sede</span><b>Centro</b></div>
+        <div class="pivot-field"><span>Filtro operatore</span><b>Tutti</b></div>
+        <div class="pivot-field"><span>Filtro servizio</span><b>Colore + Taglio</b></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight">
+    <div class="center">
+      <div class="tape gold reveal">Manutenzione</div>
+      <h2 class="h-sec reveal" style="margin-top:16px;">Aggiornare una pivot</h2>
+      <p class="lead reveal d1" style="margin-top:18px;">La pivot non è la tabella sorgente: è un report generato. Quando i dati cambiano, bisogna assicurarsi che il report venga aggiornato e che il range includa le nuove righe.</p>
+      <div class="grid3 reveal d2" style="margin-top:28px;">
+        <div class="card teal"><span class="ic">🔄</span><h3>Aggiorna</h3><p>In Excel usa Aggiorna. In Sheets molte pivot si aggiornano automaticamente, ma il range deve includere i dati.</p></div>
+        <div class="card sky"><span class="ic">📐</span><h3>Range dinamico</h3><p>Usa una tabella Excel o un intervallo ampio in Sheets per non escludere righe future.</p></div>
+        <div class="card red"><span class="ic">⚠️</span><h3>Campi rinominati</h3><p>Se cambi nome a una colonna sorgente, la pivot può perdere il campo. Meglio stabilizzare le intestazioni.</p></div>
+      </div>
+      <div class="analogy reveal d3" style="margin-top:34px;"><span class="big">Regola:</span> aggiungi dati in fondo alla tabella sorgente, non dentro il report pivot.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight">
+    <div class="center">
+      <div class="tape sky reveal">Errori comuni</div>
+      <h2 class="h-sec reveal" style="margin-top:16px;">Quando la pivot mente</h2>
+      <p class="lead reveal d1" style="margin-top:18px;">La pivot calcola correttamente quello che le dai. Se il risultato sembra sbagliato, quasi sempre il problema è nella tabella sorgente o nella scelta dei campi.</p>
+      <div class="grid3 reveal d2" style="margin-top:28px;">
+        <div class="card red"><span class="ic">🧩</span><h3>Categorie duplicate</h3><p>"Colore", "colore" e "Colore " diventano categorie diverse. Pulire prima i testi.</p></div>
+        <div class="card gold"><span class="ic">🔢</span><h3>Numeri come testo</h3><p>Gli importi vengono contati invece che sommati. Convertire la colonna in numero.</p></div>
+        <div class="card sky"><span class="ic">📉</span><h3>Range incompleto</h3><p>Nuove righe fuori dal range non entrano nel report. Allargare il range o usare una tabella.</p></div>
+      </div>
+      <div class="note teal reveal d3" style="margin-top:26px;"><div class="lbl">Checklist prima di fidarti</div><p>Conta righe sorgente, controlla intestazioni, verifica aggregazione dei valori, ordina i totali e confronta un totale a mano su un piccolo campione.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <div class="tape reveal">Verifica</div>
+      <h2 class="h-sec reveal" style="margin-top:16px;">Sapresti costruirla?</h2>
+      <div class="grid2 reveal d1" style="margin-top:28px;">
+        <div class="card"><span class="ic">📊</span><h3>Incassi mensili</h3><p>Hai colonne Data, Servizio, Operatore, Incasso. Dove metti Data/Mese, Servizio e Incasso per vedere gli incassi dei servizi mese per mese?</p></div>
+        <div class="card"><span class="ic">#</span><h3>Numero appuntamenti</h3><p>Quale aggregazione usi per sapere quanti appuntamenti ha gestito ogni operatore?</p></div>
+        <div class="card"><span class="ic">🔍</span><h3>Solo una sede</h3><p>Come mostri il report solo per la sede "Centro" senza cancellare le altre righe dai dati sorgente?</p></div>
+        <div class="card"><span class="ic">⚠️</span><h3>Totale strano</h3><p>La pivot conta gli importi invece di sommarli. Quale controllo fai sulla colonna Incasso?</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide closing">
+    <div class="center" style="text-align:center;">
+      <h2 class="h-mega reveal">Dati grezzi,<br><span class="gold">risposte chiare.</span></h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1180px;text-align:center;margin:24px auto 0;">Una tabella pivot trasforma righe operative in report: scegli categorie, valori e filtri, poi leggi il risultato senza riscrivere formule ogni volta.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a class="chip" href="su04-01-presentazioni.html" style="background:var(--gold);color:var(--ink);">Prossimo → SU04.01 · Dillo con una slide</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="00-indice.html" title="Torna all'indice (I)">↩ Indice</a>
+<script>
+(function(){
+  const stage=document.getElementById('deckStage');
+  const slides=[...stage.querySelectorAll('.slide')];
+  const total=slides.length;
+  let cur=0;
+  function numberPages(){slides.forEach((s,i)=>{const p=s.querySelector('.page-num');if(p)p.innerHTML='<b>'+(i+1)+'</b>/'+total;});}
+  function go(n){if(n<0||n>=total)return;slides[cur].classList.remove('active','visible');cur=n;slides[cur].classList.add('active');requestAnimationFrame(()=>requestAnimationFrame(()=>slides[cur].classList.add('visible')));document.getElementById('progress').style.width=((cur+1)/total*100)+'%';location.hash=String(cur+1);numberPages();}
+  function scale(){const vw=window.innerWidth,vh=window.innerHeight;const s=Math.min(vw/1920,vh/1080);stage.style.transform=`scale(${s})`;stage.style.left=((vw-1920*s)/2)+'px';stage.style.top=((vh-1080*s)/2)+'px';}
+  scale();window.addEventListener('resize',scale);numberPages();
+  const hm=location.hash.match(/(?:slide-|slide=|^#)(\d+)/);const start=Math.max(1,Math.min(total,hm?parseInt(hm[1],10):1));slides[0].classList.remove('active','visible');cur=start-1;slides[cur].classList.add('active','visible');document.getElementById('progress').style.width=((cur+1)/total*100)+'%';
+  document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '||e.key==='ArrowDown')go(cur+1);else if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(cur-1);else if(e.key==='i'||e.key==='I')location.href='00-indice.html';});
+  let tx=0;stage.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});stage.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)go(d<0?cur+1:cur-1);},{passive:true});
+  stage.addEventListener('wheel',e=>{e.preventDefault();go(e.deltaY>0?cur+1:cur-1);},{passive:false});
+  stage.addEventListener('click',e=>{const r=stage.getBoundingClientRect();go(e.clientX-r.left>r.width/2?cur+1:cur-1);});
+})();
+</script>
+</body>
+</html>

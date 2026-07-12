@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programmare · PR01.04 — Fondamenti di programmazione</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--ink:#1c1714;--muted:#51463e;--red:#e6533b;--teal:#163b35;--sky:#3f7e8c;--gold:#e0a12c;--line:#d8c9b4;--display:"Fraunces",Georgia,serif;--body:"Space Grotesk",sans-serif;--mono:"Space Mono",monospace}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#241d17;font-family:var(--body)}.deck-stage{position:absolute;width:1920px;height:1080px;transform-origin:0 0;background:var(--paper)}.slide{position:absolute;inset:0;padding:88px 110px;background:var(--paper);color:var(--ink);visibility:hidden;opacity:0;overflow:hidden}.slide.visible{visibility:visible;opacity:1}.slide:before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.25}.slide>*{position:relative}.title{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}.eyebrow{font-family:var(--display);font-weight:900;font-style:italic;color:var(--red);font-size:34px}.h1{font-family:var(--display);font-size:108px;line-height:.92;margin:18px 0}.h2{font-family:var(--display);font-size:76px;line-height:.96;margin:0 0 22px}.lead{font-size:32px;line-height:1.34;color:var(--muted);max-width:1120px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13)}.card h3{font-family:var(--display);font-size:36px;margin:0 0 10px}.card p,.card li{font-size:24px;line-height:1.33;color:var(--muted)}.card ul{padding-left:24px}.tag{display:inline-block;background:var(--teal);color:var(--paper);font-family:var(--mono);font-weight:700;font-size:22px;letter-spacing:2px;text-transform:uppercase;padding:10px 18px;border-radius:999px}.chip{display:inline-block;background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:11px 18px;border-radius:999px;margin-right:10px;text-decoration:none}.code{background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:25px;line-height:1.45;border-radius:16px;padding:30px;white-space:pre-line}.accent{color:var(--sky);font-style:italic}.num{position:absolute;right:110px;bottom:52px;font-family:var(--mono);font-size:24px;color:#7b6e63}.num b{color:var(--red);font-size:34px}.home-btn{position:fixed;left:18px;bottom:18px;z-index:10;color:#f4ece0;background:rgba(28,23,20,.6);border-radius:999px;padding:8px 15px;text-decoration:none;font-family:var(--mono)}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:10}.closing{background:var(--teal);color:var(--paper)}.closing .lead{color:var(--paper)}
+</style>
+<link rel="stylesheet" href="theme-corsi.css">
+</head>
+<body class="course-sc"><main class="deck-stage" id="deckStage">
+<section class="slide title visible"><div><div class="eyebrow">Programmare · PR01.04</div><h1 class="h1">Fondamenti di<br><span class="accent">programmazione</span></h1><p class="lead">Logica, linguaggi, programmi, pseudocodice e primi esempi in Python: il ponte tra algoritmo e codice eseguibile.</p><p><span class="chip">37 slide</span><span class="chip">Logica</span><span class="chip">Python</span></p></div><div class="code">algoritmo
+  ↓ pseudocodice
+codice Python
+  ↓ test
+programma corretto</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Dati</span><h2 class="h2">Rappresentare prima di elaborare</h2><p class="lead">Un programma non tocca oggetti reali: lavora su dati rappresentati in modo formale. Scegliere il tipo giusto fin dall'inizio rende più semplice scrivere l'algoritmo e previene errori: non puoi moltiplicare un testo, né mettere in maiuscolo un numero.</p><div class="grid3"><div class="card"><h3>Numeri</h3><p>Per calcoli, misure, contatori e indici: eta = 25, prezzo = 12.50. Si possono sommare, confrontare, dividere e usare per calcolare medie e totali.</p></div><div class="card"><h3>Stringhe</h3><p>Sequenze di caratteri tra virgolette: nome = "Giulia". Servono per nomi, messaggi, indirizzi. Anche "25" è una stringa: sembra un numero, ma non lo è.</p></div><div class="card"><h3>Booleani</h3><p>Solo due valori: True o False. attivo = True. Guidano ogni decisione del programma: entrare in un ramo, ripetere un ciclo, filtrare una tabella.</p></div></div><div class="card" style="margin-top:20px"><h3>Errore comune</h3><p>"23" + "1" produce "231", perché incolla due testi; 23 + 1 produce 24. Stesso simbolo +, tipi diversi, risultati opposti: per questo il tipo va scelto con cura.</p></div><div class="num"></div></section>
+<section class="slide"><span class="tag">Logica</span><h2 class="h2">Proposizioni e condizioni</h2><p class="lead">La logica trasforma affermazioni in condizioni che il programma può controllare da solo. Una condizione è una domanda con risposta secca: vero oppure falso, senza vie di mezzo. «Il cliente è affidabile» non è una condizione; «il cliente ha pagato le ultime 3 fatture» lo è, perché si misura sui dati.</p><div class="grid2"><div class="code">eta >= 18      # con eta = 20 → vero
+password == salvata  # identiche?
+saldo > 0      # con saldo = -5 → falso</div><div class="card"><h3>Uso pratico</h3><p>Le condizioni guidano scelte (se piove, avvisa), filtri (mostra solo ordini pagati), controlli di validità (l'email contiene una @?) e cicli (ripeti finché scorta > 0).</p></div></div><div class="card" style="margin-top:20px"><h3>Errore comune</h3><p>Scrivere condizioni che i dati non possono verificare. Il programma non sa se «l'utente è di fretta»: sa solo confrontare valori che possiede davvero, come numeri, testi e date.</p></div><div class="num"></div></section>
+<section class="slide"><span class="tag">Connettivi</span><h2 class="h2">AND, OR, NOT</h2><p class="lead">I connettivi combinano condizioni semplici in una decisione complessa. Esempio guida: un negozio applica lo sconto se la spesa supera 50 € E il cliente ha la tessera fedeltà.</p><div class="grid3"><div class="card"><h3>AND</h3><p>Vero solo se tutte le condizioni sono vere. Spesa 60 € con tessera → sconto. Spesa 60 € senza tessera → niente. Spesa 40 € con tessera → niente.</p></div><div class="card"><h3>OR</h3><p>Vero se almeno una condizione è vera. Entrata ridotta se sei socio O hai un invito: basta una delle due, e averle entrambe va bene comunque.</p></div><div class="card"><h3>NOT</h3><p>Inverte il valore logico: not vero diventa falso. «Se NON registrato, mostra il modulo di iscrizione». Evita le doppie negazioni: confondono chi legge.</p></div></div><div class="code" style="margin-top:24px">se spesa > 50 AND tessera allora
+  applica sconto 10%
+fine se</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Linguaggi</span><h2 class="h2">Naturale, macchina, programmazione</h2><p class="lead">Il linguaggio naturale è flessibile ma ambiguo: «metti in ordine questi file» è chiaro per un collega, ma la macchina non sa se ordinare per nome, per data, crescente o decrescente. Il linguaggio macchina è eseguibile ma illeggibile. I linguaggi di programmazione stanno nel mezzo: formali come la matematica, leggibili quasi come una frase.</p><div class="grid3"><div class="card"><h3>Naturale</h3><p>Comodo per spiegare, rischioso per eseguire: sottintesi, contesto, ambiguità. Perfetto per raccogliere requisiti, inadatto come istruzione diretta.</p></div><div class="card"><h3>Macchina</h3><p>Sequenze binarie come 10110000 01100001, eseguite direttamente dal processore. Velocissime, ma illeggibili e diverse per ogni famiglia di CPU.</p></div><div class="card"><h3>Alto livello</h3><p>Python, JavaScript, C: parole chiave leggibili e regole precise. Un compilatore o interprete le traduce in linguaggio macchina al posto tuo.</p></div></div><div class="num"></div></section>
+<section class="slide"><span class="tag">Procedurale</span><h2 class="h2">Programmare come sequenza di passi</h2><p class="lead">Nei linguaggi procedurali il programma è un insieme di istruzioni e procedure eseguite in ordine. L'attenzione è sul percorso: cosa fare prima, cosa dopo, quando scegliere e quando ripetere. Come in una ricetta: prima accendi il forno, poi impasti, poi inforni.</p><div class="grid2"><div class="card"><h3>Vantaggio</h3><p>È vicino al modo in cui descriviamo procedure operative e calcoli passo-passo. Si legge riga per riga: ciò che accade al passo 3 dipende solo dai passi 1 e 2.</p></div><div class="card"><h3>Rischio</h3><p>Se il programma cresce senza struttura diventa un blocco unico: per capire una riga devi rileggere tutto ciò che la precede. Le procedure servono proprio a spezzarlo in parti.</p></div></div><div class="code" style="margin-top:20px">1. leggi ordine    2. verifica scorta
+3. calcola totale  4. stampa ricevuta</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Python</span><h2 class="h2">Un primo ponte verso il codice</h2><p class="lead">Python è adatto per iniziare: sintassi leggibile, poca cerimonia, risultato immediato. Queste otto righe sono già un programma completo: chiedono dati, li convertono, decidono e rispondono.</p><div class="grid2"><div class="code">nome = input("Come ti chiami? ")
+print("Ciao", nome)
+
+eta = int(input("Eta: "))
+if eta >= 18:
+    print("Maggiorenne")
+else:
+    print("Minorenne")</div><div class="card"><h3>Riga per riga</h3><p>input() mostra la domanda e restituisce ciò che scrivi, sempre come testo. int() lo trasforma in numero. if confronta e sceglie il ramo: con 25 stampa «Maggiorenne», con 15 stampa «Minorenne».</p><p style="margin-top:12px">Errore comune: dimenticare int(). input() restituisce una stringa, e confrontare "15" &gt;= 18 produce un errore di tipo.</p></div></div><div class="num"></div></section>
+<section class="slide"><span class="tag">Struttura</span><h2 class="h2">Dal pseudocodice al programma</h2><div class="grid2"><div class="card"><h3>Pseudocodice</h3><p>Serve a controllare la logica senza bloccarci sulla sintassi.</p></div><div class="card"><h3>Codice</h3><p>Traduce la logica in istruzioni precise per un interprete o compilatore.</p></div></div><div class="code" style="margin-top:34px">leggi numero
+se numero e pari allora
+  scrivi "pari"
+altrimenti
+  scrivi "dispari"</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Errori</span><h2 class="h2">Tre famiglie da riconoscere</h2><div class="grid3"><div class="card"><h3>Sintassi</h3><p>Il linguaggio non riesce a leggere il programma.</p></div><div class="card"><h3>Esecuzione</h3><p>Il programma parte, ma si blocca durante un caso specifico.</p></div><div class="card"><h3>Logica</h3><p>Il programma termina, ma produce un risultato sbagliato.</p></div></div><div class="num"></div></section>
+<section class="slide"><span class="tag">Metodo</span><h2 class="h2">Sviluppare piccoli passi verificabili</h2><p class="lead">Un buon flusso di lavoro alterna progettazione, scrittura, esecuzione e correzione. Meglio costruire programmi piccoli e testabili che scrivere molte istruzioni senza controllarle.</p><div class="grid3"><div class="card"><h3>Scrivi poco</h3><p>Aggiungi una parte alla volta.</p></div><div class="card"><h3>Esegui spesso</h3><p>Controlla subito cosa cambia.</p></div><div class="card"><h3>Testa casi</h3><p>Prova esempi normali, limite e sbagliati.</p></div></div><div class="num"></div></section>
+<section class="slide"><span class="tag">Input</span><h2 class="h2">Leggere dati dall'esterno</h2><p class="lead">Un programma diventa utile quando riceve dati variabili: da tastiera, file, sensori, rete o interfaccia grafica. L'input va sempre interpretato e controllato.</p><div class="grid2"><div class="card"><h3>Formato</h3><p>Il dato arriva come testo, numero, scelta o struttura?</p></div><div class="card"><h3>Validità</h3><p>Il dato rispetta ciò che il programma si aspetta?</p></div></div><div class="num"></div></section>
+<section class="slide"><span class="tag">Output</span><h2 class="h2">Restituire risultati comprensibili</h2><p class="lead">L'output non è solo stampare un valore. Deve comunicare il risultato nel formato giusto, con messaggi chiari e senza nascondere errori importanti.</p><div class="grid3"><div class="card"><h3>Schermo</h3><p>Messaggi, tabelle, grafici o interfacce.</p></div><div class="card"><h3>File</h3><p>Risultati salvati per uso successivo.</p></div><div class="card"><h3>Rete</h3><p>Dati inviati ad altri sistemi o servizi.</p></div></div><div class="num"></div></section>
+<section class="slide"><span class="tag">Conversioni</span><h2 class="h2">Quando il tipo deve cambiare</h2><p class="lead">Molti input arrivano come testo, anche quando rappresentano numeri. Convertire significa trasformare il valore nel tipo necessario per l'operazione successiva.</p><div class="code">eta_testo = "18"
+eta = int(eta_testo)
+if eta >= 18:
+    print("ok")</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Operatori</span><h2 class="h2">Aritmetici, relazionali e logici</h2><p class="lead">Gli operatori sono simboli o parole che combinano valori. Alcuni calcolano, altri confrontano, altri costruiscono condizioni più complesse.</p><div class="grid3"><div class="card"><h3>Aritmetici</h3><p>+, -, *, / per calcoli numerici.</p></div><div class="card"><h3>Relazionali</h3><p>==, !=, &gt;, &lt; per confrontare.</p></div><div class="card"><h3>Logici</h3><p>and, or, not per combinare condizioni.</p></div></div><div class="num"></div></section>
+<section class="slide"><span class="tag">Aritmetici</span><h2 class="h2">Operatori aritmetici: somma, sottrazione, prodotto</h2><p class="lead">Gli operatori aritmetici trasformano numeri in altri numeri. Sono la base di calcoli, statistiche, coordinate, prezzi, tempi e quantità.</p><div class="code">prezzo = 12
+quantita = 3
+totale = prezzo * quantita
+sconto = totale * 0.10
+finale = totale - sconto</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Aritmetici</span><h2 class="h2">Divisione, resto e divisione intera</h2><p class="lead">La divisione produce un quoziente; il resto dice cosa avanza. Sono utili per turni, gruppi, pagine, pari/dispari e distribuzioni.</p><div class="code">17 / 5   → 3.4
+17 // 5  → 3
+17 % 5   → 2
+numero % 2 == 0  → pari</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Aritmetici</span><h2 class="h2">Potenza, radici e precedenza</h2><p class="lead">La precedenza decide cosa viene calcolato prima. Le parentesi rendono la formula leggibile e impediscono ambiguità.</p><div class="code">2 + 3 * 4      → 14
+(2 + 3) * 4    → 20
+2 ** 3         → 8
+area = base * altezza</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Aritmetici</span><h2 class="h2">Incrementi, decrementi e accumuli</h2><p class="lead">Molti algoritmi aggiornano una variabile a partire dal suo valore precedente: contatori, totali, medie progressive, inventari.</p><div class="code">contatore = contatore + 1
+totale = totale + prezzo
+scorta = scorta - venduti
+saldo += versamento</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Aritmetici</span><h2 class="h2">Esempi pratici di formule numeriche</h2><p class="lead">La stessa logica appare in gestionali, fogli di calcolo e app: calcolo prezzo, IVA, durata, percentuali, punteggi.</p><div class="code">iva = imponibile * 0.22
+lordo = imponibile + iva
+percentuale = parte / totale * 100
+media = somma / numero_valori</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Logici</span><h2 class="h2">Operatori di confronto</h2><p class="lead">I confronti non restituiscono numeri ma valori booleani: vero o falso. Sono la porta d’ingresso di condizioni e filtri.</p><div class="code">eta &gt;= 18
+prezzo &lt; budget
+nome == "Luca"
+stato != "annullato"
+scorta &lt;= soglia</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Logici</span><h2 class="h2">AND: tutte le condizioni devono essere vere</h2><p class="lead">AND serve quando un’azione richiede più requisiti contemporaneamente.</p><div class="code">eta &gt;= 18 and documento_valido
+prezzo &gt; 0 and quantita &gt; 0
+utente_attivo and password_corretta
+scorta &gt; 0 and ordine_pagato</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Logici</span><h2 class="h2">OR: basta una condizione vera</h2><p class="lead">OR serve per alternative equivalenti: più strade portano allo stesso risultato.</p><div class="code">ruolo == "admin" or ruolo == "editor"
+pagamento == "carta" or pagamento == "paypal"
+giorno == "sabato" or giorno == "domenica"
+sconto_cliente or coupon_valido</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Logici</span><h2 class="h2">NOT: invertire una condizione</h2><p class="lead">NOT rende esplicito il contrario. È utile per controllare assenze, blocchi e casi non consentiti.</p><div class="code">not trovato
+not utente_bloccato
+not email_verificata
+if not lista_vuota:
+    elabora()</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Logici</span><h2 class="h2">Combinare condizioni con parentesi</h2><p class="lead">Quando AND e OR convivono, le parentesi sono essenziali. Rendono chiaro cosa appartiene a quale parte della decisione.</p><div class="code">(eta &gt;= 18 and documento_valido) or autorizzazione_genitore
+(prezzo &gt; 0 and quantita &gt; 0) and not annullato
+ruolo == "admin" or (ruolo == "staff" and turno_attivo)</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Assegnazione</span><h2 class="h2">Assegnazione semplice: il segno =</h2><p class="lead">In programmazione = non significa “uguale” matematico: significa prendi il valore a destra e salvalo nel nome a sinistra.</p><div class="code">totale = 0
+nome = "Giulia"
+attivo = True
+prezzo_finale = prezzo - sconto</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Assegnazione</span><h2 class="h2">Assegnazioni composte</h2><p class="lead">Gli operatori composti aggiornano una variabile usando il suo valore precedente. Sono abbreviazioni molto comuni.</p><div class="code">x += 1   # x = x + 1
+x -= 2   # x = x - 2
+x *= 3   # x = x * 3
+x /= 4   # x = x / 4
+x %= 2   # x = x % 2</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Simboli</span><h2 class="h2">Simboli fondamentali nella sintassi</h2><p class="lead">Ogni linguaggio usa simboli per separare blocchi, argomenti, liste, stringhe e commenti. Riconoscerli aiuta a leggere codice nuovo.</p><div class="code">()  chiamata o raggruppamento
+[]  liste o indici
+{}  blocchi o dizionari
+,   separa argomenti
+:   introduce blocchi in Python
+#   commento in Python</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Simboli</span><h2 class="h2">Uguale, confronto e identità</h2><p class="lead">Molti bug nascono dalla confusione tra assegnare, confrontare e controllare identità o equivalenza.</p><div class="code">x = 5      # assegna
+x == 5     # confronta valore
+x != 5     # diverso
+x is None  # identità/speciale in Python</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Sintesi</span><h2 class="h2">Scegliere l’operatore giusto</h2><p class="lead">Prima chiediti che tipo di risultato vuoi: numero, vero/falso, aggiornamento di variabile o struttura sintattica.</p><div class="code">numero → + - * / // % **
+booleano → == != &gt; &lt; &gt;= &lt;= and or not
+aggiornamento → = += -= *= /=
+struttura → () [] {} , : .</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Indentazione</span><h2 class="h2">La forma può avere significato</h2><p class="lead">In Python l'indentazione non è decorativa: delimita blocchi di istruzioni. Un rientro sbagliato può cambiare il comportamento o generare errore.</p><div class="code">if eta >= 18:
+    print("accesso consentito")
+    print("continua")
+print("fine controllo")</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Liste</span><h2 class="h2">Conservare più valori insieme</h2><p class="lead">Una lista raccoglie più elementi in una sola struttura. Permette di attraversare dati simili con un ciclo, calcolare statistiche o cercare elementi.</p><div class="code">voti = [7, 8, 6, 9]
+totale = 0
+for voto in voti:
+    totale = totale + voto</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Funzioni</span><h2 class="h2">Separare una responsabilità</h2><p class="lead">Una funzione riceve dati, esegue un compito e può restituire un risultato. Aiuta a rendere il programma più corto, leggibile e testabile.</p><div class="code">def area_rettangolo(base, altezza):
+    return base * altezza
+
+area = area_rettangolo(5, 3)</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Scope</span><h2 class="h2">Dove vive una variabile</h2><p class="lead">Lo scope indica in quale parte del programma un nome è visibile. Capirlo evita confusione tra variabili locali, parametri e valori globali.</p><div class="grid2"><div class="card"><h3>Locale</h3><p>Esiste dentro una funzione o un blocco specifico.</p></div><div class="card"><h3>Globale</h3><p>È accessibile da più parti, ma va usato con prudenza.</p></div></div><div class="num"></div></section>
+<section class="slide"><span class="tag">Debug</span><h2 class="h2">Osservare il programma mentre lavora</h2><p class="lead">Fare debug significa ricostruire cosa succede davvero durante l'esecuzione. Si controllano input, valori intermedi, rami scelti e punto in cui il comportamento diverge dalle attese.</p><div class="grid3"><div class="card"><h3>Stampe</h3><p>Mostrano valori temporanei.</p></div><div class="card"><h3>Breakpoint</h3><p>Fermano l'esecuzione in un punto.</p></div><div class="card"><h3>Traccia</h3><p>Segue il percorso del programma.</p></div></div><div class="num"></div></section>
+<section class="slide"><span class="tag">Test</span><h2 class="h2">Controllare funzioni piccole</h2><p class="lead">Una funzione con input e output chiari può essere testata con esempi semplici. Questo riduce il rischio che errori nascosti si sommino nel programma completo.</p><div class="code">area_rettangolo(5, 3) → 15
+area_rettangolo(0, 3) → 0
+area_rettangolo(2, 2) → 4</div><div class="num"></div></section>
+<section class="slide"><span class="tag">Documentare</span><h2 class="h2">Spiegare ciò che il codice non dice da solo</h2><p class="lead">I commenti non devono ripetere istruzioni ovvie. Servono per chiarire scelte, vincoli, casi limite e motivi per cui una soluzione è stata preferita a un'altra.</p><div class="grid2"><div class="card"><h3>Utile</h3><p>Spiega una decisione non evidente.</p></div><div class="card"><h3>Inutile</h3><p>Ripete parola per parola il codice.</p></div></div><div class="num"></div></section>
+<section class="slide closing"><h2 class="h2">Ora i concetti possono diventare blocchi.</h2><p class="lead">Dati, algoritmi, logica e codice preparano il passaggio a Scratch, dove questi concetti diventano visivi e manipolabili.</p><p><a class="chip" href="pr02-01-introduzione.html">Prossimo → PR02.01 · Scratch</a></p><div class="num"></div></section>
+</main><a class="home-btn" href="00-indice.html">↩ Indice</a><div class="progress"></div><script>
+const slides=[...document.querySelectorAll('.slide')],stage=document.getElementById('deckStage'),progress=document.querySelector('.progress');let current=0;function resize(){const s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform=`scale(${s})`;stage.style.left=`${(innerWidth-1920*s)/2}px`;stage.style.top=`${(innerHeight-1080*s)/2}px`}function show(i){current=Math.max(0,Math.min(slides.length-1,i));slides.forEach((sl,n)=>sl.classList.toggle('visible',n===current));progress.style.width=`${(current+1)/slides.length*100}%`;location.hash=current+1}function move(d){show(current+d)}document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();move(1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();move(-1)}if(e.key.toLowerCase()==='i')location.href='00-indice.html'});addEventListener('wheel',e=>{if(Math.abs(e.deltaY)>30)move(e.deltaY>0?1:-1)},{passive:true});document.querySelectorAll('.num').forEach((n,i)=>n.innerHTML=`<b>${i+1}</b>/${slides.length}`);addEventListener('resize',resize);resize();{const hm=location.hash.match(/(?:slide-|slide=|^#)(\d+)/);show(Math.max(1,hm?parseInt(hm[1],10):1)-1);}addEventListener('hashchange',()=>{const m=location.hash.match(/(?:slide-|slide=|^#)(\d+)/);if(m){const n=parseInt(m[1],10)-1;if(Number.isInteger(n))show(n);}});
+</script></body></html>
