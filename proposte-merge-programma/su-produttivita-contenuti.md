@@ -5,7 +5,7 @@
 - `su02-google-workspace.html`
 - `su05-documenti.html`
 - `su06-sistema.html`
-- `su12-presentazioni.html`
+- `su13-presentazioni.html`
 - `su11-testo.html`
 - `sm08-fotocamera-contenuti.html`
 - eventuale collegamento con `su03-adobe.html` e `su04-alternativi.html`
@@ -49,7 +49,7 @@ Contenuto implementato: mappa mentale (espansione per associazioni) vs mappa con
 
 ## SU12 - Contenuti visuali (banner, volantini, post social) ✅
 
-**Slide aggiunta in su12-presentazioni.html** prima del closing. Contenuto implementato: scegliere formato (post/storia/banner/A4), template come punto di partenza, gerarchia visiva (titolo→immagine→info→CTA), colori coerenti, pochi font, esportare PNG/PDF. Tool: Canva, Adobe Express, PowerPoint/Slides, LibreOffice Draw.
+**Slide aggiunta in su13-presentazioni.html** prima del closing. Contenuto implementato: scegliere formato (post/storia/banner/A4), template come punto di partenza, gerarchia visiva (titolo→immagine→info→CTA), colori coerenti, pochi font, esportare PNG/PDF. Tool: Canva, Adobe Express, PowerPoint/Slides, LibreOffice Draw.
 
 ---
 

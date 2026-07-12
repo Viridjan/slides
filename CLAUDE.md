@@ -291,7 +291,11 @@ Navigation chain: sm01 → … → sm11
 
 ### Suite Ufficio
 
-Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 → su08 → su09 → su10 → su11 → su12 → su13
+Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 → su08 → su09 → su10 → su11 → su12 → su13 → su14 → su15 → su16 → su17 → su18
+
+The index groups the series into sub-series: `su01`-`su04` software, `su05`
+documenti, `su06`-`su12` fogli di calcolo, `su13` presentazioni, and the
+advanced block `su14`-`su18` (index codes `SU03.08`-`SU03.12`).
 
 | File | Title |
 | --- | --- |
@@ -308,6 +312,11 @@ Navigation chain: su01 → su02 → su03 → su04 → su05 → su06 → su07 →
 | `su11-testo.html` | Manipolare il testo |
 | `su12-tabelle-pivot.html` | Tabelle pivot |
 | `su13-presentazioni.html` | Dillo con una slide |
+| `su14-fogli-calcolo-avanzati.html` | Fogli di calcolo avanzati |
+| `su15-query-fogli-calcolo.html` | Query nei fogli di calcolo |
+| `su16-macro-fogli-calcolo.html` | Macro nei fogli di calcolo |
+| `su17-vba.html` | VBA per Excel |
+| `su18-google-apps-script.html` | Google Apps Script |
 
 ### Intelligenza Artificiale
 
