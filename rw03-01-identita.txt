@@ -87,16 +87,16 @@ Sul lavoro
 
 --- Slide 7 ---
 Privacy · GDPR
- I dati sensibili
- Nomi, recapiti e soprattutto informazioni su salute e trattamenti dei clienti sono dati sensibili: vanno gestiti secondo la legge europea sulla privacy ( GDPR ).
+ Dati personali e categorie particolari
+ Nomi e recapiti sono dati personali ; le informazioni sulla salute appartengono alle categorie particolari di dati e ricevono tutele rafforzate. Tutti vanno trattati nel rispetto del GDPR.
 
  🕶️ Anonimizza In locale puoi tenerli completi; quando li condividi "fuori", rendili anonimi (solo iniziali o codici).
- 👁️ Solo chi deve Sii chiaro su chi può vedere cosa : i dati sensibili non sono per tutti.
+ 👁️ Solo chi deve Sii chiaro su chi può vedere cosa : limita l'accesso ai dati personali in base al ruolo e alla necessità.
  🤫 Niente chiacchiere Anche due parole alla macchinetta del caffè sono una fuga di dati: può essere un reato .
 
 
  ⚠️ Responsabilità
- Essere responsabili di una fuga di dati sensibili ha conseguenze serie, legali ed economiche. Nel dubbio: meno si condivide, meglio è.
+ Una violazione di dati personali può avere conseguenze serie per le persone e per l'organizzazione. Applica minimizzazione, controllo degli accessi e procedure di segnalazione.
 
 --- Slide 8 ---
 SPID · Come funziona
@@ -112,7 +112,7 @@ SPID · Come funziona
 
 
  💳 Livello 3
- Password + smartcard fisica. Solo per servizi ad altissima sicurezza.
+ Autenticazione a due fattori basata su certificati digitali . È riservata ai servizi che richiedono il livello di garanzia più elevato.
 
 
 
@@ -135,9 +135,9 @@ PEC · Valore legale
 
 
  Prova di consegna No — nessuna ricevuta ufficiale Sì — ricevuta con valore legale
- Mittente verificato Chiunque può fingere un indirizzo Il mittente è certificato dallo Stato
+ Identità e integrità L'indirizzo può essere falsificato più facilmente Il gestore PEC identifica il titolare e certifica invio, consegna e integrità del messaggio
  Quando si usa Comunicazioni ordinarie, newsletter Contratti, ricorsi, PA, fatture
- Costo Gratuita (Gmail, Outlook ecc.) ~5–10 €/anno per privati
+ Costo Esistono servizi gratuiti e a pagamento Dipende dal gestore e dal piano scelto
 
 
 
@@ -147,7 +147,7 @@ PEC · Valore legale
 --- Slide 10 ---
 Identità digitale · CIE e CNS
  Tre strumenti per dimostrare chi sei online
- SPID, CIE e TS-CNS sono i tre sistemi riconosciuti dallo Stato per accedere ai servizi pubblici digitali. Stesso obiettivo, tecnologie diverse.
+ SPID, CIE e CNS/TS-CNS sono strumenti di identificazione e autenticazione usati nei servizi pubblici digitali. La disponibilità varia secondo il servizio.
 
 
  🪪
@@ -167,7 +167,7 @@ Identità digitale · CIE e CNS
 
 
  💡 Servizi PA digitali — esempi
- INPS, Agenzia delle Entrate, ANPR, fascicolo sanitario elettronico, PagoPA, Comune online — tutti accessibili con SPID o CIE. Prima di inserire dati: verificare dominio ufficiale (.gov.it) e HTTPS.
+ INPS, Agenzia delle Entrate, ANPR, fascicolo sanitario elettronico e servizi comunali possono offrire accessi diversi. Prima di inserire dati, raggiungi il servizio dai portali istituzionali e verifica dominio e HTTPS.
 
 --- Slide 11 ---
 Email professionale
@@ -240,7 +240,7 @@ Netiquette
 
 
  ⏰ Tempi di risposta
- Rispondi entro 24 ore lavorative . Fuori orario usa la risposta automatica o rispondi il giorno dopo.
+ Rispetta i tempi concordati con clienti e organizzazione. Fuori orario usa la risposta automatica quando serve.
 
 
  🎙️ No vocali lunghi

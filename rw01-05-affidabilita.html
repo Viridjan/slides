@@ -219,8 +219,8 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
         <p>L'indirizzo deve iniziare con <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;font-family:var(--font-mono);">https://</code> — non con <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;font-family:var(--font-mono);">http://</code>. La "S" finale sta per "Secure".</p>
       </div>
       <div class="card" style="border-color:var(--teal-2);">
-        <h3><span style="color:var(--teal-2);">02</span> Simbolo del lucchetto</h3>
-        <p>Il lucchetto 🔒 accanto all'URL indica che la connessione è crittografata. Cliccandoci sopra puoi vedere i dettagli del certificato.</p>
+        <h3><span style="color:var(--teal-2);">02</span> Informazioni sulla connessione</h3>
+        <p>Il browser mostra un controllo vicino all'URL per consultare sicurezza e permessi del sito. L'icona varia tra browser e versioni: non è sempre un lucchetto.</p>
       </div>
       <div class="card" style="border-color:var(--teal);">
         <h3><span style="color:var(--teal);">03</span> Dominio corretto</h3>
@@ -269,8 +269,8 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
   <div class="split even">
     <div class="col stack">
       <div class="tape teal reveal">Indicatore</div>
-      <h2 class="h-big reveal">Il simbolo del<br><em class="teal">lucchetto</em></h2>
-      <p class="lead reveal d1">Nei browser moderni il lucchetto compare accanto all'URL quando la connessione è protetta tramite certificato digitale.</p>
+      <h2 class="h-big reveal">Le informazioni sulla<br><em class="teal">connessione</em></h2>
+      <p class="lead reveal d1">I browser moderni mostrano vicino all'URL un controllo per sicurezza e permessi. Grafica e posizione cambiano, quindi verifica sempre anche protocollo, dominio ed eventuali avvisi.</p>
       <div class="stack reveal d2">
         <div class="note teal">
           <div class="lbl">Cosa indica</div>
@@ -278,7 +278,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
         </div>
         <div class="note red">
           <div class="lbl">⚠️ Cosa NON indica</div>
-          <p>Il lucchetto <b>non garantisce</b> che il sito sia affidabile o legittimo. Garantisce solo che la connessione è sicura.</p>
+          <p>Una connessione HTTPS <b>non garantisce</b> che il sito sia affidabile o legittimo: protegge il trasporto dei dati e autentica il server per il dominio indicato.</p>
         </div>
       </div>
     </div>
@@ -447,7 +447,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
       <p class="lead reveal d1">Presentano punti di vista personali, editoriali o politici. Non è sbagliato leggerli, ma è fondamentale distinguere i fatti dalle opinioni.</p>
       <div class="note reveal d2">
         <div class="lbl">La distinzione chiave</div>
-        <p><b>Fatto:</b> "Le emissioni di CO₂ sono aumentate del 12% nel 2023." (verificabile con dati)<br><b>Opinione:</b> "Il governo ha sbagliato a non intervenire prima." (punto di vista)</p>
+        <p><b>Fatto verificabile:</b> "Il rapporto indica un aumento del 12% nel periodo esaminato." (controlla rapporto, luogo e periodo)<br><b>Opinione:</b> "Il governo ha sbagliato a non intervenire prima." (punto di vista)</p>
       </div>
     </div>
     <div class="col stack reveal d1">
@@ -835,7 +835,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     <p class="lead reveal d1">Per navigare in sicurezza e valutare correttamente le informazioni online:</p>
     <div class="grid2 reveal d2" style="margin-top:18px;gap:16px;">
       <div style="display:flex;flex-direction:column;gap:14px;">
-        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">🔒</span><div class="tx"><b>Riconosci i siti sicuri</b> — HTTPS, lucchetto, dominio corretto</div></div>
+        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">🔒</span><div class="tx"><b>Controlla la connessione</b> — HTTPS, dominio corretto e assenza di avvisi del browser</div></div>
         <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">🎯</span><div class="tx"><b>Capisci lo scopo</b> — informativo, commerciale, opinione?</div></div>
         <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:18px 22px;"><span class="ck">🧑‍💼</span><div class="tx"><b>Verifica autore e fonti</b> — chi ha scritto? Cita prove?</div></div>
       </div>
