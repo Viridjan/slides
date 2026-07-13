@@ -15,6 +15,15 @@ nobody is working — the other agent may be mid-task and committing as it goes.
 
 ### Work log
 
+- **2026-07-14 · Claude** — Source footers now stack as a list (one link per
+  line) instead of sitting side by side; changed in
+  `scripts/add-official-source-links.js`, regenerated across all decks.
+- **2026-07-14 · Claude** — Content slides are vertically centred via
+  `theme-corsi.css` (`justify-content: safe center`, `gap: 20px`), so a slide
+  reads as full rather than top-heavy. `safe center` keeps a dense slide
+  top-aligned instead of clipping its heading. Title and closing slides keep
+  their own layout.
+
 - **2026-07-12 · Claude** — Added the `.analogy` component (CSS rule + one
   banner) to `su03-08` … `su03-12`; it was missing from that whole batch.
   Regenerated their `.txt` companions.
