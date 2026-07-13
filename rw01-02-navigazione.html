@@ -155,7 +155,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
       <div class="agenda-item"><span class="n">01</span><span class="t">Navigare sul Web</span></div>
       <div class="agenda-item"><span class="n">02</span><span class="t">I protocolli di rete</span></div>
       <div class="agenda-item"><span class="n">03</span><span class="t">HTTP — il linguaggio del Web</span></div>
-      <div class="agenda-item"><span class="n">04</span><span class="t">HTTPS<a href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a> — comunicazione sicura</span></div>
+      <div class="agenda-item"><span class="n">04</span><span class="t">HTTPS — comunicazione sicura</span></div>
       <div class="agenda-item"><span class="n">05</span><span class="t">HTTP vs HTTPS a confronto</span></div>
       <div class="agenda-item"><span class="n">06</span><span class="t">Cos'è un URL</span></div>
       <div class="agenda-item"><span class="n">07</span><span class="t">Anatomia di un URL</span></div>
@@ -164,7 +164,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-</section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: HTTP Semantics — RFC 9110 ↗</a></div></section>
 
 <!-- === SLIDE 3: NAVIGARE SUL WEB === -->
 <section class="slide">
@@ -235,7 +235,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
       <div class="card">
         <span class="ic">🌍</span>
         <h3>Protocolli del Web</h3>
-        <p><b>HTTP/HTTPS<a href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a></b> — Scambio di pagine web<br><b>TCP/IP</b> — Consegna dei pacchetti<br><b>DNS<a href="https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Domain Name System — ICANN" aria-label="Fonte ufficiale: Domain Name System — ICANN" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a></b> — Traduzione nome→IP<br><b>FTP</b> — Trasferimento file<br><b>SMTP/IMAP</b> — Email</p>
+        <p><b>HTTP/HTTPS</b> — Scambio di pagine web<br><b>TCP/IP</b> — Consegna dei pacchetti<br><b>DNS</b> — Traduzione nome→IP<br><b>FTP</b> — Trasferimento file<br><b>SMTP/IMAP</b> — Email</p>
       </div>
       <div class="card">
         <span class="ic">🤝</span>
@@ -246,7 +246,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">Analogia:</span> il galateo è il protocollo di una conversazione educata — regole che tutti seguono per capirsi.</div>
   </div>
   <div class="page-num"></div>
-</section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: HTTP Semantics — RFC 9110 ↗</a><a data-source-origin="auto" href="https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Domain Name System — ICANN" aria-label="Fonte ufficiale: Domain Name System — ICANN" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Domain Name System — ICANN ↗</a></div></section>
 
 <!-- === SLIDE 5: HTTP === -->
 <section class="slide tight-slide">
@@ -262,7 +262,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
         </div>
         <div class="note red">
           <div class="lbl">⚠️ Limite di HTTP</div>
-          <p>I dati viaggiano <b>in chiaro</b> — non cifrati. Chiunque sia sulla stessa rete può leggerli. Inadatto per dati sensibili (password<a href="https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Password e MFA — NIST" aria-label="Fonte ufficiale: Password e MFA — NIST" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a>, dati bancari).</p>
+          <p>I dati viaggiano <b>in chiaro</b> — non cifrati. Chiunque sia sulla stessa rete può leggerli. Inadatto per dati sensibili (password, dati bancari).</p>
         </div>
       </div>
     </div>
@@ -295,15 +295,15 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-</section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Password e MFA — NIST" aria-label="Fonte ufficiale: Password e MFA — NIST" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Password e MFA — NIST ↗</a></div></section>
 
 <!-- === SLIDE 6: HTTPS === -->
 <section class="slide tight-slide">
   <div class="split">
     <div class="col stack">
       <div class="tape teal reveal">Comunicazione sicura</div>
-      <h2 class="h-big reveal"><span class="badge https" style="font-size:60px;padding:14px 30px;display:block;margin-bottom:16px;">HTTPS<a href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a></span>HTTP<br><em class="hot">Secure</em></h2>
-      <p class="lead reveal d1">La versione sicura di HTTP. I dati vengono <b>cifrati tramite TLS<a href="https://www.rfc-editor.org/rfc/rfc8446" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: TLS 1.3 — RFC 8446" aria-label="Fonte ufficiale: TLS 1.3 — RFC 8446" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a></b> (Transport Layer Security) prima di essere trasmessi. Anche se intercettati, risultano illeggibili.</p>
+      <h2 class="h-big reveal"><span class="badge https" style="font-size:60px;padding:14px 30px;display:block;margin-bottom:16px;">HTTPS</span>HTTP<br><em class="hot">Secure</em></h2>
+      <p class="lead reveal d1">La versione sicura di HTTP. I dati vengono <b>cifrati tramite TLS</b> (Transport Layer Security) prima di essere trasmessi. Anche se intercettati, risultano illeggibili.</p>
       <div class="stack reveal d2">
         <div class="note teal">
           <div class="lbl" style="color:var(--gold) !important;">🔒 Come funziona la cifratura</div>
@@ -345,17 +345,17 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-</section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: HTTP Semantics — RFC 9110 ↗</a><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc8446" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: TLS 1.3 — RFC 8446" aria-label="Fonte ufficiale: TLS 1.3 — RFC 8446" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: TLS 1.3 — RFC 8446 ↗</a></div></section>
 
 <!-- === SLIDE 7: HTTP vs HTTPS === -->
 <section class="slide">
   <div class="center">
     <div class="tape teal reveal">Confronto</div>
-    <h2 class="h-sec reveal" style="margin-top:20px;"><span class="badge http">HTTP</span> vs <span class="badge https">HTTPS<a href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a></span></h2>
+    <h2 class="h-sec reveal" style="margin-top:20px;"><span class="badge http">HTTP</span> vs <span class="badge https">HTTPS</span></h2>
     <div class="grid2 reveal d1" style="margin-top:22px;">
       <div class="card" style="border-color:var(--gold-deep);">
         <h3>HTTP</h3>
-        <p>🔓 Dati <b>non cifrati</b> — visibili in rete<br>⚡ Più veloce (nessuna cifratura)<br>❌ Non adatto a password<a href="https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Password e MFA — NIST" aria-label="Fonte ufficiale: Password e MFA — NIST" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a>, dati bancari<br>❌ Nessuna verifica identità del sito<br>📛 Browser mostra "Non sicuro"<br>🏛️ Usato ancora per contenuti pubblici non sensibili</p>
+        <p>🔓 Dati <b>non cifrati</b> — visibili in rete<br>⚡ Più veloce (nessuna cifratura)<br>❌ Non adatto a password, dati bancari<br>❌ Nessuna verifica identità del sito<br>📛 Browser mostra "Non sicuro"<br>🏛️ Usato ancora per contenuti pubblici non sensibili</p>
       </div>
       <div class="card" style="border-color:var(--teal);">
         <h3>HTTPS</h3>
@@ -374,7 +374,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-</section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: HTTP Semantics — RFC 9110 ↗</a><a data-source-origin="auto" href="https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Password e MFA — NIST" aria-label="Fonte ufficiale: Password e MFA — NIST" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Password e MFA — NIST ↗</a></div></section>
 
 <!-- === SLIDE 8: COS'È UN URL === -->
 <section class="slide">
@@ -386,7 +386,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
       <div class="card">
         <span class="ic">📍</span>
         <h3>Cosa identifica</h3>
-        <p>Qualsiasi risorsa raggiungibile via Internet: una pagina HTML, un'immagine, un file PDF, un video, un file audio<a href="https://www.w3.org/TR/webaudio/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Web Audio API — W3C" aria-label="Fonte ufficiale: Web Audio API — W3C" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a>, un'applicazione web.</p>
+        <p>Qualsiasi risorsa raggiungibile via Internet: una pagina HTML, un'immagine, un file PDF, un video, un file audio, un'applicazione web.</p>
       </div>
       <div class="card">
         <span class="ic">🌍</span>
@@ -400,12 +400,12 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
       </div>
     </div>
     <div class="url-box reveal d3" style="margin-top:24px;font-size:40px;text-align:center;">
-      <span class="s-proto">https<a href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a>://</span><span class="s-host">www.wikipedia.org</span><span class="s-path">/wiki/Internet</span>
+      <span class="s-proto">https://</span><span class="s-host">www.wikipedia.org</span><span class="s-path">/wiki/Internet</span>
     </div>
     <p class="illu-cap reveal d3" style="margin-top:10px;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);text-align:center;">Questo URL identifica la pagina "Internet" su Wikipedia in italiano</p>
   </div>
   <div class="page-num"></div>
-</section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://www.w3.org/TR/webaudio/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Web Audio API — W3C" aria-label="Fonte ufficiale: Web Audio API — W3C" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Web Audio API — W3C ↗</a><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: HTTP Semantics — RFC 9110 ↗</a></div></section>
 
 <!-- === SLIDE 9: ANATOMIA DI UN URL === -->
 <section class="slide">
@@ -413,13 +413,13 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     <div class="tape teal reveal">Struttura</div>
     <h2 class="h-sec reveal" style="margin-top:16px;">Anatomia di un <em class="hot">URL</em></h2>
     <div class="url-box reveal d1" style="margin-top:18px;font-size:38px;text-align:center;">
-      <span class="s-proto">https<a href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a>://</span><span class="s-host">www.sitofinto.edu.it</span><span class="s-path">/corsi/informatica</span><span class="s-query">?anno=2&tipo=base</span>
+      <span class="s-proto">https://</span><span class="s-host">www.sitofinto.edu.it</span><span class="s-path">/corsi/informatica</span><span class="s-query">?anno=2&tipo=base</span>
     </div>
     <div class="grid4 reveal d2" style="margin-top:22px;">
       <div class="card" style="border-color:var(--gold-deep);">
         <div style="margin-bottom:10px;"><span class="badge http" style="font-size:20px;">Protocollo</span></div>
         <h3 style="font-family:var(--font-mono);color:var(--gold-deep);">https://</h3>
-        <p>Definisce le regole di comunicazione. HTTP o HTTPS per il Web. FTP per file. mailto: per email<a href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a>. Termina sempre con <code style="background:var(--paper-2);padding:2px 6px;border-radius:4px;">://</code></p>
+        <p>Definisce le regole di comunicazione. HTTP o HTTPS per il Web. FTP per file. mailto: per email. Termina sempre con <code style="background:var(--paper-2);padding:2px 6px;border-radius:4px;">://</code></p>
       </div>
       <div class="card" style="border-color:var(--teal);">
         <div style="margin-bottom:10px;"><span class="badge https" style="font-size:20px;">Host</span></div>
@@ -439,7 +439,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-</section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: HTTP Semantics — RFC 9110 ↗</a><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
 
 <!-- === SLIDE 10: COS'È UN DOMINIO === -->
 <section class="slide">
@@ -451,7 +451,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
       <div class="stack reveal d2">
         <div class="note">
           <div class="lbl">Come funziona</div>
-          <p>Il <b>DNS<a href="https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Domain Name System — ICANN" aria-label="Fonte ufficiale: Domain Name System — ICANN" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a></b> (Domain Name System) traduce automaticamente il nome in un indirizzo IP. Digiti <code style="background:var(--paper-2);padding:2px 6px;border-radius:4px;">google.com</code> → il DNS trova l'IP → il browser si connette.</p>
+          <p>Il <b>DNS</b> (Domain Name System) traduce automaticamente il nome in un indirizzo IP. Digiti <code style="background:var(--paper-2);padding:2px 6px;border-radius:4px;">google.com</code> → il DNS trova l'IP → il browser si connette.</p>
         </div>
         <div class="note" style="background:var(--paper-2);">
           <div class="lbl">Struttura del dominio</div>
@@ -494,7 +494,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-</section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Domain Name System — ICANN" aria-label="Fonte ufficiale: Domain Name System — ICANN" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Domain Name System — ICANN ↗</a></div></section>
 
 <!-- === SLIDE 11: HYPERLINK === -->
 <section class="slide">
@@ -506,7 +506,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
       <div class="card">
         <span class="ic">🔗</span>
         <h3>Caratteristiche</h3>
-        <p>Un link collega qualsiasi risorsa: pagina web, immagine, file da scaricare, email<a href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a>, numero di telefono, sezione della stessa pagina. Può essere testo, un'immagine, un pulsante.</p>
+        <p>Un link collega qualsiasi risorsa: pagina web, immagine, file da scaricare, email, numero di telefono, sezione della stessa pagina. Può essere testo, un'immagine, un pulsante.</p>
         <p style="margin-top:14px;font-family:var(--font-mono);font-size:22px;color:var(--teal);">&lt;a href="url"&gt;testo&lt;/a&gt;</p>
       </div>
       <div class="card">
@@ -528,7 +528,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-</section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
 
 <!-- === SLIDE 12: CLOSING === -->
 <section class="slide closing">

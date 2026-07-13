@@ -24,10 +24,12 @@ for (const htmlFile of files) {
   let txt = execFileSync('git', ['show', `HEAD:${txtFile}`], { encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });
   txt = txt.replace(/--- Slide (\d+) ---\n([\s\S]*?)(?=\n--- Slide \d+ ---|\s*$)/g, (block, number, body) => {
     const sources = slideSources[Number(number) - 1] || [];
-    if (!sources.length) return block;
+    const cleanBody = body.replace(/\n?Fonti ufficiali:\n(?:- [^\n]+\n?)+/g, '').trimEnd();
+    if (!sources.length) return `--- Slide ${number} ---\n${cleanBody}\n`;
     const list = sources.map(source => `- ${source.label} — ${source.href}`).join('\n');
-    return `--- Slide ${number} ---\n${body.trimEnd()}\nFonti ufficiali:\n${list}\n`;
+    return `--- Slide ${number} ---\n${cleanBody}\nFonti ufficiali:\n${list}\n`;
   });
+  txt = `${txt.trimEnd()}\n`;
   fs.writeFileSync(txtFile, txt);
 }
 

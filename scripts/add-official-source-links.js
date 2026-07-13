@@ -82,11 +82,53 @@ const SOURCES = [
 ].sort((a, b) => b[0].length - a[0].length);
 
 const escapeRe = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-const sourceLink = (url, label) => `<a href="${url}" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: ${label}" aria-label="Fonte ufficiale: ${label}" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a>`;
+const escapeHtml = value => value
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;');
+const cleanText = value => value.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+const sourceLink = (url, label) => `<a data-source-origin="auto" href="${url}" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: ${label}" aria-label="Fonte ufficiale: ${label}">↗</a>`;
+
+function sourceFooter(section, savedFooter = '') {
+  const sources = new Map();
+  const sourceAnchor = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+
+  const collect = html => html.replace(sourceAnchor, (anchor, attrs, content) => {
+    const href = attrs.match(/href="(https?:\/\/[^\"]+)"/i)?.[1];
+    const title = attrs.match(/title="Fonte ufficiale:\s*([^\"]+)"/i)?.[1];
+    const visible = cleanText(content);
+    if (!href || (!title && !/^Fonte(?: ufficiale)?\s*(?:→|:)/i.test(visible))) return anchor;
+
+    const label = title || visible.replace(/^Fonte(?: ufficiale)?\s*(?:→|:)\s*/i, '');
+    const origin = /data-source-origin="auto"/i.test(attrs) ? 'auto' : 'manual';
+    const previous = sources.get(href);
+    if (!previous || origin === 'manual') sources.set(href, { href, label, origin });
+    return '';
+  });
+
+  collect(savedFooter);
+  const cleaned = collect(section);
+  if (!sources.size) return cleaned;
+
+  const links = [...sources.values()].map(({ href, label, origin }) => {
+    const safeLabel = escapeHtml(label);
+    return `<a data-source-origin="${origin}" href="${href}" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: ${safeLabel}" aria-label="Fonte ufficiale: ${safeLabel}" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: ${safeLabel} ↗</a>`;
+  }).join('');
+  const footer = `<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;">${links}</div>`;
+  return cleaned.replace(/<\/section>\s*$/i, `${footer}</section>`);
+}
 
 function annotateSection(section) {
   if (/class="[^"]*(?:title|closing)[^"]*"/.test(section)) return section;
-  const linkedUrls = new Set([...section.matchAll(/<a\b[^>]*href="([^"]+)"/gi)].map(m => m[1]));
+  let savedFooter = '';
+  section = section.replace(/<div\b[^>]*data-source-footer="true"[^>]*>[\s\S]*?<\/div>/gi, footer => {
+    savedFooter += footer;
+    return '';
+  });
+  const linkedUrls = new Set(
+    [...`${section}${savedFooter}`.matchAll(/<a\b[^>]*href="([^"]+)"/gi)].map(m => m[1])
+  );
   let added = 0;
   let blockedDepth = 0;
   const tokens = section.split(/(<[^>]+>)/g);
@@ -113,7 +155,7 @@ function annotateSection(section) {
       break;
     }
   }
-  return tokens.join('');
+  return sourceFooter(tokens.join(''), savedFooter);
 }
 
 const files = fs.readdirSync('.')
@@ -129,8 +171,11 @@ for (const file of files) {
   let before = original;
   const generatedLink = /<a href="[^"]*" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale:[^"]*" aria-label="Fonte ufficiale:[^"]*" style="font-family:var\(--font-mono,monospace\);font-size:\.58em;line-height:1;color:var\(--teal,#163b35\);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗<\/a>/g;
   for (let pass = 0; pass < 4; pass++) before = before.replace(generatedLink, '');
+  before = before.replace(/<a\b(?=[^>]*data-source-origin="auto")[^>]*>[\s\S]*?<\/a>/gi, '');
   const beforeCount = (before.match(/title="Fonte ufficiale:/g) || []).length;
-  const after = before.replace(/<section\b[\s\S]*?<\/section>/gi, annotateSection);
+  const after = before
+    .replace(/<section\b[\s\S]*?<\/section>/gi, annotateSection)
+    .replace(/[ \t]+$/gm, '');
   const afterCount = (after.match(/title="Fonte ufficiale:/g) || []).length;
   if (after !== before) {
     fs.writeFileSync(file, after);
@@ -139,4 +184,4 @@ for (const file of files) {
   }
 }
 
-console.log(`Added ${linksAdded} official-source links across ${filesChanged} decks.`);
+console.log(`Rendered ${linksAdded} automatic official-source links across ${filesChanged} decks.`);

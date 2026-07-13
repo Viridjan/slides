@@ -106,7 +106,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       <div class="col stack">
         <div class="tape teal reveal">In questo modulo</div>
         <h2 class="h-big reveal">I dati veri sono <em class="hot">sporchi</em></h2>
-        <p class="lead reveal d1">Export dal gestionale, moduli compilati a mano, copia-incolla da email: il testo arriva quasi sempre nel formato sbagliato. Le funzioni<a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a> di testo lo rimettono in ordine senza riscrivere nulla a mano.</p>
+        <p class="lead reveal d1">Export dal gestionale, moduli compilati a mano, copia-incolla da email: il testo arriva quasi sempre nel formato sbagliato. Le funzioni di testo lo rimettono in ordine senza riscrivere nulla a mano.</p>
         <div class="analogy reveal d2"><span class="big">Analogia:</span> forbici, colla e gomma per le tue celle — tagli, unisci e cancelli senza toccare l'originale.</div>
       </div>
       <div class="col stack reveal d1" style="justify-content:center;">
@@ -117,7 +117,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       </div>
     </div>
     <div class="page-num"></div>
-  </section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Formule e funzioni — Supporto Microsoft Excel ↗</a></div></section>
 
   <!-- 3. UNIRE: & e TESTO.UNISCI -->
   <section class="slide">
@@ -151,7 +151,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       <div class="col stack">
         <div class="tape reveal">2. Dividere</div>
         <h2 class="h-big reveal">SPLIT: una cella, <em class="hot">più colonne</em></h2>
-        <p class="lead reveal d1">SPLIT è l'inverso dell'unione: prende un testo e lo spezza in celle separate ogni volta che incontra il delimitatore. È una funzione esclusiva di Google Sheets<a href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Google Sheets" aria-label="Fonte ufficiale: Guida ufficiale Google Sheets" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a> e mantiene il nome inglese.</p>
+        <p class="lead reveal d1">SPLIT è l'inverso dell'unione: prende un testo e lo spezza in celle separate ogni volta che incontra il delimitatore. È una funzione esclusiva di Google Sheets e mantiene il nome inglese.</p>
         <div class="formula reveal d2" style="font-size:23px;">=SPLIT(<b>A2</b>; <b>"-"</b>)</div>
         <p class="body reveal d3">Il risultato "trabocca" nelle celle a destra: servono colonne libere, altrimenti Sheets segnala errore #RIF!.</p>
         <div class="note reveal d4"><div class="lbl">💡 Senza formula</div><p>Per una divisione una tantum: seleziona la colonna e usa il menu <b>Dati → Dividi il testo in colonne</b>. Sheets rileva il separatore da solo.</p></div>
@@ -175,7 +175,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       </div>
     </div>
     <div class="page-num"></div>
-  </section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Google Sheets" aria-label="Fonte ufficiale: Guida ufficiale Google Sheets" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Google Sheets ↗</a></div></section>
 
   <!-- 5. TROVA / RICERCA -->
   <section class="slide">
@@ -211,7 +211,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
         <h2 class="h-big reveal">TROVA + <em class="hot">estrazione</em></h2>
         <p class="lead reveal d1">SINISTRA e DESTRA con un numero fisso funzionano solo se i testi hanno tutti la stessa lunghezza. Con TROVA la posizione diventa calcolata, e la formula funziona su qualsiasi riga.</p>
         <div class="formula reveal d2" style="font-size:19px;">=SINISTRA(A2; TROVA("@";A2)<b>-1</b>)</div>
-        <p class="body reveal d3">Prende tutto ciò che sta prima della "@": il nome utente di qualsiasi email<a href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a>, corta o lunga. Il -1 esclude la "@" stessa.</p>
+        <p class="body reveal d3">Prende tutto ciò che sta prima della "@": il nome utente di qualsiasi email, corta o lunga. Il -1 esclude la "@" stessa.</p>
         <div class="analogy reveal d4"><span class="big">In pratica:</span> TROVA è il metro, SINISTRA sono le forbici: prima misuri dove tagliare, poi tagli.</div>
       </div>
       <div class="illu reveal d1">
@@ -225,7 +225,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       </div>
     </div>
     <div class="page-num"></div>
-  </section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
 
   <!-- 7. SOSTITUISCI / RIMPIAZZA -->
   <section class="slide">
@@ -245,10 +245,10 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
           <p>Cambia per posizione.<br><span style="font-family:var(--font-mono);color:var(--teal);font-size:18px;">=RIMPIAZZA("2024-BOLLA";1;4;"2025")</span> → <b>2025-BOLLA</b></p>
         </div>
       </div>
-      <div class="note reveal d3"><div class="lbl">💡 E per tutto il foglio?</div><p>Per una correzione una tantum su tutto il foglio c'è <b>Modifica → Trova e sostituisci</b> (Ctrl+H). Le funzioni<a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a> servono quando la sostituzione deve restare automatica.</p></div>
+      <div class="note reveal d3"><div class="lbl">💡 E per tutto il foglio?</div><p>Per una correzione una tantum su tutto il foglio c'è <b>Modifica → Trova e sostituisci</b> (Ctrl+H). Le funzioni servono quando la sostituzione deve restare automatica.</p></div>
     </div>
     <div class="page-num"></div>
-  </section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Formule e funzioni — Supporto Microsoft Excel ↗</a></div></section>
 
   <!-- 8. PULIRE -->
   <section class="slide">
@@ -300,7 +300,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
     <div class="col stack">
       <div class="tape sky reveal">8. Maiuscole e minuscole</div>
       <h2 class="h-sec reveal">MAIUSC, MINUSC, <em class="hot">MAIUSC.INIZ</em></h2>
-      <p class="lead reveal d1">Uniformare il formato dei nomi scritti in dieci modi diversi da dieci persone diverse: tre funzioni<a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a>, zero fatica.</p>
+      <p class="lead reveal d1">Uniformare il formato dei nomi scritti in dieci modi diversi da dieci persone diverse: tre funzioni, zero fatica.</p>
       <div class="grid3 reveal d2">
         <div class="fn-card">
           <h3>MAIUSC</h3>
@@ -310,7 +310,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
         <div class="fn-card">
           <h3>MINUSC</h3>
           <div class="syntax">=MINUSC(testo)</div>
-          <p>Tutto minuscolo.<br><span style="font-family:var(--font-mono);">=MINUSC("Anna@AZIENDA.it")</span> → <b>"anna@azienda.it"</b><br>Standard per le email<a href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a>.</p>
+          <p>Tutto minuscolo.<br><span style="font-family:var(--font-mono);">=MINUSC("Anna@AZIENDA.it")</span> → <b>"anna@azienda.it"</b><br>Standard per le email.</p>
         </div>
         <div class="fn-card">
           <h3>MAIUSC.INIZ</h3>
@@ -321,7 +321,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       <div class="note reveal d3" style="margin-top:6px;"><div class="lbl">⚠️ Limite di MAIUSC.INIZ</div><p>Mette la maiuscola a ogni parola, anche dove non va: "de luca" → "De Luca" (bene), ma "d'angelo" → "D'Angelo" e "DELL'ORTO" → "Dell'Orto". Controlla i cognomi con apostrofi e particelle.</p></div>
     </div>
     <div class="page-num"></div>
-  </section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Formule e funzioni — Supporto Microsoft Excel ↗</a><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
 
   <!-- 10. CASO PRATICO -->
   <section class="slide">
@@ -329,7 +329,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       <div class="col stack">
         <div class="tape gold reveal">Caso pratico</div>
         <h2 class="h-big reveal">Pulizia in <em class="hot">catena</em></h2>
-        <p class="lead reveal d1">Dal modulo online arriva <span style="font-family:var(--font-mono);font-size:26px;">"&nbsp;&nbsp;mario&nbsp;&nbsp;ROSSI "</span>. Per la rubrica clienti serve "Mario Rossi". Le funzioni<a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a> si annidano: il risultato di una è l'ingresso della successiva.</p>
+        <p class="lead reveal d1">Dal modulo online arriva <span style="font-family:var(--font-mono);font-size:26px;">"&nbsp;&nbsp;mario&nbsp;&nbsp;ROSSI "</span>. Per la rubrica clienti serve "Mario Rossi". Le funzioni si annidano: il risultato di una è l'ingresso della successiva.</p>
         <div class="formula reveal d2" style="font-size:20px;">=MAIUSC.INIZ(<b>ANNULLA.SPAZI(</b>A2<b>)</b>)</div>
         <p class="body reveal d3">Si legge da dentro verso fuori: prima ANNULLA.SPAZI toglie gli spazi di troppo, poi MAIUSC.INIZ sistema le maiuscole.</p>
         <div class="note reveal d4"><div class="lbl">💡 Colonna di appoggio</div><p>Crea la formula in una colonna nuova, verifica il risultato, poi <b>copia → Incolla speciale → Solo valori</b> sopra l'originale ed elimina la colonna di appoggio.</p></div>
@@ -352,7 +352,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       </div>
     </div>
     <div class="page-num"></div>
-  </section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Formule e funzioni — Supporto Microsoft Excel ↗</a></div></section>
 
   <!-- 11. RIEPILOGO -->
   <section class="slide tight-slide">
@@ -406,10 +406,10 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
           <p style="font-size:17px;">Testo → numero vero</p>
         </div>
       </div>
-      <div class="analogy reveal d2" style="margin-top:24px;"><span class="big">Regola:</span> le funzioni<a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a> di testo non modificano mai la cella originale — producono una copia corretta altrove.</div>
+      <div class="analogy reveal d2" style="margin-top:24px;"><span class="big">Regola:</span> le funzioni di testo non modificano mai la cella originale — producono una copia corretta altrove.</div>
     </div>
     <div class="page-num"></div>
-  </section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Formule e funzioni — Supporto Microsoft Excel ↗</a></div></section>
 
   <!-- 12. VERIFICA -->
   <section class="slide">
@@ -432,7 +432,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
         <div class="card">
           <span class="ic">🔍</span>
           <h3 style="font-size:29px;">Estrarre il dominio</h3>
-          <p>Da "anna@azienda.it" vuoi la parte <em>dopo</em> la @. Quali due funzioni<a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a> combini, e a cosa serve TROVA nel calcolo?</p>
+          <p>Da "anna@azienda.it" vuoi la parte <em>dopo</em> la @. Quali due funzioni combini, e a cosa serve TROVA nel calcolo?</p>
         </div>
         <div class="card">
           <span class="ic">🧼</span>
@@ -442,7 +442,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       </div>
     </div>
     <div class="page-num"></div>
-  </section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Formule e funzioni — Supporto Microsoft Excel ↗</a></div></section>
 
   <!-- 13. CLOSING -->
   <section class="slide closing">

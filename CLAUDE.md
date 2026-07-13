@@ -66,10 +66,12 @@ on any plain HTTP server.
   Italian domains in teaching examples.
 - Link factual claims, standards, regulations, product behavior and formal
   methodologies to primary official sources in the slide where they appear.
-  Use compact inline `↗` references with a descriptive `title`, `target="_blank"`
-  and `rel="noopener noreferrer"`; do not replace these with a generic bibliography
+  Place compact source links in an isolated row at the bottom-left of the relevant
+  slide, with a descriptive `title`, `target="_blank"` and
+  `rel="noopener noreferrer"`; do not replace these with a generic bibliography
   at the end of the deck. `scripts/add-official-source-links.js` maintains the
-  shared source map and applies at most two automatic references per content slide.
+  shared source map, moves manual source links into the same row and applies at
+  most two automatic references per content slide.
   After changing that map, run the source-link script, merge the references into
   the existing TXT companions without discarding their extra notes, then rebuild
   the generated indexes:
