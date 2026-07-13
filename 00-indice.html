@@ -104,7 +104,7 @@ body.search-active .module-card.search-hidden{display:none;}
 .pips{display:inline-flex;gap:5px;vertical-align:middle;}
 .pip{width:9px;height:9px;border-radius:50%;border:1px solid rgba(230,193,74,.42);background:transparent;}
 .pip.on{background:var(--gold);border-color:var(--gold);}
-.stats-row::after{content:attr(data-tip);position:absolute;right:calc(100% + 11px);top:50%;width:285px;padding:9px 11px;border:1px solid rgba(216,201,180,.28);border-radius:7px;background:#0e0c0b;color:rgba(244,236,224,.9);font:12px/1.4 var(--font-body);letter-spacing:0;box-shadow:0 12px 34px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:translate(5px,-50%);transition:opacity .12s ease,transform .12s ease;pointer-events:none;white-space:normal;}
+.stats-row::after{content:attr(data-tip);position:absolute;right:calc(100% + 11px);top:50%;width:285px;padding:9px 11px;border:1px solid rgba(216,201,180,.28);border-radius:7px;background:#0e0c0b;color:rgba(244,236,224,.9);font:12px/1.4 var(--font-body);letter-spacing:0;box-shadow:0 12px 34px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:translate(5px,-50%);transition:opacity .12s ease,transform .12s ease;pointer-events:none;white-space:pre-line;}
 .stats-row:hover::after,.stats-row:focus-visible::after{opacity:1;visibility:visible;transform:translate(0,-50%);}
 @media(max-width:760px){.stats-panel{right:8px;width:230px}.stats-row::after{position:fixed;left:8px;right:8px;top:auto;bottom:8px;width:auto;transform:translateY(5px)}.stats-row:hover::after,.stats-row:focus-visible::after{transform:none}}
 .card-desc{grid-area:desc;font-size:15px;color:rgba(244,236,224,.5);line-height:1.3;align-self:start;}
@@ -1802,20 +1802,20 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
       activeStatsBadge = badge;
       badge.setAttribute('aria-expanded', 'true');
       const densityFormula = density !== undefined
-        ? `Automatico. Per ogni slide interna, escluse copertina e chiusura: parole ÷ 25, al massimo 10. Si fa la media di questi valori e si arrotonda una sola volta, alla fine: ${density}/10.`
-        : 'Non disponibile: questo elemento non ha un punteggio automatico di densità.';
+        ? `Automatico, dal testo delle slide.\nOgni slide interna vale parole ÷ 25, al massimo 10.\nCopertina e chiusura sono escluse.\nSi fa la media e si arrotonda una volta sola, alla fine.\nRisultato: ${density}/10`
+        : 'Non disponibile.\nQuesto elemento non ha un punteggio automatico di densità.';
       const summaryFormula = density !== undefined && total !== null
-        ? `Media arrotondata tra densità e qualità: round((${density} + ${total}) ÷ 2) = ${summary}/10.`
-        : `È uguale all’unico indice disponibile: ${summary}/10.`;
+        ? `Media arrotondata tra densità e qualità.\nround((${density} + ${total}) ÷ 2) = ${summary}/10`
+        : `È uguale all’unico indice disponibile.\n${summary}/10`;
       const rows = [
         statRow('Indice sintetico', `${summary}`, summaryFormula, 'primary'),
         density !== undefined ? statRow('Densità', `${density}`, densityFormula) : '',
-        q ? statRow('Qualità', `${total}`, `Somma dei cinque criteri editoriali manuali: ${q.coverage} + ${q.clarity} + ${q.examples} + ${q.correctness} + ${q.freshness} = ${total}/10.`, 'quality') : '',
-        q ? statRow('Copertura', pips(q.coverage), 'Valutazione manuale: 0 = temi importanti assenti; 1 = programma essenziale con lacune; 2 = argomenti previsti coperti adeguatamente.', 'sub') : '',
-        q ? statRow('Chiarezza', pips(q.clarity), 'Valutazione manuale: 0 = difficile da seguire; 1 = comprensibile con spiegazioni; 2 = struttura e linguaggio chiari per lo studente medio.', 'sub') : '',
-        q ? statRow('Esempi', pips(q.examples), 'Valutazione manuale: 0 = solo teoria astratta; 1 = esempi limitati; 2 = casi concreti, esercizi o applicazioni sufficienti.', 'sub') : '',
-        q ? statRow('Correttezza', pips(q.correctness), 'Valutazione manuale: 0 = errori o verifiche necessarie; 1 = generalmente affidabile ma non verificato completamente; 2 = controllato e senza problemi noti.', 'sub') : '',
-        q ? statRow('Aggiornamento', pips(q.freshness), 'Valutazione manuale: 0 = probabilmente obsoleto; 1 = valido ma soggetto a cambiamenti; 2 = aggiornato oppure stabile nel tempo.', 'sub') : ''
+        q ? statRow('Qualità', `${total}`, `Somma dei cinque criteri editoriali manuali.\n${q.coverage} + ${q.clarity} + ${q.examples} + ${q.correctness} + ${q.freshness} = ${total}/10`, 'quality') : '',
+        q ? statRow('Copertura', pips(q.coverage), 'Valutazione manuale.\n0 = temi importanti assenti\n1 = programma essenziale con lacune\n2 = argomenti previsti coperti adeguatamente', 'sub') : '',
+        q ? statRow('Chiarezza', pips(q.clarity), 'Valutazione manuale.\n0 = difficile da seguire\n1 = comprensibile con spiegazioni\n2 = struttura e linguaggio chiari per lo studente medio', 'sub') : '',
+        q ? statRow('Esempi', pips(q.examples), 'Valutazione manuale.\n0 = solo teoria astratta\n1 = esempi limitati\n2 = casi concreti, esercizi o applicazioni sufficienti', 'sub') : '',
+        q ? statRow('Correttezza', pips(q.correctness), 'Valutazione manuale.\n0 = errori o verifiche necessarie\n1 = generalmente affidabile ma non verificato completamente\n2 = controllato e senza problemi noti', 'sub') : '',
+        q ? statRow('Aggiornamento', pips(q.freshness), 'Valutazione manuale.\n0 = probabilmente obsoleto\n1 = valido ma soggetto a cambiamenti\n2 = aggiornato oppure stabile nel tempo', 'sub') : ''
       ].join('');
       statsPanel.innerHTML = `<div class="stats-panel-head"><div class="stats-panel-title">${title.textContent.trim()}</div><button class="stats-panel-close" type="button" aria-label="Chiudi valutazione">‹</button></div>${rows}`;
       const rect = badge.getBoundingClientRect();
