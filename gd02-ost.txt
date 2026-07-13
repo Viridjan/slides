@@ -12,7 +12,7 @@ Come la musica dei videogiochi è passata da traccia fissa a sistema reattivo �
 🎧
 
 --- Slide 2 ---
-In questo modulo 
+
  Cosa vedremo 
  Quattro generazioni di OST, una distinzione tecnica fondamentale e un'attività pratica per allenare l'orecchio da designer. La musica di gioco non è decorazione: è design. 
  
@@ -27,7 +27,7 @@ In questo modulo
  Attività — analizza la colonna sonora di un gioco che conosci bene
 
 --- Slide 3 ---
-Definizione 
+
  Cos'è una OST 
  La Original Soundtrack è la musica composta appositamente per un'opera. Nel videogioco non è semplice sottofondo: guida l'emozione del giocatore, segnala i cambi di stato del mondo e scandisce il ritmo dell'azione in ogni momento. 
  Regola: la musica migliore è quella che non noti — ma che sentiresti mancare appena sparisce. 
@@ -38,7 +38,7 @@ Definizione
  🥁 Ritmo Scandisce il tempo dell'azione: un BPM alto accelera la sensazione, un BPM basso crea respiro e distanza.
 
 --- Slide 4 ---
-Livello 1 
+
  OST statica 
  La traccia suona uguale ogni volta: parte, va in loop per tutta la durata del livello, e non sa nulla di quello che sta facendo il giocatore. 
  
@@ -65,7 +65,7 @@ Livello 1
  La stessa traccia, in loop, per tutto il livello
 
 --- Slide 5 ---
-Vincolo 
+
  Limiti hardware 
  Negli anni '80–'90 la musica doveva stare in pochi kilobyte e in pochissimi canali audio. Quel vincolo tecnico durissimo ha plasmato un'estetica sonora ancora oggi riconoscibile e amata. 
  
@@ -78,7 +78,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 6 ---
-Livello 2 
+
  OST procedurale random 
  La musica non è una traccia unica: è composta di strati separati (stem) ricombinati in tempo reale dal motore di gioco. Ogni sessione può suonare diversa mantenendo la stessa identità sonora. 
  
@@ -110,7 +110,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 7 ---
-Come funziona 
+
  Gli STEMS 
  Uno stem è una singola traccia strumentale isolata — batteria, basso, melodia, ambience. Il motore di gioco mantiene tutti gli stem sincronizzati sullo stesso BPM e li accende o spegne in base al contesto narrativo e di gioco. 
  
@@ -122,7 +122,7 @@ Come funziona
  La musica resta sempre sincronizzata all'intensità reale del momento — senza che il compositore debba scrivere una traccia separata per ogni possibile situazione o evento.
 
 --- Slide 8 ---
-Livello 3 
+
  OST a feedback 
  Il salto finale: la musica non reagisce solo all'atmosfera generale, ma ad ogni singolo evento preciso del gameplay — un'arena che si apre, una uccisione, un colpo subìto, l'ingresso di un boss. 
  
@@ -145,7 +145,7 @@ Livello 3
  🔗 Musica = HUD Il suono diventa informazione di gioco: puoi capire lo stato della battaglia dall'orecchio, senza guardare la barra della vita o la minimappa.
 
 --- Slide 9 ---
-Livello 4 
+
  Musica come meccanica 
  Il caso estremo: la musica non accompagna il gioco — è il gioco. Il ritmo detta le regole di interazione: perdere il tempo significa perdere la partita. 
  
@@ -158,7 +158,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 10 ---
-Origine del suono 
+
  Diegetico vs non-diegetico 
  
  🔊 Diegetico Il suono esiste nel mondo di gioco: la radio in-game, lo stereo di un'auto in GTA, un NPC che suona la chitarra in un villaggio. Anche i personaggi lo sentono e possono reagire. 
@@ -169,7 +169,7 @@ Origine del suono
  Spostare un suono da non-diegetico a diegetico (o viceversa) cambia chi sa cosa . In Cyberpunk 2077 la musica dei club è diegetica: uscire dall'edificio la interrompe davvero, rinforzando l'immersione nel mondo.
 
 --- Slide 11 ---
-Attività 
+
  Analizza una OST 
  
  Scegli un gioco che conosci bene: un videogioco qualsiasi, anche mobile. 

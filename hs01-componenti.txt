@@ -15,7 +15,7 @@ HARDWARE
 SOFTWARE
 
 --- Slide 2 ---
-In questo modulo 
+
  Cosa impareremo 
  
  01 Hardware e Software 
@@ -54,7 +54,7 @@ Punto di partenza
  03 / 21
 
 --- Slide 4 ---
-Tanti formati, stessa idea 
+
  Fisso, portatile o tascabile? 
  Esistono in tante forme diverse, ma dentro funzionano tutti allo stesso modo : hanno un processore, della memoria, dei programmi. Cambiano dimensioni, comodità e potenza. 
  
@@ -68,7 +68,7 @@ Tanti formati, stessa idea
  Più un dispositivo è piccolo e portatile, più si cerca un equilibrio: guadagni in comodità, a volte perdi in potenza e spazio. Ma la “ricetta” dei componenti resta sempre la stessa.
 
 --- Slide 5 ---
-Le due grandi categorie 
+
  Hardware &amp; Software 
  Tutto ciò che riguarda un computer si può dividere in due famiglie. Capire questa differenza è la base di tutto il resto. 
  
@@ -111,7 +111,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 7 ---
-Componente · CPU 
+
  Il processore 
  La CPU ( Central Processing Unit ) è a tutti gli effetti il “cervello” del computer . Si occupa di elaborare le istruzioni e di eseguire le operazioni necessarie per far funzionare tutto. 
  Ogni cosa che chiedi — aprire un'app, scrivere una lettera, riprodurre un video — passa dalla CPU sotto forma di calcoli. Due numeri ne descrivono la potenza: la frequenza , misurata in GHz (gigahertz), cioè quanto è veloce; e i core , cioè quanti “cervelli” lavorano in parallelo. Più core significa più cose fatte contemporaneamente, senza rallentare. 
@@ -150,7 +150,7 @@ Componente · CPU
 Un banco di RAM: si infila nella scheda madre 
  
  
- Componente · RAM 
+
  La RAM 
  RAM sta per Random Access Memory . È la “memoria a breve termine” del computer: conserva temporaneamente le informazioni con cui la macchina sta lavorando in questo momento . 
  È velocissima, ma ha una caratteristica importante: se spegni il computer, il contenuto della RAM si cancella . Per questo i file vanno salvati sull'hard disk, altrimenti vanno persi. 
@@ -160,7 +160,7 @@ Un banco di RAM: si infila nella scheda madre
  07 / 21
 
 --- Slide 9 ---
-Componente · Memoria 
+
  L' hard disk 
  È la “memoria a lungo termine” : qui vengono conservati in modo permanente il sistema operativo, i programmi e i tuoi file. A differenza della RAM, se spegni il PC i dati restano . 
  Oggi sul mercato esistono due tipi di hard disk. Spesso un PC ne combina entrambi per avere il meglio di velocità e capacità. 
@@ -175,7 +175,7 @@ Componente · Memoria
  08 / 21
 
 --- Slide 10 ---
-Quanto è grande un file? 
+
  Bit, byte &amp; company 
  La memoria del computer si misura in byte . Un byte è una piccolissima quantità di informazione — più o meno una lettera dell'alfabeto. I file veri sono fatti di milioni o miliardi di byte, perciò usiamo dei “gradini” più grandi. 
  Ogni gradino vale circa 1000 volte il precedente. Conoscerli ti aiuta a capire quanto spazio occupa una foto, un video o un programma — e quanto spazio hai ancora libero. 
@@ -192,7 +192,7 @@ Quanto è grande un file?
  Terabyte — TB ~1000 GB. Un intero hard disk.
 
 --- Slide 11 ---
-Componente · Scheda madre 
+
  La scheda madre 
  La scheda madre ( motherboard ) collega e coordina tutte le altre parti del computer. È il “centro di comando” che permette ai componenti di comunicare tra loro. 
  Come la mappa di una città mostra le strade che uniscono i quartieri, la scheda madre contiene i “percorsi” elettrici che fanno arrivare dati ed energia da un componente all'altro. CPU, RAM, schede e hard disk si collegano tutti qui. 
@@ -250,7 +250,7 @@ Fonti ufficiali:
 Dalla presa di corrente al computer 
  
  
- Componente · Energia 
+
  L' alimentatore 
  Fornisce l' energia elettrica necessaria a far funzionare il computer, trasformando la corrente della presa di casa in una forma adatta ai componenti. 
  Nei dispositivi portatili — laptop, tablet, smartphone — l'alimentatore fisso viene sostituito dalla coppia batteria + caricabatterie : la batteria accumula energia, il caricabatterie la ricarica quando serve. 
@@ -263,7 +263,7 @@ Dalla presa di corrente al computer
  11 / 21
 
 --- Slide 14 ---
-Periferiche · INPUT 
+
  Mandare informazioni dentro 
  I dispositivi di input sono tutti gli accessori che ci permettono di inviare informazioni al computer: con loro “diciamo” alla macchina cosa fare. 
  
@@ -277,7 +277,7 @@ Periferiche · INPUT
  12 / 21
 
 --- Slide 15 ---
-Periferiche · OUTPUT 
+
  Ricevere i risultati fuori 
  I dispositivi di output ci permettono di vedere o sentire i risultati di ciò che abbiamo chiesto al computer: sono la sua risposta verso di noi. 
  
@@ -291,7 +291,7 @@ Periferiche · OUTPUT
  13 / 21
 
 --- Slide 16 ---
-Connessioni · Porte 
+
  Le porte 
  Le porte sono i connettori sul computer dove colleghiamo cavi e accessori. Ogni forma corrisponde a un tipo di collegamento diverso — non a caso le spine entrano solo nella porta giusta. 
  
@@ -354,7 +354,7 @@ Punto di partenza
  Connettere = far parlare due dispositivi
 
 --- Slide 18 ---
-Come classificarle 
+
  Due domande, sempre le stesse 
  Di fronte a qualsiasi connessione, possiamo farci due domande. Le risposte ci dicono subito di che tipo si tratta. 
  
@@ -373,7 +373,7 @@ Come classificarle
  In breve: con cosa viaggiano i dati, e fin dove arrivano.
 
 --- Slide 19 ---
-Via cavo · USB 
+
  Il cavo USB 
  La connessione USB è la più diffusa: è considerata quasi universale perché funziona con moltissimi dispositivi — chiavette, mouse, tastiere, telefoni — e spesso serve anche a ricaricare . 
  Ne esistono diversi connettori, cambiati nel tempo per essere più piccoli e più veloci: 
@@ -400,7 +400,7 @@ Fonti ufficiali:
 - Documenti e specifiche USB — USB-IF — https://www.usb.org/documents
 
 --- Slide 20 ---
-Via cavo · Rete e internet 
+
  Cavi per andare in rete 
  Per collegare computer tra loro e portare Internet in casa esistono cavi dedicati, ognuno con un compito preciso. 
  
@@ -418,7 +418,7 @@ Fonti ufficiali:
 I dati “volano” come onde radio 
  
  
- Senza fili 
+
  Le connessioni wireless 
  Wireless viene dall'inglese wire (cavo) + less (senza): letteralmente “senza cavo” . I dati viaggiano nell'aria sotto forma di onde radio . 
  È la base dell'interconnessione moderna: telefoni, computer e mille altri oggetti “intelligenti” comunicano tra loro e con Internet senza un solo filo. Vediamo i tipi più importanti. 
@@ -429,7 +429,7 @@ Fonti ufficiali:
 - Specifiche Bluetooth — Bluetooth SIG — https://www.bluetooth.com/specifications/specs/
 
 --- Slide 22 ---
-Wireless · WiFi 
+
  Il WiFi 
  Il WiFi permette di collegarsi a una rete locale o a Internet senza fili , con una buona velocità adatta a quasi tutte le attività online: navigare, guardare video, lavorare. 
  È diffusissimo in case e aziende per collegare computer, smartphone e dispositivi intelligenti. Funziona entro un certo raggio attorno al router: più ti allontani (o più muri ci sono), più il segnale cala. 
@@ -459,7 +459,7 @@ Fonti ufficiali:
 Il celebre simbolo del Bluetooth 
  
  
- Wireless · Bluetooth 
+
  Il Bluetooth 
  Il Bluetooth è perfetto per le connessioni a corto raggio tra dispositivi vicini: auricolari, cuffie, tastiere, casse, smartwatch. 
  Offre un collegamento semplice e veloce da attivare (basta “accoppiare” i due dispositivi una volta) ed è prezioso per far dialogare i nostri gadget personali senza cavi. 
@@ -469,7 +469,7 @@ Fonti ufficiali:
 - Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 24 ---
-Wireless · Reti telefoniche 
+
  3G, 4G, 5G: internet ovunque 
  Sono le connessioni dei telefoni: senza fili, funzionano anche fuori casa grazie alle antenne sparse sul territorio. Ogni “generazione” (G = generation ) è più veloce della precedente. 
  
@@ -483,7 +483,7 @@ Wireless · Reti telefoniche
  Cambiano il protocollo (il “linguaggio” con cui si trasmettono i dati), la velocità e la portata del segnale . Il principio però è sempre lo stesso: dati che viaggiano via onde fino all'antenna più vicina.
 
 --- Slide 25 ---
-Wireless · Infrarossi 
+
  Gli infrarossi 
  Sono le trasmissioni usate dalla maggior parte dei telecomandi . Funzionano a cortissimo raggio e in linea retta, e costano pochissimo. 
  Il loro limite — la corta distanza — è in realtà un vantaggio : non sarebbe comodo se il telecomando del salotto cambiasse anche il canale della TV del vicino! Per questo restano perfetti dove serve un comando “mirato” e vicino. 
@@ -520,7 +520,7 @@ Fonti ufficiali:
 - Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 27 ---
-Software · Il più importante 
+
  Il sistema operativo 
  È il software di base che controlla il computer e consente a tutti gli altri programmi di funzionare. È la prima cosa che si avvia quando accendi il PC. 
  Gestisce lo schermo, i file, le periferiche e fa da “traduttore” tra te e l'hardware. Ne esistono diversi, ognuno con il suo stile — ma il compito è sempre lo stesso. 
@@ -551,7 +551,7 @@ https://
  Una finestra di browser 
  
  
- Software · Internet 
+
  Il browser 
  Un browser è l'applicazione che permette di accedere a internet e visitare i siti web . È la finestra attraverso cui guardi tutto il web. 
  Esempi: Chrome , Firefox , Safari , Edge . Il nome deriva dal verbo inglese to browse , che significa “sfogliare” — proprio come si sfogliano le pagine di una rivista. 
@@ -563,7 +563,7 @@ https://
  17 / 21
 
 --- Slide 29 ---
-Software · Lavoro 
+
  La suite per ufficio 
  Una suite office riunisce i programmi che servono per usare il PC come strumento di studio e di lavoro. I tre più usati: 
  
@@ -591,7 +591,7 @@ Fonti ufficiali:
 - Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 30 ---
-Mettiamo tutto insieme 
+
  La mappa del computer 
  
  

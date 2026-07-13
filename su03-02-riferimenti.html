@@ -122,7 +122,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <!-- 2. AGENDA -->
   <section class="slide">
     <div class="center">
-      <div class="tape teal reveal">In questo modulo</div>
+
       <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
       <div class="agenda-list reveal d1">
         <div class="agenda-item"><span class="n">01</span><span class="t">Indirizzi di cella</span></div>
@@ -144,7 +144,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Coordinate</div>
+
         <h2 class="h-big reveal">Ogni cella ha un <em class="hot">indirizzo</em></h2>
         <p class="lead reveal d1">Le colonne usano lettere (A, B, C…), le righe usano numeri (1, 2, 3…). La cella <b>B3</b> è l'incrocio tra colonna B e riga 3.</p>
         <p class="body reveal d2">Le formule non usano valori fissi: usano indirizzi. Questo permette ai risultati di aggiornarsi automaticamente quando cambiano i dati.</p>
@@ -168,7 +168,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">Relativi</div>
+
         <h2 class="h-big reveal">Riferimenti <em class="hot">relativi</em></h2>
         <p class="lead reveal d1">Un riferimento relativo si sposta quando la formula viene copiata. Se copi la formula in basso di una riga, il riferimento scende di una riga.</p>
         <div class="formula reveal d2" style="font-size:26px;">=B2 * 1.22</div>
@@ -192,7 +192,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape gold reveal">Assoluti</div>
+
         <h2 class="h-big reveal">Riferimenti <em class="hot">assoluti</em> — il $</h2>
         <p class="lead reveal d1">Il simbolo <b>$</b> blocca la parte del riferimento che lo precede. <span style="font-family:var(--font-mono);color:var(--red);">$B$1</span> resta sempre su colonna B, riga 1 — anche se copi la formula ovunque.</p>
         <div class="formula reveal d2" style="font-size:26px;">=B3 * (1 + <b>$B$1</b>)</div>
@@ -224,7 +224,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <!-- 6. RIFERIMENTI MISTI -->
   <section class="slide tight-slide">
     <div class="center">
-      <div class="tape reveal">Misti</div>
+
       <h2 class="h-sec reveal" style="margin-top:20px;">Riferimenti <em class="hot">misti</em> — bloccare solo colonna o solo riga</h2>
       <table class="cmp reveal d1" style="margin-top:22px;">
         <tr><th>Tipo</th><th>Esempio</th><th>Cosa succede quando copi</th></tr>
@@ -242,7 +242,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape sky reveal">Intervalli</div>
+
         <h2 class="h-big reveal">Range: più celle<br><em class="hot">in una volta</em></h2>
         <p class="lead reveal d1">Un range è un gruppo di celle. Si scrive con la prima e l'ultima separate dai due punti. Le formule lo usano per lavorare su molte celle contemporaneamente.</p>
         <div class="formula reveal d2" style="font-size:26px;">=SOMMA(<b>B2:B10</b>)</div>
@@ -274,7 +274,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape gold reveal">Chiarezza</div>
+
         <h2 class="h-big reveal">Nominare celle e <em class="hot">range</em></h2>
         <p class="lead reveal d1">Puoi dare un nome a una cella o a un intervallo. La formula diventa più leggibile e meno fragile — non dipende più da dove si trova fisicamente la cella.</p>
         <div class="formula reveal d2" style="font-size:26px;">=Prezzo * (1 + <b>AliquotaIVA</b>)</div>
@@ -299,7 +299,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape teal reveal">Tabelle strutturate</div>
+
         <h2 class="h-big reveal">Riferimenti alle <em class="hot">colonne</em></h2>
         <p class="lead reveal d1">Quando converti un range in Tabella (Inserisci → Tabella), puoi riferirti alle colonne per nome invece che per lettera — e il range si espande automaticamente.</p>
         <div class="formula reveal d2" style="font-size:26px;">=SOMMA(<b>Vendite[Importo]</b>)</div>
@@ -323,7 +323,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <!-- 10. ALTRO FOGLIO -->
   <section class="slide">
     <div class="col stack">
-      <div class="tape reveal">Fogli diversi</div>
+
       <h2 class="h-sec reveal">Riferimento ad <em class="hot">altro foglio</em></h2>
       <p class="lead reveal d1">Puoi leggere il valore di una cella che si trova su un altro foglio dello stesso file usando il punto esclamativo come separatore.</p>
       <div class="grid3 reveal d2" style="margin-top:20px;">
@@ -349,7 +349,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape gold reveal">Variabili locali</div>
+
         <h2 class="h-big reveal">La funzione <em class="hot">LET</em></h2>
         <p class="lead reveal d1">LET permette di dare un nome temporaneo a parti della formula. La formula rimane compatta e leggibile — il nome scompare dopo il calcolo.</p>
         <div class="analogy reveal d2"><span class="big">Analogia:</span> LET è come scrivere una bozza con appunti ai margini — calcoli intermedi con nome, risultato finale pulito.</div>
@@ -374,7 +374,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <!-- 12. ERRORI E REGOLE -->
   <section class="slide tight-slide">
     <div class="col stack">
-      <div class="tape red reveal">Errori e regole</div>
+
       <h2 class="h-sec reveal">Cosa rompe le formule — e come evitarlo</h2>
       <div class="grid3 reveal d1" style="margin-top:20px;">
         <div class="card">
@@ -416,15 +416,13 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
 
 
   <!-- 14. CLOSING -->
-  <section class="slide closing">
-    <div class="center" style="text-align:center;">
+  <section class="slide closing"><div class="closing-inner"><div class="center" style="text-align:center;">
       <h2 class="h-mega reveal" style="margin-top:10px;">Formula copiata,<br>formula corretta.</h2>
       <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Riferimenti relativi, assoluti ($) e misti, range nominati e LET: costruire formule che si copiano in ogni direzione senza rompersi.</p>
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a class="chip" href="su03-03-prime-formule.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → SU08 · Prime formule</a>
       </div>
-    </div>
-  </section>
+    </div></div><div class="page-num"></div></section>
 
 </div>
 </div>

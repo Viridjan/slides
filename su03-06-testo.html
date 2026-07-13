@@ -104,7 +104,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape teal reveal">In questo modulo</div>
+
         <h2 class="h-big reveal">I dati veri sono <em class="hot">sporchi</em></h2>
         <p class="lead reveal d1">Export dal gestionale, moduli compilati a mano, copia-incolla da email: il testo arriva quasi sempre nel formato sbagliato. Le funzioni di testo lo rimettono in ordine senza riscrivere nulla a mano.</p>
         <div class="analogy reveal d2"><span class="big">Analogia:</span> forbici, colla e gomma per le tue celle — tagli, unisci e cancelli senza toccare l'originale.</div>
@@ -123,7 +123,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape gold reveal">1. Unire</div>
+
         <h2 class="h-big reveal">Da tante celle a <em class="hot">una</em></h2>
         <p class="lead reveal d1">L'operatore <b>&amp;</b> lo conosci già. Quando le celle da unire sono tante, TESTO.UNISCI fa la stessa cosa con un separatore unico e salta le celle vuote.</p>
         <div class="formula reveal d2" style="font-size:21px;">=TESTO.UNISCI(<b>"; "</b>; <b>VERO</b>; A2:A10)</div>
@@ -149,7 +149,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">2. Dividere</div>
+
         <h2 class="h-big reveal">SPLIT: una cella, <em class="hot">più colonne</em></h2>
         <p class="lead reveal d1">SPLIT è l'inverso dell'unione: prende un testo e lo spezza in celle separate ogni volta che incontra il delimitatore. È una funzione esclusiva di Google Sheets e mantiene il nome inglese.</p>
         <div class="formula reveal d2" style="font-size:23px;">=SPLIT(<b>A2</b>; <b>"-"</b>)</div>
@@ -180,7 +180,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <!-- 5. TROVA / RICERCA -->
   <section class="slide">
     <div class="col stack">
-      <div class="tape sky reveal">3. Cercare</div>
+
       <h2 class="h-sec reveal">TROVA e <em class="hot">RICERCA</em>: dov'è quel carattere?</h2>
       <p class="lead reveal d1">Entrambe restituiscono la posizione (un numero) di un testo dentro un altro. Non estraggono nulla da sole: danno la coordinata che poi passi a STRINGA.ESTRAI, SINISTRA o DESTRA.</p>
       <div class="grid2 reveal d2">
@@ -207,7 +207,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape gold reveal">4. Estrarre in modo dinamico</div>
+
         <h2 class="h-big reveal">TROVA + <em class="hot">estrazione</em></h2>
         <p class="lead reveal d1">SINISTRA e DESTRA con un numero fisso funzionano solo se i testi hanno tutti la stessa lunghezza. Con TROVA la posizione diventa calcolata, e la formula funziona su qualsiasi riga.</p>
         <div class="formula reveal d2" style="font-size:19px;">=SINISTRA(A2; TROVA("@";A2)<b>-1</b>)</div>
@@ -230,7 +230,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <!-- 7. SOSTITUISCI / RIMPIAZZA -->
   <section class="slide">
     <div class="col stack">
-      <div class="tape teal reveal">5. Sostituire</div>
+
       <h2 class="h-sec reveal">SOSTITUISCI e <em class="hot">RIMPIAZZA</em></h2>
       <p class="lead reveal d1">Due modi per cambiare un pezzo di testo: per contenuto (sai cosa cercare) o per posizione (sai dove sta).</p>
       <div class="grid2 reveal d2">
@@ -254,7 +254,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape reveal">6. Pulire</div>
+
         <h2 class="h-big reveal">Spazi <em class="hot">invisibili</em></h2>
         <p class="lead reveal d1">"Roma " con lo spazio finale non è uguale a "Roma": CERCA.VERT e CONTA.SE lo trattano come un valore diverso. È l'errore invisibile più comune nei dati incollati.</p>
         <div class="stack reveal d2" style="margin-top:8px;">
@@ -275,7 +275,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape teal reveal">7. Da testo a numero</div>
+
         <h2 class="h-big reveal">Numeri <em class="hot">travestiti</em> da testo</h2>
         <p class="lead reveal d1">Un numero importato come testo sembra identico ma non si calcola: SOMMA lo ignora e la media sballa. VALORE lo riconverte in numero vero.</p>
         <div class="formula reveal d2" style="font-size:23px;">=VALORE(<b>A2</b>)</div>
@@ -298,7 +298,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <!-- 10. MAIUSCOLE / MINUSCOLE -->
   <section class="slide">
     <div class="col stack">
-      <div class="tape sky reveal">8. Maiuscole e minuscole</div>
+
       <h2 class="h-sec reveal">MAIUSC, MINUSC, <em class="hot">MAIUSC.INIZ</em></h2>
       <p class="lead reveal d1">Uniformare il formato dei nomi scritti in dieci modi diversi da dieci persone diverse: tre funzioni, zero fatica.</p>
       <div class="grid3 reveal d2">
@@ -327,7 +327,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide">
     <div class="split">
       <div class="col stack">
-        <div class="tape gold reveal">Caso pratico</div>
+
         <h2 class="h-big reveal">Pulizia in <em class="hot">catena</em></h2>
         <p class="lead reveal d1">Dal modulo online arriva <span style="font-family:var(--font-mono);font-size:26px;">"&nbsp;&nbsp;mario&nbsp;&nbsp;ROSSI "</span>. Per la rubrica clienti serve "Mario Rossi". Le funzioni si annidano: il risultato di una è l'ingresso della successiva.</p>
         <div class="formula reveal d2" style="font-size:20px;">=MAIUSC.INIZ(<b>ANNULLA.SPAZI(</b>A2<b>)</b>)</div>
@@ -357,7 +357,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <!-- 11. RIEPILOGO -->
   <section class="slide tight-slide">
     <div class="center">
-      <div class="tape teal reveal">Riepilogo</div>
+
       <h2 class="h-sec reveal" style="margin-top:16px;">La cassetta degli attrezzi del <em class="hot">testo</em></h2>
       <div class="grid3 reveal d1" style="margin-top:22px;">
         <div class="fn-card" style="padding:14px 16px;">
@@ -414,7 +414,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <!-- 12. VERIFICA -->
   <section class="slide">
     <div class="col stack">
-      <div class="tape reveal">Verifica</div>
+
       <h2 class="h-sec reveal">Sapresti <em class="hot">rispondere</em>?</h2>
       <div class="grid2 reveal d1" style="margin-top:14px;">
         <div class="card">
@@ -445,15 +445,13 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Formule e funzioni — Supporto Microsoft Excel ↗</a></div></section>
 
   <!-- 13. CLOSING -->
-  <section class="slide closing">
-    <div class="center" style="text-align:center;">
+  <section class="slide closing"><div class="closing-inner"><div class="center" style="text-align:center;">
       <h2 class="h-mega reveal" style="margin-top:10px;">Testo sporco,<br>dati puliti.</h2>
       <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">TESTO.UNISCI, SPLIT, TROVA, SOSTITUISCI, ANNULLA.SPAZI, VALORE, MAIUSC.INIZ: qualunque forma abbia il testo in ingresso, ora sai riportarlo esattamente dove vuoi.</p>
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a class="chip" href="su03-07-tabelle-pivot.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → SU03.07 · Tabelle pivot</a>
       </div>
-    </div>
-  </section>
+    </div></div><div class="page-num"></div></section>
 
 </div>
 </div>

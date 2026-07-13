@@ -7,7 +7,7 @@ Connessioni e reti mobili
 WiFi, Bluetooth, NFC, reti cellulari, SIM, hotspot, roaming e VPN.
 
 --- Slide 2 ---
-In questo capitolo 
+
  Cosa vedremo 
  01 Sempre connessi 02 WiFi 03 WiFi pubblico e VPN 04 Bluetooth 05 NFC 06 Reti cellulari: da 2G a 5G 07 SIM e eSIM 08 Hotspot 09 Giga e roaming 10 Modalità aereo 11 Localizzazione assistita 12 Problemi comuni
 Fonti ufficiali:
@@ -15,7 +15,7 @@ Fonti ufficiali:
 - Specifiche Bluetooth — Bluetooth SIG — https://www.bluetooth.com/specifications/specs/
 
 --- Slide 3 ---
-Le radio del telefono 
+
  Sempre connessi 
  Dentro lo smartphone convivono più radio, ognuna con un compito preciso: il sistema le accende e le combina senza che tu te ne accorga. 
  
@@ -30,7 +30,7 @@ Fonti ufficiali:
 - Specifiche Bluetooth — Bluetooth SIG — https://www.bluetooth.com/specifications/specs/
 
 --- Slide 4 ---
-Connessioni 
+
  WiFi 
  Il telefono si aggancia a un router nel raggio di qualche decina di metri: è la connessione più conveniente, perché non intacca il piano dati. 
  Proteggi il router Usa WPA2 o WPA3 con una password lunga, cambia le credenziali di fabbrica e aggiorna il firmware: un router vulnerabile mette a rischio tutti i dispositivi collegati. 
@@ -55,7 +55,7 @@ Fonti ufficiali:
 - Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 5 ---
-Attenzione 
+
  WiFi pubblico e VPN 
  La rete gratuita del bar o dell'aeroporto è comoda, ma non sai chi la gestisce né chi altro ci è collegato. 
  
@@ -68,7 +68,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 6 ---
-Corto raggio 
+
  Bluetooth 
  Nato per eliminare i cavi: collega il telefono agli accessori entro una decina di metri, senza bisogno di Internet. 
  Igiene Bluetooth In luoghi affollati (aeroporti, metro) un Bluetooth sempre aperto può esporre ad attacchi come bluejacking e bluesnarfing. Rimuovi le associazioni che non usi più da Impostazioni → Bluetooth. 
@@ -81,7 +81,7 @@ Fonti ufficiali:
 - Specifiche Bluetooth — Bluetooth SIG — https://www.bluetooth.com/specifications/specs/
 
 --- Slide 7 ---
-Contactless 
+
  NFC 
  Near Field Communication: funziona solo entro circa 4 centimetri — ed è proprio questa vicinanza obbligata a renderla difficile da intercettare. 
  Pagare col telefono Per autorizzare un pagamento il telefono deve essere sbloccato: è una protezione in più rispetto alla carta. Le carte contactless, invece, possono essere lette da vicino: esistono portafogli con schermatura RF. 
@@ -109,7 +109,7 @@ Contactless
  Pagamento contactless: serve il contatto ravvicinato
 
 --- Slide 8 ---
-Generazioni 
+
  Reti cellulari: da 2G a 5G 
  Il telefono aggancia l'antenna dell'operatore più vicina e passa da una cella all'altra mentre ti muovi. Ogni generazione — la «G» — ha aggiunto capacità nuove. 
  
@@ -125,7 +125,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 9 ---
-Identità mobile 
+
  SIM e eSIM 
  La SIM è la carta d'identità della tua linea: dice all'operatore chi sei, che numero hai e quale piano dati puoi usare. 
  
@@ -135,7 +135,7 @@ Identità mobile
  Occhio al SIM swap Chi riesce a farsi duplicare la tua SIM riceve i tuoi SMS, compresi i codici di verifica della banca. Se il telefono perde campo all'improvviso e a lungo senza motivo, contatta subito l'operatore.
 
 --- Slide 10 ---
-Condividere la rete 
+
  Hotspot 
  Il telefono può fare da router portatile: condivide la connessione mobile via WiFi con laptop, tablet o un altro telefono. 
  Regole d'oro Imposta sempre una password WPA2 o WPA3, controlla chi si collega e spegnilo quando non serve: tutto il traffico degli ospiti esce dalla tua SIM. 
@@ -149,7 +149,7 @@ Fonti ufficiali:
 - Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 11 ---
-Consumi 
+
  Giga e roaming 
  Non tutte le attività pesano allo stesso modo sul piano dati — e all'estero le regole del gioco cambiano. 
  
@@ -161,7 +161,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 12 ---
-Tutto spento 
+
  Modalità aereo 
  Un interruttore unico che zittisce tutte le radio in un colpo solo: celle, WiFi e Bluetooth tacciono, ma il telefono resta acceso. 
  Non solo in volo Usala di notte o in riunione per il silenzio totale, in hotel all'estero contro il roaming accidentale, o per risparmiare batteria riattivando solo il WiFi. 
@@ -175,7 +175,7 @@ Fonti ufficiali:
 - Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 13 ---
-Dove sei 
+
  Localizzazione assistita 
  Il GPS da solo può impiegare minuti a trovarti: il telefono si aiuta con le reti WiFi e le celle vicine (A-GPS) per orientarsi in pochi secondi. 
  Controlla la privacy In Impostazioni → Privacy → Localizzazione imposta le app su «Solo durante l'uso» invece di «Sempre», e rivedi periodicamente chi ha accesso alla tua posizione. 
@@ -188,7 +188,7 @@ Fonti ufficiali:
 - Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 14 ---
-Pronto soccorso 
+
  Quando Internet non va 
  Prima di chiamare l'assistenza, procedi con ordine: la maggior parte dei problemi si risolve già ai primi due passi. 
  

@@ -12,7 +12,7 @@ Cosa sono gli effetti sonori, come si progettano, e come si produce l'audio di u
 🔊
 
 --- Slide 2 ---
-In questo modulo 
+
  Cosa vedremo 
  
  
@@ -28,7 +28,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 3 ---
-Definizione 
+
  Cos'è un SFX 
  Un Sound Effect è un suono breve legato a un'azione, un evento o un oggetto nel gioco. A differenza della musica (OST), lo SFX è puntuale e informativo : comunica che qualcosa è appena successo. 
  Regola: un suono giusto si sente, un suono sbagliato si nota. 
@@ -39,7 +39,7 @@ Definizione
  🏆 Ambiente Vento, pioggia, folla: suoni che rendono vivo e credibile il luogo in cui ti trovi.
 
 --- Slide 4 ---
-Tassonomia 
+
  Categorie di SFX 
  
  🦶 Foley 
@@ -52,7 +52,7 @@ Tassonomia
  Loop di sottofondo che definiscono il luogo: un bosco pieno di uccelli, una città rumorosa, una caverna gocciolante. Costruiscono lo spazio con l'orecchio anche quando la grafica non basta.
 
 --- Slide 5 ---
-Voice SFX 
+
  Lingue inventate 
  Molti giochi non usano voci reali ma linguaggi inventati (gibberish): suoni vocali privi di significato letterale. Costano meno della recitazione professionale, non richiedono localizzazione per ogni mercato, e donano ai personaggi un carattere unico e memorabile. 
  
@@ -66,7 +66,7 @@ Voice SFX
  🎮 Banjo-Kazooie / Undertale Grunt e beep sincronizzati col dialogo scritto per simulare il parlato, dando a ogni personaggio una voce riconoscibile a costo quasi zero.
 
 --- Slide 6 ---
-Dettagli nascosti 
+
  Messaggi nel suono 
  Il sonoro può nascondere informazioni e sorprese: messaggi in codice, easter egg audio, suoni che rivelano meccaniche a chi sa ascoltare con attenzione. L'orecchio diventa uno strumento di esplorazione tanto quanto gli occhi. 
  
@@ -82,7 +82,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 7 ---
-Assenza 
+
  Il silenzio 
  Togliere il suono è una delle scelte di design più potenti nell'audio di gioco. Il silenzio crea tensione immediata, isola un momento chiave e dà peso drammatico a ciò che arriverà subito dopo. Non è assenza di contenuto: è contenuto. 
  Regola: il silenzio è un effetto sonoro. 
@@ -117,7 +117,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 8 ---
-Produzione 
+
  La DAW 
  La Digital Audio Workstation è il software dove si registra, monta e mixa l'audio. È lo studio di registrazione nella forma digitale: Ableton Live e FL Studio per la produzione musicale, Reaper e Audacity (gratuito) per il sound design orientato al gioco. 
  Analogia: la DAW è alla produzione audio come Photoshop è alla grafica. 
@@ -130,7 +130,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 9 ---
-Fondamenti 
+
  Onde e sampling 
  Il suono è una vibrazione che si propaga nell'aria come onda. Registrarlo digitalmente significa campionarlo (sampling): misurare l'ampiezza dell'onda migliaia di volte al secondo e convertire ogni misurazione in un numero. 
  
@@ -161,7 +161,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 10 ---
-Effetti 
+
  Dare forma al suono 
  Gli effetti audio trasformano un suono grezzo in qualcosa di specifico: definiscono lo spazio, il carattere e l'intensità. Sono i mattoni del sound design. 
  
@@ -173,7 +173,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 11 ---
-Assemblaggio 
+
  Sequencing e mixing 
  Mettere insieme i suoni nel tempo ( sequencing ) e bilanciarli tra loro ( mixing ) è ciò che trasforma tracce isolate in un paesaggio sonoro coerente e coinvolgente. Nessun suono vive da solo: tutto convive nel mix. 
  
@@ -211,7 +211,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 12 ---
-Attività 
+
  Progetta il suono di un'azione 
  Applica quello che hai imparato progettando da zero l'identità sonora di un'azione di gioco. Pensa in strati: un buon SFX è quasi sempre la somma di più suoni sovrapposti. 
  

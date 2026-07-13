@@ -12,7 +12,7 @@ Cos'è l'IA, come si definisce, le sue applicazioni quotidiane e i concetti chia
 🤖
 
 --- Slide 2 ---
-In questo modulo 
+
  Cosa vedremo 
  
  01 Cos'è l'IA — storia, definizione, IA debole vs forte 
@@ -22,7 +22,7 @@ In questo modulo
  05 ChatGPT, prompt engineering, bias, etica, futuro
 
 --- Slide 3 ---
-Definizione 
+
  Cos'è l' Intelligenza Artificiale ? 
  La capacità o il tentativo di un sistema artificiale di simulare una forma di intelligenza — Wikipedia. 
  
@@ -44,7 +44,7 @@ Fonti ufficiali:
 - AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 4 ---
-Contesto storico 
+
  Breve storia dell' IA 
  
  
@@ -70,7 +70,7 @@ Fonti ufficiali:
 - AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 5 ---
-Il problema della definizione 
+
  La battuta dei ricercatori 
  L'IA è "tutto ciò che i computer non sanno ancora fare" . Non appena troviamo un modo per farlo, smette di chiamarsi IA. 
  
@@ -104,7 +104,7 @@ Il problema della definizione
  Non esiste ancora. I ricercatori non concordano su quando — o se — arriverà.
 
 --- Slide 7 ---
-Mappa concettuale 
+
  I concetti correlati 
  
  
@@ -149,7 +149,7 @@ Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 8 ---
-Deep Learning 
+
  Reti neurali 
  Ispirate (lontanamente) al cervello umano: nodi connessi in strati che trasformano l'input in output. 
  Strato di input → strati nascosti (dove avviene l'apprendimento) → strato di output . La "profondità" è il numero di strati nascosti. 
@@ -179,7 +179,7 @@ Deep Learning
  OUTPUT
 
 --- Slide 9 ---
-Natural Language Processing 
+
  Capire il linguaggio naturale 
  L'NLP permette alle macchine di leggere, capire e generare testo umano — il ramo dell'IA con la crescita più esplosiva degli ultimi anni. 
  
@@ -206,7 +206,7 @@ Fonti ufficiali:
 - Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 10 ---
-Machine Learning 
+
  Come impara una macchina? 
  
  Dati di addestramento — migliaia (o miliardi) di esempi etichettati: foto di gatti e non-gatti, email spam e non-spam, traduzioni corrette. 
@@ -219,7 +219,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 11 ---
-Applicazione 
+
  Auto a guida autonoma 
  Un caso che combina quasi tutte le tecniche di IA in un unico sistema. 
  
@@ -244,7 +244,7 @@ Applicazione
  Gli umani assumeranno sempre più un ruolo di supervisione mentre le macchine gestiscono l'esecuzione.
 
 --- Slide 12 ---
-Applicazione · Approfondimento 
+
  Auto autonoma — sfide reali 
  
  
@@ -268,7 +268,7 @@ Applicazione · Approfondimento
  Chi è responsabile in caso di incidente? L'utente, il produttore o il software? Le leggi in Europa stanno ancora evolvendo.
 
 --- Slide 13 ---
-Isaac Asimov · 1942 
+
  Le tre leggi della robotica 
  
  Un robot non può recare danno a un essere umano né permettere che, per mancato intervento, un essere umano riceva danno. 
@@ -280,7 +280,7 @@ Isaac Asimov · 1942
  Scritte per la fantascienza, queste leggi anticipano le domande etiche sull'IA che affrontiamo oggi nella realtà.
 
 --- Slide 14 ---
-Applicazione 
+
  Contenuti personalizzati 
  Gran parte delle informazioni che riceviamo ogni giorno sono scelte da un algoritmo su misura per noi. 
  Social media, streaming musicale e video, motori di ricerca, giornali online — tutti personalizzano in base alla nostra storia di navigazione. 
@@ -304,7 +304,7 @@ Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 15 ---
-Rischio 
+
  Filter bubble 
  — la bolla di filtraggio 
  Quando un algoritmo registra il comportamento dell'utente e sceglie selettivamente solo ciò che vuole vedere , isolandolo da informazioni in contrasto con il suo punto di vista. 
@@ -320,7 +320,7 @@ Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 16 ---
-Rischi sociali 
+
  Echo chamber, troll e fake news 
  
  
@@ -346,7 +346,7 @@ Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 17 ---
-Difesa attiva 
+
  Come uscire dalla bolla 
  
  Diversifica le fonti — leggi almeno un organo di informazione che sai di non preferire. Il discomfort è un buon segnale. 
@@ -357,7 +357,7 @@ Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 18 ---
-Manipolazione digitale 
+
  Bot e troll farm 
  Account automatizzati e reti coordinate di persone reali usati per amplificare messaggi, creare falsa consenso e polarizzare l'opinione pubblica . 
  
@@ -382,7 +382,7 @@ Manipolazione digitale
  I modelli linguistici rendono facile produrre testo persuasivo su scala. La propaganda automatizzata è un rischio concreto.
 
 --- Slide 19 ---
-Applicazione 
+
  Elaborazione immagini 
  L'IA può riconoscere ciò che vede e generare immagini nuove, sempre più indistinguibili dalla realtà. 
  
@@ -403,7 +403,7 @@ Applicazione
  Adattare una foto per farla sembrare dipinta da Van Gogh. Personaggi CGI nei film (Avatar, Pixar).
 
 --- Slide 20 ---
-Come funziona 
+
  Computer vision — come vede una macchina 
  Un'immagine è solo una griglia di numeri (pixel). Il modello impara a riconoscere pattern di numeri associati a oggetti — dopo milioni di esempi etichettati. 
  
@@ -428,7 +428,7 @@ Come funziona
  Face ID dello smartphone, filtri AR di Instagram, traduzione live di testo con la fotocamera, riconoscimento della scrittura — tutte computer vision.
 
 --- Slide 21 ---
-Implicazione critica 
+
  Deepfake — "vedere non è credere" 
  Con l'aumento della potenza di calcolo, creare video falsi dall'aspetto autentico — indistinguibili da filmati reali — è diventato accessibile a chiunque. 
  
@@ -441,7 +441,7 @@ Implicazione critica
  Verificare la fonte originale. Cercare incongruenze (occhi, denti, bordi). Non condividere video sensazionali senza verifica.
 
 --- Slide 22 ---
-Difesa pratica 
+
  Come riconoscere un deepfake 
  
  
@@ -474,7 +474,7 @@ Difesa pratica
  Se un video ti fa arrabbiare molto o ti sembra incredibile, fermati. È esattamente ciò che chi ha creato il deepfake voleva provocare.
 
 --- Slide 23 ---
-Strumenti IA 
+
  ChatGPT — cosa può fare 
  Un modello linguistico che genera testo, risponde a domande, traduce, riassume, scrive codice e molto altro. 
  
@@ -494,7 +494,7 @@ Strumenti IA
  Conoscenza aggiornata in tempo reale, giudizio etico autonomo, esperienze pratiche, emozioni autentiche.
 
 --- Slide 24 ---
-Ogni giorno 
+
  L'IA che usi senza saperlo 
  
  
@@ -525,7 +525,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 25 ---
-Usare bene l'IA 
+
  Prompt engineering — chiedi meglio 
  Il risultato di un modello IA dipende enormemente da come poni la domanda . Un prompt vago dà risposte vaghe. 
  
@@ -550,7 +550,7 @@ Usare bene l'IA
  ChatGPT può "allucinare" : inventare fatti, citare fonti inesistenti, sbagliare calcoli. Verifica sempre le informazioni critiche.
 
 --- Slide 26 ---
-Pensiero critico 
+
  Riconoscere gli elaborati IA 
  
  
@@ -569,7 +569,7 @@ Pensiero critico
  Vietare l'uso (aggirabile) vs trasformare l'IA in strumento didattico: usarla come punto di partenza critico, non come risposta finale.
 
 --- Slide 27 ---
-Problema critico 
+
  Bias nell'IA 
  Un modello impara dai dati. Se i dati riflettono pregiudizi umani, il modello li amplifica e automatizza . 
  
@@ -597,7 +597,7 @@ Fonti ufficiali:
 - Regolamento europeo sull’IA — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 
 --- Slide 28 ---
-Strumenti IA 
+
  Generazione di immagini 
  Strumenti come Midjourney , DALL-E e Stable Diffusion creano immagini a partire da una descrizione testuale (prompt). 
  
@@ -617,7 +617,7 @@ Strumenti IA
  Mani con dita extra, testo illeggibile, riflessi incoerenti: l'IA commette ancora errori caratteristici.
 
 --- Slide 29 ---
-Le domande aperte 
+
  Etica dell'IA 
  
  
@@ -644,7 +644,7 @@ Fonti ufficiali:
 - Copyright nell’Unione europea — https://europa.eu/youreurope/business/running-business/intellectual-property/copyright/index_it.htm
 
 --- Slide 30 ---
-Etica applicata 
+
  Auto autonome: il caso difficile 
  
  ✅ Perché promettono sicurezza Non dormono, non si distraggono, usano sensori più precisi dell'occhio umano e migliorano con aggiornamenti software. 
@@ -653,7 +653,7 @@ Etica applicata
  🔐 Regole e hacking Chi possiede la patente di un'auto senza guidatore? E cosa succede se il sistema viene compromesso?
 
 --- Slide 31 ---
-Rischi pratici 
+
  Deepfake, voce e truffe 
  
  🎭 Clonazione Immagini e video falsi sono sempre più comuni; la voce può essere clonata anche in tempo reale. 
@@ -665,7 +665,7 @@ Fonti ufficiali:
 - Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 32 ---
-Riconoscimento 
+
  Segnali tipici dei contenuti IA 
  
  🖼️ Immagini Fermati e chiediti se ha senso. Controlla mani, occhi, proporzioni, testi inventati, lettere e numeri deformati. 
@@ -677,7 +677,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 33 ---
-Creatività e lavoro 
+
  IA come strumento , non scorciatoia 
  
  ❌ Falsi miti "L'arte è morta", "tutti possono copiare un esperto", "la creatività non serve più": sono semplificazioni sbagliate. 
@@ -688,7 +688,7 @@ Fonti ufficiali:
 - Copyright nell’Unione europea — https://europa.eu/youreurope/business/running-business/intellectual-property/copyright/index_it.htm
 
 --- Slide 34 ---
-Prospettive 
+
  Il futuro dell' IA 
  I ricercatori non concordano su cosa succederà — ma concordano che il cambiamento sarà profondo . 
  
@@ -713,7 +713,7 @@ Prospettive
  Stima McKinsey: 300 milioni di posti a rischio automazione entro 2030. Ma anche nuovi mestieri ancora da inventare.
 
 --- Slide 35 ---
-Riflessione 
+
  L'IA è creativa ? 
  L'IA genera testo, musica, immagini, codice — ma non ha intenzioni, emozioni o esperienze vissute . Combina pattern visti nei dati. 
  
@@ -731,7 +731,7 @@ Riflessione
  L'IA è uno strumento straordinariamente potente nelle mani di chi sa cosa vuole creare — non un sostituto della creatività umana.
 
 --- Slide 36 ---
-Attenzione 
+
  Privacy e dati personali nell'era IA 
  I modelli IA sono addestrati su enormi quantità di dati. Quando usi uno strumento IA, spesso stai anche fornendo dati . 
  

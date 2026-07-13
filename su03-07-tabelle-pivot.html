@@ -47,7 +47,7 @@
   <section class="slide">
     <div class="split">
       <div class="stack">
-        <div class="tape teal reveal">Perché servono</div>
+
         <h2 class="h-big reveal">Quando la tabella è <em class="hot">troppo lunga</em></h2>
         <p class="lead reveal d1">Una tabella pivot prende un elenco di righe e lo trasforma in un riepilogo leggibile. Non modifica i dati originali: crea una vista aggregata per rispondere a domande come "quanto abbiamo venduto per mese?", "quale servizio rende di più?", "chi ha più appuntamenti?".</p>
         <div class="analogy reveal d2"><span class="big">In pratica:</span> la pivot è un report automatico sopra una tabella grezza.</div>
@@ -74,7 +74,7 @@
 
   <section class="slide tight">
     <div class="center">
-      <div class="tape reveal">Dati sorgente</div>
+
       <h2 class="h-sec reveal" style="margin-top:16px;">Prima regola: una riga = un record</h2>
       <p class="lead reveal d1" style="margin-top:18px;">La pivot funziona bene solo se la tabella di partenza è ordinata come un database: intestazioni chiare, nessuna riga vuota, nessuna cella unita, ogni colonna con un solo tipo di informazione.</p>
       <div class="grid4 reveal d2" style="margin-top:28px;">
@@ -91,7 +91,7 @@
   <section class="slide">
     <div class="split">
       <div class="stack">
-        <div class="tape gold reveal">Creazione</div>
+
         <h2 class="h-big reveal">Da tabella a <em class="hot">pivot</em></h2>
         <p class="lead reveal d1">In Excel e Google Sheets il flusso è quasi identico: selezioni la tabella, scegli Inserisci → Tabella pivot e decidi dove creare il report. Il lavoro vero inizia nel pannello dei campi.</p>
         <div class="note sky reveal d2"><div class="lbl">Excel</div><p>Seleziona i dati → Inserisci → Tabella pivot → nuovo foglio o foglio esistente.</p></div>
@@ -109,7 +109,7 @@
 
   <section class="slide">
     <div class="center">
-      <div class="tape teal reveal">Anatomia</div>
+
       <h2 class="h-sec reveal" style="margin-top:16px;">Righe, colonne, valori, filtri</h2>
       <p class="lead reveal d1" style="margin-top:18px;">Una pivot è costruita spostando campi in quattro aree. Il campo è sempre una colonna della tabella sorgente.</p>
       <div class="grid4 reveal d2" style="margin-top:34px;">
@@ -126,7 +126,7 @@
   <section class="slide">
     <div class="split even">
       <div class="stack">
-        <div class="tape sky reveal">Esempio 1</div>
+
         <h2 class="h-big reveal">Incasso per <em class="hot">servizio</em></h2>
         <p class="lead reveal d1">Per sapere quali servizi generano più ricavi, metti <b>Servizio</b> nelle righe e <b>Incasso</b> nei valori con aggregazione Somma.</p>
         <div class="pivot-box reveal d2">
@@ -152,7 +152,7 @@
   <section class="slide">
     <div class="split even">
       <div class="stack">
-        <div class="tape gold reveal">Esempio 2</div>
+
         <h2 class="h-big reveal">Confronto per <em class="hot">mese</em></h2>
         <p class="lead reveal d1">Aggiungendo un campo nelle colonne, la pivot diventa una matrice. Le righe mostrano i servizi, le colonne mostrano i mesi, i valori sommano gli incassi.</p>
         <div class="pivot-box reveal d2">
@@ -175,7 +175,7 @@
 
   <section class="slide tight">
     <div class="center">
-      <div class="tape reveal">Valori</div>
+
       <h2 class="h-sec reveal" style="margin-top:16px;">Somma, conteggio, media</h2>
       <p class="lead reveal d1" style="margin-top:18px;">Il campo Valori non deve per forza sommare. Cambiare aggregazione cambia completamente la domanda a cui stai rispondendo.</p>
       <div class="grid3 reveal d2" style="margin-top:28px;">
@@ -194,7 +194,7 @@
   <section class="slide">
     <div class="split">
       <div class="stack">
-        <div class="tape teal reveal">Filtri</div>
+
         <h2 class="h-big reveal">Vedere solo ciò che <em class="hot">serve</em></h2>
         <p class="lead reveal d1">I filtri limitano il report senza cancellare dati. Puoi analizzare un solo anno, una sola sede, un operatore specifico o un insieme di servizi.</p>
         <div class="note reveal d2"><div class="lbl">Excel</div><p>Usa filtri nel pannello pivot oppure aggiungi segmentazioni dati per controlli visuali.</p></div>
@@ -212,7 +212,7 @@
 
   <section class="slide tight">
     <div class="center">
-      <div class="tape gold reveal">Manutenzione</div>
+
       <h2 class="h-sec reveal" style="margin-top:16px;">Aggiornare una pivot</h2>
       <p class="lead reveal d1" style="margin-top:18px;">La pivot non è la tabella sorgente: è un report generato. Quando i dati cambiano, bisogna assicurarsi che il report venga aggiornato e che il range includa le nuove righe.</p>
       <div class="grid3 reveal d2" style="margin-top:28px;">
@@ -227,7 +227,7 @@
 
   <section class="slide tight">
     <div class="center">
-      <div class="tape sky reveal">Errori comuni</div>
+
       <h2 class="h-sec reveal" style="margin-top:16px;">Quando la pivot mente</h2>
       <p class="lead reveal d1" style="margin-top:18px;">La pivot calcola correttamente quello che le dai. Se il risultato sembra sbagliato, quasi sempre il problema è nella tabella sorgente o nella scelta dei campi.</p>
       <div class="grid3 reveal d2" style="margin-top:28px;">
@@ -242,7 +242,7 @@
 
   <section class="slide">
     <div class="center">
-      <div class="tape reveal">Verifica</div>
+
       <h2 class="h-sec reveal" style="margin-top:16px;">Sapresti costruirla?</h2>
       <div class="grid2 reveal d1" style="margin-top:28px;">
         <div class="card"><span class="ic">📊</span><h3>Incassi mensili</h3><p>Hai colonne Data, Servizio, Operatore, Incasso. Dove metti Data/Mese, Servizio e Incasso per vedere gli incassi dei servizi mese per mese?</p></div>
@@ -254,15 +254,13 @@
     <div class="page-num"></div>
   </section>
 
-  <section class="slide closing">
-    <div class="center" style="text-align:center;">
+  <section class="slide closing"><div class="closing-inner"><div class="center" style="text-align:center;">
       <h2 class="h-mega reveal">Dati grezzi,<br><span class="gold">risposte chiare.</span></h2>
       <p class="lead reveal d1" style="color:var(--paper);max-width:1180px;text-align:center;margin:24px auto 0;">Una tabella pivot trasforma righe operative in report: scegli categorie, valori e filtri, poi leggi il risultato senza riscrivere formule ogni volta.</p>
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a class="chip" href="su04-01-presentazioni.html" style="background:var(--gold);color:var(--ink);">Prossimo → SU04.01 · Dillo con una slide</a>
       </div>
-    </div>
-  </section>
+    </div></div><div class="page-num"></div></section>
 
 </div>
 </div>

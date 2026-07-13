@@ -116,7 +116,7 @@ body.course-ms{--slide-bg:#e9f2f5;--line:rgba(58,116,138,.22);--accent:#33768e;-
 .lead{font-size:30px !important;font-weight:500;color:var(--ink) !important;line-height:1.42 !important;}
 .body{font-size:26px !important;color:var(--ink-soft) !important;line-height:1.45 !important;}
 .eyebrow{font-size:34px !important;}
-.tape,.tag{font-size:22px !important;}
+.tag{font-size:22px !important;}
 .card h3{font-size:34px !important;}
 .card p,.card li{font-size:24px !important;line-height:1.38 !important;}
 .note p{font-size:25px !important;line-height:1.38 !important;}
@@ -132,8 +132,7 @@ body.course-ms{--slide-bg:#e9f2f5;--line:rgba(58,116,138,.22);--accent:#33768e;-
 .page-num,.num{font-size:22px !important;}
 .page-num b,.num b{font-size:28px !important;}
 
-.tape,.tag{
-  /* base completa: alcuni deck non definiscono .tape nel proprio CSS */
+.tag{
   display:inline-block;
   padding:10px 22px;
   font-weight:700;
@@ -146,9 +145,7 @@ body.course-ms{--slide-bg:#e9f2f5;--line:rgba(58,116,138,.22);--accent:#33768e;-
   letter-spacing:2px !important;
 }
 
-.tape.teal,.tag{background:var(--course-dark) !important;}
-.tape.gold{background:var(--accent-2) !important;}
-.tape.sky{background:var(--accent) !important;}
+.tag{background:var(--course-dark) !important;}
 
 .eyebrow,
 em.hot,
@@ -264,8 +261,8 @@ em.sky,.accent{color:var(--accent-2) !important;}
   max-width:980px !important;
 }
 
-/* Niente chip codice+corso sulle slide di apertura: l'argomento è nel
-   titolo; sulle slide di contenuto lo identifica il .tape. */
+/* Niente chip codice+corso sulle slide di apertura: l'argomento è già
+   espresso dal titolo e dall'eyebrow. */
 .title-slide .chips{
   display:none !important;
 }
@@ -273,11 +270,99 @@ em.sky,.accent{color:var(--accent-2) !important;}
 .closing{
   background:
     linear-gradient(145deg, color-mix(in srgb, var(--course-dark) 88%, #000 12%), var(--course-dark)) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
 }
 
 .closing::before{opacity:.10 !important;}
 .closing .lead,.closing .body,.closing p{color:rgba(255,255,255,.88) !important;}
 .closing .gold{color:var(--gold) !important;}
+
+.closing-inner{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:1540px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.closing-inner > .center{
+  width:100%;
+  height:auto !important;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.closing h1,.closing h2,
+.closing .h-mega,.closing .h-big,.closing .h-sec,.closing .h2{
+  max-width:1480px;
+  margin:0 auto !important;
+  color:#fff !important;
+  font-family:var(--font-display) !important;
+  font-size:118px !important;
+  font-weight:900 !important;
+  line-height:.92 !important;
+  letter-spacing:0 !important;
+  text-align:center !important;
+  text-wrap:balance;
+}
+
+.closing .lead,.closing .body,
+.closing-inner > p:not(:has(>a)),
+.closing-inner > .center > p:not(:has(>a)){
+  width:100%;
+  max-width:1180px !important;
+  margin:28px auto 0 !important;
+  text-align:center !important;
+  color:rgba(255,255,255,.88) !important;
+}
+
+.closing .chips,
+.closing p:has(>a.chip),
+.closing .closing-actions{
+  display:flex !important;
+  align-items:center;
+  justify-content:center !important;
+  gap:16px;
+  margin:0 !important;
+}
+
+.closing a.chip{
+  display:inline-flex !important;
+  align-items:center;
+  justify-content:center;
+  margin:42px 0 0 !important;
+  padding:13px 24px !important;
+  background:rgba(255,255,255,.08) !important;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.30) !important;
+  border-radius:999px !important;
+  box-shadow:none !important;
+  text-decoration:none !important;
+  white-space:nowrap;
+}
+
+.closing:has(a[href]:not([href*="indice"])) a[href*="indice"]{
+  display:none !important;
+}
+
+.closing .deck-tab{display:none !important;}
+
+.closing .page-num,.closing .num,
+.closing .page-num b,.closing .num b{
+  color:rgba(255,255,255,.46) !important;
+}
 
 .page-num{
   position:absolute !important;

@@ -27,7 +27,7 @@ C3
 ↕
 
 --- Slide 2 ---
-In questo modulo 
+
  Cosa impareremo 
  
  01 Indirizzi di cella 
@@ -42,7 +42,7 @@ In questo modulo
  10 Errori e buone abitudini
 
 --- Slide 3 ---
-Coordinate 
+
  Ogni cella ha un indirizzo 
  Le colonne usano lettere (A, B, C…), le righe usano numeri (1, 2, 3…). La cella B3 è l'incrocio tra colonna B e riga 3. 
  Le formule non usano valori fissi: usano indirizzi. Questo permette ai risultati di aggiornarsi automaticamente quando cambiano i dati. 
@@ -61,7 +61,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 4 ---
-Relativi 
+
  Riferimenti relativi 
  Un riferimento relativo si sposta quando la formula viene copiata. Se copi la formula in basso di una riga, il riferimento scende di una riga. 
  =B2 * 1.22 
@@ -78,7 +78,7 @@ Relativi
  Copia di C2 verso il basso → B si aggiorna
 
 --- Slide 5 ---
-Assoluti 
+
  Riferimenti assoluti — il $ 
  Il simbolo $ blocca la parte del riferimento che lo precede. $B$1 resta sempre su colonna B, riga 1 — anche se copi la formula ovunque. 
  =B3 * (1 + $B$1 ) 
@@ -104,7 +104,7 @@ Assoluti
  $B$1 = sempre la stessa cella, sempre
 
 --- Slide 6 ---
-Misti 
+
  Riferimenti misti — bloccare solo colonna o solo riga 
  
  Tipo Esempio Cosa succede quando copi 
@@ -116,7 +116,7 @@ Misti
  💡 Idea chiave Il simbolo $ non significa denaro: significa "blocca questa dimensione". Premi F4 per ciclare tra i 4 tipi mentre sei nella barra della formula.
 
 --- Slide 7 ---
-Intervalli 
+
  Range: più celle
  in una volta 
  Un range è un gruppo di celle. Si scrive con la prima e l'ultima separate dai due punti. Le formule lo usano per lavorare su molte celle contemporaneamente. 
@@ -143,7 +143,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 8 ---
-Chiarezza 
+
  Nominare celle e range 
  Puoi dare un nome a una cella o a un intervallo. La formula diventa più leggibile e meno fragile — non dipende più da dove si trova fisicamente la cella. 
  =Prezzo * (1 + AliquotaIVA ) 
@@ -165,7 +165,7 @@ Chiarezza
  x (troppo generico)
 
 --- Slide 9 ---
-Tabelle strutturate 
+
  Riferimenti alle colonne 
  Quando converti un range in Tabella (Inserisci → Tabella), puoi riferirti alle colonne per nome invece che per lettera — e il range si espande automaticamente. 
  =SOMMA( Vendite[Importo] ) 
@@ -185,7 +185,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 10 ---
-Fogli diversi 
+
  Riferimento ad altro foglio 
  Puoi leggere il valore di una cella che si trova su un altro foglio dello stesso file usando il punto esclamativo come separatore. 
  
@@ -208,7 +208,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 11 ---
-Variabili locali 
+
  La funzione LET 
  LET permette di dare un nome temporaneo a parti della formula. La formula rimane compatta e leggibile — il nome scompare dopo il calcolo. 
  Analogia: LET è come scrivere una bozza con appunti ai margini — calcoli intermedi con nome, risultato finale pulito. 
@@ -229,7 +229,7 @@ Fonti ufficiali:
 - Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 12 ---
-Errori e regole 
+
  Cosa rompe le formule — e come evitarlo 
  
  

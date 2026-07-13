@@ -12,7 +12,7 @@ Unire, dividere, cercare, sostituire, pulire e convertire il testo con le funzio
 ✂️
 
 --- Slide 2 ---
-In questo modulo 
+
  I dati veri sono sporchi 
  Export dal gestionale, moduli compilati a mano, copia-incolla da email: il testo arriva quasi sempre nel formato sbagliato. Le funzioni di testo lo rimettono in ordine senza riscrivere nulla a mano. 
  Analogia: forbici, colla e gomma per le tue celle — tagli, unisci e cancelli senza toccare l'originale. 
@@ -30,7 +30,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 3 ---
-1. Unire 
+
  Da tante celle a una 
  L'operatore &amp; lo conosci già. Quando le celle da unire sono tante, TESTO.UNISCI fa la stessa cosa con un separatore unico e salta le celle vuote. 
  =TESTO.UNISCI( "; " ; VERO ; A2:A10) 
@@ -50,7 +50,7 @@ Fonti ufficiali:
 la cella vuota sparisce dal risultato
 
 --- Slide 4 ---
-2. Dividere 
+
  SPLIT: una cella, più colonne 
  SPLIT è l'inverso dell'unione: prende un testo e lo spezza in celle separate ogni volta che incontra il delimitatore. È una funzione esclusiva di Google Sheets e mantiene il nome inglese. 
  =SPLIT( A2 ; "-" ) 
@@ -77,7 +77,7 @@ Fonti ufficiali:
 - Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 5 ---
-3. Cercare 
+
  TROVA e RICERCA : dov'è quel carattere? 
  Entrambe restituiscono la posizione (un numero) di un testo dentro un altro. Non estraggono nulla da sole: danno la coordinata che poi passi a STRINGA.ESTRAI, SINISTRA o DESTRA. 
  
@@ -99,7 +99,7 @@ Fonti ufficiali:
  ⚠️ Se non trova Entrambe restituiscono l'errore #VALORE! quando il testo non c'è. Avvolgile in SE.ERRORE per un messaggio leggibile.
 
 --- Slide 6 ---
-4. Estrarre in modo dinamico 
+
  TROVA + estrazione 
  SINISTRA e DESTRA con un numero fisso funzionano solo se i testi hanno tutti la stessa lunghezza. Con TROVA la posizione diventa calcolata, e la formula funziona su qualsiasi riga. 
  =SINISTRA(A2; TROVA("@";A2) -1 ) 
@@ -119,7 +119,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 7 ---
-5. Sostituire 
+
  SOSTITUISCI e RIMPIAZZA 
  Due modi per cambiare un pezzo di testo: per contenuto (sai cosa cercare) o per posizione (sai dove sta). 
  
@@ -142,7 +142,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 8 ---
-6. Pulire 
+
  Spazi invisibili 
  "Roma " con lo spazio finale non è uguale a "Roma": CERCA.VERT e CONTA.SE lo trattano come un valore diverso. È l'errore invisibile più comune nei dati incollati. 
  
@@ -158,7 +158,7 @@ Fonti ufficiali:
  💡 Cugina utile PULISCI rimuove i caratteri non stampabili (a capo strani, tab) che arrivano da export e PDF. Si combina: =ANNULLA.SPAZI(PULISCI(A2))
 
 --- Slide 9 ---
-7. Da testo a numero 
+
  Numeri travestiti da testo 
  Un numero importato come testo sembra identico ma non si calcola: SOMMA lo ignora e la media sballa. VALORE lo riconverte in numero vero. 
  =VALORE( A2 ) 
@@ -176,7 +176,7 @@ Fonti ufficiali:
 dopo VALORE numeri veri
 
 --- Slide 10 ---
-8. Maiuscole e minuscole 
+
  MAIUSC, MINUSC, MAIUSC.INIZ 
  Uniformare il formato dei nomi scritti in dieci modi diversi da dieci persone diverse: tre funzioni, zero fatica. 
  
@@ -208,7 +208,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 11 ---
-Caso pratico 
+
  Pulizia in catena 
  Dal modulo online arriva "&nbsp;&nbsp;mario&nbsp;&nbsp;ROSSI " . Per la rubrica clienti serve "Mario Rossi". Le funzioni si annidano: il risultato di una è l'ingresso della successiva. 
  =MAIUSC.INIZ( ANNULLA.SPAZI( A2 ) ) 
@@ -234,7 +234,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 12 ---
-Riepilogo 
+
  La cassetta degli attrezzi del testo 
  
  
@@ -288,7 +288,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 13 ---
-Verifica 
+
  Sapresti rispondere ? 
  
  

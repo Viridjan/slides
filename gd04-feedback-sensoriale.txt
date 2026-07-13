@@ -12,7 +12,7 @@ Come il gioco parla ai sensi del giocatore — vibrazione, tatto, sensori — e 
 🎮
 
 --- Slide 2 ---
-In questo modulo 
+
  Cosa vedremo 
  
  
@@ -26,7 +26,7 @@ In questo modulo
  Tassonomia di Bartle — Killer, Achiever, Explorer, Socializer
 
 --- Slide 3 ---
-Definizione 
+
  Il gioco parla ai sensi 
  Ogni azione del giocatore merita una risposta percepibile. Lo schermo mostra, l'audio racconta, la vibrazione fa sentire : il feedback tattile chiude il ciclo azione → risposta e rende l'esperienza fisica. 
  
@@ -43,7 +43,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 4 ---
-Storia 
+
  Dal rumble all'aptica 
  La vibrazione nei controller nasce semplice: un motore che trema quando succede qualcosa. Ci vorranno vent'anni per passare dal "brr" generico alla sensazione precisa. 
  
@@ -56,7 +56,7 @@ Storia
  🎯 Il limite Nessuna precisione: solo "acceso" o "spento". Un'esplosione e una carezza vibrano quasi uguali.
 
 --- Slide 5 ---
-Salto qualitativo 
+
  DualSense PS5 
  Il controller di PlayStation 5 trasforma la vibrazione in un linguaggio espressivo: non un solo motore, ma un sistema che ricrea sensazioni diverse. 
  
@@ -72,7 +72,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 6 ---
-Oltre il joypad 
+
  Il tatto esce dal controller 
  
  🎧 Cuffie aptiche Le Razer Nari vibrano sulle frequenze basse: un'esplosione non si sente solo, si percepisce sulla testa. 
@@ -81,7 +81,7 @@ Oltre il joypad
  📱 Smartphone I motori aptici dei telefoni (come il Taptic Engine) danno "click" e conferme tattili precise a ogni tocco.
 
 --- Slide 7 ---
-Prototipare 
+
  Arduino e sensori 
  Arduino è una scheda programmabile economica: legge sensori e attiva output. Perfetta per prototipare controller alternativi o installazioni interattive con feedback fisico reale. 
  
@@ -111,7 +111,7 @@ Prototipare
  Input : pulsanti, sensori di luce, movimento, distanza. Output : LED, motori, suoni, vibrazioni. Il giocatore agisce, la scheda misura e risponde.
 
 --- Slide 8 ---
-Input vs output 
+
  Sensori e attuatori 
  
  📡 Sensori — percepire Pressione (quanto forte premi), movimento (accelerometro), luce (fotoresistenza), distanza (ultrasuoni), tatto (sensori capacitivi). 
@@ -124,7 +124,7 @@ Fonti ufficiali:
 - Valori e codice etico — IGDA — https://igda.org/about-us/core-values-and-code-of-ethics/
 
 --- Slide 9 ---
-Cambio di prospettiva 
+
  Chi sono i giocatori 
  Non tutti giocano per gli stessi motivi: c'è chi vuole vincere, chi vuole scoprire, chi vuole stare in compagnia. Capire i tipi di giocatore aiuta a progettare esperienze che li soddisfino davvero. 
  
@@ -135,7 +135,7 @@ Cambio di prospettiva
  Un gioco che ignora i suoi giocatori fallisce: progettare significa prima capire per chi stai progettando.
 
 --- Slide 10 ---
-Modello 
+
  La tassonomia di Bartle 
  Quattro tipi su due assi: agire ↔ interagire e giocatori ↔ mondo . 
  
@@ -145,7 +145,7 @@ Modello
  💬 Socializer Interagire coi giocatori : relazioni, community, chat, gilde. Il gioco è il pretesto, le persone sono il punto.
 
 --- Slide 11 ---
-Applicazione 
+
  Progettare per i 4 tipi 
  Un buon gioco offre qualcosa a ciascun tipo: sistemi diversi che parlano a motivazioni diverse, dentro la stessa esperienza. 
  
@@ -160,7 +160,7 @@ Applicazione
  Socializer → modalità coop, gilde, chat e strumenti sociali
 
 --- Slide 12 ---
-Attività 
+
  Che giocatore sei ? 
  
  Pensa al tuo gioco preferito e a come lo giochi davvero. 

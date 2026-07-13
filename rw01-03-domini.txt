@@ -25,7 +25,7 @@ SLD
 TLD
 
 --- Slide 2 ---
-Struttura 
+
  Anatomia di un dominio 
  Un dominio come www.accademia.it è composto da più parti lette da destra a sinistra : estensione, nome, sottodominio. 
  
@@ -52,7 +52,7 @@ Fonti ufficiali:
 - Nomi di dominio — ICANN — https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en
 
 --- Slide 3 ---
-Estensioni nazionali 
+
  Domini geografici 
  I ccTLD (country code Top Level Domain) identificano la nazione di appartenenza di un sito. Assegnati da ICANN a ogni paese secondo la norma ISO 3166. 
  
@@ -88,7 +88,7 @@ Fonti ufficiali:
 - HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
 --- Slide 4 ---
-Estensioni tematiche 
+
  Domini tematici 
  I gTLD (generic Top Level Domain) non identificano una nazione ma una categoria di sito. Permettono di capire immediatamente lo scopo o il pubblico di riferimento. 
  
@@ -118,7 +118,7 @@ Estensioni tematiche
  ICANN ha aperto centinaia di nuovi TLD generici: .app · .blog · .cloud · .shop · .tech · .pizza . Oggi esistono oltre 1500 TLD diversi. Il sistema è in continua espansione.
 
 --- Slide 5 ---
-DNS 
+
  Il DNS — traduttore 
 di indirizzi 
  Il Domain Name System è la rubrica telefonica di Internet: trasforma nomi leggibili in numeri che i computer capiscono. 
@@ -152,7 +152,7 @@ Fonti ufficiali:
 - Domain Name System — ICANN — https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en
 
 --- Slide 6 ---
-Registrazione 
+
  Come si registra un dominio 
  Un dominio non si crea: si registra tramite un registrar accreditato, per un periodo definito, pagando un canone annuo. 
  
@@ -179,7 +179,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 7 ---
-Sottodomini 
+
  Sottodomini : sezioni speciali 
  Un sottodominio è un prefisso aggiunto davanti al dominio principale. Il proprietario può crearne quanti ne vuole, gratuitamente. 
  
@@ -204,7 +204,7 @@ Sottodomini
  blog.accademia.it (sottodominio) è tecnicamente un sito separato · accademia.it/blog (cartella) è una sezione dello stesso sito. Dall'esterno sembrano simili, ma funzionano diversamente.
 
 --- Slide 8 ---
-Sicurezza 
+
  Come leggere un URL sospetto 
  Regola d'oro: il dominio reale è l'ultimo blocco prima del TLD . Tutto ciò che sta a sinistra può essere falsificato facilmente. 
  
@@ -229,7 +229,7 @@ Sicurezza
  Trova il TLD (es. .com , .it , .ru ) — la parola immediatamente prima è il dominio reale. Ignora tutto ciò che sta a sinistra: può essere qualsiasi cosa.
 
 --- Slide 9 ---
-Esercizio 
+
  Pratica guidata —
 Leggi questi URL 
  Per ciascun indirizzo identifica il dominio reale e il TLD. Poi decidi: legittimo o truffa? 

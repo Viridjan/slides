@@ -12,7 +12,7 @@ Tabelle, filtri, pivot, condivisione, CERCA.VERT, CERCA.ORIZZ, CONFRONTA, INDICE
 🔍
 
 --- Slide 2 ---
-In questo modulo 
+
  Cosa impareremo 
  
  01 Tabelle strutturate 
@@ -29,7 +29,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 3 ---
-Tabelle 
+
  Tabelle strutturate 
  Converti un range in Tabella: il formato si estende automaticamente, le formule si copiano, i filtri appaiono, i riferimenti strutturati funzionano. 
  Inserisci → Tabella (o Ctrl+T). Dai un nome significativo: Vendite , Clienti , Prodotti . 
@@ -51,7 +51,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 4 ---
-Esplorare i dati 
+
  Ordinamento e filtri 
  Le frecce di filtro appaiono in automatico sulle intestazioni di una tabella. Cliccale per ordinare o filtrare i dati senza toccare le formule. 
  
@@ -76,7 +76,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 5 ---
-Pivot 
+
  Tabelle pivot 
  Una tabella pivot riassume migliaia di righe in pochi secondi, raggruppando e aggregando i dati per dimensioni che scegli tu — senza scrivere una sola formula. 
  Inserisci → Tabella pivot. Trascina le colonne nelle aree Righe, Colonne, Valori, Filtri. 
@@ -123,7 +123,7 @@ Pivot
  500 righe → tabella pivot in 3 trascinamenti
 
 --- Slide 6 ---
-Formule dinamiche 
+
  FILTER, UNICI, ARRAYFORMULA 
  Formule "spill" che restituiscono una matrice di risultati: il foglio le espande automaticamente occupando tutte le celle necessarie. 
  
@@ -149,7 +149,7 @@ Fonti ufficiali:
 - Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 7 ---
-Collaborazione 
+
  Condivisione e automazioni 
  
  
@@ -179,7 +179,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 8 ---
-CERCA.VERT 
+
  Ricerca verticale 
  CERCA.VERT cerca un valore nella prima colonna di una tabella e restituisce il valore in una colonna a destra scelta da te. 
  =CERCA.VERT( chiave ; tabella; col_risultato; 0) 
@@ -203,7 +203,7 @@ CERCA.VERT
  Trova in colonna A, restituisce colonna B
 
 --- Slide 9 ---
-CERCA.ORIZZ 
+
  Ricerca orizzontale 
  CERCA.ORIZZ funziona come CERCA.VERT ma su righe invece che su colonne. Cerca nella prima riga e restituisce un valore dalla riga specificata più in basso. 
  =CERCA.ORIZZ( chiave ; tabella; riga_risultato; 0) 
@@ -221,7 +221,7 @@ CERCA.ORIZZ
  Cerca sulla riga 1, restituisce dalla riga 2
 
 --- Slide 10 ---
-CONFRONTA 
+
  Trovare la posizione 
  CONFRONTA cerca un valore in un range e restituisce la posizione (numero ordine), non il valore stesso. È il tassello fondamentale per la combinazione INDICE+CONFRONTA. 
  =CONFRONTA( chiave ; intervallo; 0) 
@@ -240,7 +240,7 @@ CONFRONTA
  "Gel Z" è in posizione 3 nella lista
 
 --- Slide 11 ---
-INDICE 
+
  Estrarre per posizione 
  INDICE è l'opposto di CONFRONTA: dato un numero di riga (e colonna), restituisce il valore in quella posizione all'interno di un range. 
  =INDICE( intervallo ; riga; colonna) 
@@ -259,7 +259,7 @@ INDICE
  Riga 3 della colonna B = 8 (prezzo Gel Z)
 
 --- Slide 12 ---
-La combinazione 
+
  INDICE+CONFRONTA — ricerca flessibile 
  CONFRONTA trova la posizione della chiave. INDICE usa quella posizione per estrarre il valore. Insieme formano una ricerca che non dipende dall'ordine delle colonne. 
  =INDICE( col_risultato ; CONFRONTA( chiave ; col_chiave ; 0)) 
@@ -273,7 +273,7 @@ La combinazione
  Chiave e risultato possono essere in qualsiasi colonna — anche a sinistra. Più robusto ai cambiamenti nella tabella.
 
 --- Slide 13 ---
-Moderno 
+
  CERCA.X — il futuro 
  CERCA.X (XLOOKUP) sostituisce sia CERCA.VERT che INDICE+CONFRONTA. Cerca in qualsiasi direzione, gestisce da sola i valori non trovati e ha una sintassi più leggibile. 
  =CERCA.X( chiave ; dove_cercare ; cosa_restituire ; [se_non_trovato]) 
@@ -294,7 +294,7 @@ Fonti ufficiali:
 - Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 14 ---
-Guida rapida 
+
  Quale funzione di ricerca scegliere? 
  
  Funzione Usa quando… Limite 

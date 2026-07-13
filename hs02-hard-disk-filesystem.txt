@@ -8,7 +8,7 @@ e file
 Come sono organizzati i dati: dischi, partizioni, file system, formati, file compressi e collegamenti simbolici.
 
 --- Slide 2 ---
-In questo modulo 
+
  Cosa impareremo 
  Dalla fisica dei piatti magnetici al modo in cui il sistema operativo trova un file in millisecondi: in questo modulo esploriamo tutta la catena di archiviazione. Capiremo perché scegliere il file system sbagliato può bloccarti, come la frammentazione rallenta un HDD, e quali abitudini pratiche salvaguardano i tuoi dati nel lungo periodo. Un percorso completo. 
  
@@ -24,7 +24,7 @@ In questo modulo
  10 Buone abitudini
 
 --- Slide 3 ---
-Il problema 
+
  Salvare non vuol dire capire 
  Quando premi "Salva", il computer deve decidere dove mettere i dati, come ritrovarli e chi può leggerli. Questo non avviene per magia: è un processo a più strati. 
  Il disco è il magazzino fisico. Il file system è l'inventario che mappa nomi e posizioni. Le cartelle sono scaffali logici. I file sono gli oggetti conservati, identificati da un percorso univoco. 
@@ -37,7 +37,7 @@ Il problema
  🧾 Metadati Informazioni associate al file: dimensione, data di creazione e modifica, permessi di accesso, proprietario.
 
 --- Slide 4 ---
-Dischi magnetici 
+
  Hard Disk HDD 
  Un HDD usa uno o più piatti di metallo rivestiti di materiale magnetico che ruotano a 5400 o 7200 giri al minuto. Una testina galleggia a pochi nanometri dalla superficie e magnetizza o rileva piccole aree per scrivere e leggere bit. 
  I dati sono organizzati in tracce circolari, suddivise in settori. Il controller traduce indirizzi logici in posizioni fisiche sul piatto. Il tempo necessario a posizionare la testina si chiama latenza di ricerca . 
@@ -46,7 +46,7 @@ Dischi magnetici
  Piatti, tracce, settori e testina
 
 --- Slide 5 ---
-Memoria flash 
+
  SSD: veloce, silenzioso, senza parti mobili 
  Un SSD memorizza dati in celle di memoria flash NAND. Non ha piatti né testine: i dati vengono letti e scritti elettronicamente in microsecondi, rendendo l'accesso casuale molto più rapido di qualsiasi HDD. 
  
@@ -57,7 +57,7 @@ Memoria flash
  TRIM Il comando TRIM informa l'SSD quali blocchi non sono più usati dal file system, permettendogli di prepararli per la prossima scrittura e mantenere velocità e durata nel tempo.
 
 --- Slide 6 ---
-Unità di misura 
+
  Bit, byte, KB, MB, GB, TB 
  Tutto ciò che un computer archivia è composto da bit. Conoscere le unità di misura aiuta a capire quanto spazio occupa un file e quanta capacità ha un disco. 
  
@@ -72,7 +72,7 @@ Fonti ufficiali:
 - UTF-8 — Unicode Standard — https://www.unicode.org/versions/latest/core-spec/chapter-2/
 
 --- Slide 7 ---
-Prima del file system 
+
  Partizioni e formattazione 
  Un disco fisico può essere diviso in partizioni: aree logicamente separate che il sistema operativo riconosce come volumi indipendenti, ognuno con il proprio file system e lettera di unità (su Windows) o punto di mount (su Linux/macOS). 
  Un uso tipico è avere una partizione per il sistema operativo e un'altra per i dati personali: così si può reinstallare l'OS senza toccare i file utente. Un disco può ospitare anche più sistemi operativi su partizioni separate. 
@@ -89,7 +89,7 @@ Prima del file system
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ Documenti, foto
 
 --- Slide 8 ---
-Il catalogo 
+
  Cos'è un file system 
  È il metodo con cui il sistema operativo organizza nomi, cartelle, posizione dei blocchi dati, permessi e spazio libero su una partizione. Senza file system, il disco sarebbe solo una sequenza anonima di bit inaccessibili. 
  Il file system mantiene un indice: sa dove inizia ogni file, quanto è grande, chi può leggerlo e quando è stato modificato l'ultima volta. Quando elimini un file, di solito viene rimosso solo dall'indice; i dati fisici restano sul disco finché nuove scritture li sovrascrivono. 
@@ -101,7 +101,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 9 ---
-Albero delle cartelle 
+
  Percorsi: dove si trova un file 
  Un file non è solo "sul computer": ha un percorso preciso. Il percorso descrive la strada dalla radice del volume fino al nome del file, cartella per cartella. È l'indirizzo univoco che il sistema usa per trovarlo. 
  Esistono due tipi di percorso: assoluto , che parte dalla radice e identifica il file senza ambiguità, e relativo , che parte dalla cartella corrente ed è più corto ma dipende dal contesto. 
@@ -126,7 +126,7 @@ Albero delle cartelle
  └─ programmi
 
 --- Slide 10 ---
-Informazioni nascoste 
+
  Metadati e permessi 
  Ogni file porta con sé informazioni che vanno oltre il contenuto. I metadati sono gestiti dal file system e sono invisibili nella navigazione quotidiana, ma fondamentali per sicurezza, backup e ricerca. 
  
@@ -137,7 +137,7 @@ Informazioni nascoste
  ⚠️ Attenzione Copiare un file tra file system diversi può far perdere metadati: permessi NTFS su FAT32, tag estesi, date di creazione o attributi speciali. Usare strumenti di backup che preservano i metadati quando necessario.
 
 --- Slide 11 ---
-Compatibilità 
+
  FAT32 ed exFAT 
  FAT32 è uno dei file system più antichi ancora in uso, nato negli anni Novanta con Windows 95. La sua longevità è dovuta alla compatibilità quasi universale: lo riconoscono PC, Mac, TV, fotocamere, console di gioco e lettori multimediali di ogni generazione. 
  
@@ -150,7 +150,7 @@ Fonti ufficiali:
 - Documenti e specifiche USB — USB-IF — https://www.usb.org/documents
 
 --- Slide 12 ---
-Windows 
+
  NTFS 
  NTFS (New Technology File System) è il file system di default per i dischi di sistema Windows dalla versione NT in poi. Progettato per ambienti professionali, offre robustezza, sicurezza e funzioni avanzate che FAT32 non può garantire. 
  Su Linux e macOS è possibile leggere partizioni NTFS quasi sempre, ma scrivere richiede driver aggiuntivi (es. NTFS-3G su Linux). Per chiavette da condividere con sistemi non Windows, exFAT resta una scelta più universale. 
@@ -164,7 +164,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 13 ---
-Linux e macOS 
+
  Btrfs, ext4, APFS 
  Il mondo Linux e Apple ha sviluppato file system propri, ottimizzati per i rispettivi sistemi operativi e carichi di lavoro. Ogni formato risolve priorità diverse: stabilità consolidata, funzioni avanzate o integrazione con l'hardware Apple. 
  
@@ -178,7 +178,7 @@ Fonti ufficiali:
 - Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
 
 --- Slide 14 ---
-Metodo 
+
  Organizzare i file 
  Un buon archivio digitale non dipende solo dal disco o dal file system: dipende da nomi chiari, strutture di cartelle coerenti e abitudini mantenute nel tempo. Il file system sa dove sono i tuoi file; solo tu sai cosa contengono. 
  Se non riesci a ritrovare un file in meno di trenta secondi, per te è quasi come se fosse perso. Investire cinque secondi in un buon nome al momento del salvataggio fa risparmiare ore di ricerca in futuro. 
@@ -190,7 +190,7 @@ Metodo
  3. Versioni esplicite Usa date o numeri di versione nel nome. Evita dieci file chiamati "finale" — usa v1 , v2 , o la data come suffisso.
 
 --- Slide 15 ---
-Prestazioni 
+
  Frammentazione, spazio libero e salute 
  Con il tempo i dischi si riempiono e le prestazioni possono degradare. Capire la frammentazione e la gestione dello spazio aiuta a mantenere il sistema veloce e i dati al sicuro. 
  
@@ -201,7 +201,7 @@ Prestazioni
  Salute del disco: monitora i segnali SMART (Self-Monitoring, Analysis and Reporting Technology) con strumenti come CrystalDiskInfo o smartmontools. Rumori di clic ripetuti su un HDD sono un segnale di guasto imminente: fai subito un backup.
 
 --- Slide 16 ---
-Ridurre peso 
+
  File compressi 
  La compressione analizza i dati alla ricerca di sequenze ripetute e schemi prevedibili, poi li rappresenta in forma più compatta. Un file di testo con molte parole ripetute può ridursi del 70–80%; un video già codificato quasi per niente. 
  Due famiglie Senza perdita (lossless): ZIP, PNG, FLAC. Puoi ricostruire esattamente l'originale, bit per bit.
@@ -216,7 +216,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 17 ---
-Archivi 
+
  ZIP, 7z, RAR, TAR.GZ 
  Ogni formato di archivio ha una storia e un caso d'uso specifico. Conoscerli aiuta a scegliere lo strumento giusto e a non restare bloccati davanti a un file sconosciuto. 
  
@@ -230,7 +230,7 @@ Fonti ufficiali:
 - Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 18 ---
-Scorciatoie evolute 
+
  Link simbolici e hard link 
  Un collegamento può far apparire un file in una cartella diversa senza duplicarne il contenuto fisico sul disco. I due tipi principali, link simbolico e hard link, funzionano in modo molto diverso a livello di file system. 
  Questi meccanismi sono usati dal sistema operativo per tenere strutture pulite: cartelle di configurazione che puntano a versioni aggiornate, librerie condivise tra programmi, backup efficienti senza copia dei dati. 

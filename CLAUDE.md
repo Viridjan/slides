@@ -109,6 +109,40 @@ Every content deck should include:
   linking to `00-indice.html` (GD decks link to `00-indice-gd.html` and use the
   arcade variant); the `I` keyboard shortcut must point to the same index
 
+### Closing slide standard
+
+Every final slide uses one shared geometric structure. Course colors may vary,
+but alignment, spacing and action placement do not:
+
+```html
+<section class="slide closing">
+  <div class="closing-inner">
+    <h2 class="h-mega reveal">Closing statement.</h2>
+    <p class="lead reveal d1">One concise summary of the completed module.</p>
+    <div class="closing-actions reveal d2">
+      <a class="chip closing-primary" href="next-deck.html">Prossimo → XX02 · Titolo</a>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+```
+
+- `.closing-inner` is centered horizontally and vertically by `theme-corsi.css`.
+- Use one balanced headline, normally no more than two lines, and one summary.
+- Show exactly one primary action: `Prossimo` when another deck follows;
+  otherwise link to the same index used by `.home-btn` with `Torna all’indice`.
+- Keep the page marker outside `.closing-inner`, at bottom-right.
+- Do not use inline positioning, `.deck-tab`, alternative alignment wrappers or
+  multiple navigation buttons on closing slides.
+- Preserve the course-specific `--course-dark` background; geometry is shared.
+
+To repair or normalize the full published library, run:
+
+```bash
+node scripts/normalize-closing-slides.js
+node scripts/build-search-index.js
+```
+
 Clicking the slide canvas or either half of the stage must do nothing. Never
 attach click-to-next, click-to-previous, hotspot navigation or other actions to
 `.slide`, `.deck-stage` or the general presentation background. Navigation may
@@ -137,7 +171,7 @@ These design tokens should remain consistent across decks:
 ```
 
 Avoid changing the visual language casually. If a deck needs a new component,
-prefer the existing `.tape`, `.card`, `.grid2`, `.grid3`, `.split`, `.note`,
+prefer the existing `.card`, `.grid2`, `.grid3`, `.split`, `.note`,
 `.chips`, `.closing`, `.reveal`, and `.page-num` patterns.
 
 ### Rich components (required in every deck)
@@ -191,9 +225,9 @@ below the `position:absolute` `::before`).
 code) but all `<div class="deck-tab">` elements have been removed. Do not
 re-add them.
 
-**Do not add `.tape` to title slides** — the `.tape` class was removed from
-title slides across the entire repo. Tape is still used as section headers on
-content slides ("In questo modulo", "Definizione", etc.); keep those.
+**Do not add `.tape` bars to slides.** The colored section bars ("In questo
+modulo", "Definizione", etc.) were removed across the entire published library.
+Use the slide heading hierarchy itself to communicate the section.
 
 **Do not add `.chips` or `.chip` badges to title slides.** Module codes, slide
 counts and topic labels belong in the index or the title text, not in a row of
@@ -204,8 +238,8 @@ pills on the opening slide. Chips remain available on content and closing slides
 Slides have about 888px of usable height after the standard 96px top and bottom
 padding. These layouts tend to overflow:
 
-- `tape + h-sec + lead + grid3 + grid2`
-- `tape + h-sec + lead + grid3 + grid3`
+- `h-sec + lead + grid3 + grid2`
+- `h-sec + lead + grid3 + grid3`
 - any slide with 5+ large cards plus a lead paragraph
 
 Use one of these fixes:

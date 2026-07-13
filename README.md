@@ -67,6 +67,23 @@ Inside any deck:
 - Links between decks use bare filenames: `href="rw01-02-navigazione.html"`.
 - `corsi/` holds source PPTX/PDF; `corsi/images/` holds extracted images (untracked, ~200 MB, regenerable).
 
+### Standard closing slide
+
+All decks end with the same centered structure: `.closing` contains a
+`.closing-inner` with one headline, one short summary and exactly one primary
+action. The action links to the next deck, or to the relevant index when the
+module is terminal. The page number remains outside the inner container at the
+bottom-right. Shared geometry lives in `theme-corsi.css`; deck files keep only
+their content and navigation destination.
+
+After adding or substantially editing decks, normalize the closing slides and
+rebuild search:
+
+```bash
+node scripts/normalize-closing-slides.js
+node scripts/build-search-index.js
+```
+
 ## Adding a deck
 
 1. Create the HTML file in repo root following the `XX##-slug.html` naming scheme.
