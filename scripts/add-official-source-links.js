@@ -115,7 +115,7 @@ function sourceFooter(section, savedFooter = '') {
     const safeLabel = escapeHtml(label);
     return `<a data-source-origin="${origin}" href="${href}" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: ${safeLabel}" aria-label="Fonte ufficiale: ${safeLabel}" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: ${safeLabel} ↗</a>`;
   }).join('');
-  const footer = `<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:1500px;">${links}</div>`;
+  const footer = `<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;">${links}</div>`;
   return cleaned.replace(/<\/section>\s*$/i, `${footer}</section>`);
 }
 

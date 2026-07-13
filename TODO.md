@@ -1,15 +1,31 @@
 # TODO
 
-Stato: completato e riconciliato con i blocchi attuali.
+Stato: una voce operativa aperta; contenuti del corso riconciliati con i
+blocchi attuali.
 
 Questo file era nato su una versione precedente del corso, con nomi come
 `inf*`, `web*`, `sec*` e `sma*`. Quei file non esistono piu nella struttura
 pubblicata: i contenuti sono stati migrati nei blocchi attuali `hs`, `rw`,
 `sd`, `sm`, `su`, `ia`, `pr` e `ms`.
 
-## Esito
+## TODO aperti
 
-Non ci sono voci TODO aperte.
+### Attivare la rendicontazione dei quiz con Google Sheets
+
+Il codice è già presente nel repository, ma la raccolta resta volutamente
+disattivata finché non viene configurato il deployment Google:
+
+- [ ] creare il Foglio Google destinato ai risultati;
+- [ ] copiare `google-apps-script/quiz-reporting/Code.gs` nel progetto Apps Script collegato;
+- [ ] eseguire `setup()` una volta e autorizzare lo script;
+- [ ] pubblicare Apps Script come applicazione web eseguita dal proprietario;
+- [ ] inserire l'URL `/exec` del deployment in `quiz-reporting-config.js`;
+- [ ] eseguire un tentativo di prova e verificare i fogli `Risultati` e `Ultime 48 ore`;
+- [ ] definire accessi e durata di conservazione dei dati raccolti.
+
+Istruzioni complete: `google-apps-script/quiz-reporting/README.md`.
+
+## Esito della riconciliazione dei contenuti
 
 | Area vecchia | Blocco attuale | Esito |
 | --- | --- | --- |

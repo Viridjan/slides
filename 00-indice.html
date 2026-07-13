@@ -1801,11 +1801,7 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
       const densityFormula = density !== undefined
         ? `Automatico, dal testo delle slide.\nOgni slide interna vale parole ÷ 25, al massimo 10.\nCopertina e chiusura sono escluse.\nSi fa la media e si arrotonda una volta sola, alla fine.\nRisultato: ${density}/10`
         : 'Non disponibile.\nQuesto elemento non ha un punteggio automatico di densità.';
-      const summaryFormula = density !== undefined && total !== null
-        ? `Media arrotondata tra densità e qualità.\nround((${density} + ${total}) ÷ 2) = ${summary}/10`
-        : `È uguale all’unico indice disponibile.\n${summary}/10`;
       const rows = [
-        statRow('Indice sintetico', `${summary}`, summaryFormula, 'primary'),
         density !== undefined ? statRow('Densità', `${density}`, densityFormula) : '',
         q ? statRow('Qualità', `${total}`, `Somma dei cinque criteri editoriali manuali.\n${q.coverage} + ${q.clarity} + ${q.examples} + ${q.correctness} + ${q.freshness} = ${total}/10`, 'quality') : '',
         q ? statRow('Copertura', pips(q.coverage), 'Valutazione manuale.\n0 = temi importanti assenti\n1 = programma essenziale con lacune\n2 = argomenti previsti coperti adeguatamente', 'sub') : '',
