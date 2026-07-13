@@ -80,6 +80,8 @@ Trovare le falle
  
  
  Scan → inventario falle → priorità
+Fonti ufficiali:
+- Common Vulnerability Scoring System — FIRST — https://www.first.org/cvss/
 
 --- Slide 4 ---
 Processo 
@@ -109,6 +111,8 @@ Calcolo del rischio effettivo: probabilità × impatto. Una vulnerabilità criti
  05 
  Produzione del report 
 Documento strutturato con executive summary, elenco vulnerabilità ordinate per priorità, prove (screenshot, log), e raccomandazioni specifiche di remediation.
+Fonti ufficiali:
+- Common Vulnerability Scoring System — FIRST — https://www.first.org/cvss/
 
 --- Slide 5 ---
 Gravità vulnerabilità 
@@ -144,6 +148,8 @@ Gravità vulnerabilità
  
  💡 Il rischio effettivo ≠ CVSS 
  CVSS misura la gravità teorica. Il rischio effettivo dipende dal contesto: la vulnerabilità è su un sistema esposto? È già sfruttata in the wild? Esiste un exploit pubblico?
+Fonti ufficiali:
+- Common Vulnerability Scoring System — FIRST — https://www.first.org/cvss/
 
 --- Slide 6 ---
 Confronto 
@@ -186,6 +192,8 @@ Confronto
  
  💡 In pratica 
  Inizia con il VA per avere la mappa completa. Poi usa il Pentest per validare le vulnerabilità più critiche e dimostrarne l'impatto reale al management.
+Fonti ufficiali:
+- Common Vulnerability Scoring System — FIRST — https://www.first.org/cvss/
 
 --- Slide 7 ---
 Normative 
@@ -255,6 +263,9 @@ Quadro normativo
  
  💡 Non è solo burocrazia 
  Le normative nascono da incidenti reali. GDPR dopo Cambridge Analytica. PCI DSS dopo massicce violazioni di dati delle carte. NIS2 dopo attacchi alle infrastrutture critiche europee. Le leggi fotografano il rischio del momento.
+Fonti ufficiali:
+- Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
+- Direttiva NIS2 — EUR-Lex — https://eur-lex.europa.eu/eli/dir/2022/2555/oj
 
 --- Slide 9 ---
 Flusso di dati 
@@ -289,6 +300,9 @@ Flusso di dati
  
  💡 Le tre domande da porsi sempre 
  Chi? A quale azienda sto cedendo questi dati. Cosa? Esattamente quali informazioni vengono raccolte (leggi la privacy policy). Perché? Per quale finalità vengono usate, e se la cedo gratuitamente — come viene monetizzata.
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
+- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 10 ---
 Ecosistema del dato 
@@ -339,6 +353,8 @@ Azioni concrete
  
  💡 Privacy come igiene digitale quotidiana 
  Come lavarsi le mani, la privacy non si fa una volta. Controlla periodicamente le impostazioni delle app, revoca permessi non necessari, leggi (almeno) i titoli delle privacy policy prima di accettare. La consapevolezza è la prima difesa.
+Fonti ufficiali:
+- Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
 
 --- Slide 12 ---
 Riepilogo 
@@ -368,6 +384,9 @@ Riepilogo
  
  💡 Il filo rosso del corso 
  Sicurezza = consapevolezza + strumenti + processo continuo. Non esiste "sicuri per sempre" — esiste "più sicuri di ieri".
+Fonti ufficiali:
+- Common Vulnerability Scoring System — FIRST — https://www.first.org/cvss/
+- ISO/IEC 27001 — ISO — https://www.iso.org/isoiec-27001-information-security.html
 
 --- Slide 13 ---
 Attacchi reali 
@@ -379,6 +398,9 @@ Attacchi reali
  ☁️ Backup deboli Una copia non cifrata può esporre ciò che il canale principale protegge. 
  🔑 Password riusate Una violazione su un sito apre account diversi se le credenziali sono le stesse. 
  🧠 Social engineering Convincere una persona ad autorizzare l'accesso spesso basta.
+Fonti ufficiali:
+- Riconoscere il phishing — CISA — https://www.cisa.gov/secure-our-world/recognize-and-report-phishing
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 14 ---
 Quadro normativo 
@@ -388,6 +410,9 @@ Quadro normativo
  🛡️ NIS2 Rafforza obblighi di cybersicurezza per soggetti essenziali e importanti. 
  🏛️ Cybersecurity Act Rafforza ENISA e introduce schemi europei di certificazione della cybersicurezza. 
  ©️ IPR e Open Resources Diritti di proprietà intellettuale e risorse riutilizzabili secondo licenze aperte o Creative Commons.
+Fonti ufficiali:
+- Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
+- Direttiva NIS2 — EUR-Lex — https://eur-lex.europa.eu/eli/dir/2022/2555/oj
 
 --- Slide 15 ---
 Governance dati 
@@ -400,6 +425,8 @@ Governance dati
  Permessi Chi legge, modifica, esporta Limitare accessi inutili 
  Retention Per quanto tempo resta Cancellare quando non serve 
  Backup Dove esistono copie Non dimenticare duplicati
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 16 ---
 Bravi! 

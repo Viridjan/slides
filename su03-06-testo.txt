@@ -26,6 +26,8 @@ In questo modulo
  TROVA, RICERCA, SOSTITUISCI 
  🧼 Pulire 
  ANNULLA.SPAZI, MAIUSC.INIZ, LUNGHEZZA
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 3 ---
 1. Unire 
@@ -71,6 +73,8 @@ la cella vuota sparisce dal risultato
  un delimitatore, tre celle 
  
  Ogni "-" diventa un confine di cella
+Fonti ufficiali:
+- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 5 ---
 3. Cercare 
@@ -111,6 +115,8 @@ la cella vuota sparisce dal risultato
  
  Stessa formula per tutte le righe:
 la posizione della @ è calcolata, non fissa
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 7 ---
 5. Sostituire 
@@ -132,6 +138,8 @@ Senza il 4° argomento le cambia tutte.
  
  
  💡 E per tutto il foglio? Per una correzione una tantum su tutto il foglio c'è Modifica → Trova e sostituisci (Ctrl+H). Le funzioni servono quando la sostituzione deve restare automatica.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 8 ---
 6. Pulire 
@@ -195,6 +203,9 @@ Per nomi e cognomi.
  
  
  ⚠️ Limite di MAIUSC.INIZ Mette la maiuscola a ogni parola, anche dove non va: "de luca" → "De Luca" (bene), ma "d'angelo" → "D'Angelo" e "DELL'ORTO" → "Dell'Orto". Controlla i cognomi con apostrofi e particelle.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 11 ---
 Caso pratico 
@@ -219,6 +230,8 @@ Caso pratico
  "Mario Rossi" 
  
  Ogni passaggio ripulisce un difetto
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 12 ---
 Riepilogo 
@@ -271,6 +284,8 @@ Riepilogo
  
  
  Regola: le funzioni di testo non modificano mai la cella originale — producono una copia corretta altrove.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 13 ---
 Verifica 
@@ -297,6 +312,8 @@ Verifica
  🧼 
  Il CERCA.VERT che fallisce 
  Un CERCA.VERT dà #N/D ma il valore "esiste" nel foglio. Quale funzione usi per diagnosticare e quale per correggere?
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 14 ---
 Testo sporco,

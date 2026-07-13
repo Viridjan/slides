@@ -41,6 +41,8 @@ Definizione
  👁️ Vista Lo schermo: animazioni, effetti, HUD. Il canale principale, ma non l'unico. 
  👂 Udito Musica ed effetti sonori: conferme, allarmi, atmosfera (moduli GD_02 e GD_03). 
  ✋ Tatto Vibrazione e resistenza: il canale che rende l'azione fisicamente reale.
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 4 ---
 Storia 
@@ -68,6 +70,8 @@ Salto qualitativo
  🌊 Haptic feedback Attuatori a bobina vocale: vibrazioni precise e localizzate che simulano texture — pioggia, sabbia, superfici diverse. 
  🏹 Grilletti adattivi Resistenza variabile sui grilletti: tendere un arco richiede forza, un grilletto inceppato si blocca davvero. 
  🔊 Speaker integrato Suoni riprodotti dal controller stesso: l'audio esce dalle tue mani, non solo dalla TV.
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 6 ---
 Oltre il joypad 
@@ -118,6 +122,8 @@ Input vs output
  
  Il ciclo del gioco fisico 
  Un gioco fisico interattivo è sempre: sensori (cosa fa il giocatore) → logica (il programma decide) → attuatori (la risposta che il giocatore percepisce).
+Fonti ufficiali:
+- Valori e codice etico — IGDA — https://igda.org/about-us/core-values-and-code-of-ethics/
 
 --- Slide 9 ---
 Cambio di prospettiva 
@@ -167,6 +173,8 @@ Attività
  
  💡 Bonus 
  Prova a immaginare un sensore Arduino che aggiungerebbe una nuova interazione fisica al tuo gioco: cosa misurerebbe, e come risponderebbe il gioco?
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 13 ---
 I sensi.

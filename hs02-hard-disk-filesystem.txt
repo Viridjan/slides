@@ -69,6 +69,8 @@ Unità di misura
  TB Terabyte: mille gigabyte circa. I dischi moderni arrivano a 20 TB e oltre. Archivi fotografici, backup aziendali, server NAS domestici. 
  
  Attenzione: i produttori dichiarano capacità in multipli decimali (1 TB = 1.000.000.000.000 byte). Il sistema operativo, che usa potenze di 2, mostra un valore leggermente inferiore (es. circa 931 GiB invece di 1 TB).
+Fonti ufficiali:
+- UTF-8 — Unicode Standard — https://www.unicode.org/versions/latest/core-spec/chapter-2/
 
 --- Slide 7 ---
 Prima del file system 
@@ -96,6 +98,8 @@ Il catalogo
  🏷️ Nomi e struttura Associa nomi leggibili a blocchi fisici sul disco, organizzandoli in una gerarchia di cartelle navigabile. 
  🧱 Blocchi e cluster Divide la partizione in unità di allocazione (cluster). Un file occupa uno o più cluster contigui o sparsi. 
  🔐 Funzioni avanzate I file system moderni aggiungono journaling per la resilienza, permessi per la sicurezza, snapshot e cifratura.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 9 ---
 Albero delle cartelle 
@@ -143,6 +147,8 @@ Compatibilità
  exFAT Supera il limite dei 4 GB di FAT32. Buona compatibilità tra Windows, macOS e Linux moderni. Ideale per schede SD e chiavette USB ad alta capacità. Non ha journaling integrato: uno spegnimento improvviso durante la scrittura può corrompere l'indice. Non adatto come file system di sistema. 
  
  Regola pratica: usa FAT32 per dispositivi e lettori vecchi dove la compatibilità è prioritaria; usa exFAT per trasferire file grandi (video, ISO) su dischi e chiavette condivisi tra sistemi diversi.
+Fonti ufficiali:
+- Documenti e specifiche USB — USB-IF — https://www.usb.org/documents
 
 --- Slide 12 ---
 Windows 
@@ -155,6 +161,8 @@ Windows
  🔐 ACL e cifratura Permessi granulari per utenti e gruppi tramite Access Control List. Supporta anche la cifratura EFS (Encrypted File System) a livello di cartella o file. 
  📦 File grandi Nessun limite pratico da 4 GB. Un singolo file video può occupare decine di GB senza problemi su NTFS. 
  🪟 Scelta naturale È la scelta standard per il disco principale e le partizioni dati di un PC Windows moderno. Ottimizzato per prestazioni su sistemi Windows.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 13 ---
 Linux e macOS 
@@ -166,6 +174,9 @@ Linux e macOS
  APFS Apple File System, introdotto con macOS High Sierra e iOS 10.3. Ottimizzato per SSD, con snapshot, cifratura nativa, clonazione efficiente dei file e timestamp ad alta precisione. Sostituisce il vecchio HFS+. 
  
  💡 Nota sul nome Si scrive Btrfs (B-Tree FS), spesso pronunciato "butter FS". Non è "BRTFS" e non si legge lettera per lettera. Il nome deriva dalla struttura dati B-tree che usa internamente per indicizzare file e metadati.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
+- Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
 
 --- Slide 14 ---
 Metodo 
@@ -202,6 +213,8 @@ Ridurre peso
  📷 Foto JPEG È già compressa con perdita: aggiungere un archivio ZIP attorno porta pochissimo beneficio e solo confusione. 
  🎬 Video Già compresso con codec come H.264 o H.265. Comprimerlo ulteriormente spesso aumenta le dimensioni o degrada la qualità. 
  📁 Cartelle intere Un archivio compresso raccoglie molti file in un solo contenitore: pratico per allegati email e condivisione.
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 17 ---
 Archivi 
@@ -213,6 +226,9 @@ Archivi
  7z Archivi personali e backup dove la dimensione finale è importante. Compressione generalmente migliore di ZIP a parità di tempo. Formato aperto, richiede 7-Zip o software compatibile. Supporta cifratura AES-256 con password. 
  RAR Archivi multi-volume scaricati online, dove i file sono stati divisi in parti da 100–500 MB per facilitare il download. Formato proprietario di WinRAR. La decompressione è gratuita; la creazione di nuovi archivi RAR richiede la licenza. 
  TAR.GZ Distribuire codice sorgente, pacchetti software e backup su sistemi Linux e server Unix. Standard de facto nel mondo open source. TAR raccoglie i file in un unico contenitore senza comprimerli; GZ comprime il risultato. Separazione netta tra packaging e compressione.
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
+- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 18 ---
 Scorciatoie evolute 

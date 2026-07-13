@@ -26,6 +26,8 @@ In questo modulo
  10 Buone abitudini 
  
  In questo modulo impariamo a usare le formule fondamentali del foglio di calcolo. Partendo dal segno uguale che avvia ogni calcolo, vedremo come combinare operatori aritmetici e funzioni per sommare totali, calcolare medie, trovare valori minimi e massimi, contare celle con o senza condizione e prendere decisioni automatiche. Queste otto funzioni coprono la grande maggioranza dei casi d'uso pratici e comuni.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 3 ---
 Il superpotere 
@@ -42,6 +44,8 @@ una formula
  1 20 15 35 
  
  =A1+B1 → 35, aggiornato se A1 o B1 cambia
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 4 ---
 Operatori 
@@ -70,6 +74,8 @@ Operatori
  
  
  💡 Precedenza Come in matematica: * e / hanno precedenza su + e −. Usa le parentesi per controllare l'ordine di calcolo: =(A+B)*C anziché =A+B*C .
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 5 ---
 SOMMA 
@@ -126,6 +132,8 @@ MEDIA · MIN · MAX
  
  
  In pratica: MIN, MEDIA, MAX insieme = in pochi secondi capisci la distribuzione dei dati senza grafici.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 7 ---
 Contare 
@@ -155,6 +163,8 @@ Contare
  6 CONTA.VALORI=4 CONTA.NUMERI=3 
  
  B4 è vuota: CONTA.NUMERI la salta, CONTA.VALORI no
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 8 ---
 CONTA.SE 
@@ -250,6 +260,8 @@ Riepilogo
  SE 
  =SE(cond;vero;falso) 
  Valuta una condizione e restituisce un risultato diverso a seconda che sia vera o falsa
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 11 ---
 Errori 
@@ -260,6 +272,8 @@ Errori
  #VALORE! Tipo di dato sbagliato: stai sommando testo. Controlla il formato delle celle — i numeri devono essere allineati a destra. 
  #RIF! Riferimento a una cella cancellata o spostata. Ricontrolla da dove proviene la formula. 
  #NOME? Nome di funzione scritto male (es. SOMMMA invece di SOMMA) o nome di range inesistente.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 12 ---
 Metodo 
@@ -286,6 +300,8 @@ Metodo
  4. 
  Nessuno sa tutto a memoria 
  Il programma suggerisce mentre scrivi — usa i suggerimenti, non memorizzare la sintassi
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 13 ---
 I calcoli girano

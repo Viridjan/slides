@@ -14,12 +14,20 @@ In questo modulo Cosa vedremo 📍 Cos'è Scratch
  broadcasting per coordinare dialoghi, scene e animazioni tra sprite diversi 💡 Risorse 
  costumi vettoriali e bitmap, suoni importati, immagini PNG e salvataggio con versioni 🧪 Metodo 
  dal requisito alla progettazione, dalla scrittura del codice al collaudo e al rilascio
+Fonti ufficiali:
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 3 ---
 Definizione Scratch in breve Scratch è un ambiente gratuito di programmazione grafica sviluppato dal MIT Media Lab e disponibile su scratch.mit.edu. Permette di creare animazioni, giochi, simulazioni e storie interattive senza installare niente: basta un browser. È usato in scuole di tutto il mondo come primo passo verso la programmazione, perché elimina gli errori di sintassi: i blocchi si incastrano solo dove ha senso, così ci si concentra sulla logica e non sulla punteggiatura. In pratica: si programma incastrando blocchi colorati, ma si ragiona comunque da programmatori: eventi, stato, sequenza, dati e test. I concetti sono reali, solo il formato cambia. Il sito scratch.mit.edu: da "Crea" si lavora subito nel browser, senza installare nulla.
+Fonti ufficiali:
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 4 ---
 Accesso Online oppure offline Scratch funziona sia nel browser sia come applicazione installata. La modalità online richiede connessione internet; quella offline elimina la dipendenza dalla rete e riduce i problemi tipici dei laboratori scolastici. 🌐 Online Dal sito scratch.mit.edu si entra in "Crea" e si lavora direttamente nel browser senza installare nulla. Comodo se i computer del laboratorio non permettono installazioni. 💻 Offline L'app Scratch Desktop si scarica una volta e funziona senza rete. Riduce problemi di connessione, blocchi del browser e dipendenza dalla velocità del Wi-Fi scolastico. 🌍 Lingua Dal mappamondo in alto a sinistra si cambia la lingua dell'interfaccia in qualsiasi momento, anche a metà lezione, senza perdere il progetto aperto. 💾 File locali I progetti si salvano come file .sb3 sul computer o su una chiavetta USB. Si ricaricano con "Carica dal computer" e si può lavorare su più macchine diverse.
+Fonti ufficiali:
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
+- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 5 ---
 Interfaccia La mappa dell'ambiente Scratch divide lo schermo in zone distinte: blocchi a sinistra, area script al centro, stage in alto a destra, elenco sprite in basso. L'editor dal vero: blocchi, area script, stage, pannello sprite e sfondi. 🧱 Blocchi 
@@ -29,18 +37,28 @@ Interfaccia La mappa dell'ambiente Scratch divide lo schermo in zone distinte: b
  Ogni oggetto ha codice, costumi, suoni, coordinate, direzione, dimensione e visibilità. Cliccando su uno sprite nel pannello si vede solo il suo codice. 🖼 Sfondi 
  Lo stage può cambiare sfondo da libreria, disegno o immagine importata. Gli sfondi possono anche avere script propri per gestire la scena. ➕ Estensioni 
  Si aggiungono blocchi speciali: Music, Text to Speech, Translate, Video Sensing, LEGO e Micro:bit. Utili per progetti più avanzati o con hardware esterno.
+Fonti ufficiali:
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
+- Guida ufficiale micro:bit — https://microbit.org/get-started/user-guide/overview/
 
 --- Slide 6 ---
 Blocchi Leggere i blocchi Le forme dei blocchi non sono casuali: indicano dove possono stare nella pila, cosa possono contenere e quali input richiedono. Riconoscere la forma aiuta a capire l'errore prima ancora di eseguire il codice. 🧱 Blocchi pila Si agganciano sopra e sotto: compongono sequenze di istruzioni. Sono la maggioranza dei blocchi — "fai 10 passi", "attendi 1 secondo", "dire Ciao" sono tutti blocchi pila. 🟦 Input ovali Accettano numeri, testo o variabili come valore: per esempio 10 passi o 2 secondi. Si possono sostituire con una variabile o con un blocco operatore dello stesso tipo. ⬡ Condizioni Le forme esagonali restituiscono vero o falso e si usano nei blocchi "se" e "ripeti fino a". Esempi: "tocca il colore", "risposta = sì", "x &gt; 100". 🧺 Blocchi contenitore Cicli e condizioni hanno uno spazio interno dove si inseriscono altri blocchi. L'indentazione visiva mostra cosa è dentro e cosa è fuori dal ciclo.
 
 --- Slide 7 ---
 Algoritmo Primo movimento Questo primo script contiene già i tre ingredienti di ogni programma Scratch: un evento che lo avvia, istruzioni in sequenza e una ripetizione. Conviene leggerlo riga per riga prima di eseguirlo. Evento — la bandierina verde è il blocco a cappello: la pila parte solo a quel clic, mai da sola. Ripetizione — "ripeti 10 volte" esegue i due blocchi interni dieci volte: in totale il gatto avanza di 100 passi. Ritmo — "attendi 1 secondo" rallenta il ciclo: senza attesa i 100 passi avverrebbero in un lampo e il movimento sembrerebbe un salto. 💡 Lettura Il contorno evidenziato indica quale pila è in esecuzione. Prova a togliere l'attesa e riavviare: vedere la differenza insegna più di dieci spiegazioni. Le due pile nell'editor: il contorno giallo segnala la pila in esecuzione.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 8 ---
 Eventi Eventi di avvio Un algoritmo non parte da solo: deve essere attivato da qualcosa. Scratch rende visibile il concetto di evento usando blocchi a forma di cappello — si riconoscono perché non si agganciano sopra ad altri blocchi. 🏁 Bandierina verde Punto di partenza comune: cliccare la bandierina verde avvia tutti gli script con quel blocco in testa. È il modo più usato per inizializzare variabili e lanciare l'animazione in modo prevedibile. ⌨️ Tasto premuto Un tasto specifico — frecce, spazio, lettere — può attivare un comportamento separato, per esempio muovere un personaggio o saltare. Permette controllo interattivo in tempo reale. 📣 Messaggio ricevuto Un segnale interno (broadcasting) coordina più sprite senza farli dipendere da attese manuali. Lo sprite A invia il messaggio "Start"; lo sprite B lo ascolta e reagisce quando arriva. 👆 Clic sullo sprite Cliccando direttamente uno sprite si attiva il suo script. Utile nei giochi per trasformare oggetti in pulsanti interattivi o per avviare dialoghi toccando un personaggio.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 9 ---
 Scena Stage e sfondi Lo stage non è solo uno sfondo decorativo: ha la sua scheda Costumi (chiamata Sfondi), può avere script propri e serve da contenitore per la logica condivisa tra tutti gli sprite del progetto. 🖼 Scegliere sfondo Si può usare la libreria di sfondi integrata, importare un'immagine dal computer, disegnare uno sfondo personalizzato nell'editor grafico o scegliere uno sfondo a caso dalla libreria. 🎬 Cambiare scena Il blocco "passa allo sfondo" cambia il contesto visivo durante l'esecuzione. Permette di creare capitoli di una storia, livelli di un gioco o fasi diverse di un'animazione. 🏁 Codice comune Lo stage è adatto a gestire messaggi generali come "Start" o "Fine" che devono raggiungere tutti gli sprite insieme. Centralizzare qui la logica principale rende il progetto più ordinato. 🎵 Audio globale Una colonna sonora di sottofondo si carica sullo stage, non su un singolo sprite, perché deve suonare per tutta la durata della scena indipendentemente da chi è visibile.
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 10 ---
 Oggetti Sprite e stato Ogni sprite è un oggetto indipendente con il suo stato. Quando si riavvia il progetto con la bandierina verde, gli sprite non tornano automaticamente alla posizione originale: bisogna reimpostare ogni proprietà nello script di inizializzazione. 📍 Coordinate x e y decidono la posizione sullo stage. Il centro è x:0 y:0; la x cresce verso destra, la y cresce verso l'alto. Inizializzare sempre le coordinate evita sprite fuori scena al secondo avvio. 🧭 Direzione Definisce il verso del movimento e la rotazione. 90° = destra, 180° = giù, 270° = sinistra, 0° = su. Impostare la direzione all'avvio impedisce movimenti inattesi da run precedenti. 📏 Dimensione La percentuale modifica la grandezza dello sprite sullo stage. 100% è la dimensione originale; valori inferiori simulano lontananza, valori superiori avvicinamento o un'animazione di crescita. 👁 Visibilità Uno sprite nascosto rimane nascosto anche al riavvio se non si aggiunge "mostrami" nello script di inizializzazione. I bug di visibilità sono tra i più comuni: inizializzare sempre esplicitamente.
@@ -63,12 +81,18 @@ quando si clicca la bandierina verde
 
 --- Slide 13 ---
 Sequenza Ordine e incastri Scratch esegue i blocchi nell'ordine in cui sono impilati, dall'alto verso il basso, uno alla volta. Capire questo è fondamentale: cambiare l'ordine dei blocchi cambia il comportamento del programma, anche se i blocchi sono gli stessi. ⬇️ Alto verso basso Scratch esegue la pila partendo dal blocco in cima e scendendo. Il primo blocco finisce prima che inizi il secondo. Se vuoi che due cose avvengano insieme, servono script separati sullo stesso sprite. 🧩 Blocchi separati Due pile di blocchi non incastrate tra loro sono due sequenze indipendenti. Se trascini un blocco lontano dalla pila, smette di fare parte di quella sequenza anche se visivamente sembra vicino. ⏱ Attese "Attendi N secondi" mette in pausa la pila per quella durata. Sincronizza dialoghi tra sprite diversi: se il Gatto parla per 2 secondi, l'altro sprite deve aspettare 2 secondi prima di rispondere. 🧹 Cancellazione Eliminare un blocco dalla pila rimuove anche tutti i blocchi agganciati sotto. Per eliminare un solo blocco è meglio trascinarlo via dalla pila prima di cancellarlo, per non perdere il lavoro successivo.
+Fonti ufficiali:
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 14 ---
 Controllo Ripetere e decidere Le sequenze da sole non bastano: quasi ogni programma deve ripetere azioni e prendere decisioni. In Scratch questi poteri stanno nella categoria Controllo — i blocchi contenitore riconosciuti prima dalla forma, con lo spazio interno per altri blocchi. 🔁 Ripeti N volte Esegue i blocchi interni un numero fisso di volte, poi prosegue con il blocco successivo. Perfetto quando le ripetizioni si conoscono in anticipo: 10 passi di camminata, 4 lati di un quadrato, 3 domande di un quiz. ♾ Per sempre Ripete all'infinito, finché il progetto non viene fermato. Si usa per comportamenti continui, come alternare i costumi di un personaggio che cammina. Non ha aggancio sotto: nulla può venire "dopo" un ciclo che non finisce. ❓ Se… allora Esegue i blocchi interni solo se la condizione esagonale è vera. La variante "se… altrimenti" aggiunge un secondo ramo: due strade possibili, una sola percorsa. Sarà il cuore del quiz nel prossimo modulo. 🪆 Annidamento I contenitori si inseriscono uno dentro l'altro: un "se" dentro un "per sempre" controlla continuamente una condizione, per esempio se lo sprite tocca il bordo. L'incastro visivo mostra sempre cosa appartiene a cosa.
+Fonti ufficiali:
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 15 ---
 Oggetti Programmazione a oggetti Scratch introduce senza dirlo esplicitamente il concetto di programmazione orientata agli oggetti: ogni sprite è un oggetto con le sue proprietà e i suoi comportamenti, separati da quelli degli altri sprite. 🐱 Indipendenza Il codice del Gatto non appare nell'area script di Abby e viceversa. Ogni sprite ha il suo spazio script privato: non si interferisce per sbaglio. Questo rende i progetti grandi molto più gestibili. 🔵 Selezione Lo sprite selezionato nel pannello inferiore è evidenziato con un bordo blu. Tutti i blocchi che trascini nell'area script vanno a lui. È un errore comune lavorare sullo sprite sbagliato senza accorgersene. 📦 Stato privato Costume, suoni, posizione, direzione, dimensione e visibilità appartengono al singolo sprite. Due sprite diversi possono avere lo stesso nome di costume ma disegni completamente differenti. 🤝 Interazione Gli oggetti collaborano scambiandosi messaggi (broadcasting), non copiando il codice nello stesso punto. Uno sprite invia un messaggio; uno o più sprite in ascolto reagiscono indipendentemente.
+Fonti ufficiali:
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 16 ---
 Coordinamento Messaggi come regia I messaggi (broadcasting) funzionano come segnali di scena: chi li invia non sa quanti sprite li riceveranno, e chi li ascolta non deve conoscere il mittente. Questo disaccoppiamento rende il progetto modulare e più facile da modificare: a differenza delle attese manuali del dialogo, se una scena si allunga non c'è nulla da ricalcolare — il messaggio successivo parte semplicemente più tardi. Bandierina verde → inizializza tutti gli sprite → invia Start → ogni sprite riceve Start e inizia il suo dialogo → invia Fine → tutti si nascondono o si fermano 💡 Regola Un messaggio si crea con "invia" e si ascolta con "quando ricevo". Puoi creare messaggi con nomi parlanti come "IniziaGioco", "LivelloSuccessivo" o "GameOver".
@@ -78,6 +102,8 @@ Inizializzazione Avvio ordinato Un buon progetto ripristina lo stato iniziale pr
 
 --- Slide 18 ---
 Debug Errori tipici La maggior parte dei bug in Scratch viene da tre famiglie di problemi: stato non inizializzato, tempi sbagliati e blocchi nel posto sbagliato. Riconoscere la famiglia aiuta a trovare la correzione più velocemente. ↩️ Ho cancellato un blocco Premere CTRL+Z subito per annullare. Se la pila era lunga e l'annulla non basta, ricostruire dal comportamento atteso, non dalla memoria di com'era prima. 👥 Sprite sovrapposti Al secondo avvio gli sprite possono sovrapporsi se non si reimposta la posizione. Aggiungere "vai a x: y:" nello script di inizializzazione per ogni sprite con una posizione definita. 🫥 Sprite invisibili Uno sprite rimasto nascosto da un'esecuzione precedente non si vede. La soluzione è aggiungere "mostrami" nello script di inizializzazione, prima di qualsiasi altro blocco. ⏱ Dialogo fuori tempo Le attese manuali vanno fuori sincronia quando la scena cresce. Sostituire "attendi N secondi" con messaggi rende la sequenza più robusta e più facile da modificare. 🔵 Codice sullo sprite sbagliato Prima di aggiungere blocchi, controllare sempre quale sprite è selezionato (bordo blu nel pannello). Il codice finisce sullo sprite attivo, non su quello che si vede nello stage. 🧱 Pila scollegata Un blocco che sembra vicino alla pila ma non è agganciato non viene eseguito. Verificare che ci sia il clic di incastro: un blocco separato non ha il connettore visibile alla base di quello sopra.
+Fonti ufficiali:
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 19 ---
 Risorse Costumi e grafica La scheda Costumi permette di personalizzare l'aspetto di ogni sprite e di creare animazioni cambiando immagine nel tempo. Uno sprite può avere decine di costumi diversi: il blocco "passa al costume successivo" li scorre tutti. La scheda Costumi: cat-a e cat-b, l'editor grafico e l'anteprima sullo stage. 🎨 Vettoriale 
@@ -92,6 +118,8 @@ Risorse Suoni e immagini Scratch permette di importare suoni e immagini esterni,
  Se il suono vale per tutta la scena, va caricato sullo stage. Attenzione al blocco giusto: "riproduci suono" prosegue subito con il blocco dopo, "riproduci suono e attendi la fine" blocca la pila fino al termine. 🖼 PNG 
  Per sprite importati conviene il PNG con sfondo trasparente: il personaggio si ritaglia sulla scena senza il rettangolo bianco attorno. Il formato JPG non supporta la trasparenza, quindi non è adatto agli sprite. ✂️ Rimozione sfondo 
  La gomma dell'editor di Scratch può cancellare uno sfondo a mano, ma il bordo resta irregolare. Meglio partire da un PNG già pulito, preparato con uno strumento dedicato prima dell'importazione. La scheda Suoni: forma d'onda, taglio, volume ed effetti pronti all'uso.
+Fonti ufficiali:
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 21 ---
 Versionamento Salvare senza perdere lavoro Lavorando offline Scratch non salva da solo e non conserva le versioni precedenti: una chiusura improvvisa o un esperimento sbagliato possono cancellare ore di lavoro. Salvare spesso, con nomi progressivi, permette di tornare indietro quando serve. Salva sul computer 
@@ -100,6 +128,8 @@ Usa File &gt; Carica dal computer per riprendere il lavoro. Attenzione: sostitui
 Nomi come dialogo_001, dialogo_002 ordinano i file da soli e dicono subito qual è la versione più recente. Non sovrascrivere subito 
 Prima di un esperimento rischioso salva una copia nuova: se l'idea non funziona, la versione precedente resta intatta. Annota cosa cambia 
 Una riga di appunti per versione ("002: aggiunto dialogo di Abby") aiuta a ritrovare quella giusta senza aprirle tutte. Il menu File: «Salva sul tuo computer» crea il file .sb3, «Carica dal computer» lo riapre.
+Fonti ufficiali:
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 22 ---
 Metodo Dal progetto al software Prima di programmare conviene decidere cosa deve succedere: carta e penna riducono blocchi inutili e scene confuse. Le sei fasi sono le stesse del software professionale, in miniatura. Analisi requisiti 

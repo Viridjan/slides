@@ -20,6 +20,8 @@ Bit e byte Le unità minime della memoria Bit È una cifra binaria: può assumer
 
 --- Slide 5 ---
 Misure Quanto spazio occupano i dati? La memoria si misura aggregando byte. Capire le unità aiuta a stimare peso dei file, spazio su disco e trasferimenti di rete. KB / MB Documenti leggeri, immagini compresse, piccoli allegati. GB Video, archivi, applicazioni, cartelle personali. TB Backup, raccolte multimediali, server, grandi dataset.
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 6 ---
 Conversioni Dal decimale al binario Il sistema decimale usa potenze di 10; il binario usa potenze di 2. Convertire significa riscrivere lo stesso valore usando una base diversa. 13 in decimale
@@ -39,6 +41,9 @@ Esadecimale Una forma compatta per leggere il binario L'esadecimale usa 16 simbo
 
 --- Slide 9 ---
 Codici Una tabella collega numeri e simboli Per trasformare testo in dati serve una convenzione condivisa. Una tabella di codifica stabilisce quale numero rappresenta ogni carattere, così programmi diversi possono interpretare lo stesso file. ASCII Codifica storica per lettere, cifre e simboli di base. Unicode Estende la rappresentazione a molti alfabeti, simboli e caratteri internazionali.
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
+- Unicode Standard — https://www.unicode.org/versions/latest/
 
 --- Slide 10 ---
 Testo Anche una frase è una sequenza di numeri Quando salviamo un documento, ogni carattere viene trasformato in un codice. Spazi, accenti, punteggiatura e ritorni a capo occupano spazio e devono essere interpretati correttamente. Ciao
@@ -52,12 +57,18 @@ Immagini Pixel, risoluzione e colore Una immagine raster è una griglia di pixel
 
 --- Slide 12 ---
 Audio Campionare un segnale nel tempo Un suono digitale nasce misurando il segnale sonoro molte volte al secondo. Ogni misurazione diventa un numero; più campioni e più precisione aumentano qualità e peso del file. Frequenza Quante misurazioni vengono prese ogni secondo. Profondità Quanti bit descrivono ciascun campione.
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 13 ---
 Compressione Ridurre lo spazio senza perdere il significato utile La compressione cerca ridondanze nei dati o elimina dettagli poco percepibili. È una scelta importante quando salviamo immagini, audio, video o archivi. Lossless Permette di ricostruire i dati originali senza perdita. Lossy Riduce di più il peso, ma sacrifica parte dell'informazione.
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 14 ---
 Formati Il formato dice come leggere i byte Un file non è solo una sequenza di byte: ha una struttura. Il formato specifica dove sono i metadati, come sono organizzati i contenuti e quale programma può interpretarli. TXT Testo semplice con poche informazioni aggiuntive. PNG Immagine compressa senza perdita. MP3 Audio compresso con perdita controllata.
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 15 ---
 Overflow Anche i numeri hanno un limite pratico Se usiamo un numero fisso di bit, possiamo rappresentare solo un intervallo finito di valori. Superare quel limite può produrre errori o risultati inattesi. con 8 bit senza segno:

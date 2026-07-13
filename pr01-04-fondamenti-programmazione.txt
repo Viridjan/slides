@@ -11,11 +11,16 @@ programma corretto
 
 --- Slide 2 ---
 Dati Rappresentare prima di elaborare Un programma lavora su dati rappresentati in modo formale: numeri, testi, valori logici, liste, tabelle. Scegliere la rappresentazione giusta rende più semplice scrivere l'algoritmo. Numeri Valori per calcoli, misure, contatori e indici. Stringhe Sequenze di caratteri per nomi, messaggi e testi. Booleani Valori vero/falso usati nelle condizioni.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 3 ---
 Logica Proposizioni e condizioni La logica permette di trasformare affermazioni in condizioni controllabili dal programma. Una condizione è una domanda con risposta vero oppure falso. eta >= 18
 password == salvata
 saldo > 0 Uso pratico Le condizioni guidano scelte, filtri, controlli di validità e cicli.
+Fonti ufficiali:
+- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 4 ---
 Connettivi AND, OR, NOT AND Vero solo se tutte le condizioni sono vere. OR Vero se almeno una condizione è vera. NOT Inverte il valore logico della condizione. se eta >= 18 AND documento_valido allora
@@ -24,6 +29,8 @@ fine se
 
 --- Slide 5 ---
 Linguaggi Naturale, macchina, programmazione Il linguaggio naturale è flessibile ma ambiguo. Il linguaggio macchina è eseguibile dal computer ma poco leggibile per le persone. I linguaggi di programmazione stanno nel mezzo: sono formali, ma più comprensibili. Naturale Comodo per spiegare, rischioso per eseguire. Macchina Vicino all'hardware, espresso in istruzioni elementari. Alto livello Più adatto a progettare soluzioni mantenibili.
+Fonti ufficiali:
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 6 ---
 Procedurale Programmare come sequenza di passi Nei linguaggi procedurali il programma è organizzato come insieme di istruzioni e procedure. L'attenzione è sul percorso: cosa fare prima, cosa dopo, quando scegliere e quando ripetere. Vantaggio È vicino al modo in cui descriviamo ricette, procedure operative e calcoli passo-passo. Rischio Se il programma cresce senza struttura, diventa difficile da mantenere.
@@ -37,6 +44,8 @@ if eta >= 18:
  print("Maggiorenne")
 else:
  print("Minorenne")
+Fonti ufficiali:
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 8 ---
 Struttura Dal pseudocodice al programma Pseudocodice Serve a controllare la logica senza bloccarci sulla sintassi. Codice Traduce la logica in istruzioni precise per un interprete o compilatore. leggi numero
@@ -90,12 +99,16 @@ Aritmetici Incrementi, decrementi e accumuli Molti algoritmi aggiornano una vari
 totale = totale + prezzo
 scorta = scorta - venduti
 saldo += versamento
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 19 ---
 Aritmetici Esempi pratici di formule numeriche La stessa logica appare in gestionali, fogli di calcolo e app: calcolo prezzo, IVA, durata, percentuali, punteggi. iva = imponibile * 0.22
 lordo = imponibile + iva
 percentuale = parte / totale * 100
 media = somma / numero_valori
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 20 ---
 Logici Operatori di confronto I confronti non restituiscono numeri ma valori booleani: vero o falso. Sono la porta d’ingresso di condizioni e filtri. eta &gt;= 18
@@ -148,12 +161,16 @@ Simboli Simboli fondamentali nella sintassi Ogni linguaggio usa simboli per sepa
 , separa argomenti
 : introduce blocchi in Python
 # commento in Python
+Fonti ufficiali:
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 28 ---
 Simboli Uguale, confronto e identità Molti bug nascono dalla confusione tra assegnare, confrontare e controllare identità o equivalenza. x = 5 # assegna
 x == 5 # confronta valore
 x != 5 # diverso
 x is None # identità/speciale in Python
+Fonti ufficiali:
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 29 ---
 Sintesi Scegliere l’operatore giusto Prima chiediti che tipo di risultato vuoi: numero, vero/falso, aggiornamento di variabile o struttura sintattica. numero → + - * / // % **
@@ -166,6 +183,8 @@ Indentazione La forma può avere significato In Python l'indentazione non è dec
  print("accesso consentito")
  print("continua")
 print("fine controllo")
+Fonti ufficiali:
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 31 ---
 Liste Conservare più valori insieme Una lista raccoglie più elementi in una sola struttura. Permette di attraversare dati simili con un ciclo, calcolare statistiche o cercare elementi. voti = [7, 8, 6, 9]
@@ -178,6 +197,8 @@ Funzioni Separare una responsabilità Una funzione riceve dati, esegue un compit
  return base * altezza
 
 area = area_rettangolo(5, 3)
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 33 ---
 Scope Dove vive una variabile Lo scope indica in quale parte del programma un nome è visibile. Capirlo evita confusione tra variabili locali, parametri e valori globali. Locale Esiste dentro una funzione o un blocco specifico. Globale È accessibile da più parti, ma va usato con prudenza.
@@ -189,6 +210,8 @@ Debug Osservare il programma mentre lavora Fare debug significa ricostruire cosa
 Test Controllare funzioni piccole Una funzione con input e output chiari può essere testata con esempi semplici. Questo riduce il rischio che errori nascosti si sommino nel programma completo. area_rettangolo(5, 3) → 15
 area_rettangolo(0, 3) → 0
 area_rettangolo(2, 2) → 4
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 36 ---
 Documentare Spiegare ciò che il codice non dice da solo I commenti non devono ripetere istruzioni ovvie. Servono per chiarire scelte, vincoli, casi limite e motivi per cui una soluzione è stata preferita a un'altra. Utile Spiega una decisione non evidente. Inutile Ripete parola per parola il codice.

@@ -42,6 +42,8 @@ Definizione
  📈 
  Adattabilità 
  Migliorare le prestazioni imparando dall'esperienza e dai dati.
+Fonti ufficiali:
+- AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 4 ---
 Contesto storico 
@@ -66,6 +68,8 @@ Contesto storico
  🚀 
  2010–oggi — Rinascita 
  Big data, GPU potenti e deep learning trasformano tutto. IA batte i campioni umani a Go, scacchi, Jeopardy! e ora genera testo e immagini.
+Fonti ufficiali:
+- AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 5 ---
 Il problema della definizione 
@@ -142,6 +146,9 @@ Mappa concettuale
  Deep Learning — reti neurali profonde 
  
  Ogni cerchio è un sottoinsieme del precedente: IA ⊃ ML ⊃ DL
+Fonti ufficiali:
+- AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 8 ---
 Deep Learning 
@@ -197,6 +204,8 @@ Natural Language Processing
  
  Collegamento 
  ChatGPT è un Large Language Model (LLM) — un modello NLP addestrato su enormi quantità di testo disponibile in internet.
+Fonti ufficiali:
+- Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 10 ---
 Machine Learning 
@@ -207,6 +216,9 @@ Machine Learning
  Previsione — dato un input nuovo, il modello applica i pattern appresi e produce un output: "questa è una foto di gatto" con 94% di confidenza. 
  
  Analogia: il ML impara dagli esempi come un bambino, non dalle regole come un impiegato.
+Fonti ufficiali:
+- AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 11 ---
 Applicazione 
@@ -290,6 +302,8 @@ Applicazione
  🔍 
  Ricerca 
  Google personalizza i risultati: due utenti che cercano la stessa cosa vedono risultati diversi.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 15 ---
 Rischio 
@@ -304,6 +318,8 @@ Rischio
  
  Esempi 
  Google Search personalizzata e Facebook News Feed sono i casi più studiati e documentati di filter bubble.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 16 ---
 Rischi sociali 
@@ -328,6 +344,8 @@ Rischi sociali
  
  Connessione con l'IA 
  Gli algoritmi di raccomandazione massimizzano l'engagement — spesso promuovendo contenuti emotivi o polarizzanti, alimentando tutti e tre questi fenomeni.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 17 ---
 Difesa attiva 
@@ -337,6 +355,8 @@ Difesa attiva
  Naviga in incognito — riduce (non elimina) la profilazione. Usa motori che non tracciano: DuckDuckGo, Startpage. 
  Segui persone con visioni diverse — sui social, seguire voci che non conosci già rompe il loop dell'algoritmo. 
  Verifica prima di condividere — cerca la fonte primaria, non restare nella versione già filtrata della notizia.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 18 ---
 Manipolazione digitale 
@@ -503,6 +523,8 @@ Ogni giorno
  
  💡 Conclusione 
  L'IA non è fantascienza: è già parte invisibile della tua giornata. Conoscerla significa poterne usare i vantaggi e riconoscerne i limiti.
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 25 ---
 Usare bene l'IA 
@@ -572,6 +594,9 @@ Problema critico
  🛡️ 
  Cosa si fa 
  Dati più diversificati, audit regolari, team di sviluppo eterogenei — e normative come l'AI Act europeo.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
+- Regolamento europeo sull’IA — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 
 --- Slide 28 ---
 Strumenti IA 
@@ -616,6 +641,9 @@ Le domande aperte
  🎨 
  Creatività e diritti 
  Le immagini generate da IA usano opere di artisti reali. Chi possiede il copyright del risultato?
+Fonti ufficiali:
+- Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
+- Copyright nell’Unione europea — https://europa.eu/youreurope/business/running-business/intellectual-property/copyright/index_it.htm
 
 --- Slide 30 ---
 Etica applicata 
@@ -635,6 +663,8 @@ Rischi pratici
  🔑 Protezione account Password robuste aiutano, ma 2FA, passkey e chiavi fisiche FIDO2 riducono molto il rischio. 
  
  Idea chiave Il problema non è solo riconoscere il falso: è costruire procedure che funzionino anche quando non riusciamo a riconoscerlo subito.
+Fonti ufficiali:
+- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 32 ---
 Riconoscimento 
@@ -645,6 +675,8 @@ Riconoscimento
  📝 Testi Strutture ripetitive, coppie o triadi di aggettivi, tono positivo grandioso, liste puntate, emoji e formule troppo ordinate. 
  
  Attenzione Nessun segnale basta da solo. Serve una valutazione complessiva: contenuto, fonte, contesto e coerenza con ciò che già sappiamo.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 33 ---
 Creatività e lavoro 
@@ -654,6 +686,8 @@ Creatività e lavoro
  ✅ Uso sensato L'IA può accorciare tempi, produrre bozze, proporre varianti e aiutare chi ha già intenzione, gusto e capacità critica. 
  🎨 Lavoro creativo Il miglior artista non è sempre il più tecnico: conta l'idea, la scelta, la direzione e la capacità di valutare il risultato. 
  📚 Diritti La discussione su copyright, dataset e opere derivate resta aperta: usare IA richiede trasparenza e responsabilità.
+Fonti ufficiali:
+- Copyright nell’Unione europea — https://europa.eu/youreurope/business/running-business/intellectual-property/copyright/index_it.htm
 
 --- Slide 34 ---
 Prospettive 
@@ -722,6 +756,8 @@ Attenzione
  
  🇺 AI Act 
  Il regolamento europeo sull'IA (2024) classifica i sistemi per livello di rischio e impone obblighi di trasparenza — il più avanzato al mondo.
+Fonti ufficiali:
+- Regolamento europeo sull’IA — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 
 --- Slide 37 ---
 L'IA sei

@@ -26,6 +26,8 @@ In questo modulo
  Messaggi nascosti e il silenzio — cosa dice l'audio quando non parla: easter egg, diegesi e pausa come scelta creativa 
  Produzione audio — DAW, onde sonore e sampling: il flusso dalla registrazione al file finale pronto per il motore di gioco 
  Effetti e mixing — riverbero, distorsione, compressione: dare forma, spazio e coerenza all'intero paesaggio sonoro
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 3 ---
 Definizione 
@@ -78,6 +80,8 @@ Dettagli nascosti
  👂 Diegesi audio Un suono fuori posto avverte il giocatore attento: qualcosa in questo posto non è come sembra. La musica cambia tono? C'è qualcosa oltre quella porta. 
  🗝️ Design della scoperta Premiare chi ascolta con attenzione trasforma il sonoro in meccanica: il segreto audio è una ricompensa per i giocatori più coinvolti. 
  🔁 Audio adattivo La traccia reagisce allo stato del gioco: la musica si intensifica in combattimento, si abbassa nell'esplorazione, segnalando il pericolo prima che appaia sullo schermo.
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 7 ---
 Assenza 
@@ -111,6 +115,8 @@ Assenza
  
  Uso del silenzio 
  Un boss che entra nel silenzio totale; la musica che si ferma di colpo prima di un cutscene; il silenzio assoluto dopo la morte del personaggio. Il contrasto tra quiete e suono amplifica l'impatto emotivo del momento e prepara il giocatore al cambiamento.
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 8 ---
 Produzione 
@@ -122,6 +128,8 @@ Produzione
  🎙️ Registrazione Catturare suoni reali col microfono: voci, oggetti colpiti, ambienti esterni. La qualità del microfono e la silenziosità della stanza fanno la differenza. 
  🧩 Editing Tagliare, allineare, pulire i rumori indesiderati: dal materiale grezzo si ricava il suono utilizzabile. Fondamentale per i loop ambientali. 
  🎚️ Mixing Bilanciare i livelli delle tracce affinché ogni suono trovi il suo spazio nel mix finale senza coprire gli altri elementi.
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 9 ---
 Fondamenti 
@@ -151,6 +159,8 @@ Fondamenti
  
  📏 Ampiezza = volume L'altezza dell'onda determina quanto il suono è forte o debole. Si misura in decibel (dB): 0 dB è il limite massimo prima della distorsione digitale. 
  〰️ Frequenza = altezza Quanto il suono è acuto o grave: si misura in Hertz (Hz), oscillazioni al secondo. L'orecchio umano percepisce tra 20 Hz e 20.000 Hz.
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 10 ---
 Effetti 
@@ -161,6 +171,8 @@ Effetti
  🗜️ Compressione Riduce la differenza dinamica tra suoni forti e deboli. Rende il mix coeso e garantisce che tutto sia sempre udibile anche sugli altoparlanti più piccoli. 
  🌀 Riverbero Simula l'acustica di uno spazio: una caverna profonda, una stanza vuota, una cattedrale. Colloca fisicamente il suono in un ambiente e ne rafforza il realismo. 
  ⏱️ Delay / Eco Ripete il suono con un ritardo regolabile. Crea profondità spaziale, senso di vastità e, se sincronizzato col tempo musicale, aggiunge ritmo all'effetto.
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 11 ---
 Assemblaggio 
@@ -197,6 +209,8 @@ Assemblaggio
  Regolare i volumi relativi — cosa deve emergere in primo piano, cosa restare in sottofondo senza sparire. 
  Posizionare nello spazio stereo : sinistra, destra, centro. In 3D audio, anche la profondità e l'altezza. 
  EQ (equalizzazione) — tagliare le frequenze che si sovrappongono tra le tracce per evitare "fango" nel mix finale.
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 12 ---
 Attività 

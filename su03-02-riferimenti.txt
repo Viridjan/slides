@@ -57,6 +57,8 @@ Coordinate
  4 
  
  Colonna B × Riga 3 = cella B3
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 4 ---
 Relativi 
@@ -137,6 +139,8 @@ Intervalli
  
  B2:B5;D2:D5 
  Due intervalli separati (punto e virgola)
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 8 ---
 Chiarezza 
@@ -177,6 +181,8 @@ Tabelle strutturate
  4 14/03 Verdi 80 
  
  Tabella "Vendite" — Vendite[Importo] = colonna C
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 10 ---
 Fogli diversi 
@@ -198,6 +204,8 @@ Somma la cella B3 da tutti i fogli tra "Gen" e "Dic".
  
  
  ⚠️ Attenzione Se rinomini il foglio sorgente, i riferimenti si aggiornano automaticamente. Se lo elimini, le formule mostrano #RIF!
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 11 ---
 Variabili locali 
@@ -217,6 +225,8 @@ Variabili locali
  =LET(margine;(B2-C2)/B2;
 &nbsp;&nbsp;SE(margine&gt;0,2;"OK";"BASSO")) 
  Il nome margine spiega il calcolo.
+Fonti ufficiali:
+- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 12 ---
 Errori e regole 
@@ -251,6 +261,8 @@ Errori e regole
  📋 
  Dati misti 
  Numeri salvati come testo (allineati a sinistra) non vengono sommati correttamente.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 13 ---
 Formula copiata,

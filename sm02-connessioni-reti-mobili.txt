@@ -11,6 +11,9 @@ S02 — Connessioni
 In questo capitolo 
  Cosa vedremo 
  01 Sempre connessi 02 WiFi 03 WiFi pubblico e VPN 04 Bluetooth 05 NFC 06 Reti cellulari: da 2G a 5G 07 SIM e eSIM 08 Hotspot 09 Giga e roaming 10 Modalità aereo 11 Localizzazione assistita 12 Problemi comuni
+Fonti ufficiali:
+- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
+- Specifiche Bluetooth — Bluetooth SIG — https://www.bluetooth.com/specifications/specs/
 
 --- Slide 3 ---
 Le radio del telefono 
@@ -23,6 +26,9 @@ Le radio del telefono
  💳 NFC Scambia dati a contatto quasi fisico: pagamenti, biglietti e badge avvicinando il telefono. 
  
  Regola: ogni radio accesa consuma batteria — spegni quelle che non usi.
+Fonti ufficiali:
+- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
+- Specifiche Bluetooth — Bluetooth SIG — https://www.bluetooth.com/specifications/specs/
 
 --- Slide 4 ---
 Connessioni 
@@ -45,6 +51,9 @@ Connessioni
  
  
  Il segnale cala con distanza, muri e interferenze
+Fonti ufficiali:
+- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
+- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 5 ---
 Attenzione 
@@ -55,6 +64,9 @@ Attenzione
  🔒 La difesa: la VPN Crea un tunnel cifrato verso un server intermedio: il gestore della rete non vede né i contenuti né i siti che visiti. Funziona solo se il fornitore della VPN è a sua volta affidabile. 
  
  Analogia: sul WiFi pubblico i tuoi dati viaggiano come una cartolina — la VPN li chiude in una busta sigillata.
+Fonti ufficiali:
+- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 6 ---
 Corto raggio 
@@ -66,6 +78,8 @@ Corto raggio
  🎧 
  Cosa ci colleghi ogni giorno 
  Cuffie, casse, smartwatch, tastiere e il vivavoce dell'auto. Condivisione di file tra dispositivi vicini, anche senza rete. La variante Low Energy (BLE) alimenta sensori fitness, tag di localizzazione e dispositivi smart consumando pochissimo.
+Fonti ufficiali:
+- Specifiche Bluetooth — Bluetooth SIG — https://www.bluetooth.com/specifications/specs/
 
 --- Slide 7 ---
 Contactless 
@@ -108,6 +122,8 @@ Generazioni
  Streaming video, mappe e social fluidi: è oggi la rete più diffusa sul territorio, la copertura di riferimento. 
  🚀 5G — oggi 
  Molta più velocità e latenza bassissima, ma servono antenne dedicate e un telefono compatibile. Copertura in crescita, non ovunque.
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 9 ---
 Identità mobile 
@@ -129,6 +145,9 @@ Condividere la rete
  💻 
  Cosa aspettarti 
  Perfetto in treno o in viaggio, quando il laptop non ha altra rete. Batteria e giga scendono in fretta: un aggiornamento del laptop può bruciare il piano dati in pochi minuti. Alcuni contratti limitano o tariffano a parte l'uso come hotspot: verifica il tuo piano.
+Fonti ufficiali:
+- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
+- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 11 ---
 Consumi 
@@ -139,6 +158,8 @@ Consumi
  💬 Consumano poco Messaggi, email e pagine web. In Impostazioni → Utilizzo dati vedi quali app pesano di più e puoi impostare avvisi e limiti. 
  
  In viaggio ✈ Roaming = appoggiarsi alla rete di un operatore estero. In UE è in genere incluso nel piano (ma non sempre in modo illimitato); fuori dall'UE verifica i costi prima di partire, oppure disattiva i dati mobili.
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 12 ---
 Tutto spento 
@@ -150,6 +171,9 @@ Tutto spento
  ✈️ 
  Cosa succede davvero 
  Le app offline — foto, note, musica scaricata — continuano a funzionare normalmente. Dopo averla attivata puoi riaccendere WiFi e Bluetooth singolarmente, dove consentito. Accenderla e spegnerla forza il telefono a riagganciare la rete: è il primo rimedio per i problemi di segnale.
+Fonti ufficiali:
+- Specifiche Bluetooth — Bluetooth SIG — https://www.bluetooth.com/specifications/specs/
+- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 13 ---
 Dove sei 
@@ -161,6 +185,8 @@ Dove sei
  📍 
  Il compromesso 
  Più segnali combinati = posizione più rapida e precisa, anche al chiuso. Le stesse informazioni raccontano dove sei all'operatore e a Google o Apple. Le mappe scaricate offline riducono sia il consumo di giga sia i dati condivisi.
+Fonti ufficiali:
+- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 14 ---
 Pronto soccorso 
@@ -172,6 +198,8 @@ Pronto soccorso
  📞 3 · Isola il colpevole Prova un'altra rete o un altro dispositivo: capisci se il problema è del telefono, della SIM, del router o dell'operatore. 
  
  Se nulla funziona Contatta l'operatore e fai verificare SIM e linea: una SIM vecchia o danneggiata si sostituisce gratis o quasi in pochi minuti.
+Fonti ufficiali:
+- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 15 ---
 Connesso ovunque,

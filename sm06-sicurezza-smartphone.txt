@@ -11,6 +11,8 @@ S06 — Sicurezza
 In questo capitolo 
  Cosa vedremo 
  01 Il telefono è una chiave 02 Blocco schermo e biometria 03 2FA e codici OTP 04 Furto: prepararsi e reagire 05 SIM swap 06 Smishing: truffe via SMS 07 Vishing: truffe al telefono 08 Malware e app da fonti dubbie 09 Aggiornamenti di sicurezza 10 WiFi pubbliche e reti false
+Fonti ufficiali:
+- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 3 ---
 Sicurezza 
@@ -22,6 +24,9 @@ Sicurezza
  🔑 
  Cosa apre davvero 
  La tua email : da lì si resettano le password di quasi tutti gli altri account. La tua banca : app bancaria e SMS di conferma arrivano sullo stesso apparecchio. La tua vita privata : foto, chat, rubrica, documenti — materiale per ricatti e truffe verso i tuoi contatti.
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
+- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 4 ---
 Prima barriera 
@@ -32,6 +37,8 @@ Prima barriera
  👆 La biometria è la comodità Impronta e volto sbloccano in un istante, decine di volte al giorno. Dopo un riavvio o troppi tentativi falliti, il telefono chiede comunque il codice. Nessuno può "sbirciare" la tua impronta come farebbe con un PIN digitato in pubblico. 
  
  Regola: PIN debole + impronta = porta blindata con la chiave sotto lo zerbino.
+Fonti ufficiali:
+- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 5 ---
 Seconda barriera 
@@ -41,6 +48,9 @@ Seconda barriera
  🔐 Due lucchetti diversi Qualcosa che sai (la password) più qualcosa che hai (il telefono). Attivala prima di tutto su email e banca: sono gli account che aprono gli altri. 
  📲 App meglio degli SMS Un'app autenticatore (Google Authenticator, Aegis) genera i codici direttamente sul telefono: non viaggiano in rete e non si intercettano con un SIM swap. 
  🤫 L'OTP non si detta mai Ogni codice vale 30 secondi e un solo accesso. Chi te lo chiede — al telefono, in chat, via email — sta completando un furto: nessun servizio serio lo domanda.
+Fonti ufficiali:
+- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 6 ---
 Furto · 1 
@@ -52,6 +62,9 @@ Furto · 1
  🧭 
  Da attivare oggi 
  Android : Trova il mio dispositivo — verifica da findmydevice.google.com. iOS : Dov'è — verifica da icloud.com/find. Backup automatico attivo: i dati si recuperano, il telefono no. IMEI annotato : digita *#06# e conserva il codice, servirà per la denuncia.
+Fonti ufficiali:
+- Guida ufficiale Android — https://support.google.com/android/
+- Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
 
 --- Slide 7 ---
 Furto · 2 
@@ -66,6 +79,9 @@ Furto · 2
  Chiama il tuo operatore: fermi chiamate a pagamento e soprattutto gli SMS OTP diretti al numero rubato. 
  🚨 4 · Denuncia e cancella 
  Denuncia alle autorità con l'IMEI annotato. Se il recupero è impossibile, avvia la cancellazione remota: il backup ti restituirà i dati sul prossimo telefono.
+Fonti ufficiali:
+- Guida ufficiale Android — https://support.google.com/android/
+- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 8 ---
 Attacchi al numero 
@@ -77,6 +93,9 @@ Attacchi al numero
  📶 
  Come avviene l'attacco 
  Il truffatore contatta l'operatore fingendosi te, con dati raccolti online o via phishing, e chiede il trasferimento del numero su una nuova SIM. Da quel momento chiamate e SMS — compresi gli OTP della banca — arrivano a lui. Il tuo telefono perde il segnale all'improvviso: è il primo campanello d'allarme.
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
+- Riconoscere il phishing — CISA — https://www.cisa.gov/secure-our-world/recognize-and-report-phishing
 
 --- Slide 9 ---
 Truffe · SMS 
@@ -118,6 +137,8 @@ Truffe · Voce
  📞 
  Il copione tipico 
  Si presentano come banca, Polizia postale o assistenza clienti: «Rileviamo un pagamento sospetto, dobbiamo agire subito». Chiedono di dettare un OTP, i dati della carta o di fare un bonifico "di messa in sicurezza". Il numero sul display può essere falsificato ( spoofing ): sembrare quello vero della banca non prova nulla.
+Fonti ufficiali:
+- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 11 ---
 Software ostile 
@@ -138,6 +159,9 @@ Manutenzione
  🔄 
  Perché la fretta conta 
  Quando una vulnerabilità diventa pubblica, gli attacchi che la sfruttano compaiono nel giro di giorni . Un telefono fermo da mesi o anni è un bersaglio con le debolezze scritte nero su bianco. In fase d'acquisto, gli anni di aggiornamenti garantiti valgono più di qualche euro di sconto.
+Fonti ufficiali:
+- Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
+- Guida ufficiale Android — https://support.google.com/android/
 
 --- Slide 13 ---
 Reti insidiose 
@@ -149,6 +173,8 @@ Reti insidiose
  🎭 
  Il gemello cattivo 
  Un access point falso imita il nome di una rete credibile: «Bar_WiFi_Free», «Aeroporto_Gratis». Il telefono si riconnette da solo alle reti già usate in passato: è proprio questo l'aggancio. Chi controlla la rete può osservare il traffico non cifrato, le sessioni aperte e i login.
+Fonti ufficiali:
+- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 14 ---
 Riepilogo operativo 
@@ -159,6 +185,9 @@ Riepilogo operativo
  🔁 Regolarmente Aggiornamenti installati entro una settimana dal rilascio. Permessi delle app rivisti ogni 3 mesi. Backup verificato: apri e controlla che ci sia tutto. Reti WiFi salvate ripulite da quelle pubbliche. 
  
  Codice forte 2FA con app Trova dispositivo Zero fretta con link e voci
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
+- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 15 ---
 Il telefono è una chiave:

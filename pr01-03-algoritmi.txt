@@ -14,9 +14,13 @@ Dal problema Prima si capisce, poi si codifica Programmare non parte dal linguag
 
 --- Slide 3 ---
 Definizione Che cos'è un algoritmo? Un algoritmo è una procedura finita e ordinata che, partendo da dati iniziali, permette di ottenere un risultato. Deve essere abbastanza preciso da poter essere eseguito da una persona o da una macchina. Non è solo codice Può essere descritto in linguaggio naturale, diagramma di flusso, pseudocodice o linguaggio di programmazione. È una strategia Dice cosa fare, in quale ordine e con quali decisioni intermedie.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 4 ---
 Caratteristiche Un buon algoritmo deve essere controllabile Finito Non deve procedere all'infinito: prima o poi termina. Non ambiguo Ogni istruzione deve avere un significato chiaro. Eseguibile Ogni passo deve essere realizzabile con gli strumenti disponibili. Generale Deve funzionare per una classe di casi, non per un solo esempio fortunato. Verificabile Deve permettere controlli su risultati intermedi e finali.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 5 ---
 Variabili Conservare valori durante il procedimento Le variabili sono nomi associati a valori che possono cambiare durante l'esecuzione. Servono per ricordare dati, risultati parziali, contatori e stati. totale = 0
@@ -29,6 +33,8 @@ Istruzioni Le azioni fondamentali Assegnazione Memorizza un valore in una variab
 
 --- Slide 7 ---
 Flowchart Rappresentare il flusso I diagrammi di flusso visualizzano il percorso dell'algoritmo. Aiutano a vedere sequenze, scelte, cicli e punti di ingresso o uscita. Ovale Inizio o fine del procedimento. Rettangolo Operazione o elaborazione. Rombo Decisione con uscite alternative.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 8 ---
 Pseudocodice Scrivere l'algoritmo prima del linguaggio Lo pseudocodice usa una forma vicina al linguaggio naturale, ma già ordinata come un programma. È utile per ragionare senza preoccuparsi subito della sintassi. leggi eta
@@ -37,26 +43,38 @@ se eta >= 18 allora
 altrimenti
  scrivi "minorenne"
 fine se
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 9 ---
 Verifica Provare l'algoritmo a mano Prima di tradurre in codice conviene simulare l'algoritmo con pochi esempi. Questo controllo permette di scoprire passaggi mancanti, condizioni sbagliate e casi limite. Traccia Segna valore delle variabili dopo ogni passo. Casi limite Prova valori minimi, massimi, nulli o insoliti.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 10 ---
 Scomposizione Dividere il problema in sottoproblemi Un problema grande diventa gestibile quando lo dividiamo in parti più piccole. Ogni sottoproblema deve avere input, output e responsabilità chiari. Riduce complessità Si ragiona su una parte alla volta. Favorisce riuso Una soluzione parziale può servire più volte. Facilita test Ogni parte può essere verificata separatamente.
 
 --- Slide 11 ---
 Precondizioni Cosa deve essere vero prima di iniziare Le precondizioni descrivono ciò che l'algoritmo si aspetta dagli input. Se non sono rispettate, il risultato può essere errato o il procedimento può bloccarsi. Esempio Per dividere due numeri, il divisore deve essere diverso da zero. Controllo Prima del calcolo si verifica se l'input è valido.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 12 ---
 Postcondizioni Cosa deve essere vero alla fine Le postcondizioni descrivono il risultato atteso dopo l'esecuzione. Sono utili per verificare se l'algoritmo ha davvero risolto il problema. precondizione: lista non vuota
 algoritmo: trova massimo
 postcondizione: massimo >= ogni elemento della lista
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 13 ---
 Sequenza L'ordine cambia il risultato In un algoritmo, spostare una istruzione può cambiare completamente il comportamento. Alcuni passi devono avvenire prima perché preparano dati usati dai passi successivi. Prima inizializzo Creo valori di partenza, contatori e accumuli. Poi aggiorno Uso quei valori per calcolare risultati successivi.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 14 ---
 Decisioni Le condizioni devono essere verificabili Una decisione efficace usa una condizione chiara, valutabile come vera o falsa. Condizioni vaghe producono algoritmi ambigui. Vaga "Se il valore è abbastanza alto" non basta senza soglia. Verificabile "Se il valore è maggiore o uguale a 18" è controllabile.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 15 ---
 Cicli Ripetere senza perdere il controllo Un ciclo deve avere una condizione di continuazione e un modo per avvicinarsi alla fine. Altrimenti rischia di non terminare. Inizializza Prepara contatore o stato iniziale. Controlla Decide se ripetere. Aggiorna Modifica qualcosa a ogni iterazione.
@@ -78,6 +96,8 @@ Traccia La tabella di traccia rende visibile l'esecuzione Durante la prova a man
 
 --- Slide 19 ---
 Efficienza Non tutte le soluzioni costano uguale Due algoritmi possono produrre lo stesso risultato ma richiedere tempi o memoria molto diversi. Valutare l'efficienza aiuta a scegliere una soluzione adatta alla dimensione del problema. Tempo Quanti passaggi servono al crescere dei dati? Spazio Quanta memoria aggiuntiva viene usata?
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 20 ---
 Un algoritmo chiaro rende il codice più semplice. Quando il procedimento è comprensibile, la traduzione in linguaggio di programmazione diventa più controllabile. Prossimo → PR01.04 · Fondamenti

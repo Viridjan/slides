@@ -26,6 +26,8 @@ In questo modulo
  Come funziona un LLM — prompt → token → nodi → risposta 
  Cosa un LLM non fa — capire, imparare, ragionare (nel senso umano) 
  Usare gli LLM bene — verificare, iterare, non fidarsi ciecamente
+Fonti ufficiali:
+- Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 3 ---
 Definizione 
@@ -51,12 +53,17 @@ Definizione
  ⚙️ 
  Parametri 
  GPT-4 ha ~1.8 trilioni di parametri. Ogni parametro è un numero che codifica una relazione tra concetti.
+Fonti ufficiali:
+- Attention Is All You Need — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 4 ---
 Testo generato 
  Perplexity: definizione di LLM 
  
  I Large Language Models (LLM) sono modelli di intelligenza artificiale basati su reti neurali profonde specializzate nell'elaborazione del linguaggio naturale ( NLP ). Sono addestrati su enormi quantità di testo per apprendere le relazioni tra parole, frasi e concetti, permettendo loro di generare testo coerente e comprensibile, rispondere a domande, tradurre, riassumere e svolgere molte altre attività linguistiche . Il funzionamento di un LLM si basa su architetture chiamate transformer, che elaborano sequenze di testo utilizzando meccanismi di attenzione per capire il contesto e prevedere la parola successiva in una frase. L'addestramento avviene in più fasi, spesso partendo da un apprendimento non supervisionato su dati non etichettati, per poi affinare la precisione.
+Fonti ufficiali:
+- Transformer — paper originale — https://arxiv.org/abs/1706.03762
+- AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 5 ---
 Testo generato 
@@ -67,12 +74,17 @@ Testo generato
  
  Punto critico 
  Le parole in grassetto sono quelle da controllare: sembrano naturali, ma introducono imprecisioni tecniche o salti concettuali.
+Fonti ufficiali:
+- Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 6 ---
 Testo generato 
  Perplexity: definizione di NLP 
  
  Il Natural Language Processing (NLP), o elaborazione del linguaggio naturale, è una branca dell'intelligenza artificiale che permette ai computer di comprendere, interpretare e generare il linguaggio umano, sia scritto che parlato. Il suo obiettivo è colmare il divario tra la comunicazione umana e la capacità dei computer di capire il linguaggio naturale. L'NLP combina linguistica computazionale con tecniche di machine learning e deep learning per analizzare testi e parole, identificarne il significato, il contesto e l'intento . Tra le sue funzioni principali ci sono la tokenizzazione, l'analisi sintattica, la riconoscenza di entità e il rilevamento del sentiment. Questo consente di trasformare dati linguistici grezzi in informazioni utili per rispondere a domande, tradurre testi, generare contenuti e molto altro. In sintesi, l'NLP è la tecnologia che consente ai computer di "parlare" e capire il linguaggio umano in modo naturale e utile.
+Fonti ufficiali:
+- AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 7 ---
 Caso studio 
@@ -92,6 +104,9 @@ Errore 1 / 5
  
  ✓ Corretto Transformer, non solo profondità Gli LLM moderni sono soprattutto modelli basati su architetture transformer, addestrati a predire token in grandi sequenze di testo. 
  🧪 Come nasce l'imprecisione Il modello collega parole statisticamente vicine: IA, deep learning, reti neurali, profondità. Il risultato suona tecnico, ma è poco preciso.
+Fonti ufficiali:
+- AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
+- Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 9 ---
 Errore 2 / 5 
@@ -102,6 +117,8 @@ Errore 2 / 5
  
  🧩 Il limite della frase Dire "attività linguistiche" fa perdere il punto: il modello manipola token e può essere collegato a domini non puramente testuali. 
  🔧 Esempi Scrivere codice, descrivere immagini, comandare strumenti, generare prompt per video o sintetizzare dati sono usi che superano la semplice lingua.
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 10 ---
 Errore 3 / 5 
@@ -112,6 +129,8 @@ Errore 3 / 5
  
  🖥️ Analogia Un computer può rappresentare il giallo come #ffff00 , ma questo non significa che "capisca" il giallo. 
  Differenza chiave L'output può sembrare comprensione perché imita schemi linguistici umani molto ricorrenti nei dati di addestramento.
+Fonti ufficiali:
+- Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 11 ---
 Errore 4 / 5 
@@ -141,6 +160,8 @@ Lezione pratica
  ⚠️ Allucinazioni Può inventare fatti, citazioni, riferimenti bibliografici, nomi o date con sicurezza apparente. 
  🔍 Cosa fare Usa gli LLM come punto di partenza, non come fonte primaria. Verifica le affermazioni importanti. 
  🎓 Valore didattico Far trovare gli errori in un testo IA è un esercizio efficace di pensiero critico.
+Fonti ufficiali:
+- Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 14 ---
 Meccanismo interno 
@@ -158,6 +179,8 @@ Meccanismo interno
  
  Il prompt è tutto 
  La qualità del prompt determina la qualità della risposta. Un prompt vago → risposta vaga. Un prompt dettagliato con contesto → risposta utile.
+Fonti ufficiali:
+- Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 15 ---
 Passo 1 
@@ -182,6 +205,8 @@ Passo 1
  " LL" 
  "M" 
  "?"
+Fonti ufficiali:
+- Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 16 ---
 Passo 2 
@@ -219,6 +244,8 @@ Passo 2
  token out 
  
  il segnale attraversa gli strati, trasformandosi
+Fonti ufficiali:
+- Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 17 ---
 Passo 3 
@@ -239,6 +266,8 @@ Passo 3
  
  Risultato 
  L'output non è una ricerca in un database — è una sequenza di token generata token per token, ognuno influenzato da tutti i precedenti.
+Fonti ufficiali:
+- Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 18 ---
 Miti da sfatare 
@@ -263,6 +292,8 @@ Miti da sfatare
  🎭 
  Non è neutro 
  Riflette i bias presenti nei dati di addestramento — ideologici, culturali, linguistici. Non è una fonte oggettiva di verità.
+Fonti ufficiali:
+- Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 19 ---
 Non magia.

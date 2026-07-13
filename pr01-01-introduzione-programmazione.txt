@@ -9,18 +9,27 @@ Programmare · PR01.01 Introduzione alla
 Introduzione Programmare è esprimere un comportamento I linguaggi di programmazione sono il mezzo espressivo nell'arte della programmazione dei computer. Un buon linguaggio aiuta a scrivere programmi chiari, funzionanti e comprensibili anche dopo molto tempo. Idea chiave: un programma non deve solo funzionare oggi; deve poter essere letto, modificato e mantenuto domani. programma = istruzioni + dati + struttura
 qualità = comportamento corretto + leggibilità
 manutenzione = capire cosa succede senza riscrivere tutto
+Fonti ufficiali:
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 3 ---
 Stile Il codice è scritto per due lettori Un corretto stile di programmazione permette a chiunque legga il programma di comprenderne il comportamento. Il computer esegue, ma persone diverse progettano, correggono, testano e mantengono il software lungo tutto il suo ciclo di vita. 🧠 Chi progetta Deve riconoscere l'idea generale, i confini del problema e le componenti principali. 🛠 Chi modifica Deve capire dove intervenire senza rompere parti non correlate. 🧪 Chi testa Deve sapere quali comportamenti verificare e quali casi limite cercare. Regola Nomi chiari, struttura coerente e commenti utili valgono quanto la conoscenza della sintassi.
 
 --- Slide 4 ---
 Ciclo di vita Come un linguaggio supporta il software Valutare un linguaggio significa chiedersi come aiuta progettazione, implementazione, testing e mantenimento. Un linguaggio adatto a un contesto può essere scomodo in un altro. Progettazione → Implementazione → Testing → Mantenimento Domanda progettuale Il linguaggio rende semplice esprimere l'architettura e le interazioni tra componenti software? Domanda operativa Il linguaggio rende semplice trovare errori, creare strumenti di test e modificare codice esistente?
+Fonti ufficiali:
+- Progetti e ciclo di vita — PMI — https://www.pmi.org/about/what-is-a-project
 
 --- Slide 5 ---
 Trade-off Ogni linguaggio sceglie compromessi Nella progettazione di un linguaggio non esiste una scelta migliore in assoluto. Alcuni linguaggi privilegiano velocità di scrittura, altri controllo, ottimizzazione, sicurezza, espressività o facilità di analisi. ⚡ Scrittura rapida Utile per prototipi e automazione, ma può rendere più difficile verificare tutto prima dell'esecuzione. ⚙️ Ottimizzazione Costrutti più rigidi possono aiutare compilatore e prestazioni, ma rendere il codice più ingombrante. 🧰 Ambiente d'uso Sistemi embedded, web, data analysis e didattica richiedono caratteristiche diverse. Conclusione: esistono molti linguaggi perché esistono molti obiettivi.
+Fonti ufficiali:
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 6 ---
 Concetti comuni Il vocabolario condiviso Linguaggi diversi hanno forme diverse, ma condividono molti concetti fondamentali. Memoria e dati Variabile, tipo, struttura dati: permettono di rappresentare informazioni e conservarle. Azioni Istruzione, espressione, sottoprogramma: descrivono cosa calcolare e come organizzarlo. Controllo Strutture di controllo: sequenza, decisioni, cicli e chiamate che determinano il flusso. Sintassi I simboli e le regole formali con cui si scrive un programma. Semantica Le azioni che avvengono quando il programma viene eseguito. Analisi Il modo in cui il linguaggio controlla o interpreta il programma.
+Fonti ufficiali:
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 7 ---
 Sintassi Scrivere in modo valido La sintassi identifica i simboli e le regole usate per scrivere un programma: parentesi, parole chiave, operatori, punteggiatura, indentazione quando richiesta. Errore sintattico Il programma non rispetta la grammatica del linguaggio: il compilatore o l'interprete non riesce nemmeno a leggerlo correttamente. Semantica Eseguire il comportamento La semantica descrive le azioni che il programma compie quando viene eseguito. Un codice può essere sintatticamente corretto ma semanticamente sbagliato. Errore logico Il programma parte, ma calcola il risultato sbagliato o si comporta in modo diverso da quello previsto.
@@ -38,24 +47,35 @@ Analisi dinamica Durante l'esecuzione In altri ambienti il codice viene controll
 istruzione 1: controlla ed esegue
 istruzione 2: controlla ed esegue
 istruzione 3: errore solo se raggiunta
+Fonti ufficiali:
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 10 ---
 Categorie Famiglie di linguaggi Una caratteristica distintiva di un linguaggio è la categoria di appartenenza. Ogni famiglia organizza il pensiero computazionale in modo diverso. Procedurali Il programma è una sequenza di procedure e istruzioni. Esempi: C, Pascal. Object-oriented Il programma è organizzato in oggetti con stato e comportamento. Esempi: Java, C#. Funzionali Il calcolo è espresso tramite funzioni e trasformazioni di valori. Esempio: Lisp. Logici Il programma descrive fatti e regole; il sistema cerca conclusioni. Esempio: Prolog. Nota storica Una tabella del 2012 citava circa 56% object-oriented, 37,3% procedurali, 3,8% funzionali e 3,0% logici: percentuali datate, ma utili per capire le famiglie principali.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 11 ---
 Testing Corretto non significa solo "compila" La correttezza vera di un programma non coincide con la correttezza sintattica. Un compilatore può controllare la forma del codice, ma non può garantire da solo che il programma soddisfi gli obiettivi del programmatore. ✅ Sintassi valida Il linguaggio riesce a leggere il programma. 🧠 Logica corretta Il programma calcola il risultato atteso nei casi importanti. 🧪 Test affidabili Esecuzioni diverse verificano casi normali, limite ed errori previsti. Regola: testare serve a scoprire differenze tra ciò che il codice fa e ciò che doveva fare.
 
 --- Slide 12 ---
 Computabilità Cosa può calcolare un programma? La teoria della computabilità stabilisce regole generali per linguaggi e programmi: non tutto ciò che possiamo descrivere ha necessariamente una soluzione computabile. Parzialità Funzioni definite ricorsivamente possono essere parziali: non sempre producono un risultato per ogni input. Computabilità Alcune funzioni sono computabili e altre no. Non possiamo scrivere programmi per funzioni non computabili in principio. Completezza di Turing I linguaggi multiuso standard offrono la stessa classe di funzioni computabili. Indecidibilità Molte proprietà importanti dei programmi non possono essere determinate da una funzione computabile generale.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 13 ---
 Indecidibilità Non tutto è verificabile automaticamente Molte proprietà dei programmi non possono essere decise da un algoritmo valido per tutti i casi. Questo limita ciò che compilatori, analizzatori statici e strumenti automatici possono garantire. Conseguenza pratica Gli strumenti aiutano, ma non sostituiscono progettazione, revisione, test e ragionamento umano. ❓ Domanda impossibile in generale "Questo programma terminerà sempre?" non ha una risposta automatica universale per ogni programma possibile. 🧪 Cosa facciamo allora? Scriviamo programmi più semplici da analizzare, aggiungiamo test, limitiamo i casi e usiamo strumenti di controllo mirati.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 14 ---
 Riepilogo Cosa portare nei prossimi moduli Linguaggi Sono strumenti espressivi con obiettivi e compromessi diversi. Concetti Variabili, istruzioni, tipi, controllo, dati, sintassi e semantica tornano in ogni linguaggio. Analisi Compilazione e interpretazione controllano il codice in momenti diversi. Testing La sintassi corretta non basta: bisogna verificare il comportamento. Paradigmi Procedurale, object-oriented, funzionale e logico organizzano il programma in modi diversi. Limiti La computabilità spiega perché alcuni problemi non sono risolvibili da programmi generali.
 
 --- Slide 15 ---
 Leggibilità Un programma comunica intenzioni La macchina non ha bisogno di nomi espressivi, ma le persone sì. Un nome ben scelto riduce il carico mentale e rende più chiaro il ruolo di dati, funzioni e procedure. Nome utile totaleOrdine spiega cosa contiene il valore. Nome opaco x può essere accettabile solo in contesti molto brevi. Contesto Il nome deve chiarire perché il dato esiste nel problema.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 16 ---
 Manutenzione Il costo vero arriva dopo la prima versione Molto software vive più a lungo di quanto previsto. Dopo la consegna iniziale arrivano correzioni, nuove esigenze, aggiornamenti dell'ambiente e passaggi di responsabilità tra persone diverse. Correggere Capire perché un comportamento non è quello atteso. Estendere Aggiungere una funzionalità senza riscrivere tutto. Adattare Far funzionare il programma in un contesto nuovo.
@@ -71,9 +91,13 @@ output
 
 --- Slide 18 ---
 Scelte Il trade-off non è un difetto Un linguaggio può essere molto permissivo, molto rigido, molto veloce o molto espressivo. Ogni scelta favorisce alcune attività e ne rende altre più difficili. Più libertà Scrittura rapida e prototipi veloci, ma più responsabilità nel testare e nel mantenere disciplina. Più vincoli Controlli migliori prima dell'esecuzione, ma maggiore attenzione a tipi, strutture e dichiarazioni.
+Fonti ufficiali:
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 19 ---
 Variabile Un nome per un valore che può cambiare La variabile permette di ricordare informazioni durante l'esecuzione. Può contenere un dato iniziale, un risultato parziale, uno stato o un contatore. Valore Il contenuto attuale: per esempio 42 . Nome Il riferimento usato nel programma: per esempio eta . Uso Il motivo per cui quel dato serve all'algoritmo.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 20 ---
 Tipo Il tipo limita e protegge le operazioni Sapere se un valore è numero, testo, valore logico o struttura composta permette al linguaggio di stabilire quali operazioni sono sensate. Numero Può partecipare a somme, confronti e calcoli. Stringa Può essere concatenata, cercata o divisa. Booleano Guida condizioni, controlli e decisioni.
@@ -82,14 +106,20 @@ Tipo Il tipo limita e protegge le operazioni Sapere se un valore è numero, test
 Espressioni Calcolare un valore a partire da altri valori Una espressione combina variabili, costanti, operatori e chiamate per produrre un risultato. Può essere semplice come una somma o complessa come una condizione composta. prezzo * quantita
 eta >= 18
 nome + " " + cognome Da ricordare Una espressione non è solo matematica: può costruire testi, verificare condizioni o selezionare dati.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 22 ---
 Controllo Il flusso decide l'ordine delle azioni Le strutture di controllo stabiliscono se una parte del programma viene eseguita, quante volte e in quale ordine. Senza controllo avremmo solo una sequenza lineare. Sequenza Istruzioni eseguite una dopo l'altra. Selezione Rami diversi in base a una condizione. Iterazione Ripetizione finché serve o per ogni elemento.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 23 ---
 Sottoprogrammi Dare un nome a una procedura Funzioni e procedure permettono di isolare una parte dell'algoritmo, riusarla e testarla separatamente. Sono uno strumento di organizzazione prima ancora che di sintassi. Beneficio Quando una funzione ha un compito chiaro, il programma principale diventa più leggibile. funzione calcolaTotale(prezzo, quantita)
  restituisci prezzo * quantita
 fine funzione
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 24 ---
 Errori Gli errori non sono tutti uguali Un linguaggio e i suoi strumenti possono intercettare alcuni errori prima, altri durante l'esecuzione e altri solo confrontando il risultato con ciò che ci aspettavamo. Sintassi Forma non valida: il programma non viene letto. Runtime Il programma si blocca in una situazione specifica. Logica Il programma gira, ma produce un risultato errato.

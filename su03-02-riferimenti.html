@@ -147,7 +147,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
         <div class="tape reveal">Coordinate</div>
         <h2 class="h-big reveal">Ogni cella ha un <em class="hot">indirizzo</em></h2>
         <p class="lead reveal d1">Le colonne usano lettere (A, B, C…), le righe usano numeri (1, 2, 3…). La cella <b>B3</b> è l'incrocio tra colonna B e riga 3.</p>
-        <p class="body reveal d2">Le formule non usano valori fissi: usano indirizzi. Questo permette ai risultati di aggiornarsi automaticamente quando cambiano i dati.</p>
+        <p class="body reveal d2">Le formule<a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a> non usano valori fissi: usano indirizzi. Questo permette ai risultati di aggiornarsi automaticamente quando cambiano i dati.</p>
         <div class="analogy reveal d3"><span class="big">Analogia:</span> Come le coordinate su una mappa — col + riga identificano un punto unico su tutta la griglia.</div>
       </div>
       <div class="illu reveal d1">
@@ -244,7 +244,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       <div class="col stack">
         <div class="tape sky reveal">Intervalli</div>
         <h2 class="h-big reveal">Range: più celle<br><em class="hot">in una volta</em></h2>
-        <p class="lead reveal d1">Un range è un gruppo di celle. Si scrive con la prima e l'ultima separate dai due punti. Le formule lo usano per lavorare su molte celle contemporaneamente.</p>
+        <p class="lead reveal d1">Un range è un gruppo di celle. Si scrive con la prima e l'ultima separate dai due punti. Le formule<a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a> lo usano per lavorare su molte celle contemporaneamente.</p>
         <div class="formula reveal d2" style="font-size:26px;">=SOMMA(<b>B2:B10</b>)</div>
         <div class="analogy reveal d3"><span class="big">In pratica:</span> B2:B10 significa "tutte le celle da B2 a B10 incluse" — nove celle in un simbolo solo.</div>
       </div>
@@ -304,7 +304,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
         <p class="lead reveal d1">Quando converti un range in Tabella (Inserisci → Tabella), puoi riferirti alle colonne per nome invece che per lettera — e il range si espande automaticamente.</p>
         <div class="formula reveal d2" style="font-size:26px;">=SOMMA(<b>Vendite[Importo]</b>)</div>
         <p class="body reveal d3" style="margin-top:14px;">Somma la colonna "Importo" della tabella "Vendite". Aggiungendo nuove righe, la formula le include in automatico.</p>
-        <div class="analogy reveal d4"><span class="big">Regola:</span> Tabella strutturata = meno formule misteriose come <span style="font-family:var(--font-mono);">=SOMMA(D2:D487)</span>.</div>
+        <div class="analogy reveal d4"><span class="big">Regola:</span> Tabella strutturata = meno formule<a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a> misteriose come <span style="font-family:var(--font-mono);">=SOMMA(D2:D487)</span>.</div>
       </div>
       <div class="illu reveal d1">
         <table class="sheet" style="width:300px;">
@@ -340,7 +340,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
           <p><span style="font-family:var(--font-mono);">=SOMMA(Gen:Dic!B3)</span><br>Somma la cella B3 da tutti i fogli tra "Gen" e "Dic".</p>
         </div>
       </div>
-      <div class="note reveal d3" style="margin-top:20px;"><div class="lbl">⚠️ Attenzione</div><p>Se rinomini il foglio sorgente, i riferimenti si aggiornano automaticamente. Se lo elimini, le formule mostrano #RIF!</p></div>
+      <div class="note reveal d3" style="margin-top:20px;"><div class="lbl">⚠️ Attenzione</div><p>Se rinomini il foglio sorgente, i riferimenti si aggiornano automaticamente. Se lo elimini, le formule<a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a> mostrano #RIF!</p></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -353,7 +353,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
         <h2 class="h-big reveal">La funzione <em class="hot">LET</em></h2>
         <p class="lead reveal d1">LET permette di dare un nome temporaneo a parti della formula. La formula rimane compatta e leggibile — il nome scompare dopo il calcolo.</p>
         <div class="analogy reveal d2"><span class="big">Analogia:</span> LET è come scrivere una bozza con appunti ai margini — calcoli intermedi con nome, risultato finale pulito.</div>
-        <div class="note reveal d3"><div class="lbl">💡 Compatibilità</div><p>LET è disponibile in Excel 365 e in Google Sheets. In file salvati per versioni vecchie di Excel può non funzionare.</p></div>
+        <div class="note reveal d3"><div class="lbl">💡 Compatibilità</div><p>LET è disponibile in Excel 365 e in Google Sheets<a href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Google Sheets" aria-label="Fonte ufficiale: Guida ufficiale Google Sheets" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a>. In file salvati per versioni vecchie di Excel può non funzionare.</p></div>
       </div>
       <div class="col stack reveal d1" style="justify-content:center;gap:22px;">
         <div class="card">
@@ -375,7 +375,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide tight-slide">
     <div class="col stack">
       <div class="tape red reveal">Errori e regole</div>
-      <h2 class="h-sec reveal">Cosa rompe le formule — e come evitarlo</h2>
+      <h2 class="h-sec reveal">Cosa rompe le formule<a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:.58em;line-height:1;color:var(--teal,#163b35);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗</a> — e come evitarlo</h2>
       <div class="grid3 reveal d1" style="margin-top:20px;">
         <div class="card">
           <span class="ic">🔁</span>

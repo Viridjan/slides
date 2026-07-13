@@ -256,8 +256,9 @@ button on every index card via inline JS. When adding a new deck, generate the
 node scripts/build-txt.js new-deck.html
 ```
 
-The generator preserves official-source URLs in the TXT output. To rebuild all
-published companions, run `node scripts/build-txt.js`. The older equivalent
+The generator preserves official-source URLs in the TXT output. It intentionally
+requires explicit filenames: do not bulk-regenerate existing companions because
+some contain teaching notes that are not present in the HTML. The older equivalent
 Python recipe follows for reference:
 
 ```bash

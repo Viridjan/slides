@@ -4,7 +4,10 @@ const path = require('path');
 const root = path.resolve(__dirname, '..');
 const outPath = path.join(root, 'completeness-index.js');
 
-const countWords = text => text.trim().split(/\s+/).filter(w => w.length > 0).length;
+const countWords = text => text
+  .replace(/\[Fonte:[^\]]+\]/g, '')
+  .replace(/^Fonti ufficiali:[\s\S]*$/m, '')
+  .trim().split(/\s+/).filter(w => w.length > 0).length;
 
 const parseSlides = txt => {
   const slides = [];

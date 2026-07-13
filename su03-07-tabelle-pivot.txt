@@ -33,6 +33,9 @@ In Excel e Google Sheets il flusso è quasi identico: selezioni la tabella, sceg
 Excel: seleziona i dati → Inserisci → Tabella pivot → nuovo foglio o foglio esistente.
 Google Sheets: seleziona i dati → Inserisci → Tabella pivot → nuovo foglio. Sheets può proporre riepiloghi automatici.
 Passaggi: seleziona dati, inserisci pivot, scegli campi, leggi report.
+Fonti ufficiali:
+- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
+- Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 5 ---
 Anatomia
@@ -80,6 +83,9 @@ I filtri limitano il report senza cancellare dati. Puoi analizzare un solo anno,
 Excel: usa filtri nel pannello pivot oppure aggiungi segmentazioni dati per controlli visuali.
 Google Sheets: usa Filtri nel pannello editor o aggiungi slicer da Dati → Aggiungi filtro dei dati.
 Esempi di filtro: anno 2026, sede Centro, tutti gli operatori, solo servizi Colore e Taglio.
+Fonti ufficiali:
+- Supporto Microsoft Excel — https://support.microsoft.com/excel
+- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 10 ---
 Manutenzione
@@ -89,6 +95,8 @@ Aggiorna: in Excel usa Aggiorna. In Sheets molte pivot si aggiornano automaticam
 Range dinamico: usa una tabella Excel o un intervallo ampio in Sheets per non escludere righe future.
 Campi rinominati: se cambi nome a una colonna sorgente, la pivot può perdere il campo. Meglio stabilizzare le intestazioni.
 Regola: aggiungi dati in fondo alla tabella sorgente, non dentro il report pivot.
+Fonti ufficiali:
+- Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 11 ---
 Errori comuni

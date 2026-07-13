@@ -33,6 +33,8 @@ In questo modulo
  07 Anatomia di un URL 
  08 Cos'è un dominio 
  09 Cos'è un hyperlink
+Fonti ufficiali:
+- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
 --- Slide 3 ---
 Punto di partenza 
@@ -110,6 +112,9 @@ Come si parla in rete
  
  
  Analogia: il galateo è il protocollo di una conversazione educata — regole che tutti seguono per capirsi.
+Fonti ufficiali:
+- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
+- Domain Name System — ICANN — https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en
 
 --- Slide 5 ---
 Il linguaggio del Web 
@@ -155,6 +160,8 @@ Transfer
  👁️ 
  
  HTTP: testo leggibile da chiunque
+Fonti ufficiali:
+- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 6 ---
 Comunicazione sicura 
@@ -199,6 +206,9 @@ Comunicazione sicura
  🙈 
  
  HTTPS: dati illeggibili in transito
+Fonti ufficiali:
+- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
+- TLS 1.3 — RFC 8446 — https://www.rfc-editor.org/rfc/rfc8446
 
 --- Slide 7 ---
 Confronto 
@@ -231,6 +241,9 @@ Confronto
  
  Regola pratica 
  Se devi inserire dati personali (username, password, carta di credito), verifica sempre il lucchetto e che l'indirizzo inizi con https:// .
+Fonti ufficiali:
+- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
+- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 8 ---
 Identificatori del Web 
@@ -257,6 +270,9 @@ Identificatori del Web
  https:// www.wikipedia.org /wiki/Internet 
  
  Questo URL identifica la pagina "Internet" su Wikipedia in italiano
+Fonti ufficiali:
+- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
+- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
 --- Slide 9 ---
 Struttura 
@@ -284,6 +300,9 @@ Struttura
  Query 
  ?anno=2&tipo=base 
  Parametri opzionali passati al server. Inizia con ? . Coppie chiave=valore separate da & . Usati per filtri, ricerche, opzioni.
+Fonti ufficiali:
+- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 10 ---
 Nomi della rete 
@@ -337,6 +356,8 @@ Nomi della rete
  🖥️ Google 
  
  DNS: traduce nomi in indirizzi
+Fonti ufficiali:
+- Domain Name System — ICANN — https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en
 
 --- Slide 11 ---
 Il tessuto del Web 
@@ -364,6 +385,8 @@ Il tessuto del Web
  
  Link esterni 
  Puntano a un sito diverso. Es: una fonte citata, un social network, una risorsa esterna. Si aprono spesso in una nuova scheda.
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 12 ---
 Navigazione! 🌐 
