@@ -90,10 +90,8 @@ body.search-active .module-card.search-hidden{display:none;}
 .stats-badge .summary{color:rgba(244,236,224,.9);}
 .stats-badge .chev{display:inline-block;margin-left:4px;color:var(--sky);transition:transform .16s ease;}
 .stats-badge[aria-expanded="true"] .chev{transform:rotate(180deg);}
-.stats-panel{position:fixed;right:18px;width:248px;padding:10px 11px 11px;border:1px solid rgba(63,126,140,.42);border-radius:9px;background:rgba(22,18,16,.97);box-shadow:0 18px 50px rgba(0,0,0,.45);color:var(--paper);font-family:var(--font-mono);z-index:100;opacity:0;visibility:hidden;transform:translateX(8px);transition:opacity .16s ease,transform .16s ease,visibility .16s;}
+.stats-panel{position:fixed;left:18px;width:248px;padding:7px 11px 11px;border:1px solid rgba(63,126,140,.42);border-radius:9px;background:rgba(22,18,16,.97);box-shadow:0 18px 50px rgba(0,0,0,.45);color:var(--paper);font-family:var(--font-mono);z-index:100;opacity:0;visibility:hidden;transform:translateY(-5px);transition:opacity .16s ease,transform .16s ease,visibility .16s;}
 .stats-panel.open{opacity:1;visibility:visible;transform:none;}
-.stats-panel-head{display:flex;align-items:center;justify-content:flex-end;padding:0 1px 5px;margin-bottom:4px;border-bottom:1px solid rgba(216,201,180,.15);}
-.stats-panel-close{border:0;background:transparent;color:var(--sky);font:700 17px/1 var(--font-mono);padding:0 2px;}
 .stats-row{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;min-height:25px;padding:4px 6px;border-radius:5px;font-size:11px;line-height:1.1;color:rgba(244,236,224,.68);}
 .stats-row:hover,.stats-row:focus-visible{background:rgba(244,236,224,.07);color:var(--paper);outline:none;}
 .stats-row.primary{color:var(--paper);font-weight:700;}
@@ -105,7 +103,7 @@ body.search-active .module-card.search-hidden{display:none;}
 .pip.on{background:var(--gold);border-color:var(--gold);}
 .stats-row::after{content:attr(data-tip);position:absolute;right:calc(100% + 11px);top:50%;width:285px;padding:9px 11px;border:1px solid rgba(216,201,180,.28);border-radius:7px;background:#0e0c0b;color:rgba(244,236,224,.9);font:12px/1.4 var(--font-body);letter-spacing:0;box-shadow:0 12px 34px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:translate(5px,-50%);transition:opacity .12s ease,transform .12s ease;pointer-events:none;white-space:pre-line;}
 .stats-row:hover::after,.stats-row:focus-visible::after{opacity:1;visibility:visible;transform:translate(0,-50%);}
-@media(max-width:760px){.stats-panel{right:8px;width:230px}.stats-row::after{position:fixed;left:8px;right:8px;top:auto;bottom:8px;width:auto;transform:translateY(5px)}.stats-row:hover::after,.stats-row:focus-visible::after{transform:none}}
+@media(max-width:760px){.stats-panel{width:230px}.stats-row::after{position:fixed;left:8px;right:8px;top:auto;bottom:8px;width:auto;transform:translateY(5px)}.stats-row:hover::after,.stats-row:focus-visible::after{transform:none}}
 .card-desc{grid-area:desc;font-size:15px;color:rgba(244,236,224,.5);line-height:1.3;align-self:start;}
 /* Topics inline */
 .card-topics{display:none;}
@@ -1816,13 +1814,12 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
         q ? statRow('Correttezza', pips(q.correctness), 'Valutazione manuale.\n0 = errori o verifiche necessarie\n1 = generalmente affidabile ma non verificato completamente\n2 = controllato e senza problemi noti', 'sub') : '',
         q ? statRow('Aggiornamento', pips(q.freshness), 'Valutazione manuale.\n0 = probabilmente obsoleto\n1 = valido ma soggetto a cambiamenti\n2 = aggiornato oppure stabile nel tempo', 'sub') : ''
       ].join('');
-      statsPanel.innerHTML = `<div class="stats-panel-head"><button class="stats-panel-close" type="button" aria-label="Chiudi valutazione">‹</button></div>${rows}`;
+      statsPanel.innerHTML = rows;
       const rect = badge.getBoundingClientRect();
-      const panelHeight = q ? 276 : 100;
-      statsPanel.style.top = `${Math.max(10, Math.min(innerHeight - panelHeight - 10, rect.top - 8))}px`;
+      statsPanel.style.top = `${rect.bottom + 6}px`;
+      statsPanel.style.left = `${Math.max(8, Math.min(innerWidth - statsPanel.offsetWidth - 8, rect.left))}px`;
       statsPanel.classList.add('open');
       statsPanel.setAttribute('aria-hidden', 'false');
-      statsPanel.querySelector('.stats-panel-close').addEventListener('click', closeStatsPanel);
     };
     badge.addEventListener('click', openPanel);
     badge.addEventListener('keydown', e => {
