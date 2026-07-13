@@ -2,6 +2,27 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Parallel agents: keep this file current
+
+Claude Code and Codex often work in this repo **at the same time**, and this
+file is the only channel they share. Before touching anything, read the work
+log below; before finishing a piece of work, add or update its entry. An agent
+that renames files, changes a scoring formula, or drops a convention without
+recording it here will have that work silently undone by the other agent.
+
+Also check `git status` and `git log` on entry: a clean tree does not mean
+nobody is working — the other agent may be mid-task and committing as it goes.
+
+### Work log
+
+- **2026-07-12 · Claude** — Added the `.analogy` component (CSS rule + one
+  banner) to `su03-08` … `su03-12`; it was missing from that whole batch.
+  Regenerated their `.txt` companions.
+- **2026-07-12 · Claude** — Reworked the density score: single rounding, `0`-`10`
+  scale end to end (see Codex index badge below). Removed the old `/9` scale
+  and the hardcoded `4/9 → 5/9` promotion. The index panel now shows scores
+  without a `/10` suffix and renders the five editorial criteria as two pips.
+
 ## What this repo is
 
 This repository is a **static course slide library** for the Italian
