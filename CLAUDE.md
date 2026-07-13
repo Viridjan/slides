@@ -195,6 +195,10 @@ re-add them.
 title slides across the entire repo. Tape is still used as section headers on
 content slides ("In questo modulo", "Definizione", etc.); keep those.
 
+**Do not add `.chips` or `.chip` badges to title slides.** Module codes, slide
+counts and topic labels belong in the index or the title text, not in a row of
+pills on the opening slide. Chips remain available on content and closing slides.
+
 ## Overflow prevention
 
 Slides have about 888px of usable height after the standard 96px top and bottom
