@@ -40,7 +40,7 @@ Fonti ufficiali:
 
  📚
  Dati di addestramento
- Miliardi di pagine web, libri, articoli scientifici, codice. GPT-4 è stato addestrato su oltre un trilione di token.
+ Miliardi di pagine web, libri, articoli scientifici, codice. Per molti modelli commerciali, inclusi alcuni GPT, dimensione e composizione esatte del dataset non sono pubblicate.
 
 
  🎯
@@ -82,7 +82,7 @@ Fonti ufficiali:
  Il Natural Language Processing (NLP), o elaborazione del linguaggio naturale, è una branca dell'intelligenza artificiale che permette ai computer di comprendere, interpretare e generare il linguaggio umano, sia scritto che parlato. Il suo obiettivo è colmare il divario tra la comunicazione umana e la capacità dei computer di capire il linguaggio naturale. L'NLP combina linguistica computazionale con tecniche di machine learning e deep learning per analizzare testi e parole, identificarne il significato, il contesto e l'intento . Tra le sue funzioni principali ci sono la tokenizzazione, l'analisi sintattica, la riconoscenza di entità e il rilevamento del sentiment. Questo consente di trasformare dati linguistici grezzi in informazioni utili per rispondere a domande, tradurre testi, generare contenuti e molto altro. In sintesi, l'NLP è la tecnologia che consente ai computer di "parlare" e capire il linguaggio umano in modo naturale e utile.
 Fonti ufficiali:
 - AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
-- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
+- Formule e funzioni — Supporto Microsoft Excel — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 7 ---
 
@@ -116,7 +116,7 @@ Fonti ufficiali:
  🧩 Il limite della frase Dire "attività linguistiche" fa perdere il punto: il modello manipola token e può essere collegato a domini non puramente testuali.
  🔧 Esempi Scrivere codice, descrivere immagini, comandare strumenti, generare prompt per video o sintetizzare dati sono usi che superano la semplice lingua.
 Fonti ufficiali:
-- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
+- Attention Is All You Need — https://arxiv.org/abs/1706.03762
 
 --- Slide 10 ---
 
@@ -184,7 +184,7 @@ Fonti ufficiali:
 
  Tokenizzazione
  Il prompt viene spezzato in token — pacchetti più piccoli del testo originale.
- Un token non corrisponde a una parola: può essere una sillaba, un simbolo, una parola intera o una sequenza comune. "gatto" = 1 token. "intelligenza" = 3+ token.
+ Un token non corrisponde a una parola: può essere una sillaba, un simbolo, una parola intera o una sequenza comune. La stessa parola può diventare uno o più token secondo tokenizer, lingua e contesto.
 
  Perché i token?
  Lavorare su token invece di parole intere permette di gestire lingue diverse, parole nuove e contesti tecnici senza vocabolario fisso.
@@ -209,7 +209,7 @@ Fonti ufficiali:
 --- Slide 16 ---
 
  Reti di nodi
- Ogni token viene inviato alla rete neurale. I nodi rispondono ai token e si inviano segnali a vicenda — come neuroni nel cervello.
+ I token vengono trasformati in vettori numerici; gli strati del transformer combinano queste rappresentazioni tramite attenzione e altre operazioni matematiche. L'analogia con i neuroni biologici è solo parziale.
  Il processo si propaga attraverso tutti gli strati della rete, trasformando il segnale ad ogni passaggio, finché l'LLM produce un output finale.
 
  Velocità
@@ -279,7 +279,7 @@ Fonti ufficiali:
 
  📖
  Non impara in conversazione
- Quello che scrivi non modifica i pesi del modello. La "memoria" è solo il contesto della conversazione corrente — si azzera alla chiusura.
+ Quello che scrivi non modifica i pesi del modello. Il contesto della conversazione non modifica da solo i pesi. Alcuni prodotti possono però conservare cronologia o memorie separate, secondo impostazioni e policy.
 
 
  🌐

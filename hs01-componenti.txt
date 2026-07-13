@@ -47,7 +47,7 @@ Punto di partenza
  
  
  💡 Lo sapevi? 
- Anche lo smartphone che hai in tasca è un computer a tutti gli effetti: ha un processore, della memoria e dei programmi. È semplicemente un PC reso piccolo, portatile e con il touch al posto del mouse. 
+ Anche lo smartphone che hai in tasca è un computer a tutti gli effetti: ha un processore, della memoria e dei programmi. Condivide con un PC CPU, memoria e sistema operativo, ma integra anche radio, sensori, batteria e vincoli energetici propri.
  
  
  
@@ -56,7 +56,7 @@ Punto di partenza
 --- Slide 4 ---
 
  Fisso, portatile o tascabile? 
- Esistono in tante forme diverse, ma dentro funzionano tutti allo stesso modo : hanno un processore, della memoria, dei programmi. Cambiano dimensioni, comodità e potenza. 
+ Esistono in tante forme diverse e condividono principi di base: elaborazione, memoria, software e interfacce, realizzati però con architetture differenti. Cambiano dimensioni, comodità e potenza.
  
  🖥️ Fisso (Desktop) Sta sulla scrivania. Più potente ed espandibile, ma non si sposta. Ottimo per lavorare a casa o in ufficio. 
  💻 Portatile (Laptop) Tutto in uno, con batteria. Lo porti ovunque. Il compromesso più comune tra potenza e libertà. 
@@ -177,7 +177,7 @@ Un banco di RAM: si infila nella scheda madre
 --- Slide 10 ---
 
  Bit, byte &amp; company 
- La memoria del computer si misura in byte . Un byte è una piccolissima quantità di informazione — più o meno una lettera dell'alfabeto. I file veri sono fatti di milioni o miliardi di byte, perciò usiamo dei “gradini” più grandi. 
+ La memoria del computer si misura in byte . Un byte è una piccolissima quantità di informazione: può rappresentare un carattere ASCII, mentre molti caratteri Unicode richiedono più byte. I file veri sono fatti di milioni o miliardi di byte, perciò usiamo dei “gradini” più grandi.
  Ogni gradino vale circa 1000 volte il precedente. Conoscerli ti aiuta a capire quanto spazio occupa una foto, un video o un programma — e quanto spazio hai ancora libero. 
  
  💡 In pratica 
@@ -185,7 +185,7 @@ Un banco di RAM: si infila nella scheda madre
  
  
  
- Byte — B L'unità base. ~1 carattere di testo. 
+ Byte — B Unità di memoria pari a 8 bit. Un carattere può occupare uno o più byte, secondo la codifica.
  Kilobyte — KB ~1000 byte. Un breve documento di testo. 
  Megabyte — MB ~1000 KB. Una foto o una canzone. 
  Gigabyte — GB ~1000 MB. Un film, tante app. 

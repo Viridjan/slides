@@ -87,7 +87,7 @@ Fonti ufficiali:
  Coordinate GPS del punto esatto dello scatto, data e ora al secondo. Modello di telefono, impostazioni della fotocamera, a volte il nome del proprietario. Le app di messaggistica di solito li rimuovono; email e siti spesso no. Occhio anche al contenuto visibile: schermi, documenti e targhe sullo sfondo parlano quanto i metadati.
 Fonti ufficiali:
 - Guida ufficiale Android — https://support.google.com/android/
-- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
+- Gestire i permessi delle app — Android Help — https://support.google.com/android/answer/9431959
 
 --- Slide 7 ---
 
@@ -105,7 +105,7 @@ Fonti ufficiali:
 --- Slide 8 ---
 
  Rubrica e messaggi 
- Quando un'app legge la tua rubrica, stai condividendo i numeri di persone che non hanno mai dato il consenso. 
+ Quando autorizzi la rubrica, l'app può accedere ai dati dei contatti; verifica nell'informativa se li elabora solo sul dispositivo oppure li trasmette ai propri server.
  Da sapere Prima di installare un'app, chiediti: ha davvero bisogno di leggere tutti i miei contatti e messaggi? 
  
  
@@ -137,12 +137,12 @@ Fonti ufficiali:
  Cosa osserva il feed 
  Tempo di visione per singolo contenuto, scorrimenti, riavvii: segnali più sinceri dei like. Da questi segnali l'algoritmo deduce interessi che non hai mai dichiarato — a volte prima che tu ne sia consapevole. Il profilo dedotto guida pubblicità e contenuti futuri: più resti, più diventa preciso. Rivedere le impostazioni di visibilità limita ciò che gli altri utenti vedono, non ciò che la piattaforma misura.
 Fonti ufficiali:
-- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
+- Sicurezza e privacy dichiarate dalle app — Google Play Help — https://support.google.com/googleplay/answer/11416267
 
 --- Slide 11 ---
 
  Permessi periodici 
- Quel permesso concesso due anni fa a un'app che non usi più è ancora attivo, adesso. 
+ Un vecchio permesso può essere ancora attivo, anche se Android e iOS possono limitarlo o revocarlo per app inutilizzate: controlla comunque il pannello Privacy.
  Cadenza consigliata Android: Impostazioni → Privacy → Gestione permessi. iOS: Impostazioni → Privacy e sicurezza. Revisione ogni 3–6 mesi. 
  
  
@@ -174,7 +174,7 @@ Fonti ufficiali:
  
  🧒 
  Sharenting: cosa considerare 
- Le foto pubblicate oggi costruiscono un'identità digitale che il minore non ha scelto e non potrà cancellare del tutto. Divisa della scuola, fermata dello scuolabus e orari ricorrenti rendono un bambino rintracciabile. Chiedi il consenso al minore quando ha l'età per capire, e sempre agli altri genitori per i figli altrui. Alternativa concreta: condividi in chat ristrette invece che su profili pubblici.
+ Le foto pubblicate oggi costruiscono un'identità digitale che il minore non ha scelto e non potrà cancellare del tutto. Divisa della scuola, fermata dello scuolabus e orari ricorrenti rendono un bambino rintracciabile. Chiedi il consenso al minore quando ha l'età per capire, e sempre agli altri genitori per i figli altrui. Riduci l'esposizione usando canali ristretti, ricordando che anche chi riceve in chat può salvare o inoltrare il contenuto.
 
 --- Slide 14 ---
 

@@ -77,7 +77,7 @@ Fonti ufficiali:
  
  📅 
  50 anni fa 
- Ricerca e pianificazione automatica erano considerate IA. Oggi si insegnano a tutti gli studenti di informatica. 
+ Ricerca e pianificazione automatica restano temi dell'IA e sono anche contenuti consolidati in molti corsi di informatica.
  
  
  🔮 
@@ -88,7 +88,7 @@ Fonti ufficiali:
 🎯 
  IA Debole
  Narrow AI 
- Eccelle in un solo compito : giocare a scacchi, riconoscere volti, tradurre testi, guidare un'auto. Non può fare altro. 
+ È progettata o addestrata per un ambito delimitato. Alcuni sistemi svolgono più compiti correlati, ma non possiedono la competenza generale e autonoma di una persona.
  
  Oggi 
  Tutta l'IA esistente oggi — compreso ChatGPT — è IA debole, per quanto impressionante sembri. 
@@ -155,7 +155,7 @@ Fonti ufficiali:
  Strato di input → strati nascosti (dove avviene l'apprendimento) → strato di output . La "profondità" è il numero di strati nascosti. 
  
  💡 Perché funzionano 
- Con abbastanza dati e potenza di calcolo, le reti neurali trovano pattern che nessun programmatore avrebbe saputo codificare a mano. 
+ Con dati, obiettivi e calcolo adeguati, le reti neurali possono apprendere pattern difficili da esprimere come regole manuali; qualità e limiti dipendono dal problema.
  
  
  
@@ -196,7 +196,7 @@ Fonti ufficiali:
  
  📧 
  Spam e sentiment 
- Filtri antispam, analisi recensioni, rilevamento discorsi d'odio — tutti usano NLP per classificare il testo. 
+ Filtri antispam, analisi delle recensioni e moderazione possono usare NLP, regole o combinazioni di tecniche per classificare il testo.
  
  
  
@@ -216,7 +216,7 @@ Fonti ufficiali:
  Analogia: il ML impara dagli esempi come un bambino, non dalle regole come un impiegato.
 Fonti ufficiali:
 - AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
-- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
+- AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 11 ---
 
@@ -241,7 +241,7 @@ Fonti ufficiali:
  
  
  Ruolo umano 
- Gli umani assumeranno sempre più un ruolo di supervisione mentre le macchine gestiscono l'esecuzione.
+ In alcuni processi cresce il ruolo umano di supervisione, ma automazione, responsabilità e divisione dei compiti dipendono dal settore.
 
 --- Slide 12 ---
 
@@ -283,7 +283,7 @@ Fonti ufficiali:
 
  Contenuti personalizzati 
  Gran parte delle informazioni che riceviamo ogni giorno sono scelte da un algoritmo su misura per noi. 
- Social media, streaming musicale e video, motori di ricerca, giornali online — tutti personalizzano in base alla nostra storia di navigazione. 
+ Molti social, servizi di streaming, motori di ricerca e siti di notizie personalizzano usando interazioni, contesto e impostazioni; non tutti lo fanno allo stesso modo.
  
  
  
@@ -341,7 +341,7 @@ Fonti ufficiali:
  
  
  Connessione con l'IA 
- Gli algoritmi di raccomandazione massimizzano l'engagement — spesso promuovendo contenuti emotivi o polarizzanti, alimentando tutti e tre questi fenomeni.
+ Molti sistemi di raccomandazione ottimizzano segnali come tempo, clic o soddisfazione; gli obiettivi scelti possono favorire effetti indesiderati e vanno valutati con dati della piattaforma.
 Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
@@ -405,7 +405,7 @@ Fonti ufficiali:
 --- Slide 20 ---
 
  Computer vision — come vede una macchina 
- Un'immagine è solo una griglia di numeri (pixel). Il modello impara a riconoscere pattern di numeri associati a oggetti — dopo milioni di esempi etichettati. 
+ Un'immagine è solo una griglia di numeri (pixel). Il modello impara a riconoscere pattern di numeri associati a oggetti — da esempi etichettati, dati non etichettati o entrambi, secondo il metodo di addestramento.
  
  
  🏷️ 
@@ -522,7 +522,7 @@ Fonti ufficiali:
  💡 Conclusione 
  L'IA non è fantascienza: è già parte invisibile della tua giornata. Conoscerla significa poterne usare i vantaggi e riconoscerne i limiti.
 Fonti ufficiali:
-- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
+- AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 25 ---
 
@@ -556,7 +556,7 @@ Fonti ufficiali:
  
  🔍 
  Pattern linguistici 
- L'IA tende a usare strutture ripetitive, frasi bilanciate, transizioni prevedibili e un tono sempre uniforme — mai troppo colloquiale. 
+ Alcuni output mostrano schemi ripetitivi, ma stile e tono non permettono di attribuire con certezza un testo all'IA. Servono provenienza, contesto e verifiche ulteriori.
  
  
  📐 
@@ -581,7 +581,7 @@ Fonti ufficiali:
  
  📊 
  Bias nei dati 
- Se addestri un modello su CV storici dove i manager erano quasi tutti uomini, il modello preferirà candidati maschili. 
+ Se addestri un modello su CV storici dove i manager erano quasi tutti uomini, il modello può apprendere correlazioni discriminatorie e penalizzare alcuni gruppi, se dati, obiettivi e controlli non correggono il problema.
  
  
  🔬 
@@ -628,7 +628,7 @@ Fonti ufficiali:
  
  👁️ 
  Trasparenza 
- "Black box" — molti modelli non spiegano perché hanno deciso. Il GDPR richiede già il diritto a una spiegazione. 
+ "Black box" — molti modelli non spiegano perché hanno deciso. Il GDPR prevede tutele sulle decisioni automatizzate e informazioni significative sulla logica in determinati casi; non esiste un diritto generale e illimitato alla spiegazione di ogni modello.
  
  
  🏛️ 
@@ -662,7 +662,7 @@ Fonti ufficiali:
  
  Idea chiave Il problema non è solo riconoscere il falso: è costruire procedure che funzionino anche quando non riusciamo a riconoscerlo subito.
 Fonti ufficiali:
-- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
+- Password e MFA — NIST — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 32 ---
 
@@ -674,7 +674,7 @@ Fonti ufficiali:
  
  Attenzione Nessun segnale basta da solo. Serve una valutazione complessiva: contenuto, fonte, contesto e coerenza con ciò che già sappiamo.
 Fonti ufficiali:
-- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
+- Formule e funzioni — Supporto Microsoft Excel — https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 
 --- Slide 33 ---
 
@@ -693,7 +693,7 @@ Fonti ufficiali:
  I ricercatori non concordano su cosa succederà — ma concordano che il cambiamento sarà profondo . 
  
  AGI — Artificial General Intelligence 
- Un sistema capace di imparare qualsiasi compito come un umano. Alcune stime: 10 anni. Altre: mai. Nessuno lo sa davvero. 
+ Un sistema capace di imparare qualsiasi compito come un umano. Non esiste una previsione scientifica condivisa su tempi o fattibilità: definizioni e stime divergono molto.
  
  
  
@@ -710,7 +710,7 @@ Fonti ufficiali:
  
  💼 
  Mercato del lavoro 
- Stima McKinsey: 300 milioni di posti a rischio automazione entro 2030. Ma anche nuovi mestieri ancora da inventare.
+ Le stime sull'impatto occupazionale misurano concetti diversi — attività esposte, ore automatizzabili o posti equivalenti — e non sono previsioni certe di licenziamenti.
 
 --- Slide 35 ---
 
@@ -753,7 +753,7 @@ Fonti ufficiali:
  
  
  🇺 AI Act 
- Il regolamento europeo sull'IA (2024) classifica i sistemi per livello di rischio e impone obblighi di trasparenza — il più avanzato al mondo.
+ Il regolamento europeo sull'IA (2024) classifica i sistemi per livello di rischio e introduce obblighi graduati per rischio e regole specifiche per alcuni sistemi e modelli; l'applicazione avviene per fasi.
 Fonti ufficiali:
 - Regolamento europeo sull’IA — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 

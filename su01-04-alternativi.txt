@@ -93,7 +93,7 @@ Fonti ufficiali:
  In pratica: LibreOffice copre il 90% dei casi d'uso di Microsoft Office — ma le macro VBA non funzionano, e la resa grafica può differire.
 Fonti ufficiali:
 - Documentazione LibreOffice — https://documentation.libreoffice.org/
-- Supporto Microsoft Word — https://support.microsoft.com/word
+- Supporto Microsoft Word — https://documentation.libreoffice.org/
 
 --- Slide 5 ---
 
@@ -111,7 +111,7 @@ Fonti ufficiali:
  Ecosistema di estensioni, supporto Python-Fu 
  
  
- ⚠️ Limite rispetto a Photoshop GIMP lavora solo in 8-bit per canale (Photoshop supporta 32-bit). Non adatto a flussi di lavoro fotografici professionali RAW. 
+ ⚠️ Limite rispetto a Photoshop GIMP supporta precisioni a 8, 16 e 32 bit, anche in virgola mobile. Per i RAW usa normalmente un convertitore dedicato e il flusso va verificato in base a profili colore, plugin e requisiti di stampa.
  
  
  
@@ -122,7 +122,7 @@ Fonti ufficiali:
  Quando usare GIMP 
  Rimozione sfondo semplice, ridimensionamento batch, retocco base, web graphic, banner, collage — senza budget per Photoshop.
 Fonti ufficiali:
-- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
+- Precisione delle immagini — GIMP — https://docs.gimp.org/2.10/en/gimp-image-precision.html
 
 --- Slide 6 ---
 
@@ -203,7 +203,7 @@ Fonti ufficiali:
  Nextcloud 
  Self-hosted cloud storage: alternativa a OneDrive/Google Drive per chi vuole i dati sul proprio server. Open source.
 Fonti ufficiali:
-- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
+- Precisione delle immagini — GIMP — https://docs.gimp.org/2.10/en/gimp-image-precision.html
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 9 ---

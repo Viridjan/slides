@@ -186,7 +186,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="card" style="border-color:var(--red);border-width:3px;">
         <span class="ic">⚠️</span>
         <h3>Minaccia (Threat)</h3>
-        <p>Tutto ciò che può causare danno: un hacker, un virus, una email truffaldina, un dipendente negligente. La minaccia è esterna — non possiamo controllarla, solo ridurre la nostra esposizione.</p>
+        <p>Tutto ciò che può causare danno: un hacker, un virus, una email truffaldina, un dipendente negligente. La minaccia può essere esterna o interna, intenzionale o accidentale; possiamo ridurre probabilità e impatto con prevenzione, rilevamento e risposta.</p>
         <p style="margin-top:12px;font-family:var(--font-mono);font-size:22px;color:var(--red);">Esempio: un gruppo di hacker che sviluppa ransomware.</p>
       </div>
       <div class="card" style="border-color:var(--sky);border-width:3px;">
@@ -254,11 +254,11 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="col stack">
 
       <h2 class="h-big reveal">Ransomware:<br>il <em class="hot">sequestro<br>digitale</em></h2>
-      <p class="lead reveal d1">Cifra tutti i tuoi file — foto, documenti, lavoro — e chiede un riscatto in criptovaluta per restituirli. Spesso non li restituisce neanche dopo il pagamento.</p>
+      <p class="lead reveal d1">Può cifrare file locali e condivisi accessibili al dispositivo e chiedere un riscatto, ma comportamento e portata dipendono dalla variante e dai privilegi ottenuti. Spesso non li restituisce neanche dopo il pagamento.</p>
       <p class="body reveal d2">Un click su un allegato email sbagliato può cifrare in pochi minuti l'intero disco fisso, tutti i file di rete condivisi, tutti gli hard disk collegati via USB.</p>
       <div class="note red reveal d3">
         <div class="lbl">Impatto reale 2023</div>
-        <p>Il riscatto medio richiesto alle PMI italiane nel 2023 è stato di <b>€ 82.000</b>. Il 40% delle aziende colpite ha chiuso entro 12 mesi dall'attacco.</p>
+        <p>Importi e conseguenze variano molto tra campioni. Il pagamento non garantisce il recupero: isola l'incidente, conserva le prove e ripristina da backup verificati.</p>
       </div>
     </div>
     <div class="illu reveal d1">
@@ -323,7 +323,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     </div>
     <div class="note reveal d3" style="margin-top:20px;">
       <div class="lbl">Lo sapevi?</div>
-      <p>Il <b>36% di tutte le violazioni di dati</b> nel 2023 è iniziato con un attacco di phishing. È la porta d'ingresso più usata dagli hacker, proprio perché funziona.</p>
+      <p>Phishing e pretexting restano componenti importanti dell'ingegneria sociale, ma la quota cambia per settore e rapporto: cita sempre anno, campione e definizione.</p>
     </div>
   </div>
   <div class="page-num"></div>
@@ -398,7 +398,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <span class="ic">🔓</span>
         <h3>Reti aperte e non cifrate</h3>
         <p>Il WiFi di bar, stazioni e aeroporti spesso non cifra il traffico. Chiunque nella stessa rete può "sniffare" — vedere le pagine che visiti, i dati che invii su HTTP.</p>
-        <p style="margin-top:10px;">Soluzione: usa solo HTTPS, oppure attiva una VPN.</p>
+        <p style="margin-top:10px;">Riduzione del rischio: usa HTTPS, evita avvisi di certificato, limita attività sensibili e valuta una VPN affidabile sapendo che protegge solo il tratto fino al server VPN.</p>
       </div>
       <div class="card">
         <span class="ic">🏠</span>
@@ -426,7 +426,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="stack reveal d3">
         <div class="note">
           <div class="lbl">Come difendersi</div>
-          <p>Controlla sempre il lucchetto 🔒 nella barra del browser (HTTPS). Non ignorare gli avvisi di certificato SSL scaduto o non valido — segnalano spesso un MITM.</p>
+          <p>Verifica HTTPS e non ignorare gli avvisi di certificato. Il lucchetto indica un canale cifrato verso quel dominio, non che il sito o il contenuto siano affidabili.</p>
         </div>
       </div>
     </div>
@@ -473,7 +473,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <p class="body reveal d2">Le botnet vengono usate per lanciare <b>attacchi DDoS</b> (Distributed Denial of Service): migliaia di dispositivi bombardano un sito con richieste fino a farlo crashare.</p>
       <div class="note reveal d3" style="margin-top:14px;">
         <div class="lbl">Scala reale</div>
-        <p>La botnet Mirai nel 2016 ha usato <b>600.000 dispositivi IoT</b> (telecamere, router, frigoriferi smart) per abbattere Netflix, Twitter e Reddit con un singolo attacco.</p>
+        <p>Nel 2016 varianti di <b>Mirai</b> sfruttarono dispositivi IoT con credenziali deboli per colpire Dyn; l'indisponibilità del DNS rese irraggiungibili numerosi servizi.</p>
       </div>
       <div class="analogy reveal d3" style="margin-top:14px;font-size:25px;"><span class="big">Analogia:</span> 10.000 persone che bloccano l'ingresso di un negozio.</div>
     </div>
@@ -537,7 +537,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
       <div class="note" style="background:var(--paper-2);">
         <div class="lbl">Esempio famoso</div>
-        <p><b>WannaCry (2017):</b> zero-day in Windows usata da NSA, rubata e pubblicata. Colpì 230.000 computer in 150 paesi in un solo weekend. Incluso il NHS britannico.</p>
+        <p><b>WannaCry (2017):</b> sfruttò una vulnerabilità SMB per cui Microsoft aveva già pubblicato la patch MS17-010; molti sistemi colpiti non erano aggiornati. Colpì 230.000 computer in 150 paesi in un solo weekend. Incluso il NHS britannico.</p>
       </div>
     </div>
   </div>
@@ -750,7 +750,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="col stack">
 
       <h2 class="h-big reveal">VPN: rete<br><em class="hot">privata virtuale</em></h2>
-      <p class="lead reveal d1">Una VPN cifra tutto il traffico internet tra il tuo dispositivo e un server remoto, rendendo impossibile per chiunque intercettare i dati nel mezzo.</p>
+      <p class="lead reveal d1">Una VPN crea un tunnel cifrato fino al server VPN e protegge dal monitoraggio sulla rete locale; non rende sicuri endpoint compromessi, siti malevoli o traffico oltre il server VPN.</p>
       <p class="body reveal d2">Particolarmente utile su WiFi pubblici, per aggirare censure geografiche, e per mascherare il tuo indirizzo IP dal sito che visiti.</p>
       <div class="stack reveal d3" style="margin-top:10px;">
         <div class="note">
@@ -810,7 +810,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     </div>
     <div class="note red reveal d3" style="margin-top:18px;">
       <div class="lbl">⚠️ Non pagare il riscatto</div>
-      <p>Il pagamento non garantisce il ripristino dei dati — e finanzia il gruppo criminale. Con un buon backup, il riscatto diventa irrilevante.</p>
+      <p>Il pagamento non garantisce il ripristino dei dati — e finanzia il gruppo criminale. Un backup isolato e verificato riduce fortemente l'impatto sui dati, ma restano possibili fermo operativo, furto di informazioni e costi di ripristino.</p>
     </div>
   </div>
   <div class="page-num"></div>

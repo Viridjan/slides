@@ -46,7 +46,7 @@ Fonti ufficiali:
  
  🔐 Due lucchetti diversi Qualcosa che sai (la password) più qualcosa che hai (il telefono). Attivala prima di tutto su email e banca: sono gli account che aprono gli altri. 
  📲 App meglio degli SMS Un'app autenticatore (Google Authenticator, Aegis) genera i codici direttamente sul telefono: non viaggiano in rete e non si intercettano con un SIM swap. 
- 🤫 L'OTP non si detta mai Ogni codice vale 30 secondi e un solo accesso. Chi te lo chiede — al telefono, in chat, via email — sta completando un furto: nessun servizio serio lo domanda.
+ 🤫 L'OTP non si detta mai I codici temporanei hanno durata limitata: quelli delle app TOTP cambiano spesso ogni 30 secondi, mentre SMS e notifiche seguono tempi diversi. Chi te lo chiede — al telefono, in chat, via email — sta completando un furto: nessun servizio serio lo domanda.
 Fonti ufficiali:
 - Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
@@ -142,7 +142,7 @@ Fonti ufficiali:
 --- Slide 11 ---
 
  Malware e app da fonti dubbie 
- Sullo smartphone il malware arriva quasi sempre travestito da app: il vettore principale sono gli APK scaricati fuori dagli store. 
+ Le app installate da fonti non affidabili sono un rischio importante, ma non l'unico: esistono app malevole negli store, exploit del browser, allegati e attacchi senza clic.
  
  🦠 Cosa può fare Leggere SMS e intercettare gli OTP bancari. Controllare lo schermo abusando dei permessi di accessibilità. Rubare credenziali e inondarti di pubblicità. 
  🚩 Segnali di rischio App "premium gratis" e cloni di app famose. APK ricevuti via link, chat o canali Telegram. Richieste di permessi sproporzionate alla funzione. 
@@ -157,7 +157,7 @@ Fonti ufficiali:
  
  🔄 
  Perché la fretta conta 
- Quando una vulnerabilità diventa pubblica, gli attacchi che la sfruttano compaiono nel giro di giorni . Un telefono fermo da mesi o anni è un bersaglio con le debolezze scritte nero su bianco. In fase d'acquisto, gli anni di aggiornamenti garantiti valgono più di qualche euro di sconto.
+ Dopo la pubblicazione di una vulnerabilità gli attacchi possono comparire rapidamente, ma i tempi variano. Un telefono fermo da mesi o anni è un bersaglio con le debolezze scritte nero su bianco. In fase d'acquisto, gli anni di aggiornamenti garantiti valgono più di qualche euro di sconto.
 Fonti ufficiali:
 - Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
 - Guida ufficiale Android — https://support.google.com/android/
@@ -180,7 +180,7 @@ Fonti ufficiali:
  La tua checklist 
  Tutto il capitolo in due liste: cosa sistemare una volta sola e cosa tenere d'occhio nel tempo. 
  
- ⚙️ Una volta sola PIN di almeno 6 cifre + biometria, blocco automatico entro 60 secondi. 2FA con app autenticatore su email e banca. Trova dispositivo / Dov'è attivo e testato. PIN sulla SIM e IMEI annotato (*#06#). 
+ ⚙️ Una volta sola PIN di almeno 6 cifre + biometria, blocco automatico entro 60 secondi. MFA resistente al phishing dove disponibile; per email usa preferibilmente passkey o app autenticatore, per la banca segui il metodo previsto dall'istituto. Trova dispositivo / Dov'è attivo e testato. PIN sulla SIM e IMEI annotato (*#06#).
  🔁 Regolarmente Aggiornamenti installati entro una settimana dal rilascio. Permessi delle app rivisti ogni 3 mesi. Backup verificato: apri e controlla che ci sia tutto. Reti WiFi salvate ripulite da quelle pubbliche. 
  
  Codice forte 2FA con app Trova dispositivo Zero fretta con link e voci

@@ -241,13 +241,13 @@ Fonti ufficiali:
 
 
  🇪🇺 GDPR
- General Data Protection Regulation — Protezione dati personali nell'UE. Si applica a qualsiasi organizzazione che tratta dati di cittadini EU. In vigore dal 2018.
- Multa: €20M / 4% fatturato
+ General Data Protection Regulation — Protezione dati personali nell'UE. Si applica secondo stabilimento, offerta di beni o servizi e monitoraggio di persone nell'UE; non dipende dalla cittadinanza. In vigore dal 2018.
+ Sanzione massima per alcune violazioni: €20M o 4% del fatturato mondiale annuo, se superiore
 
 
  🔒 NIS2
- Network and Information Security 2 — Direttiva UE 2022 per la sicurezza delle reti e dei sistemi informativi. Obbligatoria per settori critici: energia, trasporti, sanità, banche.
- In vigore: ottobre 2024
+ Network and Information Security 2 — Direttiva UE 2022 per la sicurezza delle reti e dei sistemi informativi. Riguarda soggetti essenziali e importanti nei settori e con i criteri dimensionali previsti dalla direttiva e dalla normativa nazionale.
+ Termine UE di recepimento: 17 ottobre 2024; applicazione concreta secondo la normativa nazionale
 
 
  📋 ISO/IEC 27001
@@ -262,7 +262,7 @@ Fonti ufficiali:
 
 
  💡 Non è solo burocrazia
- Le normative nascono da incidenti reali. GDPR dopo Cambridge Analytica. PCI DSS dopo massicce violazioni di dati delle carte. NIS2 dopo attacchi alle infrastrutture critiche europee. Le leggi fotografano il rischio del momento.
+ Le normative nascono da incidenti reali. Il GDPR fu adottato nel 2016 ed è applicabile dal 2018; lo scandalo Cambridge Analytica aumentò nello stesso periodo l'attenzione pubblica sulla protezione dei dati. PCI DSS dopo massicce violazioni di dati delle carte. NIS2 dopo attacchi alle infrastrutture critiche europee. Le leggi fotografano il rischio del momento.
 Fonti ufficiali:
 - Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
 - Direttiva NIS2 — EUR-Lex — https://eur-lex.europa.eu/eli/dir/2022/2555/oj
@@ -325,7 +325,7 @@ e perché
 
 
  Data Broker: chi sono
- Aziende come Acxiom, Experian, Oracle Data Cloud aggregano dati da centinaia di fonti per costruire profili di 5.000+ attributi per persona. Spesso non ne hai mai sentito il nome.
+ I data broker possono combinare dati provenienti da molte fonti per creare segmenti e profili; aziende, prodotti e quantità cambiano nel tempo e vanno verificati su informative e registri aggiornati. Spesso non ne hai mai sentito il nome.
 
  Regola: Se il prodotto è gratis, il prodotto sei tu.
 
@@ -342,7 +342,7 @@ e perché
 
  📋
  Diritto di accesso GDPR
- Richiedi a Google, Meta, LinkedIn tutti i dati che hanno su di te. È un tuo diritto — devono rispondere entro 30 giorni con un archivio scaricabile. Spesso sorprende quanto sanno.
+ Puoi esercitare il diritto di accesso: la risposta arriva di norma entro un mese e descrive dati e trattamento. La portabilità in formato strutturato è un diritto distinto e si applica solo in determinate condizioni. Spesso sorprende quanto sanno.
 
 
  🗑️
@@ -368,7 +368,7 @@ Fonti ufficiali:
 
  ⚖️
  Compliance Digitale
- Rispetto continuo di normative: GDPR (dati personali), NIS2 (infrastrutture critiche), ISO 27001 (ISMS), PCI DSS (pagamenti). Ciclo Plan-Check-Act.
+ Rispetto continuo di normative: GDPR (dati personali), NIS2 (soggetti essenziali e importanti nei settori coperti), ISO 27001 (ISMS), PCI DSS (pagamenti). Ciclo Plan-Check-Act.
 
 
  📊
