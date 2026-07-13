@@ -64,6 +64,25 @@ on any plain HTTP server.
 - Do not edit `corsi/` unless the user explicitly asks for source material work.
 - Use fictional domains in examples, for example `www.azienda.it`; avoid real
   Italian domains in teaching examples.
+- Link factual claims, standards, regulations, product behavior and formal
+  methodologies to primary official sources in the slide where they appear.
+  Use compact inline `↗` references with a descriptive `title`, `target="_blank"`
+  and `rel="noopener noreferrer"`; do not replace these with a generic bibliography
+  at the end of the deck. `scripts/add-official-source-links.js` maintains the
+  shared source map and applies at most two automatic references per content slide.
+  After changing that map, run the source-link script, merge the references into
+  the existing TXT companions without discarding their extra notes, then rebuild
+  the generated indexes:
+
+  ```bash
+  node scripts/add-official-source-links.js
+  node scripts/merge-source-links-into-txt.js
+  node scripts/build-completeness.js
+  node scripts/build-search-index.js
+  ```
+
+  `build-completeness.js` deliberately ignores source-list lines, so citations do
+  not inflate content-density scores.
 - Preserve user changes in the working tree. This repo often has uncommitted
   generated decks and quizzes.
 
@@ -217,7 +236,7 @@ published area, and record that exception here before creating files:
 | `su` | Suite Ufficio | `su01-01-microsoft.html` |
 | `ia` | Intelligenza Artificiale | `ia01-concetti-generali.html` |
 | `pm` | Project Management | `pm01-introduzione.html` |
-| `pr` | Programmazione | `pr01-01-introduzione-programmazione.html`, `pr02-01-introduzione.html`, `pr03-01-microbit.html` |
+| `pr` | Programmare | `pr01-01-introduzione-programmazione.html`, `pr02-01-introduzione.html`, `pr03-01-microbit.html` |
 | `ms` | Modellazione e stampa 3D | `ms01-tinkercad-introduzione.html` |
 | `gd` | Game Design | `gd01-introduzione.html` |
 | `quiz` | Macroarea quizzes | `quiz-reti-web.html` |
@@ -232,6 +251,14 @@ Every deck has a sibling `.txt` file (e.g. `gd01-introduzione.txt`) containing
 the plain-text slide content. `00-indice.html` auto-injects a `↓ TXT` download
 button on every index card via inline JS. When adding a new deck, generate the
 `.txt` companion with:
+
+```bash
+node scripts/build-txt.js new-deck.html
+```
+
+The generator preserves official-source URLs in the TXT output. To rebuild all
+published companions, run `node scripts/build-txt.js`. The older equivalent
+Python recipe follows for reference:
 
 ```bash
 python3 - << 'EOF'
@@ -377,7 +404,7 @@ Navigation chain: pm01 → pm02 → pm03 → pm04
 | `pm03-metodologie.html` | Metodologie |
 | `pm04-strumenti.html` | Strumenti Digitali |
 
-### Programmazione
+### Programmare
 
 Index numbering uses `PR01.01`-`PR01.04` for general programming theory, `PR02.xx` for Scratch and `PR03.xx` for Micro:bit.
 
@@ -392,7 +419,7 @@ General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-0
 
 Codex note: the `PR01.02`-`PR01.04` theory blocks are paraphrased and reorganized
 from the public PDF "Fondamenti di Informatica e Programmazione" by Edizioni
-Manna, requested by the user on 2026-07-10. Keep them in the Programmazione group
+Manna, requested by the user on 2026-07-10. Keep them in the Programmare group
 before Scratch and do not split them into Hardware/Software or other sections.
 
 Codex update 2026-07-10: the `PR01.01` theory blocks were expanded without changing
