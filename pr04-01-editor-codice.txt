@@ -1,0 +1,76 @@
+Programmazione · PR04.01 — Strumenti per scrivere codice
+========================================================
+
+--- Slide 1 ---
+Scrivere
+ codice Editor, IDE e strumenti che aiutano a progettare, eseguire, controllare e migliorare un programma. 
+ saluto.py PROGETTO
+⌄ src
+  ◇ saluto.py
+  ◇ dati.json
+⌄ tests
+  ◇ test_saluto.py 1 def saluta (nome):
+ 2    return f"Ciao {nome}!" 
+ 3 
+ 4 print (saluta( "Ada" )) 
+
+ # Output: Ciao Ada!
+
+--- Slide 2 ---
+Cosa vedremo 01 Editor di testo, editor di codice e IDE 02 Progetti, file e cartelle 03 VS Code: interfaccia e funzioni 04 Completamento, errori e formattazione 05 Terminale, esecuzione e debug 06 Git, test e automazioni 07 Visual Studio, JetBrains e IDE specializzati 08 Strumenti leggeri, cloud e assistenti IA 09 Come scegliere e configurare il primo ambiente 10 Esercizio pratico
+
+--- Slide 3 ---
+Non tutti gli strumenti fanno lo stesso lavoro Puoi scrivere codice anche in un editor semplice. La differenza è quanta assistenza ricevi prima, durante e dopo la scrittura. 📄 Editor di testo Modifica testo semplice. È rapido, ma conosce poco o nulla del linguaggio e del progetto. ⌨️ Editor di codice Aggiunge colori, completamento, ricerca nel progetto, estensioni e spesso terminale e Git. 🧰 IDE Integra editor, compilazione, debug, test, refactoring e strumenti specifici per una piattaforma. Analogia: quaderno, banco attrezzato, laboratorio completo.
+
+--- Slide 4 ---
+Si apre una cartella, non soltanto un file Un programma reale è un progetto : codice, configurazioni, risorse, dipendenze, test e documentazione lavorano insieme. Regola: apri la cartella principale del progetto, così lo strumento può comprenderne la struttura. src/ codice tests/ controlli README istruzioni Il progetto dà contesto ai singoli file
+
+--- Slide 5 ---
+VS Code: una scrivania modulare Visual Studio Code è un editor multipiattaforma: alcune funzioni sono integrate, altre arrivano tramite estensioni del linguaggio o del servizio usato. 🗂️ Explorer File, cartelle, ricerca e struttura del progetto. ✍️ Editor Schede, più pannelli, selezioni multiple e navigazione. ⌘ Command Palette Un punto unico per cercare azioni senza ricordare i menu. ▤ Pannello Terminale, output, problemi, debug e test. 💡 Distinzione utile VS Code e Visual Studio sono prodotti diversi: il primo è un editor estendibile; il secondo è un IDE completo, soprattutto per .NET e C++ su Windows. Fonte: panoramica VS Code — documentazione ufficiale ↗ (https://code.visualstudio.com/docs/getstarted/overview)
+
+--- Slide 6 ---
+Mentre scrivi, lo strumento legge il contesto 🎨 Evidenziazione sintattica Colora parole chiave, stringhe e commenti. Aiuta a leggere, ma non dimostra che il codice sia corretto. 💬 Completamento Suggerisce nomi, parametri e membri disponibili. La qualità dipende dal linguaggio e dal servizio installato. ﹏ Diagnostica Sottolinea errori e avvisi trovati dal parser, dal compilatore o da strumenti di analisi. ↗ Navigazione Vai alla definizione, trova riferimenti e rinomina simboli nel progetto, quando il linguaggio lo supporta. In pratica: un suggerimento accelera il lavoro; compilatore e test stabiliscono se funziona. Fonte: IntelliSense — VS Code ↗ (https://code.visualstudio.com/docs/editing/intellisense)
+
+--- Slide 7 ---
+Le estensioni aggiungono capacità Un'estensione può supportare un linguaggio, collegare un servizio, aggiungere un tema oppure integrare test e strumenti di qualità. ⚠️ Prima di installare Controlla editore, permessi, manutenzione, documentazione e necessità reale. Più estensioni significano anche più aggiornamenti e possibili conflitti. 🧩 Linguaggio
+ Python, C/C++, Java, PHP e altri. 🧹 Qualità
+ Formatter, linter, test runner. 🔗 Servizio
+ Repository, database, container, cloud.
+
+--- Slide 8 ---
+Terminale, esecuzione e build L'editor non sostituisce il linguaggio, il compilatore o il runtime: li avvia e mostra i risultati in modo comodo. ✍️ Scrivi Modifichi i file. → 💾 Salva Il disco riceve le modifiche. → ⚙️ Build Compila o prepara il progetto. → ▶ Esegui Il programma parte. → ▤ Osserva Leggi output ed errori. Regola: impara anche il comando essenziale: rende il processo comprensibile e ripetibile.
+
+--- Slide 9 ---
+Il debugger ferma il tempo Invece di aggiungere decine di stampe, puoi sospendere il programma e osservare che cosa sta succedendo. ● Breakpoint Una riga in cui sospendere l'esecuzione. ↧ Step Avanza una istruzione o entra in una funzione. ◉ Variabili Mostra valori e strutture nello stato corrente. ⌁ Call stack Ricostruisce la sequenza di chiamate che ti ha portato lì. 💡 Metodo Formula un'ipotesi, posiziona il breakpoint prima del punto sospetto e confronta il valore atteso con quello reale. Fonte: concetti di debugging — IntelliJ IDEA ↗ (https://www.jetbrains.com/help/idea/debugging-code.html)
+
+--- Slide 10 ---
+Git registra modifiche, non “salva nel cloud” L'integrazione grafica mostra file modificati, differenze, branch e conflitti. Le operazioni restano quelle di Git. In pratica: modifica → controlla il diff → stage → commit → eventualmente push. Diff Confronta prima e dopo, riga per riga. Commit Registra un insieme coerente di modifiche locali. Branch Permette di lavorare su una linea separata. Remote Sincronizza con GitHub o un altro server quando fai pull o push. Fonte: controllo versione in VS Code ↗ (https://code.visualstudio.com/docs/sourcecontrol/overview/)
+
+--- Slide 11 ---
+Formatter, linter e test: tre controlli diversi 🧹 Formatter Uniforma spazi, rientri e stile. Riduce discussioni estetiche, ma non verifica la logica. 🔎 Linter / analisi Segnala pattern rischiosi, errori probabili e violazioni delle regole configurate. ✓ Test Esegue casi controllati e confronta risultato ottenuto e risultato atteso. Automazione utile Salvataggio automatico, format on save e test rapidi sono comodi soltanto se il team condivide configurazioni e regole.
+
+--- Slide 12 ---
+IDE completi: quando il progetto ha una piattaforma Strumento Contesto tipico Punti di forza Da sapere Visual Studio .NET, C++, Windows, game development Debugger, profiler, designer, test e strumenti di build integrati Più pesante di un editor; edizioni e licenze differiscono JetBrains IDE Java/Kotlin, Python, web, PHP, database Analisi profonda, navigazione e refactoring specifici Prodotti distinti; funzioni e licenze cambiano per edizione Android Studio App Android Gradle, emulatori, profiler, layout e lint Android Ottimizzato per il flusso Android Xcode App per piattaforme Apple Simulator, debugger, Instruments, test e distribuzione Disponibile su macOS e legato agli SDK Apple Fonti: Visual Studio — Microsoft ↗ (https://visualstudio.microsoft.com/vs/features/)Android Studio — Google ↗ (https://developer.android.com/studio/intro)Xcode — Apple ↗ (https://developer.apple.com/xcode)
+
+--- Slide 13 ---
+Altri strumenti noti: più leggeri o più specializzati Sublime Text Editor rapido e multipiattaforma con selezioni multiple, progetti, pacchetti e build configurabili. Notepad++ Editor leggero per Windows, utile per modifiche rapide, ricerca, sintassi e plugin. Vim / Neovim Editor modale centrato sulla tastiera. Molto configurabile, potente nel terminale, con curva di apprendimento dedicata. Eclipse IDE Ecosistema storico e modulare, ancora usato soprattutto in progetti Java e contesti enterprise. Regola: “leggero” e “completo” descrivono compromessi, non qualità assoluta. Fonte: documentazione Sublime Text ↗ (https://www.sublimetext.com/docs/index.html)
+
+--- Slide 14 ---
+Locale, remoto o nel browser? 💻 Locale File e strumenti girano sul tuo computer. Hai controllo e puoi lavorare offline, ma devi configurare l'ambiente. ↗ Remoto L'interfaccia è locale, mentre codice, terminale e processi vivono su server, container, WSL o SSH. ☁️ Browser / cloud L'ambiente è accessibile via web. Riduce il setup iniziale, ma dipende da account, rete, limiti e costi del servizio. ⚠️ Dati e segreti Prima di usare ambienti remoti, verifica dove vengono conservati codice, credenziali, log e output del progetto. Fonte: Remote Development — VS Code ↗ (https://code.visualstudio.com/docs/remote/faq)
+
+--- Slide 15 ---
+Assistenti IA: proposta, non autorità Completamento predittivo, chat e agenti possono spiegare codice, proporre modifiche e automatizzare attività. Il risultato va trattato come una modifica di terzi. Regola: leggi il diff, esegui i test, controlla dipendenze e licenze, non condividere segreti. Contesto Decidi quali file, dati e istruzioni può leggere lo strumento. Verifica Compilazione, analisi e test restano necessari anche se la proposta “sembra giusta”. Responsabilità Chi accetta la modifica resta responsabile di sicurezza, correttezza e manutenzione.
+
+--- Slide 16 ---
+Quale scegliere? Se devi… Partenza ragionevole Perché Imparare Python, web o più linguaggi VS Code oppure un IDE didattico indicato dal corso È trasversale e cresce tramite estensioni Lavorare soprattutto con Java/Kotlin o grandi codebase IntelliJ IDEA / IDE JetBrains pertinente Analisi, navigazione e refactoring profondi Sviluppare app Android Android Studio SDK, emulatori, build e profiler sono integrati Sviluppare per Apple Xcode SDK, simulatori, test e distribuzione Apple .NET o C++ su Windows Visual Studio Toolchain e diagnostica integrate Fare modifiche rapide a testo e configurazioni Sublime Text, Notepad++ o editor già disponibile Avvio rapido e poche distrazioni
+
+--- Slide 17 ---
+Il primo ambiente: configurazione minima 1 · Installa Editor e runtime da fonti ufficiali. → 2 · Cartella Crea e apri un progetto dedicato. → 3 · Linguaggio Aggiungi soltanto il supporto necessario. → 4 · Esegui Prova un file dal terminale. → 5 · Git Inizializza e crea il primo commit. 💡 Buon segnale Se sai spiegare da dove arriva il comando che esegue il programma, il tuo ambiente non è più una scatola nera.
+
+--- Slide 18 ---
+Esercizio: esplora senza installare tutto Parte A · Orientamento Apri una cartella-progetto e individua Explorer, editor, ricerca, terminale e pannello dei problemi. Parte B · Scrittura Crea un file breve, osserva colori e suggerimenti, poi introduci volontariamente un errore di sintassi. Parte C · Esecuzione Salva, esegui dal terminale e collega l'eventuale messaggio di errore alla riga corretta. Parte D · Controllo Apri il diff Git, descrivi la modifica e crea un commit con un messaggio significativo. Obiettivo: comprendere il flusso, non memorizzare ogni pulsante.
+
+--- Slide 19 ---
+Lo strumento
+serve il metodo. Editor e IDE accelerano scrittura, navigazione, debug e collaborazione. La scelta migliore è quella coerente con linguaggio, piattaforma, progetto e competenze del gruppo. Torna all’indice Fonti e approfondimenti Tutorial ufficiale Python ↗ Guida ufficiale Android ↗
+

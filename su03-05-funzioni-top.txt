@@ -2,18 +2,19 @@ Suite Ufficio · SU10 — Le 10 funzioni più usate
 ===============================================
 
 --- Slide 1 ---
-Fogli di calcolo
 Le 10 funzioni
-più usate
-SOMMA.SE, SOMMA.PIÙ.SE, CONTA.PIÙ.SE, MEDIA.SE, SUBTOTALE, SE.ERRORE, ARROTONDA, TESTO e OGGI — quelle che i professionisti usano ogni giorno.
+ più usate 
+ SOMMA.SE, SOMMA.PIÙ.SE, CONTA.PIÙ.SE, MEDIA.SE, SUBTOTALE, SE.ERRORE, ARROTONDA, TESTO e OGGI — quelle che i professionisti usano ogni giorno. 
 
-
-
-⚡
+ 
+ 
+ ⚡
 
 --- Slide 2 ---
+Percorso Cosa vedremo 01 Già viste vs nuove 02 Somma con condizione 03 SOMMA 04 La media che sceglie 05 Totali che seguono i filtri 06 Gestire gli errori con grazia 07 Arrotondare i decimali 08 Formattare numeri come testo 09 OGGI 10 Le 9 funzioni di questo modulo
 
- Già viste vs nuove 
+--- Slide 3 ---
+Già viste vs nuove 
  Le funzioni fondamentali le hai già imparate. Questo modulo copre quelle che mancano per lavorare come un professionista. 
  
  
@@ -34,9 +35,8 @@ OGGI · ADESSO · DATA
 Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
---- Slide 3 ---
-
- Somma con condizione 
+--- Slide 4 ---
+Somma con condizione 
  SOMMA.SE somma solo le celle che rispettano una condizione — come CONTA.SE ma invece di contare, somma i valori. 
  =SOMMA.SE( intervallo ; criterio ; somma_range ) 
  
@@ -58,9 +58,8 @@ Fonti ufficiali:
  
  Solo Rossi + Verdi (Pagato): 200+300=500
 
---- Slide 4 ---
-
- SOMMA.PIÙ.SE e CONTA.PIÙ.SE 
+--- Slide 5 ---
+SOMMA.PIÙ.SE e CONTA.PIÙ.SE 
  Somma o conta con due o più condizioni contemporaneamente. Tutte le condizioni devono essere vere (AND logico). 
  
  
@@ -78,9 +77,8 @@ Fonti ufficiali:
  
  In pratica: SOMMA.SE e CONTA.SE per 1 condizione. SOMMA.PIÙ.SE e CONTA.PIÙ.SE per 2 o più — stessa logica, sintassi estesa.
 
---- Slide 5 ---
-
- La media che sceglie 
+--- Slide 6 ---
+La media che sceglie 
  MEDIA.SE completa la famiglia: come SOMMA.SE, ma calcola la media dei soli valori che rispettano la condizione. 
  =MEDIA.SE( intervallo ; criterio ; media_range ) 
  
@@ -102,9 +100,8 @@ Fonti ufficiali:
  
  Solo le righe "Roma": (100+140)/2 = 120
 
---- Slide 6 ---
-
- Totali che seguono i filtri 
+--- Slide 7 ---
+Totali che seguono i filtri 
  SOMMA somma tutto, anche le righe nascoste da un filtro. SUBTOTALE ricalcola solo sulle righe visibili: filtri "Roma" e il totale diventa il totale di Roma. 
  =SUBTOTALE( 9 ; B2:B100) 
  
@@ -116,9 +113,8 @@ Fonti ufficiali:
  💡 Già la usi La "Riga totali" delle tabelle (SU09) usa SUBTOTALE dietro le quinte: per questo i suoi totali rispettano i filtri. 
  ⚠️ Righe nascoste a mano I codici 1–11 ignorano solo le righe escluse dal filtro. Per ignorare anche quelle nascoste manualmente usa i codici 101–111 (es. 109 per la somma).
 
---- Slide 7 ---
-
- Gestire gli errori con grazia 
+--- Slide 8 ---
+Gestire gli errori con grazia 
  SE.ERRORE valuta un'espressione: se produce un errore (qualsiasi errore) restituisce il valore alternativo che specifichi invece di mostrare #N/D, #DIV/0! ecc. 
  =SE.ERRORE( formula ; valore_se_errore ) 
  
@@ -138,9 +134,8 @@ Fonti ufficiali:
  💡 Errori gestibili SE.ERRORE intercetta tutti i codici di errore: #N/D, #DIV/0!, #VALORE!, #RIF!, #NOME?, #NULLO!, #NUMERO! 
  ⚠️ Non nascondere troppo SE.ERRORE che restituisce "" (stringa vuota) può nascondere errori reali. Usa un messaggio leggibile come "Non trovato" o "—".
 
---- Slide 8 ---
-
- Arrotondare i decimali 
+--- Slide 9 ---
+Arrotondare i decimali 
  ARROTONDA restituisce un numero arrotondato al numero di cifre decimali specificato. Indispensabile nei calcoli finanziari per evitare residui da floating point. 
  =ARROTONDA( numero ; cifre_decimali ) 
  
@@ -161,9 +156,8 @@ Fonti ufficiali:
  
  2 decimali: 3.14159 → 3,14
 
---- Slide 9 ---
-
- Formattare numeri come testo 
+--- Slide 10 ---
+Formattare numeri come testo 
  TESTO converte un numero in una stringa formattata secondo un codice che specifichi tu. Indispensabile per creare messaggi, etichette e report con numeri ben presentati. 
  =TESTO( valore ; " formato ") 
  
@@ -176,9 +170,8 @@ Fonti ufficiali:
  💡 Uso tipico Combina TESTO con &amp; per creare messaggi: "Totale: "&amp;TESTO(B10;"€ #.##0,00") → "Totale: € 1.234,50". 
  ⚠️ Risultato testo TESTO restituisce testo, non un numero. Non puoi sommare i risultati di TESTO. Usalo solo per visualizzare, non per calcolare.
 
---- Slide 10 ---
-
- OGGI, ADESSO e DATA 
+--- Slide 11 ---
+OGGI, ADESSO e DATA 
  Funzioni per lavorare con la data corrente, la data/ora, e costruire date da componenti separati. 
  
  
@@ -215,9 +208,8 @@ Fonti ufficiali:
 Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
---- Slide 11 ---
-
- Le 9 funzioni di questo modulo 
+--- Slide 12 ---
+Le 9 funzioni di questo modulo 
  
  
  SOMMA.SE 
@@ -266,9 +258,10 @@ Fonti ufficiali:
 Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
---- Slide 12 ---
+--- Slide 13 ---
 Strumenti da
 professionista. 
  SOMMA.SE, MEDIA.SE, SUBTOTALE, SE.ERRORE, ARROTONDA, TESTO e le funzioni data: le funzioni che trasformano un foglio in uno strumento professionale. 
  
  Prossimo → SU11 · Manipolare il testo
+

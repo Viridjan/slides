@@ -115,7 +115,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
 .home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
 .home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
-</style>
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display),Georgia,serif;font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}</style>
 <link rel="stylesheet" href="theme-corsi.css">
 </head>
 <body class="course-gd">
@@ -125,7 +125,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- SLIDE 1 · TITLE -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="eyebrow reveal" style="margin-top:40px;">Game Design</div>
       <h1 class="h-mega reveal" style="margin-top:10px;">Processo<br><em style="font-style:italic;color:var(--sky);">di Design</em></h1>
       <p class="lead reveal d1" style="margin-top:28px;">Come si progetta un gioco davvero: validare l'idea, prototipare in fretta, testare coi giocatori e iterare senza innamorarsi della prima versione.</p>
 
@@ -136,23 +135,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <!-- SLIDE 2 · AGENDA -->
-  <section class="slide">
-
-    <h2 class="h-sec reveal" style="margin-top:32px;">Cosa vedremo</h2>
-    <div class="grid2 reveal d1" style="margin-top:28px;">
-      <div class="steps" style="counter-reset:st;">
-        <div class="step"><div class="t"><b>Da dove nasce un gioco</b> — dall'impulso iniziale alla validazione</div></div>
-        <div class="step"><div class="t"><b>I 7 criteri di validazione</b> — le lenti per valutare un'idea</div></div>
-        <div class="step"><div class="t"><b>Octalysis</b> — gli 8 motori della motivazione</div></div>
-      </div>
-      <div class="steps" style="counter-reset:st 3;">
-        <div class="step"><div class="t"><b>Fail fast e requirements</b> — sbagliare presto, dentro vincoli chiari</div></div>
-        <div class="step"><div class="t"><b>Bozza → analisi → correzione</b> — il ciclo iterativo del design</div></div>
-        <div class="step"><div class="t"><b>Playtesting e iterazione</b> — testare coi giocatori veri</div></div>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Iterazione" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Iterazione — Wikipedia" aria-label="Fonte ufficiale: Iterazione — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Iterazione — Wikipedia ↗</a></div></section>
+  <section class="slide"><span class="tag">Percorso</span><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(3,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">Da dove nasce un gioco</span></div><div class="agenda-item"><span class="n">02</span><span class="t">I 7 criteri di validazione</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Octalysis</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Fail fast e requirements</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Bozza → analisi → correzione</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Playtesting e iterazione</span></div></div><div class="num"></div></section>
 
   <!-- SLIDE 3 · DA DOVE NASCE UN GIOCO -->
   <section class="slide">
@@ -324,7 +307,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Iterazione" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Iterazione — Wikipedia" aria-label="Fonte ufficiale: Iterazione — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Iterazione — Wikipedia ↗</a><a data-source-origin="auto" href="https://igda.org/about-us/core-values-and-code-of-ethics/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Valori e codice etico — IGDA" aria-label="Fonte ufficiale: Valori e codice etico — IGDA" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Valori e codice etico — IGDA ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 11 · ATTIVITA -->
   <section class="slide">
@@ -341,7 +324,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <p>Quale <b>core drive di Octalysis</b> spingerebbe di più i tuoi giocatori? Progresso, curiosità, paura di perdere, senso epico?</p>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://igda.org/about-us/core-values-and-code-of-ethics/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Valori e codice etico — IGDA" aria-label="Fonte ufficiale: Valori e codice etico — IGDA" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Valori e codice etico — IGDA ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 12 · CLOSING -->
   <section class="slide closing"><div class="closing-inner"><div class="center" style="align-items:center;text-align:center;">

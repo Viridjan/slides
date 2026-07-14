@@ -2,622 +2,589 @@ Informatica · Modulo 1 — Componenti
 ========================================
 
 --- Slide 1 ---
-Modulo 01 — Componenti
 Dentro
-il computer
-Cos'è davvero un PC, di cosa è fatto e perché ogni pezzo conta. Partiamo da zero, senza dare niente per scontato.
+il computer 
+ Cos'è davvero un PC, di cosa è fatto e perché ogni pezzo conta. Partiamo da zero, senza dare niente per scontato. 
 
-
-
-
-HARDWARE
-+
-SOFTWARE
+ 
+ 
+ 
+ HARDWARE 
+ + 
+ SOFTWARE
 
 --- Slide 2 ---
-
- Cosa impareremo 
- 
- 01 Hardware e Software 
- 02 Il processore (CPU) 
- 03 Memoria: RAM e Hard disk 
- 04 Scheda madre, video e audio 
- 05 Alimentazione 
- 06 Periferiche e porte 
- 07 Il software e il sistema operativo 
- 08 Browser e suite per ufficio 
- 
- 
- 02 / 21
-Fonti ufficiali:
-- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
+Percorso Cosa vedremo 01 Il ciclo base 02 Il processore (CPU) 03 Memoria 04 Scheda madre 05 Alimentazione 06 Periferiche e porte 07 Il software e il sistema operativo 08 Browser e suite per ufficio
 
 --- Slide 3 ---
-Punto di partenza 
- Cos'è un PC ? 
- Un Personal Computer — “PC” — è un dispositivo elettronico pensato per essere usato da una persona alla volta. Serve a fare tantissime cose diverse: scrivere, navigare in internet, guardare video, ascoltare musica, giocare, studiare o lavorare. 
- La parola chiave è “personale” : a differenza dei grandi computer di una volta — che occupavano intere stanze ed erano usati da molte persone insieme — il PC è tuo, sta sulla scrivania (o nello zaino) ed esegue ciò che chiedi tu. 
- 
- Desktop fisso 
- Portatile 
- Tablet 
- Smartphone 
- 
- 
- 
- 
- 💡 Lo sapevi? 
- Anche lo smartphone che hai in tasca è un computer a tutti gli effetti: ha un processore, della memoria e dei programmi. Condivide con un PC CPU, memoria e sistema operativo, ma integra anche radio, sensori, batteria e vincoli energetici propri.
- 
- 
- 
- 03 / 21
+Ogni computer ripete lo stesso ciclo
+ Qualunque attività digitale può essere letta come quattro passaggi semplici: dai un comando, il dispositivo lo elabora, conserva ciò che serve e restituisce un risultato.
+
+ ⌨️ 1 · Input Tastiera, mouse, microfono o sensore inviano dati e comandi.
+ ⚙️ 2 · Elabora La CPU esegue le istruzioni del programma sui dati ricevuti.
+ 💾 3 · Memorizza RAM e unità di archiviazione conservano dati per tempi diversi.
+ 🖥️ 4 · Output Schermo, altoparlanti o stampante mostrano il risultato.
+
+ In pratica: scrivi una lettera → la CPU la elabora → il file viene salvato → lo schermo la mostra.
+
+
+ [Fonte: CPU — Wikipedia — https://it.wikipedia.org/wiki/CPU]
 
 --- Slide 4 ---
+Punto di partenza
+ Cos'è un PC ?
+ Un Personal Computer — “PC” — è un dispositivo elettronico pensato per essere usato da una persona alla volta. Serve a fare tantissime cose diverse: scrivere, navigare in internet, guardare video, ascoltare musica, giocare, studiare o lavorare.
+ La parola chiave è “personale” : a differenza dei grandi computer di una volta — che occupavano intere stanze ed erano usati da molte persone insieme — il PC è tuo, sta sulla scrivania (o nello zaino) ed esegue ciò che chiedi tu.
 
- Fisso, portatile o tascabile? 
- Esistono in tante forme diverse e condividono principi di base: elaborazione, memoria, software e interfacce, realizzati però con architetture differenti. Cambiano dimensioni, comodità e potenza.
- 
- 🖥️ Fisso (Desktop) Sta sulla scrivania. Più potente ed espandibile, ma non si sposta. Ottimo per lavorare a casa o in ufficio. 
- 💻 Portatile (Laptop) Tutto in uno, con batteria. Lo porti ovunque. Il compromesso più comune tra potenza e libertà. 
- 📱 Tablet Schermo touch, leggerissimo, senza tastiera fisica. Comodo per leggere, guardare e navigare. 
- 📞 Smartphone Un computer in tasca: telefona, fotografa, naviga e fa girare migliaia di app. 
- 
- 
- 💡 Il concetto chiave 
- Più un dispositivo è piccolo e portatile, più si cerca un equilibrio: guadagni in comodità, a volte perdi in potenza e spazio. Ma la “ricetta” dei componenti resta sempre la stessa.
+ Desktop fisso
+ Portatile
+ Tablet
+ Smartphone
+
+
+
+
+ 💡 Lo sapevi?
+ Anche lo smartphone che hai in tasca è un computer a tutti gli effetti: ha un processore, della memoria e dei programmi. Condivide con un PC CPU, memoria e sistema operativo, ma integra anche radio, sensori, batteria e vincoli energetici propri.
+
+
+
+ 03 / 21
 
 --- Slide 5 ---
+Fisso, portatile o tascabile?
+ Esistono in tante forme diverse e condividono principi di base : elaborazione, memoria, software e interfacce, realizzati però con architetture differenti. Cambiano dimensioni, comodità e potenza.
 
- Hardware &amp; Software 
- Tutto ciò che riguarda un computer si può dividere in due famiglie. Capire questa differenza è la base di tutto il resto. 
- 
- 
- 🧰 
- Hardware — il corpo 
- Tutte le parti fisiche che puoi toccare e vedere: lo schermo, la tastiera, i circuiti dentro la scatola. È il “corpo” della macchina. 
- 
- 
- 🧠 
- Software — la mente 
- Tutti i programmi e le istruzioni che dicono all'hardware cosa fare. Non puoi toccarli: sono la “mente” che dà vita al corpo. 
- 
- 
- 
- Analogia: l'hardware è il corpo, il software è la mente. Senza uno l'altro non serve a niente.
- 
- 
- 04 / 21
+ 🖥️ Fisso (Desktop) Sta sulla scrivania. Più potente ed espandibile, ma non si sposta. Ottimo per lavorare a casa o in ufficio.
+ 💻 Portatile (Laptop) Tutto in uno, con batteria. Lo porti ovunque. Il compromesso più comune tra potenza e libertà.
+ 📱 Tablet Schermo touch, leggerissimo, senza tastiera fisica. Comodo per leggere, guardare e navigare.
+ 📞 Smartphone Un computer in tasca: telefona, fotografa, naviga e fa girare migliaia di app.
+
+
+ 💡 Il concetto chiave
+ Più un dispositivo è piccolo e portatile, più si cerca un equilibrio: guadagni in comodità, a volte perdi in potenza e spazio. Ma la “ricetta” dei componenti resta sempre la stessa.
 
 --- Slide 6 ---
-01 · Hardware 
- Le parti che puoi toccare 
- L'hardware è l'insieme dei componenti fisici del computer. Alcuni stanno nascosti dentro la scatola, altri sono ben visibili. Ecco i protagonisti che incontreremo uno per uno: 
- 
- 🧠 CPU Il processore, il cervello. 
- ⚡ RAM Memoria a breve termine. 
- 💾 Hard disk Memoria a lungo termine. 
- 🗺️ Scheda madre Collega tutto il resto. 
- 
- 
- 🖥️ Scheda video Gestisce le immagini. 
- 🔊 Scheda audio Gestisce il suono. 
- 🔌 Alimentatore Fornisce l'energia. 
- 🖱️ Periferiche Input e output. 
- 
- 
- 05 / 21
-Fonti ufficiali:
-- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
+Hardware &amp; Software
+ Tutto ciò che riguarda un computer si può dividere in due famiglie. Capire questa differenza è la base di tutto il resto.
+
+
+ 🧰
+ Hardware — il corpo
+ Tutte le parti fisiche che puoi toccare e vedere: lo schermo, la tastiera, i circuiti dentro la scatola. È il “corpo” della macchina.
+
+
+ 🧠
+ Software — la mente
+ Tutti i programmi e le istruzioni che dicono all'hardware cosa fare. Non puoi toccarli: sono la “mente” che dà vita al corpo.
+
+
+
+ Analogia: l'hardware è il corpo, il software è la mente. Senza uno l'altro non serve a niente.
+
+
+ 04 / 21
 
 --- Slide 7 ---
+01 · Hardware
+ Le parti che puoi toccare
+ L'hardware è l'insieme dei componenti fisici del computer. Alcuni stanno nascosti dentro la scatola, altri sono ben visibili. Ecco i protagonisti che incontreremo uno per uno:
 
- Il processore 
- La CPU ( Central Processing Unit ) è a tutti gli effetti il “cervello” del computer . Si occupa di elaborare le istruzioni e di eseguire le operazioni necessarie per far funzionare tutto. 
- Ogni cosa che chiedi — aprire un'app, scrivere una lettera, riprodurre un video — passa dalla CPU sotto forma di calcoli. Due numeri ne descrivono la potenza: la frequenza , misurata in GHz (gigahertz), cioè quanto è veloce; e i core , cioè quanti “cervelli” lavorano in parallelo. Più core significa più cose fatte contemporaneamente, senza rallentare. 
- 
- 💡 Lo sapevi? 
- Una CPU moderna esegue miliardi di operazioni al secondo. Quando il PC sembra “lento”, spesso è perché la CPU ha troppe cose da calcolare tutte insieme. 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- CPU 
- 
- Un chip con tanti contatti (i “piedini”) 
- 
- 
- 06 / 21
+ 🧠 CPU Il processore, il cervello.
+ ⚡ RAM Memoria a breve termine.
+ 💾 Hard disk Memoria a lungo termine.
+ 🗺️ Scheda madre Collega tutto il resto.
+
+
+ 🖥️ Scheda video Gestisce le immagini.
+ 🔊 Scheda audio Gestisce il suono.
+ 🔌 Alimentatore Fornisce l'energia.
+ 🖱️ Periferiche Input e output.
+
+
+ 05 / 21
+ [Fonte: RAM — Wikipedia — https://it.wikipedia.org/wiki/RAM]
 
 --- Slide 8 ---
-Un banco di RAM: si infila nella scheda madre 
- 
- 
+Il processore
+ La CPU ( Central Processing Unit ) è a tutti gli effetti il “cervello” del computer . Si occupa di elaborare le istruzioni e di eseguire le operazioni necessarie per far funzionare tutto.
+ Ogni cosa che chiedi — aprire un'app, scrivere una lettera, riprodurre un video — passa dalla CPU sotto forma di calcoli. Due numeri ne descrivono la potenza: la frequenza , misurata in GHz (gigahertz), cioè quanto è veloce; e i core , cioè quanti “cervelli” lavorano in parallelo. Più core significa più cose fatte contemporaneamente, senza rallentare.
 
- La RAM 
- RAM sta per Random Access Memory . È la “memoria a breve termine” del computer: conserva temporaneamente le informazioni con cui la macchina sta lavorando in questo momento . 
- È velocissima, ma ha una caratteristica importante: se spegni il computer, il contenuto della RAM si cancella . Per questo i file vanno salvati sull'hard disk, altrimenti vanno persi. 
- Come la scrivania su cui tieni aperti i fogli mentre lavori: più è grande, più cose ci stanno sopra. 
- 
- 
- 07 / 21
+ 💡 Lo sapevi?
+ Una CPU moderna esegue miliardi di operazioni al secondo. Quando il PC sembra “lento”, spesso è perché la CPU ha troppe cose da calcolare tutte insieme.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ CPU
+
+ Un chip con tanti contatti (i “piedini”)
+
+
+ 06 / 21
 
 --- Slide 9 ---
+Un banco di RAM: si infila nella scheda madre
 
- L' hard disk 
- È la “memoria a lungo termine” : qui vengono conservati in modo permanente il sistema operativo, i programmi e i tuoi file. A differenza della RAM, se spegni il PC i dati restano . 
- Oggi sul mercato esistono due tipi di hard disk. Spesso un PC ne combina entrambi per avere il meglio di velocità e capacità. 
- 
- HDD — a disco SSD — a stato solido 
- Come funziona Un disco magnetico che gira, letto da una testina meccanica. Memoria elettronica, senza parti in movimento. 
- Velocità Più lento. Molto più veloce: il PC si accende e apre i programmi in un lampo. 
- Capacità / prezzo Tanto spazio a poco prezzo. Costa di più a parità di spazio. 
- Ideale per Archiviare grandi quantità di dati. Sistema operativo e programmi usati ogni giorno. 
- 
- 
- 08 / 21
+
+
+ La RAM
+ RAM sta per Random Access Memory . È la “memoria a breve termine” del computer: conserva temporaneamente le informazioni con cui la macchina sta lavorando in questo momento .
+ È velocissima, ma ha una caratteristica importante: se spegni il computer, il contenuto della RAM si cancella . Per questo i file vanno salvati sull'hard disk, altrimenti vanno persi.
+ Come la scrivania su cui tieni aperti i fogli mentre lavori: più è grande, più cose ci stanno sopra.
+
+
+ 07 / 21
 
 --- Slide 10 ---
+L' hard disk
+ È la “memoria a lungo termine” : qui vengono conservati in modo permanente il sistema operativo, i programmi e i tuoi file. A differenza della RAM, se spegni il PC i dati restano .
+ Oggi sul mercato esistono due tipi di hard disk. Spesso un PC ne combina entrambi per avere il meglio di velocità e capacità.
 
- Bit, byte &amp; company 
- La memoria del computer si misura in byte . Un byte è una piccolissima quantità di informazione: può rappresentare un carattere ASCII, mentre molti caratteri Unicode richiedono più byte. I file veri sono fatti di milioni o miliardi di byte, perciò usiamo dei “gradini” più grandi.
- Ogni gradino vale circa 1000 volte il precedente. Conoscerli ti aiuta a capire quanto spazio occupa una foto, un video o un programma — e quanto spazio hai ancora libero. 
- 
- 💡 In pratica 
- Una canzone pesa pochi MB ; un film in HD vari GB . Un hard disk da 1 TB può contenere migliaia di canzoni e centinaia di film. 
- 
- 
- 
- Byte — B Unità di memoria pari a 8 bit. Un carattere può occupare uno o più byte, secondo la codifica.
- Kilobyte — KB ~1000 byte. Un breve documento di testo. 
- Megabyte — MB ~1000 KB. Una foto o una canzone. 
- Gigabyte — GB ~1000 MB. Un film, tante app. 
- Terabyte — TB ~1000 GB. Un intero hard disk.
+ HDD — a disco SSD — a stato solido
+ Come funziona Un disco magnetico che gira, letto da una testina meccanica. Memoria elettronica, senza parti in movimento.
+ Velocità Più lento. Molto più veloce: il PC si accende e apre i programmi in un lampo.
+ Capacità / prezzo Tanto spazio a poco prezzo. Costa di più a parità di spazio.
+ Ideale per Archiviare grandi quantità di dati. Sistema operativo e programmi usati ogni giorno.
+
+
+ 08 / 21
 
 --- Slide 11 ---
+Bit, byte &amp; company
+ La memoria del computer si misura in byte . Un byte è una piccolissima quantità di informazione: può rappresentare un carattere ASCII, mentre molti caratteri Unicode richiedono più byte. I file veri sono fatti di milioni o miliardi di byte, perciò usiamo dei “gradini” più grandi.
+ Ogni gradino vale circa 1000 volte il precedente. Conoscerli ti aiuta a capire quanto spazio occupa una foto, un video o un programma — e quanto spazio hai ancora libero.
 
- La scheda madre 
- La scheda madre ( motherboard ) collega e coordina tutte le altre parti del computer. È il “centro di comando” che permette ai componenti di comunicare tra loro. 
- Come la mappa di una città mostra le strade che uniscono i quartieri, la scheda madre contiene i “percorsi” elettrici che fanno arrivare dati ed energia da un componente all'altro. CPU, RAM, schede e hard disk si collegano tutti qui. 
- 
- Tieni a mente 
- Se la CPU è il cervello e la RAM la scrivania, la scheda madre è la rete di strade che permette a tutto di parlarsi. 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- CPU 
- 
- RAM 
- 
- DISK 
- 
- Le “strade” collegano i componenti 
- 
- 
- 09 / 21
+ 💡 In pratica
+ Una canzone pesa pochi MB ; un film in HD vari GB . Un hard disk da 1 TB può contenere migliaia di canzoni e centinaia di film.
+
+
+
+ Byte — B Unità di memoria pari a 8 bit. Un carattere può occupare uno o più byte, secondo la codifica.
+ Kilobyte — KB ~1000 byte. Un breve documento di testo.
+ Megabyte — MB ~1000 KB. Una foto o una canzone.
+ Gigabyte — GB ~1000 MB. Un film, tante app.
+ Terabyte — TB ~1000 GB. Un intero hard disk.
+
+
+
+ [Fonte: Unicode Standard — https://www.unicode.org/versions/latest/]
 
 --- Slide 12 ---
-Componenti · Video &amp; Audio 
- Immagini e suono 
- 
- 
- 🖥️ 
- Scheda video (GPU) 
- Gestisce tutto ciò che vedi sullo schermo: immagini, video, giochi. Stabilisce anche quanti schermi puoi collegare contemporaneamente (es. monitor + TV) e a quale qualità. Per i videogiochi, la grafica 3D e il montaggio video serve una scheda potente; per scrivere e navigare ne basta una semplice. 
- 
- 
- 🔊 
- Scheda audio 
- Gestisce tutto ciò che senti : musica, audio dei film, suoni di sistema. Permette di collegare casse, cuffie e microfoni. 
- 
- 
- 
- 💡 Spesso già incluse 
- Nella maggior parte dei PC scheda video e scheda audio sono già integrate nella scheda madre . Si aggiunge una scheda dedicata solo quando servono prestazioni elevate, ad esempio per il gaming, il montaggio video o la grafica. 
- 
- 
- 10 / 21
-Fonti ufficiali:
-- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
+La scheda madre
+ La scheda madre ( motherboard ) collega e coordina tutte le altre parti del computer. È il “centro di comando” che permette ai componenti di comunicare tra loro.
+ Come la mappa di una città mostra le strade che uniscono i quartieri, la scheda madre contiene i “percorsi” elettrici che fanno arrivare dati ed energia da un componente all'altro. CPU, RAM, schede e hard disk si collegano tutti qui.
+
+ Tieni a mente
+ Se la CPU è il cervello e la RAM la scrivania, la scheda madre è la rete di strade che permette a tutto di parlarsi.
+
+
+
+
+
+
+
+
+
+
+
+
+ CPU
+
+ RAM
+
+ DISK
+
+ Le “strade” collegano i componenti
+
+
+ 09 / 21
 
 --- Slide 13 ---
-Dalla presa di corrente al computer 
- 
- 
+Immagini e suono
 
- L' alimentatore 
- Fornisce l' energia elettrica necessaria a far funzionare il computer, trasformando la corrente della presa di casa in una forma adatta ai componenti. 
- Nei dispositivi portatili — laptop, tablet, smartphone — l'alimentatore fisso viene sostituito dalla coppia batteria + caricabatterie : la batteria accumula energia, il caricabatterie la ricarica quando serve. 
- 
- Fisso → alimentatore 
- Portatile → batteria + carica 
- 
- 
- 
- 11 / 21
+
+ 🖥️
+ Scheda video (GPU)
+ Gestisce tutto ciò che vedi sullo schermo: immagini, video, giochi. Stabilisce anche quanti schermi puoi collegare contemporaneamente (es. monitor + TV) e a quale qualità. Per i videogiochi, la grafica 3D e il montaggio video serve una scheda potente; per scrivere e navigare ne basta una semplice.
+
+
+ 🔊
+ Scheda audio
+ Gestisce tutto ciò che senti : musica, audio dei film, suoni di sistema. Permette di collegare casse, cuffie e microfoni.
+
+
+
+ 💡 Spesso già incluse
+ Nella maggior parte dei PC scheda video e scheda audio sono già integrate nella scheda madre . Si aggiunge una scheda dedicata solo quando servono prestazioni elevate, ad esempio per il gaming, il montaggio video o la grafica.
+
+
+ 10 / 21
 
 --- Slide 14 ---
+Dalla presa di corrente al computer
 
- Mandare informazioni dentro 
- I dispositivi di input sono tutti gli accessori che ci permettono di inviare informazioni al computer: con loro “diciamo” alla macchina cosa fare. 
- 
- ⌨️ Tastiera Per scrivere testo e comandi. 
- 🖱️ Mouse Per puntare e cliccare. 
- 🎤 Microfono Per registrare la voce. 
- 📷 Webcam / scanner Per acquisire immagini. 
- 
- Input = dal mondo → al computer 
- 
- 12 / 21
+
+
+ L' alimentatore
+ Fornisce l' energia elettrica necessaria a far funzionare il computer, trasformando la corrente della presa di casa in una forma adatta ai componenti.
+ Nei dispositivi portatili — laptop, tablet, smartphone — l'alimentatore fisso viene sostituito dalla coppia batteria + caricabatterie : la batteria accumula energia, il caricabatterie la ricarica quando serve.
+
+ Fisso → alimentatore
+ Portatile → batteria + carica
+
+
+
+ 11 / 21
 
 --- Slide 15 ---
+Mandare informazioni dentro
+ I dispositivi di input sono tutti gli accessori che ci permettono di inviare informazioni al computer: con loro “diciamo” alla macchina cosa fare.
 
- Ricevere i risultati fuori 
- I dispositivi di output ci permettono di vedere o sentire i risultati di ciò che abbiamo chiesto al computer: sono la sua risposta verso di noi. 
- 
- 🖥️ Schermo Mostra immagini e testo. 
- 🔈 Casse / cuffie Fanno sentire i suoni. 
- 🖨️ Stampante Mette su carta i documenti. 
- 📽️ Proiettore Ingrandisce su parete. 
- 
- Output = dal computer → al mondo 
- 
- 13 / 21
+ ⌨️ Tastiera Per scrivere testo e comandi.
+ 🖱️ Mouse Per puntare e cliccare.
+ 🎤 Microfono Per registrare la voce.
+ 📷 Webcam / scanner Per acquisire immagini.
+
+ Input = dal mondo → al computer
+
+ 12 / 21
 
 --- Slide 16 ---
+Ricevere i risultati fuori
+ I dispositivi di output ci permettono di vedere o sentire i risultati di ciò che abbiamo chiesto al computer: sono la sua risposta verso di noi.
 
- Le porte 
- Le porte sono i connettori sul computer dove colleghiamo cavi e accessori. Ogni forma corrisponde a un tipo di collegamento diverso — non a caso le spine entrano solo nella porta giusta. 
- 
- USB — la più comune: chiavette, mouse, tastiere, ricarica. 
- HDMI — collega monitor, TV e proiettori (video + audio). 
- Jack audio — per cuffie e casse. 
- Ethernet — per connettersi a internet via cavo. 
- 
- 
- 
- 
- 
- 
- 
- 
- USB 
- 
- 
- HDMI 
- 
- 
- 
- Jack audio 
- 
- 
- 
- Ethernet 
- 
- 
- Ogni porta ha una forma diversa 
- 
- 
- 14 / 21
-Fonti ufficiali:
-- Documenti e specifiche USB — USB-IF — https://www.usb.org/documents
-- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
+ 🖥️ Schermo Mostra immagini e testo.
+ 🔈 Casse / cuffie Fanno sentire i suoni.
+ 🖨️ Stampante Mette su carta i documenti.
+ 📽️ Proiettore Ingrandisce su parete.
+
+ Output = dal computer → al mondo
+
+ 13 / 21
 
 --- Slide 17 ---
-Punto di partenza 
- Cos'è una connessione ? 
- Essere sempre connessi è ormai una necessità della vita digitale. Una connessione è semplicemente il modo in cui due dispositivi comunicano e si scambiano dati tra loro. 
- Connettersi bene significa avere accesso alle informazioni in modo ordinato , poterle conservare in digitale e gestirle da luoghi e dispositivi diversi — anche in più persone contemporaneamente. 
- 
- 💡 Pensaci 
- Quando mandi un messaggio, guardi un video o stampi un documento dal telefono, stai usando una connessione. Cambia solo come avviene. 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- dati ⇄ dati 
- 
- Connettere = far parlare due dispositivi
+Le porte
+ Le porte sono i connettori sul computer dove colleghiamo cavi e accessori. Ogni forma corrisponde a un tipo di collegamento diverso — non a caso le spine entrano solo nella porta giusta.
+
+ USB — la più comune: chiavette, mouse, tastiere, ricarica.
+ HDMI — collega monitor, TV e proiettori (video + audio).
+ Jack audio — per cuffie e casse.
+ Ethernet — per connettersi a internet via cavo.
+
+
+
+
+
+
+
+
+ USB
+
+
+ HDMI
+
+
+
+ Jack audio
+
+
+
+ Ethernet
+
+
+ Ogni porta ha una forma diversa
+
+
+ 14 / 21
+ [Fonte: Documenti e specifiche USB — USB-IF — https://www.usb.org/documents]
 
 --- Slide 18 ---
+Punto di partenza
+ Cos'è una connessione ?
+ Essere sempre connessi è ormai una necessità della vita digitale. Una connessione è semplicemente il modo in cui due dispositivi comunicano e si scambiano dati tra loro.
+ Connettersi bene significa avere accesso alle informazioni in modo ordinato , poterle conservare in digitale e gestirle da luoghi e dispositivi diversi — anche in più persone contemporaneamente.
 
- Due domande, sempre le stesse 
- Di fronte a qualsiasi connessione, possiamo farci due domande. Le risposte ci dicono subito di che tipo si tratta. 
- 
- 
- 🔌 
- Via cavo o wireless? 
- Passa attraverso un filo fisico (cavo) oppure “vola” nell'aria tramite onde radio (senza fili)? 
- 
- 
- 🌍 
- Locale o globale? 
- Collega solo dispositivi vicini tra loro (locale) oppure passa per Internet raggiungendo tutto il mondo (globale)? 
- 
- 
- 
- In breve: con cosa viaggiano i dati, e fin dove arrivano.
+ 💡 Pensaci
+ Quando mandi un messaggio, guardi un video o stampi un documento dal telefono, stai usando una connessione. Cambia solo come avviene.
+
+
+
+
+
+
+
+
+
+
+
+
+ dati ⇄ dati
+
+ Connettere = far parlare due dispositivi
 
 --- Slide 19 ---
+Due domande, sempre le stesse
+ Di fronte a qualsiasi connessione, possiamo farci due domande. Le risposte ci dicono subito di che tipo si tratta.
 
- Il cavo USB 
- La connessione USB è la più diffusa: è considerata quasi universale perché funziona con moltissimi dispositivi — chiavette, mouse, tastiere, telefoni — e spesso serve anche a ricaricare . 
- Ne esistono diversi connettori, cambiati nel tempo per essere più piccoli e più veloci: 
- 
- USB-A Mini USB Micro USB USB-C 
- 
- 
- 💡 USB-C 
- È il più recente: piccolo, veloce e reversibile (entra in qualsiasi verso). Ormai è lo standard di telefoni e portatili. 
- 
- 
- 
- 
- 
- 
- USB-A 
- USB-C 
- 
- Micro USB 
- 
- 
- Connettori diversi, stessa famiglia
-Fonti ufficiali:
-- Documenti e specifiche USB — USB-IF — https://www.usb.org/documents
+
+ 🔌
+ Via cavo o wireless?
+ Passa attraverso un filo fisico (cavo) oppure “vola” nell'aria tramite onde radio (senza fili)?
+
+
+ 🌍
+ Locale o globale?
+ Collega solo dispositivi vicini tra loro (locale) oppure passa per Internet raggiungendo tutto il mondo (globale)?
+
+
+
+ In breve: con cosa viaggiano i dati, e fin dove arrivano.
 
 --- Slide 20 ---
+Il cavo USB
+ La connessione USB è la più diffusa: è considerata quasi universale perché funziona con moltissimi dispositivi — chiavette, mouse, tastiere, telefoni — e spesso serve anche a ricaricare .
+ Ne esistono diversi connettori, cambiati nel tempo per essere più piccoli e più veloci:
 
- Cavi per andare in rete 
- Per collegare computer tra loro e portare Internet in casa esistono cavi dedicati, ognuno con un compito preciso. 
- 
- 🖧 Ethernet Collega il PC alla rete locale e a Internet via cavo. Stabile e veloce: ideale dove serve affidabilità. 
- 📞 Cavo telefonico La vecchia linea telefonica, usata per anni per portare Internet (ADSL) nelle case. 
- 💡 Fibra ottica Trasmette i dati con la luce : velocissima, è oggi il modo migliore per navigare. 
- 
- 
- 💡 Perché il cavo, oggi? 
- Anche con il WiFi ovunque, il cavo resta utile dove conta la stabilità : niente cadute di segnale, velocità costante. Per questo i router e i PC fissi spesso si collegano via Ethernet.
-Fonti ufficiali:
-- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
+ USB-A Mini USB Micro USB USB-C
+
+
+ 💡 USB-C
+ È il più recente: piccolo, veloce e reversibile (entra in qualsiasi verso). Ormai è lo standard di telefoni e portatili.
+
+
+
+
+
+
+ USB-A
+ USB-C
+
+ Micro USB
+
+
+ Connettori diversi, stessa famiglia
 
 --- Slide 21 ---
-I dati “volano” come onde radio 
- 
- 
+Cavi per andare in rete
+ Per collegare computer tra loro e portare Internet in casa esistono cavi dedicati, ognuno con un compito preciso.
 
- Le connessioni wireless 
- Wireless viene dall'inglese wire (cavo) + less (senza): letteralmente “senza cavo” . I dati viaggiano nell'aria sotto forma di onde radio . 
- È la base dell'interconnessione moderna: telefoni, computer e mille altri oggetti “intelligenti” comunicano tra loro e con Internet senza un solo filo. Vediamo i tipi più importanti. 
- 
- WiFi Bluetooth 3G/4G/5G Infrarossi
-Fonti ufficiali:
-- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
-- Specifiche Bluetooth — Bluetooth SIG — https://www.bluetooth.com/specifications/specs/
+ 🖧 Ethernet Collega il PC alla rete locale e a Internet via cavo. Stabile e veloce: ideale dove serve affidabilità.
+ 📞 Cavo telefonico La vecchia linea telefonica, usata per anni per portare Internet (ADSL) nelle case.
+ 💡 Fibra ottica Trasmette i dati con la luce : velocissima, è oggi il modo migliore per navigare.
+
+
+ 💡 Perché il cavo, oggi?
+ Anche con il WiFi ovunque, il cavo resta utile dove conta la stabilità : niente cadute di segnale, velocità costante. Per questo i router e i PC fissi spesso si collegano via Ethernet.
+
+
+
+ [Fonte: Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi]
 
 --- Slide 22 ---
+I dati “volano” come onde radio
 
- Il WiFi 
- Il WiFi permette di collegarsi a una rete locale o a Internet senza fili , con una buona velocità adatta a quasi tutte le attività online: navigare, guardare video, lavorare. 
- È diffusissimo in case e aziende per collegare computer, smartphone e dispositivi intelligenti. Funziona entro un certo raggio attorno al router: più ti allontani (o più muri ci sono), più il segnale cala. 
- 
- 💡 Il router 
- È la “scatola” che porta Internet in casa e crea la rete WiFi. La password serve a impedire che gli estranei usino (o spiino) la tua connessione. 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- Il router diffonde il segnale tutt'intorno
-Fonti ufficiali:
-- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
-- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
+
+
+ Le connessioni wireless
+ Wireless viene dall'inglese wire (cavo) + less (senza): letteralmente “senza cavo” . I dati viaggiano nell'aria sotto forma di onde radio .
+ È la base dell'interconnessione moderna: telefoni, computer e mille altri oggetti “intelligenti” comunicano tra loro e con Internet senza un solo filo. Vediamo i tipi più importanti.
+
+ WiFi Bluetooth 3G/4G/5G Infrarossi
+
+
+
+
+ [Fonte: Specifiche Bluetooth — Bluetooth SIG — https://www.bluetooth.com/specifications/specs/]
 
 --- Slide 23 ---
-Il celebre simbolo del Bluetooth 
- 
- 
+Il WiFi
+ Il WiFi permette di collegarsi a una rete locale o a Internet senza fili , con una buona velocità adatta a quasi tutte le attività online: navigare, guardare video, lavorare.
+ È diffusissimo in case e aziende per collegare computer, smartphone e dispositivi intelligenti. Funziona entro un certo raggio attorno al router: più ti allontani (o più muri ci sono), più il segnale cala.
 
- Il Bluetooth 
- Il Bluetooth è perfetto per le connessioni a corto raggio tra dispositivi vicini: auricolari, cuffie, tastiere, casse, smartwatch. 
- Offre un collegamento semplice e veloce da attivare (basta “accoppiare” i due dispositivi una volta) ed è prezioso per far dialogare i nostri gadget personali senza cavi. 
- Differenza: il WiFi porta Internet in tutta la casa, il Bluetooth collega due oggetti vicini.
-Fonti ufficiali:
-- Specifiche Bluetooth — Bluetooth SIG — https://www.bluetooth.com/specifications/specs/
-- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
+ 💡 Il router
+ È la “scatola” che porta Internet in casa e crea la rete WiFi. La password serve a impedire che gli estranei usino (o spiino) la tua connessione.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Il router diffonde il segnale tutt'intorno
 
 --- Slide 24 ---
+Il celebre simbolo del Bluetooth
 
- 3G, 4G, 5G: internet ovunque 
- Sono le connessioni dei telefoni: senza fili, funzionano anche fuori casa grazie alle antenne sparse sul territorio. Ogni “generazione” (G = generation ) è più veloce della precedente. 
- 
- 📶 3G La prima vera Internet mobile. Lenta per gli standard di oggi. 
- 📶 4G Veloce: ha reso normali video e social in mobilità. 
- 📶 5G Velocissima e reattiva, l'ultima arrivata. 
- 🗼 Antenne Più sei vicino e meno ostacoli ci sono, più il segnale è forte. 
- 
- 
- 💡 Cosa cambia tra una G e l'altra 
- Cambiano il protocollo (il “linguaggio” con cui si trasmettono i dati), la velocità e la portata del segnale . Il principio però è sempre lo stesso: dati che viaggiano via onde fino all'antenna più vicina.
+
+
+ Il Bluetooth
+ Il Bluetooth è perfetto per le connessioni a corto raggio tra dispositivi vicini: auricolari, cuffie, tastiere, casse, smartwatch.
+ Offre un collegamento semplice e veloce da attivare (basta “accoppiare” i due dispositivi una volta) ed è prezioso per far dialogare i nostri gadget personali senza cavi.
+ Differenza: il WiFi porta Internet in tutta la casa, il Bluetooth collega due oggetti vicini.
 
 --- Slide 25 ---
+3G, 4G, 5G: internet ovunque
+ Sono le connessioni dei telefoni: senza fili, funzionano anche fuori casa grazie alle antenne sparse sul territorio. Ogni “generazione” (G = generation ) è più veloce della precedente.
 
- Gli infrarossi 
- Sono le trasmissioni usate dalla maggior parte dei telecomandi . Funzionano a cortissimo raggio e in linea retta, e costano pochissimo. 
- Il loro limite — la corta distanza — è in realtà un vantaggio : non sarebbe comodo se il telecomando del salotto cambiasse anche il canale della TV del vicino! Per questo restano perfetti dove serve un comando “mirato” e vicino. 
- 
- 💡 Curiosità 
- La luce a infrarossi è invisibile ai nostri occhi, ma una fotocamera di telefono spesso riesce a “vederla”: prova a inquadrare un telecomando mentre premi un tasto. 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- Vicino e “in linea”: il telecomando
+ 📶 3G La prima vera Internet mobile. Lenta per gli standard di oggi.
+ 📶 4G Veloce: ha reso normali video e social in mobilità.
+ 📶 5G Velocissima e reattiva, l'ultima arrivata.
+ 🗼 Antenne Più sei vicino e meno ostacoli ci sono, più il segnale è forte.
+
+
+ 💡 Cosa cambia tra una G e l'altra
+ Cambiano il protocollo (il “linguaggio” con cui si trasmettono i dati), la velocità e la portata del segnale . Il principio però è sempre lo stesso: dati che viaggiano via onde fino all'antenna più vicina.
 
 --- Slide 26 ---
-02 · Software 
- I programmi che non puoi toccare 
- Il software è l'insieme dei programmi e delle istruzioni che permettono al computer di svolgere compiti specifici. Sono elementi immateriali : non li tocchi, ma senza di loro l'hardware sarebbe solo una scatola di metallo e plastica. 
- 
- 🪟 Sistema operativo Il software di base che fa funzionare tutto il resto. 
- 🌐 Browser Per navigare in internet. 
- 📄 Programmi Word, Excel, giochi, app: ognuno fa un compito. 
- 
- Ricorda: hardware = corpo · software = mente 
- 
- 15 / 21
-Fonti ufficiali:
-- Supporto Microsoft Excel — https://support.microsoft.com/excel
+Gli infrarossi
+ Sono le trasmissioni usate dalla maggior parte dei telecomandi . Funzionano a cortissimo raggio e in linea retta, e costano pochissimo.
+ Il loro limite — la corta distanza — è in realtà un vantaggio : non sarebbe comodo se il telecomando del salotto cambiasse anche il canale della TV del vicino! Per questo restano perfetti dove serve un comando “mirato” e vicino.
+
+ 💡 Curiosità
+ La luce a infrarossi è invisibile ai nostri occhi, ma una fotocamera di telefono spesso riesce a “vederla”: prova a inquadrare un telecomando mentre premi un tasto.
+
+
+
+
+
+
+
+
+
+
+
+
+ Vicino e “in linea”: il telecomando
 
 --- Slide 27 ---
+02 · Software
+ I programmi che non puoi toccare
+ Il software è l'insieme dei programmi e delle istruzioni che permettono al computer di svolgere compiti specifici. Sono elementi immateriali : non li tocchi, ma senza di loro l'hardware sarebbe solo una scatola di metallo e plastica.
 
- Il sistema operativo 
- È il software di base che controlla il computer e consente a tutti gli altri programmi di funzionare. È la prima cosa che si avvia quando accendi il PC. 
- Gestisce lo schermo, i file, le periferiche e fa da “traduttore” tra te e l'hardware. Ne esistono diversi, ognuno con il suo stile — ma il compito è sempre lo stesso. 
- 
- Attenzione 
- Il sistema operativo dei computer è diverso da quello degli smartphone: Android e iOS sono pensati per il touch, Windows e macOS per mouse e tastiera. 
- 
- 
- 
- 🪟 Windows Il più diffuso sui PC di tutto il mondo. 
- 🍎 macOS Il sistema dei computer Apple (Mac). 
- 🐧 Linux Gratuito e libero, molto usato dai tecnici. 
- 
- 
- 16 / 21
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
-- Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
+ 🪟 Sistema operativo Il software di base che fa funzionare tutto il resto.
+ 🌐 Browser Per navigare in internet.
+ 📄 Programmi Word, Excel, giochi, app: ognuno fa un compito.
+
+ Ricorda: hardware = corpo · software = mente
+
+ 15 / 21
 
 --- Slide 28 ---
-https:// 
- 
- 
- 
- 
- 
- 
- Una finestra di browser 
- 
- 
+Il sistema operativo
+ È il software di base che controlla il computer e consente a tutti gli altri programmi di funzionare. È la prima cosa che si avvia quando accendi il PC.
+ Gestisce lo schermo, i file, le periferiche e fa da “traduttore” tra te e l'hardware. Ne esistono diversi, ognuno con il suo stile — ma il compito è sempre lo stesso.
 
- Il browser 
- Un browser è l'applicazione che permette di accedere a internet e visitare i siti web . È la finestra attraverso cui guardi tutto il web. 
- Esempi: Chrome , Firefox , Safari , Edge . Il nome deriva dal verbo inglese to browse , che significa “sfogliare” — proprio come si sfogliano le pagine di una rivista. 
- 
- Chrome Firefox Safari Edge 
- 
- 
- 
- 17 / 21
+ Attenzione
+ Il sistema operativo dei computer è diverso da quello degli smartphone: Android e iOS sono pensati per il touch, Windows e macOS per mouse e tastiera.
+
+
+
+ 🪟 Windows Il più diffuso sui PC di tutto il mondo.
+ 🍎 macOS Il sistema dei computer Apple (Mac).
+ 🐧 Linux Gratuito e libero, molto usato dai tecnici.
+
+
+ 16 / 21
+ [Fonte: Guida ufficiale Android — https://support.google.com/android/] [Fonte: Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios]
 
 --- Slide 29 ---
+https://
 
- La suite per ufficio 
- Una suite office riunisce i programmi che servono per usare il PC come strumento di studio e di lavoro. I tre più usati: 
- 
- 
- 📝 Word 
- Per scrivere : lettere, relazioni, curriculum, documenti di ogni tipo. 
- 
- 
- 📊 Excel 
- Per i fogli di calcolo : tabelle, conti, grafici e numeri. 
- 
- 
- 📽️ PowerPoint 
- Per le presentazioni con diapositive, come questa. 
- 
- 
- 
- 💡 Buono a sapersi 
- Microsoft Office non è l'unica scelta: esistono alternative gratuite come Google Documenti / Fogli / Presentazioni e LibreOffice , che fanno le stesse cose. 
- 
- 
- 18 / 21
-Fonti ufficiali:
-- Supporto Microsoft Word — https://support.microsoft.com/word
-- Supporto Microsoft Excel — https://support.microsoft.com/excel
+
+
+
+
+
+ Una finestra di browser
+
+
+
+ Il browser
+ Un browser è l'applicazione che permette di accedere a internet e visitare i siti web . È la finestra attraverso cui guardi tutto il web.
+ Esempi: Chrome , Firefox , Safari , Edge . Il nome deriva dal verbo inglese to browse , che significa “sfogliare” — proprio come si sfogliano le pagine di una rivista.
+
+ Chrome Firefox Safari Edge
+
+
+
+ 17 / 21
 
 --- Slide 30 ---
+La suite per ufficio
+ Una suite office riunisce i programmi che servono per usare il PC come strumento di studio e di lavoro. I tre più usati:
 
- La mappa del computer 
- 
- 
- 🧰 Hardware — il corpo 
- 
- CPU = il cervello · RAM = memoria a breve termine · Hard disk = memoria a lungo termine · Scheda madre = collega tutto · Schede video/audio = immagini e suono · Alimentatore = energia · Periferiche = input e output.
- 
- 
- 
- 🧠 Software — la mente 
- 
- Sistema operativo = la base che fa funzionare tutto · Browser = per internet · Suite ufficio = Word, Excel, PowerPoint per studiare e lavorare.
- 
- 
- 
- 
- In una frase: l'hardware è il corpo, il software è la mente. Insieme fanno il computer.
- 
- 
- 19 / 21
-Fonti ufficiali:
-- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
-- Supporto Microsoft Excel — https://support.microsoft.com/excel
+
+ 📝 Word
+ Per scrivere : lettere, relazioni, curriculum, documenti di ogni tipo.
+
+
+ 📊 Excel
+ Per i fogli di calcolo : tabelle, conti, grafici e numeri.
+
+
+ 📽️ PowerPoint
+ Per le presentazioni con diapositive, come questa.
+
+
+
+ 💡 Buono a sapersi
+ Microsoft Office non è l'unica scelta: esistono alternative gratuite come Google Documenti / Fogli / Presentazioni e LibreOffice , che fanno le stesse cose.
+
+
+ 18 / 21
 
 --- Slide 31 ---
+La mappa del computer
+
+
+ 🧰 Hardware — il corpo
+
+ CPU = il cervello · RAM = memoria a breve termine · Hard disk = memoria a lungo termine · Scheda madre = collega tutto · Schede video/audio = immagini e suono · Alimentatore = energia · Periferiche = input e output.
+
+
+
+ 🧠 Software — la mente
+
+ Sistema operativo = la base che fa funzionare tutto · Browser = per internet · Suite ufficio = Word, Excel, PowerPoint per studiare e lavorare.
+
+
+
+
+ In una frase: l'hardware è il corpo, il software è la mente. Insieme fanno il computer.
+
+
+ 19 / 21
+
+--- Slide 32 ---
 Bravi! 
  CPU, RAM, scheda madre, hard disk, periferiche di input e output: le componenti che insieme formano un computer funzionante. 
  
- Prossimo → HS02 · Hard disk e file system
+ Prossimo → HS02 · Hard disk e file system 
+ 
+ Fonti e approfondimenti CPU — Wikipedia ↗ RAM — Wikipedia ↗ Unicode Standard ↗ Documenti e specifiche USB — USB-IF ↗ Wi-Fi — Wi-Fi Alliance ↗ Specifiche Bluetooth — Bluetooth SIG ↗ Guida ufficiale Android ↗ Manuale utente iPhone — Apple ↗
+

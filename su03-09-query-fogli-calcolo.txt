@@ -2,15 +2,15 @@ Suite Ufficio · SU03.09 — Query nei fogli di calcolo
 ====================================================
 
 --- Slide 1 ---
-Fogli di calcolo · SU03.09 Query nei
-fogli Estrarre, filtrare, ordinare, raggruppare e combinare dati con QUERY di Google Sheets, Power Query di Excel e logica SQL di base. tabella sorgente
-↓ condizioni
+Query nei
+ fogli Estrarre, filtrare, ordinare, raggruppare e combinare dati con QUERY di Google Sheets, Power Query di Excel e logica SQL di base. tabella sorgente
+ ↓ condizioni
 query
-↓ risultato
+ ↓ risultato
 vista aggiornata
 
 --- Slide 2 ---
-Percorso Cosa vedremo 01 · Che cos’è una query 02 · SELECT, WHERE, ORDER BY 03 · La funzione QUERY in Google Sheets 04 · Scegliere solo le colonne utili 05 · Condizioni numeriche, testuali e date 06 · Ordinare e limitare i risultati 07 · GROUP BY: riassumere per categoria 08 · PIVOT nella QUERY di Sheets 09 · Power Query in Excel 10 · Unire tabelle con una chiave 11 · Query come pipeline di pulizia 12 · Come controllare una query Fonte: Guida ufficiale Google Sheets ↗ Fonte: Supporto Microsoft Excel ↗
+Percorso Cosa vedremo 01 Che cos’è una query 02 SELECT 03 La funzione QUERY in Google Sheets 04 Scegliere solo le colonne utili 05 Condizioni numeriche 06 Ordinare e limitare i risultati 07 GROUP BY 08 PIVOT nella QUERY di Sheets 09 Power Query in Excel 10 Unire tabelle con una chiave 11 Query come pipeline di pulizia 12 Come controllare una query
 
 --- Slide 3 ---
 Concetto Che cos’è una query Una query è una richiesta strutturata: prendi questi dati, tieni solo certe righe, scegli certe colonne, ordina o raggruppa il risultato. Non copia Il risultato dipende dalla sorgente e può aggiornarsi. Non formula singola Lavora su tabelle intere, non solo su una cella. Domanda esplicita “Mostrami le vendite 2026 per categoria sopra 500 euro”. Regola: prima scegli le righe, poi le colonne, infine l'ordine.
@@ -65,5 +65,5 @@ Pulizia Query come pipeline di pulizia Invece di correggere manualmente ogni esp
 Debug Come controllare una query Le query vanno testate a piccoli passi: prima selezione, poi filtro, poi ordinamento, poi aggregazione. Così l’errore resta localizzabile. Parti semplice Verifica che l’intervallo sia giusto. Aggiungi condizioni Una clausola alla volta. Conta righe Controlla se il numero di risultati ha senso. Confronta manualmente Verifica un piccolo campione a mano.
 
 --- Slide 15 ---
-Una query è una domanda ripetibile fatta ai dati. Quando la domanda è scritta bene, il report si aggiorna invece di essere ricostruito a mano. Torna all'indice
+Una query è una domanda ripetibile fatta ai dati. Quando la domanda è scritta bene, il report si aggiorna invece di essere ricostruito a mano. Torna all'indice Fonti e approfondimenti SQL — Wikipedia ↗ Guida ufficiale Google Sheets ↗ Supporto Microsoft Excel ↗
 

@@ -2,121 +2,167 @@ Suite Ufficio · SU12 — Tabelle pivot
 ====================================
 
 --- Slide 1 ---
-Fogli di calcolo · SU03.07
 Tabelle
-pivot
-Riassumere grandi tabelle senza scrivere formule: righe, colonne, valori, filtri e lettura dei risultati.
+ pivot 
+ Riassumere grandi tabelle senza scrivere formule: righe, colonne, valori, filtri e lettura dei risultati. 
 
-
-📊
+ 
+ 📊
 
 --- Slide 2 ---
-
-Quando la tabella è troppo lunga
-Una tabella pivot prende un elenco di righe e lo trasforma in un riepilogo leggibile. Non modifica i dati originali: crea una vista aggregata per rispondere a domande come "quanto abbiamo venduto per mese?", "quale servizio rende di più?", "chi ha più appuntamenti?".
-In pratica: la pivot è un report automatico sopra una tabella grezza.
-Esempio: da una tabella con Data, Servizio, Operatore e Incasso si ottiene un riepilogo per servizio con il totale incasso.
+Percorso Cosa vedremo 01 Quando la tabella è troppo lunga 02 Prima regola 03 Da tabella a pivot 04 Righe 05 Incasso per servizio 06 Confronto per mese 07 Somma 08 Vedere solo ciò che serve 09 Aggiornare una pivot 10 Quando la pivot mente 11 Sapresti costruirla
 
 --- Slide 3 ---
-
-Prima regola: una riga = un record
-La pivot funziona bene solo se la tabella di partenza è ordinata come un database: intestazioni chiare, nessuna riga vuota, nessuna cella unita, ogni colonna con un solo tipo di informazione.
-Intestazioni: ogni colonna deve avere un nome: Data, Servizio, Operatore, Importo, Sede.
-Formato tabella: niente totali intermedi dentro i dati. I totali li calcola la pivot.
-Dati puliti: stesso servizio scritto sempre allo stesso modo: "Taglio" non "taglio" o "taglio capelli".
-Numeri veri: gli importi devono essere numeri, non testo con simboli scritti a mano.
-Regola pratica: se una tabella si può filtrare e ordinare senza rompere il contenuto, di solito è pronta per una pivot.
+Quando la tabella è troppo lunga 
+ Una tabella pivot prende un elenco di righe e lo trasforma in un riepilogo leggibile. Non modifica i dati originali: crea una vista aggregata per rispondere a domande come "quanto abbiamo venduto per mese?", "quale servizio rende di più?", "chi ha più appuntamenti?". 
+ In pratica: la pivot è un report automatico sopra una tabella grezza. 
+ 
+ 
+ 
+ Data Servizio Operatore Incasso 
+ 03/01 Taglio Anna 35 
+ 03/01 Colore Luca 70 
+ 04/01 Piega Anna 25 
+ 05/01 Colore Marta 80 
+ 
+ ↓ 
+ 
+ Servizio Totale incasso 
+ Colore 150 
+ Taglio 35 
+ Piega 25
 
 --- Slide 4 ---
-
-Da tabella a pivot
-In Excel e Google Sheets il flusso è quasi identico: selezioni la tabella, scegli Inserisci → Tabella pivot e decidi dove creare il report. Il lavoro vero inizia nel pannello dei campi.
-Excel: seleziona i dati → Inserisci → Tabella pivot → nuovo foglio o foglio esistente.
-Google Sheets: seleziona i dati → Inserisci → Tabella pivot → nuovo foglio. Sheets può proporre riepiloghi automatici.
-Passaggi: seleziona dati, inserisci pivot, scegli campi, leggi report.
-Fonti ufficiali:
-- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
-- Supporto Microsoft Excel — https://support.microsoft.com/excel
+Prima regola: una riga = un record 
+ La pivot funziona bene solo se la tabella di partenza è ordinata come un database: intestazioni chiare, nessuna riga vuota, nessuna cella unita, ogni colonna con un solo tipo di informazione. 
+ 
+ 🏷 Intestazioni Ogni colonna deve avere un nome: Data, Servizio, Operatore, Importo, Sede. 
+ 📏 Formato tabella Niente totali intermedi dentro i dati. I totali li calcola la pivot. 
+ 🧹 Dati puliti Stesso servizio scritto sempre allo stesso modo: "Taglio" non "taglio" o "taglio capelli". 
+ 🔢 Numeri veri Gli importi devono essere numeri, non testo con simboli scritti a mano. 
+ 
+ Regola pratica Se una tabella si può filtrare e ordinare senza rompere il contenuto, di solito è pronta per una pivot.
 
 --- Slide 5 ---
-
-Righe, colonne, valori, filtri
-Una pivot è costruita spostando campi in quattro aree. Il campo è sempre una colonna della tabella sorgente.
-Righe: decidono le categorie verticali: Servizio, Operatore, Cliente, Mese.
-Colonne: creano il confronto orizzontale: anni, mesi, sedi, canali.
-Valori: contengono i numeri da sommare, contare, mediare o confrontare.
-Filtri: limitano il report: solo 2026, solo Milano, solo servizi attivi.
-Domanda guida: "Voglio vedere quale numero, diviso per quale categoria, con quali limiti?"
+Da tabella a pivot 
+ In Excel e Google Sheets il flusso è quasi identico: selezioni la tabella, scegli Inserisci → Tabella pivot e decidi dove creare il report. Il lavoro vero inizia nel pannello dei campi. 
+ Excel Seleziona i dati → Inserisci → Tabella pivot → nuovo foglio o foglio esistente. 
+ Google Sheets Seleziona i dati → Inserisci → Tabella pivot → nuovo foglio. Sheets può proporre riepiloghi automatici. 
+ 
+ 
+ 1. Seleziona dati A1:E500 
+ 2. Inserisci pivot Nuovo foglio 
+ 3. Scegli campi Righe / Valori 
+ 4. Leggi report Totali e confronti 
+ 
+ 
+ 
+ Fonte: Guida ufficiale Google Sheets ↗ Fonte: Supporto Microsoft Excel ↗
 
 --- Slide 6 ---
-
-Incasso per servizio
-Per sapere quali servizi generano più ricavi, metti Servizio nelle righe e Incasso nei valori con aggregazione Somma.
-Righe: Servizio.
-Valori: Somma di Incasso.
-Ordina: dal più alto.
-Esempio riepilogo: Colore 1.820, Taglio 1.140, Trattamento 860, Piega 720.
-Lettura: la pivot non dice solo "quanto": mostra subito dove concentrare attenzione, promozioni e risorse.
+Righe, colonne, valori, filtri 
+ Una pivot è costruita spostando campi in quattro aree. Il campo è sempre una colonna della tabella sorgente. 
+ 
+ ↕ Righe Decidono le categorie verticali: Servizio, Operatore, Cliente, Mese. 
+ ↔ Colonne Creano il confronto orizzontale: anni, mesi, sedi, canali. 
+ Σ Valori Contengono i numeri da sommare, contare, mediare o confrontare. 
+ 🔍 Filtri Limitano il report: solo 2026, solo Milano, solo servizi attivi. 
+ 
+ Domanda guida: "Voglio vedere quale numero, diviso per quale categoria, con quali limiti?"
 
 --- Slide 7 ---
-
-Confronto per mese
-Aggiungendo un campo nelle colonne, la pivot diventa una matrice. Le righe mostrano i servizi, le colonne mostrano i mesi, i valori sommano gli incassi.
-Righe: Servizio.
-Colonne: Mese.
-Valori: Somma Incasso.
-Esempio: per il servizio Colore si confrontano Gennaio, Febbraio, Marzo e il totale.
+Incasso per servizio 
+ Per sapere quali servizi generano più ricavi, metti Servizio nelle righe e Incasso nei valori con aggregazione Somma. 
+ 
+ Righe Servizio 
+ Valori Somma di Incasso 
+ Ordina Dal più alto 
+ 
+ 
+ 
+ 
+ Servizio Somma incasso 
+ Colore 1.820 
+ Taglio 1.140 
+ Trattamento 860 
+ Piega 720 
+ 
+ Lettura La pivot non dice solo "quanto": mostra subito dove concentrare attenzione, promozioni e risorse.
 
 --- Slide 8 ---
-
-Somma, conteggio, media
-Il campo Valori non deve per forza sommare. Cambiare aggregazione cambia completamente la domanda a cui stai rispondendo.
-Somma: quanto incasso totale per servizio, mese, sede o operatore?
-Conteggio: quanti appuntamenti, clienti, ordini o righe appartengono a ogni categoria?
-Media: qual è il valore medio di uno scontrino, di una durata o di una valutazione?
-Errore frequente: se un importo viene contato invece che sommato, probabilmente è memorizzato come testo. Controlla il formato della colonna sorgente.
-Buona pratica: rinomina i valori. "Somma di Incasso" può diventare "Incasso totale", più leggibile per chi consulta il report.
+Confronto per mese 
+ Aggiungendo un campo nelle colonne, la pivot diventa una matrice. Le righe mostrano i servizi, le colonne mostrano i mesi, i valori sommano gli incassi. 
+ 
+ Righe Servizio 
+ Colonne Mese 
+ Valori Somma Incasso 
+ 
+ 
+ 
+ 
+ Servizio Gen Feb Mar Totale 
+ Colore 600 540 680 1.820 
+ Taglio 390 360 390 1.140 
+ Piega 210 250 260 720
 
 --- Slide 9 ---
-
-Vedere solo ciò che serve
-I filtri limitano il report senza cancellare dati. Puoi analizzare un solo anno, una sola sede, un operatore specifico o un insieme di servizi.
-Excel: usa filtri nel pannello pivot oppure aggiungi segmentazioni dati per controlli visuali.
-Google Sheets: usa Filtri nel pannello editor o aggiungi slicer da Dati → Aggiungi filtro dei dati.
-Esempi di filtro: anno 2026, sede Centro, tutti gli operatori, solo servizi Colore e Taglio.
-Fonti ufficiali:
-- Supporto Microsoft Excel — https://support.microsoft.com/excel
-- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
+Somma, conteggio, media 
+ Il campo Valori non deve per forza sommare. Cambiare aggregazione cambia completamente la domanda a cui stai rispondendo. 
+ 
+ Σ Somma Quanto incasso totale per servizio, mese, sede o operatore? 
+ # Conteggio Quanti appuntamenti, clienti, ordini o righe appartengono a ogni categoria? 
+ Ø Media Qual è il valore medio di uno scontrino, di una durata o di una valutazione? 
+ 
+ 
+ Errore frequente Se un importo viene contato invece che sommato, probabilmente è memorizzato come testo. Controlla il formato della colonna sorgente. 
+ Buona pratica Rinomina i valori: "Somma di Incasso" può diventare "Incasso totale", più leggibile per chi consulta il report.
 
 --- Slide 10 ---
-
-Aggiornare una pivot
-La pivot non è la tabella sorgente: è un report generato. Quando i dati cambiano, bisogna assicurarsi che il report venga aggiornato e che il range includa le nuove righe.
-Aggiorna: in Excel usa Aggiorna. In Sheets molte pivot si aggiornano automaticamente, ma il range deve includere i dati.
-Range dinamico: usa una tabella Excel o un intervallo ampio in Sheets per non escludere righe future.
-Campi rinominati: se cambi nome a una colonna sorgente, la pivot può perdere il campo. Meglio stabilizzare le intestazioni.
-Regola: aggiungi dati in fondo alla tabella sorgente, non dentro il report pivot.
-Fonti ufficiali:
-- Supporto Microsoft Excel — https://support.microsoft.com/excel
+Vedere solo ciò che serve 
+ I filtri limitano il report senza cancellare dati. Puoi analizzare un solo anno, una sola sede, un operatore specifico o un insieme di servizi. 
+ Excel Usa filtri nel pannello pivot oppure aggiungi segmentazioni dati per controlli visuali. 
+ Google Sheets Usa Filtri nel pannello editor o aggiungi slicer da Dati → Aggiungi filtro dei dati. 
+ 
+ 
+ Filtro anno 2026 
+ Filtro sede Centro 
+ Filtro operatore Tutti 
+ Filtro servizio Colore + Taglio
 
 --- Slide 11 ---
-
-Quando la pivot mente
-La pivot calcola correttamente quello che le dai. Se il risultato sembra sbagliato, quasi sempre il problema è nella tabella sorgente o nella scelta dei campi.
-Categorie duplicate: "Colore", "colore" e "Colore " diventano categorie diverse. Pulire prima i testi.
-Numeri come testo: gli importi vengono contati invece che sommati. Convertire la colonna in numero.
-Range incompleto: nuove righe fuori dal range non entrano nel report. Allargare il range o usare una tabella.
-Checklist prima di fidarti: conta righe sorgente, controlla intestazioni, verifica aggregazione dei valori, ordina i totali e confronta un totale a mano su un piccolo campione.
+Aggiornare una pivot 
+ La pivot non è la tabella sorgente: è un report generato. Quando i dati cambiano, bisogna assicurarsi che il report venga aggiornato e che il range includa le nuove righe. 
+ 
+ 🔄 Aggiorna In Excel usa Aggiorna. In Sheets molte pivot si aggiornano automaticamente, ma il range deve includere i dati. 
+ 📐 Range dinamico Usa una tabella Excel o un intervallo ampio in Sheets per non escludere righe future. 
+ ⚠️ Campi rinominati Se cambi nome a una colonna sorgente, la pivot può perdere il campo. Meglio stabilizzare le intestazioni. 
+ 
+ Regola: aggiungi dati in fondo alla tabella sorgente, non dentro il report pivot.
 
 --- Slide 12 ---
-
-Sapresti costruirla?
-Incassi mensili: hai colonne Data, Servizio, Operatore, Incasso. Dove metti Data/Mese, Servizio e Incasso per vedere gli incassi dei servizi mese per mese?
-Numero appuntamenti: quale aggregazione usi per sapere quanti appuntamenti ha gestito ogni operatore?
-Solo una sede: come mostri il report solo per la sede "Centro" senza cancellare le altre righe dai dati sorgente?
-Totale strano: la pivot conta gli importi invece di sommarli. Quale controllo fai sulla colonna Incasso?
+Quando la pivot mente 
+ La pivot calcola correttamente quello che le dai. Se il risultato sembra sbagliato, quasi sempre il problema è nella tabella sorgente o nella scelta dei campi. 
+ 
+ 🧩 Categorie duplicate "Colore", "colore" e "Colore " diventano categorie diverse. Pulire prima i testi. 
+ 🔢 Numeri come testo Gli importi vengono contati invece che sommati. Convertire la colonna in numero. 
+ 📉 Range incompleto Nuove righe fuori dal range non entrano nel report. Allargare il range o usare una tabella. 
+ 
+ Checklist prima di fidarti Conta righe sorgente, controlla intestazioni, verifica aggregazione dei valori, ordina i totali e confronta un totale a mano su un piccolo campione.
 
 --- Slide 13 ---
-Dati grezzi, risposte chiare.
-Una tabella pivot trasforma righe operative in report: scegli categorie, valori e filtri, poi leggi il risultato senza riscrivere formule ogni volta.
-Prossimo → SU04.01 · Dillo con una slide
+Sapresti costruirla? 
+ 
+ 📊 Incassi mensili Hai colonne Data, Servizio, Operatore, Incasso. Dove metti Data/Mese, Servizio e Incasso per vedere gli incassi dei servizi mese per mese? 
+ # Numero appuntamenti Quale aggregazione usi per sapere quanti appuntamenti ha gestito ogni operatore? 
+ 🔍 Solo una sede Come mostri il report solo per la sede "Centro" senza cancellare le altre righe dai dati sorgente? 
+ ⚠️ Totale strano La pivot conta gli importi invece di sommarli. Quale controllo fai sulla colonna Incasso?
+
+--- Slide 14 ---
+Dati grezzi,
+ risposte chiare. 
+ Una tabella pivot trasforma righe operative in report: scegli categorie, valori e filtri, poi leggi il risultato senza riscrivere formule ogni volta. 
+ 
+ Prossimo → SU04.01 · Dillo con una slide 
+ 
+ Fonti e approfondimenti Guida ufficiale Google Sheets ↗ Supporto Microsoft Excel ↗
+

@@ -2,32 +2,19 @@ Game Design · GD_06 — Meccaniche e Interazione
 ==============================================
 
 --- Slide 1 ---
-Game Design
 Meccaniche
-e Interazione
-I mattoni del gioco: le meccaniche più diffuse, come i giocatori interagiscono tra loro, e cosa significa bilanciare un sistema.
+ e Interazione 
+ I mattoni del gioco: le meccaniche più diffuse, come i giocatori interagiscono tra loro, e cosa significa bilanciare un sistema. 
 
-
-
-⚙️
+ 
+ 
+ ⚙️
 
 --- Slide 2 ---
-
- Cosa vedremo 
- 
- 
- Meccaniche comuni — i mattoni ricorrenti dei board game: draft, set collection, area control e altri schemi che si ritrovano in decine di titoli diversi 
- Tipi di interazione — competitivo, cooperativo, coopetitivo: come la struttura del gioco determina le dinamiche sociali tra i giocatori al tavolo 
- Cooperativi e coopetitivi — quando si vince (o si tradisce) insieme: l'alpha player problem e il fascino dell'ambiguità nei giochi ibridi 
- 
- 
- Game vs Play — la distinzione di Caillois tra gioco libero (paidia) e gioco strutturato da regole esplicite (ludus) 
- Sincronizzazione — turni, simultaneità, tempo reale: come la gestione del tempo cambia ritmo, tensione e downtime percepito 
- Bilanciamento — cosa rende un sistema equilibrato: chiarezza, fluidità, durata, divertimento e assenza di strategie dominanti
+Percorso Cosa vedremo 01 Meccaniche comuni 02 Tipi di interazione 03 Cooperativi e coopetitivi 04 Game vs Play 05 Sincronizzazione 06 Bilanciamento
 
 --- Slide 3 ---
-
- Meccaniche comuni 
+Meccaniche comuni 
  I board game hanno un vocabolario di meccaniche ricorrenti. Conoscerle significa saper leggere qualsiasi gioco — e combinare schemi collaudati per progettarne di nuovi. 
  
  🃏 Draft Scegli una carta da un pool comune e passi il resto al vicino. Ogni scelta è anche una rinuncia strategica che influenza tutte le mani successive. Es. 7 Wonders . 
@@ -35,8 +22,7 @@ I mattoni del gioco: le meccaniche più diffuse, come i giocatori interagiscono 
  🗺️ Area control Domini le zone della mappa dove hai più presenza militare o risorse. Chi controlla il territorio controlla i punti e blocca gli avversari. Es. Risiko , El Grande .
 
 --- Slide 4 ---
-
- Ancora meccaniche 
+Ancora meccaniche 
  
  👷 Worker placement Piazzi i tuoi lavoratori su azioni disponibili in numero limitato: chi arriva prima blocca gli altri, creando una pressione costante sulla pianificazione. Es. Agricola , Viticulture . 
  🏗️ Deck building Il tuo mazzo cresce e si affina durante la partita: ogni acquisto plasma le tue mosse future. Diluire il mazzo con carte deboli è l'errore più comune dei principianti. Es. Dominion . 
@@ -45,8 +31,7 @@ I mattoni del gioco: le meccaniche più diffuse, come i giocatori interagiscono 
  Regola: un gioco raramente usa una sola meccanica — il design nasce dall'incastro tra più sistemi che si amplificano a vicenda.
 
 --- Slide 5 ---
-
- Tipi di interazione 
+Tipi di interazione 
  Come i giocatori si influenzano a vicenda? La risposta definisce l'esperienza sociale del gioco e il tipo di emozioni che genera a ogni partita. 
  
  ⚔️ Competitivo Uno contro l'altro: la tua vittoria è la sconfitta degli altri. Il modello classico genera tensione, rivalità e il desiderio di rivalsa dopo ogni partita persa. 
@@ -56,8 +41,7 @@ I mattoni del gioco: le meccaniche più diffuse, come i giocatori interagiscono 
  Regola: dimmi come si interagisce e ti dirò che aria si respira al tavolo.
 
 --- Slide 6 ---
-
- Giochi cooperativi 
+Giochi cooperativi 
  Tutti contro il gioco: vittoria e sconfitta sono condivise . In Pandemic la squadra ferma le epidemie o crolla insieme. Cambia radicalmente la dinamica sociale: si discute, si pianifica, si negozia e si decide come gruppo, non come avversari. 
  
  ⚠️ Alpha player 
@@ -92,8 +76,7 @@ I mattoni del gioco: le meccaniche più diffuse, come i giocatori interagiscono 
  Una squadra sola contro il gioco
 
 --- Slide 7 ---
-
- Giochi coopetitivi 
+Giochi coopetitivi 
  Cooperi e competi nello stesso gioco : alleanze mutevoli, tensione costante, fiducia sempre in bilico. Devi collaborare per sopravvivere, ma alla fine vince uno solo — o un tradimento può far crollare tutto. 
  
  ⚠️ Ambiguità 
@@ -105,8 +88,7 @@ I mattoni del gioco: le meccaniche più diffuse, come i giocatori interagiscono 
  🛸 Battlestar Galactica La squadra collabora per sopravvivere nello spazio, ma tra voi si nasconde un Cylone infiltrato : ogni errore, ogni ritardo, diventa automaticamente un sospetto.
 
 --- Slide 8 ---
-
- Game vs Play 
+Game vs Play 
  Il sociologo Roger Caillois distingue due poli del giocare: il gioco libero e il gioco regolato. 
  
  🎈 Paidia · Play Gioco libero , spontaneo, improvvisato: bambini che inventano storie in cortile, senza regole scritte né vincitori. 
@@ -117,8 +99,7 @@ I mattoni del gioco: le meccaniche più diffuse, come i giocatori interagiscono 
  Ogni gioco vive su un asse tra questi due estremi : Minecraft in creativa è quasi pura paidia, una partita a scacchi è quasi puro ludus. Progettare significa scegliere dove posizionarsi su questo asse in base all'esperienza che si vuole offrire.
 
 --- Slide 9 ---
-
- Sincronizzazione 
+Sincronizzazione 
  Come si organizza il tempo di gioco? Chi agisce, e quando? 
  
  ⏱️ A turni 
@@ -135,8 +116,7 @@ I mattoni del gioco: le meccaniche più diffuse, come i giocatori interagiscono 
  Il tipo di sincronizzazione cambia ritmo, tensione e downtime — il tempo morto in cui un giocatore aspetta il proprio turno.
 
 --- Slide 10 ---
-
- Bilanciamento: 4 criteri 
+Bilanciamento: 4 criteri 
  Cosa rende un gioco "ben bilanciato"? Non si tratta solo di simmetria tra giocatori, ma di quattro qualità distinte da verificare a ogni sessione di playtest. 
  
  🔍 Chiarezza Le regole si capiscono e le scelte sono leggibili: il giocatore sa sempre cosa può fare, perché, e quali conseguenze aspettarsi. L'ambiguità non è equilibrio. 
@@ -147,8 +127,7 @@ Fonti ufficiali:
 - Valori e codice etico — IGDA — https://igda.org/about-us/core-values-and-code-of-ethics/
 
 --- Slide 11 ---
-
- Bilanciare le meccaniche 
+Bilanciare le meccaniche 
  Nessuna strategia deve dominare: se esiste una "mossa vincente" ovvia, il gioco si riduce a eseguirla meccanicamente. Ogni percorso verso la vittoria deve avere pro e contro che dipendono dal contesto. 
  
  💡 Scelte significative 
@@ -160,8 +139,7 @@ Fonti ufficiali:
  ✅ Scelte equilibrate Ogni via è valida in situazioni diverse: la partita resta aperta fino all'ultimo, le decisioni contano davvero e la rigiocabilità rimane alta.
 
 --- Slide 12 ---
-
- Smonta le meccaniche 
+Smonta le meccaniche 
  
  Scegli un gioco — da tavolo o videogioco — che conosci bene e che hai giocato abbastanza da capirne le regole fondamentali. 
  Elenca 3 meccaniche che usa: riconosci un draft? set collection? deck building? worker placement? area control? push your luck? 
@@ -180,3 +158,4 @@ si parlano.
  
  
  → GD_07 · Processo di Design
+

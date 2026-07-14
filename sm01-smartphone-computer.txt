@@ -2,19 +2,14 @@ Smartphones · SMA01 — Lo smartphone è un computer
 =================================================
 
 --- Slide 1 ---
-S01 — Hardware
-Lo smartphone è un computer
-Cosa lavora dietro il vetro: SoC, memoria, batteria e sensori — e quando conviene ancora un PC o un tablet.
+Lo smartphone è un computer 
+ Cosa lavora dietro il vetro: SoC, memoria, batteria e sensori — e quando conviene ancora un PC o un tablet.
 
 --- Slide 2 ---
-
- Cosa vedremo 
- 01 Computer tascabile 02 Scheda logica 03 CPU, SoC e RAM 04 Memoria interna 05 Batteria e ricarica 06 Schermo touch 07 Fotocamere 08 GPS e posizione 09 Sensori invisibili 10 Microfoni e altoparlanti 11 Smartphone, tablet o PC 12 Limiti fisici e calore 
- In questo modulo analizziamo ogni componente del tuo smartphone: dal processore SoC alla batteria, dallo schermo ai sensori — e confrontiamo smartphone, tablet e PC per capire quando usare quale dispositivo. Conoscere l'hardware ti aiuta a scegliere il telefono giusto, a capire perché si surriscalda, perché la batteria si scarica rapidamente e come gestire lo spazio di archiviazione.
+Percorso Cosa vedremo 01 Computer tascabile 02 Scheda logica 03 CPU 04 Memoria interna 05 Batteria e ricarica 06 Schermo touch 07 Fotocamere 08 GPS e posizione 09 Sensori invisibili 10 Microfoni e altoparlanti 11 Smartphone 12 Limiti fisici e calore
 
 --- Slide 3 ---
-
- Computer tascabile 
+Computer tascabile 
  Telefonare è ormai una funzione tra tante: nel taschino porti una macchina con processore, memoria, sistema operativo e applicazioni. 
  La vera differenza Non è la potenza: è che lo smartphone è sempre acceso, sempre in rete e sempre con te. Per questo abitudini, rischi e attenzioni cambiano rispetto a un PC che si spegne a fine giornata. 
  
@@ -49,8 +44,7 @@ SoC
  Riparabilità Quasi tutto è saldato: RAM, processore e memoria non si sostituiscono. In pratica si riparano solo schermo e batteria su modelli mainstream — e solo da tecnici specializzati. Gli smartphone progettati per la riparazione (come Fairphone) sono eccezioni: la norma del mercato è che un componente guasto equivale a sostituire l'intero telefono. Prima di acquistare, verifica i costi di riparazione e la politica di ricambi ufficiali del produttore.
 
 --- Slide 5 ---
-
- CPU, SoC e RAM 
+CPU, SoC e RAM 
  Nei PC processore, scheda grafica e modem sono componenti separati. Nel telefono convivono in un unico chip. 
  
  🧠 Il SoC System on a Chip: CPU, GPU, modem, processori AI e controller integrati insieme. Meno spazio, meno consumi, meno calore. 
@@ -60,8 +54,7 @@ SoC
  In pratica Più RAM = multitasking più fluido: passi da un'app all'altra senza attese né riavvii. Sui volantini, guarda la sigla del SoC oltre ai gigabyte.
 
 --- Slide 6 ---
-
- Memoria interna 
+Memoria interna 
  L'archivio permanente del telefono: sistema, app, foto e video restano al loro posto anche a dispositivo spento. 
  Come verificare Android: Impostazioni → Memoria. iOS: Impostazioni → Generali → Spazio iPhone. Tieni almeno il 10% libero: sotto quella soglia il sistema rallenta e gli aggiornamenti falliscono. 
  
@@ -79,8 +72,7 @@ Fonti ufficiali:
 - Guida ufficiale Android — https://support.google.com/android/
 
 --- Slide 7 ---
-
- Batteria e ricarica 
+Batteria e ricarica 
  La batteria degrada nel tempo; la ricarica rapida accelera il processo se usata male. La capacità si misura in mAh ma l'autonomia reale dipende anche da schermo, rete mobile, luminosità e intensità d'uso delle app. 
  Regola: evita il calore, carica tra 20–80%, usa caricatori certificati. 
  
@@ -95,8 +87,7 @@ Fonti ufficiali:
 - Documenti e specifiche USB — USB-IF — https://www.usb.org/documents
 
 --- Slide 8 ---
-
- Schermo touch 
+Schermo touch 
  Lo schermo è insieme monitor e dispositivo di input: il centro dell'interfaccia mobile. 
  Tipi di display LCD: retroilluminazione costante, consumi stabili. OLED/AMOLED: pixel autoilluminati, nero vero, colori vividi, consumi ridotti in dark mode. Refresh rate alto (120 Hz) dà fluidità ma consuma più batteria. 
  
@@ -106,8 +97,7 @@ Fonti ufficiali:
  Tocchi, gesture, swipe e pinch sostituiscono mouse e tastiera. Luminosità, risoluzione e refresh rate incidono su comfort visivo e autonomia. Il vetro protettivo (Gorilla Glass e simili) riduce rischi da caduta o graffi. I modelli recenti usano tecnologia LTPO che varia il refresh da 1 Hz a 120 Hz automaticamente per risparmiare batteria quando lo schermo è fermo.
 
 --- Slide 9 ---
-
- Fotocamere 
+Fotocamere 
  La qualità fotografica non dipende solo dai megapixel ma da sensore, ottica e software. 
  Qualità ≠ megapixel Contano: dimensione sensore, apertura diaframma (f/1.8 è migliore di f/2.8), stabilizzazione ottica (OIS), qualità della lente e processing computazionale (HDR, modalità notte). 
  
@@ -117,8 +107,7 @@ Fonti ufficiali:
  Le fotocamere sono sensori ottici collegati a software di elaborazione avanzata. La fotocamera frontale è ottimizzata per selfie e videochiamate; le posteriori per foto e video. Sistemi multi-obiettivo: grandangolo, normale, teleobiettivo, macro — ogni lente è ottimizzata per un caso d'uso specifico. La videoregistrazione usa tutti i sensori in modo coordinato, abilitando zoom fluido e stabilizzazione avanzata durante le riprese.
 
 --- Slide 10 ---
-
- GPS e posizione 
+GPS e posizione 
  Il telefono combina GPS, WiFi e celle telefoniche per una localizzazione rapida e precisa. 
  GPS assistito (A-GPS) Senza assistenza, il primo fix può richiedere minuti. Con WiFi e reti mobili (A-GPS), bastano secondi. Disattiva la localizzazione per le app che non ne hanno realmente bisogno: risparmia batteria e limita la raccolta dei tuoi spostamenti. 
  
@@ -130,8 +119,7 @@ Fonti ufficiali:
 - Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 11 ---
-
- Sensori di movimento e ambiente 
+Sensori di movimento e ambiente 
  Lo smartphone include decine di sensori invisibili che arricchiscono l'esperienza. 
  
  
@@ -145,8 +133,7 @@ Fonti ufficiali:
  il barometro misura la pressione atmosferica per meteo e altimetro; il motore aptico simula il feedback fisico al tocco
 
 --- Slide 12 ---
-
- Microfoni e altoparlanti 
+Microfoni e altoparlanti 
  Il telefono registra voce e suoni ambientali: i permessi microfono vanno controllati. 
  Controlla i permessi Android: Impostazioni → Privacy → Microfono. iOS: Impostazioni → Privacy e sicurezza → Microfono. Revoca l'accesso ad app che non registrano audio per funzione (es. giochi, torce). 
  
@@ -159,8 +146,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 13 ---
-
- Confronto con altri dispositivi 
+Confronto con altri dispositivi 
  Tablet e PC condividono tecnologie con lo smartphone ma per usi diversi. 
  
  Smartphone vs tablet e PC 
@@ -190,8 +176,7 @@ Fonti ufficiali:
  Stesse tecnologie, tre formati per usi diversi
 
 --- Slide 14 ---
-
- Limiti fisici 
+Limiti fisici 
  La compattezza limita la dissipazione del calore: il telefono si protegge riducendo le prestazioni. 
  Thermal throttling Quando supera la soglia termica, il telefono riduce automaticamente le prestazioni (throttling). Si manifesta durante giochi intensi, riprese video lunghe o ricarica in uso. Soluzione: pausa, rimozione cover, ombra. 
  
@@ -205,4 +190,7 @@ Smartphone computer
 in pratica. 
  Lo smartphone è un computer tascabile: CPU, RAM, storage, sensori, sistema operativo e le differenze concrete con un PC fisso. 
  
- Prossimo → SMA02 · Connessioni e reti mobili
+ Prossimo → SMA02 · Connessioni e reti mobili 
+ 
+ Fonti e approfondimenti Specifiche Bluetooth — Bluetooth SIG ↗ CPU — Wikipedia ↗ RAM — Wikipedia ↗ Guida ufficiale Android ↗ Documenti e specifiche USB — USB-IF ↗
+

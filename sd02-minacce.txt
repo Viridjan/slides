@@ -2,33 +2,16 @@ Sicurezza Digitale · C2 — Minacce e Vulnerabilità della Rete
 ============================================================
 
 --- Slide 1 ---
-Sicurezza Digitale · Concetto 2
 Minacce e
-Vulnerabilità
-della Rete
-Virus, malware, ransomware, phishing e attacchi di rete: come funzionano, come si diffondono e come difendersi concretamente.
+ Vulnerabilità
+della Rete 
+ Virus, malware, ransomware, phishing e attacchi di rete: come funzionano, come si diffondono e come difendersi concretamente.
 
 --- Slide 2 ---
-
- Cosa impareremo 
- 
- 01 Minacce e vulnerabilità: definizioni 
- 02 Tipi di malware 
- 03 Ransomware: il sequestro digitale 
- 04 Phishing e sue varianti 
- 05 Come riconoscere il phishing 
- 06 Attacchi alle reti WiFi 
- 07 Man-in-the-Middle e intercettazione 
- 08 Botnet e attacchi DDoS 
- 09 Come difendersi dal malware 
- 10 Backup, antivirus e risposta agli incidenti
-Fonti ufficiali:
-- StopRansomware — CISA — https://www.cisa.gov/stopransomware
-- Riconoscere il phishing — CISA — https://www.cisa.gov/secure-our-world/recognize-and-report-phishing
+Percorso Cosa vedremo 01 Minacce e vulnerabilità 02 Tipi di malware 03 Ransomware 04 Phishing e sue varianti 05 Come riconoscere il phishing 06 Attacchi alle reti WiFi 07 Man-in-the-Middle e intercettazione 08 Botnet e attacchi DDoS 09 Come difendersi dal malware 10 Backup
 
 --- Slide 3 ---
-
- Minacce vs Vulnerabilità 
+Minacce vs Vulnerabilità 
  Due concetti spesso confusi, ma fondamentalmente diversi. Capirli aiuta a capire dove e come difendersi. 
  
  
@@ -52,8 +35,7 @@ Fonti ufficiali:
 - StopRansomware — CISA — https://www.cisa.gov/stopransomware
 
 --- Slide 4 ---
-
- Il Bestiario del Malware 
+Il Bestiario del Malware 
  Malware = Malicious Software . Software creato per danneggiare, rubare o spiare. Ne esistono molti tipi, ognuno con un obiettivo diverso. 
  
  
@@ -91,8 +73,7 @@ Fonti ufficiali:
 - StopRansomware — CISA — https://www.cisa.gov/stopransomware
 
 --- Slide 5 ---
-
- Ransomware:
+Ransomware:
 il sequestro
 digitale 
  Può cifrare file locali e condivisi accessibili al dispositivo e chiedere un riscatto, ma comportamento e portata dipendono dalla variante e dai privilegi ottenuti. Spesso non li restituisce neanche dopo il pagamento.
@@ -130,8 +111,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 6 ---
-
- Phishing e le sue varianti 
+Phishing e le sue varianti 
  Phishing = pescare. L'attaccante lancia "esche" digitali sperando che qualcuno abbocchi. È la tecnica di attacco più diffusa al mondo. 
  
  
@@ -167,8 +147,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 7 ---
-
- Come riconoscere
+Come riconoscere
 una email di phishing 
  
  🔴 Mittente sospetto 
@@ -221,8 +200,7 @@ Fonti ufficiali:
 - Riconoscere il phishing — CISA — https://www.cisa.gov/secure-our-world/recognize-and-report-phishing
 
 --- Slide 8 ---
-
- Attacchi alle Reti WiFi 
+Attacchi alle Reti WiFi 
  Le reti wireless sono comode ma esposte. Chi si connette alla tua rete può vedere il traffico, accedere ai dispositivi e intercettare dati sensibili. 
  
  
@@ -252,8 +230,7 @@ Fonti ufficiali:
 - HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
 --- Slide 9 ---
-
- Attacco
+Attacco
  Man-in-the-Middle 
  L'attaccante si posiziona "in mezzo" alla comunicazione tra te e il server. Legge, e a volte modifica, tutto il traffico che passa — senza che tu te ne accorga. 
  Immagina di mandare una lettera a qualcuno. Il postino la apre, la legge, eventualmente cambia il contenuto e la richiude. Tu e il destinatario non sapete nulla. 
@@ -296,8 +273,7 @@ Fonti ufficiali:
 - HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
 --- Slide 10 ---
-
- Botnet e
+Botnet e
  Attacchi DDoS 
  Una botnet è una rete di dispositivi infetti controllati a distanza da un hacker — a tua insaputa. Il tuo computer potrebbe farne parte adesso. 
  Le botnet vengono usate per lanciare attacchi DDoS (Distributed Denial of Service): migliaia di dispositivi bombardano un sito con richieste fino a farlo crashare. 
@@ -339,8 +315,7 @@ Fonti ufficiali:
  Il botmaster comanda dall'ombra
 
 --- Slide 11 ---
-
- Vulnerabilità Zero-Day 
+Vulnerabilità Zero-Day 
  Una vulnerabilità zero-day è sfruttata o resa nota quando non esiste ancora una correzione disponibile per chi deve proteggersi. Controlli compensativi e difesa in profondità possono comunque ridurre il rischio.
  
  
@@ -366,8 +341,7 @@ Fonti ufficiali:
 - Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
 
 --- Slide 12 ---
-
- Ingegneria Sociale: le tecniche 
+Ingegneria Sociale: le tecniche 
  Il social engineering sfrutta le debolezze psicologiche umane — non quelle tecniche. Conoscere le tecniche è il primo passo per non caderne vittima. 
  
  
@@ -393,8 +367,7 @@ Fonti ufficiali:
 - Documenti e specifiche USB — USB-IF — https://www.usb.org/documents
 
 --- Slide 13 ---
-
- Come difendersi
+Come difendersi
 dal malware 
  Nessuna singola soluzione è sufficiente. La difesa efficace è fatta di più strati che si completano a vicenda. 
  
@@ -438,8 +411,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 14 ---
-
- Il Backup : l'ultima linea di difesa 
+Il Backup : l'ultima linea di difesa 
  Contro il ransomware, un buon backup è spesso l'unica vera soluzione. Se i tuoi dati sono copiati altrove, il sequestro non ha potere. 
  
  
@@ -465,8 +437,7 @@ Fonti ufficiali:
 - StopRansomware — CISA — https://www.cisa.gov/stopransomware
 
 --- Slide 15 ---
-
- Antivirus vs EDR 
+Antivirus vs EDR 
  Non tutti i software di protezione sono uguali. La differenza è cruciale. 
  
  
@@ -516,8 +487,7 @@ Fonti ufficiali:
  Firma vs comportamento: approcci diversi
 
 --- Slide 16 ---
-
- Mettere in sicurezza
+Mettere in sicurezza
 la propria rete domestica 
  La rete di casa è il perimetro della tua vita digitale. Configurarla bene protegge tutti i dispositivi collegati — smartphone, PC, smart TV, dispositivi IoT. 
  
@@ -550,8 +520,7 @@ Fonti ufficiali:
 - Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 17 ---
-
- VPN: rete
+VPN: rete
  privata virtuale 
  Una VPN crea un tunnel cifrato fino al server VPN e protegge dal monitoraggio sulla rete locale; non rende sicuri endpoint compromessi, siti malevoli o traffico oltre il server VPN.
  Particolarmente utile su WiFi pubblici, per aggirare censure geografiche, e per mascherare il tuo indirizzo IP dal sito che visiti. 
@@ -598,8 +567,7 @@ Fonti ufficiali:
 - Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 18 ---
-
- Sei stato attaccato? Cosa fare 
+Sei stato attaccato? Cosa fare 
  Scoprire di essere stati compromessi è stressante. Avere un piano in testa aiuta a limitare i danni e agire con lucidità. 
  
  1 Disconnetti dalla rete 
@@ -619,8 +587,7 @@ Fonti ufficiali:
 - Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 19 ---
-
- Doxing:
+Doxing:
 i tuoi dati come arma 
  Il doxing consiste nel raccogliere e pubblicare online dati personali di qualcuno senza consenso, con l'obiettivo di intimidire, ricattare o danneggiare. 
  
@@ -656,8 +623,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 20 ---
-
- I malware che restano nascosti 
+I malware che restano nascosti 
  I malware più pericolosi non sono quelli rumorosi, ma quelli che restano invisibili finché non è troppo tardi. 
  
  
@@ -681,8 +647,7 @@ Fonti ufficiali:
  Non installare software da fonti non ufficiali. Tenere aggiornato il sistema operativo. Un avviso pop-up che urla "Virus trovato!" è quasi sempre scareware — chiudere il browser senza cliccare nulla.
 
 --- Slide 21 ---
-
- Darknet, dark market ed exploit kit 
+Darknet, dark market ed exploit kit 
  Non serve frequentare ambienti criminali per subirne gli effetti: credenziali, documenti e strumenti d'attacco circolano dopo violazioni e furti di dati. 
  
  🌑 Darknet Reti non raggiungibili con un browser standard. Possono servire anche all'anonimato, ma ospitano mercati e servizi illegali. 
@@ -696,4 +661,6 @@ Fonti ufficiali:
 --- Slide 22 ---
 Armati! 
  Malware, phishing, ransomware, ingegneria sociale, zero-day e la catena dell'attaccante: capire le minacce per difendersi meglio. 
- Prossimo → C3 · Privacy e Anonimato
+ Prossimo → C3 · Privacy e Anonimato 
+ Fonti e approfondimenti HTTP Semantics — RFC 9110 ↗ Rete privata virtuale — Wikipedia ↗ Domain Name System — ICANN ↗ Manuale utente iPhone — Apple ↗
+

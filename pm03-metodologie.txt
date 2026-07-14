@@ -2,13 +2,14 @@ Metodologie di Project Management · PM03
 ========================================
 
 --- Slide 1 ---
-Project Management · PM03
-Metodologie
-Waterfall, Agile, Scrum e Kanban: come si organizza il lavoro di progetto.
+Metodologie 
+ Waterfall, Agile, Scrum e Kanban: come si organizza il lavoro di progetto.
 
 --- Slide 2 ---
+Percorso Cosa vedremo 01 Non esiste un solo modo di gestire 02 Predittivo o adattivo 03 Waterfall 04 La curva del costo del cambiamento 05 Agile 06 Dentro un'iterazione 07 Scrum 08 Due settimane di sprint 09 Il backlog e le user story 10 Kanban 11 Scrum o Kanban 12 Quale metodologia per quale progetto 13 Gli approcci ibridi 14 Agile fatto male
 
- Non esiste un solo modo di gestire 
+--- Slide 3 ---
+Non esiste un solo modo di gestire 
  PM01 e PM02 descrivono cosa va fatto. Le metodologie rispondono a come organizzarlo: tutto pianificato all'inizio, o a piccoli cicli con correzioni continue? 
  
  
@@ -36,9 +37,8 @@ Waterfall, Agile, Scrum e Kanban: come si organizza il lavoro di progetto.
 Fonti ufficiali:
 - Scrum Guide ufficiale — https://scrumguides.org/scrum-guide.html
 
---- Slide 3 ---
-
- Predittivo o adattivo? 
+--- Slide 4 ---
+Predittivo o adattivo? 
  Tutte le metodologie derivano da una domanda: quanto sai già del risultato finale? Se i requisiti sono chiari e stabili, pianifichi tutto. Se cambieranno strada facendo, pianifichi a cicli. 
  
  
@@ -54,9 +54,8 @@ Fonti ufficiali:
  
  Analogia: il predittivo è un viaggio in treno con orari fissi; l'adattivo è un viaggio in bici — decidi la tappa successiva a ogni incrocio.
 
---- Slide 4 ---
-
- Waterfall: la cascata 
+--- Slide 5 ---
+Waterfall: la cascata 
  
  
  Le fasi si susseguono in sequenza , come acqua che scende: ogni fase inizia solo quando la precedente è completata e approvata. Non si torna indietro (o si torna a caro prezzo). 
@@ -85,9 +84,8 @@ Fonti ufficiali:
  
  La cascata: ogni fase alimenta la successiva, senza ritorni
 
---- Slide 5 ---
-
- La curva del costo del cambiamento 
+--- Slide 6 ---
+La curva del costo del cambiamento 
  
  
  Perché waterfall teme i cambiamenti? Perché più il progetto avanza, più cambiare costa: correggere un requisito sulla carta costa un'ora, correggerlo a prodotto finito costa settimane di rilavorazione. 
@@ -113,9 +111,8 @@ Fonti ufficiali:
  
  Lo stesso cambiamento costa sempre di più, fase dopo fase
 
---- Slide 6 ---
-
- Agile: consegnare a cicli 
+--- Slide 7 ---
+Agile: consegnare a cicli 
  
  
  Nato nel software nel 2001 con il Manifesto Agile : invece di un'unica grande consegna finale, cicli brevi (1–4 settimane) che producono ogni volta qualcosa di funzionante e mostrabile. 
@@ -143,9 +140,8 @@ Fonti ufficiali:
 Fonti ufficiali:
 - Manifesto per lo sviluppo Agile — https://agilemanifesto.org/iso/it/manifesto.html
 
---- Slide 7 ---
-
- Dentro un'iterazione 
+--- Slide 8 ---
+Dentro un'iterazione 
  Ogni ciclo agile è un mini-progetto completo : si pianifica poco, si costruisce qualcosa di finito, lo si mostra, si impara. Quattro momenti, sempre nello stesso ordine. 
  
  Pianificare poco — si scelgono solo le attività del ciclo, non dei prossimi sei mesi: le priorità di oggi, decise con le informazioni di oggi. 
@@ -157,9 +153,8 @@ Fonti ufficiali:
  💡 Il punto chiave 
  Il rischio waterfall — "scoprire alla fine che era sbagliato" — qui è impossibile per costruzione: la verifica arriva ogni due settimane , non dopo sei mesi.
 
---- Slide 8 ---
-
- Scrum: l'agile con le regole 
+--- Slide 9 ---
+Scrum: l'agile con le regole 
  Scrum è il framework agile più diffuso: cicli fissi chiamati sprint (di solito 2 settimane), tre ruoli precisi e riti regolari che tengono il ritmo. 
  
  
@@ -184,9 +179,8 @@ Fonti ufficiali:
 Fonti ufficiali:
 - Scrum Guide ufficiale — https://scrumguides.org/scrum-guide.html
 
---- Slide 9 ---
-
- Due settimane di sprint, giorno per giorno 
+--- Slide 10 ---
+Due settimane di sprint, giorno per giorno 
  Lo sprint ha un ritmo fisso: si apre con la pianificazione, batte ogni giorno con lo stand-up, si chiude con demo e retrospettiva. Nessuna riunione extra : il metodo le ha già tutte previste. 
  
  
@@ -221,9 +215,8 @@ Fonti ufficiali:
  💡 Il timebox 
  Lo sprint non si allunga mai : se un'attività non è finita, torna nel backlog e si ripianifica. È la durata fissa a creare il ritmo — e a rendere le stime del team sempre più precise, sprint dopo sprint.
 
---- Slide 10 ---
-
- Il backlog e le user story 
+--- Slide 11 ---
+Il backlog e le user story 
  Da dove arriva il lavoro dello sprint? Da una lista unica e ordinata per valore : il backlog. E ogni voce è scritta dal punto di vista di chi la userà. 
  
  
@@ -239,9 +232,8 @@ Fonti ufficiali:
  
  La user story, il formato delle voci di backlog: «Come cliente del salone voglio ricevere un promemoria il giorno prima così da non dimenticare l'appuntamento.» Chi, cosa, perché — in una frase.
 
---- Slide 11 ---
-
- Kanban: visualizzare il flusso 
+--- Slide 12 ---
+Kanban: visualizzare il flusso 
  
  
  Nato nelle fabbriche Toyota: il lavoro scorre su una bacheca a colonne (da fare → in corso → fatto) e ogni colonna ha un limite di attività contemporanee (WIP limit). 
@@ -271,9 +263,8 @@ Fonti ufficiali:
  
  La bacheca kanban: il limite sulla colonna centrale fa scorrere il lavoro
 
---- Slide 12 ---
-
- Scrum o Kanban? 
+--- Slide 13 ---
+Scrum o Kanban? 
  Entrambi agili, ma con caratteri opposti: Scrum impone un ritmo , Kanban impone un limite . La differenza si vede su quattro assi. 
  
  
@@ -305,9 +296,8 @@ Fonti ufficiali:
 Fonti ufficiali:
 - Scrum Guide ufficiale — https://scrumguides.org/scrum-guide.html
 
---- Slide 13 ---
-
- Quale metodologia per quale progetto 
+--- Slide 14 ---
+Quale metodologia per quale progetto 
  Nessuna metodologia vince sempre. Si sceglie guardando tre cose : quanto sono stabili i requisiti, quanto costa rifare, come arriva il lavoro. Tre profili tipici, tre risposte diverse. 
  
  
@@ -330,9 +320,8 @@ Fonti ufficiali:
 Fonti ufficiali:
 - Scrum Guide ufficiale — https://scrumguides.org/scrum-guide.html
 
---- Slide 14 ---
-
- Gli approcci ibridi: il mondo reale 
+--- Slide 15 ---
+Gli approcci ibridi: il mondo reale 
  Fuori dai manuali, la maggior parte dei progetti mescola : struttura predittiva dove i vincoli sono rigidi, cicli adattivi dove serve scoprire. Non è indecisione — è sartoria. 
  
  
@@ -352,9 +341,8 @@ Fonti ufficiali:
 Fonti ufficiali:
 - Scrum Guide ufficiale — https://scrumguides.org/scrum-guide.html
 
---- Slide 15 ---
-
- Agile fatto male: le quattro trappole 
+--- Slide 16 ---
+Agile fatto male: le quattro trappole 
  "Siamo agili" è la frase più abusata degli uffici. Questi quattro sintomi rivelano un metodo adottato solo a parole — riconoscerli è già metà della cura. 
  
  
@@ -380,9 +368,12 @@ Fonti ufficiali:
  
  Regola: agile è una disciplina, non un'esenzione dalle regole.
 
---- Slide 16 ---
+--- Slide 17 ---
 Il metodo giusto è quello
 che serve al progetto 
  Predittivo quando sai dove vai, adattivo quando lo scopri strada facendo. Waterfall, Scrum e Kanban non sono religioni: sono attrezzi. 
  
- Prossimo → PM04 · Strumenti Digitali
+ Prossimo → PM04 · Strumenti Digitali 
+ 
+ Fonti e approfondimenti Scrum Guide ufficiale ↗ Manifesto per lo sviluppo Agile ↗
+

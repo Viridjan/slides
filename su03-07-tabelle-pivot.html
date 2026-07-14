@@ -27,7 +27,7 @@
 .chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;text-decoration:none}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
 .table{width:100%;border-collapse:collapse;font-family:var(--font-mono);background:#fff;border:2px solid var(--ink);box-shadow:6px 7px 0 rgba(28,23,20,.13)}.table th,.table td{border:1px solid var(--line);padding:11px 12px;font-size:18px;text-align:left;color:var(--ink-soft)}.table th{background:var(--paper-2);color:var(--ink);font-weight:700}.table .num{text-align:right}.table .hi{background:var(--gold);color:var(--ink);font-weight:700}
 .pivot-box{background:#fbf5ec;border:3px solid var(--ink);border-radius:18px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:26px}.pivot-field{font-family:var(--font-mono);display:flex;align-items:center;justify-content:space-between;gap:14px;background:#fff;border:2px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:10px;font-size:20px}.pivot-field b{color:var(--red)}.arrow{font-size:42px;color:var(--red);font-weight:900;text-align:center}.tight .h-sec{font-size:60px}.tight .lead{font-size:27px}.tight .card{padding:18px 20px}.tight .card h3{font-size:29px}.tight .card p{font-size:20px}.tight .table th,.tight .table td{font-size:16px;padding:8px 9px}
-</style>
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display),Georgia,serif;font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}</style>
 <link rel="stylesheet" href="theme-corsi.css">
 </head>
 <body class="course-su">
@@ -36,7 +36,6 @@
 
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="eyebrow reveal">Fogli di calcolo · SU03.07</div>
       <h1 class="h-mega reveal">Tabelle<br><em class="hot">pivot</em></h1>
       <p class="lead reveal d1" style="margin-top:30px;">Riassumere grandi tabelle senza scrivere formule: righe, colonne, valori, filtri e lettura dei risultati.</p>
 
@@ -44,7 +43,8 @@
     <div class="title-right"><div class="reveal" style="font-size:210px;line-height:1;z-index:2;">📊</div></div>
   </section>
 
-  <section class="slide">
+  <section class="slide"><span class="tag">Percorso</span><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(6,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">Quando la tabella è troppo lunga</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Prima regola</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Da tabella a pivot</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Righe</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Incasso per servizio</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Confronto per mese</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Somma</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Vedere solo ciò che serve</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Aggiornare una pivot</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Quando la pivot mente</span></div><div class="agenda-item"><span class="n">11</span><span class="t">Sapresti costruirla</span></div></div><div class="num"></div></section>
+<section class="slide">
     <div class="split">
       <div class="stack">
 
@@ -70,7 +70,7 @@
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Tabella_pivot" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Tabella pivot — Wikipedia" aria-label="Fonte ufficiale: Tabella pivot — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Tabella pivot — Wikipedia ↗</a></div></section>
+  </section>
 
   <section class="slide tight">
     <div class="center">
@@ -105,7 +105,7 @@
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Google Sheets" aria-label="Fonte ufficiale: Guida ufficiale Google Sheets" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Google Sheets ↗</a><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Supporto Microsoft Excel" aria-label="Fonte ufficiale: Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Supporto Microsoft Excel ↗</a><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Tabella_pivot" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Tabella pivot — Wikipedia" aria-label="Fonte ufficiale: Tabella pivot — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Tabella pivot — Wikipedia ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Google Sheets" aria-label="Fonte ufficiale: Guida ufficiale Google Sheets" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Google Sheets ↗</a><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Supporto Microsoft Excel" aria-label="Fonte ufficiale: Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Supporto Microsoft Excel ↗</a></div></section>
 
   <section class="slide">
     <div class="center">
@@ -208,7 +208,7 @@
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Supporto Microsoft Excel" aria-label="Fonte ufficiale: Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Supporto Microsoft Excel ↗</a><a data-source-origin="auto" href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Google Sheets" aria-label="Fonte ufficiale: Guida ufficiale Google Sheets" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Google Sheets ↗</a></div></section>
+  </section>
 
   <section class="slide tight">
     <div class="center">
@@ -223,7 +223,7 @@
       <div class="analogy reveal d3" style="margin-top:34px;"><span class="big">Regola:</span> aggiungi dati in fondo alla tabella sorgente, non dentro il report pivot.</div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Supporto Microsoft Excel" aria-label="Fonte ufficiale: Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Supporto Microsoft Excel ↗</a></div></section>
+  </section>
 
   <section class="slide tight">
     <div class="center">
@@ -260,7 +260,7 @@
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a class="chip" href="su04-01-presentazioni.html" style="background:var(--gold);color:var(--ink);">Prossimo → SU04.01 · Dillo con una slide</a>
       </div>
-    </div></div><div class="page-num"></div></section>
+    </div></div><div class="page-num"></div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Google Sheets ↗</a><a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Supporto Microsoft Excel ↗</a></div></div></section>
 
 </div>
 </div>

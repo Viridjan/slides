@@ -2,32 +2,19 @@ Game Design · GD_08 — Progettare un Gioco
 =========================================
 
 --- Slide 1 ---
-Game Design
 Progettare
-un Gioco
-Dalla teoria al tavolo: come si disegnano le carte, si calcolano i materiali, si scrive un regolamento chiaro e si impara modificando giochi che già esistono.
+ un Gioco 
+ Dalla teoria al tavolo: come si disegnano le carte, si calcolano i materiali, si scrive un regolamento chiaro e si impara modificando giochi che già esistono. 
 
-
-
-🃏
+ 
+ 
+ 🃏
 
 --- Slide 2 ---
-
- Cosa vedremo
-
-
- Design delle carte — l'anatomia di una carta e le sue zone
- Dimensioni e testo — formati standard e regole di leggibilità
- Icone e risorse grafiche — dove trovare grafica per il prototipo
-
-
- Calcolo dei materiali — quante carte e quanti fogli servono
- Struttura del regolamento — le quattro sezioni di un manuale
- Modificare giochi esistenti — imparare il design smontandolo
+Percorso Cosa vedremo 01 Design delle carte 02 Dimensioni e testo 03 Icone e risorse grafiche 04 Calcolo dei materiali 05 Struttura del regolamento 06 Modificare giochi esistenti
 
 --- Slide 3 ---
-
- L'anatomia di una carta
+L'anatomia di una carta
  Una carta ben progettata è divisa in zone funzionali : ogni informazione ha il suo posto fisso, così il giocatore la trova a colpo d'occhio, partita dopo partita.
 
  Gerarchia visiva
@@ -73,8 +60,7 @@ Dalla teoria al tavolo: come si disegnano le carte, si calcolano i materiali, si
  Titolo in alto, costo nell'angolo, arte al centro, regole in basso
 
 --- Slide 4 ---
-
- Dimensioni standard
+Dimensioni standard
  Usare un formato standard permette di comprare bustine protettive (sleeve) già pronte — e di mescolare, impilare e conservare le carte senza rovinarle.
 
  🎴 Standard "Magic" 63×88 mm — il formato più diffuso al mondo per giochi di carte moderni.
@@ -86,8 +72,7 @@ Dalla teoria al tavolo: come si disegnano le carte, si calcolano i materiali, si
  Formato non standard = niente bustine reperibili = carte che si rovinano in fretta. Un problema concreto per il giocatore, evitabile in fase di progetto.
 
 --- Slide 5 ---
-
- Il testo sulle carte
+Il testo sulle carte
  Chiaro e conciso. Usa le keyword : una parola-regola definita una volta nel manuale, richiamata su tutte le carte. Gerarchia: nome grande, effetto leggibile, dettagli piccoli.
 
  ⚠️ Errore comune
@@ -99,8 +84,7 @@ Dalla teoria al tavolo: come si disegnano le carte, si calcolano i materiali, si
  ❌ Muro di testo Cinque righe fitte di eccezioni: illeggibile a colpo d'occhio, rallenta ogni turno.
 
 --- Slide 6 ---
-
- Icone e risorse grafiche
+Icone e risorse grafiche
  Per prototipare non servono illustratori: esistono librerie di icone gratuite con cui costruire carte chiare e leggibili in pochi minuti.
 
  💡 Prima le regole
@@ -112,8 +96,7 @@ Dalla teoria al tavolo: come si disegnano le carte, si calcolano i materiali, si
  🎲 Game-icons.net Migliaia di icone a tema gioco: spade, pozioni, scudi, mostri — perfette per i prototipi.
 
 --- Slide 7 ---
-
- Calcolo dei materiali
+Calcolo dei materiali
  Quanto stampare? Formula semplice: giocatori × carte per giocatore × copie = carte totali , poi dividi per le carte che entrano in un foglio (circa 9 su un A4).
 
  Esempio
@@ -125,8 +108,7 @@ Dalla teoria al tavolo: come si disegnano le carte, si calcolano i materiali, si
  🖨️ Conta i fogli Carte totali ÷ carte per foglio = pagine da stampare. Pianifica anche il tempo di taglio.
 
 --- Slide 8 ---
-
- Il regolamento in 4 sezioni
+Il regolamento in 4 sezioni
 
  🎯 1 · Obiettivo Come si vince — sempre per primo . Chi legge deve sapere subito verso cosa gioca.
  🔧 2 · Setup Come si prepara il tavolo: cosa si distribuisce, cosa si mescola, chi inizia.
@@ -138,8 +120,7 @@ Dalla teoria al tavolo: come si disegnano le carte, si calcolano i materiali, si
  Dire subito come si vince orienta tutta la lettura: ogni regola successiva acquista senso alla luce dell'obiettivo.
 
 --- Slide 9 ---
-
- Scrivere regole chiare
+Scrivere regole chiare
  La regola più bella è inutile se non si capisce. Usa esempi concreti , immagini, un ordine logico e un glossario per le keyword. Poi testa il manuale dando il gioco a qualcuno senza spiegarlo .
  Regola: se devi spiegarlo tu, il manuale non è finito.
 
@@ -148,8 +129,7 @@ Dalla teoria al tavolo: come si disegnano le carte, si calcolano i materiali, si
  🔤 Glossario keyword Ogni parola-regola definita una sola volta, in un posto facile da ritrovare.
 
 --- Slide 10 ---
-
- Modificare giochi esistenti
+Modificare giochi esistenti
  Un ottimo esercizio per imparare: prendi un gioco che conosci e cambia una sola regola . Osserva come cambia tutto il resto. Capisci il design smontandolo .
 
 
@@ -160,8 +140,7 @@ Dalla teoria al tavolo: come si disegnano le carte, si calcolano i materiali, si
  🔬 Una variabile alla volta Cambia una regola sola: se ne cambi tre, non saprai quale ha prodotto l'effetto.
 
 --- Slide 11 ---
-
- Esempi di modifica
+Esempi di modifica
  Cambia una regola e analizza l'effetto su strategia, durata e divertimento.
 
  🃏 Briscola E se il seme di briscola cambiasse a ogni mano? La strategia di lungo periodo salta.
@@ -173,8 +152,7 @@ Dalla teoria al tavolo: come si disegnano le carte, si calcolano i materiali, si
  Ogni piccola modifica cambia strategia, durata e divertimento: annota cosa è cambiato e perché .
 
 --- Slide 12 ---
-
- Progetta le tue carte
+Progetta le tue carte
 
  Scegli un tema per un mini gioco di carte.
  Disegna l'anatomia di una carta: titolo, illustrazione, testo, costo — zona per zona.
@@ -189,10 +167,13 @@ Fonti ufficiali:
 
 --- Slide 13 ---
 Dall'idea
-al tavolo.
-
+al tavolo. 
+ 
  Hai attraversato tutto il game design: dai tipi di gioco al suono, dal feedback alla difficoltà, dalle meccaniche al processo, fino a stampare le tue carte. Ora tocca a te progettare.
+ 
+ 
+ Fine serie Game Design 
+ 
+ 
+ Torna all’indice
 
-
- Fine serie Game Design
-Torna all’indice

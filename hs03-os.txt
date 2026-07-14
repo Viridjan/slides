@@ -2,31 +2,37 @@ Informatica · Modulo 11 — Sistemi Operativi
 ===========================================
 
 --- Slide 1 ---
-Modulo 11
 Sistemi
-Operativi
-Windows, macOS, Linux, Android: come funzionano, in cosa differiscono, quale scegliere.
+ Operativi 
+ Windows, macOS, Linux, Android: come funzionano, in cosa differiscono, quale scegliere. 
 
-
-
-🖥️
+ 
+ 
+ 🖥️
 
 --- Slide 2 ---
-
- Cosa vedremo 
- 
- 01 Cos'è un sistema operativo — kernel e GUI 
- 02 Windows — storia, caratteristiche, pro e contro 
- 03 macOS — ecosistema Apple, usi tipici 
- 04 Linux — open source, distribuzioni, server 
- 05 Android — il mobile OS più diffuso al mondo 
- 06 Confronto completo — quale scegliere e perché
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
+Percorso Cosa vedremo 01 Orientarsi nell'interfaccia 02 Windows 03 macOS 04 Linux 05 Android 06 Confronto completo
 
 --- Slide 3 ---
+Leggere lo schermo: quattro elementi base 
+ Windows, macOS e Linux hanno nomi e forme diverse, ma presentano quasi sempre gli stessi oggetti fondamentali. 
+ 
+ 🖼️ Desktop Lo spazio di lavoro principale. Può contenere collegamenti, file e cartelle, ma non è obbligatorio usarlo come archivio. 
+ ▣ Finestra L'area di un'app o di una cartella. Puoi spostarla, ridimensionarla, minimizzarla e affiancarla. 
+ ▦ Menu e barra Servono ad avviare app, cambiare attività e vedere quali programmi sono già aperti. 
+ 📄 File e cartella Il file contiene un lavoro; la cartella lo organizza. Un'icona può rappresentare anche un collegamento, non il file originale.
 
- Il software che gestisce tutto il resto 
+--- Slide 4 ---
+Aprire, cambiare attività, chiudere 
+ 
+ ▶ Aprire Avvia l'app dal menu o apri un file: il sistema sceglie l'app associata a quel tipo di contenuto. 
+ ↔ Cambiare Usa la barra delle applicazioni o il selettore delle finestre per passare tra attività già aperte. 
+ × Chiudere Chiudere una finestra non sempre termina l'app; controlla eventuali indicatori e salva prima il documento. 
+ 
+ Regola: minimizzare nasconde, chiudere termina la finestra, spegnere arresta l'intero sistema.
+
+--- Slide 5 ---
+Il software che gestisce tutto il resto 
  Il sistema operativo (OS) è il software fondamentale che fa funzionare il dispositivo : gestisce l'hardware, coordina i programmi e permette all'utente di interagire con la macchina. 
  Senza OS, il computer è un insieme di circuiti che non sa cosa fare. È il tramite tra le applicazioni che usi e i componenti fisici del dispositivo. 
  
@@ -43,11 +49,15 @@ Fonti ufficiali:
 • Periferiche (mouse, tastiera, stampante)
 • Applicazioni e processi
 • Utenti e permessi
-• Sicurezza e aggiornamenti
+• Sicurezza e aggiornamenti 
+ 
+ 
+ 
+ 
+ Fonte: CPU — Wikipedia ↗
 
---- Slide 4 ---
-
- Tre strati: hardware, kernel, interfaccia 
+--- Slide 6 ---
+Tre strati: hardware, kernel, interfaccia 
  
  
  
@@ -90,13 +100,15 @@ Fonti ufficiali:
  
  
  CLI 
- Alternativa alla GUI: il terminale . Comandi testuali, meno intuitivo ma molto più potente per operazioni automatizzate e server.
-Fonti ufficiali:
-- Supporto Microsoft Word — https://support.microsoft.com/word
+ Alternativa alla GUI: il terminale . Comandi testuali, meno intuitivo ma molto più potente per operazioni automatizzate e server. 
+ 
+ 
+ 
+ 
+ Fonte: RAM — Wikipedia ↗
 
---- Slide 5 ---
-
- I principali sistemi operativi 
+--- Slide 7 ---
+I principali sistemi operativi 
  
  
  🪟 
@@ -138,14 +150,14 @@ Sistema mobile di Apple. ~28% degli smartphone. Esclusivo su iPhone e iPad. Ecos
  Linux Server 
  Server / Cloud 
 
-Il 96% dei server web gira su Linux. AWS, Google Cloud, Azure: tutti basati su Linux. Robusto, sicuro, gratuito, gestibile da remoto via terminale.
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
-- Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
+Il 96% dei server web gira su Linux. AWS, Google Cloud, Azure: tutti basati su Linux. Robusto, sicuro, gratuito, gestibile da remoto via terminale. 
+ 
+ 
+ 
+ Fonte: Guida ufficiale Android ↗ Fonte: Manuale utente iPhone — Apple ↗
 
---- Slide 6 ---
-
- Microsoft Windows: evoluzione e caratteristiche 
+--- Slide 8 ---
+Microsoft Windows: evoluzione e caratteristiche 
  
  
  Windows esiste dal 1985. Ogni versione ha segnato un'epoca: 
@@ -193,9 +205,8 @@ Fonti ufficiali:
  Contro 
  Licenza a pagamento (100–200 €). Target principale per malware. Aggiornamenti invasivi. Raccolta dati telemetrici da parte di Microsoft.
 
---- Slide 7 ---
-
- macOS: hardware e software di Apple, insieme 
+--- Slide 9 ---
+macOS: hardware e software di Apple, insieme 
  
  
  
@@ -224,9 +235,8 @@ Fonti ufficiali:
  ⚠️ Limiti 
  Costo elevato : MacBook Air parte da ~1.300 €. Hardware chiuso : non puoi aggiornare RAM o disco. Software : alcuni programmi Windows-only non girano su Mac (o solo con Parallels a pagamento).
 
---- Slide 8 ---
-
- Linux: libero, potente, ovunque 
+--- Slide 10 ---
+Linux: libero, potente, ovunque 
  
  
  
@@ -257,12 +267,9 @@ Fonti ufficiali:
  
  Linux nel mondo 
  Android è Linux. I server Amazon, Google e Meta girano su Linux. Il 100% dei supercomputer nel Top500 usa Linux. L'80% dei telefonini del mondo gira su un kernel Linux.
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
 
---- Slide 9 ---
-
- Software libero vs open source vs proprietario 
+--- Slide 11 ---
+Software libero vs open source vs proprietario 
  
  
  🔓 
@@ -293,14 +300,13 @@ Windows, macOS, Microsoft Office, Adobe Photoshop sono software proprietari.
  
  
  💡 Perché importa 
- Linux e open source hanno costruito internet: Apache, MySQL, Python, Git, il kernel stesso. Il software libero non è "roba da hacker" — è l'infrastruttura su cui gira il mondo digitale.
-Fonti ufficiali:
-- Guida ufficiale Adobe Photoshop — https://helpx.adobe.com/photoshop/user-guide.html
-- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
+ Linux e open source hanno costruito internet: Apache, MySQL, Python, Git, il kernel stesso. Il software libero non è "roba da hacker" — è l'infrastruttura su cui gira il mondo digitale. 
+ 
+ 
+ Fonte: Guida ufficiale Adobe Photoshop ↗
 
---- Slide 10 ---
-
- Android: il mobile OS più diffuso al mondo 
+--- Slide 12 ---
+Android: il mobile OS più diffuso al mondo 
  
  
  
@@ -324,13 +330,9 @@ Fonti ufficiali:
  ⚠️ 
  Contro 
  Frammentazione : migliaia di modelli con versioni diverse. Aggiornamenti : i produttori economici aggiornano poco. Malware : più esposto di iOS per il sideloading e lo store meno controllato.
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
-- Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
 
---- Slide 11 ---
-
- Tabella comparativa 
+--- Slide 13 ---
+Tabella comparativa 
  
  
  
@@ -376,12 +378,9 @@ Fonti ufficiali:
  Buona, Gatekeeper + SIP 
  Ottima, permessi granulari 
  Variabile per frammentazione
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
 
---- Slide 12 ---
-
- Come si installano le app e come sono organizzati i file 
+--- Slide 14 ---
+Come si installano le app e come sono organizzati i file 
  
  
  Installazione applicazioni 
@@ -415,12 +414,9 @@ Fonti ufficiali:
  
  🐧 ext4 / btrfs 
  ext4 è lo standard Linux: robusto e veloce. btrfs è il futuro: snapshot, compressione trasparente, correzione errori. F2FS usato da Android per flash storage.
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
 
---- Slide 13 ---
-
- Come ogni OS gestisce sicurezza e aggiornamenti 
+--- Slide 15 ---
+Come ogni OS gestisce sicurezza e aggiornamenti 
  
  
  🪟 
@@ -446,12 +442,9 @@ Fonti ufficiali:
  
  Aggiornamenti: non rimandare mai 
  Le vulnerabilità sfruttate dagli attacchi più gravi sono spesso già note e corrette da patch disponibili. Il problema è che gli utenti non aggiornano. WannaCry (2017) ha infettato 200.000 PC usando una vulnerabilità per cui Microsoft aveva rilasciato la patch 60 giorni prima.
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
 
---- Slide 14 ---
-
- Raccolta dati, GUI e personalizzazione a confronto 
+--- Slide 16 ---
+Raccolta dati, GUI e personalizzazione a confronto 
  
  
  
@@ -490,12 +483,9 @@ Fonti ufficiali:
  Ottima compressione memoria, efficiente su M-chip 
  ~300 MB–1 GB con GUI leggera (XFCE, i3) 
  Ottimizzato per mobile, gestione aggressiva
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
 
---- Slide 15 ---
-
- Chi usa cosa 
+--- Slide 17 ---
+Chi usa cosa 
  
  
  
@@ -534,12 +524,9 @@ Fonti ufficiali:
  
  "Android è insicuro" 
  Android con aggiornamenti regolari e Play Store è sicuro. Il rischio aumenta con dispositivi non aggiornati e APK da fonti sconosciute.
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
 
---- Slide 16 ---
-
- Non esiste il "migliore": dipende da te 
+--- Slide 18 ---
+Non esiste il "migliore": dipende da te 
  
  
  🪟 
@@ -564,14 +551,17 @@ Fonti ufficiali:
  
  
  💡 Il consiglio finale 
- Prova. Ubuntu ha una versione live che puoi usare da chiavetta USB senza installare nulla. macOS puoi provarlo nei negozi Apple. Nessuna scelta è permanente — e conoscere più sistemi è una competenza professionale.
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
-- Documenti e specifiche USB — USB-IF — https://www.usb.org/documents
+ Prova. Ubuntu ha una versione live che puoi usare da chiavetta USB senza installare nulla. macOS puoi provarlo nei negozi Apple. Nessuna scelta è permanente — e conoscere più sistemi è una competenza professionale. 
+ 
+ 
+ Fonte: Documenti e specifiche USB — USB-IF ↗
 
---- Slide 17 ---
+--- Slide 19 ---
 Conosci
 il tuo OS. 
  Windows, macOS e Linux: cosa fa un sistema operativo, come gestisce processi, memoria, permessi e aggiornamenti. 
  
- Prossimo → M13 · Concetti fondamentali OS
+ Prossimo → M13 · Concetti fondamentali OS 
+ 
+ Fonti e approfondimenti CPU — Wikipedia ↗ RAM — Wikipedia ↗ Guida ufficiale Android ↗ Manuale utente iPhone — Apple ↗ Guida ufficiale Adobe Photoshop ↗ Documenti e specifiche USB — USB-IF ↗
+

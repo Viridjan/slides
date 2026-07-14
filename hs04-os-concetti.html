@@ -130,7 +130,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- ===== SLIDE 1 · TITLE ===== -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="eyebrow reveal" style="color:var(--teal);margin-top:40px;">Modulo 12</div>
       <h1 class="h-sec reveal" style="margin-top:10px;font-size:86px;line-height:.9;">OS: concetti<br><em style="font-style:italic;color:var(--teal);">fondamentali</em></h1>
       <p class="lead reveal d1" style="margin-top:24px;">Driver, installazioni, aggiornamenti, licenze software, store, account, backup e come identificare il tuo sistema operativo.</p>
 
@@ -141,18 +140,28 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <!-- ===== SLIDE 2 · AGENDA ===== -->
-  <section class="slide">
+  <section class="slide"><span class="tag">Percorso</span><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(4,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">App</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Versioni</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Driver</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Aggiornamenti OS e applicazioni</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Licenze software</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Store digitali</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Account</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Backup</span></div></div><div class="num"></div></section>
 
-    <h2 class="h-sec reveal" style="margin-top:28px;">Cosa vedremo</h2>
-    <div class="agenda-list reveal d1">
-      <div class="agenda-item"><span class="n">01</span><span class="t">OS vs Applicazioni — chi fa cosa</span></div>
-      <div class="agenda-item"><span class="n">02</span><span class="t">Installazione — come si installano i programmi</span></div>
-      <div class="agenda-item"><span class="n">03</span><span class="t">Driver — il ponte tra OS e hardware</span></div>
-      <div class="agenda-item"><span class="n">04</span><span class="t">Aggiornamenti OS e applicazioni</span></div>
-      <div class="agenda-item"><span class="n">05</span><span class="t">Licenze software — proprietario, open source, libero</span></div>
-      <div class="agenda-item"><span class="n">06</span><span class="t">Store digitali — vantaggi e differenze</span></div>
-      <div class="agenda-item"><span class="n">07</span><span class="t">Account, permessi e sicurezza utente</span></div>
-      <div class="agenda-item"><span class="n">08</span><span class="t">Backup, ripristino e come riconoscere l'OS</span></div>
+  <!-- ===== ENTRY LEVEL · OGGETTI DIGITALI ===== -->
+  <section class="slide tight-slide">
+    <h2 class="h-sec reveal" style="margin-top:26px;">App, documento e account: tre cose diverse</h2>
+    <p class="lead reveal d1">Molti problemi nascono perché si confonde lo strumento, il contenuto e l'identità con cui si accede.</p>
+    <div class="grid3 reveal d2" style="margin-top:24px;">
+      <div class="card teal"><span class="ic">🧰</span><h3>Applicazione</h3><p>È lo strumento: browser, editor di testo, lettore video. Può essere installato oppure funzionare nel web.</p></div>
+      <div class="card sky"><span class="ic">📄</span><h3>Documento</h3><p>È il contenuto creato o aperto dall'app. Può restare locale, essere sincronizzato o condiviso.</p></div>
+      <div class="card gold"><span class="ic">👤</span><h3>Account</h3><p>È l'identità che dà accesso a impostazioni, licenze e file cloud. Uscire dall'account non disinstalla l'app.</p></div>
+    </div>
+    <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">Analogia:</span> l'app è la penna, il documento è il foglio, l'account è il cassetto personale.</div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+    <h2 class="h-sec reveal" style="margin-top:26px;">Versione e compatibilità: leggere prima di installare</h2>
+    <div class="grid2 reveal d1" style="margin-top:26px;">
+      <div class="card sky"><span class="ic">🔢</span><h3>Versione</h3><p>Indica una specifica edizione del sistema o dell'app. Due dispositivi con lo stesso nome possono avere versioni e funzioni differenti.</p></div>
+      <div class="card teal"><span class="ic">🧩</span><h3>Compatibilità</h3><p>Un'app deve supportare sistema operativo, architettura e requisiti del dispositivo. “Per Windows” o “per macOS” non basta sempre.</p></div>
+      <div class="card gold"><span class="ic">⬆</span><h3>Aggiornamento</h3><p>Porta correzioni e nuove funzioni alla stessa app o allo stesso sistema, senza cambiare necessariamente prodotto.</p></div>
+      <div class="card red"><span class="ic">✓</span><h3>Controllo minimo</h3><p>Verifica fonte, sistema supportato, spazio richiesto e permessi. Se un requisito non è chiaro, non procedere alla cieca.</p></div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -191,7 +200,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Sistema_operativo" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Sistema operativo — Wikipedia" aria-label="Fonte ufficiale: Sistema operativo — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Sistema operativo — Wikipedia ↗</a><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/CPU" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: CPU — Wikipedia" aria-label="Fonte ufficiale: CPU — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: CPU — Wikipedia ↗</a></div></section>
 
   <!-- ===== SLIDE 4 · INSTALLAZIONE ===== -->
   <section class="slide tight-slide">
@@ -227,7 +236,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a></div></section>
+  </section>
 
   <!-- ===== SLIDE 5 · DRIVER ===== -->
   <section class="slide">
@@ -262,7 +271,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Malware" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Malware — Wikipedia" aria-label="Fonte ufficiale: Malware — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Malware — Wikipedia ↗</a><a data-source-origin="auto" href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" aria-label="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Wi-Fi — Wi-Fi Alliance ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" aria-label="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Wi-Fi — Wi-Fi Alliance ↗</a></div></section>
 
   <!-- ===== SLIDE 6 · AGGIORNAMENTI ===== -->
   <section class="slide tight-slide">
@@ -298,7 +307,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Sistema_operativo" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Sistema operativo — Wikipedia" aria-label="Fonte ufficiale: Sistema operativo — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Sistema operativo — Wikipedia ↗</a><a data-source-origin="auto" href="https://www.cisa.gov/stopransomware" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: StopRansomware — CISA" aria-label="Fonte ufficiale: StopRansomware — CISA" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: StopRansomware — CISA ↗</a></div></section>
+  </section>
 
   <!-- ===== SLIDE 7 · LICENZE SOFTWARE ===== -->
   <section class="slide">
@@ -332,7 +341,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <p>Quasi tutto il software libero è anche open source. Non tutto l'open source è "libero" nel senso politico (alcune licenze open source limitano usi commerciali). Molti software appartengono a entrambe le categorie: Linux, Firefox, Git, Python.</p>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://helpx.adobe.com/photoshop/user-guide.html" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Adobe Photoshop" aria-label="Fonte ufficiale: Guida ufficiale Adobe Photoshop" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Adobe Photoshop ↗</a><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://helpx.adobe.com/photoshop/user-guide.html" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Adobe Photoshop" aria-label="Fonte ufficiale: Guida ufficiale Adobe Photoshop" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Adobe Photoshop ↗</a></div></section>
 
   <!-- ===== SLIDE 8 · STORE DIGITALI ===== -->
   <section class="slide tight-slide">
@@ -373,7 +382,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Malware" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Malware — Wikipedia" aria-label="Fonte ufficiale: Malware — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Malware — Wikipedia ↗</a></div></section>
+  </section>
 
   <!-- ===== SLIDE 9 · ACCOUNT E PERMESSI ===== -->
   <section class="slide tight-slide">
@@ -413,7 +422,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Malware" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Malware — Wikipedia" aria-label="Fonte ufficiale: Malware — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Malware — Wikipedia ↗</a><a data-source-origin="auto" href="https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Password e MFA — NIST" aria-label="Fonte ufficiale: Password e MFA — NIST" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Password e MFA — NIST ↗</a><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Manuale utente iPhone — Apple" aria-label="Fonte ufficiale: Manuale utente iPhone — Apple" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Manuale utente iPhone — Apple ↗</a></div></section>
 
   <!-- ===== SLIDE 10 · BACKUP E RIPRISTINO ===== -->
   <section class="slide tight-slide">
@@ -453,7 +462,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.cisa.gov/stopransomware" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: StopRansomware — CISA" aria-label="Fonte ufficiale: StopRansomware — CISA" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: StopRansomware — CISA ↗</a><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Cloud_computing" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Cloud computing — Wikipedia" aria-label="Fonte ufficiale: Cloud computing — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Cloud computing — Wikipedia ↗</a><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a></div></section>
+  </section>
 
   <!-- ===== SLIDE 11 · IDENTIFICARE L'OS ===== -->
   <section class="slide">
@@ -486,7 +495,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <p>Sai se il tuo sistema riceve ancora aggiornamenti di sicurezza (es. Windows 10 termina supporto ottobre 2025). Puoi verificare la compatibilità con un nuovo software. Serve a chi ti supporta tecnicamente per darti istruzioni precise.</p>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Sistema_operativo" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Sistema operativo — Wikipedia" aria-label="Fonte ufficiale: Sistema operativo — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Sistema operativo — Wikipedia ↗</a><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: RAM — Wikipedia" aria-label="Fonte ufficiale: RAM — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: RAM — Wikipedia ↗</a></div></section>
 
   <!-- ===== SLIDE 12 · RIEPILOGO ===== -->
   <section class="slide">
@@ -531,7 +540,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a></div></section>
+  </section>
 
   <!-- ===== SLIDE 13 · CLOSING ===== -->
   <section class="slide closing"><div class="closing-inner"><div class="center" style="align-items:center;text-align:center;">
@@ -540,7 +549,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a class="chip" href="hs05-troubleshooting.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → HS05 · Troubleshooting</a>
       </div>
-    </div></div><div class="page-num"></div></section>
+    </div></div><div class="page-num"></div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Android ↗</a><a href="https://it.wikipedia.org/wiki/CPU" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">CPU — Wikipedia ↗</a><a href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Wi-Fi — Wi-Fi Alliance ↗</a><a href="https://helpx.adobe.com/photoshop/user-guide.html" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Adobe Photoshop ↗</a><a href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Manuale utente iPhone — Apple ↗</a><a href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">RAM — Wikipedia ↗</a></div></div></section>
 
 </div>
 </div>

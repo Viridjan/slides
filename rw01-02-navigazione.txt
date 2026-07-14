@@ -2,43 +2,28 @@ Informatica · Navigazione e Indirizzi Web
 =========================================
 
 --- Slide 1 ---
-Modulo M2.1 — Navigazione e URL
 Navigazione
 e Indirizzi
-Web
-Come funziona la navigazione online, la differenza tra HTTP e HTTPS, la struttura degli URL e i domini di Internet.
+ Web 
+ Come funziona la navigazione online, la differenza tra HTTP e HTTPS, la struttura degli URL e i domini di Internet. 
 
-
-
-
-Indirizzo web
-
-https:// www.sitofinto.it /corsi ?mod=2
-
-
-Protocollo
-Host
-Percorso
+ 
+ 
+ 
+ Indirizzo web 
+ 
+ https:// www.sitofinto.it /corsi ?mod=2 
+ 
+ 
+ Protocollo 
+ Host 
+ Percorso
 
 --- Slide 2 ---
-
- Cosa impareremo 
- 
- 01 Navigare sul Web 
- 02 I protocolli di rete 
- 03 HTTP — il linguaggio del Web 
- 04 HTTPS — comunicazione sicura 
- 05 HTTP vs HTTPS a confronto 
- 06 Cos'è un URL 
- 07 Anatomia di un URL 
- 08 Cos'è un dominio 
- 09 Cos'è un hyperlink
-Fonti ufficiali:
-- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
+Percorso Cosa vedremo 01 Navigare sul Web 02 I protocolli di rete 03 HTTP 04 HTTPS 05 HTTP vs HTTPS a confronto 06 Cos'è un URL 07 Anatomia di un URL 08 Cos'è un dominio 09 Cos'è un hyperlink
 
 --- Slide 3 ---
-
- Cosa significa
+Cosa significa
  navigare 
 sul Web 
  Navigare significa richiedere e ricevere contenuti da server remoti tramite un programma chiamato browser . L'azione appare semplice; il processo sottostante è complesso. 
@@ -87,8 +72,7 @@ sul Web
  Il browser: finestra sul Web
 
 --- Slide 4 ---
-
- I protocolli di rete 
+I protocolli di rete 
  Un protocollo è un insieme di regole condivise che permettono a due sistemi diversi di comunicare. Come una lingua comune: se parlate la stessa, vi capite. 
  
  
@@ -117,8 +101,7 @@ Fonti ufficiali:
 - Domain Name System — ICANN — https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en
 
 --- Slide 5 ---
-
- HTTP HyperText
+HTTP HyperText
 Transfer
  Protocol 
  Il protocollo che definisce come browser e server si scambiano documenti ipertestuali (pagine web). Alla base di tutto il World Wide Web. 
@@ -164,8 +147,7 @@ Fonti ufficiali:
 - Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 6 ---
-
- HTTPS HTTP
+HTTPS HTTP
  Secure 
  La versione sicura di HTTP. I dati vengono cifrati tramite TLS (Transport Layer Security) prima di essere trasmessi. Anche se intercettati, risultano illeggibili. 
  
@@ -211,8 +193,7 @@ Fonti ufficiali:
 - TLS 1.3 — RFC 8446 — https://www.rfc-editor.org/rfc/rfc8446
 
 --- Slide 7 ---
-
- HTTP vs HTTPS 
+HTTP vs HTTPS 
  
  
  HTTP 
@@ -246,8 +227,7 @@ Fonti ufficiali:
 - Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 8 ---
-
- Cos'è un URL 
+Cos'è un URL 
  URL = Uniform Resource Locator. È l'indirizzo esatto di una risorsa sul Web. Come un indirizzo postale: identifica in modo univoco dove si trova qualcosa su Internet. 
  
  
@@ -275,8 +255,7 @@ Fonti ufficiali:
 - HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
 --- Slide 9 ---
-
- Anatomia di un URL 
+Anatomia di un URL 
  
  https:// www.sitofinto.edu.it /corsi/informatica ?anno=2&tipo=base 
  
@@ -305,8 +284,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 10 ---
-
- Cos'è un
+Cos'è un
  dominio ? 
  Il dominio è il nome leggibile di un server su Internet. Gli indirizzi IP (come 192.168.1.1) sono numeri difficili da ricordare — i domini li rendono comprensibili. 
  
@@ -360,8 +338,7 @@ Fonti ufficiali:
 - Domain Name System — ICANN — https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en
 
 --- Slide 11 ---
-
- Cos'è un hyperlink 
+Cos'è un hyperlink 
  Un hyperlink (o semplicemente link ) è un elemento cliccabile che porta da una risorsa web a un'altra. È il concetto che ha ispirato il nome "World Wide Web ". 
  
  
@@ -392,4 +369,7 @@ Fonti ufficiali:
 Navigazione! 🌐 
  URL, HTTP/HTTPS, browser, cookie, cache e certificati SSL: cosa succede davvero ogni volta che visiti un sito. 
  
- Prossimo → W08 · Domini e Estensioni
+ Prossimo → W08 · Domini e Estensioni 
+ 
+ Fonti e approfondimenti HTML — Wikipedia ↗ HTTP Semantics — RFC 9110 ↗ Domain Name System — ICANN ↗ TLS 1.3 — RFC 8446 ↗ Indirizzo IP — Wikipedia ↗
+

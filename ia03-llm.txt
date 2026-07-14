@@ -2,34 +2,19 @@ Intelligenza Artificiale · IA_03 — LLM: Large Language Models
 =============================================================
 
 --- Slide 1 ---
-Intelligenza Artificiale
-LLM
-spiegati
-Cos'è un Large Language Model, come funziona davvero — e perché molte cose che "sa" sull'IA sono sbagliate.
+LLM 
+spiegati 
+ Cos'è un Large Language Model, come funziona davvero — e perché molte cose che "sa" sull'IA sono sbagliate. 
 
-
-
-🧠
+ 
+ 
+ 🧠
 
 --- Slide 2 ---
-
- Cosa vedremo
-
-
- Cosa sono gli LLM — definizione, architettura transformer, NLP
- Caso studio — un testo generato da IA su se stessa: quanti errori contiene?
- Analisi degli errori — 5 inesattezze nel testo IA, identificate slide per slide
-
-
- Come funziona un LLM — prompt → token → nodi → risposta
- Cosa un LLM non fa — capire, imparare, ragionare (nel senso umano)
- Usare gli LLM bene — verificare, iterare, non fidarsi ciecamente
-Fonti ufficiali:
-- Transformer — paper originale — https://arxiv.org/abs/1706.03762
+Percorso Cosa vedremo 01 Cosa sono gli LLM 02 Caso studio 03 Analisi degli errori 04 Come funziona un LLM 05 Cosa un LLM non fa 06 Usare gli LLM bene
 
 --- Slide 3 ---
-
- Large Language Models
+Large Language Models
  Modelli di IA basati su reti neurali addestrati su enormi quantità di testo — per imparare le relazioni matematiche tra parole .
 
  Transformer
@@ -55,8 +40,7 @@ Fonti ufficiali:
 - Attention Is All You Need — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 4 ---
-
- Perplexity: definizione di LLM
+Perplexity: definizione di LLM
 
  I Large Language Models (LLM) sono modelli di intelligenza artificiale basati su reti neurali profonde specializzate nell'elaborazione del linguaggio naturale ( NLP ). Sono addestrati su enormi quantità di testo per apprendere le relazioni tra parole, frasi e concetti, permettendo loro di generare testo coerente e comprensibile, rispondere a domande, tradurre, riassumere e svolgere molte altre attività linguistiche . Il funzionamento di un LLM si basa su architetture chiamate transformer, che elaborano sequenze di testo utilizzando meccanismi di attenzione per capire il contesto e prevedere la parola successiva in una frase. L'addestramento avviene in più fasi, spesso partendo da un apprendimento non supervisionato su dati non etichettati, per poi affinare la precisione.
 Fonti ufficiali:
@@ -64,8 +48,7 @@ Fonti ufficiali:
 - AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 5 ---
-
- Perplexity: cosa sostiene il testo
+Perplexity: cosa sostiene il testo
 
  Grazie a questa struttura, gli LLM possono comprendere il significato implicito, lo stile e il contesto, rendendoli strumenti potenti per la generazione automatica di contenuti e l'elaborazione avanzata del linguaggio. In sintesi, un LLM è un modello AI che "impara" come funziona il linguaggio umano leggendo e analizzando grandi testi, per poi usarlo per creare contenuti testuali o comprendere query complesse con alta precisione.
 
@@ -76,8 +59,7 @@ Fonti ufficiali:
 - Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 6 ---
-
- Perplexity: definizione di NLP
+Perplexity: definizione di NLP
 
  Il Natural Language Processing (NLP), o elaborazione del linguaggio naturale, è una branca dell'intelligenza artificiale che permette ai computer di comprendere, interpretare e generare il linguaggio umano, sia scritto che parlato. Il suo obiettivo è colmare il divario tra la comunicazione umana e la capacità dei computer di capire il linguaggio naturale. L'NLP combina linguistica computazionale con tecniche di machine learning e deep learning per analizzare testi e parole, identificarne il significato, il contesto e l'intento . Tra le sue funzioni principali ci sono la tokenizzazione, l'analisi sintattica, la riconoscenza di entità e il rilevamento del sentiment. Questo consente di trasformare dati linguistici grezzi in informazioni utili per rispondere a domande, tradurre testi, generare contenuti e molto altro. In sintesi, l'NLP è la tecnologia che consente ai computer di "parlare" e capire il linguaggio umano in modo naturale e utile.
 Fonti ufficiali:
@@ -85,8 +67,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 7 ---
-
- Il testo era generato
+Il testo era generato
  Il testo appena letto è stato generato con Perplexity.ai e contiene una serie di inesattezze. Le analizziamo una per una, slide per slide.
 
  ⚠️ Tono sicuro La forma è fluida e convincente, anche quando il contenuto è impreciso.
@@ -94,8 +75,7 @@ Fonti ufficiali:
  🧭 Metodo Isoliamo una frase, identifichiamo il problema, riscriviamo il concetto corretto.
 
 --- Slide 8 ---
-
- Reti neurali profonde
+Reti neurali profonde
  "modelli di intelligenza artificiale basati su reti neurali profonde "
  Perché è un problema La parola è una scorciatoia ambigua: deriva dall'associazione con deep learning , ma non spiega cosa rende specifico un LLM.
 
@@ -107,8 +87,7 @@ Fonti ufficiali:
 - Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 9 ---
-
- Solo attività linguistiche ?
+Solo attività linguistiche ?
  "rispondere a domande, tradurre, riassumere e svolgere molte altre attività linguistiche "
  Non è falso, è incompleto Gli LLM nascono sul linguaggio, ma oggi sono integrati in sistemi che lavorano anche con codice, immagini, audio, video e strumenti esterni.
 
@@ -119,8 +98,7 @@ Fonti ufficiali:
 - Attention Is All You Need — https://arxiv.org/abs/1706.03762
 
 --- Slide 10 ---
-
- L'LLM comprende ?
+L'LLM comprende ?
  "gli LLM possono comprendere il significato implicito, lo stile e il contesto"
  Perché è sbagliato Un LLM non comprende nel senso umano: calcola relazioni tra token e produce una continuazione plausibile.
 
@@ -131,8 +109,7 @@ Fonti ufficiali:
 - Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 11 ---
-
- "Impara" il linguaggio umano
+"Impara" il linguaggio umano
  "un modello AI che impara come funziona il linguaggio umano leggendo e analizzando grandi testi"
  Perché è impreciso Il modello non studia regole come farebbe una persona: ottimizza pesi numerici per prevedere il token successivo.
 
@@ -141,8 +118,7 @@ Fonti ufficiali:
  🎲 Perché sembra magico La generazione è probabilistica e può apparire creativa, ma rimane una produzione token per token guidata da calcoli.
 
 --- Slide 12 ---
-
- NLP "in modo naturale "
+NLP "in modo naturale "
  "consente ai computer di parlare e capire il linguaggio umano in modo naturale e utile"
  Perché è una formulazione debole Attribuisce al computer capacità umane: parlare e capire. Tecnicamente l'NLP elabora, classifica, trasforma e genera dati linguistici.
 
@@ -151,8 +127,7 @@ Fonti ufficiali:
  Conclusione operativa Quando leggi un testo IA, cerca verbi troppo umani: capire, volere, sapere, parlare. Spesso nascondono semplificazioni.
 
 --- Slide 13 ---
-
- Verificare sempre l'output
+Verificare sempre l'output
  Un LLM può generare testo scorretto con la stessa fluidità e sicurezza con cui genera testo corretto. Il tono sicuro non è garanzia di accuratezza.
 
  ⚠️ Allucinazioni Può inventare fatti, citazioni, riferimenti bibliografici, nomi o date con sicurezza apparente.
@@ -162,8 +137,7 @@ Fonti ufficiali:
 - Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 14 ---
-
- Come funziona un LLM ?
+Come funziona un LLM ?
  Tutto inizia con il prompt — il testo che scrivi all'LLM. È l'input che guida tutta la generazione successiva.
 
  ✍️ Prompt
@@ -181,8 +155,7 @@ Fonti ufficiali:
 - Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 15 ---
-
- Tokenizzazione
+Tokenizzazione
  Il prompt viene spezzato in token — pacchetti più piccoli del testo originale.
  Un token non corrisponde a una parola: può essere una sillaba, un simbolo, una parola intera o una sequenza comune. La stessa parola può diventare uno o più token secondo tokenizer, lingua e contesto.
 
@@ -207,8 +180,7 @@ Fonti ufficiali:
 - Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 16 ---
-
- Reti di nodi
+Reti di nodi
  I token vengono trasformati in vettori numerici; gli strati del transformer combinano queste rappresentazioni tramite attenzione e altre operazioni matematiche. L'analogia con i neuroni biologici è solo parziale.
  Il processo si propaga attraverso tutti gli strati della rete, trasformando il segnale ad ogni passaggio, finché l'LLM produce un output finale.
 
@@ -246,8 +218,7 @@ Fonti ufficiali:
 - Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 17 ---
-
- L'LLM si interroga sul prompt
+L'LLM si interroga sul prompt
  Nella maggior parte dei modelli moderni, quando fornisci un prompt l'IA prima chiede a se stessa cosa significhi quel prompt — prima di rispondere.
 
 
@@ -268,8 +239,7 @@ Fonti ufficiali:
 - Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 18 ---
-
- Cosa un LLM non fa
+Cosa un LLM non fa
 
 
  🧠
@@ -295,6 +265,7 @@ Fonti ufficiali:
 
 --- Slide 19 ---
 Non magia.
-Matematica.
- Token, transformer, attention mechanism, embedding, hallucination e RLHF: cosa c'è davvero dentro un Large Language Model.
-Torna all’indice
+Matematica. 
+ Token, transformer, attention mechanism, embedding, hallucination e RLHF: cosa c'è davvero dentro un Large Language Model. 
+ Torna all’indice Fonti e approfondimenti Transformer — paper originale ↗
+

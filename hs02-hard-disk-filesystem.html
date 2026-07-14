@@ -70,7 +70,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
 
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="eyebrow reveal" style="margin-top:40px;">Modulo 11 — Archiviazione</div>
       <h1 class="h-mega reveal">Hard disk<br>e <em class="hot">file</em></h1>
       <p class="lead reveal" style="margin-top:30px;">Come sono organizzati i dati: dischi, partizioni, file system, formati, file compressi e collegamenti simbolici.</p>
 
@@ -78,26 +77,30 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
     <div class="title-right"><div class="disk reveal" aria-label="Illustrazione di un hard disk"></div></div>
   </section>
 
-  <section class="slide">
-    <div class="center">
+  <section class="slide"><span class="tag">Percorso</span><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(5,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">Memoria</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Hard disk e SSD</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Partizioni e formattazione</span></div><div class="agenda-item"><span class="n">04</span><span class="t">File system</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Cartelle</span></div><div class="agenda-item"><span class="n">06</span><span class="t">FAT32</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Btrfs</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Compressione e archivi</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Link simbolici e hard link</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Buone abitudini</span></div></div><div class="num"></div></section>
 
-      <h2 class="h-sec reveal" style="margin-top:22px;">Cosa impareremo</h2>
-      <p class="body reveal" style="margin-top:12px;max-width:1100px;">Dalla fisica dei piatti magnetici al modo in cui il sistema operativo trova un file in millisecondi: in questo modulo esploriamo tutta la catena di archiviazione. Capiremo perché scegliere il file system sbagliato può bloccarti, come la frammentazione rallenta un HDD, e quali abitudini pratiche salvaguardano i tuoi dati nel lungo periodo. Un percorso completo.</p>
-      <div class="agenda-list reveal d1">
-        <div class="agenda-item"><span class="n">01</span><span class="t">Dove vivono i file</span></div>
-        <div class="agenda-item"><span class="n">02</span><span class="t">Hard disk e SSD</span></div>
-        <div class="agenda-item"><span class="n">03</span><span class="t">Partizioni e formattazione</span></div>
-        <div class="agenda-item"><span class="n">04</span><span class="t">File system</span></div>
-        <div class="agenda-item"><span class="n">05</span><span class="t">Cartelle, percorsi, metadata</span></div>
-        <div class="agenda-item"><span class="n">06</span><span class="t">FAT32, exFAT, NTFS</span></div>
-        <div class="agenda-item"><span class="n">07</span><span class="t">Btrfs, ext4, APFS</span></div>
-        <div class="agenda-item"><span class="n">08</span><span class="t">Compressione e archivi</span></div>
-        <div class="agenda-item"><span class="n">09</span><span class="t">Link simbolici e hard link</span></div>
-        <div class="agenda-item"><span class="n">10</span><span class="t">Buone abitudini</span></div>
-      </div>
+  <section class="slide tight-slide">
+    <h2 class="h-sec reveal">RAM e spazio disco non sono la stessa cosa</h2>
+    <p class="lead reveal d1">Nel linguaggio quotidiano diciamo “memoria” per entrambe, ma rispondono a due domande diverse: <b>quanto posso fare adesso?</b> e <b>quanto posso conservare?</b></p>
+    <div class="grid2 reveal d2" style="margin-top:24px;">
+      <div class="card sky"><span class="ic">⚡</span><h3>RAM · lavoro temporaneo</h3><p>Contiene app e dati mentre li usi. È molto veloce e si svuota quando spegni il dispositivo. Più RAM aiuta a tenere aperte più attività.</p></div>
+      <div class="card gold"><span class="ic">💾</span><h3>Archiviazione · conservazione</h3><p>HDD, SSD e memoria flash mantengono file e programmi anche da spenti. Se lo spazio finisce, non puoi salvare nuovi dati.</p></div>
     </div>
+    <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">Analogia:</span> la RAM è il tavolo su cui lavori; il disco è l'armadio in cui riponi tutto.</div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Sistema_operativo" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Sistema operativo — Wikipedia" aria-label="Fonte ufficiale: Sistema operativo — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Sistema operativo — Wikipedia ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: RAM — Wikipedia" aria-label="Fonte ufficiale: RAM — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: RAM — Wikipedia ↗</a></div></section>
+
+  <section class="slide tight-slide">
+    <h2 class="h-sec reveal">Prima domanda: dove sto salvando?</h2>
+    <p class="lead reveal d1">Lo stesso pulsante “Salva” può destinare il file a luoghi differenti. Riconoscere il luogo evita il classico “il file è sparito”.</p>
+    <div class="grid3 reveal d2" style="margin-top:24px;">
+      <div class="card teal"><span class="ic">💻</span><h3>Nel dispositivo</h3><p>Il file è sul disco interno. Funziona anche offline, ma non appare automaticamente sugli altri dispositivi.</p></div>
+      <div class="card red"><span class="ic">🔌</span><h3>Su unità esterna</h3><p>Chiavetta USB o disco esterno. Va espulso correttamente prima di scollegarlo per evitare scritture incomplete.</p></div>
+      <div class="card sky"><span class="ic">☁️</span><h3>Nel cloud</h3><p>Il file è gestito da un servizio online. Sincronizzazione, disponibilità offline e permessi dipendono dalle impostazioni.</p></div>
+    </div>
+    <div class="note reveal d3" style="margin-top:20px;"><div class="lbl">💡 Controllo rapido</div><p>Guarda sempre il percorso o il nome della cartella prima di confermare il salvataggio.</p></div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Documenti e specifiche USB — USB-IF" aria-label="Fonte ufficiale: Documenti e specifiche USB — USB-IF" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Documenti e specifiche USB — USB-IF ↗</a></div></section>
 
   <section class="slide">
     <div class="split">
@@ -116,7 +119,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/File_system" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: File system — Wikipedia" aria-label="Fonte ufficiale: File system — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: File system — Wikipedia ↗</a></div></section>
+  </section>
 
   <section class="slide">
     <div class="split even">
@@ -145,7 +148,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <div class="note reveal d2" style="margin-top:8px;"><div class="lbl">TRIM</div><p>Il comando TRIM informa l'SSD quali blocchi non sono più usati dal file system, permettendogli di prepararli per la prossima scrittura e mantenere velocità e durata nel tempo.</p></div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Sistema_operativo" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Sistema operativo — Wikipedia" aria-label="Fonte ufficiale: Sistema operativo — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Sistema operativo — Wikipedia ↗</a></div></section>
+  </section>
 
   <section class="slide">
     <div class="center">
@@ -162,7 +165,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <p class="body reveal d2" style="margin-top:16px;"><b>Attenzione:</b> i produttori dichiarano capacità in multipli decimali (1 TB = 1.000.000.000.000 byte). Il sistema operativo, che usa potenze di 2, mostra un valore leggermente inferiore (es. circa 931 GiB invece di 1 TB).</p>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.unicode.org/versions/latest/core-spec/chapter-2/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: UTF-8 — Unicode Standard" aria-label="Fonte ufficiale: UTF-8 — Unicode Standard" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: UTF-8 — Unicode Standard ↗</a><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Sistema_operativo" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Sistema operativo — Wikipedia" aria-label="Fonte ufficiale: Sistema operativo — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Sistema operativo — Wikipedia ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.unicode.org/versions/latest/core-spec/chapter-2/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: UTF-8 — Unicode Standard" aria-label="Fonte ufficiale: UTF-8 — Unicode Standard" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: UTF-8 — Unicode Standard ↗</a></div></section>
 
   <section class="slide">
     <div class="split">
@@ -179,7 +182,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Sistema_operativo" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Sistema operativo — Wikipedia" aria-label="Fonte ufficiale: Sistema operativo — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Sistema operativo — Wikipedia ↗</a></div></section>
+  </section>
 
   <section class="slide">
     <div class="col stack" style="justify-content:center;height:100%;">
@@ -194,7 +197,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/File_system" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: File system — Wikipedia" aria-label="Fonte ufficiale: File system — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: File system — Wikipedia ↗</a></div></section>
+  </section>
 
   <section class="slide">
     <div class="split even">
@@ -233,7 +236,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <div class="note reveal d2" style="margin-top:12px;"><div class="lbl">⚠️ Attenzione</div><p>Copiare un file tra file system diversi può far perdere metadati: permessi NTFS su FAT32, tag estesi, date di creazione o attributi speciali. Usare strumenti di backup che preservano i metadati quando necessario.</p></div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/File_system" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: File system — Wikipedia" aria-label="Fonte ufficiale: File system — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: File system — Wikipedia ↗</a></div></section>
+  </section>
 
   <section class="slide">
     <div class="center">
@@ -248,7 +251,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <p class="body reveal d2" style="margin-top:16px;"><b>Regola pratica:</b> usa FAT32 per dispositivi e lettori vecchi dove la compatibilità è prioritaria; usa exFAT per trasferire file grandi (video, ISO) su dischi e chiavette condivisi tra sistemi diversi.</p>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/File_system" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: File system — Wikipedia" aria-label="Fonte ufficiale: File system — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: File system — Wikipedia ↗</a><a data-source-origin="auto" href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Documenti e specifiche USB — USB-IF" aria-label="Fonte ufficiale: Documenti e specifiche USB — USB-IF" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Documenti e specifiche USB — USB-IF ↗</a></div></section>
+  </section>
 
   <section class="slide">
     <div class="split">
@@ -266,7 +269,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/File_system" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: File system — Wikipedia" aria-label="Fonte ufficiale: File system — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: File system — Wikipedia ↗</a></div></section>
+  </section>
 
   <section class="slide">
     <div class="center">
@@ -281,7 +284,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <div class="note reveal d2" style="margin-top:10px;"><div class="lbl">💡 Nota sul nome</div><p>Si scrive <b>Btrfs</b> (B-Tree FS), spesso pronunciato "butter FS". Non è "BRTFS" e non si legge lettera per lettera. Il nome deriva dalla struttura dati B-tree che usa internamente per indicizzare file e metadati.</p></div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/File_system" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: File system — Wikipedia" aria-label="Fonte ufficiale: File system — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: File system — Wikipedia ↗</a><a data-source-origin="auto" href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Manuale utente iPhone — Apple" aria-label="Fonte ufficiale: Manuale utente iPhone — Apple" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Manuale utente iPhone — Apple ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Manuale utente iPhone — Apple" aria-label="Fonte ufficiale: Manuale utente iPhone — Apple" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Manuale utente iPhone — Apple ↗</a></div></section>
 
   <section class="slide">
     <div class="split">
@@ -299,7 +302,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/File_system" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: File system — Wikipedia" aria-label="Fonte ufficiale: File system — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: File system — Wikipedia ↗</a></div></section>
+  </section>
 
   <section class="slide">
     <div class="center">
@@ -332,7 +335,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Compressione_dei_dati" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Compressione dei dati — Wikipedia" aria-label="Fonte ufficiale: Compressione dei dati — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Compressione dei dati — Wikipedia ↗</a><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
+  </section>
 
   <section class="slide">
     <div class="center">
@@ -348,7 +351,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       </table>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Compressione_dei_dati" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Compressione dei dati — Wikipedia" aria-label="Fonte ufficiale: Compressione dei dati — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Compressione dei dati — Wikipedia ↗</a><a data-source-origin="auto" href="https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Password e MFA — NIST" aria-label="Fonte ufficiale: Password e MFA — NIST" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Password e MFA — NIST ↗</a></div></section>
+  </section>
 
   <section class="slide">
     <div class="split">
@@ -366,7 +369,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/File_system" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: File system — Wikipedia" aria-label="Fonte ufficiale: File system — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: File system — Wikipedia ↗</a></div></section>
+  </section>
 
 
 
@@ -376,7 +379,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a href="hs03-os.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → M12 · Sistemi Operativi</a>
       </div>
-    </div></div><div class="page-num"></div></section>
+    </div></div><div class="page-num"></div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">RAM — Wikipedia ↗</a><a href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Documenti e specifiche USB — USB-IF ↗</a><a href="https://www.unicode.org/versions/latest/core-spec/chapter-2/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">UTF-8 — Unicode Standard ↗</a><a href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Manuale utente iPhone — Apple ↗</a></div></div></section>
 
 </main>
 </div>

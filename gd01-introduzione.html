@@ -115,7 +115,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
 .home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
 .home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
-</style>
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display),Georgia,serif;font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}</style>
 <link rel="stylesheet" href="theme-corsi.css">
 </head>
 <body class="course-gd">
@@ -125,7 +125,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- SLIDE 1 · TITLE -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="eyebrow reveal" style="margin-top:40px;">Game Design</div>
       <h1 class="h-mega reveal" style="margin-top:10px;">Introduzione<br><em style="font-style:italic;color:var(--sky);">al gioco</em></h1>
       <p class="lead reveal d1" style="margin-top:28px;">Design applicato alle attività ludiche — tipologie di giochi, il paradigma MDA, meccaniche e dinamiche.</p>
 
@@ -136,23 +135,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <!-- SLIDE 2 · AGENDA -->
-  <section class="slide">
-
-    <h2 class="h-sec reveal" style="margin-top:32px;">Cosa vedremo</h2>
-    <div class="grid2 reveal d1" style="margin-top:28px;">
-      <div class="steps" style="counter-reset:st;">
-        <div class="step"><div class="t"><b>Tipologie di giochi</b> — board, card, dice, party, eurogame, family, cooperative: ogni categoria rivela aspettative diverse nel giocatore e scelte diverse nel designer</div></div>
-        <div class="step"><div class="t"><b>Eccezioni e giochi ibridi</b> — quando le categorie non bastano più e i giochi di maggior successo le attraversano tutte</div></div>
-        <div class="step"><div class="t"><b>Il paradigma MDA</b> — Meccaniche, Dinamiche, Estetiche: il modello formale di Hunicke, LeBlanc e Zubek (2004) per analizzare e progettare esperienze di gioco</div></div>
-      </div>
-      <div class="steps" style="counter-reset:st 3;">
-        <div class="step"><div class="t"><b>Prospettiva designer vs giocatore</b> — chi costruisce parte dalle meccaniche; chi gioca arriva prima all'estetica: due percorsi opposti lungo lo stesso asse MDA</div></div>
-        <div class="step"><div class="t"><b>Giochi agonistici e non agonistici</b> — competizione diretta, cooperazione pura e le zone grigie in mezzo: i semi-cooperativi con il traditore nascosto</div></div>
-        <div class="step"><div class="t"><b>Attività pratica</b> — scegli un gioco che conosci e applicagli il framework MDA: elenca le meccaniche, identifica le dinamiche emergenti, descrivi l'estetica che ne risulta</div></div>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Paradigma_di_programmazione" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Paradigmi di programmazione — Wikipedia" aria-label="Fonte ufficiale: Paradigmi di programmazione — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Paradigmi di programmazione — Wikipedia ↗</a></div></section>
+  <section class="slide"><span class="tag">Percorso</span><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(3,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">Tipologie di giochi</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Eccezioni e giochi ibridi</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Il paradigma MDA</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Prospettiva designer vs giocatore</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Giochi agonistici e non agonistici</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Attività pratica</span></div></div><div class="num"></div></section>
 
   <!-- SLIDE 3 · COS'È IL GAME DESIGN -->
   <section class="slide">
@@ -185,7 +168,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://igda.org/about-us/core-values-and-code-of-ethics/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Valori e codice etico — IGDA" aria-label="Fonte ufficiale: Valori e codice etico — IGDA" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Valori e codice etico — IGDA ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 4 · TIPOLOGIE — BOARD, CARD, DICE -->
   <section class="slide">
@@ -307,7 +290,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Paradigma_di_programmazione" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Paradigmi di programmazione — Wikipedia" aria-label="Fonte ufficiale: Paradigmi di programmazione — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Paradigmi di programmazione — Wikipedia ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 9 · MDA — SPIEGAZIONE -->
   <section class="slide">
@@ -346,7 +329,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://igda.org/about-us/core-values-and-code-of-ethics/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Valori e codice etico — IGDA" aria-label="Fonte ufficiale: Valori e codice etico — IGDA" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Valori e codice etico — IGDA ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 10 · MECCANICA -->
   <section class="slide">
@@ -489,7 +472,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Paradigma_di_programmazione" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Paradigmi di programmazione — Wikipedia" aria-label="Fonte ufficiale: Paradigmi di programmazione — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Paradigmi di programmazione — Wikipedia ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 15 · AGONISTICO VS NON AGONISTICO -->
   <section class="slide tight-slide">

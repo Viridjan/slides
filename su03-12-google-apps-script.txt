@@ -2,15 +2,15 @@ Suite Ufficio · SU03.12 — Google Apps Script
 ============================================
 
 --- Slide 1 ---
-Automazione · SU03.12 Google Apps
-Script Automatizzare Google Workspace con JavaScript: Sheets, Drive, Gmail, trigger, web app, autorizzazioni, API e procedure cloud. Sheets
-↓ Apps Script
+Google Apps
+ Script Automatizzare Google Workspace con JavaScript: Sheets, Drive, Gmail, trigger, web app, autorizzazioni, API e procedure cloud. Sheets
+ ↓ Apps Script
 Drive / Gmail / API
-↓ trigger
+ ↓ trigger
 workflow cloud
 
 --- Slide 2 ---
-Percorso Cosa vedremo Fondamenti Che cos’è Apps Script Editor e progetto JavaScript essenziale Costrutti SpreadsheetApp getValues e setValues Range e fogli Menu personalizzati Trigger semplici Trigger installabili Autorizzazioni Automazione GmailApp DriveApp UrlFetchApp JSON e oggetti HTML Service Web app PropertiesService Produzione LockService Logger e debug Quote e limiti Deployment e versioni Progetto finale Apps Script
+Percorso Cosa vedremo 01 Fondamenti 02 Costrutti 03 Automazione 04 Produzione
 
 --- Slide 3 ---
 Fondamenti Che cos’è Apps Script Google Apps Script è JavaScript nel cloud Google: automatizza Sheets, Docs, Drive, Gmail, Calendar e servizi esterni. Caso concreto Un foglio con gli appuntamenti del salone genera ogni sera i promemoria, archivia un PDF su Drive e registra l’esito senza lasciare acceso un computer. Punto di forza Il codice gira nell’infrastruttura Google e usa direttamente i servizi Workspace dell’account, con autorizzazioni esplicite. Errore da evitare Trattarlo come JavaScript nel browser: non esistono DOM e window; si lavora con servizi come SpreadsheetApp e GmailApp. Esercizio Scegli un’attività in Workspace e descrivi origine dei dati, azione automatica, destinazione e frequenza di esecuzione.
@@ -145,5 +145,5 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 25 ---
-Apps Script collega i fogli agli strumenti Google. È ideale quando il lavoro parte da Sheets ma deve produrre email, file, report e azioni programmate. Torna all'indice
+Apps Script collega i fogli agli strumenti Google. È ideale quando il lavoro parte da Sheets ma deve produrre email, file, report e azioni programmate. Torna all'indice Fonti e approfondimenti JavaScript — Wikipedia ↗ Formule e funzioni — Supporto Microsoft Excel ↗ Guida ufficiale Google Sheets ↗ Internet Message Format — RFC 5322 ↗ HTML — Wikipedia ↗
 

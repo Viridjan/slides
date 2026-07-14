@@ -2,18 +2,19 @@ Suite Ufficio · SU11 — Manipolare il testo
 ==========================================
 
 --- Slide 1 ---
-Fogli di calcolo · Google Sheets
 Manipolare
-il testo
-Unire, dividere, cercare, sostituire, pulire e convertire il testo con le funzioni di Google Sheets.
+ il testo 
+ Unire, dividere, cercare, sostituire, pulire e convertire il testo con le funzioni di Google Sheets. 
 
-
-
-✂️
+ 
+ 
+ ✂️
 
 --- Slide 2 ---
+Percorso Cosa vedremo 01 I dati veri sono sporchi 02 Da tante celle a una 03 SPLIT 04 TROVA e RICERCA 05 TROVA + estrazione 06 SOSTITUISCI e RIMPIAZZA 07 Spazi invisibili 08 Numeri travestiti da testo 09 MAIUSC 10 Pulizia in catena 11 La cassetta degli attrezzi del testo 12 Sapresti rispondere
 
- I dati veri sono sporchi 
+--- Slide 3 ---
+I dati veri sono sporchi 
  Export dal gestionale, moduli compilati a mano, copia-incolla da email: il testo arriva quasi sempre nel formato sbagliato. Le funzioni di testo lo rimettono in ordine senza riscrivere nulla a mano. 
  Analogia: forbici, colla e gomma per le tue celle — tagli, unisci e cancelli senza toccare l'originale. 
  
@@ -29,9 +30,8 @@ Unire, dividere, cercare, sostituire, pulire e convertire il testo con le funzio
 Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
---- Slide 3 ---
-
- Da tante celle a una 
+--- Slide 4 ---
+Da tante celle a una 
  L'operatore &amp; lo conosci già. Quando le celle da unire sono tante, TESTO.UNISCI fa la stessa cosa con un separatore unico e salta le celle vuote. 
  =TESTO.UNISCI( "; " ; VERO ; A2:A10) 
  Il primo argomento è il separatore, il secondo (VERO) dice di ignorare le celle vuote, il terzo è l'intervallo. In inglese la stessa funzione si chiama TEXTJOIN. 
@@ -49,9 +49,8 @@ Fonti ufficiali:
  =TESTO.UNISCI("; ";VERO;A2:A5)
 la cella vuota sparisce dal risultato
 
---- Slide 4 ---
-
- SPLIT: una cella, più colonne 
+--- Slide 5 ---
+SPLIT: una cella, più colonne 
  SPLIT è l'inverso dell'unione: prende un testo e lo spezza in celle separate ogni volta che incontra il delimitatore. È una funzione esclusiva di Google Sheets e mantiene il nome inglese. 
  =SPLIT( A2 ; "-" ) 
  Il risultato "trabocca" nelle celle a destra: servono colonne libere, altrimenti Sheets segnala errore #RIF!. 
@@ -76,9 +75,8 @@ la cella vuota sparisce dal risultato
 Fonti ufficiali:
 - Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
---- Slide 5 ---
-
- TROVA e RICERCA : dov'è quel carattere? 
+--- Slide 6 ---
+TROVA e RICERCA : dov'è quel carattere? 
  Entrambe restituiscono la posizione (un numero) di un testo dentro un altro. Non estraggono nulla da sole: danno la coordinata che poi passi a STRINGA.ESTRAI, SINISTRA o DESTRA. 
  
  
@@ -98,9 +96,8 @@ Fonti ufficiali:
  💡 Regola pratica Nel dubbio usa RICERCA : perdona le maiuscole. TROVA serve quando la differenza tra "IT" e "it" conta. 
  ⚠️ Se non trova Entrambe restituiscono l'errore #VALORE! quando il testo non c'è. Avvolgile in SE.ERRORE per un messaggio leggibile.
 
---- Slide 6 ---
-
- TROVA + estrazione 
+--- Slide 7 ---
+TROVA + estrazione 
  SINISTRA e DESTRA con un numero fisso funzionano solo se i testi hanno tutti la stessa lunghezza. Con TROVA la posizione diventa calcolata, e la formula funziona su qualsiasi riga. 
  =SINISTRA(A2; TROVA("@";A2) -1 ) 
  Prende tutto ciò che sta prima della "@": il nome utente di qualsiasi email, corta o lunga. Il -1 esclude la "@" stessa. 
@@ -118,9 +115,8 @@ la posizione della @ è calcolata, non fissa
 Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
---- Slide 7 ---
-
- SOSTITUISCI e RIMPIAZZA 
+--- Slide 8 ---
+SOSTITUISCI e RIMPIAZZA 
  Due modi per cambiare un pezzo di testo: per contenuto (sai cosa cercare) o per posizione (sai dove sta). 
  
  
@@ -141,9 +137,8 @@ Senza il 4° argomento le cambia tutte.
 Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
---- Slide 8 ---
-
- Spazi invisibili 
+--- Slide 9 ---
+Spazi invisibili 
  "Roma " con lo spazio finale non è uguale a "Roma": CERCA.VERT e CONTA.SE lo trattano come un valore diverso. È l'errore invisibile più comune nei dati incollati. 
  
  → =ANNULLA.SPAZI(A2) 
@@ -157,9 +152,8 @@ Fonti ufficiali:
  💡 Diagnosi rapida Un CERCA.VERT che dà #N/D su un valore che "vedi" nel foglio? Confronta LUNGHEZZA della cella cercata e di quella nella tabella: se i numeri differiscono, il colpevole è uno spazio. 
  💡 Cugina utile PULISCI rimuove i caratteri non stampabili (a capo strani, tab) che arrivano da export e PDF. Si combina: =ANNULLA.SPAZI(PULISCI(A2))
 
---- Slide 9 ---
-
- Numeri travestiti da testo 
+--- Slide 10 ---
+Numeri travestiti da testo 
  Un numero importato come testo sembra identico ma non si calcola: SOMMA lo ignora e la media sballa. VALORE lo riconverte in numero vero. 
  =VALORE( A2 ) 
  Come riconoscerli: i numeri veri si allineano a destra, i numeri-testo a sinistra. Un totale che dà 0 su una colonna "piena di numeri" è il sintomo classico. 
@@ -175,9 +169,8 @@ Fonti ufficiali:
  A sinistra testo (non somma),
 dopo VALORE numeri veri
 
---- Slide 10 ---
-
- MAIUSC, MINUSC, MAIUSC.INIZ 
+--- Slide 11 ---
+MAIUSC, MINUSC, MAIUSC.INIZ 
  Uniformare il formato dei nomi scritti in dieci modi diversi da dieci persone diverse: tre funzioni, zero fatica. 
  
  
@@ -207,9 +200,8 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
---- Slide 11 ---
-
- Pulizia in catena 
+--- Slide 12 ---
+Pulizia in catena 
  Dal modulo online arriva "&nbsp;&nbsp;mario&nbsp;&nbsp;ROSSI " . Per la rubrica clienti serve "Mario Rossi". Le funzioni si annidano: il risultato di una è l'ingresso della successiva. 
  =MAIUSC.INIZ( ANNULLA.SPAZI( A2 ) ) 
  Si legge da dentro verso fuori: prima ANNULLA.SPAZI toglie gli spazi di troppo, poi MAIUSC.INIZ sistema le maiuscole. 
@@ -233,9 +225,8 @@ Fonti ufficiali:
 Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
---- Slide 12 ---
-
- La cassetta degli attrezzi del testo 
+--- Slide 13 ---
+La cassetta degli attrezzi del testo 
  
  
  &amp; / TESTO.UNISCI 
@@ -287,9 +278,8 @@ Fonti ufficiali:
 Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
---- Slide 13 ---
-
- Sapresti rispondere ? 
+--- Slide 14 ---
+Sapresti rispondere ? 
  
  
  🔗 
@@ -315,9 +305,12 @@ Fonti ufficiali:
 Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
---- Slide 14 ---
+--- Slide 15 ---
 Testo sporco,
 dati puliti. 
  TESTO.UNISCI, SPLIT, TROVA, SOSTITUISCI, ANNULLA.SPAZI, VALORE, MAIUSC.INIZ: qualunque forma abbia il testo in ingresso, ora sai riportarlo esattamente dove vuoi. 
  
- Prossimo → SU03.07 · Tabelle pivot
+ Prossimo → SU03.07 · Tabelle pivot 
+ 
+ Fonti e approfondimenti Guida ufficiale Google Sheets ↗
+

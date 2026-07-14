@@ -2,32 +2,19 @@ Game Design · GD_04 — Feedback Sensoriale
 =========================================
 
 --- Slide 1 ---
-Game Design
 Feedback
-Sensoriale
-Come il gioco parla ai sensi del giocatore — vibrazione, tatto, sensori — e come giocatori diversi cercano esperienze diverse.
+ Sensoriale 
+ Come il gioco parla ai sensi del giocatore — vibrazione, tatto, sensori — e come giocatori diversi cercano esperienze diverse. 
 
-
-
-🎮
+ 
+ 
+ 🎮
 
 --- Slide 2 ---
-
- Cosa vedremo 
- 
- 
- Cos'è il feedback sensoriale — il gioco parla a vista, udito e tatto 
- Evoluzione della vibrazione — dal rumble grezzo all'aptica fine 
- DualSense e grilletti adattivi — il salto qualitativo di PS5 
- 
- 
- Arduino e sensori — prototipare il feedback fisico 
- Chi sono i giocatori — motivazioni diverse, esperienze diverse 
- Tassonomia di Bartle — Killer, Achiever, Explorer, Socializer
+Percorso Cosa vedremo 01 Cos'è il feedback sensoriale 02 Evoluzione della vibrazione 03 DualSense e grilletti adattivi 04 Arduino e sensori 05 Chi sono i giocatori 06 Tassonomia di Bartle
 
 --- Slide 3 ---
-
- Il gioco parla ai sensi 
+Il gioco parla ai sensi 
  Ogni azione del giocatore merita una risposta percepibile. Lo schermo mostra, l'audio racconta, la vibrazione fa sentire : il feedback tattile chiude il ciclo azione → risposta e rende l'esperienza fisica. 
  
  Feedback aptico 
@@ -43,8 +30,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 4 ---
-
- Dal rumble all'aptica 
+Dal rumble all'aptica 
  La vibrazione nei controller nasce semplice: un motore che trema quando succede qualcosa. Ci vorranno vent'anni per passare dal "brr" generico alla sensazione precisa. 
  
  Rumble Pak / DualShock 
@@ -56,8 +42,7 @@ Fonti ufficiali:
  🎯 Il limite Nessuna precisione: solo "acceso" o "spento". Un'esplosione e una carezza vibrano quasi uguali.
 
 --- Slide 5 ---
-
- DualSense PS5 
+DualSense PS5 
  Il controller di PlayStation 5 trasforma la vibrazione in un linguaggio espressivo: non un solo motore, ma un sistema che ricrea sensazioni diverse. 
  
  💡 Non più "brr" 
@@ -72,8 +57,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 6 ---
-
- Il tatto esce dal controller 
+Il tatto esce dal controller 
  
  🎧 Cuffie aptiche Le Razer Nari vibrano sulle frequenze basse: un'esplosione non si sente solo, si percepisce sulla testa. 
  🪑 Sedie e piattaforme Sedute e pedane aptiche per racing e VR: il motore che romba, il fondo stradale, gli urti trasmessi al corpo. 
@@ -81,8 +65,7 @@ Fonti ufficiali:
  📱 Smartphone I motori aptici dei telefoni (come il Taptic Engine) danno "click" e conferme tattili precise a ogni tocco.
 
 --- Slide 7 ---
-
- Arduino e sensori 
+Arduino e sensori 
  Arduino è una scheda programmabile economica: legge sensori e attiva output. Perfetta per prototipare controller alternativi o installazioni interattive con feedback fisico reale. 
  
  Perché Arduino 
@@ -111,8 +94,7 @@ Fonti ufficiali:
  Input : pulsanti, sensori di luce, movimento, distanza. Output : LED, motori, suoni, vibrazioni. Il giocatore agisce, la scheda misura e risponde.
 
 --- Slide 8 ---
-
- Sensori e attuatori 
+Sensori e attuatori 
  
  📡 Sensori — percepire Pressione (quanto forte premi), movimento (accelerometro), luce (fotoresistenza), distanza (ultrasuoni), tatto (sensori capacitivi). 
  ⚙️ Attuatori — rispondere LED (luce e colore), motori e servo (movimento), buzzer e altoparlanti (suono), motori di vibrazione (aptica). 
@@ -124,8 +106,7 @@ Fonti ufficiali:
 - Valori e codice etico — IGDA — https://igda.org/about-us/core-values-and-code-of-ethics/
 
 --- Slide 9 ---
-
- Chi sono i giocatori 
+Chi sono i giocatori 
  Non tutti giocano per gli stessi motivi: c'è chi vuole vincere, chi vuole scoprire, chi vuole stare in compagnia. Capire i tipi di giocatore aiuta a progettare esperienze che li soddisfino davvero. 
  
  
@@ -135,8 +116,7 @@ Fonti ufficiali:
  Un gioco che ignora i suoi giocatori fallisce: progettare significa prima capire per chi stai progettando.
 
 --- Slide 10 ---
-
- La tassonomia di Bartle 
+La tassonomia di Bartle 
  Quattro tipi su due assi: agire ↔ interagire e giocatori ↔ mondo . 
  
  ♠️ Killer Agire sui giocatori : dominare, competere, vincere il PvP. Il piacere sta nel misurarsi con avversari reali. 
@@ -145,8 +125,7 @@ Fonti ufficiali:
  💬 Socializer Interagire coi giocatori : relazioni, community, chat, gilde. Il gioco è il pretesto, le persone sono il punto.
 
 --- Slide 11 ---
-
- Progettare per i 4 tipi 
+Progettare per i 4 tipi 
  Un buon gioco offre qualcosa a ciascun tipo: sistemi diversi che parlano a motivazioni diverse, dentro la stessa esperienza. 
  
  Nessuno è puro 
@@ -160,8 +139,7 @@ Fonti ufficiali:
  Socializer → modalità coop, gilde, chat e strumenti sociali
 
 --- Slide 12 ---
-
- Che giocatore sei ? 
+Che giocatore sei ? 
  
  Pensa al tuo gioco preferito e a come lo giochi davvero. 
  Quale tipo di Bartle sei quando lo giochi? Killer, Achiever, Explorer o Socializer? 
@@ -182,3 +160,4 @@ Il giocatore.
  
  
  → GD_05 · Difficoltà e Progressione
+

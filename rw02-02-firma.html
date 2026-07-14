@@ -115,7 +115,7 @@ body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;
 /* home button */
 .home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
 .home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
-</style>
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display),Georgia,serif;font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}</style>
 <link rel="stylesheet" href="theme-corsi.css">
 </head>
 <body class="course-rw">
@@ -125,7 +125,6 @@ body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;
 <!-- SLIDE 1: TITLE -->
 <section class="slide title-slide active visible">
   <div class="title-left">
-    <div class="eyebrow reveal" style="margin-top:40px;">Modulo W5 — Firma Email</div>
     <h1 class="h-big reveal">La <em class="hot">Firma</em><br>Email</h1>
     <p class="lead reveal" style="margin-top:26px;">Cos'è, cosa contiene, come si formatta e come si configura una firma professionale nelle principali piattaforme email.</p>
 
@@ -151,6 +150,7 @@ body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;
 </section>
 
 <!-- SLIDE 2: COS'È UNA FIRMA (S1) -->
+<section class="slide"><span class="tag">Percorso</span><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(7,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">Cos'è una firma email</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Perché utilizzare una firma</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Le informazioni essenziali</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Nome e cognome</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Il ruolo professionale</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Nome dell' azienda</span></div><div class="agenda-item"><span class="n">07</span><span class="t">I recapiti telefonici</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Il sito web</span></div><div class="agenda-item"><span class="n">09</span><span class="t">I profili social nella firma</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Formattazione della firma</span></div><div class="agenda-item"><span class="n">11</span><span class="t">Esempio di firma professionale</span></div><div class="agenda-item"><span class="n">12</span><span class="t">Errori comuni nelle firme</span></div><div class="agenda-item"><span class="n">13</span><span class="t">Disclaimer e note legali</span></div><div class="agenda-item"><span class="n">14</span><span class="t">Configurare una firma automatica</span></div></div><div class="num"></div></section>
 <section class="slide tight-slide">
   <div class="split">
     <div class="col stack">
@@ -194,7 +194,7 @@ body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
+</section>
 
 <!-- SLIDE 3: PERCHÉ USARLA (S2) -->
 <section class="slide">
@@ -232,7 +232,7 @@ body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
+</section>
 
 <!-- SLIDE 4: INFORMAZIONI ESSENZIALI (S3) -->
 <section class="slide">
@@ -266,7 +266,7 @@ body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
+</section>
 
 <!-- SLIDE 5: NOME E COGNOME (S4) -->
 <section class="slide">
@@ -358,7 +358,7 @@ body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
+</section>
 
 <!-- SLIDE 8: TELEFONI (S7) -->
 <section class="slide">
@@ -431,7 +431,7 @@ body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
+</section>
 
 <!-- SLIDE 10: SOCIAL (S9) -->
 <section class="slide">
@@ -501,7 +501,7 @@ body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
+</section>
 
 <!-- SLIDE 12: ESEMPIO FIRMA COMPLETA (S11) -->
 <section class="slide">
@@ -573,7 +573,7 @@ body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
+</section>
 
 <!-- SLIDE 14: DISCLAIMER (S13) -->
 <section class="slide">
@@ -607,7 +607,7 @@ body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="manual" href="https://eur-lex.europa.eu/eli/reg/2016/679/art_12/oj" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: GDPR, art. 12 (EUR-Lex)" aria-label="Fonte ufficiale: GDPR, art. 12 (EUR-Lex)" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: GDPR, art. 12 (EUR-Lex) ↗</a><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a><a data-source-origin="auto" href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Regolamento generale sulla protezione dei dati — EUR-Lex" aria-label="Fonte ufficiale: Regolamento generale sulla protezione dei dati — EUR-Lex" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a></div></section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Regolamento generale sulla protezione dei dati — EUR-Lex" aria-label="Fonte ufficiale: Regolamento generale sulla protezione dei dati — EUR-Lex" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a></div></section>
 
 <!-- SLIDE 15: CONFIGURARE LA FIRMA (S14) -->
 <section class="slide">
@@ -647,7 +647,7 @@ body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/HTML" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTML — Wikipedia" aria-label="Fonte ufficiale: HTML — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: HTML — Wikipedia ↗</a><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/HTML" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTML — Wikipedia" aria-label="Fonte ufficiale: HTML — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: HTML — Wikipedia ↗</a></div></section>
 
 <!-- SLIDE 16: LABORATORIO (S15) -->
 <section class="slide">
@@ -679,7 +679,7 @@ body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
+</section>
 
 <!-- SLIDE 17: CLOSING -->
 <section class="slide closing"><div class="closing-inner"><div class="center" style="align-items:center;text-align:center;">
@@ -688,7 +688,7 @@ body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;
     <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
       <a class="chip" href="rw01-05-affidabilita.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → W6 · Affidabilità Online</a>
     </div>
-  </div></div><div class="page-num"></div></section>
+  </div></div><div class="page-num"></div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a><a href="https://it.wikipedia.org/wiki/HTML" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">HTML — Wikipedia ↗</a></div></div></section>
 
 </main>
 </div>

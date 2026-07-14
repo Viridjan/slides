@@ -114,7 +114,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
 /* home button */
 .home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
 .home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
-</style>
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display),Georgia,serif;font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}</style>
 <link rel="stylesheet" href="theme-corsi.css">
 </head>
 <body class="course-rw">
@@ -124,7 +124,6 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
 <!-- SLIDE 1: TITLE -->
 <section class="slide title-slide active visible">
   <div class="title-left">
-    <div class="eyebrow reveal" style="margin-top:40px;">Modulo W6 — Informazioni Online</div>
     <h1 class="h-big reveal">Navigare con<br><em class="teal">Spirito</em><br><em class="hot">Critico</em></h1>
     <p class="lead reveal" style="margin-top:24px;">Valutare l'affidabilità delle informazioni online e navigare in modo sicuro — competenze digitali fondamentali.</p>
 
@@ -144,6 +143,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
 </section>
 
 <!-- SLIDE 2: PERCHÉ VALUTARE (S1) -->
+<section class="slide"><span class="tag">Percorso</span><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(7,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">Perché valutare le informazioni</span></div><div class="agenda-item"><span class="n">02</span><span class="t">I rischi delle informazioni non verificate</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Come riconoscere un sito web sicuro</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Il protocollo HTTPS</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Le informazioni sulla connessione</span></div><div class="agenda-item"><span class="n">06</span><span class="t">HTTPS ≠ Affidabilità</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Lo scopo dei siti web</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Siti informativi</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Siti di intrattenimento</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Siti di opinione</span></div><div class="agenda-item"><span class="n">11</span><span class="t">Siti commerciali</span></div><div class="agenda-item"><span class="n">12</span><span class="t">Chi è l' autore del contenuto</span></div><div class="agenda-item"><span class="n">13</span><span class="t">L'importanza delle fonti</span></div><div class="agenda-item"><span class="n">14</span><span class="t">La data di pubblicazione</span></div></div><div class="num"></div></section>
 <section class="slide">
   <div class="split">
     <div class="col stack">
@@ -262,7 +262,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: HTTP Semantics — RFC 9110 ↗</a><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc8446" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: TLS 1.3 — RFC 8446" aria-label="Fonte ufficiale: TLS 1.3 — RFC 8446" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: TLS 1.3 — RFC 8446 ↗</a></div></section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc8446" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: TLS 1.3 — RFC 8446" aria-label="Fonte ufficiale: TLS 1.3 — RFC 8446" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: TLS 1.3 — RFC 8446 ↗</a></div></section>
 
 <!-- SLIDE 6: IL LUCCHETTO (S5) -->
 <section class="slide">
@@ -311,7 +311,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: HTTP Semantics — RFC 9110 ↗</a></div></section>
+</section>
 
 <!-- SLIDE 7: HTTPS ≠ AFFIDABILITÀ (S6) -->
 <section class="slide">
@@ -338,7 +338,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: HTTP Semantics — RFC 9110 ↗</a></div></section>
+</section>
 
 <!-- SLIDE 8: SCOPO DEI SITI (S7) -->
 <section class="slide">
@@ -573,7 +573,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Smartphone" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Smartphone — Wikipedia" aria-label="Fonte ufficiale: Smartphone — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Smartphone — Wikipedia ↗</a></div></section>
+</section>
 
 <!-- SLIDE 16: AGGIORNAMENTO CONTENUTI (S15) -->
 <section class="slide">
@@ -597,7 +597,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://europa.eu/youreurope/business/running-business/intellectual-property/copyright/index_it.htm" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Copyright nell’Unione europea" aria-label="Fonte ufficiale: Copyright nell’Unione europea" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Copyright nell’Unione europea ↗</a></div></section>
+</section>
 
 <!-- SLIDE 17: PUBBLICO DI RIFERIMENTO (S16) -->
 <section class="slide">
@@ -666,7 +666,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: HTTP Semantics — RFC 9110 ↗</a></div></section>
+</section>
 
 <!-- SLIDE 20: PROTEGGERE DATI (S19) -->
 <section class="slide">
@@ -694,7 +694,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a><a data-source-origin="auto" href="https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Password e MFA — NIST" aria-label="Fonte ufficiale: Password e MFA — NIST" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Password e MFA — NIST ↗</a></div></section>
+</section>
 
 <!-- SLIDE 21: MODULI ONLINE (S20) -->
 <section class="slide">
@@ -747,7 +747,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a><a data-source-origin="auto" href="https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Password e MFA — NIST" aria-label="Fonte ufficiale: Password e MFA — NIST" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Password e MFA — NIST ↗</a></div></section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" aria-label="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Wi-Fi — Wi-Fi Alliance ↗</a></div></section>
 
 <!-- SLIDE 23: CONTROLLO USO INTERNET (S22) -->
 <section class="slide">
@@ -779,7 +779,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Malware" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Malware — Wikipedia" aria-label="Fonte ufficiale: Malware — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Malware — Wikipedia ↗</a></div></section>
+</section>
 
 <!-- SLIDE 24: PARENTAL CONTROL (S23) -->
 <section class="slide">
@@ -825,7 +825,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Malware" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Malware — Wikipedia" aria-label="Fonte ufficiale: Malware — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Malware — Wikipedia ↗</a><a data-source-origin="auto" href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Regolamento generale sulla protezione dei dati — EUR-Lex" aria-label="Fonte ufficiale: Regolamento generale sulla protezione dei dati — EUR-Lex" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a></div></section>
+</section>
 
 <!-- SLIDE 26: RIEPILOGO (S25) -->
 <section class="slide">
@@ -847,7 +847,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: HTTP Semantics — RFC 9110" aria-label="Fonte ufficiale: HTTP Semantics — RFC 9110" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: HTTP Semantics — RFC 9110 ↗</a></div></section>
+</section>
 
 <!-- SLIDE 27: CLOSING -->
 <section class="slide closing"><div class="closing-inner"><div class="center" style="align-items:center;text-align:center;">
@@ -856,7 +856,7 @@ body.editing [contenteditable]{outline:2px dashed var(--teal);outline-offset:4px
     <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
       <a class="chip" href="rw02-03-contenuti.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → W7 · Gestione Contenuti</a>
     </div>
-  </div></div><div class="page-num"></div></section>
+  </div></div><div class="page-num"></div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">HTTP Semantics — RFC 9110 ↗</a><a href="https://www.rfc-editor.org/rfc/rfc8446" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">TLS 1.3 — RFC 8446 ↗</a><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a><a href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Wi-Fi — Wi-Fi Alliance ↗</a></div></div></section>
 
 </main>
 </div>

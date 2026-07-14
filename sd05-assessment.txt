@@ -2,45 +2,16 @@ Sicurezza Digitale · C5 — Assessment, Compliance e Dati
 =======================================================
 
 --- Slide 1 ---
-Sicurezza Digitale · Concetto 5
 Assessment,
-Compliance
-e Dati Personali
-Trovare le falle prima degli attaccanti, rispettare le normative e capire chi controlla i tuoi dati in rete.
-
-
-
-
-
-
-
-
-
-
-
-
-✓
-✓
-○
+ Compliance 
+e Dati Personali 
+ Trovare le falle prima degli attaccanti, rispettare le normative e capire chi controlla i tuoi dati in rete.
 
 --- Slide 2 ---
-
- Cosa impareremo
-
- 01 Cos'è un Vulnerability Assessment
- 02 Raccolta informazioni e OSINT
- 03 Scansione e individuazione vulnerabilità
- 04 Valutazione del rischio e report
- 05 VA vs Penetration Test
- 06 Cos'è la Compliance Digitale
- 07 Le principali normative
- 08 Dati personali scambiati in rete
- 09 Chi raccoglie i tuoi dati e perché
- 10 Come riprendere il controllo
+Percorso Cosa vedremo 01 Cos'è un Vulnerability Assessment 02 Raccolta informazioni e OSINT 03 Scansione e individuazione vulnerabilità 04 Valutazione del rischio e report 05 VA vs Penetration Test 06 Cos'è la Compliance Digitale 07 Le principali normative 08 Dati personali scambiati in rete 09 Chi raccoglie i tuoi dati e perché 10 Come riprendere il controllo
 
 --- Slide 3 ---
-
- Vulnerability
+Vulnerability
  Assessment
  Processo sistematico di identificazione, classificazione e valutazione delle vulnerabilità presenti in un sistema informatico — prima che le trovino gli attaccanti.
  È un'analisi osservativa, non distruttiva. Non sfrutta le vulnerabilità trovate (quello è il Penetration Test). L'obiettivo è produrre un inventario ragionato dei rischi con le relative priorità di correzione.
@@ -84,8 +55,7 @@ Fonti ufficiali:
 - Common Vulnerability Scoring System — FIRST — https://www.first.org/cvss/
 
 --- Slide 4 ---
-
- Le 5 fasi del Vulnerability Assessment
+Le 5 fasi del Vulnerability Assessment
 
 
  01
@@ -115,8 +85,7 @@ Fonti ufficiali:
 - Common Vulnerability Scoring System — FIRST — https://www.first.org/cvss/
 
 --- Slide 5 ---
-
- Il punteggio CVSS
+Il punteggio CVSS
  Common Vulnerability Scoring System — lo standard internazionale per misurare la gravità di una vulnerabilità. Da 0 (nessun rischio) a 10 (critico).
 
 
@@ -152,8 +121,7 @@ Fonti ufficiali:
 - Common Vulnerability Scoring System — FIRST — https://www.first.org/cvss/
 
 --- Slide 6 ---
-
- VA vs Penetration Test
+VA vs Penetration Test
  Spesso confusi, ma con obiettivi e metodologie diverse. Non sono alternativi — sono complementari.
 
 
@@ -196,8 +164,7 @@ Fonti ufficiali:
 - Common Vulnerability Scoring System — FIRST — https://www.first.org/cvss/
 
 --- Slide 7 ---
-
- Compliance
+Compliance
  Digitale
  Adottare procedure, controlli e misure tecniche che garantiscono il rispetto delle normative applicabili ai sistemi informatici dell'organizzazione.
  Non è un obiettivo una tantum — è un processo continuo. Le leggi cambiano, i sistemi cambiano, e la compliance deve essere mantenuta nel tempo attraverso audit, aggiornamenti e formazione.
@@ -235,8 +202,7 @@ Fonti ufficiali:
  Compliance è un ciclo continuo
 
 --- Slide 8 ---
-
- Le principali normative
+Le principali normative
  Il panorama normativo della sicurezza digitale è ampio. Le più rilevanti per le organizzazioni europee:
 
 
@@ -268,8 +234,7 @@ Fonti ufficiali:
 - Direttiva NIS2 — EUR-Lex — https://eur-lex.europa.eu/eli/dir/2022/2555/oj
 
 --- Slide 9 ---
-
- Dati personali scambiati in rete
+Dati personali scambiati in rete
  Ogni giorno condividiamo enormi quantità di dati personali attraverso i servizi digitali — spesso senza rendercene conto.
 
 
@@ -305,8 +270,7 @@ Fonti ufficiali:
 - Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 10 ---
-
- Chi raccoglie
+Chi raccoglie
 i tuoi dati
 e perché
  I tuoi dati percorrono una catena lunga prima di arrivare agli inserzionisti. Capirla è il primo passo per riprendere il controllo.
@@ -330,8 +294,7 @@ e perché
  Regola: Se il prodotto è gratis, il prodotto sei tu.
 
 --- Slide 11 ---
-
- Riprendere il controllo dei dati
+Riprendere il controllo dei dati
  Non puoi azzerare la tua presenza digitale — ma puoi ridurre significativamente l'esposizione con azioni concrete.
 
 
@@ -357,8 +320,7 @@ Fonti ufficiali:
 - Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
 
 --- Slide 12 ---
-
- I concetti chiave di questo modulo
+I concetti chiave di questo modulo
 
 
  🔍
@@ -389,8 +351,7 @@ Fonti ufficiali:
 - ISO/IEC 27001 — ISO — https://www.iso.org/isoiec-27001-information-security.html
 
 --- Slide 13 ---
-
- Non si rompe la matematica: si aggira il sistema
+Non si rompe la matematica: si aggira il sistema
 
  🎣 Phishing Rubare password e codici è più economico che decifrare un algoritmo robusto.
  🦠 Malware Legge dati sul dispositivo prima della cifratura o dopo la decifratura.
@@ -403,8 +364,7 @@ Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 14 ---
-
- Regole, responsabilità e licenze
+Regole, responsabilità e licenze
 
  🇪🇺 GDPR Tutela dati personali, diritti degli interessati, minimizzazione, sicurezza e responsabilità del titolare.
  🛡️ NIS2 Rafforza obblighi di cybersicurezza per soggetti essenziali e importanti.
@@ -415,8 +375,7 @@ Fonti ufficiali:
 - Direttiva NIS2 — EUR-Lex — https://eur-lex.europa.eu/eli/dir/2022/2555/oj
 
 --- Slide 15 ---
-
- Sapere quali dati abbiamo e dove sono
+Sapere quali dati abbiamo e dove sono
  Non puoi proteggere o cancellare dati che non sai di avere. La mappatura trasforma archivi sparsi in responsabilità controllabili.
 
  Campo Cosa indica Perché serve
@@ -429,7 +388,8 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 16 ---
-Bravi!
- Assessment, audit, ISO 27001, GDPR compliance, classificazione dei dati e gestione degli incidenti: sicurezza come processo continuo.
- Corso di Informatica · Sicurezza Digitale · 2024-2025
-Torna all’indice
+Bravi! 
+ Assessment, audit, ISO 27001, GDPR compliance, classificazione dei dati e gestione degli incidenti: sicurezza come processo continuo. 
+ Corso di Informatica · Sicurezza Digitale · 2024-2025 
+ Torna all’indice Fonti e approfondimenti Common Vulnerability Scoring System — FIRST ↗ Regolamento generale sulla protezione dei dati — EUR-Lex ↗ Direttiva NIS2 — EUR-Lex ↗ ISO/IEC 27001 — ISO ↗ Licenze Creative Commons ↗
+

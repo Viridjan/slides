@@ -115,7 +115,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
 .home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
 .home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
-</style>
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display),Georgia,serif;font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}</style>
 <link rel="stylesheet" href="theme-corsi.css">
 </head>
 <body class="course-gd">
@@ -125,7 +125,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- SLIDE 1 · TITLE -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="eyebrow reveal" style="margin-top:40px;">Game Design</div>
       <h1 class="h-mega reveal" style="margin-top:10px;">La Colonna<br><em style="font-style:italic;color:var(--sky);">Sonora</em></h1>
       <p class="lead reveal d1" style="margin-top:28px;">Come la musica dei videogiochi è passata da traccia fissa a sistema reattivo — e come può diventare essa stessa una meccanica.</p>
 
@@ -136,24 +135,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <!-- SLIDE 2 · AGENDA -->
-  <section class="slide">
-
-    <h2 class="h-sec reveal" style="margin-top:32px;">Cosa vedremo</h2>
-    <p class="lead reveal d1" style="margin-top:14px;max-width:1400px;">Quattro generazioni di OST, una distinzione tecnica fondamentale e un'attività pratica per allenare l'orecchio da designer. La musica di gioco non è decorazione: è design.</p>
-    <div class="grid2 reveal d2" style="margin-top:22px;">
-      <div class="steps" style="counter-reset:st;">
-        <div class="step"><div class="t"><b>OST statica</b> — la traccia fissa e i limiti hardware degli anni '90; nasce il chiptune</div></div>
-        <div class="step"><div class="t"><b>OST procedurale random</b> — musica che si ricombina a strati (STEMS) in tempo reale</div></div>
-        <div class="step"><div class="t"><b>OST a feedback</b> — la musica reagisce allo stato preciso del gameplay evento per evento</div></div>
-      </div>
-      <div class="steps" style="counter-reset:st 3;">
-        <div class="step"><div class="t"><b>Musica come meccanica</b> — quando il ritmo è il gioco stesso: Beat Saber, Guitar Hero</div></div>
-        <div class="step"><div class="t"><b>Diegetico vs non-diegetico</b> — da dove viene il suono nel mondo di gioco</div></div>
-        <div class="step"><div class="t"><b>Attività</b> — analizza la colonna sonora di un gioco che conosci bene</div></div>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
+  <section class="slide"><span class="tag">Percorso</span><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(3,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">OST statica</span></div><div class="agenda-item"><span class="n">02</span><span class="t">OST procedurale random</span></div><div class="agenda-item"><span class="n">03</span><span class="t">OST a feedback</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Musica come meccanica</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Diegetico vs non-diegetico</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Attività</span></div></div><div class="num"></div></section>
 
   <!-- SLIDE 3 · COS'E UNA OST -->
   <section class="slide">
@@ -220,7 +202,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     </div>
     <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">In pratica:</span> <span>meno risorse hai, più ogni scelta conta — i vincoli forzano la creatività.</span></div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.w3.org/TR/webaudio/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Web Audio API — W3C" aria-label="Fonte ufficiale: Web Audio API — W3C" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Web Audio API — W3C ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 6 · OST PROCEDURALE RANDOM -->
   <section class="slide">
@@ -257,7 +239,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.w3.org/TR/webaudio/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Web Audio API — W3C" aria-label="Fonte ufficiale: Web Audio API — W3C" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Web Audio API — W3C ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 7 · GLI STEMS -->
   <section class="slide">
@@ -317,7 +299,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     </div>
     <div class="analogy reveal d3" style="margin-top:18px;"><span class="big">Regola:</span> <span>quando la musica è meccanica, toglierla non riduce l'atmosfera — distrugge la giocabilità.</span></div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.w3.org/TR/webaudio/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Web Audio API — W3C" aria-label="Fonte ufficiale: Web Audio API — W3C" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Web Audio API — W3C ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 10 · DIEGETICO VS NON-DIEGETICO -->
   <section class="slide">

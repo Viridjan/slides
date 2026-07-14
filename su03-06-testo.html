@@ -90,7 +90,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <!-- 1. TITLE -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="eyebrow reveal" style="margin-top:40px;">Fogli di calcolo · Google Sheets</div>
       <h1 class="h-mega reveal">Manipolare<br><em class="hot">il testo</em></h1>
       <p class="lead reveal" style="margin-top:30px;">Unire, dividere, cercare, sostituire, pulire e convertire il testo con le funzioni di Google Sheets.</p>
 
@@ -101,7 +100,8 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   </section>
 
   <!-- 2. PERCHÉ -->
-  <section class="slide">
+  <section class="slide"><span class="tag">Percorso</span><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(6,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">I dati veri sono sporchi</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Da tante celle a una</span></div><div class="agenda-item"><span class="n">03</span><span class="t">SPLIT</span></div><div class="agenda-item"><span class="n">04</span><span class="t">TROVA e RICERCA</span></div><div class="agenda-item"><span class="n">05</span><span class="t">TROVA + estrazione</span></div><div class="agenda-item"><span class="n">06</span><span class="t">SOSTITUISCI e RIMPIAZZA</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Spazi invisibili</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Numeri travestiti da testo</span></div><div class="agenda-item"><span class="n">09</span><span class="t">MAIUSC</span></div><div class="agenda-item"><span class="n">10</span><span class="t">Pulizia in catena</span></div><div class="agenda-item"><span class="n">11</span><span class="t">La cassetta degli attrezzi del testo</span></div><div class="agenda-item"><span class="n">12</span><span class="t">Sapresti rispondere</span></div></div><div class="num"></div></section>
+<section class="slide">
     <div class="split">
       <div class="col stack">
 
@@ -117,7 +117,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Formule e funzioni — Supporto Microsoft Excel ↗</a></div></section>
+  </section>
 
   <!-- 3. UNIRE: & e TESTO.UNISCI -->
   <section class="slide">
@@ -225,7 +225,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
+  </section>
 
   <!-- 7. SOSTITUISCI / RIMPIAZZA -->
   <section class="slide">
@@ -248,7 +248,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       <div class="note reveal d3"><div class="lbl">💡 E per tutto il foglio?</div><p>Per una correzione una tantum su tutto il foglio c'è <b>Modifica → Trova e sostituisci</b> (Ctrl+H). Le funzioni servono quando la sostituzione deve restare automatica.</p></div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Formule e funzioni — Supporto Microsoft Excel ↗</a></div></section>
+  </section>
 
   <!-- 8. PULIRE -->
   <section class="slide">
@@ -321,7 +321,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       <div class="note reveal d3" style="margin-top:6px;"><div class="lbl">⚠️ Limite di MAIUSC.INIZ</div><p>Mette la maiuscola a ogni parola, anche dove non va: "de luca" → "De Luca" (bene), ma "d'angelo" → "D'Angelo" e "DELL'ORTO" → "Dell'Orto". Controlla i cognomi con apostrofi e particelle.</p></div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Formule e funzioni — Supporto Microsoft Excel ↗</a><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
+  </section>
 
   <!-- 10. CASO PRATICO -->
   <section class="slide">
@@ -352,7 +352,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Formule e funzioni — Supporto Microsoft Excel ↗</a></div></section>
+  </section>
 
   <!-- 11. RIEPILOGO -->
   <section class="slide tight-slide">
@@ -409,7 +409,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       <div class="analogy reveal d2" style="margin-top:24px;"><span class="big">Regola:</span> le funzioni di testo non modificano mai la cella originale — producono una copia corretta altrove.</div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Formule e funzioni — Supporto Microsoft Excel ↗</a></div></section>
+  </section>
 
   <!-- 12. VERIFICA -->
   <section class="slide">
@@ -442,7 +442,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Formule e funzioni — Supporto Microsoft Excel ↗</a></div></section>
+  </section>
 
   <!-- 13. CLOSING -->
   <section class="slide closing"><div class="closing-inner"><div class="center" style="text-align:center;">
@@ -451,7 +451,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a class="chip" href="su03-07-tabelle-pivot.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → SU03.07 · Tabelle pivot</a>
       </div>
-    </div></div><div class="page-num"></div></section>
+    </div></div><div class="page-num"></div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Google Sheets ↗</a></div></div></section>
 
 </div>
 </div>

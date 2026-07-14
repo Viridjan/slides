@@ -30,10 +30,10 @@ const SOURCES = [
   ['HTTPS', 'https://www.rfc-editor.org/rfc/rfc9110', 'HTTP Semantics — RFC 9110'],
   ['TLS', 'https://www.rfc-editor.org/rfc/rfc8446', 'TLS 1.3 — RFC 8446'],
   ['email', 'https://www.rfc-editor.org/rfc/rfc5322', 'Internet Message Format — RFC 5322'],
-  ['Bluetooth', 'https://www.bluetooth.com/specifications/specs/', 'Specifiche Bluetooth — Bluetooth SIG'],
-  ['Wi-Fi', 'https://www.wi-fi.org/discover-wi-fi', 'Wi-Fi — Wi-Fi Alliance'],
-  ['WiFi', 'https://www.wi-fi.org/discover-wi-fi', 'Wi-Fi — Wi-Fi Alliance'],
-  ['USB', 'https://www.usb.org/documents', 'Documenti e specifiche USB — USB-IF'],
+  ['Bluetooth', 'https://www.bluetooth.com/specifications/specs/', 'Specifiche Bluetooth — Bluetooth SIG', /^(hs|sm)/],
+  ['Wi-Fi', 'https://www.wi-fi.org/discover-wi-fi', 'Wi-Fi — Wi-Fi Alliance', /^(hs|sm|rw)/],
+  ['WiFi', 'https://www.wi-fi.org/discover-wi-fi', 'Wi-Fi — Wi-Fi Alliance', /^(hs|sm|rw)/],
+  ['USB', 'https://www.usb.org/documents', 'Documenti e specifiche USB — USB-IF', /^(hs|sm)/],
   ['Android', 'https://support.google.com/android/', 'Guida ufficiale Android'],
   ['iOS', 'https://support.apple.com/guide/iphone/welcome/ios', 'Manuale utente iPhone — Apple'],
   ['Microsoft 365', 'https://support.microsoft.com/microsoft-365', 'Supporto Microsoft 365', /^su/],
@@ -52,11 +52,13 @@ const SOURCES = [
   ['Adobe Illustrator', 'https://helpx.adobe.com/illustrator/user-guide.html', 'Guida ufficiale Adobe Illustrator'],
   ['Adobe Acrobat', 'https://helpx.adobe.com/acrobat/user-guide.html', 'Guida ufficiale Adobe Acrobat'],
   ['LibreOffice', 'https://documentation.libreoffice.org/', 'Documentazione LibreOffice', /^su/],
-  ['Unicode', 'https://www.unicode.org/versions/latest/', 'Unicode Standard'],
-  ['UTF-8', 'https://www.unicode.org/versions/latest/core-spec/chapter-2/', 'UTF-8 — Unicode Standard'],
-  ['Python', 'https://docs.python.org/3/tutorial/', 'Tutorial ufficiale Python'],
-  ['algoritmo', 'https://xlinux.nist.gov/dads/', 'Dictionary of Algorithms and Data Structures — NIST'],
-  ['algoritmi', 'https://xlinux.nist.gov/dads/', 'Dictionary of Algorithms and Data Structures — NIST'],
+  ['Unicode', 'https://www.unicode.org/versions/latest/', 'Unicode Standard', /^(pr|hs)/],
+  ['UTF-8', 'https://www.unicode.org/versions/latest/core-spec/chapter-2/', 'UTF-8 — Unicode Standard', /^(pr|hs)/],
+  // Not in pr01-03: that deck only names Python as one of Flowgorithm's export
+  // targets, and a tutorial link there sends the reader away from the algorithm.
+  ['Python', 'https://docs.python.org/3/tutorial/', 'Tutorial ufficiale Python', /^pr(?!01-03)/],
+  ['algoritmo', 'https://xlinux.nist.gov/dads/', 'Dictionary of Algorithms and Data Structures — NIST', /^pr/],
+  ['algoritmi', 'https://xlinux.nist.gov/dads/', 'Dictionary of Algorithms and Data Structures — NIST', /^pr/],
   ['Flowgorithm', 'https://www.flowgorithm.org/', 'Flowgorithm — sito ufficiale', /^pr/],
   ['Scratch', 'https://scratch.mit.edu/educators', 'Scratch per educatori — MIT'],
   ['MakeCode', 'https://makecode.microbit.org/tutorials/getting-started', 'MakeCode per micro:bit'],
@@ -88,56 +90,57 @@ const SOURCES = [
 // redirects followed, so these are canonical article names.
 const W = 'https://it.wikipedia.org/wiki/';
 const WIKI = [
-  ['diagramma di flusso', `${W}Diagramma_di_flusso`, 'Diagramma di flusso — Wikipedia'],
-  ['pseudocodice', `${W}Pseudocodice`, 'Pseudocodice — Wikipedia'],
-  ['ricorsione', `${W}Algoritmo_ricorsivo`, 'Algoritmo ricorsivo — Wikipedia'],
-  ['algoritmo di ordinamento', `${W}Algoritmo_di_ordinamento`, 'Algoritmi di ordinamento — Wikipedia'],
-  ['macchina di Turing', `${W}Macchina_di_Turing`, 'Macchina di Turing — Wikipedia'],
-  ['indecidibilità', `${W}Problema_della_terminazione`, 'Problema della terminazione — Wikipedia'],
-  ['complessità computazionale', `${W}Teoria_della_complessità_computazionale`, 'Complessità computazionale — Wikipedia'],
-  ['paradigma', `${W}Paradigma_di_programmazione`, 'Paradigmi di programmazione — Wikipedia'],
-  ['object-oriented', `${W}Programmazione_orientata_agli_oggetti`, 'Programmazione a oggetti — Wikipedia'],
-  ['compilatore', `${W}Compilatore`, 'Compilatore — Wikipedia'],
-  ['interprete', `${W}Interprete_(informatica)`, 'Interprete — Wikipedia'],
-  ['tipo di dato', `${W}Tipo_di_dato`, 'Tipi di dato — Wikipedia'],
-  ['iterazione', `${W}Iterazione`, 'Iterazione — Wikipedia'],
-  ['debug', `${W}Debugging`, 'Debugging — Wikipedia'],
-  ['sistema binario', `${W}Sistema_numerico_binario`, 'Sistema binario — Wikipedia'],
-  ['codifica dei caratteri', `${W}Codifica_di_caratteri`, 'Codifica dei caratteri — Wikipedia'],
-  ['ASCII', `${W}ASCII`, 'ASCII — Wikipedia'],
-  ['compressione', `${W}Compressione_dei_dati`, 'Compressione dei dati — Wikipedia'],
-  ['pixel', `${W}Pixel`, 'Pixel — Wikipedia'],
-  ['CPU', `${W}CPU`, 'CPU — Wikipedia'],
-  ['RAM', `${W}RAM`, 'RAM — Wikipedia'],
-  ['sistema operativo', `${W}Sistema_operativo`, 'Sistema operativo — Wikipedia'],
-  ['file system', `${W}File_system`, 'File system — Wikipedia'],
-  ['rete di computer', `${W}Rete_di_computer`, 'Reti di computer — Wikipedia'],
-  ['indirizzo IP', `${W}Indirizzo_IP`, 'Indirizzo IP — Wikipedia'],
-  ['motore di ricerca', `${W}Motore_di_ricerca`, 'Motore di ricerca — Wikipedia'],
-  ['cloud', `${W}Cloud_computing`, 'Cloud computing — Wikipedia'],
-  ['firewall', `${W}Firewall`, 'Firewall — Wikipedia'],
-  ['VPN', `${W}Rete_privata_virtuale`, 'Rete privata virtuale — Wikipedia'],
-  ['crittografia asimmetrica', `${W}Crittografia_asimmetrica`, 'Crittografia asimmetrica — Wikipedia'],
-  ['crittografia', `${W}Crittografia`, 'Crittografia — Wikipedia'],
-  ['malware', `${W}Malware`, 'Malware — Wikipedia'],
-  ['ingegneria sociale', `${W}Ingegneria_sociale`, 'Ingegneria sociale — Wikipedia'],
-  ['autenticazione a due fattori', `${W}Autenticazione_a_due_fattori`, 'Autenticazione a due fattori — Wikipedia'],
-  ['codice QR', `${W}Codice_QR`, 'Codice QR — Wikipedia'],
-  ['smartphone', `${W}Smartphone`, 'Smartphone — Wikipedia'],
-  ['foglio di calcolo', `${W}Foglio_elettronico`, 'Foglio elettronico — Wikipedia'],
-  ['tabella pivot', `${W}Tabella_pivot`, 'Tabella pivot — Wikipedia'],
-  ['macro', `${W}Macro_(informatica)`, 'Macro — Wikipedia'],
-  ['base di dati', `${W}Base_di_dati`, 'Base di dati — Wikipedia'],
-  ['SQL', `${W}Structured_Query_Language`, 'SQL — Wikipedia'],
-  ['HTML', `${W}HTML`, 'HTML — Wikipedia'],
-  ['CSS', `${W}CSS`, 'CSS — Wikipedia'],
-  ['JavaScript', `${W}JavaScript`, 'JavaScript — Wikipedia'],
-  ['rete neurale', `${W}Rete_neurale_artificiale`, 'Rete neurale artificiale — Wikipedia'],
-  ['realtà aumentata', `${W}Realtà_aumentata`, 'Realtà aumentata — Wikipedia'],
-  ['realtà virtuale', `${W}Realtà_virtuale`, 'Realtà virtuale — Wikipedia'],
-  ['stampa 3D', `${W}Stampa_3D`, 'Stampa 3D — Wikipedia'],
-  ['interfaccia utente', `${W}Interfaccia_uomo-macchina`, 'Interfaccia uomo-macchina — Wikipedia'],
-  ['usabilità', `${W}Usabilità`, 'Usabilità — Wikipedia'],
+  ['diagramma di flusso', `${W}Diagramma_di_flusso`, 'Diagramma di flusso — Wikipedia', /^pr/],
+  ['algoritmo', `${W}Algoritmo`, 'Algoritmo — Wikipedia', /^pr/],
+  ['pseudocodice', `${W}Pseudocodice`, 'Pseudocodice — Wikipedia', /^pr/],
+  ['ricorsione', `${W}Algoritmo_ricorsivo`, 'Algoritmo ricorsivo — Wikipedia', /^pr/],
+  ['algoritmo di ordinamento', `${W}Algoritmo_di_ordinamento`, 'Algoritmi di ordinamento — Wikipedia', /^pr/],
+  ['macchina di Turing', `${W}Macchina_di_Turing`, 'Macchina di Turing — Wikipedia', /^pr/],
+  ['indecidibilità', `${W}Problema_della_terminazione`, 'Problema della terminazione — Wikipedia', /^pr/],
+  ['complessità computazionale', `${W}Teoria_della_complessità_computazionale`, 'Complessità computazionale — Wikipedia', /^pr/],
+  ['paradigma', `${W}Paradigma_di_programmazione`, 'Paradigmi di programmazione — Wikipedia', /^pr/],
+  ['object-oriented', `${W}Programmazione_orientata_agli_oggetti`, 'Programmazione a oggetti — Wikipedia', /^pr/],
+  ['compilatore', `${W}Compilatore`, 'Compilatore — Wikipedia', /^pr/],
+  ['interprete', `${W}Interprete_(informatica)`, 'Interprete — Wikipedia', /^pr/],
+  ['tipo di dato', `${W}Tipo_di_dato`, 'Tipi di dato — Wikipedia', /^pr/],
+  ['iterazione', `${W}Iterazione`, 'Iterazione — Wikipedia', /^pr/],
+  ['debug', `${W}Debugging`, 'Debugging — Wikipedia', /^(pr|su03)/],
+  ['sistema binario', `${W}Sistema_numerico_binario`, 'Sistema binario — Wikipedia', /^(pr|hs)/],
+  ['codifica dei caratteri', `${W}Codifica_di_caratteri`, 'Codifica dei caratteri — Wikipedia', /^(pr|hs)/],
+  ['ASCII', `${W}ASCII`, 'ASCII — Wikipedia', /^(pr|hs)/],
+  ['compressione', `${W}Compressione_dei_dati`, 'Compressione dei dati — Wikipedia', /^(pr|hs|sm)/],
+  ['pixel', `${W}Pixel`, 'Pixel — Wikipedia', /^(pr|hs|sm|ms|gd)/],
+  ['CPU', `${W}CPU`, 'CPU — Wikipedia', /^(hs|sm)/],
+  ['RAM', `${W}RAM`, 'RAM — Wikipedia', /^(hs|sm)/],
+  ['sistema operativo', `${W}Sistema_operativo`, 'Sistema operativo — Wikipedia', /^(hs|sm)/],
+  ['file system', `${W}File_system`, 'File system — Wikipedia', /^(hs|sm)/],
+  ['rete di computer', `${W}Rete_di_computer`, 'Reti di computer — Wikipedia', /^(rw|hs)/],
+  ['indirizzo IP', `${W}Indirizzo_IP`, 'Indirizzo IP — Wikipedia', /^(rw|hs)/],
+  ['motore di ricerca', `${W}Motore_di_ricerca`, 'Motore di ricerca — Wikipedia', /^rw/],
+  ['cloud', `${W}Cloud_computing`, 'Cloud computing — Wikipedia', /^(rw|su|hs)/],
+  ['firewall', `${W}Firewall`, 'Firewall — Wikipedia', /^(sd|rw|hs)/],
+  ['VPN', `${W}Rete_privata_virtuale`, 'Rete privata virtuale — Wikipedia', /^(sd|rw|sm)/],
+  ['crittografia asimmetrica', `${W}Crittografia_asimmetrica`, 'Crittografia asimmetrica — Wikipedia', /^(sd|rw)/],
+  ['crittografia', `${W}Crittografia`, 'Crittografia — Wikipedia', /^(sd|rw)/],
+  ['malware', `${W}Malware`, 'Malware — Wikipedia', /^(sd|sm|hs)/],
+  ['ingegneria sociale', `${W}Ingegneria_sociale`, 'Ingegneria sociale — Wikipedia', /^(sd|rw)/],
+  ['autenticazione a due fattori', `${W}Autenticazione_a_due_fattori`, 'Autenticazione a due fattori — Wikipedia', /^(sd|rw|sm)/],
+  ['codice QR', `${W}Codice_QR`, 'Codice QR — Wikipedia', /^(sm|rw)/],
+  ['smartphone', `${W}Smartphone`, 'Smartphone — Wikipedia', /^sm/],
+  ['foglio di calcolo', `${W}Foglio_elettronico`, 'Foglio elettronico — Wikipedia', /^su/],
+  ['tabella pivot', `${W}Tabella_pivot`, 'Tabella pivot — Wikipedia', /^su/],
+  ['macro', `${W}Macro_(informatica)`, 'Macro — Wikipedia', /^su/],
+  ['base di dati', `${W}Base_di_dati`, 'Base di dati — Wikipedia', /^(su|rw)/],
+  ['SQL', `${W}Structured_Query_Language`, 'SQL — Wikipedia', /^su/],
+  ['HTML', `${W}HTML`, 'HTML — Wikipedia', /^(rw|pr(?!01-03)|su)/],
+  ['CSS', `${W}CSS`, 'CSS — Wikipedia', /^(rw|pr(?!01-03))/],
+  ['JavaScript', `${W}JavaScript`, 'JavaScript — Wikipedia', /^(rw|pr(?!01-03)|su)/],
+  ['rete neurale', `${W}Rete_neurale_artificiale`, 'Rete neurale artificiale — Wikipedia', /^ia/],
+  ['realtà aumentata', `${W}Realtà_aumentata`, 'Realtà aumentata — Wikipedia', /^(rw|ia)/],
+  ['realtà virtuale', `${W}Realtà_virtuale`, 'Realtà virtuale — Wikipedia', /^(rw|ia)/],
+  ['stampa 3D', `${W}Stampa_3D`, 'Stampa 3D — Wikipedia', /^ms/],
+  ['interfaccia utente', `${W}Interfaccia_uomo-macchina`, 'Interfaccia uomo-macchina — Wikipedia', /^(gd|sm|rw)/],
+  ['usabilità', `${W}Usabilità`, 'Usabilità — Wikipedia', /^(gd|sm|rw)/],
 ].sort((a, b) => b[0].length - a[0].length);
 
 const escapeRe = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -179,24 +182,108 @@ function sourceFooter(section, savedFooter = '') {
 }
 
 // Product-specific sources only fire inside their own area: 'funzioni' in a
-// programming deck means functions, not Excel formulas. Without the scope,
-// a keyword match on a homonym cites an authoritative but wrong source.
-function annotateSection(section, file) {
-  if (/class="[^"]*(?:title|closing)[^"]*"/.test(section)) return section;
-  let savedFooter = '';
-  section = section.replace(/<div\b[^>]*data-source-footer="true"[^>]*>[\s\S]*?<\/div>/gi, footer => {
-    savedFooter += footer;
-    return '';
-  });
-  const linkedUrls = new Set(
-    [...`${section}${savedFooter}`.matchAll(/<a\b[^>]*href="([^"]+)"/gi)].map(m => m[1])
-  );
-  let added = 0;
-  let wikiAdded = 0;
-  let blockedDepth = 0;
-  const tokens = section.split(/(<[^>]+>)/g);
+// programming deck means functions, not Excel formulas. Without the scope, a
+// keyword match on a homonym cites an authoritative but wrong source.
+//
+// A source appears AT MOST ONCE per deck, on the slide where its term carries
+// the most weight. Matching slide by slide instead put the NIST algorithms
+// dictionary in the footer of fourteen slides of the algorithms deck: a link
+// repeated that often stops being read. Scoring every slide first, then giving
+// each source to its best slide, sends the reader to the one place where the
+// link actually adds something.
+const OFFICIAL_PER_SLIDE = 2;
+const WIKI_PER_SLIDE = 1;
 
-  for (let i = 0; i < tokens.length && (added < 2 || wikiAdded < 1); i++) {
+const isStructural = section => /class="[^"]*(?:title|closing)[^"]*"/.test(section);
+
+// An agenda slide names every topic in the deck, so every source matches it and
+// the first one wins a home it has no business in. It is a table of contents,
+// not the place a reader stops to follow a link.
+const AGENDA = /<h2\b[^>]*>\s*(?:cosa vedremo|cosa impareremo|in questo modulo|percorso|agenda|indice)/i;
+const isAgenda = section => AGENDA.test(section);
+
+// A distinctive term (GDPR, SPID, Bluetooth, RAM, VBA) means one thing wherever
+// it appears, so a mention inside a card is a fair place to anchor its source.
+// A generic Italian word (audio, macro, cloud, paradigma, iterazione) is a
+// different matter: it turns up in passing all over the course, and anchoring on
+// it produced the Web Audio API spec on a slide about game engines. Those terms
+// earn a link only where the slide is genuinely about them — heading or lead.
+const isDistinctive = term => /[A-Z0-9]/.test(term);
+
+// Visible text of a section, minus code, SVG and existing anchors.
+const visibleText = section => section
+  .replace(/<(script|style|svg)\b[\s\S]*?<\/\1>/gi, ' ')
+  .replace(/<a\b[\s\S]*?<\/a>/gi, ' ')
+  .replace(/<[^>]+>/g, ' ');
+
+// How central is this term to this slide? A term in the heading is what the
+// slide is about; one buried in a card is a passing mention.
+function relevance(section, term) {
+  const re = new RegExp(`\\b${escapeRe(term)}\\b`, 'gi');
+  const body = visibleText(section);
+  if (!re.test(body)) return 0;
+  const heading = (section.match(/<h2\b[^>]*>([\s\S]*?)<\/h2>/i) || [, ''])[1];
+  const lead = (section.match(/<p class="lead"[^>]*>([\s\S]*?)<\/p>/i) || [, ''])[1];
+  // Tiers, not a sum: a slide whose HEADING names the term is what the slide is
+  // about (2); the lead is the next best thing (1); anything else is a passing
+  // mention (0). Counting occurrences instead would hand the link to whichever
+  // late slide happens to repeat the word most, rather than to the slide that
+  // introduces the idea.
+  if (re.test(cleanText(heading))) return 3;
+  if (re.test(cleanText(lead))) return 2;
+  return 1;   // named only in a card: still a legitimate home, just the last resort
+}
+
+// Give every source its single best slide, without overcrowding any one slide.
+function planDeck(sections, file) {
+  const candidates = [];
+  sections.forEach((section, index) => {
+    if (isStructural(section) || isAgenda(section)) return;
+    for (const [term, url, label, scope] of SOURCES) {
+      if (scope && !scope.test(file)) continue;
+      const score = relevance(section, term);
+      if (score === 1 && !isDistinctive(term)) continue;
+      if (score) candidates.push({ index, term, url, label, score, wiki: false });
+    }
+    for (const [term, url, label, scope] of WIKI) {
+      if (scope && !scope.test(file)) continue;
+      const score = relevance(section, term);
+      if (score === 1 && !isDistinctive(term)) continue;
+      if (score) candidates.push({ index, term, url, label, score, wiki: true });
+    }
+  });
+
+  // Highest tier first, then the earliest slide: the reader meets the link where
+  // the idea is introduced, not where it is later recalled. An official source
+  // outranks Wikipedia only at the same tier and the same slide.
+  candidates.sort((a, b) =>
+    b.score - a.score || a.index - b.index || (a.wiki === b.wiki ? 0 : a.wiki ? 1 : -1));
+
+  const plan = new Map();          // slide index -> assigned sources
+  const placed = new Set();        // url -> already somewhere in this deck
+  for (const c of candidates) {
+    if (placed.has(c.url)) continue;
+    const slot = plan.get(c.index) || [];
+    const official = slot.filter(x => !x.wiki).length;
+    const wiki = slot.filter(x => x.wiki).length;
+    if (c.wiki ? wiki >= WIKI_PER_SLIDE : official >= OFFICIAL_PER_SLIDE) continue;
+    slot.push(c);
+    plan.set(c.index, slot);
+    placed.add(c.url);
+  }
+  return plan;
+}
+
+function annotateSection(section, assigned = [], used = null) {
+  if (isStructural(section)) return section;
+  section = section.replace(/<div\b[^>]*data-source-footer="true"[^>]*>[\s\S]*?<\/div>/gi, '');
+  if (!assigned.length) return section;
+
+  const tokens = section.split(/(<[^>]+>)/g);
+  let blockedDepth = 0;
+  const pending = [...assigned];
+
+  for (let i = 0; i < tokens.length && pending.length; i++) {
     const token = tokens[i];
     if (token.startsWith('<')) {
       const close = token.match(/^<\/(a|script|style|svg)\b/i);
@@ -207,32 +294,33 @@ function annotateSection(section, file) {
     }
     if (blockedDepth || !token.trim()) continue;
 
-    let matched = false;
-    for (const [term, url, label, scope] of SOURCES) {
-      if (added >= 2) break;
-      if (linkedUrls.has(url)) continue;
-      if (scope && !scope.test(file)) continue;
+    for (let k = 0; k < pending.length; k++) {
+      const { term, url, label } = pending[k];
       const re = new RegExp(`\\b(${escapeRe(term)})\\b`, 'i');
       if (!re.test(tokens[i])) continue;
-      tokens[i] = tokens[i].replace(re, `$1${sourceLink(url, label)}`);
-      linkedUrls.add(url);
-      added++;
-      matched = true;
-      break;
-    }
-    if (matched) continue;
-    for (const [term, url, label] of WIKI) {
-      if (wikiAdded >= 1) break;
-      if (linkedUrls.has(url)) continue;
-      const re = new RegExp(`\\b(${escapeRe(term)})\\b`, 'i');
-      if (!re.test(tokens[i])) continue;
-      tokens[i] = tokens[i].replace(re, `$1${sourceLink(url, label)}`);
-      linkedUrls.add(url);
-      wikiAdded++;
+      tokens[i] = tokens[i].replace(re, `$1${sourceLink(url, escapeHtml(label))}`);
+      if (used) used.set(url, label);
+      pending.splice(k, 1);
       break;
     }
   }
-  return sourceFooter(tokens.join(''), savedFooter);
+  return sourceFooter(tokens.join(''));
+}
+
+// The closing slide collects every source the deck cites: one list to follow up
+// on, instead of a hunt back through the footers.
+function closingList(section, used) {
+  const stripped = section.replace(/<div\b[^>]*data-source-list="true"[^>]*>[\s\S]*?<\/div><\/div>/gi, '');
+  if (!used.size) return stripped;
+  // The closing slide is dark, but the shared theme forces .slide{color:ink}, so
+  // an inherited colour would print dark text on a dark background. State the
+  // light colour explicitly, and left-align: the closing centres its text, which
+  // leaves a ragged list.
+  const items = [...used.entries()].map(([href, label]) =>
+    `<a href="${href}" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">${escapeHtml(label)} ↗</a>`
+  ).join('');
+  const list = `<div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);">${items}</div></div>`;
+  return stripped.replace(/<\/section>\s*$/i, `${list}</section>`);
 }
 
 const files = fs.readdirSync('.')
@@ -243,22 +331,30 @@ let filesChanged = 0;
 let linksAdded = 0;
 for (const file of files) {
   const original = fs.readFileSync(file, 'utf8');
-  // Remove only links generated by this script. Repeating the pass also repairs
-  // any nested generated anchor left by an interrupted or older run.
+  // Drop the links this script generated on an earlier run, then plan afresh.
   let before = original;
-  const generatedLink = /<a href="[^"]*" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale:[^"]*" aria-label="Fonte ufficiale:[^"]*" style="font-family:var\(--font-mono,monospace\);font-size:\.58em;line-height:1;color:var\(--teal,#163b35\);text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap;">↗<\/a>/g;
-  for (let pass = 0; pass < 4; pass++) before = before.replace(generatedLink, '');
   before = before.replace(/<a\b(?=[^>]*data-source-origin="auto")[^>]*>[\s\S]*?<\/a>/gi, '');
-  const beforeCount = (before.match(/title="Fonte ufficiale:/g) || []).length;
-  const after = before
-    .replace(/<section\b[\s\S]*?<\/section>/gi, section => annotateSection(section, file))
+  before = before.replace(/<div\b[^>]*data-source-footer="true"[^>]*>[\s\S]*?<\/div>/gi, '');
+
+  const sections = before.match(/<section\b[\s\S]*?<\/section>/gi) || [];
+  const plan = planDeck(sections, file);
+  const used = new Map();
+
+  let index = 0;
+  let after = before.replace(/<section\b[\s\S]*?<\/section>/gi, section => {
+    const annotated = annotateSection(section, plan.get(index) || [], used);
+    index++;
+    return annotated;
+  });
+  after = after
+    .replace(/<section\b[^>]*class="[^"]*closing[^"]*"[\s\S]*?<\/section>/i, section => closingList(section, used))
     .replace(/[ \t]+$/gm, '');
-  const afterCount = (after.match(/title="Fonte ufficiale:/g) || []).length;
-  if (after !== before) {
+
+  if (after !== original) {
     fs.writeFileSync(file, after);
     filesChanged++;
-    linksAdded += afterCount - beforeCount;
+    linksAdded += used.size;
   }
 }
 
-console.log(`Rendered ${linksAdded} automatic official-source links across ${filesChanged} decks.`);
+console.log(`Placed ${linksAdded} source links across ${filesChanged} decks (each source once, on its most relevant slide).`);

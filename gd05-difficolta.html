@@ -115,7 +115,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
 .home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
 .home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
-</style>
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display),Georgia,serif;font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}</style>
 <link rel="stylesheet" href="theme-corsi.css">
 </head>
 <body class="course-gd">
@@ -125,7 +125,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- SLIDE 1 · TITLE -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="eyebrow reveal" style="margin-top:40px;">Game Design</div>
       <h1 class="h-mega reveal" style="margin-top:10px;">Difficoltà<br><em style="font-style:italic;color:var(--sky);">e Progressione</em></h1>
       <p class="lead reveal d1" style="margin-top:28px;">Come dosare la sfida perché il giocatore non si annoi né si arrenda — curve di apprendimento, sistemi di progressione, tutorial e puzzle.</p>
 
@@ -136,23 +135,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <!-- SLIDE 2 · AGENDA -->
-  <section class="slide">
-
-    <h2 class="h-sec reveal" style="margin-top:32px;">Cosa vedremo</h2>
-    <div class="grid2 reveal d1" style="margin-top:28px;">
-      <div class="steps" style="counter-reset:st;">
-        <div class="step"><div class="t"><b>Curva di apprendimento e flow</b> — la zona ideale tra noia e frustrazione, dove il giocatore è pienamente concentrato</div></div>
-        <div class="step"><div class="t"><b>Sistemi di progressione</b> — XP, livelli, sblocchi e ricompense che motivano il giocatore a continuare</div></div>
-        <div class="step"><div class="t"><b>Livelli di difficoltà</b> — cosa cambia davvero tra easy e hard, oltre ai semplici numeri</div></div>
-      </div>
-      <div class="steps" style="counter-reset:st 3;">
-        <div class="step"><div class="t"><b>Upgrade e skin</b> — progressione di potenza vs progressione estetica: due binari che servono scopi molto diversi</div></div>
-        <div class="step"><div class="t"><b>New Game Plus</b> — rigiocare con i progressi già acquisiti ma affrontando una sfida potenziata</div></div>
-        <div class="step"><div class="t"><b>Tutorial e puzzle</b> — insegnare e mettere alla prova il giocatore senza annoiarlo o bloccarlo</div></div>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  </section>
+  <section class="slide"><span class="tag">Percorso</span><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(3,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">Curva di apprendimento e flow</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Sistemi di progressione</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Livelli di difficoltà</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Upgrade e skin</span></div><div class="agenda-item"><span class="n">05</span><span class="t">New Game Plus</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Tutorial e puzzle</span></div></div><div class="num"></div></section>
 
   <!-- SLIDE 3 · LA CURVA DI APPRENDIMENTO -->
   <section class="slide">
@@ -204,7 +187,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://igda.org/about-us/core-values-and-code-of-ethics/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Valori e codice etico — IGDA" aria-label="Fonte ufficiale: Valori e codice etico — IGDA" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Valori e codice etico — IGDA ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 5 · TOOL VS ENGINE -->
   <section class="slide">
@@ -224,7 +207,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.w3.org/TR/webaudio/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Web Audio API — W3C" aria-label="Fonte ufficiale: Web Audio API — W3C" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Web Audio API — W3C ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 6 · SISTEMI DI PROGRESSIONE -->
   <section class="slide">
@@ -262,7 +245,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <p>Un buon hard <b>non</b> è solo "più danni ricevuti": cambia il <em>comportamento</em> dei nemici, le loro routine di pattugliamento e le loro reazioni, non solo i loro valori numerici.</p>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://igda.org/about-us/core-values-and-code-of-ethics/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Valori e codice etico — IGDA" aria-label="Fonte ufficiale: Valori e codice etico — IGDA" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Valori e codice etico — IGDA ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 8 · UPGRADE E SKIN -->
   <section class="slide">

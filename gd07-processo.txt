@@ -2,32 +2,19 @@ Game Design · GD_07 — Processo di Design
 ========================================
 
 --- Slide 1 ---
-Game Design
 Processo
-di Design
-Come si progetta un gioco davvero: validare l'idea, prototipare in fretta, testare coi giocatori e iterare senza innamorarsi della prima versione.
+ di Design 
+ Come si progetta un gioco davvero: validare l'idea, prototipare in fretta, testare coi giocatori e iterare senza innamorarsi della prima versione. 
 
-
-
-🔁
+ 
+ 
+ 🔁
 
 --- Slide 2 ---
-
- Cosa vedremo 
- 
- 
- Da dove nasce un gioco — dall'impulso iniziale alla validazione 
- I 7 criteri di validazione — le lenti per valutare un'idea 
- Octalysis — gli 8 motori della motivazione 
- 
- 
- Fail fast e requirements — sbagliare presto, dentro vincoli chiari 
- Bozza → analisi → correzione — il ciclo iterativo del design 
- Playtesting e iterazione — testare coi giocatori veri
+Percorso Cosa vedremo 01 Da dove nasce un gioco 02 I 7 criteri di validazione 03 Octalysis 04 Fail fast e requirements 05 Bozza → analisi → correzione 06 Playtesting e iterazione
 
 --- Slide 3 ---
-
- Da dove nasce un gioco 
+Da dove nasce un gioco 
  Ogni gioco parte da un impulso: un'idea, un'emozione, una meccanica curiosa vista altrove. Ma non tutte le idee reggono. Prima di costruire, si valida . 
  
  L'idea non basta 
@@ -59,8 +46,7 @@ Come si progetta un gioco davvero: validare l'idea, prototipare in fretta, testa
  La validazione: tante idee entrano, un gioco esce
 
 --- Slide 4 ---
-
- I 7 criteri di validazione 
+I 7 criteri di validazione 
  Sette lenti per guardare la stessa idea: se una lente rivela un punto debole, meglio saperlo subito. 
  
  
@@ -75,8 +61,7 @@ Come si progetta un gioco davvero: validare l'idea, prototipare in fretta, testa
  🌍 Social — che impatto o valore sociale genera?
 
 --- Slide 5 ---
-
- Octalysis: gli 8 core drives 
+Octalysis: gli 8 core drives 
  Il framework di gamification di Yu-kai Chou : otto "motori" che spingono le persone a giocare — dal senso di progresso (🏆 Accomplishment) alla creatività (💪 Empowerment), dal possesso (🎁 Ownership) al legame sociale (👥 Social influence). 
  
  🔮 Unpredictability La curiosità di scoprire cosa succede dopo: sorpresa, casualità, mistero. 
@@ -89,8 +74,7 @@ Come si progetta un gioco davvero: validare l'idea, prototipare in fretta, testa
  Capire cosa muove il tuo giocatore ti permette di progettare la motivazione, non solo le regole.
 
 --- Slide 6 ---
-
- Fail fast 
+Fail fast 
  Sbagliare presto, a basso costo. Meglio scoprire che un'idea non funziona con un prototipo di carta in un'ora, che dopo mesi di sviluppo. 
  
  Fail fast 
@@ -102,8 +86,7 @@ Come si progetta un gioco davvero: validare l'idea, prototipare in fretta, testa
  🗑️ Butta e rifai L'attaccamento è il nemico. Se il test dice che non funziona, si riparte — senza difendere la versione precedente.
 
 --- Slide 7 ---
-
- Requirements 
+Requirements 
  Definire i vincoli prima di costruire: quanti giocatori, quanto dura una partita, che età ha il pubblico, che budget e componenti hai. I vincoli guidano il design, non lo limitano. 
  
  La cornice serve 
@@ -116,8 +99,7 @@ Come si progetta un gioco davvero: validare l'idea, prototipare in fretta, testa
  📦 Componenti &amp; budget Cosa puoi permetterti di produrre? Dadi, carte, tabellone: ogni pezzo ha un costo.
 
 --- Slide 8 ---
-
- Bozza → analisi → correzione 
+Bozza → analisi → correzione 
  
  Prima bozza — una versione grezza ma giocabile: regole minime, materiali improvvisati. 
  Analisi — cosa funziona, cosa no, dove i giocatori si bloccano o si annoiano. 
@@ -129,8 +111,7 @@ Come si progetta un gioco davvero: validare l'idea, prototipare in fretta, testa
  Il design non è lineare — è un loop . Non si passa da idea a gioco finito: si gira il ciclo finché funziona.
 
 --- Slide 9 ---
-
- Playtesting 
+Playtesting 
  Testare con giocatori reali è insostituibile. Osserva senza intervenire, non spiegare — se serve spiegare, le regole non sono chiare — e guarda dove si annoiano o si confondono. 
  Regola: testi il gioco, non i giocatori. Se sbagliano, è colpa del design. 
  
@@ -139,8 +120,7 @@ Come si progetta un gioco davvero: validare l'idea, prototipare in fretta, testa
  🤐 Non difendere Niente "sì ma volevo dire che...". Le critiche al gioco non sono critiche a te: sono materiale di lavoro.
 
 --- Slide 10 ---
-
- Iterazione 
+Iterazione 
  Il design è ciclico: ogni playtest genera correzioni, ogni correzione un nuovo test. Si itera finché il gioco "gira" da solo — i giocatori capiscono, si divertono, vogliono rigiocare. 
  In pratica: un gioco non si finisce — si abbandona quando funziona. 
  
@@ -151,8 +131,7 @@ Fonti ufficiali:
 - Valori e codice etico — IGDA — https://igda.org/about-us/core-values-and-code-of-ethics/
 
 --- Slide 11 ---
-
- Valida un' idea 
+Valida un' idea 
  
  Butta giù un'idea di gioco in una sola frase. 
  Passala ai 7 criteri di validazione : dove è debole? 
@@ -173,3 +152,4 @@ Itera sempre.
  
  
  → GD_08 · Progettare un Gioco Fisico
+

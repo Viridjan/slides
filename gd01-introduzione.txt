@@ -2,32 +2,19 @@ Game Design · GD_01 — Introduzione al gioco
 ===========================================
 
 --- Slide 1 ---
-Game Design
 Introduzione
-al gioco
-Design applicato alle attività ludiche — tipologie di giochi, il paradigma MDA, meccaniche e dinamiche.
+ al gioco 
+ Design applicato alle attività ludiche — tipologie di giochi, il paradigma MDA, meccaniche e dinamiche. 
 
-
-
-🎲
+ 
+ 
+ 🎲
 
 --- Slide 2 ---
-
- Cosa vedremo 
- 
- 
- Tipologie di giochi — board, card, dice, party, eurogame, family, cooperative: ogni categoria rivela aspettative diverse nel giocatore e scelte diverse nel designer 
- Eccezioni e giochi ibridi — quando le categorie non bastano più e i giochi di maggior successo le attraversano tutte 
- Il paradigma MDA — Meccaniche, Dinamiche, Estetiche: il modello formale di Hunicke, LeBlanc e Zubek (2004) per analizzare e progettare esperienze di gioco 
- 
- 
- Prospettiva designer vs giocatore — chi costruisce parte dalle meccaniche; chi gioca arriva prima all'estetica: due percorsi opposti lungo lo stesso asse MDA 
- Giochi agonistici e non agonistici — competizione diretta, cooperazione pura e le zone grigie in mezzo: i semi-cooperativi con il traditore nascosto 
- Attività pratica — scegli un gioco che conosci e applicagli il framework MDA: elenca le meccaniche, identifica le dinamiche emergenti, descrivi l'estetica che ne risulta
+Percorso Cosa vedremo 01 Tipologie di giochi 02 Eccezioni e giochi ibridi 03 Il paradigma MDA 04 Prospettiva designer vs giocatore 05 Giochi agonistici e non agonistici 06 Attività pratica
 
 --- Slide 3 ---
-
- Design applicato al gioco 
+Design applicato al gioco 
  Il game design è la disciplina che progetta esperienze ludiche — non solo videogiochi, ma anche giochi da tavolo, di carte e live. Il designer crea regole, sistemi, feedback e progressione. 
  
  💡 Francesco Binetti / Viridjan 
@@ -53,8 +40,7 @@ Fonti ufficiali:
 - Valori e codice etico — IGDA — https://igda.org/about-us/core-values-and-code-of-ethics/
 
 --- Slide 4 ---
-
- Classificare i giochi 
+Classificare i giochi 
  Esistono molte tipologie di gioco, spesso sovrapposte. Le categorie non sono definizioni rigide: ci aiutano a capire le aspettative dei giocatori . 
  
  
@@ -73,8 +59,7 @@ Fonti ufficiali:
  Il dado è il motore principale del gioco. Esempi: Yahtzee , King of Tokyo . La forte componente di fortuna è bilanciata dalle scelte su quando tenere, rilancire o rischiare — il designer controlla l'aleatorietà tramite le decisioni consentite.
 
 --- Slide 5 ---
-
- Altri generi 
+Altri generi 
  
  
  🎉 
@@ -92,8 +77,7 @@ Fonti ufficiali:
  Equilibrio tra semplicità e profondità, adatto a tavoli con età miste (8+). Il design abbassa le barriere di ingresso senza eliminare le scelte significative. Esempi: Ticket to Ride , Pandemic , Dixit .
 
 --- Slide 6 ---
-
- Tutti vincono o tutti perdono 
+Tutti vincono o tutti perdono 
  Nei giochi cooperativi i giocatori non competono fra loro: affrontano insieme un avversario comune — spesso il gioco stesso. Questo cambia radicalmente la dinamica sociale al tavolo. 
  
  Esempi 
@@ -112,8 +96,7 @@ Fonti ufficiali:
  Rischio tipico: un giocatore dominante decide per tutti e gli altri smettono di giocare davvero. Il game designer deve bilanciare per evitarlo.
 
 --- Slide 7 ---
-
- Le categorie non bastano 
+Le categorie non bastano 
  Molti giochi di successo sfidano le categorie. La classificazione è uno strumento , non una gabbia. 
  
  
@@ -140,8 +123,7 @@ Fonti ufficiali:
  Regola: conoscere le categorie ti permette di violarle consapevolmente .
 
 --- Slide 8 ---
-
- MDA 
+MDA 
  Il paradigma che ogni game designer dovrebbe conoscere. Proposto da Robin Hunicke, Marc LeBlanc e Robert Zubek nel 2004, MDA descrive come le regole formali di un gioco producano comportamenti emergenti che a loro volta generano l'esperienza emotiva del giocatore. Il modello è potente perché fornisce un vocabolario condiviso per analizzare e progettare giochi di ogni tipo. 
  
  🔩 Meccaniche 
@@ -151,8 +133,7 @@ Fonti ufficiali:
  🎭 Estetiche
 
 --- Slide 9 ---
-
- Come nasce un' esperienza 
+Come nasce un' esperienza 
  Le Meccaniche sono le regole del gioco — le azioni disponibili, i vincoli, i sistemi di ricompensa. Dalle meccaniche emergono le Dinamiche — i comportamenti dei giocatori in gioco. Le dinamiche generano le Estetiche — le emozioni vissute durante la sessione di gioco. 
  
  Fonte 
@@ -185,8 +166,7 @@ Fonti ufficiali:
 - Valori e codice etico — IGDA — https://igda.org/about-us/core-values-and-code-of-ethics/
 
 --- Slide 10 ---
-
- Le regole del gioco 
+Le regole del gioco 
  Le meccaniche sono i componenti formali del gioco: le azioni disponibili, i vincoli, i sistemi di ricompensa, le condizioni di vittoria. Sono il livello su cui lavora principalmente il designer . Una buona meccanica è chiara, interagisce con le altre senza creare scorciatoie dominanti, e genera comportamenti interessanti che il designer non aveva necessariamente previsto. 
  
  Esempi di meccaniche 
@@ -205,8 +185,7 @@ Fonti ufficiali:
  Le meccaniche si parlano tra loro — cambiarne una cambia l'equilibrio di tutto il sistema.
 
 --- Slide 11 ---
-
- Comportamenti emergenti 
+Comportamenti emergenti 
  Le dinamiche non si progettano direttamente — emergono dall'interazione tra meccaniche e giocatori. Un designer progetta meccaniche sperando che producano le dinamiche volute, ma spesso i giocatori trovano comportamenti inattesi: strategie dominanti, kingmaking, turtling. Il playtesting esiste proprio per osservare queste dinamiche e correggerle prima del rilascio. 
  
  Esempio 
@@ -225,8 +204,7 @@ Fonti ufficiali:
  Un gioco mal bilanciato produce dinamiche negative: kingmaking, turtling, runaway leader.
 
 --- Slide 12 ---
-
- L' esperienza del giocatore 
+L' esperienza del giocatore 
  L'estetica è il livello emotivo — cosa il giocatore sente mentre gioca. Non è decorazione: è l' obiettivo finale del design. Le meccaniche e le dinamiche esistono per produrre un'estetica specifica. Un gioco che mira alla Fellowship deve avere meccaniche che forzano la comunicazione; un gioco che mira al Challenge deve avere sistemi che puniscono l'errore in modo equo. 
  
  Le 8 estetiche di MDA 
@@ -245,8 +223,7 @@ Fonti ufficiali:
  Il piacere della cooperazione. Giochi sociali, giochi cooperativi.
 
 --- Slide 13 ---
-
- Designer e giocatore vivono MDA al contrario 
+Designer e giocatore vivono MDA al contrario 
  
  DESIGNER 
  🔩 Meccaniche 
@@ -270,8 +247,7 @@ Fonti ufficiali:
  In pratica: il designer pensa in regole , il giocatore in emozioni — il buon design è il ponte tra i due.
 
 --- Slide 14 ---
-
- Caso: DOOM (2016) 
+Caso: DOOM (2016) 
  Analizziamo DOOM 2016 attraverso il paradigma MDA per capire come meccaniche precise producano un' estetica specifica . id Software e il designer Hugo Martin hanno lavorato a ritroso: prima hanno definito l'estetica desiderata — adrenalina e flusso aggressivo — poi hanno costruito le meccaniche che la rendessero inevitabile. 
  
  
@@ -291,8 +267,7 @@ Fonti ufficiali:
  Sensation + Challenge. Ritmo frenetico e adrenalina continua. Questo stile si chiama "push forward combat".
 
 --- Slide 15 ---
-
- Agonistico vs non agonistico 
+Agonistico vs non agonistico 
  I giochi si dividono in base al rapporto con la competizione. Questa distinzione non è di qualità ma di design intent . 
  
  
@@ -311,8 +286,7 @@ Fonti ufficiali:
  Alcuni giochi ( Battlestar Galactica , Dead of Winter ) hanno un traditore nascosto — agonistico dentro un framework cooperativo.
 
 --- Slide 16 ---
-
- Cosa ti viene in mente pensando a Super Mario ? 
+Cosa ti viene in mente pensando a Super Mario ? 
  Prenditi 2 minuti. Scrivi o dì ad alta voce le prime 5-10 cose che ti vengono in mente — senza filtrare. Poi prova a classificarle: stai descrivendo regole, comportamenti o emozioni? Questo esercizio mostra da quale livello dell'esperienza di gioco partiamo naturalmente quando parliamo di un titolo che conosciamo bene. 
  
  
@@ -339,8 +313,7 @@ Fonti ufficiali:
  Stai descrivendo meccaniche (saltare, raccogliere monete), dinamiche (evitare i nemici, esplorare), o estetiche (avventura, soddisfazione, nostalgia)?
 
 --- Slide 17 ---
-
- Analizza un gioco con MDA 
+Analizza un gioco con MDA 
  
  Scegli un gioco — board game, videogioco, o card game che conosci bene. 
  Elenca 3 meccaniche — quali sono le azioni principali disponibili al giocatore? 
@@ -359,3 +332,4 @@ Emozioni.
  
  
  → GD_02 · La Colonna Sonora
+

@@ -2,48 +2,15 @@ Suite Ufficio · SU07 — Riferimenti e range
 ==========================================
 
 --- Slide 1 ---
-Fogli di calcolo
 Riferimenti
-e range
-Relativi, assoluti, misti, intervalli, nomi di celle, tabelle strutturate e LET: come scrivere formule che non si rompono quando copi.
-
-
-
-
-
-
-
-
-
-
-
-
-$B$2
-
-
-C3
-
-🔒
-↕
+e range 
+ Relativi, assoluti, misti, intervalli, nomi di celle, tabelle strutturate e LET: come scrivere formule che non si rompono quando copi.
 
 --- Slide 2 ---
-
- Cosa impareremo 
- 
- 01 Indirizzi di cella 
- 02 Riferimenti relativi 
- 03 Riferimenti assoluti ($) 
- 04 Riferimenti misti 
- 05 Range / intervalli 
- 06 Nominare celle e range 
- 07 Tabelle strutturate 
- 08 Riferimento ad altro foglio 
- 09 LET: variabili in formula 
- 10 Errori e buone abitudini
+Percorso Cosa vedremo 01 Indirizzi di cella 02 Riferimenti relativi 03 Riferimenti assoluti ($) 04 Riferimenti misti 05 Range / intervalli 06 Nominare celle e range 07 Tabelle strutturate 08 Riferimento ad altro foglio 09 LET 10 Errori e buone abitudini
 
 --- Slide 3 ---
-
- Ogni cella ha un indirizzo 
+Ogni cella ha un indirizzo 
  Le colonne usano lettere (A, B, C…), le righe usano numeri (1, 2, 3…). La cella B3 è l'incrocio tra colonna B e riga 3. 
  Le formule non usano valori fissi: usano indirizzi. Questo permette ai risultati di aggiornarsi automaticamente quando cambiano i dati. 
  Analogia: Come le coordinate su una mappa — col + riga identificano un punto unico su tutta la griglia. 
@@ -61,8 +28,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 4 ---
-
- Riferimenti relativi 
+Riferimenti relativi 
  Un riferimento relativo si sposta quando la formula viene copiata. Se copi la formula in basso di una riga, il riferimento scende di una riga. 
  =B2 * 1.22 
  Copiando in basso: diventa =B3 * 1.22 , poi =B4 * 1.22 — si adatta a ogni riga. 
@@ -78,8 +44,7 @@ Fonti ufficiali:
  Copia di C2 verso il basso → B si aggiorna
 
 --- Slide 5 ---
-
- Riferimenti assoluti — il $ 
+Riferimenti assoluti — il $ 
  Il simbolo $ blocca la parte del riferimento che lo precede. $B$1 resta sempre su colonna B, riga 1 — anche se copi la formula ovunque. 
  =B3 * (1 + $B$1 ) 
  
@@ -104,8 +69,7 @@ Fonti ufficiali:
  $B$1 = sempre la stessa cella, sempre
 
 --- Slide 6 ---
-
- Riferimenti misti — bloccare solo colonna o solo riga 
+Riferimenti misti — bloccare solo colonna o solo riga 
  
  Tipo Esempio Cosa succede quando copi 
  Relativo B2 Sia colonna che riga si spostano — comportamento predefinito 
@@ -116,8 +80,7 @@ Fonti ufficiali:
  💡 Idea chiave Il simbolo $ non significa denaro: significa "blocca questa dimensione". Premi F4 per ciclare tra i 4 tipi mentre sei nella barra della formula.
 
 --- Slide 7 ---
-
- Range: più celle
+Range: più celle
  in una volta 
  Un range è un gruppo di celle. Si scrive con la prima e l'ultima separate dai due punti. Le formule lo usano per lavorare su molte celle contemporaneamente. 
  =SOMMA( B2:B10 ) 
@@ -143,8 +106,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 8 ---
-
- Nominare celle e range 
+Nominare celle e range 
  Puoi dare un nome a una cella o a un intervallo. La formula diventa più leggibile e meno fragile — non dipende più da dove si trova fisicamente la cella. 
  =Prezzo * (1 + AliquotaIVA ) 
  Invece di =B3*(1+$B$1) — che richiede di ricordare cosa contiene B1. 
@@ -165,8 +127,7 @@ Fonti ufficiali:
  x (troppo generico)
 
 --- Slide 9 ---
-
- Riferimenti alle colonne 
+Riferimenti alle colonne 
  Quando converti un range in Tabella (Inserisci → Tabella), puoi riferirti alle colonne per nome invece che per lettera — e il range si espande automaticamente. 
  =SOMMA( Vendite[Importo] ) 
  Somma la colonna "Importo" della tabella "Vendite". Aggiungendo nuove righe, la formula le include in automatico. 
@@ -185,8 +146,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 10 ---
-
- Riferimento ad altro foglio 
+Riferimento ad altro foglio 
  Puoi leggere il valore di una cella che si trova su un altro foglio dello stesso file usando il punto esclamativo come separatore. 
  
  
@@ -208,8 +168,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 11 ---
-
- La funzione LET 
+La funzione LET 
  LET permette di dare un nome temporaneo a parti della formula. La formula rimane compatta e leggibile — il nome scompare dopo il calcolo. 
  Analogia: LET è come scrivere una bozza con appunti ai margini — calcoli intermedi con nome, risultato finale pulito. 
  💡 Compatibilità LET è disponibile in Excel 365 e in Google Sheets. In file salvati per versioni vecchie di Excel può non funzionare. 
@@ -229,8 +188,7 @@ Fonti ufficiali:
 - Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 12 ---
-
- Cosa rompe le formule — e come evitarlo 
+Cosa rompe le formule — e come evitarlo 
  
  
  🔁 
@@ -269,4 +227,7 @@ Formula copiata,
 formula corretta. 
  Riferimenti relativi, assoluti ($) e misti, range nominati e LET: costruire formule che si copiano in ogni direzione senza rompersi. 
  
- Prossimo → SU08 · Prime formule
+ Prossimo → SU08 · Prime formule 
+ 
+ Fonti e approfondimenti Guida ufficiale Google Sheets ↗
+

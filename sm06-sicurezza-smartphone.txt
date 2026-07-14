@@ -2,20 +2,14 @@ Smartphones · SMA06 — Sicurezza dello smartphone
 ================================================
 
 --- Slide 1 ---
-S06 — Sicurezza
-Sicurezza dello smartphone
-Blocco schermo e biometria, 2FA, furto e smarrimento, SIM swap, truffe via SMS e telefono, malware e reti WiFi false.
+Sicurezza dello smartphone 
+ Blocco schermo e biometria, 2FA, furto e smarrimento, SIM swap, truffe via SMS e telefono, malware e reti WiFi false.
 
 --- Slide 2 ---
-
- Cosa vedremo 
- 01 Il telefono è una chiave 02 Blocco schermo e biometria 03 2FA e codici OTP 04 Furto: prepararsi e reagire 05 SIM swap 06 Smishing: truffe via SMS 07 Vishing: truffe al telefono 08 Malware e app da fonti dubbie 09 Aggiornamenti di sicurezza 10 WiFi pubbliche e reti false
-Fonti ufficiali:
-- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
+Percorso Cosa vedremo 01 Il telefono è una chiave 02 Blocco schermo e biometria 03 2FA e codici OTP 04 Furto 05 SIM swap 06 Smishing 07 Vishing 08 Malware e app da fonti dubbie 09 Aggiornamenti di sicurezza 10 WiFi pubbliche e reti false
 
 --- Slide 3 ---
-
- Il telefono è una chiave 
+Il telefono è una chiave 
  Non stiamo proteggendo un oggetto da qualche centinaio di euro: stiamo proteggendo tutto ciò che quell'oggetto apre. 
  Regola: il PIN protegge il telefono, il telefono protegge tutto il resto. 
  
@@ -28,8 +22,7 @@ Fonti ufficiali:
 - Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 4 ---
-
- Blocco schermo e biometria 
+Blocco schermo e biometria 
  Senza blocco schermo, chiunque raccolga il telefono ha già vinto. Codice e biometria lavorano insieme, con ruoli diversi. 
  
  🔢 Il codice è le fondamenta PIN di almeno 6 cifre, non ovvie: niente 1234, 0000 o date di nascita. Una password alfanumerica protegge ancora meglio di un PIN. Blocco automatico entro 30–60 secondi di inattività. 
@@ -40,8 +33,7 @@ Fonti ufficiali:
 - Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 5 ---
-
- 2FA e codici OTP 
+2FA e codici OTP 
  Anche se qualcuno ti ruba la password, con la verifica in due passaggi non entra: gli manca il secondo pezzo. 
  
  🔐 Due lucchetti diversi Qualcosa che sai (la password) più qualcosa che hai (il telefono). Attivala prima di tutto su email e banca: sono gli account che aprono gli altri. 
@@ -52,8 +44,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 6 ---
-
- Prepararsi al furto 
+Prepararsi al furto 
  Le difese contro furto e smarrimento funzionano solo se le attivi prima: a telefono sparito è troppo tardi. 
  Blocco attivazione Con Trova dispositivo o Dov'è attivi, il telefono resta legato al tuo account anche dopo un reset di fabbrica : chi lo ruba non può riattivarlo. Un deterrente che rende il furto molto meno redditizio. 
  
@@ -66,8 +57,7 @@ Fonti ufficiali:
 - Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
 
 --- Slide 7 ---
-
- Telefono rubato: i quattro passi 
+Telefono rubato: i quattro passi 
  Nell'emergenza conta l'ordine: prima limita i danni agli account, poi pensa all'apparecchio. 
  
  📍 1 · Localizza e blocca 
@@ -83,8 +73,7 @@ Fonti ufficiali:
 - Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 8 ---
-
- SIM swap 
+SIM swap 
  Per svuotarti il conto non serve rubarti il telefono: basta rubarti il numero. 
  Le tue contromisure Imposta un PIN sulla SIM (Impostazioni → SIM) e un codice di sicurezza sull'account dell'operatore. Per banca ed email usa un'app autenticatore, non gli SMS. Segnale sparito senza motivo? Chiama subito l'operatore da un altro telefono. 
  
@@ -97,8 +86,7 @@ Fonti ufficiali:
 - Riconoscere il phishing — CISA — https://www.cisa.gov/secure-our-world/recognize-and-report-phishing
 
 --- Slide 9 ---
-
- Smishing: l'esca via messaggio 
+Smishing: l'esca via messaggio 
  Finto corriere, finta banca, finto ente: un SMS ben scritto e un link che porta a una pagina-trappola identica all'originale. 
  La regola che ti salva Mai entrare dal link. Se il messaggio parla di un pacco o del conto, apri tu l'app o il sito ufficiale e controlla lì. In dubbio, chiama il mittente a un numero che possiedi già. 
  
@@ -127,8 +115,7 @@ Fonti ufficiali:
  L'SMS è l'esca, il link è l'amo
 
 --- Slide 10 ---
-
- Vishing: la truffa al telefono 
+Vishing: la truffa al telefono 
  Una voce professionale, un'emergenza inventata e la fretta: così ti trasformano in complice del furto ai tuoi danni. 
  Riaggancia e richiama Nessuna banca o forza dell'ordine chiede OTP, password o dati carta al telefono. Riaggancia e richiama tu il numero ufficiale che trovi sul sito o sul retro della carta — mai quello suggerito da chi ti ha chiamato. 
  
@@ -140,8 +127,7 @@ Fonti ufficiali:
 - Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 11 ---
-
- Malware e app da fonti dubbie 
+Malware e app da fonti dubbie 
  Le app installate da fonti non affidabili sono un rischio importante, ma non l'unico: esistono app malevole negli store, exploit del browser, allegati e attacchi senza clic.
  
  🦠 Cosa può fare Leggere SMS e intercettare gli OTP bancari. Controllare lo schermo abusando dei permessi di accessibilità. Rubare credenziali e inondarti di pubblicità. 
@@ -149,8 +135,7 @@ Fonti ufficiali:
  🏪 Fonti affidabili Play Store e App Store, con le loro verifiche. Il sito ufficiale dello sviluppatore. F-Droid per app open source verificate.
 
 --- Slide 12 ---
-
- Aggiornamenti di sicurezza 
+Aggiornamenti di sicurezza 
  Ogni patch chiude una porta che gli attaccanti già conoscono: rimandare l'installazione significa restare esposti a colpi documentati. 
  Dove si controlla iOS : Impostazioni → Generali → Aggiornamento software. Android : Impostazioni → Sistema (o Info telefono) → Aggiornamenti. Attiva gli aggiornamenti automatici notturni e non ci pensi più. 
  
@@ -163,8 +148,7 @@ Fonti ufficiali:
 - Guida ufficiale Android — https://support.google.com/android/
 
 --- Slide 13 ---
-
- WiFi pubbliche e reti false 
+WiFi pubbliche e reti false 
  Una rete gratuita può essere una trappola: l'evil twin è la copia malevola di una rete legittima, messa lì apposta per farti connettere. 
  Difese pratiche Disattiva la connessione automatica alle reti aperte (Impostazioni → WiFi). Per banca e acquisti usa la rete mobile o il tuo hotspot personale. Su reti sconosciute, una VPN aggiunge un livello di protezione. 
  
@@ -176,8 +160,7 @@ Fonti ufficiali:
 - Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 14 ---
-
- La tua checklist 
+La tua checklist 
  Tutto il capitolo in due liste: cosa sistemare una volta sola e cosa tenere d'occhio nel tempo. 
  
  ⚙️ Una volta sola PIN di almeno 6 cifre + biometria, blocco automatico entro 60 secondi. MFA resistente al phishing dove disponibile; per email usa preferibilmente passkey o app autenticatore, per la banca segui il metodo previsto dall'istituto. Trova dispositivo / Dov'è attivo e testato. PIN sulla SIM e IMEI annotato (*#06#).
@@ -193,4 +176,7 @@ Il telefono è una chiave:
 custodiscila. 
  PIN robusto, 2FA, cifratura del dispositivo, Find My, remote wipe e cosa fare se il telefono viene smarrito o rubato. 
  
- Prossimo → SMA07 · Gestione dei file
+ Prossimo → SMA07 · Gestione dei file 
+ 
+ Fonti e approfondimenti Guida ufficiale Android ↗ Manuale utente iPhone — Apple ↗ Wi-Fi — Wi-Fi Alliance ↗ Rete privata virtuale — Wikipedia ↗
+

@@ -2,15 +2,15 @@ Suite Ufficio · SU03.10 — Macro nei fogli di calcolo
 ====================================================
 
 --- Slide 1 ---
-Fogli di calcolo · SU03.10 Macro nei
-fogli Automatizzare azioni ripetitive in Excel e Google Sheets: registrazione, sicurezza, pulsanti, limiti e progettazione di procedure affidabili. azione manuale
-↓ registra
+Macro nei
+ fogli Automatizzare azioni ripetitive in Excel e Google Sheets: registrazione, sicurezza, pulsanti, limiti e progettazione di procedure affidabili. azione manuale
+ ↓ registra
 macro
-↓ ripeti
+ ↓ ripeti
 procedura automatica
 
 --- Slide 2 ---
-Percorso Cosa vedremo 01 · Che cos’è una macro 02 · Automatizzare solo processi stabili 03 · Registrare una macro 04 · Macro di formattazione report 05 · Relativo o assoluto 06 · Macro e rischio sicurezza 07 · Assegnare macro a pulsanti e menu 08 · Macro con parametri e celle di controllo 09 · Gestire errori senza bloccare il lavoro 10 · Testare su copie e mantenere versioni 11 · Quando una macro non basta 12 · Checklist di una macro affidabile
+Percorso Cosa vedremo 01 Che cos’è una macro 02 Automatizzare solo processi stabili 03 Registrare una macro 04 Macro di formattazione report 05 Relativo o assoluto 06 Macro e rischio sicurezza 07 Assegnare macro a pulsanti e menu 08 Macro con parametri e celle di controllo 09 Gestire errori senza bloccare il lavoro 10 Testare su copie e mantenere versioni 11 Quando una macro non basta 12 Checklist di una macro affidabile
 
 --- Slide 3 ---
 Definizione Che cos’è una macro Una macro è una sequenza di azioni salvata e rieseguita: formattare report, pulire dati, esportare PDF, creare fogli o inviare riepiloghi. Ripetizione Ha senso quando fai spesso gli stessi passaggi. Coerenza Riduce differenze tra file prodotti da persone diverse. Velocità Trasforma minuti di click in un comando.
@@ -58,5 +58,5 @@ Fonti ufficiali:
 Metodo Checklist di una macro affidabile Una buona macro ha uno scopo chiaro, input controllati, output verificabile e istruzioni per l’utente. Nome AggiornaReportMensile, non Macro1. Scopo Una macro, una responsabilità. Controlli Verifica dati prima di agire. Documentazione Spiega cosa fa e cosa non deve essere cambiato.
 
 --- Slide 15 ---
-Una macro utile elimina lavoro ripetitivo senza nascondere il controllo. Prima progetta la procedura, poi automatizzala; non automatizzare confusione. Torna all'indice
+Una macro utile elimina lavoro ripetitivo senza nascondere il controllo. Prima progetta la procedura, poi automatizzala; non automatizzare confusione. Torna all'indice Fonti e approfondimenti Macro — Wikipedia ↗ Guida ufficiale Google Sheets ↗ Internet Message Format — RFC 5322 ↗
 

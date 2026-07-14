@@ -113,7 +113,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 /* home button */
 .home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
 .home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
-</style>
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display),Georgia,serif;font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}</style>
 <link rel="stylesheet" href="theme-corsi.css">
 </head>
 <body class="course-ia">
@@ -123,7 +123,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- SLIDE 1 · TITLE -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="eyebrow reveal" style="margin-top:40px;">Intelligenza Artificiale</div>
       <h1 class="h-mega reveal" style="margin-top:10px;">Esercizio di<br><em style="font-style:italic;color:var(--sky);">generazione</em></h1>
       <p class="lead reveal d1" style="margin-top:28px;">Proviamo insieme gli strumenti IA disponibili oggi — testo, immagini, audio, video, 3D — e costruiamo qualcosa di concreto.</p>
 
@@ -134,7 +133,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <!-- SLIDE 2 · STRUMENTI TESTO E CHAT -->
-  <section class="slide tight-slide">
+  <section class="slide"><span class="tag">Percorso</span><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(5,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">Strumenti per testo e conversazione</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Strumenti per audio</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Strumenti per contenuti visivi</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Metodologia dell' esercizio</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Creiamo con l'IA</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Scrivere richieste chiare</span></div><div class="agenda-item"><span class="n">07</span><span class="t">Prompt per testi</span></div><div class="agenda-item"><span class="n">08</span><span class="t">Descrivere ciò che vuoi vedere</span></div><div class="agenda-item"><span class="n">09</span><span class="t">Prompt per immagini</span></div></div><div class="num"></div></section>
+<section class="slide tight-slide">
 
     <h2 class="h-sec reveal" style="margin-top:16px;">Strumenti per <em class="hot">testo</em> e conversazione</h2>
     <div class="grid3 reveal d1" style="margin-top:22px;">
@@ -170,7 +170,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Motore_di_ricerca" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Motore di ricerca — Wikipedia" aria-label="Fonte ufficiale: Motore di ricerca — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Motore di ricerca — Wikipedia ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 3 · STRUMENTI AUDIO E VOCE -->
   <section class="slide tight-slide">
@@ -308,7 +308,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="card teal"><span class="ic">📏</span><h3>Formato e lunghezza</h3><p>Specifica se vuoi un elenco puntato, una tabella, un'email, un articolo, massimo 100 parole o una struttura precisa con titolo, tre paragrafi e conclusione.</p></div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
+  </section>
 
   <!-- SLIDE NEW · TEMPLATE PROMPT TESTO -->
   <section class="slide">
@@ -324,7 +324,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="note sky reveal d2" style="margin-top:26px;max-width:1450px;"><div class="lbl">Esempio completo</div><p>Scrivi un articolo di blog di 800 parole sull'alimentazione sana per giovani adulti, tono amichevole e motivante, con titolo accattivante, introduzione, tre paragrafi tematici, cinque ricette rapide e conclusione con invito all'azione. Usa sottotitoli e paragrafi brevi per favorire la lettura su mobile.</p></div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc5322" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Message Format — RFC 5322" aria-label="Fonte ufficiale: Internet Message Format — RFC 5322" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Message Format — RFC 5322 ↗</a></div></section>
+  </section>
 
   <!-- SLIDE NEW · PROMPT IMMAGINI -->
   <section class="slide tight-slide">

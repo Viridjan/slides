@@ -2,28 +2,19 @@ Intelligenza Artificiale · IA_01 — Concetti Generali
 ====================================================
 
 --- Slide 1 ---
-Intelligenza Artificiale
 Concetti
-generali
-Cos'è l'IA, come si definisce, le sue applicazioni quotidiane e i concetti chiave: ML, deep learning, deepfake, filter bubble.
+ generali 
+ Cos'è l'IA, come si definisce, le sue applicazioni quotidiane e i concetti chiave: ML, deep learning, deepfake, filter bubble. 
 
-
-
-🤖
+ 
+ 
+ 🤖
 
 --- Slide 2 ---
-
- Cosa vedremo 
- 
- 01 Cos'è l'IA — storia, definizione, IA debole vs forte 
- 02 ML, reti neurali, NLP — come impara una macchina 
- 03 Applicazioni — auto, contenuti, immagini, deepfake 
- 04 Filter bubble, echo chamber, bot, fake news 
- 05 ChatGPT, prompt engineering, bias, etica, futuro
+Percorso Cosa vedremo 01 Cos'è l'IA 02 ML 03 Applicazioni 04 Filter bubble 05 ChatGPT
 
 --- Slide 3 ---
-
- Cos'è l' Intelligenza Artificiale ? 
+Cos'è l' Intelligenza Artificiale ? 
  La capacità o il tentativo di un sistema artificiale di simulare una forma di intelligenza — Wikipedia. 
  
  ⚠️ Campo in evoluzione 
@@ -44,8 +35,7 @@ Fonti ufficiali:
 - AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 4 ---
-
- Breve storia dell' IA 
+Breve storia dell' IA 
  
  
  🧪 
@@ -70,8 +60,7 @@ Fonti ufficiali:
 - AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 5 ---
-
- La battuta dei ricercatori 
+La battuta dei ricercatori 
  L'IA è "tutto ciò che i computer non sanno ancora fare" . Non appena troviamo un modo per farlo, smette di chiamarsi IA. 
  
  
@@ -104,8 +93,7 @@ Fonti ufficiali:
  Non esiste ancora. I ricercatori non concordano su quando — o se — arriverà.
 
 --- Slide 7 ---
-
- I concetti correlati 
+I concetti correlati 
  
  
  🤖 
@@ -149,8 +137,7 @@ Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 8 ---
-
- Reti neurali 
+Reti neurali 
  Ispirate (lontanamente) al cervello umano: nodi connessi in strati che trasformano l'input in output. 
  Strato di input → strati nascosti (dove avviene l'apprendimento) → strato di output . La "profondità" è il numero di strati nascosti. 
  
@@ -179,8 +166,7 @@ Fonti ufficiali:
  OUTPUT
 
 --- Slide 9 ---
-
- Capire il linguaggio naturale 
+Capire il linguaggio naturale 
  L'NLP permette alle macchine di leggere, capire e generare testo umano — il ramo dell'IA con la crescita più esplosiva degli ultimi anni. 
  
  
@@ -206,8 +192,7 @@ Fonti ufficiali:
 - Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 10 ---
-
- Come impara una macchina? 
+Come impara una macchina? 
  
  Dati di addestramento — migliaia (o miliardi) di esempi etichettati: foto di gatti e non-gatti, email spam e non-spam, traduzioni corrette. 
  Modello — un algoritmo che trova pattern nei dati. Commette errori, li misura, si corregge — milioni di volte. 
@@ -219,8 +204,7 @@ Fonti ufficiali:
 - AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 11 ---
-
- Auto a guida autonoma 
+Auto a guida autonoma 
  Un caso che combina quasi tutte le tecniche di IA in un unico sistema. 
  
  Ricerca e pianificazione — trovare il percorso ottimale da A a B 
@@ -244,8 +228,7 @@ Fonti ufficiali:
  In alcuni processi cresce il ruolo umano di supervisione, ma automazione, responsabilità e divisione dei compiti dipendono dal settore.
 
 --- Slide 12 ---
-
- Auto autonoma — sfide reali 
+Auto autonoma — sfide reali 
  
  
  ⚠️ 
@@ -268,8 +251,7 @@ Fonti ufficiali:
  Chi è responsabile in caso di incidente? L'utente, il produttore o il software? Le leggi in Europa stanno ancora evolvendo.
 
 --- Slide 13 ---
-
- Le tre leggi della robotica 
+Le tre leggi della robotica 
  
  Un robot non può recare danno a un essere umano né permettere che, per mancato intervento, un essere umano riceva danno. 
  Un robot deve obbedire agli ordini degli esseri umani , purché non contrastino la Prima Legge. 
@@ -280,8 +262,7 @@ Fonti ufficiali:
  Scritte per la fantascienza, queste leggi anticipano le domande etiche sull'IA che affrontiamo oggi nella realtà.
 
 --- Slide 14 ---
-
- Contenuti personalizzati 
+Contenuti personalizzati 
  Gran parte delle informazioni che riceviamo ogni giorno sono scelte da un algoritmo su misura per noi. 
  Molti social, servizi di streaming, motori di ricerca e siti di notizie personalizzano usando interazioni, contesto e impostazioni; non tutti lo fanno allo stesso modo.
  
@@ -304,8 +285,7 @@ Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 15 ---
-
- Filter bubble 
+Filter bubble 
  — la bolla di filtraggio 
  Quando un algoritmo registra il comportamento dell'utente e sceglie selettivamente solo ciò che vuole vedere , isolandolo da informazioni in contrasto con il suo punto di vista. 
  
@@ -320,8 +300,7 @@ Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 16 ---
-
- Echo chamber, troll e fake news 
+Echo chamber, troll e fake news 
  
  
  🔊 
@@ -346,8 +325,7 @@ Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 17 ---
-
- Come uscire dalla bolla 
+Come uscire dalla bolla 
  
  Diversifica le fonti — leggi almeno un organo di informazione che sai di non preferire. Il discomfort è un buon segnale. 
  Naviga in incognito — riduce (non elimina) la profilazione. Usa motori che non tracciano: DuckDuckGo, Startpage. 
@@ -357,8 +335,7 @@ Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 18 ---
-
- Bot e troll farm 
+Bot e troll farm 
  Account automatizzati e reti coordinate di persone reali usati per amplificare messaggi, creare falsa consenso e polarizzare l'opinione pubblica . 
  
  Come si riconosce un bot 
@@ -382,8 +359,7 @@ Fonti ufficiali:
  I modelli linguistici rendono facile produrre testo persuasivo su scala. La propaganda automatizzata è un rischio concreto.
 
 --- Slide 19 ---
-
- Elaborazione immagini 
+Elaborazione immagini 
  L'IA può riconoscere ciò che vede e generare immagini nuove, sempre più indistinguibili dalla realtà. 
  
  
@@ -403,8 +379,7 @@ Fonti ufficiali:
  Adattare una foto per farla sembrare dipinta da Van Gogh. Personaggi CGI nei film (Avatar, Pixar).
 
 --- Slide 20 ---
-
- Computer vision — come vede una macchina 
+Computer vision — come vede una macchina 
  Un'immagine è solo una griglia di numeri (pixel). Il modello impara a riconoscere pattern di numeri associati a oggetti — da esempi etichettati, dati non etichettati o entrambi, secondo il metodo di addestramento.
  
  
@@ -428,8 +403,7 @@ Fonti ufficiali:
  Face ID dello smartphone, filtri AR di Instagram, traduzione live di testo con la fotocamera, riconoscimento della scrittura — tutte computer vision.
 
 --- Slide 21 ---
-
- Deepfake — "vedere non è credere" 
+Deepfake — "vedere non è credere" 
  Con l'aumento della potenza di calcolo, creare video falsi dall'aspetto autentico — indistinguibili da filmati reali — è diventato accessibile a chiunque. 
  
  
@@ -441,8 +415,7 @@ Fonti ufficiali:
  Verificare la fonte originale. Cercare incongruenze (occhi, denti, bordi). Non condividere video sensazionali senza verifica.
 
 --- Slide 22 ---
-
- Come riconoscere un deepfake 
+Come riconoscere un deepfake 
  
  
  
@@ -474,8 +447,7 @@ Fonti ufficiali:
  Se un video ti fa arrabbiare molto o ti sembra incredibile, fermati. È esattamente ciò che chi ha creato il deepfake voleva provocare.
 
 --- Slide 23 ---
-
- ChatGPT — cosa può fare 
+ChatGPT — cosa può fare 
  Un modello linguistico che genera testo, risponde a domande, traduce, riassume, scrive codice e molto altro. 
  
  ⚠️ Attenzione 
@@ -494,8 +466,7 @@ Fonti ufficiali:
  Conoscenza aggiornata in tempo reale, giudizio etico autonomo, esperienze pratiche, emozioni autentiche.
 
 --- Slide 24 ---
-
- L'IA che usi senza saperlo 
+L'IA che usi senza saperlo 
  
  
  🗣️ 
@@ -525,8 +496,7 @@ Fonti ufficiali:
 - AI Risk Management Framework — NIST — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 25 ---
-
- Prompt engineering — chiedi meglio 
+Prompt engineering — chiedi meglio 
  Il risultato di un modello IA dipende enormemente da come poni la domanda . Un prompt vago dà risposte vaghe. 
  
  
@@ -550,8 +520,7 @@ Fonti ufficiali:
  ChatGPT può "allucinare" : inventare fatti, citare fonti inesistenti, sbagliare calcoli. Verifica sempre le informazioni critiche.
 
 --- Slide 26 ---
-
- Riconoscere gli elaborati IA 
+Riconoscere gli elaborati IA 
  
  
  🔍 
@@ -569,8 +538,7 @@ Fonti ufficiali:
  Vietare l'uso (aggirabile) vs trasformare l'IA in strumento didattico: usarla come punto di partenza critico, non come risposta finale.
 
 --- Slide 27 ---
-
- Bias nell'IA 
+Bias nell'IA 
  Un modello impara dai dati. Se i dati riflettono pregiudizi umani, il modello li amplifica e automatizza . 
  
  Impatto reale 
@@ -597,8 +565,7 @@ Fonti ufficiali:
 - Regolamento europeo sull’IA — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 
 --- Slide 28 ---
-
- Generazione di immagini 
+Generazione di immagini 
  Strumenti come Midjourney , DALL-E e Stable Diffusion creano immagini a partire da una descrizione testuale (prompt). 
  
  
@@ -617,8 +584,7 @@ Fonti ufficiali:
  Mani con dita extra, testo illeggibile, riflessi incoerenti: l'IA commette ancora errori caratteristici.
 
 --- Slide 29 ---
-
- Etica dell'IA 
+Etica dell'IA 
  
  
  ⚖️ 
@@ -644,8 +610,7 @@ Fonti ufficiali:
 - Copyright nell’Unione europea — https://europa.eu/youreurope/business/running-business/intellectual-property/copyright/index_it.htm
 
 --- Slide 30 ---
-
- Auto autonome: il caso difficile 
+Auto autonome: il caso difficile 
  
  ✅ Perché promettono sicurezza Non dormono, non si distraggono, usano sensori più precisi dell'occhio umano e migliorano con aggiornamenti software. 
  ⚠️ Perché restano rischiose Gli errori sono difficili da prevedere. Se succede un incidente, la responsabilità può ricadere su produttore, software, proprietario o passeggero. 
@@ -653,8 +618,7 @@ Fonti ufficiali:
  🔐 Regole e hacking Chi possiede la patente di un'auto senza guidatore? E cosa succede se il sistema viene compromesso?
 
 --- Slide 31 ---
-
- Deepfake, voce e truffe 
+Deepfake, voce e truffe 
  
  🎭 Clonazione Immagini e video falsi sono sempre più comuni; la voce può essere clonata anche in tempo reale. 
  📞 Verifica fuori canale Se una voce chiede soldi o dati, interrompi e ricontatta la persona su un canale diverso. 
@@ -665,8 +629,7 @@ Fonti ufficiali:
 - Password e MFA — NIST — https://www.nist.gov/itl/ai-risk-management-framework
 
 --- Slide 32 ---
-
- Segnali tipici dei contenuti IA 
+Segnali tipici dei contenuti IA 
  
  🖼️ Immagini Fermati e chiediti se ha senso. Controlla mani, occhi, proporzioni, testi inventati, lettere e numeri deformati. 
  🎬 Video Qualità bassa, watermark nascosti dal blur, timestamp strani, testi incoerenti e dettagli che cambiano nel tempo. 
@@ -677,8 +640,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 
 --- Slide 33 ---
-
- IA come strumento , non scorciatoia 
+IA come strumento , non scorciatoia 
  
  ❌ Falsi miti "L'arte è morta", "tutti possono copiare un esperto", "la creatività non serve più": sono semplificazioni sbagliate. 
  ✅ Uso sensato L'IA può accorciare tempi, produrre bozze, proporre varianti e aiutare chi ha già intenzione, gusto e capacità critica. 
@@ -688,8 +650,7 @@ Fonti ufficiali:
 - Copyright nell’Unione europea — https://europa.eu/youreurope/business/running-business/intellectual-property/copyright/index_it.htm
 
 --- Slide 34 ---
-
- Il futuro dell' IA 
+Il futuro dell' IA 
  I ricercatori non concordano su cosa succederà — ma concordano che il cambiamento sarà profondo . 
  
  AGI — Artificial General Intelligence 
@@ -713,8 +674,7 @@ Fonti ufficiali:
  Le stime sull'impatto occupazionale misurano concetti diversi — attività esposte, ore automatizzabili o posti equivalenti — e non sono previsioni certe di licenziamenti.
 
 --- Slide 35 ---
-
- L'IA è creativa ? 
+L'IA è creativa ? 
  L'IA genera testo, musica, immagini, codice — ma non ha intenzioni, emozioni o esperienze vissute . Combina pattern visti nei dati. 
  
  
@@ -731,8 +691,7 @@ Fonti ufficiali:
  L'IA è uno strumento straordinariamente potente nelle mani di chi sa cosa vuole creare — non un sostituto della creatività umana.
 
 --- Slide 36 ---
-
- Privacy e dati personali nell'era IA 
+Privacy e dati personali nell'era IA 
  I modelli IA sono addestrati su enormi quantità di dati. Quando usi uno strumento IA, spesso stai anche fornendo dati . 
  
  
@@ -762,4 +721,7 @@ L'IA sei
 anche tu. 
  Intelligenza artificiale, machine learning, deep learning, reti neurali, tipi di IA (ANI/AGI) e bias nei modelli: i concetti di base. 
  
- Prossimo → IA_02 · Esercizio
+ Prossimo → IA_02 · Esercizio 
+ 
+ Fonti e approfondimenti Transformer — paper originale ↗ Regolamento europeo sull’IA — EUR-Lex ↗ Regolamento generale sulla protezione dei dati — EUR-Lex ↗
+

@@ -2,48 +2,16 @@ Sicurezza Digitale · C3 — Privacy, Anonimato e Pseudonimo
 =========================================================
 
 --- Slide 1 ---
-Sicurezza Digitale · Concetto 3
 Privacy,
-Anonimato
-e Pseudonimo
-Chi conosce i tuoi dati, come vieni tracciato online, e cosa puoi fare per proteggere la tua identità digitale.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-PRIVATO
+ Anonimato 
+e Pseudonimo 
+ Chi conosce i tuoi dati, come vieni tracciato online, e cosa puoi fare per proteggere la tua identità digitale.
 
 --- Slide 2 ---
-
- Cosa impareremo 
- 
- 01 Cos'è la privacy digitale 
- 02 Il GDPR: i tuoi diritti 
- 03 Come veniamo tracciati 
- 04 I metadati: dati nascosti nei dati 
- 05 Anonimato digitale 
- 06 Pseudonimato 
- 07 Anonimato vs Pseudonimato 
- 08 TOR: come funziona davvero 
- 09 Privacy sui social e dispositivi 
- 10 Identità digitale e reputazione
-Fonti ufficiali:
-- Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
+Percorso Cosa vedremo 01 Cos'è la privacy digitale 02 Il GDPR 03 Come veniamo tracciati 04 I metadati 05 Anonimato digitale 06 Pseudonimato 07 Anonimato vs Pseudonimato 08 TOR 09 Privacy sui social e dispositivi 10 Identità digitale e reputazione
 
 --- Slide 3 ---
-
- Cos'è la Privacy Digitale? 
+Cos'è la Privacy Digitale? 
  La privacy digitale è il diritto di controllare chi sa cosa su di noi nell'ambiente online. Non è nascondersi — è decidere. 
  
  
@@ -69,8 +37,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 4 ---
-
- GDPR: i tuoi
+GDPR: i tuoi
  diritti digitali 
  Il Regolamento Generale sulla Protezione dei Dati (GDPR, 2018) è la legge europea che protegge i tuoi dati personali. Si applica ai trattamenti svolti nel contesto di uno stabilimento nell'UE e, in alcuni casi, a chi offre beni o servizi o monitora persone che si trovano nell'UE: non dipende dalla cittadinanza.
  
@@ -109,8 +76,7 @@ Fonti ufficiali:
 - GDPR, art. 17 — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/art_17/oj
 
 --- Slide 5 ---
-
- Come veniamo tracciati online 
+Come veniamo tracciati online 
  Ogni volta che navighi, lasci una scia di informazioni. Le aziende usano queste tecniche per profilarti, spesso senza che tu ne sia consapevole. 
  
  
@@ -141,8 +107,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 6 ---
-
- I Metadati: 
+I Metadati: 
 dati nascosti
 nei dati 
  Un file non contiene solo il suo contenuto visibile — contiene anche metadati : informazioni sul file stesso, spesso rivelatori quanto il contenuto. 
@@ -181,8 +146,7 @@ Fonti ufficiali:
 - Supporto Microsoft Word — https://support.microsoft.com/word
 
 --- Slide 7 ---
-
- L' Anonimato Digitale 
+L' Anonimato Digitale 
  L'anonimato digitale significa agire online senza che nessuno possa ricondurre le azioni a te — non solo un nome falso, ma nessun identificatore collegabile alla persona reale. 
  
  
@@ -203,8 +167,7 @@ Fonti ufficiali:
  La modalità privata del browser cancella solo la cronologia locale . Il tuo provider, il tuo datore di lavoro, i siti che visiti — ti vedono tutti lo stesso. È semplicemente "privacy dal browser", non anonimato.
 
 --- Slide 8 ---
-
- Il Pseudonimato 
+Il Pseudonimato 
  Agire online con un'identità non direttamente collegata al proprio nome reale , ma che mantiene una continuità — la stessa persona torna, con lo stesso "personaggio". 
  Non è anonimato completo: lo pseudonimo potrebbe essere de-anonimizzato nel tempo se si fanno errori, ma offre un livello di separazione pratico tra identità online e identità reale. 
  
@@ -247,8 +210,7 @@ Fonti ufficiali:
 - Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
 
 --- Slide 9 ---
-
- Anonimato vs Pseudonimato 
+Anonimato vs Pseudonimato 
  Due concetti spesso confusi, ma con implicazioni pratiche e legali molto diverse. 
  
  
@@ -281,8 +243,7 @@ Fonti ufficiali:
 - Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
 
 --- Slide 10 ---
-
- TOR: come
+TOR: come
 funziona davvero 
  The Onion Router . Il tuo traffico passa attraverso tre nodi casuali gestiti da volontari in tutto il mondo. Ogni nodo conosce solo il precedente e il successivo — mai l'intera catena. 
  Il nome deriva dalla cipolla: ogni nodo "sbuccia" uno strato di cifratura. Nessun singolo nodo conosce sia chi sei (origine) sia cosa vuoi fare (destinazione). 
@@ -330,8 +291,7 @@ funziona davvero
  Tre strati: nessuno vede il quadro completo
 
 --- Slide 11 ---
-
- Privacy sui Social Network 
+Privacy sui Social Network 
  I social raccolgono enormi quantità di dati su di te. Ma molte impostazioni di privacy sono nascondere nei menu — e i default favoriscono sempre la piattaforma, non te. 
  
  
@@ -355,8 +315,7 @@ funziona davvero
  Prima di postare, chiediti: questa informazione potrebbe essere usata per trovarmi fisicamente, per impersonarmi, o per manipolarmi? Combinando casa, lavoro, routine e aspetto fisico pubblici, chiunque può costruire un profilo dettagliato.
 
 --- Slide 12 ---
-
- Privacy sul
+Privacy sul
  tuo telefono 
  Lo smartphone sa quasi tutto di te. Ecco le impostazioni da controllare subito. 
  
@@ -408,8 +367,7 @@ Fonti ufficiali:
 - Guida ufficiale Android — https://support.google.com/android/
 
 --- Slide 13 ---
-
- Browser e ricerca
+Browser e ricerca
  privacy-friendly 
  Chrome e Google raccolgono enormi quantità di dati. Esistono alternative valide che non tracciano la tua navigazione — senza sacrificare l'usabilità. 
  
@@ -442,8 +400,7 @@ Fonti ufficiali:
 - HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
 --- Slide 14 ---
-
- Il Diritto
+Il Diritto
  all'Oblio 
  Il diritto di chiedere la cancellazione dei propri dati personali a qualsiasi azienda o servizio che li detiene, senza obbligo di motivare la richiesta. 
  Vale anche contro i motori di ricerca: puoi chiedere a Google di rimuovere dai risultati di ricerca link con informazioni personali obsolete, errate o irrilevanti che appaiono cercando il tuo nome. 
@@ -485,8 +442,7 @@ Fonti ufficiali:
 - GDPR, art. 17 — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/art_17/oj
 
 --- Slide 15 ---
-
- Email e messaggi davvero privati 
+Email e messaggi davvero privati 
  Gmail legge le tue email per mostrare pubblicità mirata. WhatsApp appartiene a Meta. Esistono alternative che garantiscono cifratura end-to-end e no-log policy. 
  
  
@@ -507,8 +463,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 16 ---
-
- Identità digitale
+Identità digitale
 e reputazione 
  La tua identità digitale è tutto ciò che esiste di te online — anche ciò che non hai pubblicato tu direttamente. La reputazione digitale si costruisce in anni e si distrugge in minuti. 
  Datori di lavoro, partner commerciali, e persino privati cercano informazioni sulle persone prima di incontrarle. Il 70% dei responsabili HR controlla i profili social dei candidati. 
@@ -541,8 +496,7 @@ e reputazione
  La tua presenza online è un iceberg
 
 --- Slide 17 ---
-
- Privacy by Design 
+Privacy by Design 
  La privacy non deve essere aggiunta come funzione extra — deve essere integrata fin dall'inizio nella progettazione di qualsiasi sistema, servizio o prodotto digitale. 
  
  
@@ -568,8 +522,7 @@ Fonti ufficiali:
 - Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
 
 --- Slide 18 ---
-
- La tua Checklist Privacy 
+La tua Checklist Privacy 
  Cosa puoi fare questa settimana per migliorare concretamente la tua privacy digitale: 
  
  01 Controlla le impostazioni privacy di Instagram, Facebook e TikTok 
@@ -589,4 +542,6 @@ Consapevoli!
  
  Prossimo → C4 · Professioni 
  
- Corso di Informatica · Sicurezza Digitale · 2024-2025
+ Corso di Informatica · Sicurezza Digitale · 2024-2025 
+ Fonti e approfondimenti Regolamento generale sulla protezione dei dati — EUR-Lex ↗ Guida ufficiale Android ↗ HTTP Semantics — RFC 9110 ↗
+

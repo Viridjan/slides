@@ -2,36 +2,18 @@ Suite Ufficio · SU08 — Prime formule
 ========================================
 
 --- Slide 1 ---
-Fogli di calcolo
-Prime formule
-Come funzionano le formule, gli operatori, e le funzioni fondamentali: SOMMA, MEDIA, MIN, MAX, CONTA, CONTA.SE e SE.
+Prime formule 
+ Come funzionano le formule, gli operatori, e le funzioni fondamentali: SOMMA, MEDIA, MIN, MAX, CONTA, CONTA.SE e SE. 
 
-
-
-🧮
+ 
+ 
+ 🧮
 
 --- Slide 2 ---
-
- Cosa impareremo 
- 
- 01 Come funziona una formula 
- 02 Operatori aritmetici 
- 03 SOMMA 
- 04 MEDIA 
- 05 MIN e MAX 
- 06 CONTA.NUMERI e CONTA.VALORI 
- 07 CONTA.SE 
- 08 SE — decisioni automatiche 
- 09 Errori delle formule 
- 10 Buone abitudini 
- 
- In questo modulo impariamo a usare le formule fondamentali del foglio di calcolo. Partendo dal segno uguale che avvia ogni calcolo, vedremo come combinare operatori aritmetici e funzioni per sommare totali, calcolare medie, trovare valori minimi e massimi, contare celle con o senza condizione e prendere decisioni automatiche. Queste otto funzioni coprono la grande maggioranza dei casi d'uso pratici e comuni.
-Fonti ufficiali:
-- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
+Percorso Cosa vedremo 01 Come funziona una formula 02 Operatori aritmetici 03 SOMMA 04 MEDIA 05 MIN e MAX 06 CONTA 07 CONTA 08 SE 09 Errori delle formule 10 Buone abitudini
 
 --- Slide 3 ---
-
- Come funziona
+Come funziona
 una formula 
  Ogni formula inizia con = e può usare valori fissi, riferimenti a celle, operatori e funzioni. Il risultato si aggiorna automaticamente quando cambiano i dati. 
  Regola: Senza = il foglio tratta ciò che scrivi come testo. Con = lo calcola. 
@@ -48,8 +30,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 4 ---
-
- Operatori aritmetici e logici 
+Operatori aritmetici e logici 
  Le formule usano operatori per combinare valori e riferimenti. Li conosci già dalla matematica — con qualche variante. 
  
  
@@ -78,8 +59,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 5 ---
-
- La funzione
+La funzione
 più usata 
  SOMMA aggiunge tutti i valori numerici in un intervallo, ignorando automaticamente le celle vuote e quelle con testo. È la funzione più usata nei fogli di calcolo: totali, incassi, spese, quantità e qualsiasi altra somma di numeri. 
  =SOMMA( B2:B6 ) 
@@ -111,8 +91,7 @@ più usata
  =SOMMA(B2:B5) → 430
 
 --- Slide 6 ---
-
- Tre funzioni, una fotografia dei dati 
+Tre funzioni, una fotografia dei dati 
  Usate insieme danno subito una panoramica della distribuzione dei valori — senza leggere ogni cella. 
  
  
@@ -136,8 +115,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 7 ---
-
- Contare le celle presenti 
+Contare le celle presenti 
  SOMMA risponde "quanto in totale?". Le funzioni CONTA rispondono "quante celle hanno qualcosa dentro?". 
  
  
@@ -167,8 +145,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 8 ---
-
- Contare con una condizione 
+Contare con una condizione 
  CONTA.SE conta solo le celle che rispettano una regola: uguale a un testo, maggiore di un numero, contenente un valore specifico. 
  =CONTA.SE( C:C ;"Pagato") 
  
@@ -199,8 +176,7 @@ Fonti ufficiali:
  Conta solo le righe con stato "Pagato"
 
 --- Slide 9 ---
-
- Decisioni automatiche 
+Decisioni automatiche 
  SE valuta una condizione: se è vera restituisce un valore, altrimenti un altro. È la funzione logica base da cui nascono tutte le decisioni nel foglio. 
  =SE( condizione ; se_vero; se_falso) 
  =SE(B2&gt;100; "Ottimo"; "Da migliorare") 
@@ -218,8 +194,7 @@ Fonti ufficiali:
  SE valuta ogni riga in automatico
 
 --- Slide 10 ---
-
- Le 8 funzioni di questo modulo 
+Le 8 funzioni di questo modulo 
  
  
  SOMMA 
@@ -264,8 +239,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 11 ---
-
- Errori tipici delle formule 
+Errori tipici delle formule 
  Quando qualcosa non torna, il foglio mostra un codice di errore. Ogni codice ha una causa precisa e una soluzione. Riconoscere e interpretare questi codici è fondamentale per lavorare in modo autonomo e corretto. 
  
  #DIV/0! Divisione per zero o per cella vuota. Usa SE.ERRORE o controlla che il denominatore non sia 0. 
@@ -276,8 +250,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 12 ---
-
- Buone abitudini 
+Buone abitudini 
  Una formula corretta non basta: deve essere anche leggibile, robusta e facile da correggere. 
  
  
@@ -309,3 +282,4 @@ da soli.
  SOMMA, MEDIA, MIN, MAX, CONTA, CONTA.SE e SE: i mattoni fondamentali del foglio di calcolo. Ogni dato aggiornato attiva il ricalcolo automatico — la calcolatrice non serve più. 
  
  Prossimo → SU09 · Analizzare e cercare
+

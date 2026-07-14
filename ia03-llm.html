@@ -116,7 +116,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 /* home button */
 .home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
 .home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
-</style>
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display),Georgia,serif;font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}</style>
 <link rel="stylesheet" href="theme-corsi.css">
 </head>
 <body class="course-ia">
@@ -126,7 +126,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- SLIDE 1 · TITLE -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="eyebrow reveal" style="margin-top:40px;">Intelligenza Artificiale</div>
       <h1 class="h-mega reveal" style="margin-top:10px;"><em style="font-style:italic;color:var(--sky);">LLM</em><br>spiegati</h1>
       <p class="lead reveal d1" style="margin-top:28px;">Cos'è un Large Language Model, come funziona davvero — e perché molte cose che "sa" sull'IA sono sbagliate.</p>
 
@@ -137,23 +136,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <!-- SLIDE 2 · AGENDA -->
-  <section class="slide">
-
-    <h2 class="h-sec reveal" style="margin-top:32px;">Cosa vedremo</h2>
-    <div class="grid2 reveal d1" style="margin-top:28px;">
-      <div class="steps" style="counter-reset:st;">
-        <div class="step"><div class="t"><b>Cosa sono gli LLM</b> — definizione, architettura transformer, NLP</div></div>
-        <div class="step"><div class="t"><b>Caso studio</b> — un testo generato da IA su se stessa: quanti errori contiene?</div></div>
-        <div class="step"><div class="t"><b>Analisi degli errori</b> — 5 inesattezze nel testo IA, identificate slide per slide</div></div>
-      </div>
-      <div class="steps" style="counter-reset:st 3;">
-        <div class="step"><div class="t"><b>Come funziona un LLM</b> — prompt → token → nodi → risposta</div></div>
-        <div class="step"><div class="t"><b>Cosa un LLM non fa</b> — capire, imparare, ragionare (nel senso umano)</div></div>
-        <div class="step"><div class="t"><b>Usare gli LLM bene</b> — verificare, iterare, non fidarsi ciecamente</div></div>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Transformer — paper originale" aria-label="Fonte ufficiale: Transformer — paper originale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Transformer — paper originale ↗</a></div></section>
+  <section class="slide"><span class="tag">Percorso</span><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(3,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">Cosa sono gli LLM</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Caso studio</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Analisi degli errori</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Come funziona un LLM</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Cosa un LLM non fa</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Usare gli LLM bene</span></div></div><div class="num"></div></section>
 
   <!-- SLIDE 3 · COSA SONO GLI LLM -->
   <section class="slide">
@@ -186,7 +169,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Attention Is All You Need — paper originale" aria-label="Fonte ufficiale: Attention Is All You Need — paper originale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Attention Is All You Need — paper originale ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Transformer — paper originale" aria-label="Fonte ufficiale: Transformer — paper originale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Transformer — paper originale ↗</a></div></section>
 
   <!-- SLIDE 4 · TESTO PERPLEXITY 1 -->
   <section class="slide tight-slide">
@@ -198,7 +181,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Transformer — paper originale" aria-label="Fonte ufficiale: Transformer — paper originale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Transformer — paper originale ↗</a><a data-source-origin="auto" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: AI Risk Management Framework — NIST" aria-label="Fonte ufficiale: AI Risk Management Framework — NIST" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: AI Risk Management Framework — NIST ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 5 · TESTO PERPLEXITY 2 -->
   <section class="slide tight-slide">
@@ -214,7 +197,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Transformer — paper originale" aria-label="Fonte ufficiale: Transformer — paper originale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Transformer — paper originale ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 6 · TESTO NLP -->
   <section class="slide tight-slide">
@@ -226,7 +209,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: AI Risk Management Framework — NIST" aria-label="Fonte ufficiale: AI Risk Management Framework — NIST" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: AI Risk Management Framework — NIST ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 7 · TESTO GENERATO -->
   <section class="slide">
@@ -258,7 +241,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: AI Risk Management Framework — NIST" aria-label="Fonte ufficiale: AI Risk Management Framework — NIST" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: AI Risk Management Framework — NIST ↗</a><a data-source-origin="auto" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Transformer — paper originale" aria-label="Fonte ufficiale: Transformer — paper originale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Transformer — paper originale ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 9 · ERRORE 2 -->
   <section class="slide">
@@ -275,7 +258,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Transformer — paper originale" aria-label="Fonte ufficiale: Transformer — paper originale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Transformer — paper originale ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 10 · ERRORE 3 -->
   <section class="slide">
@@ -292,7 +275,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Transformer — paper originale" aria-label="Fonte ufficiale: Transformer — paper originale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Transformer — paper originale ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 11 · ERRORE 4 -->
   <section class="slide">
@@ -341,7 +324,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Transformer — paper originale" aria-label="Fonte ufficiale: Transformer — paper originale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Transformer — paper originale ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 10 · COME FUNZIONA: PROMPT -->
   <section class="slide">
@@ -364,7 +347,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Transformer — paper originale" aria-label="Fonte ufficiale: Transformer — paper originale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Transformer — paper originale ↗</a><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Rete_neurale_artificiale" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Rete neurale artificiale — Wikipedia" aria-label="Fonte ufficiale: Rete neurale artificiale — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Rete neurale artificiale — Wikipedia ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 11 · TOKENIZZAZIONE -->
   <section class="slide">
@@ -397,7 +380,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Transformer — paper originale" aria-label="Fonte ufficiale: Transformer — paper originale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Transformer — paper originale ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 12 · RETI DI NODI -->
   <section class="slide">
@@ -442,7 +425,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Attention Is All You Need — paper originale" aria-label="Fonte ufficiale: Attention Is All You Need — paper originale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Attention Is All You Need — paper originale ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 13 · LLM SI INTERROGA SUL PROMPT -->
   <section class="slide">
@@ -468,7 +451,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Transformer — paper originale" aria-label="Fonte ufficiale: Transformer — paper originale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Transformer — paper originale ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 14 · COSA UN LLM NON FA -->
   <section class="slide tight-slide">
@@ -497,7 +480,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Transformer — paper originale" aria-label="Fonte ufficiale: Transformer — paper originale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Transformer — paper originale ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 15 · QUIZ -->
 
@@ -506,7 +489,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <section class="slide closing"><div class="closing-inner"><div class="center" style="align-items:center;text-align:center;">
       <h2 class="h-mega reveal" style="margin-top:10px;">Non magia.<br>Matematica.</h2>
       <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Token, transformer, attention mechanism, embedding, hallucination e RLHF: cosa c'è davvero dentro un Large Language Model.</p>
-    </div><div class="closing-actions reveal d2"><a class="chip closing-primary" href="00-indice.html">Torna all’indice</a></div></div><div class="page-num"></div></section>
+    </div><div class="closing-actions reveal d2"><a class="chip closing-primary" href="00-indice.html">Torna all’indice</a></div></div><div class="page-num"></div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Transformer — paper originale ↗</a></div></div></section>
 
 </div>
 </div>

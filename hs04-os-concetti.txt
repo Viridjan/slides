@@ -2,31 +2,37 @@ Informatica · Modulo 12 — Concetti fondamentali degli OS
 ========================================================
 
 --- Slide 1 ---
-Modulo 12
 OS: concetti
-fondamentali
-Driver, installazioni, aggiornamenti, licenze software, store, account, backup e come identificare il tuo sistema operativo.
+ fondamentali 
+ Driver, installazioni, aggiornamenti, licenze software, store, account, backup e come identificare il tuo sistema operativo. 
 
-
-
-⚙️
+ 
+ 
+ ⚙️
 
 --- Slide 2 ---
-
- Cosa vedremo 
- 
- 01 OS vs Applicazioni — chi fa cosa 
- 02 Installazione — come si installano i programmi 
- 03 Driver — il ponte tra OS e hardware 
- 04 Aggiornamenti OS e applicazioni 
- 05 Licenze software — proprietario, open source, libero 
- 06 Store digitali — vantaggi e differenze 
- 07 Account, permessi e sicurezza utente 
- 08 Backup, ripristino e come riconoscere l'OS
+Percorso Cosa vedremo 01 App 02 Versioni 03 Driver 04 Aggiornamenti OS e applicazioni 05 Licenze software 06 Store digitali 07 Account 08 Backup
 
 --- Slide 3 ---
+App, documento e account: tre cose diverse 
+ Molti problemi nascono perché si confonde lo strumento, il contenuto e l'identità con cui si accede. 
+ 
+ 🧰 Applicazione È lo strumento: browser, editor di testo, lettore video. Può essere installato oppure funzionare nel web. 
+ 📄 Documento È il contenuto creato o aperto dall'app. Può restare locale, essere sincronizzato o condiviso. 
+ 👤 Account È l'identità che dà accesso a impostazioni, licenze e file cloud. Uscire dall'account non disinstalla l'app. 
+ 
+ Analogia: l'app è la penna, il documento è il foglio, l'account è il cassetto personale.
 
- Il sistema operativo non è un programma come gli altri 
+--- Slide 4 ---
+Versione e compatibilità: leggere prima di installare 
+ 
+ 🔢 Versione Indica una specifica edizione del sistema o dell'app. Due dispositivi con lo stesso nome possono avere versioni e funzioni differenti. 
+ 🧩 Compatibilità Un'app deve supportare sistema operativo, architettura e requisiti del dispositivo. “Per Windows” o “per macOS” non basta sempre. 
+ ⬆ Aggiornamento Porta correzioni e nuove funzioni alla stessa app o allo stesso sistema, senza cambiare necessariamente prodotto. 
+ ✓ Controllo minimo Verifica fonte, sistema supportato, spazio richiesto e permessi. Se un requisito non è chiaro, non procedere alla cieca.
+
+--- Slide 5 ---
+Il sistema operativo non è un programma come gli altri 
  
  
  
@@ -63,14 +69,15 @@ Non possono girare senza un OS sottostante.
  
  
  💡 Analogia 
- L'OS è il palazzo . Le app sono gli inquilini . Il palazzo fornisce elettricità, acqua, ascensore — le app usano queste risorse senza preoccuparsene.
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
-- Supporto Microsoft Word — https://support.microsoft.com/word
+ L'OS è il palazzo . Le app sono gli inquilini . Il palazzo fornisce elettricità, acqua, ascensore — le app usano queste risorse senza preoccuparsene. 
+ 
+ 
+ 
+ 
+ Fonte: Guida ufficiale Android ↗ Fonte: CPU — Wikipedia ↗
 
---- Slide 4 ---
-
- Installare un programma: cosa succede davvero 
+--- Slide 6 ---
+Installare un programma: cosa succede davvero 
  
  
  
@@ -97,12 +104,9 @@ Fonti ufficiali:
  
  🤖 Android 
  Play Store (consigliato) oppure file .apk manuale (sideloading — più rischio).
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
 
---- Slide 5 ---
-
- Il ponte tra OS e hardware 
+--- Slide 7 ---
+Il ponte tra OS e hardware 
  Un driver è un software che traduce i comandi generici dell'OS in istruzioni specifiche per un componente hardware. Senza il driver corretto, l'hardware non funziona — o funziona in modo limitato. 
  
  Perché aggiornarli 
@@ -130,14 +134,15 @@ Fonti ufficiali:
  
  
  💡 Su Linux 
- La maggior parte dei driver è già integrata nel kernel. Hardware comune funziona subito, senza installazione manuale — al contrario di Windows dove molti driver vanno cercati.
-Fonti ufficiali:
-- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
-- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
+ La maggior parte dei driver è già integrata nel kernel. Hardware comune funziona subito, senza installazione manuale — al contrario di Windows dove molti driver vanno cercati. 
+ 
+ 
+ 
+ 
+ Fonte: Wi-Fi — Wi-Fi Alliance ↗
 
---- Slide 6 ---
-
- Aggiornare OS e applicazioni: non rimandare 
+--- Slide 8 ---
+Aggiornare OS e applicazioni: non rimandare 
  
  
  
@@ -166,12 +171,9 @@ Fonti ufficiali:
  • Non rimandare oltre 1 settimana le patch di sicurezza
 
  • Verifica che i driver siano aggiornati, specie GPU e rete
-Fonti ufficiali:
-- StopRansomware — CISA — https://www.cisa.gov/stopransomware
 
---- Slide 7 ---
-
- Proprietario, Open Source, Software Libero 
+--- Slide 9 ---
+Proprietario, Open Source, Software Libero 
  
  
  
@@ -209,14 +211,13 @@ Focus sulla libertà dell'utente , non solo sul codice aperto. Gratis ≠ libero
  
  
  Come si sovrappongono 
- Quasi tutto il software libero è anche open source. Non tutto l'open source è "libero" nel senso politico (alcune licenze open source limitano usi commerciali). Molti software appartengono a entrambe le categorie: Linux, Firefox, Git, Python.
-Fonti ufficiali:
-- Guida ufficiale Adobe Photoshop — https://helpx.adobe.com/photoshop/user-guide.html
-- Guida ufficiale Android — https://support.google.com/android/
+ Quasi tutto il software libero è anche open source. Non tutto l'open source è "libero" nel senso politico (alcune licenze open source limitano usi commerciali). Molti software appartengono a entrambe le categorie: Linux, Firefox, Git, Python. 
+ 
+ 
+ Fonte: Guida ufficiale Adobe Photoshop ↗
 
---- Slide 8 ---
-
- Gli store digitali: installazione sicura e centralizzata 
+--- Slide 10 ---
+Gli store digitali: installazione sicura e centralizzata 
  
  
  
@@ -253,9 +254,8 @@ Fonti ufficiali:
  ⚠️ Fuori dagli store 
  Software non distribuito tramite store (es. software aziendale, tool professionali) va scaricato solo dal sito ufficiale del produttore . Mai da siti di download generici.
 
---- Slide 9 ---
-
- Utenti, privilegi e perché importano per la sicurezza 
+--- Slide 11 ---
+Utenti, privilegi e perché importano per la sicurezza 
  
  
  
@@ -290,14 +290,15 @@ Fonti ufficiali:
  
  
  Su Android / iOS 
- Le app chiedono permessi espliciti (fotocamera, posizione, microfono, contatti). Concedili solo se l'app ne ha bisogno per funzionare. Un torcia-app non ha bisogno dei tuoi contatti.
-Fonti ufficiali:
-- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
-- Guida ufficiale Android — https://support.google.com/android/
+ Le app chiedono permessi espliciti (fotocamera, posizione, microfono, contatti). Concedili solo se l'app ne ha bisogno per funzionare. Un torcia-app non ha bisogno dei tuoi contatti. 
+ 
+ 
+ 
+ 
+ Fonte: Manuale utente iPhone — Apple ↗
 
---- Slide 10 ---
-
- Un backup è utile solo se si può ripristinare 
+--- Slide 12 ---
+Un backup è utile solo se si può ripristinare 
  
  
  
@@ -337,13 +338,9 @@ Fonti ufficiali:
  
  ⚠️ Il backup non testato non esiste 
  Un backup non verificato potrebbe essere corrotto, incompleto o su un disco già guasto. Prova a ripristinare un file di test almeno una volta ogni 3 mesi . Il momento peggiore per scoprire che il backup non funziona è dopo un disastro.
-Fonti ufficiali:
-- StopRansomware — CISA — https://www.cisa.gov/stopransomware
-- Guida ufficiale Android — https://support.google.com/android/
 
---- Slide 11 ---
-
- Come sapere quale sistema operativo usi 
+--- Slide 13 ---
+Come sapere quale sistema operativo usi 
  
  
  🪟 
@@ -393,13 +390,13 @@ Qui trovi anche:
  
  
  💡 A cosa serve saperlo 
- Sai se il tuo sistema riceve ancora aggiornamenti di sicurezza (es. Windows 10 termina supporto ottobre 2025). Puoi verificare la compatibilità con un nuovo software. Serve a chi ti supporta tecnicamente per darti istruzioni precise.
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
+ Sai se il tuo sistema riceve ancora aggiornamenti di sicurezza (es. Windows 10 termina supporto ottobre 2025). Puoi verificare la compatibilità con un nuovo software. Serve a chi ti supporta tecnicamente per darti istruzioni precise. 
+ 
+ 
+ Fonte: RAM — Wikipedia ↗
 
---- Slide 12 ---
-
- I concetti fondamentali degli OS 
+--- Slide 14 ---
+I concetti fondamentali degli OS 
  
  
  📦 OS vs App 
@@ -436,12 +433,13 @@ Fonti ufficiali:
  
  🔍 Riconoscere l'OS 
  Impostazioni → Informazioni su tutti i sistemi. Sai se sei aggiornato e supportato.
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
 
---- Slide 13 ---
+--- Slide 15 ---
 Utente
 consapevole. 
  Shell, filesystem, daemon, permessi utente/root, terminale e GUI: i concetti fondamentali che stanno sotto ogni sistema operativo. 
  
- Prossimo → HS05 · Troubleshooting
+ Prossimo → HS05 · Troubleshooting 
+ 
+ Fonti e approfondimenti Guida ufficiale Android ↗ CPU — Wikipedia ↗ Wi-Fi — Wi-Fi Alliance ↗ Guida ufficiale Adobe Photoshop ↗ Manuale utente iPhone — Apple ↗ RAM — Wikipedia ↗
+

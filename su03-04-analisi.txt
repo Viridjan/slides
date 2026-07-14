@@ -2,35 +2,19 @@ Suite Ufficio · SU09 — Analizzare e cercare
 ===========================================
 
 --- Slide 1 ---
-Fogli di calcolo
 Analizzare
-e cercare
-Tabelle, filtri, pivot, condivisione, CERCA.VERT, CERCA.ORIZZ, CONFRONTA, INDICE e la moderna CERCA.X.
+e cercare 
+ Tabelle, filtri, pivot, condivisione, CERCA.VERT, CERCA.ORIZZ, CONFRONTA, INDICE e la moderna CERCA.X. 
 
-
-
-🔍
+ 
+ 
+ 🔍
 
 --- Slide 2 ---
-
- Cosa impareremo 
- 
- 01 Tabelle strutturate 
- 02 Ordinamento e filtri 
- 03 Tabelle pivot 
- 04 Formule dinamiche: FILTER e UNICI 
- 05 Condivisione e automazioni 
- 06 CERCA.VERT — ricerca verticale 
- 07 CERCA.ORIZZ — ricerca orizzontale 
- 08 CONFRONTA — trovare la posizione 
- 09 INDICE — estrarre per posizione 
- 10 INDICE+CONFRONTA e CERCA.X
-Fonti ufficiali:
-- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
+Percorso Cosa vedremo 01 Tabelle strutturate 02 Ordinamento e filtri 03 Tabelle pivot 04 Formule dinamiche 05 Condivisione e automazioni 06 CERCA 07 CERCA 08 CONFRONTA 09 INDICE 10 INDICE+CONFRONTA e CERCA
 
 --- Slide 3 ---
-
- Tabelle strutturate 
+Tabelle strutturate 
  Converti un range in Tabella: il formato si estende automaticamente, le formule si copiano, i filtri appaiono, i riferimenti strutturati funzionano. 
  Inserisci → Tabella (o Ctrl+T). Dai un nome significativo: Vendite , Clienti , Prodotti . 
  Regola: Converti in tabella subito. Le tabelle sono "range intelligenti" che crescono con i dati. 
@@ -51,8 +35,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 4 ---
-
- Ordinamento e filtri 
+Ordinamento e filtri 
  Le frecce di filtro appaiono in automatico sulle intestazioni di una tabella. Cliccale per ordinare o filtrare i dati senza toccare le formule. 
  
  
@@ -76,8 +59,7 @@ Fonti ufficiali:
 - Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 5 ---
-
- Tabelle pivot 
+Tabelle pivot 
  Una tabella pivot riassume migliaia di righe in pochi secondi, raggruppando e aggregando i dati per dimensioni che scegli tu — senza scrivere una sola formula. 
  Inserisci → Tabella pivot. Trascina le colonne nelle aree Righe, Colonne, Valori, Filtri. 
  In pratica: Con 500 fatture sparse, la pivot mostra "totale per cliente" o "media per mese" in 3 trascinamenti. 
@@ -123,8 +105,7 @@ Fonti ufficiali:
  500 righe → tabella pivot in 3 trascinamenti
 
 --- Slide 6 ---
-
- FILTER, UNICI, ARRAYFORMULA 
+FILTER, UNICI, ARRAYFORMULA 
  Formule "spill" che restituiscono una matrice di risultati: il foglio le espande automaticamente occupando tutte le celle necessarie. 
  
  
@@ -149,8 +130,7 @@ Fonti ufficiali:
 - Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 7 ---
-
- Condivisione e automazioni 
+Condivisione e automazioni 
  
  
  🔗 
@@ -179,8 +159,7 @@ Fonti ufficiali:
 - Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 8 ---
-
- Ricerca verticale 
+Ricerca verticale 
  CERCA.VERT cerca un valore nella prima colonna di una tabella e restituisce il valore in una colonna a destra scelta da te. 
  =CERCA.VERT( chiave ; tabella; col_risultato; 0) 
  
@@ -203,8 +182,7 @@ Fonti ufficiali:
  Trova in colonna A, restituisce colonna B
 
 --- Slide 9 ---
-
- Ricerca orizzontale 
+Ricerca orizzontale 
  CERCA.ORIZZ funziona come CERCA.VERT ma su righe invece che su colonne. Cerca nella prima riga e restituisce un valore dalla riga specificata più in basso. 
  =CERCA.ORIZZ( chiave ; tabella; riga_risultato; 0) 
  💡 Quando usarla CERCA.ORIZZ è utile quando i dati sono in orizzontale — es. mesi sulle colonne, categorie sulle righe. Nella maggior parte dei casi si usa CERCA.VERT. 
@@ -221,8 +199,7 @@ Fonti ufficiali:
  Cerca sulla riga 1, restituisce dalla riga 2
 
 --- Slide 10 ---
-
- Trovare la posizione 
+Trovare la posizione 
  CONFRONTA cerca un valore in un range e restituisce la posizione (numero ordine), non il valore stesso. È il tassello fondamentale per la combinazione INDICE+CONFRONTA. 
  =CONFRONTA( chiave ; intervallo; 0) 
  Restituisce un numero: 1 se la chiave è la prima, 2 la seconda, e così via. Se non trovata: #N/D. 
@@ -240,8 +217,7 @@ Fonti ufficiali:
  "Gel Z" è in posizione 3 nella lista
 
 --- Slide 11 ---
-
- Estrarre per posizione 
+Estrarre per posizione 
  INDICE è l'opposto di CONFRONTA: dato un numero di riga (e colonna), restituisce il valore in quella posizione all'interno di un range. 
  =INDICE( intervallo ; riga; colonna) 
  =INDICE(A1:A4; 3) → restituisce il valore alla riga 3 del range — cioè "Gel Z". 
@@ -259,8 +235,7 @@ Fonti ufficiali:
  Riga 3 della colonna B = 8 (prezzo Gel Z)
 
 --- Slide 12 ---
-
- INDICE+CONFRONTA — ricerca flessibile 
+INDICE+CONFRONTA — ricerca flessibile 
  CONFRONTA trova la posizione della chiave. INDICE usa quella posizione per estrarre il valore. Insieme formano una ricerca che non dipende dall'ordine delle colonne. 
  =INDICE( col_risultato ; CONFRONTA( chiave ; col_chiave ; 0)) 
  
@@ -273,8 +248,7 @@ Fonti ufficiali:
  Chiave e risultato possono essere in qualsiasi colonna — anche a sinistra. Più robusto ai cambiamenti nella tabella.
 
 --- Slide 13 ---
-
- CERCA.X — il futuro 
+CERCA.X — il futuro 
  CERCA.X (XLOOKUP) sostituisce sia CERCA.VERT che INDICE+CONFRONTA. Cerca in qualsiasi direzione, gestisce da sola i valori non trovati e ha una sintassi più leggibile. 
  =CERCA.X( chiave ; dove_cercare ; cosa_restituire ; [se_non_trovato]) 
  A differenza di CERCA.VERT non richiede il numero di colonna — specifichi direttamente il range di output. 
@@ -294,8 +268,7 @@ Fonti ufficiali:
 - Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 14 ---
-
- Quale funzione di ricerca scegliere? 
+Quale funzione di ricerca scegliere? 
  
  Funzione Usa quando… Limite 
  CERCA.VERT Chiave nella prima colonna, risultato a destra — caso più comune Non cerca a sinistra; fragile agli inserimenti di colonne 
@@ -311,4 +284,7 @@ Dati trovati,
 istantaneamente. 
  Tabelle strutturate, ordinamento, pivot e FILTER per esplorare migliaia di righe. CERCA.VERT, INDICE+CONFRONTA e CERCA.X per trovare qualsiasi valore in una lista. 
  
- Prossimo → SU10 · Top 10 funzioni
+ Prossimo → SU10 · Top 10 funzioni 
+ 
+ Fonti e approfondimenti Guida ufficiale Google Sheets ↗ Supporto Microsoft Excel ↗ Riferimento VBA per Office — Microsoft Learn ↗
+

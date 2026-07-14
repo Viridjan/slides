@@ -2,32 +2,19 @@ Game Design · GD_05 — Difficoltà e Progressione
 ===============================================
 
 --- Slide 1 ---
-Game Design
 Difficoltà
-e Progressione
-Come dosare la sfida perché il giocatore non si annoi né si arrenda — curve di apprendimento, sistemi di progressione, tutorial e puzzle.
+ e Progressione 
+ Come dosare la sfida perché il giocatore non si annoi né si arrenda — curve di apprendimento, sistemi di progressione, tutorial e puzzle. 
 
-
-
-📈
+ 
+ 
+ 📈
 
 --- Slide 2 ---
-
- Cosa vedremo 
- 
- 
- Curva di apprendimento e flow — la zona ideale tra noia e frustrazione, dove il giocatore è pienamente concentrato 
- Sistemi di progressione — XP, livelli, sblocchi e ricompense che motivano il giocatore a continuare 
- Livelli di difficoltà — cosa cambia davvero tra easy e hard, oltre ai semplici numeri 
- 
- 
- Upgrade e skin — progressione di potenza vs progressione estetica: due binari che servono scopi molto diversi 
- New Game Plus — rigiocare con i progressi già acquisiti ma affrontando una sfida potenziata 
- Tutorial e puzzle — insegnare e mettere alla prova il giocatore senza annoiarlo o bloccarlo
+Percorso Cosa vedremo 01 Curva di apprendimento e flow 02 Sistemi di progressione 03 Livelli di difficoltà 04 Upgrade e skin 05 New Game Plus 06 Tutorial e puzzle
 
 --- Slide 3 ---
-
- La curva di apprendimento 
+La curva di apprendimento 
  Quanto è ripido imparare a giocare? Troppo ripida → frustrazione e abbandono immediato. Troppo piatta → noia e disinteresse crescente. Il designer modella questa curva con cura, momento dopo momento di gioco, calibrando ogni ostacolo e ogni ricompensa. 
  Equilibrio: mai troppo avanti rispetto al giocatore, mai troppo indietro. 
  
@@ -36,8 +23,7 @@ Come dosare la sfida perché il giocatore non si annoi né si arrenda — curve 
  📈 Troppo difficile Muri di frustrazione: il giocatore si sente incapace, inizia a perdere ripetutamente e abbandona il gioco senza toccare la maggior parte del contenuto.
 
 --- Slide 4 ---
-
- Il flow 
+Il flow 
  Il "canale del flusso" di Mihály Csíkszentmihályi : la zona ideale tra ansia (sfida &gt; abilità) e noia (abilità &gt; sfida). Il gioco deve tenerti nel flow alzando la sfida man mano che le tue abilità migliorano, così da non farti mai sentire né sopraffatto né annoiato. 
  
  Flow 
@@ -65,8 +51,7 @@ Fonti ufficiali:
 - Valori e codice etico — IGDA — https://igda.org/about-us/core-values-and-code-of-ethics/
 
 --- Slide 5 ---
-
- Tool vs Engine 
+Tool vs Engine 
  Nello sviluppo di giochi si parla di strumenti e di motori : non sono la stessa cosa, e confonderli porta spesso a scelte sbagliate e a sprecare tempo prezioso nelle prime fasi del progetto. 
  
  La scelta giusta 
@@ -80,8 +65,7 @@ Fonti ufficiali:
 - Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 6 ---
-
- Sistemi di progressione 
+Sistemi di progressione 
  Dare al giocatore un senso tangibile di crescita : punti esperienza → livelli → sblocchi. La progressione è il filo narrativo e motivazionale che spinge a continuare, sessione dopo sessione, anche quando la sfida si fa dura. 
  
  Perché funziona 
@@ -94,8 +78,7 @@ Fonti ufficiali:
  🎁 Ricompense Oggetti, valuta di gioco, trofei e riconoscimenti: il premio concreto che chiude il ciclo sforzo–risultato e motiva il prossimo tentativo.
 
 --- Slide 7 ---
-
- Livelli di difficoltà 
+Livelli di difficoltà 
  Easy, medium, hard: dietro le etichette ci sono scelte precise di design che non si riducono a semplici moltiplicatori numerici. Cosa cambia davvero tra un livello e l'altro? 
  
  🟢 Easy Più risorse, nemici deboli, più salute rigenerativa: spazio per imparare le meccaniche senza punizioni severe. Ideale per chi gioca per la storia o per chi si avvicina al genere. 
@@ -109,8 +92,7 @@ Fonti ufficiali:
 - Valori e codice etico — IGDA — https://igda.org/about-us/core-values-and-code-of-ethics/
 
 --- Slide 8 ---
-
- Upgrade e skin 
+Upgrade e skin 
  Due tipi di progressione che convivono nello stesso gioco: una cambia quanto sei forte e cambia concretamente il modo di giocare, l'altra cambia come appari e serve all'espressione personale e al riconoscimento sociale. 
  
  Monetizzazione 
@@ -122,8 +104,7 @@ Fonti ufficiali:
  🎨 Skin Progressione estetica: aspetto del personaggio, effetti visivi, cosmetici. Non cambia le statistiche né il gameplay, ma serve all'espressione di sé e allo status sociale.
 
 --- Slide 9 ---
-
- Esponenziale vs modulabile 
+Esponenziale vs modulabile 
  Come cresce la sfida nel tempo? Due filosofie opposte, con rischi e vantaggi molto diversi per il giocatore e per il designer che deve bilanciarle su pubblici diversi. 
  
  Difficoltà dinamica 
@@ -135,8 +116,7 @@ Fonti ufficiali:
  🎚️ Modulabile Il giocatore regola la difficoltà manualmente, oppure il sistema si adatta da solo tramite DDA: ognuno trova la propria curva, aumentando l'accessibilità senza penalizzare i veterani.
 
 --- Slide 10 ---
-
- New Game Plus 
+New Game Plus 
  Ricominciare il gioco dall'inizio mantenendo i progressi già accumulati — armi potenziate, livelli raggiunti, abilità sbloccate — ma affrontando una sfida sensibilmente aumentata. Premia i giocatori più fedeli ed estende la vita del gioco senza sviluppare contenuti del tutto nuovi. 
  
  
@@ -147,8 +127,7 @@ Fonti ufficiali:
  🔄 Il secondo giro Il giocatore parte forte grazie ai progressi precedenti, ma il gioco risponde con una sfida più dura e meno margine di errore: una curva completamente nuova costruita su contenuti già visti.
 
 --- Slide 11 ---
-
- Tutorial e onboarding 
+Tutorial e onboarding 
  I primi minuti di un gioco decidono tutto: il giocatore valuta subito se continuare o abbandonare. Bisogna insegnare senza annoiare , introducendo le meccaniche una alla volta, senza sovraccaricare. Due strade molto diverse per farlo. 
  
  La regola 
@@ -160,8 +139,7 @@ Fonti ufficiali:
  🎮 Tutorial integrato Impari giocando attraverso situazioni progettate ad hoc: il primo livello di Super Mario Bros. insegna corsa, salto, nemici e ostacoli senza una sola parola di testo.
 
 --- Slide 12 ---
-
- Il design del problema 
+Il design del problema 
  Un buon puzzle ha una soluzione non ovvia ma perfettamente logica in retrospettiva — il classico momento "ma certo! come non ci avevo pensato?". Deve essere né arbitrario e incomprensibile, né così banale da risultare inutile. 
  
  Regola d'oro 
@@ -173,8 +151,7 @@ Fonti ufficiali:
  ✅ Puzzle buono Indizi equi disseminati nell'ambiente, logica interna coerente con le regole del gioco e risoluzione soddisfacente: la risposta era sempre lì, bastava osservare con attenzione.
 
 --- Slide 13 ---
-
- Analizza la curva 
+Analizza la curva 
  
  Scegli un gioco che hai finito o a cui hai giocato a lungo: il titolo che conosci meglio è il più utile per questa analisi. 
  Dov'era troppo facile o troppo difficile ? In quali momenti precisi sei uscito dal flow — per noia o per frustrazione? 
@@ -193,3 +170,4 @@ Né troppo poco.
  
  
  → GD_06 · Meccaniche e Interazione
+

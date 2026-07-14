@@ -2,30 +2,38 @@ Informatica · Modulo 11 — Hard Disk e File System
 =================================================
 
 --- Slide 1 ---
-Modulo 11 — Archiviazione
 Hard disk
-e file
-Come sono organizzati i dati: dischi, partizioni, file system, formati, file compressi e collegamenti simbolici.
+e file 
+ Come sono organizzati i dati: dischi, partizioni, file system, formati, file compressi e collegamenti simbolici.
 
 --- Slide 2 ---
-
- Cosa impareremo 
- Dalla fisica dei piatti magnetici al modo in cui il sistema operativo trova un file in millisecondi: in questo modulo esploriamo tutta la catena di archiviazione. Capiremo perché scegliere il file system sbagliato può bloccarti, come la frammentazione rallenta un HDD, e quali abitudini pratiche salvaguardano i tuoi dati nel lungo periodo. Un percorso completo. 
- 
- 01 Dove vivono i file 
- 02 Hard disk e SSD 
- 03 Partizioni e formattazione 
- 04 File system 
- 05 Cartelle, percorsi, metadata 
- 06 FAT32, exFAT, NTFS 
- 07 Btrfs, ext4, APFS 
- 08 Compressione e archivi 
- 09 Link simbolici e hard link 
- 10 Buone abitudini
+Percorso Cosa vedremo 01 Memoria 02 Hard disk e SSD 03 Partizioni e formattazione 04 File system 05 Cartelle 06 FAT32 07 Btrfs 08 Compressione e archivi 09 Link simbolici e hard link 10 Buone abitudini
 
 --- Slide 3 ---
+RAM e spazio disco non sono la stessa cosa 
+ Nel linguaggio quotidiano diciamo “memoria” per entrambe, ma rispondono a due domande diverse: quanto posso fare adesso? e quanto posso conservare? 
+ 
+ ⚡ RAM · lavoro temporaneo Contiene app e dati mentre li usi. È molto veloce e si svuota quando spegni il dispositivo. Più RAM aiuta a tenere aperte più attività. 
+ 💾 Archiviazione · conservazione HDD, SSD e memoria flash mantengono file e programmi anche da spenti. Se lo spazio finisce, non puoi salvare nuovi dati. 
+ 
+ Analogia: la RAM è il tavolo su cui lavori; il disco è l'armadio in cui riponi tutto. 
+ 
+ Fonte: RAM — Wikipedia ↗
 
- Salvare non vuol dire capire 
+--- Slide 4 ---
+Prima domanda: dove sto salvando? 
+ Lo stesso pulsante “Salva” può destinare il file a luoghi differenti. Riconoscere il luogo evita il classico “il file è sparito”. 
+ 
+ 💻 Nel dispositivo Il file è sul disco interno. Funziona anche offline, ma non appare automaticamente sugli altri dispositivi. 
+ 🔌 Su unità esterna Chiavetta USB o disco esterno. Va espulso correttamente prima di scollegarlo per evitare scritture incomplete. 
+ ☁️ Nel cloud Il file è gestito da un servizio online. Sincronizzazione, disponibilità offline e permessi dipendono dalle impostazioni. 
+ 
+ 💡 Controllo rapido Guarda sempre il percorso o il nome della cartella prima di confermare il salvataggio. 
+ 
+ Fonte: Documenti e specifiche USB — USB-IF ↗
+
+--- Slide 5 ---
+Salvare non vuol dire capire 
  Quando premi "Salva", il computer deve decidere dove mettere i dati, come ritrovarli e chi può leggerli. Questo non avviene per magia: è un processo a più strati. 
  Il disco è il magazzino fisico. Il file system è l'inventario che mappa nomi e posizioni. Le cartelle sono scaffali logici. I file sono gli oggetti conservati, identificati da un percorso univoco. 
  Analogia: Un archivio cartaceo senza indice è inutile quanto un disco pieno senza file system. 
@@ -36,18 +44,16 @@ Come sono organizzati i dati: dischi, partizioni, file system, formati, file com
  🧭 Percorso La sequenza di cartelle che porta a un file, dalla radice del volume fino al nome del file stesso. 
  🧾 Metadati Informazioni associate al file: dimensione, data di creazione e modifica, permessi di accesso, proprietario.
 
---- Slide 4 ---
-
- Hard Disk HDD 
+--- Slide 6 ---
+Hard Disk HDD 
  Un HDD usa uno o più piatti di metallo rivestiti di materiale magnetico che ruotano a 5400 o 7200 giri al minuto. Una testina galleggia a pochi nanometri dalla superficie e magnetizza o rileva piccole aree per scrivere e leggere bit. 
  I dati sono organizzati in tracce circolari, suddivise in settori. Il controller traduce indirizzi logici in posizioni fisiche sul piatto. Il tempo necessario a posizionare la testina si chiama latenza di ricerca . 
  💡 Idea chiave Ottimo per grandi archivi: foto, video, backup a basso costo per gigabyte. Più lento e più delicato negli urti rispetto a un SSD proprio perché ha parti meccaniche in movimento. 
  
  Piatti, tracce, settori e testina
 
---- Slide 5 ---
-
- SSD: veloce, silenzioso, senza parti mobili 
+--- Slide 7 ---
+SSD: veloce, silenzioso, senza parti mobili 
  Un SSD memorizza dati in celle di memoria flash NAND. Non ha piatti né testine: i dati vengono letti e scritti elettronicamente in microsecondi, rendendo l'accesso casuale molto più rapido di qualsiasi HDD. 
  
  ⚡ Veloce Tempi di accesso nell'ordine dei microsecondi. Sistema operativo e programmi si avviano in pochi secondi. 
@@ -56,9 +62,8 @@ Come sono organizzati i dati: dischi, partizioni, file system, formati, file com
  
  TRIM Il comando TRIM informa l'SSD quali blocchi non sono più usati dal file system, permettendogli di prepararli per la prossima scrittura e mantenere velocità e durata nel tempo.
 
---- Slide 6 ---
-
- Bit, byte, KB, MB, GB, TB 
+--- Slide 8 ---
+Bit, byte, KB, MB, GB, TB 
  Tutto ciò che un computer archivia è composto da bit. Conoscere le unità di misura aiuta a capire quanto spazio occupa un file e quanta capacità ha un disco. 
  
  Unità Cosa significa Esempio pratico 
@@ -67,13 +72,13 @@ Come sono organizzati i dati: dischi, partizioni, file system, formati, file com
  KB / MB / GB Kilo, Mega, Gigabyte: mille, un milione, un miliardo di byte circa (potenze di 10 dei produttori). Foto JPG ≈ 3–8 MB; film HD ≈ 4–15 GB; sistema operativo ≈ 20–50 GB. 
  TB Terabyte: mille gigabyte circa. I dischi moderni arrivano a 20 TB e oltre. Archivi fotografici, backup aziendali, server NAS domestici. 
  
- Attenzione: i produttori dichiarano capacità in multipli decimali (1 TB = 1.000.000.000.000 byte). Il sistema operativo, che usa potenze di 2, mostra un valore leggermente inferiore (es. circa 931 GiB invece di 1 TB).
-Fonti ufficiali:
-- UTF-8 — Unicode Standard — https://www.unicode.org/versions/latest/core-spec/chapter-2/
+ Attenzione: i produttori dichiarano capacità in multipli decimali (1 TB = 1.000.000.000.000 byte). Il sistema operativo, che usa potenze di 2, mostra un valore leggermente inferiore (es. circa 931 GiB invece di 1 TB). 
+ 
+ 
+ Fonte: UTF-8 — Unicode Standard ↗
 
---- Slide 7 ---
-
- Partizioni e formattazione 
+--- Slide 9 ---
+Partizioni e formattazione 
  Un disco fisico può essere diviso in partizioni: aree logicamente separate che il sistema operativo riconosce come volumi indipendenti, ognuno con il proprio file system e lettera di unità (su Windows) o punto di mount (su Linux/macOS). 
  Un uso tipico è avere una partizione per il sistema operativo e un'altra per i dati personali: così si può reinstallare l'OS senza toccare i file utente. Un disco può ospitare anche più sistemi operativi su partizioni separate. 
  Formattare significa inizializzare una partizione con un file system specifico, creando le strutture dati necessarie per gestire file e cartelle. Di norma cancella l'indice e rende lo spazio riutilizzabile, anche se i dati fisici restano finché non vengono sovrascritti. 
@@ -82,27 +87,23 @@ Fonti ufficiali:
  Schema mentale 
  Disco fisico
 ├─ Partizione 1 (sistema)
-│&nbsp;&nbsp;└─ File system (NTFS)
-│&nbsp;&nbsp;&nbsp;&nbsp;└─ Windows, programmi
+│  └─ File system (NTFS)
+│    └─ Windows, programmi
 └─ Partizione 2 (dati)
-&nbsp;&nbsp;&nbsp;└─ File system (NTFS)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ Documenti, foto
+   └─ File system (NTFS)
+     └─ Documenti, foto
 
---- Slide 8 ---
-
- Cos'è un file system 
+--- Slide 10 ---
+Cos'è un file system 
  È il metodo con cui il sistema operativo organizza nomi, cartelle, posizione dei blocchi dati, permessi e spazio libero su una partizione. Senza file system, il disco sarebbe solo una sequenza anonima di bit inaccessibili. 
  Il file system mantiene un indice: sa dove inizia ogni file, quanto è grande, chi può leggerlo e quando è stato modificato l'ultima volta. Quando elimini un file, di solito viene rimosso solo dall'indice; i dati fisici restano sul disco finché nuove scritture li sovrascrivono. 
  
  🏷️ Nomi e struttura Associa nomi leggibili a blocchi fisici sul disco, organizzandoli in una gerarchia di cartelle navigabile. 
  🧱 Blocchi e cluster Divide la partizione in unità di allocazione (cluster). Un file occupa uno o più cluster contigui o sparsi. 
  🔐 Funzioni avanzate I file system moderni aggiungono journaling per la resilienza, permessi per la sicurezza, snapshot e cifratura.
-Fonti ufficiali:
-- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
---- Slide 9 ---
-
- Percorsi: dove si trova un file 
+--- Slide 11 ---
+Percorsi: dove si trova un file 
  Un file non è solo "sul computer": ha un percorso preciso. Il percorso descrive la strada dalla radice del volume fino al nome del file, cartella per cartella. È l'indirizzo univoco che il sistema usa per trovarlo. 
  Esistono due tipi di percorso: assoluto , che parte dalla radice e identifica il file senza ambiguità, e relativo , che parte dalla cartella corrente ed è più corto ma dipende dal contesto. 
  Windows: C:\Utenti\Sara\cv.pdf Linux/macOS: /home/sara/cv.pdf 
@@ -113,21 +114,20 @@ Fonti ufficiali:
 
  ├─ home
 
- │&nbsp;&nbsp;└─ sara
+ │  └─ sara
 
- │&nbsp;&nbsp;&nbsp;&nbsp;├─ Documenti
+ │    ├─ Documenti
 
- │&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;└─ curriculum.pdf
+ │    │  └─ curriculum.pdf
 
- │&nbsp;&nbsp;&nbsp;&nbsp;└─ Foto
+ │    └─ Foto
 
- │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ vacanze_2025.jpg
+ │       └─ vacanze_2025.jpg
 
  └─ programmi
 
---- Slide 10 ---
-
- Metadati e permessi 
+--- Slide 12 ---
+Metadati e permessi 
  Ogni file porta con sé informazioni che vanno oltre il contenuto. I metadati sono gestiti dal file system e sono invisibili nella navigazione quotidiana, ma fondamentali per sicurezza, backup e ricerca. 
  
  📏 Dimensione Quanti byte occupa il contenuto del file e quanti blocchi reali usa sul disco. Possono differire per via della granularità dei cluster. 
@@ -136,9 +136,8 @@ Fonti ufficiali:
  
  ⚠️ Attenzione Copiare un file tra file system diversi può far perdere metadati: permessi NTFS su FAT32, tag estesi, date di creazione o attributi speciali. Usare strumenti di backup che preservano i metadati quando necessario.
 
---- Slide 11 ---
-
- FAT32 ed exFAT 
+--- Slide 13 ---
+FAT32 ed exFAT 
  FAT32 è uno dei file system più antichi ancora in uso, nato negli anni Novanta con Windows 95. La sua longevità è dovuta alla compatibilità quasi universale: lo riconoscono PC, Mac, TV, fotocamere, console di gioco e lettori multimediali di ogni generazione. 
  
  Formato Punti forti Limiti principali 
@@ -146,12 +145,9 @@ Fonti ufficiali:
  exFAT Supera il limite dei 4 GB di FAT32. Buona compatibilità tra Windows, macOS e Linux moderni. Ideale per schede SD e chiavette USB ad alta capacità. Non ha journaling integrato: uno spegnimento improvviso durante la scrittura può corrompere l'indice. Non adatto come file system di sistema. 
  
  Regola pratica: usa FAT32 per dispositivi e lettori vecchi dove la compatibilità è prioritaria; usa exFAT per trasferire file grandi (video, ISO) su dischi e chiavette condivisi tra sistemi diversi.
-Fonti ufficiali:
-- Documenti e specifiche USB — USB-IF — https://www.usb.org/documents
 
---- Slide 12 ---
-
- NTFS 
+--- Slide 14 ---
+NTFS 
  NTFS (New Technology File System) è il file system di default per i dischi di sistema Windows dalla versione NT in poi. Progettato per ambienti professionali, offre robustezza, sicurezza e funzioni avanzate che FAT32 non può garantire. 
  Su Linux e macOS è possibile leggere partizioni NTFS quasi sempre, ma scrivere richiede driver aggiuntivi (es. NTFS-3G su Linux). Per chiavette da condividere con sistemi non Windows, exFAT resta una scelta più universale. 
  
@@ -160,26 +156,22 @@ Fonti ufficiali:
  🔐 ACL e cifratura Permessi granulari per utenti e gruppi tramite Access Control List. Supporta anche la cifratura EFS (Encrypted File System) a livello di cartella o file. 
  📦 File grandi Nessun limite pratico da 4 GB. Un singolo file video può occupare decine di GB senza problemi su NTFS. 
  🪟 Scelta naturale È la scelta standard per il disco principale e le partizioni dati di un PC Windows moderno. Ottimizzato per prestazioni su sistemi Windows.
-Fonti ufficiali:
-- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
---- Slide 13 ---
-
- Btrfs, ext4, APFS 
+--- Slide 15 ---
+Btrfs, ext4, APFS 
  Il mondo Linux e Apple ha sviluppato file system propri, ottimizzati per i rispettivi sistemi operativi e carichi di lavoro. Ogni formato risolve priorità diverse: stabilità consolidata, funzioni avanzate o integrazione con l'hardware Apple. 
  
  Btrfs File system moderno per Linux con snapshot istantanei, checksum dei dati per rilevare corruzione silenziosa, compressione trasparente e gestione flessibile di volumi e sottovolumi. Usato di default su Fedora e openSUSE. 
  ext4 Il cavallo di battaglia di Linux: stabile, ben testato, supportato ovunque. Journaling affidabile, buone prestazioni generali. È ancora la scelta di default su Debian, Ubuntu e molte distribuzioni server. 
  APFS Apple File System, introdotto con macOS High Sierra e iOS 10.3. Ottimizzato per SSD, con snapshot, cifratura nativa, clonazione efficiente dei file e timestamp ad alta precisione. Sostituisce il vecchio HFS+. 
  
- 💡 Nota sul nome Si scrive Btrfs (B-Tree FS), spesso pronunciato "butter FS". Non è "BRTFS" e non si legge lettera per lettera. Il nome deriva dalla struttura dati B-tree che usa internamente per indicizzare file e metadati.
-Fonti ufficiali:
-- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
-- Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
+ 💡 Nota sul nome Si scrive Btrfs (B-Tree FS), spesso pronunciato "butter FS". Non è "BRTFS" e non si legge lettera per lettera. Il nome deriva dalla struttura dati B-tree che usa internamente per indicizzare file e metadati. 
+ 
+ 
+ Fonte: Manuale utente iPhone — Apple ↗
 
---- Slide 14 ---
-
- Organizzare i file 
+--- Slide 16 ---
+Organizzare i file 
  Un buon archivio digitale non dipende solo dal disco o dal file system: dipende da nomi chiari, strutture di cartelle coerenti e abitudini mantenute nel tempo. Il file system sa dove sono i tuoi file; solo tu sai cosa contengono. 
  Se non riesci a ritrovare un file in meno di trenta secondi, per te è quasi come se fosse perso. Investire cinque secondi in un buon nome al momento del salvataggio fa risparmiare ore di ricerca in futuro. 
  Regola: Nomina i file come se dovessi ritrovarli tra cinque anni, senza ricordare nulla del contesto. 
@@ -189,9 +181,8 @@ Fonti ufficiali:
  2. Cartelle per progetto Raggruppa tutto ciò che serve insieme: documenti, immagini, fatture, versioni bozza. Una cartella per progetto, sottocartelle per tipo di file. 
  3. Versioni esplicite Usa date o numeri di versione nel nome. Evita dieci file chiamati "finale" — usa v1 , v2 , o la data come suffisso.
 
---- Slide 15 ---
-
- Frammentazione, spazio libero e salute 
+--- Slide 17 ---
+Frammentazione, spazio libero e salute 
  Con il tempo i dischi si riempiono e le prestazioni possono degradare. Capire la frammentazione e la gestione dello spazio aiuta a mantenere il sistema veloce e i dati al sicuro. 
  
  🧩 Frammentazione HDD Sugli HDD i blocchi di un file possono finire in aree fisicamente distanti del piatto. La testina deve spostarsi tra posizioni diverse, rallentando la lettura. La deframmentazione riordina i blocchi per renderli contigui. 
@@ -200,9 +191,8 @@ Fonti ufficiali:
  
  Salute del disco: monitora i segnali SMART (Self-Monitoring, Analysis and Reporting Technology) con strumenti come CrystalDiskInfo o smartmontools. Rumori di clic ripetuti su un HDD sono un segnale di guasto imminente: fai subito un backup.
 
---- Slide 16 ---
-
- File compressi 
+--- Slide 18 ---
+File compressi 
  La compressione analizza i dati alla ricerca di sequenze ripetute e schemi prevedibili, poi li rappresenta in forma più compatta. Un file di testo con molte parole ripetute può ridursi del 70–80%; un video già codificato quasi per niente. 
  Due famiglie Senza perdita (lossless): ZIP, PNG, FLAC. Puoi ricostruire esattamente l'originale, bit per bit.
  Con perdita (lossy): JPEG, MP3, video H.264/H.265. Si eliminano dettagli meno percepibili per risparmiare spazio. Non si può tornare all'originale. 
@@ -212,12 +202,9 @@ Fonti ufficiali:
  📷 Foto JPEG È già compressa con perdita: aggiungere un archivio ZIP attorno porta pochissimo beneficio e solo confusione. 
  🎬 Video Già compresso con codec come H.264 o H.265. Comprimerlo ulteriormente spesso aumenta le dimensioni o degrada la qualità. 
  📁 Cartelle intere Un archivio compresso raccoglie molti file in un solo contenitore: pratico per allegati email e condivisione.
-Fonti ufficiali:
-- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
---- Slide 17 ---
-
- ZIP, 7z, RAR, TAR.GZ 
+--- Slide 19 ---
+ZIP, 7z, RAR, TAR.GZ 
  Ogni formato di archivio ha una storia e un caso d'uso specifico. Conoscerli aiuta a scegliere lo strumento giusto e a non restare bloccati davanti a un file sconosciuto. 
  
  Formato Uso tipico Nota tecnica 
@@ -225,13 +212,9 @@ Fonti ufficiali:
  7z Archivi personali e backup dove la dimensione finale è importante. Compressione generalmente migliore di ZIP a parità di tempo. Formato aperto, richiede 7-Zip o software compatibile. Supporta cifratura AES-256 con password. 
  RAR Archivi multi-volume scaricati online, dove i file sono stati divisi in parti da 100–500 MB per facilitare il download. Formato proprietario di WinRAR. La decompressione è gratuita; la creazione di nuovi archivi RAR richiede la licenza. 
  TAR.GZ Distribuire codice sorgente, pacchetti software e backup su sistemi Linux e server Unix. Standard de facto nel mondo open source. TAR raccoglie i file in un unico contenitore senza comprimerli; GZ comprime il risultato. Separazione netta tra packaging e compressione.
-Fonti ufficiali:
-- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
-- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
---- Slide 18 ---
-
- Link simbolici e hard link 
+--- Slide 20 ---
+Link simbolici e hard link 
  Un collegamento può far apparire un file in una cartella diversa senza duplicarne il contenuto fisico sul disco. I due tipi principali, link simbolico e hard link, funzionano in modo molto diverso a livello di file system. 
  Questi meccanismi sono usati dal sistema operativo per tenere strutture pulite: cartelle di configurazione che puntano a versioni aggiornate, librerie condivise tra programmi, backup efficienti senza copia dei dati. 
  Analogia: Un hard link è come avere due targhe sulla stessa porta; un link simbolico è un cartello che indica dove si trova la porta. 
@@ -241,9 +224,12 @@ Fonti ufficiali:
  Hard link È un secondo nome nello stesso file system che punta allo stesso inode (blocco dati) del file originale. Il dato resta sul disco finché esiste almeno un nome che vi fa riferimento. Non può attraversare partizioni diverse. 
  Collegamento Windows (.lnk) I classici file .lnk sono scorciatoie gestite da Esplora risorse: simili concettualmente ai symlink, ma non equivalenti a livello di sistema. Windows supporta anche symlink nativi tramite mklink .
 
---- Slide 19 ---
+--- Slide 21 ---
 Archiviato,
 ma con ordine. 
  HDD e SSD, settori, file system NTFS e FAT, percorsi e backup: come il disco organizza e conserva ogni tuo file. 
  
- Prossimo → M12 · Sistemi Operativi
+ Prossimo → M12 · Sistemi Operativi 
+ 
+ Fonti e approfondimenti RAM — Wikipedia ↗ Documenti e specifiche USB — USB-IF ↗ UTF-8 — Unicode Standard ↗ Manuale utente iPhone — Apple ↗
+

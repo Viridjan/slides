@@ -115,7 +115,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
 .home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
 .home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
-</style>
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display),Georgia,serif;font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}</style>
 <link rel="stylesheet" href="theme-corsi.css">
 </head>
 <body class="course-gd">
@@ -125,7 +125,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <!-- SLIDE 1 · TITLE -->
   <section class="slide title-slide active visible">
     <div class="title-left">
-      <div class="eyebrow reveal" style="margin-top:40px;">Game Design</div>
       <h1 class="h-mega reveal" style="margin-top:10px;">Effetti Sonori<br><em style="font-style:italic;color:var(--sky);">e Audio</em></h1>
       <p class="lead reveal d1" style="margin-top:28px;">Cosa sono gli effetti sonori, come si progettano, e come si produce l'audio di un gioco — dalla registrazione al mixing finale.</p>
 
@@ -136,23 +135,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   </section>
 
   <!-- SLIDE 2 · AGENDA -->
-  <section class="slide">
-
-    <h2 class="h-sec reveal" style="margin-top:32px;">Cosa vedremo</h2>
-    <div class="grid2 reveal d1" style="margin-top:28px;">
-      <div class="steps" style="counter-reset:st;">
-        <div class="step"><div class="t"><b>Cos'è un SFX</b> — il suono come feedback immediato per azioni, eventi e ambienti di gioco</div></div>
-        <div class="step"><div class="t"><b>Categorie di effetti sonori</b> — foley, impatti, UI e suoni ambientali: quattro famiglie distinte con regole proprie</div></div>
-        <div class="step"><div class="t"><b>Voice SFX</b> — lingue inventate e parlato simulato: come dare voce ai personaggi senza traduzione</div></div>
-      </div>
-      <div class="steps" style="counter-reset:st 3;">
-        <div class="step"><div class="t"><b>Messaggi nascosti e il silenzio</b> — cosa dice l'audio quando non parla: easter egg, diegesi e pausa come scelta creativa</div></div>
-        <div class="step"><div class="t"><b>Produzione audio</b> — DAW, onde sonore e sampling: il flusso dalla registrazione al file finale pronto per il motore di gioco</div></div>
-        <div class="step"><div class="t"><b>Effetti e mixing</b> — riverbero, distorsione, compressione: dare forma, spazio e coerenza all'intero paesaggio sonoro</div></div>
-      </div>
-    </div>
-    <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.w3.org/TR/webaudio/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Web Audio API — W3C" aria-label="Fonte ufficiale: Web Audio API — W3C" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Web Audio API — W3C ↗</a><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Compressione_dei_dati" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Compressione dei dati — Wikipedia" aria-label="Fonte ufficiale: Compressione dei dati — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Compressione dei dati — Wikipedia ↗</a></div></section>
+  <section class="slide"><span class="tag">Percorso</span><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(3,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">Cos'è un SFX</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Categorie di effetti sonori</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Voice SFX</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Messaggi nascosti e il silenzio</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Produzione audio</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Effetti e mixing</span></div></div><div class="num"></div></section>
 
   <!-- SLIDE 3 · COS'E UN SFX -->
   <section class="slide">
@@ -225,7 +208,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.w3.org/TR/webaudio/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Web Audio API — W3C" aria-label="Fonte ufficiale: Web Audio API — W3C" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Web Audio API — W3C ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 7 · IL SILENZIO -->
   <section class="slide">
@@ -266,7 +249,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.w3.org/TR/webaudio/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Web Audio API — W3C" aria-label="Fonte ufficiale: Web Audio API — W3C" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Web Audio API — W3C ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 8 · LA DAW -->
   <section class="slide">
@@ -284,7 +267,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.w3.org/TR/webaudio/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Web Audio API — W3C" aria-label="Fonte ufficiale: Web Audio API — W3C" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Web Audio API — W3C ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 9 · ONDE E SAMPLING -->
   <section class="slide">
@@ -320,7 +303,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.w3.org/TR/webaudio/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Web Audio API — W3C" aria-label="Fonte ufficiale: Web Audio API — W3C" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Web Audio API — W3C ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 10 · EFFETTI -->
   <section class="slide">
@@ -334,7 +317,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="card gold"><span class="ic">⏱️</span><h3>Delay / Eco</h3><p>Ripete il suono con un ritardo regolabile. Crea profondità spaziale, senso di vastità e, se sincronizzato col tempo musicale, aggiunge ritmo all'effetto.</p></div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.w3.org/TR/webaudio/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Web Audio API — W3C" aria-label="Fonte ufficiale: Web Audio API — W3C" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Web Audio API — W3C ↗</a><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Compressione_dei_dati" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Compressione dei dati — Wikipedia" aria-label="Fonte ufficiale: Compressione dei dati — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Compressione dei dati — Wikipedia ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 11 · SEQUENCING E MIXING -->
   <section class="slide">
@@ -378,7 +361,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.w3.org/TR/webaudio/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Web Audio API — W3C" aria-label="Fonte ufficiale: Web Audio API — W3C" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Web Audio API — W3C ↗</a></div></section>
+  </section>
 
   <!-- SLIDE 12 · ATTIVITA -->
   <section class="slide">
