@@ -57,6 +57,7 @@ const SOURCES = [
   ['Python', 'https://docs.python.org/3/tutorial/', 'Tutorial ufficiale Python'],
   ['algoritmo', 'https://xlinux.nist.gov/dads/', 'Dictionary of Algorithms and Data Structures — NIST'],
   ['algoritmi', 'https://xlinux.nist.gov/dads/', 'Dictionary of Algorithms and Data Structures — NIST'],
+  ['Flowgorithm', 'https://www.flowgorithm.org/', 'Flowgorithm — sito ufficiale', /^pr/],
   ['Scratch', 'https://scratch.mit.edu/educators', 'Scratch per educatori — MIT'],
   ['MakeCode', 'https://makecode.microbit.org/tutorials/getting-started', 'MakeCode per micro:bit'],
   ['CreateAI', 'https://microbit.org/get-started/user-guide/microbit-createai/', 'micro:bit CreateAI'],
@@ -79,6 +80,64 @@ const SOURCES = [
   ['LLM', 'https://arxiv.org/abs/1706.03762', 'Transformer — paper originale'],
   ['machine learning', 'https://www.nist.gov/itl/ai-risk-management-framework', 'AI Risk Management Framework — NIST'],
   ['intelligenza artificiale', 'https://www.nist.gov/itl/ai-risk-management-framework', 'AI Risk Management Framework — NIST'],
+].sort((a, b) => b[0].length - a[0].length);
+
+// Wikipedia is a secondary source: it never displaces an official one. At most
+// one Wikipedia link per slide, and only after the official sources have had
+// their two slots. Every title below was resolved against the it.wikipedia API,
+// redirects followed, so these are canonical article names.
+const W = 'https://it.wikipedia.org/wiki/';
+const WIKI = [
+  ['diagramma di flusso', `${W}Diagramma_di_flusso`, 'Diagramma di flusso — Wikipedia'],
+  ['pseudocodice', `${W}Pseudocodice`, 'Pseudocodice — Wikipedia'],
+  ['ricorsione', `${W}Algoritmo_ricorsivo`, 'Algoritmo ricorsivo — Wikipedia'],
+  ['algoritmo di ordinamento', `${W}Algoritmo_di_ordinamento`, 'Algoritmi di ordinamento — Wikipedia'],
+  ['macchina di Turing', `${W}Macchina_di_Turing`, 'Macchina di Turing — Wikipedia'],
+  ['indecidibilità', `${W}Problema_della_terminazione`, 'Problema della terminazione — Wikipedia'],
+  ['complessità computazionale', `${W}Teoria_della_complessità_computazionale`, 'Complessità computazionale — Wikipedia'],
+  ['paradigma', `${W}Paradigma_di_programmazione`, 'Paradigmi di programmazione — Wikipedia'],
+  ['object-oriented', `${W}Programmazione_orientata_agli_oggetti`, 'Programmazione a oggetti — Wikipedia'],
+  ['compilatore', `${W}Compilatore`, 'Compilatore — Wikipedia'],
+  ['interprete', `${W}Interprete_(informatica)`, 'Interprete — Wikipedia'],
+  ['tipo di dato', `${W}Tipo_di_dato`, 'Tipi di dato — Wikipedia'],
+  ['iterazione', `${W}Iterazione`, 'Iterazione — Wikipedia'],
+  ['debug', `${W}Debugging`, 'Debugging — Wikipedia'],
+  ['sistema binario', `${W}Sistema_numerico_binario`, 'Sistema binario — Wikipedia'],
+  ['codifica dei caratteri', `${W}Codifica_di_caratteri`, 'Codifica dei caratteri — Wikipedia'],
+  ['ASCII', `${W}ASCII`, 'ASCII — Wikipedia'],
+  ['compressione', `${W}Compressione_dei_dati`, 'Compressione dei dati — Wikipedia'],
+  ['pixel', `${W}Pixel`, 'Pixel — Wikipedia'],
+  ['CPU', `${W}CPU`, 'CPU — Wikipedia'],
+  ['RAM', `${W}RAM`, 'RAM — Wikipedia'],
+  ['sistema operativo', `${W}Sistema_operativo`, 'Sistema operativo — Wikipedia'],
+  ['file system', `${W}File_system`, 'File system — Wikipedia'],
+  ['rete di computer', `${W}Rete_di_computer`, 'Reti di computer — Wikipedia'],
+  ['indirizzo IP', `${W}Indirizzo_IP`, 'Indirizzo IP — Wikipedia'],
+  ['motore di ricerca', `${W}Motore_di_ricerca`, 'Motore di ricerca — Wikipedia'],
+  ['cloud', `${W}Cloud_computing`, 'Cloud computing — Wikipedia'],
+  ['firewall', `${W}Firewall`, 'Firewall — Wikipedia'],
+  ['VPN', `${W}Rete_privata_virtuale`, 'Rete privata virtuale — Wikipedia'],
+  ['crittografia asimmetrica', `${W}Crittografia_asimmetrica`, 'Crittografia asimmetrica — Wikipedia'],
+  ['crittografia', `${W}Crittografia`, 'Crittografia — Wikipedia'],
+  ['malware', `${W}Malware`, 'Malware — Wikipedia'],
+  ['ingegneria sociale', `${W}Ingegneria_sociale`, 'Ingegneria sociale — Wikipedia'],
+  ['autenticazione a due fattori', `${W}Autenticazione_a_due_fattori`, 'Autenticazione a due fattori — Wikipedia'],
+  ['codice QR', `${W}Codice_QR`, 'Codice QR — Wikipedia'],
+  ['smartphone', `${W}Smartphone`, 'Smartphone — Wikipedia'],
+  ['foglio di calcolo', `${W}Foglio_elettronico`, 'Foglio elettronico — Wikipedia'],
+  ['tabella pivot', `${W}Tabella_pivot`, 'Tabella pivot — Wikipedia'],
+  ['macro', `${W}Macro_(informatica)`, 'Macro — Wikipedia'],
+  ['base di dati', `${W}Base_di_dati`, 'Base di dati — Wikipedia'],
+  ['SQL', `${W}Structured_Query_Language`, 'SQL — Wikipedia'],
+  ['HTML', `${W}HTML`, 'HTML — Wikipedia'],
+  ['CSS', `${W}CSS`, 'CSS — Wikipedia'],
+  ['JavaScript', `${W}JavaScript`, 'JavaScript — Wikipedia'],
+  ['rete neurale', `${W}Rete_neurale_artificiale`, 'Rete neurale artificiale — Wikipedia'],
+  ['realtà aumentata', `${W}Realtà_aumentata`, 'Realtà aumentata — Wikipedia'],
+  ['realtà virtuale', `${W}Realtà_virtuale`, 'Realtà virtuale — Wikipedia'],
+  ['stampa 3D', `${W}Stampa_3D`, 'Stampa 3D — Wikipedia'],
+  ['interfaccia utente', `${W}Interfaccia_uomo-macchina`, 'Interfaccia uomo-macchina — Wikipedia'],
+  ['usabilità', `${W}Usabilità`, 'Usabilità — Wikipedia'],
 ].sort((a, b) => b[0].length - a[0].length);
 
 const escapeRe = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -133,10 +192,11 @@ function annotateSection(section, file) {
     [...`${section}${savedFooter}`.matchAll(/<a\b[^>]*href="([^"]+)"/gi)].map(m => m[1])
   );
   let added = 0;
+  let wikiAdded = 0;
   let blockedDepth = 0;
   const tokens = section.split(/(<[^>]+>)/g);
 
-  for (let i = 0; i < tokens.length && added < 2; i++) {
+  for (let i = 0; i < tokens.length && (added < 2 || wikiAdded < 1); i++) {
     const token = tokens[i];
     if (token.startsWith('<')) {
       const close = token.match(/^<\/(a|script|style|svg)\b/i);
@@ -147,6 +207,7 @@ function annotateSection(section, file) {
     }
     if (blockedDepth || !token.trim()) continue;
 
+    let matched = false;
     for (const [term, url, label, scope] of SOURCES) {
       if (added >= 2) break;
       if (linkedUrls.has(url)) continue;
@@ -156,6 +217,18 @@ function annotateSection(section, file) {
       tokens[i] = tokens[i].replace(re, `$1${sourceLink(url, label)}`);
       linkedUrls.add(url);
       added++;
+      matched = true;
+      break;
+    }
+    if (matched) continue;
+    for (const [term, url, label] of WIKI) {
+      if (wikiAdded >= 1) break;
+      if (linkedUrls.has(url)) continue;
+      const re = new RegExp(`\\b(${escapeRe(term)})\\b`, 'i');
+      if (!re.test(tokens[i])) continue;
+      tokens[i] = tokens[i].replace(re, `$1${sourceLink(url, label)}`);
+      linkedUrls.add(url);
+      wikiAdded++;
       break;
     }
   }

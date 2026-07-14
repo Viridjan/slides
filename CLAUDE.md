@@ -15,6 +15,17 @@ nobody is working — the other agent may be mid-task and committing as it goes.
 
 ### Work log
 
+- **2026-07-14 · Claude** — `scripts/add-official-source-links.js` now also
+  renders Wikipedia links: a separate `WIKI` list, capped at one link per slide,
+  and only after the official sources have taken their two slots — Wikipedia is
+  secondary and must never displace a primary source. Every article title was
+  resolved against the it.wikipedia API (redirects followed), so add new ones
+  the same way rather than guessing a URL.
+- **2026-07-14 · Claude** — Any rule that skips title slides must exclude BOTH
+  `.title` (8 decks) and `.title-slide` (75). Inline-sized children (`.tag`,
+  `.tape`, `.analogy`, `.chip`, any `span`) need `align-self:flex-start`, or the
+  flex column stretches them into full-width bars.
+
 - **2026-07-14 · Claude** — Auto source links now carry an optional area scope
   (4th field in `SOURCES`). Generic keywords were citing the wrong authority
   across the whole course: `funzioni` and `formule` matched the homonym in

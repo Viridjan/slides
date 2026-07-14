@@ -26,7 +26,7 @@ window.COMPLETENESS = {
   "pm04-strumenti.html": 5,
   "pr01-01-introduzione-programmazione.html": 3,
   "pr01-02-dati-codifica.html": 2,
-  "pr01-03-algoritmi.html": 2,
+  "pr01-03-algoritmi.html": 3,
   "pr01-04-fondamenti-programmazione.html": 2,
   "pr02-01-introduzione.html": 6,
   "pr02-02-questionario.html": 6,
