@@ -412,6 +412,18 @@ em.sky,.accent{color:var(--accent-2) !important;}
   flex:0 0 auto !important;
 }
 
+/* A flex item stretches to the full line by default. Inline-sized pills — the
+   section tag, an analogy banner, a chip — must keep their own width or they
+   turn into a bar spanning the slide. */
+.slide:not(.title):not(.title-slide):not(.closing)>.tag,
+.slide:not(.title):not(.title-slide):not(.closing)>.analogy,
+.slide:not(.title):not(.title-slide):not(.closing)>.chip,
+.slide:not(.title):not(.title-slide):not(.closing)>.chips,
+.slide:not(.title):not(.title-slide):not(.closing)>.tape,
+.slide:not(.title):not(.title-slide):not(.closing)>span{
+  align-self:flex-start !important;
+}
+
 .slide:not(.title):not(.title-slide):not(.closing)>.source-footer{
   margin:0 !important;
 }
