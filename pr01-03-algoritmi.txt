@@ -32,11 +32,34 @@ totale = prezzo * quantita
 Istruzioni Le azioni fondamentali Assegnazione Memorizza un valore in una variabile. Input / output Legge dati dall'esterno o mostra risultati. Calcolo Combina valori con operazioni aritmetiche o logiche. Decisione Sceglie un ramo in base a una condizione. Ripetizione Ripete istruzioni finché serve. Chiamata Usa una procedura o funzione già definita.
 
 --- Slide 7 ---
-Flowchart Rappresentare il flusso I diagrammi di flusso visualizzano il percorso dell'algoritmo. Aiutano a vedere sequenze, scelte, cicli e punti di ingresso o uscita. Ovale Inizio o fine del procedimento. Rettangolo Operazione o elaborazione. Rombo Decisione con uscite alternative.
-Fonti ufficiali:
-- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
+Flowchart Rappresentare il flusso Un diagramma di flusso mostra il percorso dell'algoritmo. La forma del simbolo dice già che tipo di passo è, prima ancora di leggerne il testo. Linea di flusso La freccia collega un simbolo al successivo e fissa l'ordine di esecuzione. Si legge dall'alto verso il basso e da sinistra a destra: la punta serve proprio quando il flusso torna indietro o devia da questa direzione. Terminatore L'ovale segna dove il procedimento comincia e dove finisce. Contiene «Inizio» e «Fine», oppure ciò che lo avvia e lo chiude: «ricevi ordine», «consegna scontrino». Fonte: Dictionary of Algorithms and Data Structures — NIST ↗
 
 --- Slide 8 ---
+Flowchart I due simboli che userai di più Un algoritmo, ridotto all'osso, è una catena di operazioni interrotta ogni tanto da una domanda. Questi due simboli coprono quasi tutto il resto del diagramma. Processo Il rettangolo è un'operazione che cambia i dati: un calcolo, un'assegnazione, una trasformazione. È il simbolo più frequente, e ogni rettangolo dovrebbe fare una cosa sola. Decisione Il rombo pone una domanda con risposta sì/no, e da lì escono due percorsi alternativi. Ogni uscita va etichettata: senza etichette chi legge non sa quale ramo seguire. Fonte: Dictionary of Algorithms and Data Structures — NIST ↗
+
+--- Slide 9 ---
+Flowchart Dati che entrano, pezzi definiti altrove Appena l'algoritmo si allunga, processo e decisione non bastano: serve distinguere dove parla con il mondo esterno e dove richiama qualcosa di già scritto. Ingresso / uscita Il parallelogramma indica i dati che entrano o escono: leggere un valore digitato, mostrare un risultato, stampare una ricevuta. Distinguerlo dal processo chiarisce dove l'algoritmo dialoga con l'esterno. Processo predefinito Il rettangolo con i lati doppi richiama un procedimento definito altrove — quella che nel codice sarà una funzione. Invece di ridisegnare gli stessi passi ogni volta, dici solo «calcola lo sconto». Fonte: Dictionary of Algorithms and Data Structures — NIST ↗
+
+--- Slide 10 ---
+Flowchart Tenere leggibile il diagramma Gli ultimi due simboli non aggiungono passi all'algoritmo: servono a chi legge il foglio. Annotazione La parentesi aperta, collegata da una linea, aggiunge una spiegazione a un passo senza far parte del flusso: una formula, un'unità di misura, un vincolo. Informazioni per chi legge, non per chi esegue. Connettori Il cerchio con una lettera sostituisce una freccia lunga dentro la stessa pagina: il flusso riprende dove ricompare la stessa lettera. Il pentagono a casetta fa lo stesso verso un'altra pagina. Fonte: Dictionary of Algorithms and Data Structures — NIST ↗
+
+--- Slide 11 ---
+Metodo Regole di un diagramma leggibile Un diagramma non è corretto solo perché usa i simboli giusti: deve poter essere letto da qualcun altro senza che tu sia lì a spiegarlo. Un ingresso, una uscita Il diagramma comincia da un solo terminatore e finisce in un solo terminatore. Se te ne servono due per finire, quasi sempre manca una decisione che riunisce i due percorsi. Un simbolo, un compito Se dentro un rettangolo devi scrivere «e poi», sono due rettangoli. La granularità giusta è quella che ti permette di indicare col dito dove il procedimento si è rotto. Etichetta ogni ramo Dalle uscite del rombo partono due frecce, marcate «sì» e «no». Un rombo con i rami non etichettati è ambiguo: chi legge sceglie a caso, e sceglierà diversamente da te. ⚠️ Attenzione Le frecce che si incrociano sono il primo sintomo di un diagramma da riorganizzare. Prima di aggiungerne un'altra, prova a spostare i simboli o a usare un connettore.
+
+--- Slide 12 ---
+Metodo Costruirlo in quattro passaggi Non si disegna dall'inizio alla fine come si scrive una frase: si parte dagli estremi e si riempie il centro. 1 · Ingressi e uscite Scrivi prima che cosa entra e che cosa deve uscire: i due terminatori e i parallelogrammi. Se non sai dire che cosa esce, non hai ancora capito il problema, e nessun simbolo ti salverà. 2 · Il percorso normale Collega ingresso e uscita con la sequenza di processi che risolve il caso senza sorprese. I casi strani, per ora, ignorali. 3 · Le decisioni Adesso chiediti dove il caso normale si rompe: valore mancante, zero al denominatore, elenco vuoto. Ogni «e se…» diventa un rombo con i rami etichettati. 4 · Le ripetizioni Se un blocco di passi va ripetuto, chiudilo in un ciclo: una freccia che torna indietro verso un rombo di controllo. Verifica che la condizione, prima o poi, diventi falsa.
+
+--- Slide 13 ---
+Strumento Flowgorithm: il diagramma che si esegue Un diagramma su carta non ti dice se hai sbagliato. Flowgorithm è un programma gratuito che ti fa disegnare il diagramma con gli stessi simboli visti finora e poi lo esegue : i valori scorrono davanti ai tuoi occhi e l'errore di ragionamento salta fuori prima di aver scritto una riga di codice. Disegna I simboli si aggiungono cliccando sulle frecce del diagramma: ingresso, processo, decisione, ciclo. Non riesci a costruire un diagramma malformato, perché lo strumento non te lo lascia fare. Esegui e osserva Premi Play e il diagramma si illumina simbolo per simbolo. Puoi rallentare l'esecuzione e guardare le variabili mentre cambiano: è la tabella di traccia, compilata dal computer al posto tuo. Genera il codice Con un clic lo stesso diagramma diventa codice sorgente in una ventina di linguaggi: Python, C++, Java, JavaScript. Vedi con i tuoi occhi che l'algoritmo viene prima del linguaggio. Fonte: Flowgorithm — sito ufficiale ↗ Fonte: Dictionary of Algorithms and Data Structures — NIST ↗
+
+--- Slide 14 ---
+Strumento Prima di aprirlo, sappi questo Flowgorithm è gratuito e ha l'interfaccia anche in italiano. Nasce come strumento didattico: serve a imparare il ragionamento, non a scrivere software da consegnare. Cosa ti serve Un PC Windows: la versione ufficiale gira solo lì. Si scarica da flowgorithm.org, senza registrazione. L'ultima versione è la 4.5, di ottobre 2024. Come impostarlo Dalle opzioni scegli l'italiano come lingua e, quando servirà, il linguaggio in cui far generare il codice. 💡 Consiglio Tieni aperta la finestra delle variabili durante l'esecuzione: vedere quando un valore cambia è il modo più rapido per capire perché un ciclo non si ferma. Diagramma
+ ↓ esegui
+valori che scorrono
+ ↓ genera
+Python · C++ · Java Fonte: Flowgorithm — sito ufficiale ↗ Fonte: Tutorial ufficiale Python ↗
+
+--- Slide 15 ---
 Pseudocodice Scrivere l'algoritmo prima del linguaggio Lo pseudocodice usa una forma vicina al linguaggio naturale, ma già ordinata come un programma. È utile per ragionare senza preoccuparsi subito della sintassi. leggi eta
 se eta >= 18 allora
  scrivi "maggiorenne"
@@ -46,58 +69,65 @@ fine se
 Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
---- Slide 9 ---
+--- Slide 16 ---
 Verifica Provare l'algoritmo a mano Prima di tradurre in codice conviene simulare l'algoritmo con pochi esempi. Questo controllo permette di scoprire passaggi mancanti, condizioni sbagliate e casi limite. Traccia Segna valore delle variabili dopo ogni passo. Casi limite Prova valori minimi, massimi, nulli o insoliti.
 Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
---- Slide 10 ---
+--- Slide 17 ---
 Scomposizione Dividere il problema in sottoproblemi Un problema grande diventa gestibile quando lo dividiamo in parti più piccole. Ogni sottoproblema deve avere input, output e responsabilità chiari. Riduce complessità Si ragiona su una parte alla volta. Favorisce riuso Una soluzione parziale può servire più volte. Facilita test Ogni parte può essere verificata separatamente.
 
---- Slide 11 ---
+--- Slide 18 ---
 Precondizioni Cosa deve essere vero prima di iniziare Le precondizioni descrivono ciò che l'algoritmo si aspetta dagli input. Se non sono rispettate, il risultato può essere errato o il procedimento può bloccarsi. Esempio Per dividere due numeri, il divisore deve essere diverso da zero. Controllo Prima del calcolo si verifica se l'input è valido.
 Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
---- Slide 12 ---
+--- Slide 19 ---
 Postcondizioni Cosa deve essere vero alla fine Le postcondizioni descrivono il risultato atteso dopo l'esecuzione. Sono utili per verificare se l'algoritmo ha davvero risolto il problema. precondizione: lista non vuota
 algoritmo: trova massimo
 postcondizione: massimo >= ogni elemento della lista
 Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
---- Slide 13 ---
+--- Slide 20 ---
 Sequenza L'ordine cambia il risultato In un algoritmo, spostare una istruzione può cambiare completamente il comportamento. Alcuni passi devono avvenire prima perché preparano dati usati dai passi successivi. Prima inizializzo Creo valori di partenza, contatori e accumuli. Poi aggiorno Uso quei valori per calcolare risultati successivi.
 Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
---- Slide 14 ---
+--- Slide 21 ---
 Decisioni Le condizioni devono essere verificabili Una decisione efficace usa una condizione chiara, valutabile come vera o falsa. Condizioni vaghe producono algoritmi ambigui. Vaga "Se il valore è abbastanza alto" non basta senza soglia. Verificabile "Se il valore è maggiore o uguale a 18" è controllabile.
 Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
---- Slide 15 ---
+--- Slide 22 ---
 Cicli Ripetere senza perdere il controllo Un ciclo deve avere una condizione di continuazione e un modo per avvicinarsi alla fine. Altrimenti rischia di non terminare. Inizializza Prepara contatore o stato iniziale. Controlla Decide se ripetere. Aggiorna Modifica qualcosa a ogni iterazione.
 
---- Slide 16 ---
+--- Slide 23 ---
 Accumulatore Costruire un risultato passo dopo passo L'accumulatore è una variabile che conserva un risultato parziale. A ogni iterazione viene aggiornato con una nuova informazione. totale = 0
 per ogni prezzo nella lista:
  totale = totale + prezzo
 fine ciclo
 
---- Slide 17 ---
+--- Slide 24 ---
 Contatore Sapere quante volte qualcosa accade Il contatore aumenta o diminuisce secondo una regola. Serve per ripetere un numero definito di volte, indicizzare elementi o contare occorrenze. Indice Indica quale elemento stiamo osservando. Occorrenze Conta quante volte una condizione è vera.
 
---- Slide 18 ---
+--- Slide 25 ---
 Traccia La tabella di traccia rende visibile l'esecuzione Durante la prova a mano possiamo costruire una tabella con una riga per ogni passo e una colonna per ogni variabile importante. passo | i | totale
 0 | 0 | 0
 1 | 1 | 5
 2 | 2 | 12
 
---- Slide 19 ---
+--- Slide 26 ---
 Efficienza Non tutte le soluzioni costano uguale Due algoritmi possono produrre lo stesso risultato ma richiedere tempi o memoria molto diversi. Valutare l'efficienza aiuta a scegliere una soluzione adatta alla dimensione del problema. Tempo Quanti passaggi servono al crescere dei dati? Spazio Quanta memoria aggiuntiva viene usata?
 Fonti ufficiali:
 - Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
---- Slide 20 ---
+--- Slide 27 ---
+Esercizi Tre diagrammi da far girare Per ognuno: scrivi prima che cosa entra e che cosa esce, poi disegnalo in Flowgorithm ed eseguilo almeno tre volte, cambiando i dati. 1 · Pari o dispari Entra un numero intero, esce la scritta «pari» o «dispari». Serve un solo rombo: la condizione è il resto della divisione per 2. Provalo con lo zero: che cosa risponde, e ti convince? 2 · Esito dello scrutinio Entrano tre voti. Esce la media, e «promosso» se raggiunge il 6, «rimandato» altrimenti. Tre ingressi, un processo per la media, un rombo con i rami etichettati. 3 · Sconto alla cassa Entra il totale della spesa. Se supera i 100 euro applica il 10% di sconto, altrimenti lascia il totale invariato. Esce la cifra da pagare. Provalo con esattamente 100: il tuo rombo usa «maggiore» o «maggiore o uguale»? Fonte: Flowgorithm — sito ufficiale ↗
+
+--- Slide 28 ---
+Esercizi Tre diagrammi con un ciclo Questi richiedono una freccia che torna indietro. Prima di eseguirli compila a mano la tabella di traccia dei primi due giri: se poi il computer ti smentisce, l'errore è nel diagramma. 4 · Somma dei primi N Entra un numero N, esce la somma di tutti gli interi da 1 a N. Servono un contatore e un accumulatore, azzerati prima del ciclo. Verifica con N=5: deve uscire 15. 5 · Il voto più alto Entrano cinque voti, uno alla volta, ed esce il più alto. Il trucco è tenere una variabile «massimo finora» e aggiornarla solo quando il voto letto la supera. Con quale valore la fai partire? 6 · Indovina il numero Il programma tiene un numero fisso, per esempio 7. Legge tentativi finché non lo indovini e a ogni tentativo risponde «troppo alto» o «troppo basso». Il ciclo si ferma solo alla risposta esatta. ⚠️ Attenzione Nell'esercizio 6, se dimentichi di rileggere il tentativo dentro il ciclo, la condizione non cambia mai e il diagramma gira all'infinito. Flowgorithm continua finché non lo fermi: è il modo migliore per vedere dal vivo che cos'è un ciclo infinito. Fonte: Flowgorithm — sito ufficiale ↗
+
+--- Slide 29 ---
 Un algoritmo chiaro rende il codice più semplice. Quando il procedimento è comprensibile, la traduzione in linguaggio di programmazione diventa più controllabile. Prossimo → PR01.04 · Fondamenti
+
