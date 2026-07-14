@@ -36,22 +36,22 @@ const SOURCES = [
   ['USB', 'https://www.usb.org/documents', 'Documenti e specifiche USB — USB-IF'],
   ['Android', 'https://support.google.com/android/', 'Guida ufficiale Android'],
   ['iOS', 'https://support.apple.com/guide/iphone/welcome/ios', 'Manuale utente iPhone — Apple'],
-  ['Microsoft 365', 'https://support.microsoft.com/microsoft-365', 'Supporto Microsoft 365'],
-  ['Microsoft Word', 'https://support.microsoft.com/word', 'Supporto Microsoft Word'],
-  ['Word', 'https://support.microsoft.com/word', 'Supporto Microsoft Word'],
-  ['Microsoft Excel', 'https://support.microsoft.com/excel', 'Supporto Microsoft Excel'],
-  ['Excel', 'https://support.microsoft.com/excel', 'Supporto Microsoft Excel'],
-  ['formule', 'https://support.microsoft.com/excel', 'Formule e funzioni — Supporto Microsoft Excel'],
-  ['funzioni', 'https://support.microsoft.com/excel', 'Formule e funzioni — Supporto Microsoft Excel'],
+  ['Microsoft 365', 'https://support.microsoft.com/microsoft-365', 'Supporto Microsoft 365', /^su/],
+  ['Microsoft Word', 'https://support.microsoft.com/word', 'Supporto Microsoft Word', /^su/],
+  ['Word', 'https://support.microsoft.com/word', 'Supporto Microsoft Word', /^su/],
+  ['Microsoft Excel', 'https://support.microsoft.com/excel', 'Supporto Microsoft Excel', /^su/],
+  ['Excel', 'https://support.microsoft.com/excel', 'Supporto Microsoft Excel', /^su/],
+  ['formule', 'https://support.microsoft.com/excel', 'Formule e funzioni — Supporto Microsoft Excel', /^su03/],
+  ['funzioni', 'https://support.microsoft.com/excel', 'Formule e funzioni — Supporto Microsoft Excel', /^su03/],
   ['VBA', 'https://learn.microsoft.com/office/vba/api/overview/', 'Riferimento VBA per Office — Microsoft Learn'],
-  ['Google Workspace', 'https://support.google.com/a/users/', 'Centro didattico Google Workspace'],
-  ['Google Docs', 'https://support.google.com/docs/', 'Guida ufficiale Google Docs Editors'],
-  ['Google Sheets', 'https://support.google.com/docs/topic/9054603', 'Guida ufficiale Google Sheets'],
-  ['Google Slides', 'https://support.google.com/a/users/answer/9282488', 'Formazione e guida Google Slides'],
+  ['Google Workspace', 'https://support.google.com/a/users/', 'Centro didattico Google Workspace', /^su/],
+  ['Google Docs', 'https://support.google.com/docs/', 'Guida ufficiale Google Docs Editors', /^su/],
+  ['Google Sheets', 'https://support.google.com/docs/topic/9054603', 'Guida ufficiale Google Sheets', /^su/],
+  ['Google Slides', 'https://support.google.com/a/users/answer/9282488', 'Formazione e guida Google Slides', /^su/],
   ['Adobe Photoshop', 'https://helpx.adobe.com/photoshop/user-guide.html', 'Guida ufficiale Adobe Photoshop'],
   ['Adobe Illustrator', 'https://helpx.adobe.com/illustrator/user-guide.html', 'Guida ufficiale Adobe Illustrator'],
   ['Adobe Acrobat', 'https://helpx.adobe.com/acrobat/user-guide.html', 'Guida ufficiale Adobe Acrobat'],
-  ['LibreOffice', 'https://documentation.libreoffice.org/', 'Documentazione LibreOffice'],
+  ['LibreOffice', 'https://documentation.libreoffice.org/', 'Documentazione LibreOffice', /^su/],
   ['Unicode', 'https://www.unicode.org/versions/latest/', 'Unicode Standard'],
   ['UTF-8', 'https://www.unicode.org/versions/latest/core-spec/chapter-2/', 'UTF-8 — Unicode Standard'],
   ['Python', 'https://docs.python.org/3/tutorial/', 'Tutorial ufficiale Python'],
@@ -73,8 +73,8 @@ const SOURCES = [
   ['carta da gioco', 'https://igda.org/about-us/core-values-and-code-of-ethics/', 'Valori e codice etico — IGDA'],
   ['gioco di carte', 'https://igda.org/about-us/core-values-and-code-of-ethics/', 'Valori e codice etico — IGDA'],
   ['playtest', 'https://igda.org/about-us/core-values-and-code-of-ethics/', 'Valori e codice etico — IGDA'],
-  ['audio', 'https://www.w3.org/TR/webaudio/', 'Web Audio API — W3C'],
-  ['gamepad', 'https://www.w3.org/TR/gamepad/', 'Gamepad API — W3C'],
+  ['audio', 'https://www.w3.org/TR/webaudio/', 'Web Audio API — W3C', /^gd/],
+  ['gamepad', 'https://www.w3.org/TR/gamepad/', 'Gamepad API — W3C', /^gd/],
   ['transformer', 'https://arxiv.org/abs/1706.03762', 'Attention Is All You Need — paper originale'],
   ['LLM', 'https://arxiv.org/abs/1706.03762', 'Transformer — paper originale'],
   ['machine learning', 'https://www.nist.gov/itl/ai-risk-management-framework', 'AI Risk Management Framework — NIST'],
@@ -119,7 +119,10 @@ function sourceFooter(section, savedFooter = '') {
   return cleaned.replace(/<\/section>\s*$/i, `${footer}</section>`);
 }
 
-function annotateSection(section) {
+// Product-specific sources only fire inside their own area: 'funzioni' in a
+// programming deck means functions, not Excel formulas. Without the scope,
+// a keyword match on a homonym cites an authoritative but wrong source.
+function annotateSection(section, file) {
   if (/class="[^"]*(?:title|closing)[^"]*"/.test(section)) return section;
   let savedFooter = '';
   section = section.replace(/<div\b[^>]*data-source-footer="true"[^>]*>[\s\S]*?<\/div>/gi, footer => {
@@ -144,9 +147,10 @@ function annotateSection(section) {
     }
     if (blockedDepth || !token.trim()) continue;
 
-    for (const [term, url, label] of SOURCES) {
+    for (const [term, url, label, scope] of SOURCES) {
       if (added >= 2) break;
       if (linkedUrls.has(url)) continue;
+      if (scope && !scope.test(file)) continue;
       const re = new RegExp(`\\b(${escapeRe(term)})\\b`, 'i');
       if (!re.test(tokens[i])) continue;
       tokens[i] = tokens[i].replace(re, `$1${sourceLink(url, label)}`);
@@ -174,7 +178,7 @@ for (const file of files) {
   before = before.replace(/<a\b(?=[^>]*data-source-origin="auto")[^>]*>[\s\S]*?<\/a>/gi, '');
   const beforeCount = (before.match(/title="Fonte ufficiale:/g) || []).length;
   const after = before
-    .replace(/<section\b[\s\S]*?<\/section>/gi, annotateSection)
+    .replace(/<section\b[\s\S]*?<\/section>/gi, section => annotateSection(section, file))
     .replace(/[ \t]+$/gm, '');
   const afterCount = (after.match(/title="Fonte ufficiale:/g) || []).length;
   if (after !== before) {

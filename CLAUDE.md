@@ -15,6 +15,18 @@ nobody is working — the other agent may be mid-task and committing as it goes.
 
 ### Work log
 
+- **2026-07-14 · Claude** — Auto source links now carry an optional area scope
+  (4th field in `SOURCES`). Generic keywords were citing the wrong authority
+  across the whole course: `funzioni` and `formule` matched the homonym in
+  programming, networking and 3D decks and cited Microsoft Excel support. 71
+  wrong links removed; Office/Google sources are now `su`-only, `audio` and
+  `gamepad` are `gd`-only. When adding a product-specific source, scope it.
+- **2026-07-14 · Claude** — Rebuilt the "Cosa vedremo" slide in `su03-08` …
+  `su03-12`: each of its 12 cards used to repeat, verbatim, the lead of a later
+  slide (52 of 60 cards). It is now an index of titles. Removed 3 redundant
+  slides from `pr01-01` (paradigms and computability were each covered twice,
+  plus a recap slide sitting mid-deck).
+
 - **2026-07-14 · Claude** — Title slides carry one of two class names:
   `.title` (8 decks) or `.title-slide` (75). Any rule meant to skip them must
   exclude both — `:not(.title)` alone leaves 75 decks matched.

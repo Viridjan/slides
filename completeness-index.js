@@ -77,9 +77,9 @@ window.COMPLETENESS = {
   "su03-05-funzioni-top.html": 3,
   "su03-06-testo.html": 4,
   "su03-07-tabelle-pivot.html": 3,
-  "su03-08-fogli-calcolo-avanzati.html": 5,
-  "su03-09-query-fogli-calcolo.html": 3,
-  "su03-10-macro-fogli-calcolo.html": 3,
+  "su03-08-fogli-calcolo-avanzati.html": 4,
+  "su03-09-query-fogli-calcolo.html": 2,
+  "su03-10-macro-fogli-calcolo.html": 2,
   "su03-11-vba.html": 4,
   "su03-12-google-apps-script.html": 3,
   "su04-01-presentazioni.html": 5

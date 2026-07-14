@@ -10,10 +10,7 @@ Drive / Gmail / API
 workflow cloud
 
 --- Slide 2 ---
-Percorso Cosa vedremo 01 · Che cos’è Apps Script Google Apps Script è JavaScript nel cloud Google: automatizza Sheets, Docs, Drive, Gmail, Calendar e servizi esterni. 02 · Editor e progetto Ogni progetto ha file .gs, manifest, trigger e autorizzazioni. Il codice vive online ed è legato a un account Google. 03 · JavaScript essenziale Variabili let/const, funzioni, array, oggetti e template string sono la base per scrivere script leggibili. 04 · SpreadsheetApp SpreadsheetApp apre file, fogli, range e valori. È l’API centrale per lavorare con Google Sheets. 05 · getValues e setValues Leggere e scrivere in blocco è molto più veloce che cella per cella: usa array bidimensionali. 06 · Range e fogli getSheetByName, getRange, appendRow, clearContent e setBackground sono operazioni quotidiane. 07 · Menu personalizzati onOpen può aggiungere un menu al foglio: Aggiorna report, Importa dati, Invia email. 08 · Trigger semplici onOpen e onEdit reagiscono ad apertura e modifica. Sono comodi ma hanno limiti di autorizzazione. 09 · Trigger installabili Trigger a tempo o su evento eseguono script con autorizzazioni più forti: report giornalieri, pulizia notturna, invii programmati. 10 · Autorizzazioni La prima esecuzione chiede permessi. Spiega sempre perché uno script vuole accedere a Gmail, Drive o Sheets. 11 · GmailApp Puoi inviare email automatiche, reminder e report. Attenzione a quote, privacy e destinatari. 12 · DriveApp DriveApp crea cartelle, cerca file, copia template e salva PDF o CSV generati dallo script.
-Fonti ufficiali:
-- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
-- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
+Percorso Cosa vedremo Fondamenti Che cos’è Apps Script Editor e progetto JavaScript essenziale Costrutti SpreadsheetApp getValues e setValues Range e fogli Menu personalizzati Trigger semplici Trigger installabili Autorizzazioni Automazione GmailApp DriveApp UrlFetchApp JSON e oggetti HTML Service Web app PropertiesService Produzione LockService Logger e debug Quote e limiti Deployment e versioni Progetto finale Apps Script
 
 --- Slide 3 ---
 Fondamenti Che cos’è Apps Script Google Apps Script è JavaScript nel cloud Google: automatizza Sheets, Docs, Drive, Gmail, Calendar e servizi esterni. Caso concreto Un foglio con gli appuntamenti del salone genera ogni sera i promemoria, archivia un PDF su Drive e registra l’esito senza lasciare acceso un computer. Punto di forza Il codice gira nell’infrastruttura Google e usa direttamente i servizi Workspace dell’account, con autorizzazioni esplicite. Errore da evitare Trattarlo come JavaScript nel browser: non esistono DOM e window; si lavora con servizi come SpreadsheetApp e GmailApp. Esercizio Scegli un’attività in Workspace e descrivi origine dei dati, azione automatica, destinazione e frequenza di esecuzione.
@@ -149,3 +146,4 @@ Fonti ufficiali:
 
 --- Slide 25 ---
 Apps Script collega i fogli agli strumenti Google. È ideale quando il lavoro parte da Sheets ma deve produrre email, file, report e azioni programmate. Torna all'indice
+
