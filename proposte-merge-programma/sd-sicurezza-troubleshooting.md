@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # SD / HS - Sicurezza digitale e risoluzione problemi tecnici
 
 ## Target merge

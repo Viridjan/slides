@@ -1,3 +1,4 @@
+/* Proprietà intellettuale di Francesco Antonio Binetti */
 (function () {
   'use strict';
 

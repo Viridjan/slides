@@ -1,3 +1,4 @@
+/* Proprietà intellettuale di Francesco Antonio Binetti */
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [

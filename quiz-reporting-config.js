@@ -1,3 +1,4 @@
+/* Proprietà intellettuale di Francesco Antonio Binetti */
 /* Configurazione unica per la rendicontazione dei quiz.
  * Incolla qui l'URL /exec del deployment Google Apps Script.
  */

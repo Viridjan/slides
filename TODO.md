@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # TODO
 
 Stato: una voce operativa aperta; contenuti del corso riconciliati con i

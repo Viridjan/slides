@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Proprietà intellettuale di Francesco Antonio Binetti
 # export-pdf.sh — Export an HTML presentation to PDF
 #
 # Usage:

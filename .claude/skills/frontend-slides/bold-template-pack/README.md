@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # Bold Template Pack
 
 This pack brings the `beautiful-html-templates` design systems into the

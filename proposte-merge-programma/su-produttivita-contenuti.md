@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # SU / SM - Produttività collaborativa e creazione contenuti digitali
 
 ## Target merge

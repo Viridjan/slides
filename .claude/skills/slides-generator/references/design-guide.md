@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # Slide Design Guide
 
 > Subagent 生成幻灯片时的完整设计参考。

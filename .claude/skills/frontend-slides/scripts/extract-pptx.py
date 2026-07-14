@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Proprietà intellettuale di Francesco Antonio Binetti
 """
 Extract all content from a PowerPoint file (.pptx).
 Returns a JSON structure with slides, text, and images.

@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -132,7 +133,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="title-right">
       <div style="font-size:200px;line-height:1;text-align:center;" class="reveal">🎲</div>
     </div>
-  </section>
+  <div class="deck-author">Francesco Antonio Binetti</div></section>
 
   <!-- SLIDE 2 · AGENDA -->
   <section class="slide"><span class="tag">Percorso</span><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(3,auto);"><div class="agenda-item"><span class="n">01</span><span class="t">Tipologie di giochi</span></div><div class="agenda-item"><span class="n">02</span><span class="t">Eccezioni e giochi ibridi</span></div><div class="agenda-item"><span class="n">03</span><span class="t">Il paradigma MDA</span></div><div class="agenda-item"><span class="n">04</span><span class="t">Prospettiva designer vs giocatore</span></div><div class="agenda-item"><span class="n">05</span><span class="t">Giochi agonistici e non agonistici</span></div><div class="agenda-item"><span class="n">06</span><span class="t">Attività pratica</span></div></div><div class="num"></div></section>
@@ -145,7 +146,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <h2 class="h-big reveal" style="margin-top:18px;">Design applicato al <em class="hot">gioco</em></h2>
         <p class="lead reveal d1" style="margin-top:14px;">Il game design è la disciplina che progetta <b>esperienze ludiche</b> — non solo videogiochi, ma anche giochi da tavolo, di carte e live. Il designer crea regole, sistemi, feedback e progressione.</p>
         <div class="note teal reveal d2" style="margin-top:20px;">
-          <div class="lbl">💡 Francesco Binetti / Viridjan</div>
+          <div class="lbl">💡 Francesco Antonio Binetti / Viridjan</div>
           <p>L'autore di questo corso è game designer ed educatore, autore di giochi come <b>K2</b>, <b>Svalbard 2118</b> e <b>Pandemonium</b>.</p>
         </div>
       </div>
@@ -558,7 +559,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a href="gd02-ost.html" class="chip" style="background:var(--paper);color:var(--ink);text-decoration:none;">→ GD_02 · La Colonna Sonora</a>
       </div>
-    </div></div><div class="page-num"></div></section>
+    </div></div><div class="page-num"></div><div class="deck-author">Francesco Antonio Binetti</div></section>
 
 </div>
 </div>
@@ -569,38 +570,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 <button class="edit-toggle" id="editToggle" title="Modalita modifica (E)">✏️</button>
 <div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
 
-<script>
-class SlidePresentation{
-  constructor(){this.slides=[...document.querySelectorAll('.slide')];this.i=0;
-    this.stage=document.getElementById('deckStage');this.progress=document.getElementById('progress');
-    this.scale();addEventListener('resize',()=>this.scale());this.keys();this.touch();this.wheel();this.numberPages();this.show(0);}
-  scale(){const f=Math.min(innerWidth/1920,innerHeight/1080);this.stage.style.transform=`translate(${(innerWidth-1920*f)/2}px,${(innerHeight-1080*f)/2}px) scale(${f})`;}
-  numberPages(){const total=this.slides.length;this.slides.forEach((s,k)=>{const pn=s.querySelector('.page-num');if(pn)pn.innerHTML=`<b>${String(k+1).padStart(2,'0')}</b> / ${total}`;});}
-  show(n){this.i=Math.max(0,Math.min(n,this.slides.length-1));this.slides.forEach((s,k)=>{const on=k===this.i;s.classList.toggle('active',on);s.classList.toggle('visible',on);});this.progress.style.width=((this.i+1)/this.slides.length*100)+'%';}
-  next(){this.show(this.i+1);}prev(){this.show(this.i-1);}
-  keys(){addEventListener('keydown',e=>{if(document.body.classList.contains('editing')&&e.key!=='Escape')return;
-    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();this.next();}
-    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();this.prev();}
-    else if(e.key==='Home'){this.show(0);}else if(e.key==='End'){this.show(this.slides.length-1);}});}
-  touch(){let x0=null;
-    }
-  wheel(){let lock=false;addEventListener('wheel',e=>{if(lock||document.body.classList.contains('editing'))return;if(Math.abs(e.deltaY)<20)return;lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>lock=false,700);},{passive:true});}
-}
-const deck=new SlidePresentation();(()=>{const target=()=>{const m=location.hash.match(/(?:slide-|slide=|^#)(\d+)/);return m?Number(m[1])-1:null};const showHash=()=>{const n=target();if(Number.isInteger(n))deck.show(n)};showHash();addEventListener('hashchange',showHash)})();
-const editor={isActive:false,
-  toggle(){this.isActive=!this.isActive;document.body.classList.toggle('editing',this.isActive);document.getElementById('editToggle').classList.toggle('active',this.isActive);document.getElementById('editHint').classList.toggle('show',this.isActive);document.querySelectorAll('[contenteditable]').forEach(el=>el.setAttribute('contenteditable',this.isActive));if(this.isActive)this.load();},
-  key(){return 'gd01-introduzione-edits';},
-  save(){const data={};document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);localStorage.setItem(this.key(),JSON.stringify(data));const h=document.getElementById('editHint');h.innerHTML='✓ Salvato!';setTimeout(()=>h.innerHTML='Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.',1500);},
-  load(){const raw=localStorage.getItem(this.key());if(!raw)return;const data=JSON.parse(raw);document.querySelectorAll('[data-eid]').forEach(el=>{if(data[el.dataset.eid]!=null)el.innerHTML=data[el.dataset.eid];});}};
-document.querySelectorAll('[contenteditable]').forEach((el,k)=>{el.dataset.eid='e'+k;el.setAttribute('contenteditable','false');});
-editor.load();
-const toggleBtn=document.getElementById('editToggle');const hotzone=document.querySelector('.edit-hotzone');let hideT=null;
-toggleBtn.addEventListener('click',()=>editor.toggle());hotzone.addEventListener('click',()=>editor.toggle());
-hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideT);toggleBtn.classList.add('show');});
-hotzone.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
-toggleBtn.addEventListener('mouseenter',()=>clearTimeout(hideT));
-toggleBtn.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!editor.isActive)toggleBtn.classList.remove('show');},400);});
-addEventListener('keydown',e=>{const onEd=e.target.getAttribute&&e.target.getAttribute('contenteditable')==='true';if((e.ctrlKey||e.metaKey)&&e.key==='s'&&editor.isActive){e.preventDefault();editor.save();}if((e.key==='i'||e.key==='I')&&!onEd){location.href='00-indice-gd.html';}});
-</script>
+
+<script src="deck.js"></script>
 </body>
 </html>

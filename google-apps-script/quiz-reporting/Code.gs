@@ -1,3 +1,4 @@
+// Proprietà intellettuale di Francesco Antonio Binetti
 const RESULTS_SHEET = 'Risultati';
 const DASHBOARD_SHEET = 'Ultime 48 ore';
 const HEADERS = [

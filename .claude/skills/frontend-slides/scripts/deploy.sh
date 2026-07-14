@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Proprietà intellettuale di Francesco Antonio Binetti
 # deploy.sh — Deploy a slide deck to Vercel for instant sharing
 #
 # Usage:

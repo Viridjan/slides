@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # File esclusi dal repository
 
 I seguenti file non sono inclusi nel repository git perché superano il limite di 100 MB imposto da GitHub:

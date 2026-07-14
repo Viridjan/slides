@@ -1,3 +1,4 @@
+/* Proprietà intellettuale di Francesco Antonio Binetti */
 /* === TEMA VISIVO CONDIVISO ===
    Questo file viene caricato dopo il CSS incorporato nei deck: le regole qui
    sotto migliorano tutti i moduli senza modificare i singoli contenuti. */
@@ -431,4 +432,26 @@ em.sky,.accent{color:var(--accent-2) !important;}
 @media print{
   .deck-stage{box-shadow:none !important;}
   .slide{background:var(--slide-bg) !important;}
+}
+
+/* Course authorship: shown only where explicitly included on title and closing
+   slides. Keeping the style here makes the signature consistent across decks. */
+.deck-author{
+  position:absolute !important;
+  left:50% !important;
+  bottom:38px !important;
+  transform:translateX(-50%) !important;
+  z-index:6 !important;
+  font-family:var(--font-mono,"Space Mono",monospace) !important;
+  font-size:16px !important;
+  line-height:1.2 !important;
+  letter-spacing:1px !important;
+  color:var(--ink-faint,#6b5f54) !important;
+  opacity:.82;
+  white-space:nowrap;
+}
+.slide.closing>.deck-author,
+body.course-gd .slide.title>.deck-author,
+body.course-gd .slide.title-slide>.deck-author{
+  color:rgba(255,255,255,.78) !important;
 }

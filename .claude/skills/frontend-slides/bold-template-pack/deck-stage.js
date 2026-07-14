@@ -1,3 +1,4 @@
+/* Proprietà intellettuale di Francesco Antonio Binetti */
 /**
  * <deck-stage> — reusable web component for HTML decks.
  *

@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # Proposte merge programma competenze digitali
 
 File creati per integrare nel corso le lacune emerse dagli screenshot del programma.

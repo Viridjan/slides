@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # Slide Patterns for Academic Presentations
 
 Implementation patterns for each required slide type. Use with `pptxgenjs.md` for the technical API.

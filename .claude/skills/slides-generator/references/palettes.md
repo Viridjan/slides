@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # 配色方案库
 
 > 精选 20 个配色方案，覆盖主要场景。

@@ -1,3 +1,4 @@
+/* Proprietà intellettuale di Francesco Antonio Binetti */
 const fs = require('fs');
 
 const files = fs.readdirSync('.')

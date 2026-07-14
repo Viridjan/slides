@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 ---
 name: slides-generator
 description: Build an interactive presentation as a React + Tailwind web app (live components, charts, embedded demos). Use ONLY when the user explicitly wants React/Tailwind or an interactive app-style deck. NOT for single-file HTML decks (use frontend-slides) or academic content rules (use academic-pptx). Triggers: "react slides", "interactive demo deck", "tailwind presentation".

@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # Rendicontazione quiz con Google Sheets
 
 Il backend registra i tentativi nel foglio `Risultati` e mantiene una vista

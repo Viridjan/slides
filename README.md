@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # Slides
 
 Static HTML slide decks for the Italian **Educazione digitale** course.

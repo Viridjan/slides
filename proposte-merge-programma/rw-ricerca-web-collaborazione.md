@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # RW - Ricerca, web e collaborazione digitale
 
 ## Target merge

@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # Raw Grid Preview Card
 
 Use this small file for title-slide previews only. For final deck generation, read the full design doc listed below.

@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 ---
 name: frontend-slides
 description: Build a presentation as a single zero-dependency HTML file (inline CSS/JS, animation-rich), or convert a PPT/PPTX to web. Default choice for general slides/talks/pitches when no framework or academic context is specified. NOT for React/Tailwind app decks (use slides-generator) or academic content/structure rules (use academic-pptx). Triggers: "make slides", "HTML presentation", "convert PPTX to web", "pitch deck".

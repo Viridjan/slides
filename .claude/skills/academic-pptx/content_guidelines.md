@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # Academic Presentation Content Guidelines
 
 ## 1. Argument Structure

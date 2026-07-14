@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # TD / 3D - Modellazione e stampa 3D con TinkerCAD
 
 ## Fonte PPTX

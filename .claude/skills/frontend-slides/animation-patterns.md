@@ -1,3 +1,4 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # Animation Patterns Reference
 
 Use this reference when generating presentations. Match animations to the intended feeling.

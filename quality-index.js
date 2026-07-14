@@ -1,3 +1,4 @@
+/* Proprietà intellettuale di Francesco Antonio Binetti */
 // Manual editorial quality index.
 // Scale for each field: 0 = weak, 1 = acceptable, 2 = strong.
 // Fields: coverage, clarity, examples, correctness, freshness.
