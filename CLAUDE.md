@@ -15,6 +15,10 @@ nobody is working — the other agent may be mid-task and committing as it goes.
 
 ### Work log
 
+- **2026-07-14 · Claude** — Title slides carry one of two class names:
+  `.title` (8 decks) or `.title-slide` (75). Any rule meant to skip them must
+  exclude both — `:not(.title)` alone leaves 75 decks matched.
+
 - **2026-07-14 · Claude** — Source footers now stack as a list (one link per
   line) instead of sitting side by side; changed in
   `scripts/add-official-source-links.js`, regenerated across all decks.

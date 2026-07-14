@@ -396,22 +396,23 @@ em.sky,.accent{color:var(--accent-2) !important;}
    elements apart. `safe center` falls back to top alignment on a slide that is
    too full to centre, so dense slides get clipped at the bottom as before
    instead of losing their heading off the top edge.
-   Title slides keep their own grid layout; the footer is absolutely
+   Title slides keep their own grid layout (both class names are in use:
+   `.title` in 8 decks, `.title-slide` in 75); the footer is absolutely
    positioned, so it stays out of the flex flow. */
-.slide:not(.title):not(.closing){
+.slide:not(.title):not(.title-slide):not(.closing){
   display:flex !important;
   flex-direction:column !important;
   justify-content:safe center !important;
   gap:20px !important;
 }
 
-.slide:not(.title):not(.closing)>.tag,
-.slide:not(.title):not(.closing)>.h2,
-.slide:not(.title):not(.closing)>.lead{
+.slide:not(.title):not(.title-slide):not(.closing)>.tag,
+.slide:not(.title):not(.title-slide):not(.closing)>.h2,
+.slide:not(.title):not(.title-slide):not(.closing)>.lead{
   flex:0 0 auto !important;
 }
 
-.slide:not(.title):not(.closing)>.source-footer{
+.slide:not(.title):not(.title-slide):not(.closing)>.source-footer{
   margin:0 !important;
 }
 
