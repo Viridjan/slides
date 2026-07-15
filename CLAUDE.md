@@ -471,23 +471,24 @@ Navigation chain: pm01 → pm02 → pm03 → pm04
 
 ### Programmare
 
-Index numbering uses `PR01.01`-`PR01.05` for general programming theory, `PR02.xx` for Scratch, `PR03.xx` for Micro:bit and `PR04.xx` for coding tools.
+Index numbering uses `PR01.01`-`PR01.06` for general programming theory, `PR02.xx` for Scratch, `PR03.xx` for Micro:bit and `PR04.xx` for coding tools.
 
-General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-04 → pr01-05
+General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-04 → pr01-05 → pr01-06
 
 | File | Title |
 | --- | --- |
 | `pr01-01-introduzione-programmazione.html` | Introduzione alla programmazione |
 | `pr01-02-dati-codifica.html` | Dati e codifica |
-| `pr01-03-algoritmi.html` | Algoritmi e problemi |
-| `pr01-04-operatori-funzioni.html` | Operatori e funzioni |
-| `pr01-05-python-base.html` | Python di base |
+| `pr01-03-algoritmi.html` | Algoritmi e diagrammi di flusso |
+| `pr01-04-costrutti-verifica.html` | Costrutti e verifica |
+| `pr01-05-operatori-funzioni.html` | Operatori e funzioni |
+| `pr01-06-python-base.html` | Python di base |
 
-The `PR01.02`-`PR01.05` theory blocks are paraphrased and reorganized from the
+The `PR01.02`-`PR01.06` theory blocks are paraphrased and reorganized from the
 public PDF "Fondamenti di Informatica e Programmazione" by Edizioni Manna. Keep
 them in the Programmare group before Scratch; do not split them into
-Hardware/Software or other sections. `PR01.04` (operators and functions,
-language-agnostic) precedes `PR01.05` (the same ideas written in Python).
+Hardware/Software or other sections. `PR01.05` (operators and functions,
+language-agnostic) precedes `PR01.06` (the same ideas written in Python).
 
 Scratch navigation chain: pr02-01 → pr02-02
 
