@@ -10,7 +10,10 @@ codice Python
 programma corretto Francesco Antonio Binetti
 
 --- Slide 2 ---
-Cosa vedremo 01 Dal linguaggio naturale al linguaggio macchi 02 Python 03 Simboli fondamentali nella sintassi 04 La forma può avere significato 05 Rappresentare i dati prima di elaborarli 06 Conversione dei tipi 07 Leggere dati dall'esterno 08 Restituire risultati comprensibili 09 Conservare più valori insieme 10 Programmare come sequenza di passi 11 Dallo pseudocodice al programma 12 Tre famiglie di errori da riconoscere 13 Debug 14 Sviluppare piccoli passi verificabili 15 Spiegare ciò che il codice non dice da solo
+Cosa vedremo 01 La sintassi di Python 
+ Simboli e indentazione: la forma che il codice deve avere per essere eseguito. 02 Dati e input/output 
+ Tipi e conversioni, liste, leggere ciò che entra e mostrare ciò che esce. 03 Scrivere e correggere 
+ Dallo pseudocodice al programma: le famiglie di errori, il debug e i commenti.
 
 --- Slide 3 ---
 Dal linguaggio naturale al linguaggio macchina Il linguaggio naturale è flessibile ma ambiguo: «metti in ordine questi file» è chiaro per un collega, ma la macchina non sa se ordinare per nome, per data, crescente o decrescente. Il linguaggio macchina è eseguibile ma illeggibile. I linguaggi di programmazione stanno nel mezzo: formali come la matematica, leggibili quasi come una frase. Naturale Comodo per spiegare, rischioso per eseguire: sottintesi, contesto, ambiguità. Perfetto per raccogliere requisiti, inadatto come istruzione diretta. Macchina Sequenze binarie come 10110000 01100001, eseguite direttamente dal processore. Velocissime, ma illeggibili e diverse per ogni famiglia di CPU. Alto livello Python, JavaScript, C: parole chiave leggibili e regole precise. Un compilatore o interprete le traduce in linguaggio macchina al posto tuo.
@@ -85,3 +88,4 @@ Spiegare ciò che il codice non dice da solo I commenti non devono ripetere istr
 
 --- Slide 18 ---
 Dal testo ai blocchi. Con Python hai visto un programma scritto per intero. In Scratch gli stessi concetti diventano visivi e si trascinano con il mouse. Prossimo &#8594; PR02.01 · Scratch Francesco Antonio Binetti
+

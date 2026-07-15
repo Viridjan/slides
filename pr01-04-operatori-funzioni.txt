@@ -9,7 +9,10 @@ logici and or not
 funzione nome(input) &#8594; output Francesco Antonio Binetti
 
 --- Slide 2 ---
-Cosa vedremo 01 Aritmetici 02 Operatori aritmetici 03 Divisione 04 Potenza 05 Incrementi 06 Esempi pratici di formule numeriche 07 Operatori di confronto 08 Proposizioni e condizioni 09 AND 10 AND 11 OR 12 NOT 13 Combinare condizioni con parentesi 14 Assegnazione semplice 15 Assegnazioni composte 16 Uguale 17 Scegliere l’operatore giusto 18 Funzioni 19 Dove vive una variabile 20 Controllare funzioni piccole
+Cosa vedremo 01 Operatori aritmetici 
+ Somma, divisione, resto, potenza e assegnazione, con la precedenza che decide l'ordine dei calcoli. 02 Confronto e logica 
+ Confrontare valori, e combinare condizioni vere o false con AND, OR e NOT. 03 Funzioni 
+ Isolare una responsabilità in un blocco riusabile, capirne lo scope e verificarlo con esempi.
 
 --- Slide 3 ---
 Aritmetici, relazionali e logici Gli operatori sono simboli o parole che combinano valori. Alcuni calcolano, altri confrontano, altri costruiscono condizioni più complesse. Aritmetici +, -, *, / per calcoli numerici. Relazionali ==, !=, &gt;, &lt; per confrontare. Logici and, or, not per combinare condizioni.
@@ -127,3 +130,4 @@ area_rettangolo(2, 2) → 4
 
 --- Slide 23 ---
 Gli stessi operatori, ora in un linguaggio. Aritmetici, logici e funzioni sono idee indipendenti dal linguaggio. Il prossimo modulo le scrive in Python, dove diventano codice che gira davvero. Prossimo &#8594; PR01.05 · Python di base Francesco Antonio Binetti
+

@@ -8,7 +8,10 @@ Dati e
 8 bit = 1 byte
 
 --- Slide 2 ---
-Percorso Cosa vedremo 01 Dal significato al dato 02 Perché proprio zero e uno 03 Le unità minime della memoria 04 Quanto spazio occupano i dati 05 Dal decimale al binario 06 Dati e programmi condividono la stessa mater 07 Una forma compatta per leggere il binario 08 Codici: una tabella collega numeri e simboli 09 Anche una frase è una sequenza di numeri 10 Pixel 11 Campionare un segnale nel tempo 12 Ridurre lo spazio senza perdere il significa 13 Il formato dice come leggere i byte 14 Anche i numeri hanno un limite pratico
+Cosa vedremo 01 Bit, byte e binario 
+ Perché zero e uno, le unità della memoria, dal decimale al binario e la scrittura esadecimale. 02 Codificare i contenuti 
+ Testo, immagini e suono: come numeri e tabelle rappresentano ciò che vediamo e sentiamo. 03 Formati e limiti 
+ La compressione, i formati di file, il limite pratico dei numeri e l'ordine dei byte.
 
 --- Slide 3 ---
 Informazione Dal significato al dato Per una persona un'informazione ha senso nel contesto: un nome, una foto, una misura, un messaggio vocale. Per il computer quella stessa informazione deve diventare dato: una rappresentazione numerica precisa, memorizzabile ed elaborabile. È il primo passo di ogni programma: se un contenuto non si può trasformare in numeri, il computer non può toccarlo. Testo Ogni carattere riceve un numero da una tabella condivisa: la lettera A diventa 65, lo spazio 32. Una frase è quindi una fila di numeri. Immagini La foto diventa una griglia di pixel; ogni pixel è descritto da tre numeri che dosano rosso, verde e blu, ciascuno da 0 a 255. Suoni Il microfono misura il segnale migliaia di volte al secondo; ogni misura è un numero e la musica diventa una lunga lista di valori.

@@ -6,7 +6,10 @@ Programmare
  Micro:bit MakeCode, microcontrollore, simulatore, download e primi progetti con sensori e LED.
 
 --- Slide 2 ---
-Percorso Cosa vedremo 01 Micro 02 cos'è e a cosa serve 03 l'ambiente di lavoro completo 04 far parlare la matrice LED 05 leggere il mondo fisico 06 sei esercizi guidati
+Cosa vedremo 01 La scheda 
+ Il microcontrollore, il tour di fronte e retro e i sensori a bordo. 02 L'ambiente MakeCode 
+ Le aree dell'IDE, il simulatore e come si carica il codice sulla scheda. 03 Programmare la scheda 
+ Dai LED agli eventi fisici, le variabili, i progetti e il debug.
 
 --- Slide 3 ---
 Micro:bit in breve Micro:bit è un sistema embedded progettato per la formazione informatica: una piccola scheda programmabile con processore ARM Cortex-M4, matrice LED 5×5, pulsanti A e B, accelerometro, bussola, microfono e pin di contatto. Tutto il necessario per far dialogare codice e mondo fisico senza altri componenti. Nasce nel Regno Unito come progetto educativo della BBC ed è oggi usato nelle scuole di tutto il mondo. In pratica: è un computer minimo che trasforma ogni istruzione in un comportamento fisico osservabile: una luce che lampeggia, un numero che cambia, un suono che risponde. Il fronte della scheda: matrice LED 5×5, pulsanti A e B, logo touch, indicatore del microfono e i cinque pin grandi (0, 1, 2, 3V, GND).

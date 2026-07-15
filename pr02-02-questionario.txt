@@ -6,7 +6,10 @@ Questionari
  con Scratch Variabili, sensori, condizioni, timer, punteggio e liste per costruire un quiz interattivo.
 
 --- Slide 2 ---
-Percorso Cosa vedremo 01 Obiettivo 02 costruire un questionario narrativo a tempo 03 tempo 04 blocco "Chiedi e attendi" della categoria Se 05 if / then / else 06 countdown con "ripeti fino a" e messaggio Te 07 domande e risposte scalabili con indice pos
+Cosa vedremo 01 Impostare il quiz 
+ I materiali, un file ordinato, le variabili e l'inizializzazione. 02 Domande e logica 
+ Porre domande, confronti case-sensitive, if/then/else, più risposte e punteggio. 03 Struttura avanzata 
+ Timer, architettura a messaggi, più sprite, liste e collaudo finale.
 
 --- Slide 3 ---
 Il progetto quiz L'obiettivo è realizzare un questionario a tempo con personaggi, domande, risposte controllate, punteggio e fine automatica. Il quiz combina tutti gli strumenti principali di Scratch — sprite, variabili, messaggi, condizioni, cicli — in un unico progetto coerente. In pratica: un quiz è una conversazione guidata, ma con memoria, regole e stato interno che cambia ad ogni risposta. 💡 Lettura Un quiz ben strutturato ha uno stato iniziale chiaro (punti = 0, tempo = 60), una sequenza di domande ordinata tramite messaggi e un risultato finale calcolato in automatico alla fine del tempo. Il quiz visto da chi gioca: il fumetto mostra la domanda, la casella in basso raccoglie la risposta.

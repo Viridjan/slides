@@ -6,7 +6,10 @@ Micro:bit
  CreateAI Sessioni, campioni, dati live, azioni e addestramento del modello con Micro:bit CreateAI.
 
 --- Slide 2 ---
-Percorso Cosa vedremo 01 Ambiente online 02 createai 03 categorie che il modello deve riconoscere 🛠 04 campioni registrati per ciascuna azione 🎯 Li 05 dati in tempo reale dalla scheda 🔁 Training 06 addestrare
+Cosa vedremo 01 L'ambiente CreateAI 
+ Avviare una sessione, le aree dell'IDE e la pipeline del progetto. 02 Costruire il dataset 
+ Azioni come etichette, registrare campioni, la qualità dei dati e allenare il modello. 03 Usare il modello 
+ Testarlo, correggerlo quando sbaglia, portarlo in MakeCode e documentarlo.
 
 --- Slide 3 ---
 CreateAI in breve CreateAI è una piattaforma didattica gratuita sviluppata dalla Micro:bit Educational Foundation che porta il Micro:bit dentro un flusso di machine learning completo. Non serve installare nulla: tutto avviene nel browser su createai.microbit.org. Si registrano esempi di movimento o altro segnale del sensore, si assegnano etichette descrittive alle azioni, si addestra un modello con un clic e si testa il risultato in tempo reale collegando la scheda fisica. L'obiettivo è rendere comprensibile il ciclo dati-addestramento-predizione senza richiedere competenze matematiche avanzate. In pratica: invece di scrivere ogni regola, mostriamo esempi e lasciamo che il modello impari a distinguere automaticamente i pattern. La home di createai.microbit.org : da «Get started» si entra nel laboratorio di machine learning. Fonte: AI Risk Management Framework — NIST ↗

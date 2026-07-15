@@ -6,7 +6,10 @@ Introduzione alla
  programmazione Linguaggi, stile, ciclo di vita del software, categorie di linguaggi, sintassi, semantica, testing e computabilità. ⌨️
 
 --- Slide 2 ---
-Percorso Cosa vedremo 01 Programmare è esprimere un comportamento 02 Il codice è scritto per due lettori 03 Come un linguaggio supporta il software 04 Ogni linguaggio sceglie compromessi 05 Il vocabolario condiviso 06 Scrivere in modo valido 07 Prima di eseguire 08 Durante l'esecuzione 09 Famiglie di linguaggi 10 Corretto non significa solo "compila" 11 Cosa può calcolare un programma 12 Non tutto è verificabile automaticamente 13 Un programma comunica intenzioni 14 Il costo vero arriva dopo la prima versione
+Cosa vedremo 01 Cosa significa programmare 
+ Esprimere un comportamento in un linguaggio, scritto perché lo capiscano due lettori: la macchina e le persone. 02 I concetti di ogni linguaggio 
+ Variabili e tipi, espressioni, controllo del flusso e procedure: i mattoni che ritrovi in qualunque linguaggio. 03 Correttezza e limiti 
+ Validità e famiglie di linguaggi, errori e test, e ciò che nessun programma può calcolare.
 
 --- Slide 3 ---
 Programmare è esprimere un comportamento I linguaggi di programmazione sono il mezzo espressivo nell'arte della programmazione dei computer. Un buon linguaggio aiuta a scrivere programmi chiari, funzionanti e comprensibili anche dopo molto tempo. E probabilmente ne avete già usato uno senza saperlo: una formula nel foglio di calcolo o un progetto Scratch sono già programmi, con parole, regole e uno stile. Idea chiave: un programma non deve solo funzionare oggi; deve poter essere letto, modificato e mantenuto domani, spesso da una persona diversa da chi l'ha scritto. programma = istruzioni + dati + struttura
