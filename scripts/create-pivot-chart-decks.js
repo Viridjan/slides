@@ -36,7 +36,7 @@ const pivotSlides = [
 ];
 
 const chartSlides = [
-  `<section class="slide title-slide active visible"><div class="title-left"><h1 class="h-mega reveal">Grafici<br><em class="hot">che parlano</em></h1><p class="lead reveal d1" style="margin-top:30px;">Scegliere il grafico giusto, preparare i dati e comunicare confronti, trend, composizioni e relazioni senza distorcere.</p></div><div class="title-right"><div class="reveal" style="font-size:190px;z-index:2;">📈</div></div>${author}</section>`,
+  `<section class="slide title-slide active visible"><div class="title-left"><h1 class="h-mega reveal">Grafici<br><em class="hot">che parlano</em></h1><p class="lead reveal d1" style="margin-top:30px;">Scegliere il grafico giusto, preparare i dati e comunicare confronti, trend, composizioni e relazioni senza distorcere.</p></div><div class="title-right"><svg class="reveal" viewBox="0 0 620 420" width="620" height="420" aria-label="Grafico lineare stilizzato"><line x1="70" y1="350" x2="570" y2="350" stroke="#f4ece0" stroke-width="8"/><line x1="70" y1="350" x2="70" y2="55" stroke="#f4ece0" stroke-width="8"/><polyline points="90,300 185,245 275,270 365,165 455,190 545,85" fill="none" stroke="#e6c14a" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><g fill="#e6533b"><circle cx="90" cy="300" r="13"/><circle cx="185" cy="245" r="13"/><circle cx="275" cy="270" r="13"/><circle cx="365" cy="165" r="13"/><circle cx="455" cy="190" r="13"/><circle cx="545" cy="85" r="13"/></g></svg></div>${author}</section>`,
   agenda(['Domanda prima del grafico', 'Preparare i dati', 'Barre e colonne', 'Linee e tempo', 'Composizione', 'Dispersione', 'Istogrammi', 'Elementi essenziali', 'Scale corrette', 'Colori e accessibilità', 'Grafici dinamici', 'Grafici combinati e assi', 'Grafici speciali e sparkline', 'Trend e previsione', 'Dashboard e revisione']),
   `<section class="slide"><div class="split"><div class="stack"><h2 class="h-sec reveal">Il grafico è una risposta visuale</h2><p class="lead reveal d1">Prima di aprire Inserisci → Grafico, completa la frase: “Voglio far vedere che…”.</p><div class="analogy reveal d2"><span class="big">Regola:</span> una domanda, un messaggio principale, un grafico.</div></div><div class="grid2 reveal d1">${card('teal','↔','Confronto','Quale categoria è maggiore?')} ${card('sky','↗','Trend','Come cambia nel tempo?')} ${card('gold','◔','Composizione','Come si divide il totale?')} ${card('red','⠿','Relazione','Due variabili si muovono insieme?')}</div></div>${page}</section>`,
   `<section class="slide tight"><h2 class="h-sec reveal">Dati ordinati, grafico prevedibile</h2><div class="grid4 reveal d1" style="margin-top:28px;">${card('teal','▤','Intestazioni','Nomi brevi e univoci per categorie e serie.')} ${card('sky','123','Numeri veri','Valori numerici, non testo con simboli digitati.')} ${card('gold','📅','Date vere','Ordine temporale riconosciuto dal foglio.')} ${card('red','∅','Vuoti espliciti','Decidi se significano zero, dato mancante o non applicabile.')}</div><div class="note reveal d2" style="margin-top:22px;"><div class="lbl">💡 Selezione</div><p>Seleziona intestazioni e dati, ma escludi totali duplicati: una serie “Totale” spesso raddoppia visivamente ciò che è già rappresentato.</p></div>${page}</section>`,
@@ -165,6 +165,13 @@ for (let i = 0; i < chartSlides.length; i++) {
   for (const [brief, expanded] of chartCopyExpansion) {
     chartSlides[i] = chartSlides[i].replaceAll(brief, expanded);
   }
+  // This is a technical reading deck: card headings already provide the
+  // hierarchy, so decorative icons only add noise and platform-dependent emoji
+  // rendering. Keep information-bearing SVG charts, remove ornamental glyphs.
+  chartSlides[i] = chartSlides[i]
+    .replace(/<span class="ic">[^<]*<\/span>/g, '')
+    .replace(/<span style="font-size:34px;min-width:50px;">[^<]*<\/span>/g, '')
+    .replace(/(?:💡|⚠️)\s*/g, '');
 }
 
 fs.writeFileSync('su03-09-tabelle-pivot-avanzate.html', frame('Suite Ufficio · SU03.09 — Tabelle pivot avanzate', pivotSlides));

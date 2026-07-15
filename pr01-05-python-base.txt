@@ -1,0 +1,87 @@
+Programmare · PR01.05 — Python di base
+========================================
+
+--- Slide 1 ---
+Python di
+ base Dalla logica al codice che si esegue: sintassi, tipi, input e output, liste, errori e debug. Il primo linguaggio scritto per intero, un pezzo alla volta. algoritmo
+ &#8595; pseudocodice
+codice Python
+ &#8595; test
+programma corretto Francesco Antonio Binetti
+
+--- Slide 2 ---
+Cosa vedremo 01 Dal linguaggio naturale al linguaggio macchi 02 Python 03 Simboli fondamentali nella sintassi 04 La forma può avere significato 05 Rappresentare i dati prima di elaborarli 06 Conversione dei tipi 07 Leggere dati dall'esterno 08 Restituire risultati comprensibili 09 Conservare più valori insieme 10 Programmare come sequenza di passi 11 Dallo pseudocodice al programma 12 Tre famiglie di errori da riconoscere 13 Debug 14 Sviluppare piccoli passi verificabili 15 Spiegare ciò che il codice non dice da solo
+
+--- Slide 3 ---
+Dal linguaggio naturale al linguaggio macchina Il linguaggio naturale è flessibile ma ambiguo: «metti in ordine questi file» è chiaro per un collega, ma la macchina non sa se ordinare per nome, per data, crescente o decrescente. Il linguaggio macchina è eseguibile ma illeggibile. I linguaggi di programmazione stanno nel mezzo: formali come la matematica, leggibili quasi come una frase. Naturale Comodo per spiegare, rischioso per eseguire: sottintesi, contesto, ambiguità. Perfetto per raccogliere requisiti, inadatto come istruzione diretta. Macchina Sequenze binarie come 10110000 01100001, eseguite direttamente dal processore. Velocissime, ma illeggibili e diverse per ogni famiglia di CPU. Alto livello Python, JavaScript, C: parole chiave leggibili e regole precise. Un compilatore o interprete le traduce in linguaggio macchina al posto tuo.
+
+--- Slide 4 ---
+Python: un primo ponte verso il codice Python è adatto per iniziare: sintassi leggibile, poca cerimonia, risultato immediato. Queste otto righe sono già un programma completo: chiedono dati, li convertono, decidono e rispondono. nome = input("Come ti chiami? ")
+print("Ciao", nome)
+
+eta = int(input("Eta: "))
+if eta >= 18:
+ print("Maggiorenne")
+else:
+ print("Minorenne") Riga per riga input() mostra la domanda e restituisce ciò che scrivi, sempre come testo. int() lo trasforma in numero. if confronta e sceglie il ramo: con 25 stampa «Maggiorenne», con 15 stampa «Minorenne». Errore comune: dimenticare int(). input() restituisce una stringa, e confrontare "15" &gt;= 18 produce un errore di tipo.
+
+--- Slide 5 ---
+Simboli fondamentali nella sintassi Ogni linguaggio usa simboli per separare blocchi, argomenti, liste, stringhe e commenti. Riconoscerli aiuta a leggere codice nuovo. () chiamata o raggruppamento
+[] liste o indici
+{} blocchi o dizionari
+, separa argomenti
+: introduce blocchi in Python
+# commento in Python
+
+--- Slide 6 ---
+La forma può avere significato In Python l'indentazione non è decorativa: delimita blocchi di istruzioni. Un rientro sbagliato può cambiare il comportamento o generare errore. if eta >= 18:
+ print("accesso consentito")
+ print("continua")
+print("fine controllo")
+
+--- Slide 7 ---
+Rappresentare i dati prima di elaborarli Un programma non tocca oggetti reali: lavora su dati rappresentati in modo formale. Scegliere il tipo giusto fin dall'inizio rende più semplice scrivere l'algoritmo e previene errori: non puoi moltiplicare un testo, né mettere in maiuscolo un numero. Numeri Per calcoli, misure, contatori e indici: eta = 25, prezzo = 12.50. Si possono sommare, confrontare, dividere e usare per calcolare medie e totali. Stringhe Sequenze di caratteri tra virgolette: nome = "Giulia". Servono per nomi, messaggi, indirizzi. Anche "25" è una stringa: sembra un numero, ma non lo è. Booleani Solo due valori: True o False. attivo = True. Guidano ogni decisione del programma: entrare in un ramo, ripetere un ciclo, filtrare una tabella. Errore comune "23" + "1" produce "231", perché incolla due testi; 23 + 1 produce 24. Stesso simbolo +, tipi diversi, risultati opposti: per questo il tipo va scelto con cura.
+
+--- Slide 8 ---
+Conversione dei tipi: quando un valore deve cambiare Molti input arrivano come testo, anche quando rappresentano numeri. Convertire significa trasformare il valore nel tipo necessario per l'operazione successiva. eta_testo = "18"
+eta = int(eta_testo)
+if eta >= 18:
+ print("ok")
+
+--- Slide 9 ---
+Leggere dati dall'esterno Un programma diventa utile quando riceve dati variabili: da tastiera, file, sensori, rete o interfaccia grafica. L'input va sempre interpretato e controllato. Formato Il dato arriva come testo, numero, scelta o struttura? Validità Il dato rispetta ciò che il programma si aspetta?
+
+--- Slide 10 ---
+Restituire risultati comprensibili L'output non è solo stampare un valore. Deve comunicare il risultato nel formato giusto, con messaggi chiari e senza nascondere errori importanti. Schermo Messaggi, tabelle, grafici o interfacce. File Risultati salvati per uso successivo. Rete Dati inviati ad altri sistemi o servizi.
+
+--- Slide 11 ---
+Conservare più valori insieme Una lista raccoglie più elementi in una sola struttura. Permette di attraversare dati simili con un ciclo, calcolare statistiche o cercare elementi. voti = [7, 8, 6, 9]
+totale = 0
+for voto in voti:
+ totale = totale + voto
+
+--- Slide 12 ---
+Programmare come sequenza di passi Nei linguaggi procedurali il programma è un insieme di istruzioni e procedure eseguite in ordine. L'attenzione è sul percorso: cosa fare prima, cosa dopo, quando scegliere e quando ripetere. Come in una ricetta: prima accendi il forno, poi impasti, poi inforni. Vantaggio È vicino al modo in cui descriviamo procedure operative e calcoli passo-passo. Si legge riga per riga: ciò che accade al passo 3 dipende solo dai passi 1 e 2. Rischio Se il programma cresce senza struttura diventa un blocco unico: per capire una riga devi rileggere tutto ciò che la precede. Le procedure servono proprio a spezzarlo in parti. 1. leggi ordine 2. verifica scorta
+3. calcola totale 4. stampa ricevuta
+
+--- Slide 13 ---
+Dallo pseudocodice al programma Pseudocodice Serve a controllare la logica senza bloccarci sulla sintassi. Codice Traduce la logica in istruzioni precise per un interprete o compilatore. leggi numero
+se numero e pari allora
+ scrivi "pari"
+altrimenti
+ scrivi "dispari"
+
+--- Slide 14 ---
+Tre famiglie di errori da riconoscere Sintassi Il linguaggio non riesce a leggere il programma. Esecuzione Il programma parte, ma si blocca durante un caso specifico. Logica Il programma termina, ma produce un risultato sbagliato.
+
+--- Slide 15 ---
+Debug: osservare il programma mentre lavora Fare debug significa ricostruire cosa succede davvero durante l'esecuzione. Si controllano input, valori intermedi, rami scelti e punto in cui il comportamento diverge dalle attese. Stampe Mostrano valori temporanei. Breakpoint Fermano l'esecuzione in un punto. Traccia Segue il percorso del programma.
+
+--- Slide 16 ---
+Sviluppare piccoli passi verificabili Un buon flusso di lavoro alterna progettazione, scrittura, esecuzione e correzione. Meglio costruire programmi piccoli e testabili che scrivere molte istruzioni senza controllarle. Scrivi poco Aggiungi una parte alla volta. Esegui spesso Controlla subito cosa cambia. Testa casi Prova esempi normali, limite e sbagliati.
+
+--- Slide 17 ---
+Spiegare ciò che il codice non dice da solo I commenti non devono ripetere istruzioni ovvie. Servono per chiarire scelte, vincoli, casi limite e motivi per cui una soluzione è stata preferita a un'altra. Utile Spiega una decisione non evidente. Inutile Ripete parola per parola il codice.
+
+--- Slide 18 ---
+Dal testo ai blocchi. Con Python hai visto un programma scritto per intero. In Scratch gli stessi concetti diventano visivi e si trascinano con il mouse. Prossimo &#8594; PR02.01 · Scratch Francesco Antonio Binetti
