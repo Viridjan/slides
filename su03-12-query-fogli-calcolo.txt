@@ -10,7 +10,10 @@ query
 vista aggiornata Francesco Antonio Binetti
 
 --- Slide 2 ---
-Percorso Cosa vedremo 01 Che cos’è una query 02 SELECT 03 La funzione QUERY in Google Sheets 04 Scegliere solo le colonne utili 05 Condizioni numeriche 06 Ordinare e limitare i risultati 07 GROUP BY 08 PIVOT nella QUERY di Sheets 09 Power Query in Excel 10 Unire tabelle con una chiave 11 Query come pipeline di pulizia 12 Come controllare una query
+Cosa vedremo 01 Cos'è una query 
+ SELECT, WHERE e ORDER BY, e la funzione QUERY in Google Sheets. 02 Filtrare e raggruppare 
+ Le colonne utili, le condizioni, ordinare, GROUP BY e PIVOT. 03 Oltre Sheets 
+ Power Query in Excel, unire tabelle e la query come pipeline di pulizia.
 
 --- Slide 3 ---
 Concetto Che cos’è una query Una query è una richiesta strutturata: prendi questi dati, tieni solo certe righe, scegli certe colonne, ordina o raggruppa il risultato. Non copia Il risultato dipende dalla sorgente e può aggiornarsi. Non formula singola Lavora su tabelle intere, non solo su una cella. Domanda esplicita “Mostrami le vendite 2026 per categoria sopra 500 euro”. Regola: prima scegli le righe, poi le colonne, infine l'ordine.
@@ -62,3 +65,4 @@ Debug Come controllare una query Le query vanno testate a piccoli passi: prima s
 
 --- Slide 15 ---
 Una query è una domanda ripetibile fatta ai dati. Quando la domanda è scritta bene, il report si aggiorna invece di essere ricostruito a mano. Prossimo → SU03.13 · Macro Torna all’indice Fonti e approfondimenti SQL — Wikipedia ↗ (https://it.wikipedia.org/wiki/Structured_Query_Language)Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel) Francesco Antonio Binetti
+

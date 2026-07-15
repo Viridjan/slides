@@ -10,7 +10,10 @@ Drive / Gmail / API
 workflow cloud Francesco Antonio Binetti
 
 --- Slide 2 ---
-Percorso Cosa vedremo 01 Fondamenti 02 Costrutti 03 Automazione 04 Produzione
+Cosa vedremo 01 Fondamenti 
+ Cos'è Apps Script, l'editor, JavaScript essenziale e SpreadsheetApp. 02 Automazione 
+ getValues e setValues, menu, trigger, autorizzazioni e i servizi Gmail, Drive e UrlFetch. 03 In produzione 
+ JSON, HTML Service e web app, proprietà e lock, debug, quote e deployment.
 
 --- Slide 3 ---
 Fondamenti Che cos’è Apps Script Google Apps Script è JavaScript nel cloud Google: automatizza Sheets, Docs, Drive, Gmail, Calendar e servizi esterni. Caso concreto Un foglio con gli appuntamenti del salone genera ogni sera i promemoria, archivia un PDF su Drive e registra l’esito senza lasciare acceso un computer. Punto di forza Il codice gira nell’infrastruttura Google e usa direttamente i servizi Workspace dell’account, con autorizzazioni esplicite. Errore da evitare Trattarlo come JavaScript nel browser: non esistono DOM e window; si lavora con servizi come SpreadsheetApp e GmailApp. Esercizio Scegli un’attività in Workspace e descrivi origine dei dati, azione automatica, destinazione e frequenza di esecuzione. [Fonte: JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript]
@@ -125,3 +128,4 @@ Produzione Progetto finale Apps Script Un progetto completo legge un foglio, fil
 
 --- Slide 25 ---
 Apps Script collega i fogli agli strumenti Google. È ideale quando il lavoro parte da Sheets ma deve produrre email, file, report e azioni programmate. Prossimo → SU04.01 · Presentazioni Torna all’indice Fonti e approfondimenti JavaScript — Wikipedia ↗ (https://it.wikipedia.org/wiki/JavaScript)Formule e funzioni — Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)Internet Message Format — RFC 5322 ↗ (https://www.rfc-editor.org/rfc/rfc5322)HTML — Wikipedia ↗ (https://it.wikipedia.org/wiki/HTML) Francesco Antonio Binetti
+

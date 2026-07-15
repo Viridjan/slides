@@ -10,7 +10,10 @@ VBA
 report e procedure Francesco Antonio Binetti
 
 --- Slide 2 ---
-Percorso Cosa vedremo 01 Fondamenti 02 Costrutti 03 Automazione 04 Produzione
+Cosa vedremo 01 Fondamenti 
+ L'editor e i moduli, Sub e Function, variabili e tipi, e Option Explicit. 02 Costrutti 
+ Range e Cells, With, condizioni, Select Case e i cicli. 03 In produzione 
+ Errori, performance, file, eventi, UserForm, sicurezza e progetto finale.
 
 --- Slide 3 ---
 Fondamenti Introduzione a VBA VBA (Visual Basic for Applications) è il linguaggio già incluso in Excel: non serve installare nulla. Con poche righe di codice ripeti in un secondo, sempre nello stesso modo, operazioni che a mano richiedono minuti e attenzione continua. Perché impararlo Il salone Belli e Brillanti prepara ogni lunedì il report incassi: copiare le righe, ordinarle, formattare i totali. Una macro esegue gli stessi passaggi senza saltarne nessuno e libera tempo per le clienti. Quando serve Quando un'operazione si ripete identica ogni settimana, tocca centinaia di righe o è rischiosa da fare a mano: importare gli incassi dalla cassa, pulire l'elenco clienti, generare i listini stampabili. Errore comune Scrivere codice prima di chiarire input, output e casi limite: cosa deve succedere se una cella è vuota, se manca il foglio o se le righe sono più del solito? Esercizio Scegli un'attività ripetitiva del salone (per esempio il report del lunedì) e descrivila in tre passaggi precisi: input, trasformazione, output. È la bozza della tua prima macro. [Fonte: Riferimento VBA per Office — Microsoft Learn — https://learn.microsoft.com/office/vba/api/overview/] [Fonte: Supporto Microsoft Excel — https://support.microsoft.com/excel]
@@ -132,3 +135,4 @@ Produzione Progetto finale VBA Un buon progetto finale importa dati, li valida, 
 
 --- Slide 25 ---
 VBA controlla Excel come un’app programmabile. Con pochi costrutti solidi puoi trasformare un file ripetitivo in uno strumento di lavoro. Prossimo → SU03.15 · Apps Script Torna all’indice Fonti e approfondimenti Riferimento VBA per Office — Microsoft Learn ↗ (https://learn.microsoft.com/office/vba/api/overview/)Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)Macro — Wikipedia ↗ (https://it.wikipedia.org/wiki/Macro_(informatica)) Francesco Antonio Binetti
+
