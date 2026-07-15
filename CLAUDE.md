@@ -471,7 +471,7 @@ Navigation chain: pm01 → pm02 → pm03 → pm04
 
 ### Programmare
 
-Index numbering uses `PR01.01`-`PR01.04` for general programming theory, `PR02.xx` for Scratch and `PR03.xx` for Micro:bit.
+Index numbering uses `PR01.01`-`PR01.04` for general programming theory, `PR02.xx` for Scratch, `PR03.xx` for Micro:bit and `PR04.xx` for coding tools.
 
 General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-04
 
@@ -500,6 +500,12 @@ Micro:bit navigation chain: pr03-01 → pr03-02
 | --- | --- |
 | `pr03-01-microbit.html` | Fondamenti Micro:bit |
 | `pr03-02-createai.html` | Micro:bit CreateAI |
+
+Coding tools (pr03-02 closes into pr04-01):
+
+| File | Title |
+| --- | --- |
+| `pr04-01-editor-codice.html` | Strumenti per scrivere codice |
 
 ### Modellazione e stampa 3D
 
