@@ -68,7 +68,7 @@ function slideTitle(deck) {
 
 function slideAgenda(deck) {
   const items = deck.slides.slice(0, 12).map((s, i) => `<div class="card"><h3>${String(i + 1).padStart(2, '0')} · ${s.short || s.title}</h3><p>${s.summary || s.lead}</p></div>`).join('');
-  return `<section class="slide tight"><span class="tag">Percorso</span><h2 class="h2">Cosa vedremo</h2><div class="grid3">${items}</div><div class="num"></div></section>`;
+  return `<section class="slide tight no-top-label"><h2 class="h2">Cosa vedremo</h2><div class="grid3">${items}</div><div class="num"></div></section>`;
 }
 
 function bodySlide(s) {
@@ -76,13 +76,13 @@ function bodySlide(s) {
   const code = s.code ? `<div class="code">${esc(s.code)}</div>` : '';
   const note = s.note ? `<div class="note"><div class="lbl">${s.note.h}</div><p>${s.note.p}</p></div>` : '';
   if (s.layout === 'code') {
-    return `<section class="slide"><div class="split"><div class="stack"><span class="tag">${s.tag}</span><h2 class="h2">${s.title}</h2><p class="lead">${s.lead}</p>${note}</div>${code}</div><div class="num"></div></section>`;
+    return `<section class="slide"><div class="split"><div class="stack"><h2 class="h2">${s.title}</h2><p class="lead">${s.lead}</p>${note}</div>${code}</div><div class="num"></div></section>`;
   }
   if (s.layout === 'table') {
     const rows = s.rows.map((row, i) => `<tr>${row.map((cell) => i === 0 ? `<th>${cell}</th>` : `<td>${cell}</td>`).join('')}</tr>`).join('');
-    return `<section class="slide"><div class="split"><div class="stack"><span class="tag">${s.tag}</span><h2 class="h2">${s.title}</h2><p class="lead">${s.lead}</p>${note}</div><table class="table">${rows}</table></div><div class="num"></div></section>`;
+    return `<section class="slide"><div class="split"><div class="stack"><h2 class="h2">${s.title}</h2><p class="lead">${s.lead}</p>${note}</div><table class="table">${rows}</table></div><div class="num"></div></section>`;
   }
-  return `<section class="slide tight"><span class="tag">${s.tag}</span><h2 class="h2">${s.title}</h2><p class="lead">${s.lead}</p><div class="${(s.cards || []).length >= 4 ? 'grid4' : (s.cards || []).length === 3 ? 'grid3' : 'grid2'}">${cards}</div>${code ? `<div style="margin-top:24px">${code}</div>` : ''}${note ? `<div style="margin-top:24px">${note}</div>` : ''}<div class="num"></div></section>`;
+  return `<section class="slide tight no-top-label"><h2 class="h2">${s.title}</h2><p class="lead">${s.lead}</p><div class="${(s.cards || []).length >= 4 ? 'grid4' : (s.cards || []).length === 3 ? 'grid3' : 'grid2'}">${cards}</div>${code ? `<div style="margin-top:24px">${code}</div>` : ''}${note ? `<div style="margin-top:24px">${note}</div>` : ''}<div class="num"></div></section>`;
 }
 
 function renderDeck(deck) {
@@ -113,7 +113,7 @@ function deckDefinitions() {
     closeTitle: 'Un buon foglio è un piccolo sistema informativo.',
     closeLead: 'Più la struttura è chiara, più formule, query e automazioni diventano semplici da mantenere.',
     slides: [
-      {tag:'Sistema', title:'Il foglio non è solo una griglia', short:'Griglia o sistema', lead:'Un foglio di calcolo diventa potente quando è progettato come sistema: input chiari, elaborazione controllata e output leggibile.', cards:[{h:'Input',p:'Dati inseriti o importati: vendite, presenze, ordini, appuntamenti.'},{h:'Logica',p:'Formule, controlli, regole di validazione e tabelle di appoggio.'},{h:'Output',p:'Report, grafici, pivot, esportazioni PDF o dashboard condivise.'}]},
+      {tag:'Sistema', title:'Il foglio di calcolo non è solo una griglia', short:'Griglia o sistema', lead:'Un foglio di calcolo diventa potente quando è progettato come sistema: input chiari, elaborazione controllata e output leggibile.', cards:[{h:'Input',p:'Dati inseriti o importati: vendite, presenze, ordini, appuntamenti.'},{h:'Logica',p:'Formule, controlli, regole di validazione e tabelle di appoggio.'},{h:'Output',p:'Report, grafici, pivot, esportazioni PDF o dashboard condivise.'}]},
       {tag:'Struttura', title:'Una tabella pulita batte cento formule', lead:'La qualità del risultato dipende prima dalla forma dei dati. Ogni colonna deve rappresentare una sola informazione e ogni riga un solo evento.', cards:[{h:'Una riga = record',p:'Una vendita, un cliente, un appuntamento, una riga di magazzino.'},{h:'Una colonna = campo',p:'Data, categoria, quantità, prezzo, stato, referente.'},{h:'Niente celle unite',p:'Sono comode da vedere ma rompono ordinamenti, filtri e importazioni.'},{h:'Niente totali in mezzo',p:'I totali stanno nei report, non nella tabella sorgente.'}]},
       {tag:'Dati', title:'Tipi di dato: numero, testo, data, booleano', lead:'Molti errori nascono da valori che sembrano corretti ma sono del tipo sbagliato: numeri salvati come testo, date ambigue, spazi invisibili.', cards:[{h:'Numeri',p:'Servono per calcoli. Evita simboli digitati a mano dentro la cella.'},{h:'Testo',p:'Nomi, codici, categorie. Attenzione a maiuscole, accenti e spazi.'},{h:'Date',p:'Devono essere date vere, non testo: così puoi filtrare per mese e anno.'},{h:'Booleani',p:'Vero/falso, sì/no, completato/non completato: utili per controlli e filtri.'}]},
       {tag:'Validazione', title:'Impedire errori prima che entrino', lead:'La convalida dati limita cosa può essere inserito in una cella: menu a tendina, intervalli numerici, date consentite, valori obbligatori.', cards:[{h:'Liste',p:'Scegli categoria da un elenco invece di scriverla ogni volta.'},{h:'Numeri',p:'Accetta solo quantità maggiori di zero o sconti tra 0% e 100%.'},{h:'Date',p:'Blocca date fuori periodo o scadenze precedenti all’inizio.'},{h:'Messaggi',p:'Spiega all’utente cosa inserire e perché.'}]},
@@ -289,9 +289,9 @@ function addOperatorBlock() {
     ['Simboli', 'Simboli fondamentali nella sintassi', 'Ogni linguaggio usa simboli per separare blocchi, argomenti, liste, stringhe e commenti. Riconoscerli aiuta a leggere codice nuovo.', '()  chiamata o raggruppamento\n[]  liste o indici\n{}  blocchi o dizionari\n,   separa argomenti\n:   introduce blocchi in Python\n#   commento in Python'],
     ['Simboli', 'Uguale, confronto e identità', 'Molti bug nascono dalla confusione tra assegnare, confrontare e controllare identità o equivalenza.', 'x = 5      # assegna\nx == 5     # confronta valore\nx != 5     # diverso\nx is None  # identità/speciale in Python'],
     ['Sintesi', 'Scegliere l’operatore giusto', 'Prima chiediti che tipo di risultato vuoi: numero, vero/falso, aggiornamento di variabile o struttura sintattica.', 'numero → + - * / // % **\nbooleano → == != > < >= <= and or not\naggiornamento → = += -= *= /=\nstruttura → () [] {} , : .'],
-  ].map(([tag, title, lead, code]) => `<section class="slide"><span class="tag">${tag}</span><h2 class="h2">${title}</h2><p class="lead">${lead}</p><div class="code">${esc(code)}</div><div class="num"></div></section>`).join('\n');
+  ].map(([tag, title, lead, code]) => `<section class="slide no-top-label"><h2 class="h2">${title}</h2><p class="lead">${lead}</p><div class="code">${esc(code)}</div><div class="num"></div></section>`).join('\n');
 
-  html = html.replace(/<section class="slide"><span class="tag">Operatori<\/span>[\s\S]*?<div class="num"><\/div><\/section>/, (match) => `${match}\n${blockSlides}`);
+  html = html.replace(/<section class="slide no-top-label"><h2 class="h2">Aritmetici, relazionali e logici<\/h2>[\s\S]*?<div class="num"><\/div><\/section>/, (match) => `${match}\n${blockSlides}`);
   html = html.replace(/<span class="chip">22 slide<\/span>/, '<span class="chip">37 slide</span>');
   write(file, html);
 

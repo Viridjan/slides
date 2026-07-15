@@ -6,7 +6,7 @@ const head = base.slice(0, base.indexOf('<body'))
   .replace(/<title>[\s\S]*?<\/title>/, '<title>Suite Ufficio · SU03.03 — Fondamenti matematici</title>');
 const page = '<div class="page-num"></div>';
 const author = '<div class="deck-author">Francesco Antonio Binetti</div>';
-const source = (href, label) => `<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:38px;z-index:4;"><a href="${href}" target="_blank" rel="noopener noreferrer" style="font-family:var(--font-mono);font-size:16px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;">Fonte: ${label} ↗</a></div>`;
+const source = (href, label) => `<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;"><a href="${href}" target="_blank" rel="noopener noreferrer" style="font-family:var(--font-mono);font-size:16px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;">Fonte: ${label} ↗</a></div>`;
 const card = (tone, icon, title, text) => `<div class="card ${tone}"><span class="ic">${icon}</span><h3>${title}</h3><p>${text}</p></div>`;
 
 function grid(title, lead, items, note = '', src = '') {
@@ -19,7 +19,7 @@ function formula(title, lead, expression, items, src = '') {
 }
 
 function agenda(items) {
-  return `<section class="slide"><span class="tag">Percorso</span><h2 class="h-sec">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(${Math.ceil(items.length / 2)},auto);">${items.map((x, i) => `<div class="agenda-item"><span class="n">${String(i + 1).padStart(2,'0')}</span><span class="t">${x}</span></div>`).join('')}</div>${page}</section>`;
+  return `<section class="slide no-top-label"><h2 class="h-sec">Cosa vedremo</h2><div class="agenda-list" style="grid-template-rows:repeat(${Math.ceil(items.length / 2)},auto);">${items.map((x, i) => `<div class="agenda-item"><span class="n">${String(i + 1).padStart(2,'0')}</span><span class="t">${x}</span></div>`).join('')}</div>${page}</section>`;
 }
 
 const slides = [

@@ -427,6 +427,9 @@ em.sky,.accent{color:var(--accent-2) !important;}
 
 .slide:not(.title):not(.title-slide):not(.closing)>.source-footer{
   margin:0 !important;
+  /* Sources occupy their own baseline below the authored content. Keeping
+     them close to the progress edge prevents collisions with the last card. */
+  bottom:14px !important;
 }
 
 @media print{

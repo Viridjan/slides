@@ -81,7 +81,7 @@ window.COMPLETENESS = {
   "su03-07-testo.html": 4,
   "su03-08-tabelle-pivot.html": 3,
   "su03-09-tabelle-pivot-avanzate.html": 2,
-  "su03-10-grafici.html": 2,
+  "su03-10-grafici.html": 4,
   "su03-11-fogli-calcolo-avanzati.html": 4,
   "su03-12-query-fogli-calcolo.html": 2,
   "su03-13-macro-fogli-calcolo.html": 2,
