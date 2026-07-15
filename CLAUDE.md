@@ -504,11 +504,12 @@ Micro:bit navigation chain: pr03-01 → pr03-02
 | `pr03-01-microbit.html` | Fondamenti Micro:bit |
 | `pr03-02-createai.html` | Micro:bit CreateAI |
 
-Coding tools (pr03-02 closes into pr04-01):
+Coding tools navigation chain: pr04-01 → pr04-02 (pr03-02 closes into pr04-01):
 
 | File | Title |
 | --- | --- |
-| `pr04-01-editor-codice.html` | Strumenti per scrivere codice |
+| `pr04-01-editor-codice.html` | L'editor e Git |
+| `pr04-02-strumenti-ambiente.html` | Lavorare e scegliere |
 
 ### Modellazione e stampa 3D
 

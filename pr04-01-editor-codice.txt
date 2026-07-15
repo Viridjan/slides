@@ -1,5 +1,5 @@
-Programmazione · PR04.01 — Strumenti per scrivere codice
-========================================================
+Programmare · PR04.01 — L'editor e Git
+========================================
 
 --- Slide 1 ---
 Scrivere
@@ -15,9 +15,13 @@ Scrivere
  4 print (saluta( "Ada" ))
 
  # Output: Ciao Ada!
+ Francesco Antonio Binetti
 
 --- Slide 2 ---
-Percorso Cosa vedremo 01 Git 02 Navigare 03 Modificare 04 Cercare 05 Snippet 06 Ambiente 07 Dettagli 08 Ergonomia
+Cosa vedremo 01 Conoscere l'editor
+ Perché gli strumenti differiscono, la cartella-progetto, VS Code e le estensioni. 02 Eseguire e correggere
+ Il terminale, il debugger, e i tre controlli automatici: formatter, linter e test. 03 Git
+ Registrare le modifiche, cosa non versionare, i conflitti e come si legge una diff.
 
 --- Slide 3 ---
 Non tutti gli strumenti fanno lo stesso lavoro Puoi scrivere codice anche in un editor semplice. La differenza è quanta assistenza ricevi prima, durante e dopo la scrittura. 📄 Editor di testo Modifica testo semplice. È rapido, ma conosce poco o nulla del linguaggio e del progetto. ⌨️ Editor di codice Aggiunge colori, completamento, ricerca nel progetto, estensioni e spesso terminale e Git. 🧰 IDE Integra editor, compilazione, debug, test, refactoring e strumenti specifici per una piattaforma. Analogia: quaderno, banco attrezzato, laboratorio completo.
@@ -35,7 +39,7 @@ Mentre scrivi, lo strumento legge il contesto 🎨 Evidenziazione sintattica Col
 Le estensioni aggiungono capacità Un'estensione può supportare un linguaggio, collegare un servizio, aggiungere un tema oppure integrare test e strumenti di qualità. ⚠️ Prima di installare Controlla editore, permessi, manutenzione, documentazione e necessità reale. Più estensioni significano anche più aggiornamenti e possibili conflitti. 🧩 Linguaggio
  Python, C/C++, Java, PHP e altri. 🧹 Qualità
  Formatter, linter, test runner. 🔗 Servizio
- Repository, database, container, cloud. [Fonte: Tutorial ufficiale Python — https://docs.python.org/3/tutorial/]
+ Repository, database, container, cloud.
 
 --- Slide 8 ---
 Terminale, esecuzione e build L'editor non sostituisce il linguaggio, il compilatore o il runtime: li avvia e mostra i risultati in modo comodo. ✍️ Scrivi Modifichi i file. → 💾 Salva Il disco riceve le modifiche. → ⚙️ Build Compila o prepara il progetto. → ▶ Esegui Il programma parte. → ▤ Osserva Leggi output ed errori. Regola: impara anche il comando essenziale: rende il processo comprensibile e ripetibile.
@@ -47,10 +51,10 @@ Il debugger ferma il tempo Invece di aggiungere decine di stampe, puoi sospender
 Git registra modifiche, non “salva nel cloud” L'integrazione grafica mostra file modificati, differenze, branch e conflitti. Le operazioni restano quelle di Git. In pratica: modifica → controlla il diff → stage → commit → eventualmente push. Diff Confronta prima e dopo, riga per riga. Commit Registra un insieme coerente di modifiche locali. Branch Permette di lavorare su una linea separata. Remote Sincronizza con GitHub o un altro server quando fai pull o push. Fonte: controllo versione in VS Code ↗ (https://code.visualstudio.com/docs/sourcecontrol/overview/)
 
 --- Slide 11 ---
-Git Git: ciò che non deve entrare nel repository Non tutto quello che sta nella cartella va versionato. Il file .gitignore elenca ciò che Git deve ignorare, e ignorare le cose giuste è una questione di sicurezza, non di ordine. Le password, mai Chiavi, token e password non entrano nel codice: stanno in un file di configurazione locale (per esempio .env ), che il .gitignore esclude. Una chiave finita in un repository pubblico va considerata compromessa — anche se la cancelli dopo, resta nella storia. I file generati, mai Le dipendenze scaricate e i file prodotti dalla compilazione si rigenerano da soli. Versionarli gonfia il progetto e produce conflitti a ogni aggiornamento. Le impostazioni personali Il tuo tema e la tua dimensione del carattere non riguardano gli altri. Le impostazioni del progetto , invece, sì — e quelle si condividono apposta. ⚠️ Attenzione Il .gitignore va scritto prima del primo commit. Se un file è già stato versionato, aggiungerlo al .gitignore non lo rimuove dalla storia: continua a essere lì, per chiunque scarichi il progetto.
+Git: ciò che non deve entrare nel repository Non tutto quello che sta nella cartella va versionato. Il file .gitignore elenca ciò che Git deve ignorare, e ignorare le cose giuste è una questione di sicurezza, non di ordine. Le password, mai Chiavi, token e password non entrano nel codice: stanno in un file di configurazione locale (per esempio .env ), che il .gitignore esclude. Una chiave finita in un repository pubblico va considerata compromessa — anche se la cancelli dopo, resta nella storia. I file generati, mai Le dipendenze scaricate e i file prodotti dalla compilazione si rigenerano da soli. Versionarli gonfia il progetto e produce conflitti a ogni aggiornamento. Le impostazioni personali Il tuo tema e la tua dimensione del carattere non riguardano gli altri. Le impostazioni del progetto , invece, sì — e quelle si condividono apposta. ⚠️ Attenzione Il .gitignore va scritto prima del primo commit. Se un file è già stato versionato, aggiungerlo al .gitignore non lo rimuove dalla storia: continua a essere lì, per chiunque scarichi il progetto.
 
 --- Slide 12 ---
-Git Git: il conflitto non è un guasto Quando due persone modificano le stesse righe, Git non sceglie per te: si ferma e ti mostra le due versioni. Il conflitto è la prova che il sistema sta funzionando — ti sta impedendo di cancellare in silenzio il lavoro di qualcun altro. Cosa vedi L'editor mostra le due versioni affiancate: la tua e quella arrivata. Scegli l'una, l'altra, o scrivi la combinazione corretta — che spesso è la risposta giusta. Come si evita I conflitti nascono dai rami lasciati indietro per giorni. Aggiornare spesso il proprio ramo li rende piccoli e leggibili, invece che enormi e spaventosi. &lt;&lt;&lt;&lt;&lt;&lt;&lt; il tuo lavoro
+Git: il conflitto non è un guasto Quando due persone modificano le stesse righe, Git non sceglie per te: si ferma e ti mostra le due versioni. Il conflitto è la prova che il sistema sta funzionando — ti sta impedendo di cancellare in silenzio il lavoro di qualcun altro. Cosa vedi L'editor mostra le due versioni affiancate: la tua e quella arrivata. Scegli l'una, l'altra, o scrivi la combinazione corretta — che spesso è la risposta giusta. Come si evita I conflitti nascono dai rami lasciati indietro per giorni. Aggiornare spesso il proprio ramo li rende piccoli e leggibili, invece che enormi e spaventosi. &lt;&lt;&lt;&lt;&lt;&lt;&lt; il tuo lavoro
 sconto = 0.10
  =======
 sconto = 0.15
@@ -60,67 +64,10 @@ sconto = 0.15
 // è una domanda a cui rispondere.
 
 --- Slide 13 ---
-Git Git: leggere una diff prima di unire La diff è il confronto tra prima e dopo: righe tolte in rosso, aggiunte in verde. Saperla leggere è la competenza che trasforma il versionamento da archivio a strumento di controllo. Rileggi te stesso Prima di consegnare, guarda la tua diff. È lì che trovi il file di prova dimenticato, la password lasciata per errore, la riga di debug che non doveva restare. Revisione tra pari Su un progetto condiviso, il codice si legge prima di unirlo. Non è un esame: è il modo più economico di trovare un errore, molto prima che lo trovi un utente. Commit piccoli Una diff di trenta righe si legge davvero; una di tremila si approva senza guardarla. La dimensione del commit decide se la revisione sarà reale o finta.
+Git: leggere una diff prima di unire La diff è il confronto tra prima e dopo: righe tolte in rosso, aggiunte in verde. Saperla leggere è la competenza che trasforma il versionamento da archivio a strumento di controllo. Rileggi te stesso Prima di consegnare, guarda la tua diff. È lì che trovi il file di prova dimenticato, la password lasciata per errore, la riga di debug che non doveva restare. Revisione tra pari Su un progetto condiviso, il codice si legge prima di unirlo. Non è un esame: è il modo più economico di trovare un errore, molto prima che lo trovi un utente. Commit piccoli Una diff di trenta righe si legge davvero; una di tremila si approva senza guardarla. La dimensione del commit decide se la revisione sarà reale o finta.
 
 --- Slide 14 ---
 Formatter, linter e test: tre controlli diversi 🧹 Formatter Uniforma spazi, rientri e stile. Riduce discussioni estetiche, ma non verifica la logica. 🔎 Linter / analisi Segnala pattern rischiosi, errori probabili e violazioni delle regole configurate. ✓ Test Esegue casi controllati e confronta risultato ottenuto e risultato atteso. Automazione utile Salvataggio automatico, format on save e test rapidi sono comodi soltanto se il team condivide configurazioni e regole.
 
 --- Slide 15 ---
-Navigare Il codice si legge saltando, non scorrendo In un progetto vero non scorri il file finché trovi: chiedi allo strumento di portarti dove serve. Chi lavora col mouse su file lunghi perde ore che non sa di perdere. Vai alla definizione Sul nome di una funzione, F12 ti porta dove è definita — anche in un altro file, anche dentro una libreria. Alt+← ti riporta indietro da dove eri partito. Cerca il simbolo Ctrl+T cerca per nome tra tutte le funzioni e le classi del progetto, invece che per testo. Sai come si chiama ma non dove sta: è questo il caso normale. Palette dei comandi Ctrl+Maiusc+P apre l'elenco di tutto ciò che l'editor sa fare, cercabile scrivendo. È la scorciatoia da imparare per prima, perché contiene tutte le altre. In pratica: se stai scorrendo col mouse per trovare qualcosa, c'è un comando che lo fa meglio.
-
---- Slide 16 ---
-Modificare Rinominare senza rompere niente Cambiare un nome con «cerca e sostituisci» è pericoloso: colpisce anche le parole uguali che non c'entrano — un commento, una stringa, una variabile omonima in un altro file. Rinomina simbolo (F2) L'editor sa che quel totale è la variabile dichiarata lì, e non la parola «totale» dentro un commento. Rinomina la variabile e tutti i suoi usi, e lascia in pace il resto. Multi-cursore Alt+clic mette più cursori: scrivi una volta, appare in dieci punti. Comodo per modifiche ripetitive che non sono una rinomina — ma se lo sono, usa F2. // cerca e sostituisci "voto":
-// colpisce anche questo commento
-// sul voto, e la stringa qui sotto
-print("Inserisci il voto:")
-
-// F2 sulla variabile:
-// rinomina solo la variabile.
-
---- Slide 17 ---
-Cercare Cercare in tutto il progetto La ricerca su tutti i file è lo strumento che usi per rispondere alla domanda più frequente di tutte: «chi altro usa questa cosa, e cosa succede se la cambio?» Dove viene usata Prima di modificare una funzione, cerca il suo nome nel progetto: scopri i punti che si romperanno. È l'unica alternativa onesta a scoprirlo dopo, in esecuzione. Espressioni regolari La ricerca accetta pattern, non solo parole: trovare tutte le date, tutti gli indirizzi email, tutte le righe che finiscono con un punto e virgola. Le regex sono la scorciatoia che ripaga l'investimento. Anteprima prima di agire Una sostituzione su tutto il progetto si vede in anteprima, file per file, prima di essere applicata. Guardala: è l'ultimo momento in cui l'errore costa zero.
-
---- Slide 18 ---
-Snippet Scrivere meno per sbagliare meno Uno snippet è un pezzo di codice che si espande da un'abbreviazione. Non serve a risparmiare battute: serve a non dimenticare pezzi. Perché conta La struttura di un ciclo o di un blocco try/catch ha parti obbligatorie che è facile scordare quando le scrivi a mano per la centesima volta. Lo snippet le porta con sé, sempre complete. 💡 Consiglio Puoi definirti i tuoi snippet. Se ti accorgi di riscrivere lo stesso blocco per la terza volta, quello è il momento — non prima, perché uno snippet che non usi è solo un'altra cosa da ricordare. Scrivi: for + Tab
-
-Ottieni:
-for (let i = 0; i &lt; n; i++) {
- |
-}
-
-Il cursore è già dentro,
-le parentesi sono già chiuse.
-
---- Slide 19 ---
-IDE completi: quando il progetto ha una piattaforma Strumento Contesto tipico Punti di forza Da sapere Visual Studio .NET, C++, Windows, game development Debugger, profiler, designer, test e strumenti di build integrati Più pesante di un editor; edizioni e licenze differiscono JetBrains IDE Java/Kotlin, Python, web, PHP, database Analisi profonda, navigazione e refactoring specifici Prodotti distinti; funzioni e licenze cambiano per edizione Android Studio App Android Gradle, emulatori, profiler, layout e lint Android Ottimizzato per il flusso Android Xcode App per piattaforme Apple Simulator, debugger, Instruments, test e distribuzione Disponibile su macOS e legato agli SDK Apple Fonti: Visual Studio — Microsoft ↗ (https://visualstudio.microsoft.com/vs/features/)Android Studio — Google ↗ (https://developer.android.com/studio/intro)Xcode — Apple ↗ (https://developer.apple.com/xcode) [Fonte: Guida ufficiale Android — https://support.google.com/android/]
-
---- Slide 20 ---
-Altri strumenti noti: più leggeri o più specializzati Sublime Text Editor rapido e multipiattaforma con selezioni multiple, progetti, pacchetti e build configurabili. Notepad++ Editor leggero per Windows, utile per modifiche rapide, ricerca, sintassi e plugin. Vim / Neovim Editor modale centrato sulla tastiera. Molto configurabile, potente nel terminale, con curva di apprendimento dedicata. Eclipse IDE Ecosistema storico e modulare, ancora usato soprattutto in progetti Java e contesti enterprise. Regola: “leggero” e “completo” descrivono compromessi, non qualità assoluta. Fonte: documentazione Sublime Text ↗ (https://www.sublimetext.com/docs/index.html)
-
---- Slide 21 ---
-Locale, remoto o nel browser? 💻 Locale File e strumenti girano sul tuo computer. Hai controllo e puoi lavorare offline, ma devi configurare l'ambiente. ↗ Remoto L'interfaccia è locale, mentre codice, terminale e processi vivono su server, container, WSL o SSH. ☁️ Browser / cloud L'ambiente è accessibile via web. Riduce il setup iniziale, ma dipende da account, rete, limiti e costi del servizio. ⚠️ Dati e segreti Prima di usare ambienti remoti, verifica dove vengono conservati codice, credenziali, log e output del progetto. Fonte: Remote Development — VS Code ↗ (https://code.visualstudio.com/docs/remote/faq)
-
---- Slide 22 ---
-Assistenti IA: proposta, non autorità Completamento predittivo, chat e agenti possono spiegare codice, proporre modifiche e automatizzare attività. Il risultato va trattato come una modifica di terzi. Regola: leggi il diff, esegui i test, controlla dipendenze e licenze, non condividere segreti. Contesto Decidi quali file, dati e istruzioni può leggere lo strumento. Verifica Compilazione, analisi e test restano necessari anche se la proposta “sembra giusta”. Responsabilità Chi accetta la modifica resta responsabile di sicurezza, correttezza e manutenzione.
-
---- Slide 23 ---
-Ambiente Ambienti di sviluppo: «sul mio computer funziona» La frase più famosa dell'informatica nasce quasi sempre dallo stesso motivo: il tuo computer ha qualcosa installato che l'altro non ha, e nessuno dei due lo sa. Le dipendenze si dichiarano Le librerie che il progetto usa vanno elencate in un file ( requirements.txt , package.json ). Chi scarica il progetto installa esattamente quelle: la lista è parte del codice, non un dettaglio del tuo PC. Ambienti isolati Un ambiente virtuale tiene le librerie dentro il progetto , non nel sistema. Due progetti possono così usare due versioni diverse della stessa libreria senza litigare. Anche la versione conta «Funziona con Python» non basta: funziona con quella versione. Scrivere la versione richiesta evita mezz'ora di errori incomprensibili al primo collega che ci prova.
-
---- Slide 24 ---
-Dettagli I caratteri che non si vedono Tre dettagli invisibili rompono i file più spesso di qualunque bug: la codifica, il fine riga e l'indentazione mista. Non si vedono guardando lo schermo — si vedono solo quando è tardi. Codifica: UTF-8 Se il file non è salvato in UTF-8, gli accenti diventano simboli assurdi sul computer di qualcun altro. L'editor mostra la codifica nella barra in basso: guardala, e tienila su UTF-8 sempre. Fine riga: LF o CRLF Windows e gli altri sistemi chiudono le righe in modo diverso. Se non lo governi, una diff mostra «tutte le righe cambiate» quando non hai cambiato nulla. Tab o spazi, non entrambi Mescolarli produce codice che sembra allineato ma non lo è, e in linguaggi come Python questo è un errore vero. Un file .editorconfig impone la stessa regola a tutti gli editor del progetto. [Fonte: UTF-8 — Unicode Standard — https://www.unicode.org/versions/latest/core-spec/chapter-2/]
-
---- Slide 25 ---
-Ergonomia L'editor si adatta a te Passerai molte ore davanti a questa finestra. Configurarla non è vezzo estetico: è la differenza tra leggere il codice e sforzarsi di vederlo. Contrasto e dimensione Tema chiaro o scuro è una preferenza; la dimensione del carattere no. Se ti avvicini allo schermo per leggere, il carattere è troppo piccolo — e la fatica si accumula senza che tu te ne accorga. Caratteri leggibili Esistono font pensati per il codice, che distinguono lo zero dalla O maiuscola e l'uno dalla elle minuscola. È esattamente l'ambiguità che genera gli errori più difficili da vedere. Meno distrazioni Pannelli chiusi, notifiche spente, una cosa sola a schermo. Le funzioni «zen» esistono perché l'attenzione è la risorsa scarsa, non lo spazio sul monitor. 💡 Consiglio L'ingrandimento dell'editor e il lettore di schermo non sono opzioni marginali: sono ciò che rende il mestiere praticabile a chi vede poco. Ogni editor serio li supporta, e vanno provati prima di averne bisogno.
-
---- Slide 26 ---
-Quale scegliere? Se devi… Partenza ragionevole Perché Imparare Python, web o più linguaggi VS Code oppure un IDE didattico indicato dal corso È trasversale e cresce tramite estensioni Lavorare soprattutto con Java/Kotlin o grandi codebase IntelliJ IDEA / IDE JetBrains pertinente Analisi, navigazione e refactoring profondi Sviluppare app Android Android Studio SDK, emulatori, build e profiler sono integrati Sviluppare per Apple Xcode SDK, simulatori, test e distribuzione Apple .NET o C++ su Windows Visual Studio Toolchain e diagnostica integrate Fare modifiche rapide a testo e configurazioni Sublime Text, Notepad++ o editor già disponibile Avvio rapido e poche distrazioni
-
---- Slide 27 ---
-Il primo ambiente: configurazione minima 1 · Installa Editor e runtime da fonti ufficiali. → 2 · Cartella Crea e apri un progetto dedicato. → 3 · Linguaggio Aggiungi soltanto il supporto necessario. → 4 · Esegui Prova un file dal terminale. → 5 · Git Inizializza e crea il primo commit. 💡 Buon segnale Se sai spiegare da dove arriva il comando che esegue il programma, il tuo ambiente non è più una scatola nera.
-
---- Slide 28 ---
-Esercizio: esplora senza installare tutto Parte A · Orientamento Apri una cartella-progetto e individua Explorer, editor, ricerca, terminale e pannello dei problemi. Parte B · Scrittura Crea un file breve, osserva colori e suggerimenti, poi introduci volontariamente un errore di sintassi. Parte C · Esecuzione Salva, esegui dal terminale e collega l'eventuale messaggio di errore alla riga corretta. Parte D · Controllo Apri il diff Git, descrivi la modifica e crea un commit con un messaggio significativo. Obiettivo: comprendere il flusso, non memorizzare ogni pulsante.
-
---- Slide 29 ---
-Lo strumento
-serve il metodo. Editor e IDE accelerano scrittura, navigazione, debug e collaborazione. La scelta migliore è quella coerente con linguaggio, piattaforma, progetto e competenze del gruppo. Torna all’indice Fonti e approfondimenti Tutorial ufficiale Python ↗ (https://docs.python.org/3/tutorial/)Guida ufficiale Android ↗ (https://support.google.com/android/)UTF-8 — Unicode Standard ↗ (https://www.unicode.org/versions/latest/core-spec/chapter-2/)
+L'ambiente c'è: ora come lavorarci. Conosci l'editor, l'esecuzione e Git. Il prossimo modulo mostra come muoversi nel codice in fretta e come scegliere gli strumenti. Prossimo &#8594; PR04.02 · Lavorare e scegliere Francesco Antonio Binetti

@@ -36,6 +36,7 @@ window.COMPLETENESS = {
   "pr03-01-microbit.html": 6,
   "pr03-02-createai.html": 6,
   "pr04-01-editor-codice.html": 4,
+  "pr04-02-strumenti-ambiente.html": 4,
   "rw01-01-reti.html": 5,
   "rw01-02-navigazione.html": 4,
   "rw01-03-domini.html": 4,

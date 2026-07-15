@@ -9,6 +9,7 @@ window.QUALITY_INDEX = {
   "hs04-os-concetti.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "hs05-troubleshooting.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "pr04-01-editor-codice.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
+  "pr04-02-strumenti-ambiente.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "rw01-01-reti.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "rw01-02-navigazione.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "rw01-03-domini.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
