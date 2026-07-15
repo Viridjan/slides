@@ -6,7 +6,10 @@ Modellazione
  base Workplane, camera, forme, snap, solidi e vuoti: le operazioni fondamentali in TinkerCAD. 📐
 
 --- Slide 2 ---
-Percorso Cosa vedremo 01 La mappa dell’ambiente 02 Il piano di lavoro 03 Osservare il modello 04 La griglia di snap 05 Il mouse come strumento 06 Costruire con forme semplici 07 Modificare una forma 08 RGB ed esadecimali 09 Solidi e vuoti 10 Raggruppa e Separa 11 Muovere sugli assi 12 Ruotare senza perdersi 13 Mini-esercizio
+Cosa vedremo 01 L'ambiente 
+ La mappa dell'ambiente, il piano di lavoro, la griglia di snap e il mouse come strumento. 02 Costruire e modificare 
+ Forme semplici, modificarle, i colori RGB, solidi e vuoti, raggruppare e separare. 03 Muovere nello spazio 
+ Spostare sugli assi, ruotare senza perdersi, e il mini-esercizio del portachiavi.
 
 --- Slide 3 ---
 La mappa dell’ambiente L’interfaccia di TinkerCAD è volutamente minimale: tutto è in vista, senza menu nascosti. Prima di modellare conviene costruirsi una mappa mentale delle zone di lavoro: sapere dove sta ogni comando riduce il tempo perso a cercarlo e gli errori fatti di fretta. 🧰 Barra degli strumenti In alto a sinistra: copia, incolla, duplica, elimina, annulla e ripristina. Annulla (Ctrl+Z) è il comando più prezioso per chi inizia: qualsiasi tentativo si può disfare, quindi sperimentare non costa nulla. 🧱 Pannello forme La colonna a destra elenca gli oggetti da inserire: geometrie base, lettere e numeri 3D, componenti pre-costruiti. Ogni forma si trascina direttamente sul piano di lavoro al centro dello schermo. ⚙️ Opzioni della forma Selezionando un oggetto compare il suo pannello proprietà: dimensioni, colore, stato solido o vuoto e i parametri specifici della forma, come raggio, numero di lati o passi della scala. 📤 Import, export e titolo In alto a destra si importano modelli esterni e si esporta il proprio; in alto al centro c’è il nome del progetto: rinominalo subito, per ritrovarlo poi nella dashboard tra decine di «Copia di…». L'ambiente reale: piano di lavoro, cubo delle viste a sinistra, forme di base a destra, strumenti in alto.

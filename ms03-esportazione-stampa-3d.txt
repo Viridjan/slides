@@ -6,7 +6,10 @@ Dal modello
  alla stampa Import ed export, i formati SVG, STL e OBJ, lo slicer, le regole di stampabilità e le simulazioni fisiche di Sim Lab. 🖨️
 
 --- Slide 2 ---
-Percorso Cosa vedremo 01 Import ed export 02 come portare modelli dentro e fuori da Tinke 03 SVG per la grafica vettoriale 2D 04 il programma che affetta il modello in strat 05 sbalzi
+Cosa vedremo 01 I formati 
+ Portare modelli dentro e fuori: SVG vettoriale, STL a triangoli, OBJ e come scegliere. 02 Preparare la stampa 
+ Da modello a istruzioni macchina, le forme che tradiscono la stampante e le tolleranze. 03 Verificare e stampare 
+ Simulare materiali e gravità, fino a una targhetta stampabile.
 
 --- Slide 3 ---
 Portare modelli dentro e fuori TinkerCAD non è un'isola: i file che entrano ed escono lo collegano al disegno vettoriale, agli altri CAD, alle stampanti 3D e al taglio laser. ⬆️ Import Carica geometrie create altrove: file STL e OBJ modellati in altri software CAD, oppure SVG da estrudere come profili 2D. Tieni il file sotto i 25 MB e, se serve, riduci la complessità del modello prima di caricarlo. ⬇️ Export Scarica l'intero progetto o solo le forme selezionate, nel formato adatto alla destinazione: STL per la stampa 3D, OBJ per passare il modello ad altri programmi, SVG per il taglio laser dei contorni. Condivisione Oltre al download: link diretto al progetto, pubblicazione nella community di TinkerCAD e invio del modello direttamente alle stampanti 3D compatibili collegate. 💡 In pratica Importare ed esportare bene è il ponte tra progettazione, stampa e riuso: un modello scaricato dalla community può diventare la base di partenza del tuo progetto.
