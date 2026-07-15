@@ -1,0 +1,172 @@
+Suite Ufficio · SU03.03 — Fondamenti matematici
+===============================================
+
+--- Slide 1 ---
+Matematica
+ di base Insiemi, logica e funzioni: il linguaggio necessario per capire formule, condizioni, grafici e modelli nei fogli di calcolo. ∑ ∈ ƒ Francesco Antonio Binetti
+
+--- Slide 2 ---
+Percorso Cosa vedremo 01 Numeri e intervalli 02 Insiemi e operazioni 03 Prodotto cartesiano 04 Proposizioni 05 Connettivi logici 06 Tabelle di verità 07 Quantificatori 08 Leggi di De Morgan 09 Funzioni e dominio 10 Grafici e proprietà 11 Funzioni elementari 12 Composizione e inverse
+
+--- Slide 3 ---
+La matematica è un linguaggio Simboli e regole permettono di esprimere relazioni senza dipendere da esempi particolari. = Uguaglianza Due espressioni rappresentano lo stesso valore. ≠ Diversità I valori non coincidono. Ordine Confrontano quantità numeriche. ⇒ Conseguenza Da una condizione ne segue un’altra. 💡 In pratica Prima di calcolare, traduci il simbolo in una frase completa.
+
+--- Slide 4 ---
+Gli insiemi numerici Ogni insieme estende il precedente per rendere possibili nuove operazioni. ℕ Naturali 0, 1, 2, 3… contano quantità discrete. ℤ Interi …−2, −1, 0, 1, 2… includono i negativi. ℚ Razionali Frazioni a/b con a e b interi e b ≠ 0. ℝ Reali Razionali e irrazionali sulla retta numerica. 💡 In pratica ℕ ⊆ ℤ ⊆ ℚ ⊆ ℝ: ogni naturale è anche intero, razionale e reale.
+
+--- Slide 5 ---
+Intervalli sulla retta reale Un intervallo descrive molti numeri compresi tra due estremi. Forma: [a,b] · (a,b) · [a,b) · (a,b] [ ] Estremo incluso
+ La parentesi quadra include il valore. ( ) Estremo escluso
+ La parentesi tonda esclude il valore. ∞ Infinito
+ Con infinito si usa sempre la parentesi tonda.
+
+--- Slide 6 ---
+Che cos’è un insieme Un insieme è una collezione definita di elementi, senza ordine e senza duplicati significativi. ∈ Appartiene x ∈ A: x è un elemento di A. ∉ Non appartiene x ∉ A: x non è in A. ∅ Insieme vuoto Non contiene alcun elemento. |A| Cardinalità Numero di elementi di A. 💡 In pratica A = {rosso, verde, blu}. Ripetere “rosso” non crea un nuovo elemento.
+
+--- Slide 7 ---
+Sottoinsiemi e insieme universo A è sottoinsieme di B quando ogni elemento di A appartiene anche a B. ⊆ Sottoinsieme A ⊆ B ammette anche A = B. ⊂ Sottoinsieme proprio A è contenuto in B ma non coincide con B. U Universo Contiene tutti gli elementi considerati nel problema. 💡 In pratica Nel foglio: “ordini pagati” è un sottoinsieme di “tutti gli ordini”.
+
+--- Slide 8 ---
+Unione e intersezione Le due operazioni fondamentali combinano o restringono insiemi. ∪ Unione A ∪ B contiene elementi di A oppure di B, inclusi quelli comuni. ∩ Intersezione A ∩ B contiene soltanto gli elementi presenti in entrambi. ∨ / ∧ Legame logico Unione richiama OR; intersezione richiama AND. 💡 In pratica Clienti di Roma ∩ clienti attivi = clienti che soddisfano entrambe le condizioni.
+
+--- Slide 9 ---
+Differenza e complemento Queste operazioni descrivono ciò che resta dopo un’esclusione. \ Differenza A \ B: elementi di A che non sono in B. Aᶜ Complemento Elementi dell’universo U che non appartengono ad A. △ Differenza simmetrica Elementi in A o B, ma non in entrambi. 💡 In pratica Ordini \ ordini consegnati = ordini ancora da completare.
+
+--- Slide 10 ---
+Prodotto cartesiano Combina ogni elemento di A con ogni elemento di B formando coppie ordinate. Forma: A × B = {(a,b) | a∈A, b∈B} (a,b) Coppia ordinata
+ Prima e seconda posizione hanno ruoli distinti. |A×B| Cardinalità
+ Per insiemi finiti vale |A|·|B|. tabella Applicazione
+ Righe × colonne identificano celle possibili.
+
+--- Slide 11 ---
+Diagrammi di Venn Rappresentano insiemi come regioni e rendono visibili sovrapposizioni, esclusioni e complementi. Esempio: clienti newsletter ∩ clienti premium. A B A∩B Il rettangolo è l’universo; i cerchi sono gli insiemi
+
+--- Slide 12 ---
+Leggi fondamentali degli insiemi Le operazioni seguono regole che consentono di riscrivere un’espressione senza cambiarne il risultato. ↔ Commutativa A∪B = B∪A; A∩B = B∩A. ( ) Associativa Il raggruppamento non cambia unioni o intersezioni. × Distributiva ∩ distribuisce su ∪ e viceversa. ∅ Identità A∪∅=A; A∩U=A. 💡 In pratica Queste regole anticipano le equivalenze della logica.
+
+--- Slide 13 ---
+Proposizioni Una proposizione è una frase dichiarativa alla quale si può attribuire vero oppure falso. V Esempio vero “10 è maggiore di 3”. F Esempio falso “7 è un numero pari”. ? Non proposizione Domande, ordini e frasi ambigue non hanno un valore di verità definito. 💡 In pratica “Il servizio è costoso” non è valutabile finché non definiamo una soglia. Fonte: Proposizioni e quantificatori — OpenStax ↗ (https://openstax.org/books/contemporary-mathematics/pages/2-1-statements-and-quantifiers)
+
+--- Slide 14 ---
+Valori di verità e condizioni Una condizione trasforma dati concreti in un risultato logico. V Vero La condizione è soddisfatta. F Falso La condizione non è soddisfatta. x>10 Predicato Diventa vero o falso quando assegniamo un valore a x. 💡 In pratica Nel foglio A2>10 restituisce VERO o FALSO.
+
+--- Slide 15 ---
+Negazione La negazione inverte il valore di verità di una proposizione. Forma: ¬p p=V ¬p=F
+ Se p è vera, la negazione è falsa. p=F ¬p=V
+ Se p è falsa, la negazione è vera. NON Foglio
+ NON(A2>10) verifica che A2 non superi 10.
+
+--- Slide 16 ---
+Congiunzione e disgiunzione AND richiede tutte le condizioni; OR ne richiede almeno una nel significato inclusivo. ∧ Congiunzione AND p∧q è vera soltanto quando p e q sono entrambe vere. ∨ Disgiunzione OR p∨q è falsa soltanto quando p e q sono entrambe false. ⊕ OR esclusivo Vero quando esattamente una condizione è vera. 💡 In pratica “Pagato E consegnato” è più restrittivo di “pagato O consegnato”.
+
+--- Slide 17 ---
+Implicazione “Se p, allora q” è falsa soltanto quando p è vera ma q è falsa. Forma: p → q V→V Vero
+ La promessa è rispettata. V→F Falso
+ La premessa avviene ma la conseguenza no. F→* Vero
+ L’implicazione non viene smentita dalla premessa falsa.
+
+--- Slide 18 ---
+Equivalenza Due proposizioni sono equivalenti quando hanno sempre lo stesso valore di verità. Forma: p ↔ q V,V Vero
+ Entrambe vere. F,F Vero
+ Entrambe false. diverse Falso
+ Una vera e l’altra falsa.
+
+--- Slide 19 ---
+Tabella di verità Elenca tutte le combinazioni possibili e calcola il risultato di una proposizione composta. p q p∧q p∨q p→q V V V V V V F F V F F V F V V F F F F V Fonte: Tabelle di verità — OpenStax ↗ (https://openstax.org/books/contemporary-mathematics/pages/2-3-constructing-truth-tables)
+
+--- Slide 20 ---
+Quantificatori I quantificatori specificano quanti elementi devono soddisfare una proprietà. ∀ Per ogni ∀x∈A, P(x): tutti gli elementi soddisfano P. ∃ Esiste ∃x∈A: P(x): almeno un elemento soddisfa P. ∄ Non esiste Nessun elemento soddisfa la proprietà. 💡 In pratica Negare “tutti” significa trovare almeno un controesempio.
+
+--- Slide 21 ---
+Leggi di De Morgan Negare una combinazione scambia AND e OR e nega ogni parte. Forma: ¬(p∧q)=¬p∨¬q · ¬(p∨q)=¬p∧¬q NON(E) diventa O
+ Non entrambi = almeno uno non vero. NON(O) diventa E
+ Nessuno dei due = entrambi non veri. filtri Applicazione
+ Escludere una combinazione richiede attenzione alle parentesi.
+
+--- Slide 22 ---
+Logica nei fogli di calcolo Le formule logiche traducono condizioni matematiche in decisioni operative. SE Scelta Restituisce un risultato se la condizione è vera, un altro se è falsa. E Tutte Vero soltanto se ogni condizione è vera. O Almeno una Vero se almeno una condizione è vera. NON Inversione Scambia vero e falso. 💡 In pratica =SE(E(B2>=18;C2="Pagato");"Ammesso";"Da verificare") Fonte: SE con E, O e NON — Microsoft Excel ↗ (https://support.microsoft.com/en-us/excel/using-if-with-and-or-and-not-functions-in-excel)
+
+--- Slide 23 ---
+Che cos’è una funzione Una funzione associa a ogni input ammesso esattamente un output. x Input Valore scelto nel dominio. f Regola Trasformazione applicata all’input. f(x) Output Risultato associato a x. 💡 In pratica Più input possono avere lo stesso output; un input non può avere due output diversi.
+
+--- Slide 24 ---
+Dominio, codominio e immagine Tre insiemi descrivono da dove partono e dove arrivano i valori. Forma: f: A → B A Dominio
+ Tutti gli input ammessi. B Codominio
+ Insieme dichiarato dei possibili output. Im(f) Immagine
+ Output effettivamente prodotti dalla funzione. Fonte: Dominio e immagine — OpenStax ↗ (https://openstax.org/books/college-algebra/pages/3-2-domain-and-range)
+
+--- Slide 25 ---
+Il grafico di una funzione Ogni punto (x,f(x)) rappresenta un input e il relativo output nel piano cartesiano. Test verticale: una retta verticale non deve incontrare il grafico più di una volta. x y Il grafico rende visibili andamento, zeri e simmetrie
+
+--- Slide 26 ---
+Zeri, intercette e segno Questi elementi permettono di leggere dove una funzione incontra gli assi e quando produce valori positivi o negativi. f(x)=0 Zeri Punti in cui il grafico interseca l’asse x. f(0) Intercetta y Valore sull’asse verticale, se 0 appartiene al dominio. +/− Segno Regioni sopra o sotto l’asse x. 💡 In pratica Nel foglio, trovare uno zero significa cercare l’input che rende il risultato uguale a 0.
+
+--- Slide 27 ---
+Crescenza, estremi e simmetria Le proprietà descrivono la forma senza elencare ogni singolo punto. ↗ Crescente All’aumentare di x aumenta f(x). ↘ Decrescente All’aumentare di x diminuisce f(x). min/max Estremi Valori più bassi o più alti, locali o globali. ±x Simmetria Pari: asse y; dispari: simmetria rispetto all’origine.
+
+--- Slide 28 ---
+Funzione costante e identità Sono i due modelli più semplici: output fisso oppure output uguale all’input. Forma: f(x)=c · f(x)=x c Costante
+ Retta orizzontale; ogni input produce c. x Identità
+ Retta con pendenza 1 passante per l’origine. uso Modello
+ Soglia fissa oppure valore trasferito senza modifica.
+
+--- Slide 29 ---
+Funzione affine Modella una variazione costante più un valore iniziale. Forma: f(x)=mx+q m Pendenza
+ Quanto cambia y quando x aumenta di 1. q Intercetta
+ Valore iniziale f(0). m=0 Costante
+ La funzione affine diventa costante.
+
+--- Slide 30 ---
+Funzione quadratica Il grafico è una parabola con un minimo oppure un massimo. Forma: f(x)=ax²+bx+c, a≠0 a Concavità
+ a>0 apre verso l’alto; a vertice Estremo
+ Punto di minimo o massimo. zeri Intersezioni
+ Possono essere due, uno oppure nessuno nei reali. Fonte: Funzioni quadratiche — OpenStax ↗ (https://openstax.org/books/college-algebra/pages/5-key-concepts)
+
+--- Slide 31 ---
+Funzioni polinomiali Sommano potenze intere non negative di x con coefficienti reali. Forma: aₙxⁿ+…+a₂x²+a₁x+a₀ n Grado
+ Massimo esponente con coefficiente non nullo. zeri Radici
+ Un polinomio di grado n ha al massimo n zeri reali. forma Continuità
+ Il grafico non presenta salti o denominatori nulli.
+
+--- Slide 32 ---
+Funzioni razionali Sono rapporti tra polinomi e non sono definite dove il denominatore vale zero. Forma: f(x)=p(x)/q(x), q(x)≠0 dominio Esclusioni
+ Rimuovi gli zeri di q(x). asintoti Comportamento
+ Il grafico può avvicinarsi a rette senza raggiungerle. foglio #DIV/0!
+ La divisione per zero produce un errore.
+
+--- Slide 33 ---
+Valore assoluto Misura la distanza da zero e quindi non è mai negativo. Forma: f(x)=|x| x≥0 f(x)=x
+ A destra dell’origine coincide con l’identità. x f(x)=−x
+ A sinistra cambia segno. grafico Forma a V
+ Vertice nell’origine per |x|.
+
+--- Slide 34 ---
+Potenze e radici Le potenze descrivono crescita per esponenti; le radici invertono potenze appropriate. Forma: f(x)=xᵃ · f(x)=ⁿ√x a intero Potenza
+ Parità dell’esponente influenza simmetria e segno. a negativo Reciproco
+ x⁻ⁿ=1/xⁿ, quindi x≠0. radice pari Dominio
+ Nel campo reale il radicando deve essere ≥0.
+
+--- Slide 35 ---
+Esponenziali e logaritmi L’esponenziale ha la variabile nell’esponente; il logaritmo è la sua inversa. Forma: aˣ ↔ logₐ(x), a>0, a≠1 a>1 Crescita
+ L’esponenziale cresce rapidamente. 0 Decadimento
+ La funzione diminuisce verso zero. log Dominio
+ Il logaritmo reale richiede x>0.
+
+--- Slide 36 ---
+Funzioni trigonometriche Seno, coseno e tangente descrivono angoli, rapporti e fenomeni periodici. Forma: sin(x) · cos(x) · tan(x) sin/cos Periodicità
+ Ripetono i valori ogni 2π. tan Periodo π
+ Non è definita dove cos(x)=0. uso Onde e cicli
+ Stagionalità, rotazioni, oscillazioni.
+
+--- Slide 37 ---
+Funzioni definite a tratti Regole diverse si applicano in regioni diverse del dominio. x Primo tratto Per esempio f(x)=−x. x≥0 Secondo tratto Per esempio f(x)=x. SE Nel foglio La funzione SE realizza una definizione a tratti. 💡 In pratica Il valore assoluto è una funzione a tratti: cambia regola in corrispondenza di 0.
+
+--- Slide 38 ---
+Composizione e funzione inversa La composizione applica funzioni in sequenza; l’inversa annulla l’effetto di una funzione invertibile. g∘f Composizione (g∘f)(x)=g(f(x)): prima f, poi g. f⁻¹ Inversa f⁻¹(f(x))=x sugli input ammessi. 1–1 Condizione Per avere inversa globale, output diversi devono provenire da input diversi. 💡 In pratica Nel foglio, formule annidate sono composizioni di funzioni.
+
+--- Slide 39 ---
+Laboratorio: riconoscere struttura e funzione Per ogni situazione identifica insieme, condizione logica e famiglia di funzione. A Clienti attivi Definisci l’insieme e il suo complemento. B Sconto Scrivi una condizione con AND/OR. C Costo fisso + ore Riconosci una funzione affine. D Crescita percentuale Riconosci una funzione esponenziale. 💡 In pratica Consegna: dominio, formula, esempio numerico e grafico essenziale.
+
+--- Slide 40 ---
+Prima della formula
+viene la struttura. Insiemi definiscono gli oggetti, la logica seleziona i casi, le funzioni trasformano input in output. Prossimo → SU03.04 · Prime formuleTorna all’indice Francesco Antonio Binetti

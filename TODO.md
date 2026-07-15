@@ -63,7 +63,7 @@ Le espansioni indicate nel vecchio TODO sono coperte dai deck attuali:
 | SPID, CIE, PEC, identita e reputazione | `rw03-01-identita.html`, `rw03-04-branding.html`, `rw03-05-social.html` |
 | Social, hashtag, calendario editoriale, contenuti | `rw03-05-social.html` |
 | Documenti, fogli, formule, CERCA.VERT, testo, pivot e presentazioni | `su02-01-documenti.html`-`su04-01-presentazioni.html` |
-| Fogli avanzati, query, macro, VBA e Google Apps Script | `su03-08-fogli-calcolo-avanzati.html`-`su03-12-google-apps-script.html` |
+| Pivot avanzate, grafici, fogli avanzati, query, macro, VBA e Google Apps Script | `su03-09-tabelle-pivot-avanzate.html`-`su03-15-google-apps-script.html` |
 | Fotografia, editing, formati, QR, screenshot | `sm08-fotocamera-contenuti.html` |
 | App, permessi, privacy, sicurezza smartphone, file e accessibilita | `sm04-app-permessi.html`-`sm11-manutenzione-scelta.html` |
 | Malware, phishing, privacy, normative e dati personali | `sd01-introduzione.html`-`sd05-assessment.html` |

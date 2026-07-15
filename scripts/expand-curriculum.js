@@ -101,13 +101,13 @@ function renderDeck(deck) {
 
 function deckDefinitions() {
   const spreadsheet = {
-    file: 'su03-08-fogli-calcolo-avanzati.html',
-    pageTitle: 'Suite Ufficio · SU03.08 — Fogli di calcolo avanzati',
-    kicker: 'Fogli di calcolo · SU03.08',
+    file: 'su03-11-fogli-calcolo-avanzati.html',
+    pageTitle: 'Suite Ufficio · SU03.11 — Fogli di calcolo avanzati',
+    kicker: 'Fogli di calcolo · SU03.11',
     title: 'Fogli di calcolo',
     accent: 'avanzati',
     lead: 'Modellare dati, controllare errori, creare viste di lavoro e preparare tabelle pronte per formule, pivot, query e automazioni.',
-    code: 'SU03.08',
+    code: 'SU03.11',
     topic: 'Spreadsheet',
     flow: 'dati grezzi\n  ↓ pulizia\nstruttura tabellare\n  ↓ formule\nreport affidabile',
     closeTitle: 'Un buon foglio è un piccolo sistema informativo.',
@@ -129,13 +129,13 @@ function deckDefinitions() {
   };
 
   const query = {
-    file: 'su03-09-query-fogli-calcolo.html',
-    pageTitle: 'Suite Ufficio · SU03.09 — Query nei fogli di calcolo',
-    kicker: 'Fogli di calcolo · SU03.09',
+    file: 'su03-12-query-fogli-calcolo.html',
+    pageTitle: 'Suite Ufficio · SU03.12 — Query nei fogli di calcolo',
+    kicker: 'Fogli di calcolo · SU03.12',
     title: 'Query nei',
     accent: 'fogli',
     lead: 'Estrarre, filtrare, ordinare, raggruppare e combinare dati con QUERY di Google Sheets, Power Query di Excel e logica SQL di base.',
-    code: 'SU03.09',
+    code: 'SU03.12',
     topic: 'Query',
     flow: 'tabella sorgente\n  ↓ condizioni\nquery\n  ↓ risultato\nvista aggiornata',
     closeTitle: 'Una query è una domanda ripetibile fatta ai dati.',
@@ -157,13 +157,13 @@ function deckDefinitions() {
   };
 
   const macros = {
-    file: 'su03-10-macro-fogli-calcolo.html',
-    pageTitle: 'Suite Ufficio · SU03.10 — Macro nei fogli di calcolo',
-    kicker: 'Fogli di calcolo · SU03.10',
+    file: 'su03-13-macro-fogli-calcolo.html',
+    pageTitle: 'Suite Ufficio · SU03.13 — Macro nei fogli di calcolo',
+    kicker: 'Fogli di calcolo · SU03.13',
     title: 'Macro nei',
     accent: 'fogli',
     lead: 'Automatizzare azioni ripetitive in Excel e Google Sheets: registrazione, sicurezza, pulsanti, limiti e progettazione di procedure affidabili.',
-    code: 'SU03.10',
+    code: 'SU03.13',
     topic: 'Macro',
     flow: 'azione manuale\n  ↓ registra\nmacro\n  ↓ ripeti\nprocedura automatica',
     closeTitle: 'Una macro utile elimina lavoro ripetitivo senza nascondere il controllo.',
@@ -212,7 +212,7 @@ function vbaDeck() {
     ['Sicurezza e distribuzione','Macro firmate, cartelle attendibili, file .xlsm e policy aziendali determinano dove il codice può girare.'],
     ['Progetto finale VBA','Un buon progetto finale importa dati, li valida, aggiorna una tabella, genera report e registra un log.'],
   ];
-  return longCodeDeck('su03-11-vba.html', 'Suite Ufficio · SU03.11 — VBA per Excel', 'Automazione · SU03.11', 'VBA per', 'Excel', 'Imparare le basi di Visual Basic for Applications per automatizzare Excel: celle, cicli, condizioni, file, eventi, errori e procedure professionali.', 'SU03.11', 'VBA', 'Excel\n  ↓ oggetti\nVBA\n  ↓ automazione\nreport e procedure', topics, 'VBA controlla Excel come un’app programmabile.', 'Con pochi costrutti solidi puoi trasformare un file ripetitivo in uno strumento di lavoro.');
+  return longCodeDeck('su03-14-vba.html', 'Suite Ufficio · SU03.14 — VBA per Excel', 'Automazione · SU03.14', 'VBA per', 'Excel', 'Imparare le basi di Visual Basic for Applications per automatizzare Excel: celle, cicli, condizioni, file, eventi, errori e procedure professionali.', 'SU03.14', 'VBA', 'Excel\n  ↓ oggetti\nVBA\n  ↓ automazione\nreport e procedure', topics, 'VBA controlla Excel come un’app programmabile.', 'Con pochi costrutti solidi puoi trasformare un file ripetitivo in uno strumento di lavoro.');
 }
 
 function gasDeck() {
@@ -240,7 +240,7 @@ function gasDeck() {
     ['Deployment e versioni','Distribuzioni, versioni e autorizzazioni determinano chi può usare lo script e quale codice gira.'],
     ['Progetto finale Apps Script','Un progetto completo legge un foglio, filtra righe, genera PDF, invia email e scrive un log.'],
   ];
-  return longCodeDeck('su03-12-google-apps-script.html', 'Suite Ufficio · SU03.12 — Google Apps Script', 'Automazione · SU03.12', 'Google Apps', 'Script', 'Automatizzare Google Workspace con JavaScript: Sheets, Drive, Gmail, trigger, web app, autorizzazioni, API e procedure cloud.', 'SU03.12', 'Apps Script', 'Sheets\n  ↓ Apps Script\nDrive / Gmail / API\n  ↓ trigger\nworkflow cloud', topics, 'Apps Script collega i fogli agli strumenti Google.', 'È ideale quando il lavoro parte da Sheets ma deve produrre email, file, report e azioni programmate.');
+  return longCodeDeck('su03-15-google-apps-script.html', 'Suite Ufficio · SU03.15 — Google Apps Script', 'Automazione · SU03.15', 'Google Apps', 'Script', 'Automatizzare Google Workspace con JavaScript: Sheets, Drive, Gmail, trigger, web app, autorizzazioni, API e procedure cloud.', 'SU03.15', 'Apps Script', 'Sheets\n  ↓ Apps Script\nDrive / Gmail / API\n  ↓ trigger\nworkflow cloud', topics, 'Apps Script collega i fogli agli strumenti Google.', 'È ideale quando il lavoro parte da Sheets ma deve produrre email, file, report e azioni programmate.');
 }
 
 function longCodeDeck(file, pageTitle, kicker, title, accent, lead, code, topic, flow, topics, closeTitle, closeLead) {
@@ -338,13 +338,13 @@ function syncPr04Text() {
 
 function updateIndex() {
   let html = read('00-indice.html');
-  if (!html.includes('su03-08-fogli-calcolo-avanzati.html')) {
+  if (!html.includes('su03-11-fogli-calcolo-avanzati.html')) {
     const cards = [
-      ['su03-08-fogli-calcolo-avanzati.html','SU03.08','Fogli di calcolo avanzati','Struttura dati, convalida, formattazione condizionale, import CSV, protezioni, collaborazione, dashboard e checklist per fogli professionali.'],
-      ['su03-09-query-fogli-calcolo.html','SU03.09','Query nei fogli di calcolo','QUERY in Google Sheets, logica SQL, SELECT, WHERE, ORDER BY, GROUP BY, PIVOT, Power Query, join, pulizia dati e debug.'],
-      ['su03-10-macro-fogli-calcolo.html','SU03.10','Macro nei fogli di calcolo','Registrare macro, automatizzare report, riferimenti relativi e assoluti, pulsanti, sicurezza, input, errori, test e limiti.'],
-      ['su03-11-vba.html','SU03.11','VBA per Excel','Visual Basic for Applications: editor, Sub e Function, variabili, Range, cicli, condizioni, errori, file, eventi, UserForm e distribuzione.'],
-      ['su03-12-google-apps-script.html','SU03.12','Google Apps Script','Automazione Google Workspace con JavaScript: Sheets, Drive, Gmail, trigger, autorizzazioni, web app, API, quote e deployment.'],
+      ['su03-11-fogli-calcolo-avanzati.html','SU03.11','Fogli di calcolo avanzati','Struttura dati, convalida, formattazione condizionale, import CSV, protezioni, collaborazione, dashboard e checklist per fogli professionali.'],
+      ['su03-12-query-fogli-calcolo.html','SU03.12','Query nei fogli di calcolo','QUERY in Google Sheets, logica SQL, SELECT, WHERE, ORDER BY, GROUP BY, PIVOT, Power Query, join, pulizia dati e debug.'],
+      ['su03-13-macro-fogli-calcolo.html','SU03.13','Macro nei fogli di calcolo','Registrare macro, automatizzare report, riferimenti relativi e assoluti, pulsanti, sicurezza, input, errori, test e limiti.'],
+      ['su03-14-vba.html','SU03.14','VBA per Excel','Visual Basic for Applications: editor, Sub e Function, variabili, Range, cicli, condizioni, errori, file, eventi, UserForm e distribuzione.'],
+      ['su03-15-google-apps-script.html','SU03.15','Google Apps Script','Automazione Google Workspace con JavaScript: Sheets, Drive, Gmail, trigger, autorizzazioni, web app, API, quote e deployment.'],
     ].map(([href,num,title,desc]) => `
       <a class="module-card inf" href="${href}">
         <div class="card-num">${num}</div>

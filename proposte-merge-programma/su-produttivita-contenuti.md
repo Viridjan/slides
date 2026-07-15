@@ -7,7 +7,7 @@
 - `su02-01-documenti.html`
 - `su03-01-sistema.html`
 - `su04-01-presentazioni.html`
-- `su03-06-testo.html`
+- `su03-07-testo.html`
 - `sm08-fotocamera-contenuti.html`
 - eventuale collegamento con `su01-03-adobe.html` e `su01-04-alternativi.html`
 

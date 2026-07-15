@@ -1,0 +1,100 @@
+Suite Ufficio · SU03.10 — Grafici nei fogli di calcolo
+======================================================
+
+--- Slide 1 ---
+Grafici
+ che parlano Scegliere il grafico giusto, preparare i dati e comunicare confronti, trend, composizioni e relazioni senza distorcere. 📈 Francesco Antonio Binetti
+
+--- Slide 2 ---
+Percorso Cosa vedremo 01 Domanda prima del grafico 02 Preparare i dati 03 Barre e colonne 04 Linee e tempo 05 Composizione 06 Dispersione 07 Istogrammi 08 Elementi essenziali 09 Scale corrette 10 Colori e accessibilità 11 Grafici dinamici 12 Grafici combinati e assi 13 Grafici speciali e sparkline 14 Trend e previsione 15 Dashboard e revisione
+
+--- Slide 3 ---
+Il grafico è una risposta visuale Prima di aprire Inserisci → Grafico, completa la frase: “Voglio far vedere che…”. Regola: una domanda, un messaggio principale, un grafico. ↔ Confronto Quale categoria è maggiore? ↗ Trend Come cambia nel tempo? ◔ Composizione Come si divide il totale? ⠿ Relazione Due variabili si muovono insieme?
+
+--- Slide 4 ---
+Dati ordinati, grafico prevedibile ▤ Intestazioni Nomi brevi e univoci per categorie e serie. 123 Numeri veri Valori numerici, non testo con simboli digitati. 📅 Date vere Ordine temporale riconosciuto dal foglio. ∅ Vuoti espliciti Decidi se significano zero, dato mancante o non applicabile. 💡 Selezione Seleziona intestazioni e dati, ma escludi totali duplicati: una serie “Totale” spesso raddoppia visivamente ciò che è già rappresentato.
+
+--- Slide 5 ---
+Barre per confrontare categorie La lunghezza è facile da confrontare. Le barre orizzontali funzionano bene con etichette lunghe; le colonne con poche categorie compatte. Ordina le categorie per rendere immediato il confronto Buona scelta Ricavi per servizio, tempi per attività, voti per criterio. Evita 3D, prospettiva e assi troncati che alterano le lunghezze.
+
+--- Slide 6 ---
+Linee per leggere il tempo La linea mette in evidenza direzione, picchi, stagionalità e cambi di ritmo su intervalli ordinati. ⚠️ Attenzione Collegare categorie senza ordine suggerisce una continuità che non esiste. Mesi in ordine, intervalli coerenti, poche serie
+
+--- Slide 7 ---
+Composizione: parti di un totale ▥ Barre impilate Confrontano totale e composizione tra più categorie. 100% 100% impilate Confrontano proporzioni, non quantità assolute. ◔ Torta o anello Solo poche parti, tutte positive, che sommano davvero al 100%. Regola: se devi confrontare angoli sottili, usa barre: l’occhio confronta meglio le lunghezze.
+
+--- Slide 8 ---
+Dispersione: cercare relazioni Ogni punto rappresenta due misure: una sull’asse X e una sull’asse Y. Serve per correlazioni, gruppi e valori anomali. Prezzo sull’asse X, quantità sull’asse Y Correlazione ≠ causa Due variabili possono muoversi insieme senza che una provochi l’altra. Outlier Un punto isolato va verificato: può essere un caso importante o un errore.
+
+--- Slide 9 ---
+Istogramma: vedere una distribuzione Raggruppa valori numerici in intervalli e conta quante osservazioni cadono in ogni fascia. ▥ Domanda Dove si concentra la maggior parte dei valori? ↔ Ampiezza classi Fasce troppo larghe nascondono; troppo strette creano rumore. ⌁ Forma Cerca simmetria, code, più picchi e valori estremi. 💡 Distinzione Le colonne di un istogramma si toccano perché rappresentano intervalli continui; quelle di un grafico a colonne rappresentano categorie separate.
+
+--- Slide 10 ---
+Titolo, assi, legenda, etichette T Titolo-messaggio “I ricavi crescono da gennaio”, non “Grafico ricavi”. X/Y Assi Nome, unità e scala leggibili. ≡ Legenda Serve solo con più serie; meglio etichette dirette quando possibile. 123 Etichette dati Usale sui valori importanti, non su ogni punto per abitudine. Fonte: Creare un grafico — Microsoft Excel ↗ (https://support.microsoft.com/en-us/excel/get-started/create-a-chart-from-start-to-finish)
+
+--- Slide 11 ---
+La scala può cambiare la storia 0 Barre da zero Troncare l’asse amplifica differenze piccole nella lunghezza. ↕ Linee contestuali Un asse non zero può essere utile, ma va reso evidente. ⇄ Intervalli regolari Passi diseguali fanno sembrare costante ciò che non lo è. 3D Niente prospettiva Profondità e inclinazione ostacolano confronti accurati. Correttezza: il grafico deve conservare le proporzioni che il dato possiede.
+
+--- Slide 12 ---
+Colore come informazione, non decorazione ● Base neutra Una tinta coerente per ciò che non richiede attenzione. ● Accento Un solo colore forte per evidenziare il punto del messaggio. Aa Accessibilità Contrasto sufficiente e significato non affidato solo al colore. 💡 Controllo Stampa mentalmente in scala di grigi: serie ed evidenze restano distinguibili grazie a etichette, forme o pattern?
+
+--- Slide 13 ---
+Grafici dinamici e PivotChart Intervalli strutturati, pivot e slicer permettono al grafico di aggiornarsi e filtrarsi senza ricostruirlo. In pratica: sorgente unica → pivot controllata → grafico leggibile. 🔄 Aggiorna
+ Nuove righe incluse nella sorgente. ▣ Filtra
+ Slicer coerenti con la domanda. ✓ Controlla
+ Titolo e scala dopo ogni filtro. Fonte: PivotTable e PivotChart — Microsoft ↗ (https://support.microsoft.com/en-US/Excel/overview-of-pivottables-and-pivotcharts)
+
+--- Slide 14 ---
+Laboratorio: quattro domande, quattro grafici A Confronto Ricavi per servizio → barre ordinate. B Trend Incasso mensile → linea. C Composizione Quota per sede → barre 100% impilate. D Relazione Prezzo e quantità → dispersione. Consegna Per ogni grafico scrivi il messaggio nel titolo, giustifica il tipo scelto e indica una scelta che potrebbe distorcere la lettura.
+
+--- Slide 15 ---
+Righe, colonne e serie: chi rappresenta cosa? Il foglio interpreta una dimensione come categorie e le altre come serie. Se il risultato sembra “girato”, controlla l’orientamento prima di cambiare grafico. Regola: una riga per osservazione, una colonna per variabile. Mese Ricavi Costi Gen 8.200 5.100 Feb 9.400 5.600 Mar 10.100 6.000
+
+--- Slide 16 ---
+Grafico combinato: quantità e tasso insieme Colonne e linea possono convivere quando rappresentano misure diverse ma legate dalla stessa sequenza temporale. ▥ Colonne Ricavi mensili in euro. ↗ Linea Margine percentuale mese per mese. ✓ Legame Stesso periodo, messaggi complementari. ⚠️ Limite Non combinare tipi soltanto per rendere il grafico più movimentato: ogni codifica deve avere un motivo leggibile. Fonte: Tipi di grafico — Google Sheets ↗ (https://support.google.com/docs/answer/190718)
+
+--- Slide 17 ---
+Secondo asse: utile, ma facile da manipolare ✓ Quando aiuta Serie con unità e ordini di grandezza diversi, come euro e percentuale. Aa Come dichiararlo Titoli su entrambi gli assi e colori coerenti con le serie. ↕ Rischio Due scale scelte male possono far sembrare correlate serie indipendenti. 1 Alternativa Due grafici allineati spesso sono più trasparenti di due assi. Fonte: Asse secondario — Microsoft Excel ↗ (https://support.microsoft.com/en-US/Office/excelexp/add-or-remove-a-secondary-axis-in-a-chart-in-excel)
+
+--- Slide 18 ---
+Grafico ad area: il volume nel tempo L’area enfatizza quantità accumulate e contributo al totale. Funziona meglio con poche serie e ordine stabile. ⚠️ Sovrapposizione In un’area non impilata, una serie può nasconderne un’altra. Se interessa solo il trend, preferisci la linea. L’area porta l’attenzione sulla quantità, non solo sulla direzione
+
+--- Slide 19 ---
+Cascata: spiegare come cambia un totale Il waterfall parte da un valore iniziale e mostra contributi positivi e negativi fino al risultato finale. ① Partenza Fatturato lordo. ＋ Aumenti Nuovi clienti e servizi. − Riduzioni Costi, sconti e rimborsi. ＝ Arrivo Margine netto. In pratica: mostra il ponte tra due totali, non una semplice classifica.
+
+--- Slide 20 ---
+Radar: profili multidimensionali con cautela Un radar confronta più criteri sulla stessa scala. È suggestivo, ma aree e angoli sono difficili da confrontare con precisione. 5 Pochi criteri Mantieni 4–7 assi con significato chiaro. ↔ Stessa scala Tutti i criteri devono avere intervalli confrontabili. ▥ Alternativa Barre raggruppate o small multiples sono spesso più leggibili. 💡 Uso sensato Profilo sintetico di competenze o requisiti, accompagnato dai valori numerici.
+
+--- Slide 21 ---
+Heatmap: il colore dentro una matrice Una scala colore applicata a una tabella fa emergere zone alte, basse o anomale senza perdere righe e colonne. Regola: legenda visibile e scala coerente in tutta la matrice. Giorni × fasce orarie: il pattern appare senza creare 25 barre
+
+--- Slide 22 ---
+Sparkline: un andamento dentro la cella Le sparkline sono mini-grafici senza assi completi, utili accanto a ogni riga di una tabella operativa. =SPARKLINE(B2:M2)
+
+=SPARKLINE(B2:M2;
+{"charttype""column"}) ↗ Trend rapido Mostra direzione e oscillazioni per cliente o prodotto. ↕ Scala comune Per confrontare righe, usa minimo e massimo coerenti. Fonte: Funzione SPARKLINE — Google Sheets ↗ (https://support.google.com/docs/answer/3093289)
+
+--- Slide 23 ---
+Trendline: sintetizzare una relazione ／ Lineare Riassume una tendenza approssimativamente rettilinea. R² Adattamento R² descrive quanto il modello segue i dati, non prova causalità. ⚠ Estr apolazione Fuori dall’intervallo osservato l’incertezza cresce rapidamente. 💡 Metodo Osserva prima la dispersione dei punti; una linea elegante non corregge dati pochi, distorti o pieni di eccezioni. Fonte: Aggiungere una linea di tendenza — Google Sheets ↗ (https://support.google.com/docs/answer/6075154)
+
+--- Slide 24 ---
+Media mobile: ridurre il rumore La media mobile sostituisce ogni punto con la media di una finestra vicina, rendendo più leggibile il trend di fondo. ⚠️ Compromesso Una finestra ampia leviga di più, ma ritarda e nasconde cambiamenti improvvisi. Grigio: valori; rosso: andamento smussato
+
+--- Slide 25 ---
+Previsione: mostrare anche l’incertezza ↗ Stima Una proiezione dipende dal modello e dai dati storici. ≋ Intervallo Una fascia comunica valori plausibili meglio di una sola linea. ! Assunzioni Eventi nuovi, stagionalità e cambi di processo possono invalidarla. Correttezza: separa chiaramente dati osservati e valori previsti.
+
+--- Slide 26 ---
+Annotazioni: spiegare picchi e cambi di fase Una nota breve collega un’anomalia a un evento noto senza costringere il lettore a cercare la spiegazione altrove. ● Punto preciso “15 marzo: lancio promozione”. │ Linea evento Segna un cambio di prezzo o procedura. ▧ Fascia Evidenzia campagna, chiusura o periodo eccezionale. 💡 Misura Annota soltanto ciò che modifica l’interpretazione; troppe note trasformano il grafico in un documento.
+
+--- Slide 27 ---
+Small multiples: stessa scala, pannelli separati Ripeti lo stesso grafico per sedi, prodotti o gruppi. La struttura identica rende confrontabili forme e differenze. Regola: stessi assi, stesso periodo, stesso ordine. A Sede centro Trend mensile isolato. B Sede nord Stessa scala del centro. C Sede sud Stesso intervallo temporale. D Online Stessa codifica visiva.
+
+--- Slide 28 ---
+Dashboard: gerarchia prima della decorazione 1 KPI 3–6 numeri decisivi, con periodo e confronto. 2 Trend Uno o due grafici per il cambiamento nel tempo. 3 Cause Confronti per categoria o segmento. 4 Dettaglio Tabella filtrabile per verificare i casi. ⚠️ Coerenza Filtri, unità e date devono valere per tutti i componenti; altrimenti il cruscotto confronta universi diversi.
+
+--- Slide 29 ---
+Revisione finale: ricostruire un grafico debole Prendi un grafico 3D con molte serie, legenda lontana e titolo generico. Ridisegnalo documentando ogni scelta. A Messaggio Scrivi la frase che il lettore deve capire. B Tipo Scegli la codifica adatta alla relazione. C Pulizia Rimuovi 3D, bordi, colori e griglie inutili. D Verifica Controlla scala, unità, fonte e valori mancanti. Consegna: prima/dopo + tre motivazioni verificabili.
+
+--- Slide 30 ---
+Il grafico giusto
+rende il dato onesto. Tipo, scala, ordine e colore devono aiutare il lettore a vedere la relazione reale, non a impressionarlo. Prossimo → SU03.11 · Fogli avanzatiTorna all’indice Francesco Antonio Binetti

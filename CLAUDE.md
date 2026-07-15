@@ -300,7 +300,7 @@ Use one of these fixes:
 **Priority rule:** `00-indice.html` is the canonical source for every published
 deck code and filename. The filename prefix must reproduce the visible
 `.card-num`, lowercased and with dots converted to hyphens (for example
-`SU03.11` → `su03-11-vba.html`). When an index code changes, rename both the
+`SU03.14` → `su03-14-vba.html`). When an index code changes, rename both the
 HTML and TXT files and update every reference before doing any other deck work.
 Never keep a legacy flat number that disagrees with the index.
 
@@ -439,10 +439,10 @@ Navigation chain: sm01 → … → sm11
 
 ### Suite Ufficio
 
-Navigation chain: su01-01 → su01-02 → su01-03 → su01-04 → su02-01 → su02-02 → su02-03 → su02-04 → su03-01 → su03-02 → su03-03 → su03-04 → su03-05 → su03-06 → su03-07 → su03-08 → su03-09 → su03-10 → su03-11 → su03-12 → su04-01
+Navigation chain: su01-01 → su01-02 → su01-03 → su01-04 → su02-01 → su02-02 → su02-03 → su02-04 → su03-01 → su03-02 → su03-03 → su03-04 → su03-05 → su03-06 → su03-07 → su03-08 → su03-09 → su03-10 → su03-11 → su03-12 → su03-13 → su03-14 → su03-15 → su04-01
 
 The filename prefixes mirror the index sub-series: `su01-01`-`su01-04`
-software, `su02-01`-`su02-04` documenti e Word, `su03-01`-`su03-12` fogli di calcolo and
+software, `su02-01`-`su02-04` documenti e Word, `su03-01`-`su03-15` fogli di calcolo and
 automation, and `su04-01` presentazioni.
 
 | File | Title |
@@ -457,16 +457,19 @@ automation, and `su04-01` presentazioni.
 | `su02-04-word-documenti-professionali.html` | Word: documenti professionali |
 | `su03-01-sistema.html` | Il foglio di calcolo: sistema di lavoro |
 | `su03-02-riferimenti.html` | Riferimenti e range |
-| `su03-03-prime-formule.html` | Prime formule |
-| `su03-04-analisi.html` | Analizzare e cercare |
-| `su03-05-funzioni-top.html` | Le 10 funzioni più usate |
-| `su03-06-testo.html` | Manipolare il testo |
-| `su03-07-tabelle-pivot.html` | Tabelle pivot |
-| `su03-08-fogli-calcolo-avanzati.html` | Fogli di calcolo avanzati |
-| `su03-09-query-fogli-calcolo.html` | Query nei fogli di calcolo |
-| `su03-10-macro-fogli-calcolo.html` | Macro nei fogli di calcolo |
-| `su03-11-vba.html` | VBA per Excel |
-| `su03-12-google-apps-script.html` | Google Apps Script |
+| `su03-03-fondamenti-matematici.html` | Fondamenti matematici |
+| `su03-04-prime-formule.html` | Prime formule |
+| `su03-05-analisi.html` | Analizzare e cercare |
+| `su03-06-funzioni-top.html` | Le 10 funzioni più usate |
+| `su03-07-testo.html` | Manipolare il testo |
+| `su03-08-tabelle-pivot.html` | Tabelle pivot |
+| `su03-09-tabelle-pivot-avanzate.html` | Tabelle pivot avanzate |
+| `su03-10-grafici.html` | Grafici nei fogli di calcolo |
+| `su03-11-fogli-calcolo-avanzati.html` | Fogli di calcolo avanzati |
+| `su03-12-query-fogli-calcolo.html` | Query nei fogli di calcolo |
+| `su03-13-macro-fogli-calcolo.html` | Macro nei fogli di calcolo |
+| `su03-14-vba.html` | VBA per Excel |
+| `su03-15-google-apps-script.html` | Google Apps Script |
 | `su04-01-presentazioni.html` | Dillo con una slide |
 
 ### Intelligenza Artificiale

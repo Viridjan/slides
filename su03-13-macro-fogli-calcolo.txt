@@ -1,4 +1,4 @@
-Suite Ufficio · SU03.10 — Macro nei fogli di calcolo
+Suite Ufficio · SU03.13 — Macro nei fogli di calcolo
 ====================================================
 
 --- Slide 1 ---
@@ -7,21 +7,19 @@ Macro nei
  ↓ registra
 macro
  ↓ ripeti
-procedura automatica
+procedura automatica Francesco Antonio Binetti
 
 --- Slide 2 ---
 Percorso Cosa vedremo 01 Che cos’è una macro 02 Automatizzare solo processi stabili 03 Registrare una macro 04 Macro di formattazione report 05 Relativo o assoluto 06 Macro e rischio sicurezza 07 Assegnare macro a pulsanti e menu 08 Macro con parametri e celle di controllo 09 Gestire errori senza bloccare il lavoro 10 Testare su copie e mantenere versioni 11 Quando una macro non basta 12 Checklist di una macro affidabile
 
 --- Slide 3 ---
-Definizione Che cos’è una macro Una macro è una sequenza di azioni salvata e rieseguita: formattare report, pulire dati, esportare PDF, creare fogli o inviare riepiloghi. Ripetizione Ha senso quando fai spesso gli stessi passaggi. Coerenza Riduce differenze tra file prodotti da persone diverse. Velocità Trasforma minuti di click in un comando.
+Definizione Che cos’è una macro Una macro è una sequenza di azioni salvata e rieseguita: formattare report, pulire dati, esportare PDF, creare fogli o inviare riepiloghi. Ripetizione Ha senso quando fai spesso gli stessi passaggi. Coerenza Riduce differenze tra file prodotti da persone diverse. Velocità Trasforma minuti di click in un comando. [Fonte: Macro — Wikipedia — https://it.wikipedia.org/wiki/Macro_(informatica)]
 
 --- Slide 4 ---
 Quando usarle Automatizzare solo processi stabili Una macro funziona bene quando la procedura è chiara. Se cambi regola ogni volta, prima serve stabilizzare il flusso. Buon caso Ogni lunedì importi CSV, pulisci colonne, generi report. Cattivo caso Ogni file ha struttura diversa e decisioni manuali non documentate. Regola Se non riesci a scrivere i passaggi, non sei pronto per la macro. Regola: automatizza solo ciò che sai già fare a mano, sempre allo stesso modo.
 
 --- Slide 5 ---
-Registratore Registrare una macro Excel e Google Sheets permettono di registrare azioni. È il modo più accessibile per iniziare, ma il codice generato va letto e pulito. Esegui Fai i passaggi una volta mentre il registratore è attivo. Salva Dai un nome chiaro e assegna scorciatoia se serve. Testa Prova su una copia del file, non sull’unico originale.
-Fonti ufficiali:
-- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
+Registratore Registrare una macro Excel e Google Sheets permettono di registrare azioni. È il modo più accessibile per iniziare, ma il codice generato va letto e pulito. Esegui Fai i passaggi una volta mentre il registratore è attivo. Salva Dai un nome chiaro e assegna scorciatoia se serve. Testa Prova su una copia del file, non sull’unico originale. [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603]
 
 --- Slide 6 ---
 Esempio Macro di formattazione report Una macro semplice può uniformare intestazioni, larghezze, filtri e formato numerico. 1. Seleziona riga intestazioni
@@ -50,13 +48,10 @@ Errori Gestire errori senza bloccare il lavoro Una macro professionale controlla
 Versioni Testare su copie e mantenere versioni Una macro sbagliata può modificare molte celle in un attimo. Lavora su copie, conserva backup e documenta cosa cambia. Copia test Prima prova su un duplicato del file. Backup Mantieni una versione prima della macro. Change log Annota data, autore e modifica della macro.
 
 --- Slide 13 ---
-Limiti Quando una macro non basta Se l’automazione deve collegarsi a servizi esterni, API, email o database, potresti aver bisogno di VBA, Apps Script, Power Query o un’app dedicata. Macro registrata Ottima per click ripetitivi. Codice Serve per condizioni, cicli, controlli complessi. Sistema Se coinvolge più persone e dati critici, serve progettazione.
-Fonti ufficiali:
-- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
+Limiti Quando una macro non basta Se l’automazione deve collegarsi a servizi esterni, API, email o database, potresti aver bisogno di VBA, Apps Script, Power Query o un’app dedicata. Macro registrata Ottima per click ripetitivi. Codice Serve per condizioni, cicli, controlli complessi. Sistema Se coinvolge più persone e dati critici, serve progettazione. [Fonte: Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322]
 
 --- Slide 14 ---
 Metodo Checklist di una macro affidabile Una buona macro ha uno scopo chiaro, input controllati, output verificabile e istruzioni per l’utente. Nome AggiornaReportMensile, non Macro1. Scopo Una macro, una responsabilità. Controlli Verifica dati prima di agire. Documentazione Spiega cosa fa e cosa non deve essere cambiato.
 
 --- Slide 15 ---
-Una macro utile elimina lavoro ripetitivo senza nascondere il controllo. Prima progetta la procedura, poi automatizzala; non automatizzare confusione. Torna all'indice Fonti e approfondimenti Macro — Wikipedia ↗ Guida ufficiale Google Sheets ↗ Internet Message Format — RFC 5322 ↗
-
+Una macro utile elimina lavoro ripetitivo senza nascondere il controllo. Prima progetta la procedura, poi automatizzala; non automatizzare confusione. Prossimo → SU03.14 · VBA Torna all’indice Fonti e approfondimenti Macro — Wikipedia ↗ (https://it.wikipedia.org/wiki/Macro_(informatica))Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)Internet Message Format — RFC 5322 ↗ (https://www.rfc-editor.org/rfc/rfc5322) Francesco Antonio Binetti

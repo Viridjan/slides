@@ -17,13 +17,52 @@
 
   let current = 0;
 
-  const scale = () => {
+  // The stage is scaled to fit the viewport, and refits on every resize — which
+  // means browser zoom (Ctrl +) has no effect: it just triggers a refit. So the
+  // engine owns a zoom of its own, layered on top of the fit factor, with pan
+  // for the part that no longer fits.
+  let zoom = 1;
+  let panX = 0;
+  let panY = 0;
+
+  const apply = () => {
     if (!stage) return;
-    const f = Math.min(innerWidth / 1920, innerHeight / 1080);
-    const x = (innerWidth - 1920 * f) / 2;
-    const y = (innerHeight - 1080 * f) / 2;
+    const f = Math.min(innerWidth / 1920, innerHeight / 1080) * zoom;
+    const x = (innerWidth - 1920 * f) / 2 + panX;
+    const y = (innerHeight - 1080 * f) / 2 + panY;
     stage.style.transform = `translate(${x}px,${y}px) scale(${f})`;
+    stage.style.cursor = zoom > 1 ? 'grab' : '';
   };
+
+  const fit = () => Math.min(innerWidth / 1920, innerHeight / 1080);
+
+  const setZoom = (z, cx, cy) => {
+    // Anchor on the cursor, but only if it is actually over the stage; otherwise
+    // zoom toward the centre of the slide.
+    const r = stage.getBoundingClientRect();
+    if (cx == null || cx < r.left || cx > r.right || cy < r.top || cy > r.bottom) {
+      cx = r.left + r.width / 2;
+      cy = r.top + r.height / 2;
+    }
+    // Full transform is translate(T) scale(f) with f = fit*zoom and T carrying a
+    // centring term that also depends on f. Find the stage point under the cursor
+    // now, then choose the new pan so that same point stays under the cursor.
+    const f0 = fit() * zoom;
+    const tx0 = (innerWidth - 1920 * f0) / 2 + panX;
+    const ty0 = (innerHeight - 1080 * f0) / 2 + panY;
+    const px = (cx - tx0) / f0;
+    const py = (cy - ty0) / f0;
+
+    zoom = Math.max(1, Math.min(4, z));
+    if (zoom === 1) { panX = panY = 0; apply(); return; }
+
+    const f1 = fit() * zoom;
+    panX = (cx - px * f1) - (innerWidth - 1920 * f1) / 2;
+    panY = (cy - py * f1) - (innerHeight - 1080 * f1) / 2;
+    apply();
+  };
+
+  const scale = apply;
 
   // Numbers are filled in from the live slide list, so inserting or removing a
   // slide can never leave a stale number behind.
@@ -57,15 +96,40 @@
     else if (e.key === 'Home') show(0);
     else if (e.key === 'End') show(slides.length - 1);
     else if (e.key.toLowerCase() === 'i') location.href = indexHref;
+    else if (e.key === '+' || e.key === '=') { e.preventDefault(); setZoom(zoom + 0.25); }
+    else if (e.key === '-' || e.key === '_') { e.preventDefault(); setZoom(zoom - 0.25); }
+    else if (e.key === '0') { e.preventDefault(); setZoom(1); }
   });
 
   let wheelLock = false;
   addEventListener('wheel', e => {
+    // Ctrl+wheel is the universal zoom gesture; preventDefault stops the browser
+    // from zooming the page (which the fixed stage would just refit away).
+    if (e.ctrlKey) {
+      e.preventDefault();
+      setZoom(zoom - Math.sign(e.deltaY) * 0.2, e.clientX, e.clientY);
+      return;
+    }
+    // While zoomed in, the wheel pans instead of changing slide.
+    if (zoom > 1) { panY -= e.deltaY; apply(); return; }
     if (wheelLock || Math.abs(e.deltaY) < 20) return;
     wheelLock = true;
     e.deltaY > 0 ? next() : prev();
     setTimeout(() => { wheelLock = false; }, 700);
-  }, { passive: true });
+  }, { passive: false });
+
+  // Drag to pan when zoomed in.
+  let drag = null;
+  addEventListener('mousedown', e => {
+    if (zoom > 1) { drag = { x: e.clientX - panX, y: e.clientY - panY }; e.preventDefault(); }
+  });
+  addEventListener('mousemove', e => {
+    if (!drag) return;
+    panX = e.clientX - drag.x;
+    panY = e.clientY - drag.y;
+    apply();
+  });
+  addEventListener('mouseup', () => { drag = null; });
 
   // Touch: a horizontal swipe longer than it is tall, so scrolling a long note
   // on a tablet does not skip the slide.
