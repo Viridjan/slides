@@ -11,62 +11,14 @@ comments with `node scripts/manage-ip-notice.js add`.
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Parallel agents: keep this file current
+## Parallel agents
 
-Claude Code and Codex often work in this repo **at the same time**, and this
-file is the only channel they share. Before touching anything, read the work
-log below; before finishing a piece of work, add or update its entry. An agent
-that renames files, changes a scoring formula, or drops a convention without
-recording it here will have that work silently undone by the other agent.
-
-Also check `git status` and `git log` on entry: a clean tree does not mean
-nobody is working — the other agent may be mid-task and committing as it goes.
-
-### Work log
-
-- **2026-07-14 · Claude** — `scripts/add-official-source-links.js` now also
-  renders Wikipedia links: a separate `WIKI` list, capped at one link per slide,
-  and only after the official sources have taken their two slots — Wikipedia is
-  secondary and must never displace a primary source. Every article title was
-  resolved against the it.wikipedia API (redirects followed), so add new ones
-  the same way rather than guessing a URL.
-- **2026-07-14 · Claude** — Any rule that skips title slides must exclude BOTH
-  `.title` (8 decks) and `.title-slide` (75). Inline-sized children (`.tag`,
-  `.tape`, `.analogy`, `.chip`, any `span`) need `align-self:flex-start`, or the
-  flex column stretches them into full-width bars.
-
-- **2026-07-14 · Claude** — Auto source links now carry an optional area scope
-  (4th field in `SOURCES`). Generic keywords were citing the wrong authority
-  across the whole course: `funzioni` and `formule` matched the homonym in
-  programming, networking and 3D decks and cited Microsoft Excel support. 71
-  wrong links removed; Office/Google sources are now `su`-only, `audio` and
-  `gamepad` are `gd`-only. When adding a product-specific source, scope it.
-- **2026-07-14 · Claude** — Rebuilt the "Cosa vedremo" slide in `su03-08` …
-  `su03-12`: each of its 12 cards used to repeat, verbatim, the lead of a later
-  slide (52 of 60 cards). It is now an index of titles. Removed 3 redundant
-  slides from `pr01-01` (paradigms and computability were each covered twice,
-  plus a recap slide sitting mid-deck).
-
-- **2026-07-14 · Claude** — Title slides carry one of two class names:
-  `.title` (8 decks) or `.title-slide` (75). Any rule meant to skip them must
-  exclude both — `:not(.title)` alone leaves 75 decks matched.
-
-- **2026-07-14 · Claude** — Source footers now stack as a list (one link per
-  line) instead of sitting side by side; changed in
-  `scripts/add-official-source-links.js`, regenerated across all decks.
-- **2026-07-14 · Claude** — Content slides are vertically centred via
-  `theme-corsi.css` (`justify-content: safe center`, `gap: 20px`), so a slide
-  reads as full rather than top-heavy. `safe center` keeps a dense slide
-  top-aligned instead of clipping its heading. Title and closing slides keep
-  their own layout.
-
-- **2026-07-12 · Claude** — Added the `.analogy` component (CSS rule + one
-  banner) to `su03-08` … `su03-12`; it was missing from that whole batch.
-  Regenerated their `.txt` companions.
-- **2026-07-12 · Claude** — Reworked the density score: single rounding, `0`-`10`
-  scale end to end (see Codex index badge below). Removed the old `/9` scale
-  and the hardcoded `4/9 → 5/9` promotion. The index panel now shows scores
-  without a `/10` suffix and renders the five editorial criteria as two pips.
+Claude Code and Codex often work in this repo **at the same time**. On entry,
+check `git status` and `git log`: a clean tree does not mean nobody is working —
+the other agent may be mid-task and committing as it goes, so read a file from
+disk right before editing it and stage explicitly (never `git add -A`). Capture
+anything durable as a rule in the relevant section below, not as a changelog
+entry: git already records what changed and when.
 
 ## What this repo is
 
@@ -98,26 +50,37 @@ on any plain HTTP server.
 
 ## Editing rules
 
-- Keep all deck files self-contained: inline CSS and inline JS. Sole
-  exception: `theme-corsi.css`, a shared stylesheet linked by every published
-  deck that sets per-section background tints via `body.course-XX` classes
-  (e.g. `<body class="course-rw">`). New decks must include the link and the
-  matching course class. Edit that one file to retheme a whole section.
+- Keep deck files self-contained (inline CSS) except for two shared files every
+  deck links: `theme-corsi.css` sets per-section background tints via
+  `body.course-XX` classes (e.g. `<body class="course-rw">`), and `deck.js` is
+  the shared slide engine (stage scaling, keyboard/wheel/touch navigation,
+  `#slide-N` deep links, Ctrl+wheel zoom). New decks must include both, the
+  matching course class, and `<script src="deck.js"></script>` before `</body>`;
+  do not re-add an inline copy of the engine.
 - Keep links between decks as bare filenames, for example
-  `href="inf12-os-concetti.html"`.
+  `href="hs04-os-concetti.html"`.
 - Do not add folder prefixes to root-level deck links.
 - Do not edit `corsi/` unless the user explicitly asks for source material work.
 - Use fictional domains in examples, for example `www.azienda.it`; avoid real
   Italian domains in teaching examples.
-- Link factual claims, standards, regulations, product behavior and formal
-  methodologies to primary official sources in the slide where they appear.
-  Place compact source links in an isolated row at the bottom-left of the relevant
-  slide, with a descriptive `title`, `target="_blank"` and
-  `rel="noopener noreferrer"`; do not replace these with a generic bibliography
-  at the end of the deck. `scripts/add-official-source-links.js` maintains the
-  shared source map, moves manual source links into the same row and applies at
-  most two automatic references per content slide.
-  After changing that map, run the source-link script, merge the references into
+- Source links are generated by `scripts/add-official-source-links.js`, not
+  placed by hand. Its behaviour, and the rules to keep in mind when editing the
+  `SOURCES`/`WIKI` maps:
+  - Each source has an optional 4th field, an area-prefix regex scope. Scope
+    every product- or subject-specific source, or a keyword lands on a homonym
+    (`funzioni` → Excel in a programming deck; `iterazione` → the design cycle
+    in game design).
+  - A generic Italian word (`audio`, `macro`, `paradigma`) earns a link only
+    when the slide heading or lead is about it; a distinctive term (GDPR, SPID,
+    RAM, VBA — anything with an uppercase letter or digit) may also anchor
+    inside a card.
+  - `WIKI` entries are secondary: capped at one per slide, only after the
+    official sources took their slots, and every title must resolve against the
+    it.wikipedia API (follow redirects) — never guess a URL.
+  - Each source appears at most once per deck, on its most relevant slide
+    (heading > lead > body, earliest slide wins ties). Agenda slides are
+    skipped. The closing slide lists every source the deck cites.
+  After changing the maps, run the source-link script, merge the references into
   the existing TXT companions without discarding their extra notes, then rebuild
   the generated indexes:
 
@@ -270,6 +233,12 @@ below the `position:absolute` `::before`).
 code) but all `<div class="deck-tab">` elements have been removed. Do not
 re-add them.
 
+**Do not add top labels to content slides.** Standalone pills such as
+`<span class="tag">Dati</span>`, `Percorso`, `Logica`, or equivalent category
+labels above the heading have been removed repository-wide. The slide heading
+must be the first visible content element; express its subject in the heading
+itself instead of restoring a `.tag` or an analogous badge.
+
 **Do not add `.tape` bars to slides.** The colored section bars ("In questo
 modulo", "Definizione", etc.) were removed across the entire published library.
 Use the slide heading hierarchy itself to communicate the section.
@@ -277,6 +246,13 @@ Use the slide heading hierarchy itself to communicate the section.
 **Do not add `.chips` or `.chip` badges to title slides.** Module codes, slide
 counts and topic labels belong in the index or the title text, not in a row of
 pills on the opening slide. Chips remain available on content and closing slides.
+
+**Title slides use one of two class names:** `.title` (8 decks) or
+`.title-slide` (75). Any CSS rule or script that means to skip title slides must
+exclude both — `:not(.title)` alone still matches 75 decks. `theme-corsi.css`
+centres content slides in a flex column, so inline-sized children (`.analogy`,
+`.chip`, `.tape`, a bare `span`) need `align-self:flex-start` or they stretch
+into a full-width bar.
 
 ## Overflow prevention
 
@@ -506,23 +482,10 @@ General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-0
 | `pr01-03-algoritmi.html` | Algoritmi e problemi |
 | `pr01-04-fondamenti-programmazione.html` | Fondamenti di programmazione |
 
-Codex note: the `PR01.02`-`PR01.04` theory blocks are paraphrased and reorganized
-from the public PDF "Fondamenti di Informatica e Programmazione" by Edizioni
-Manna, requested by the user on 2026-07-10. Keep them in the Programmare group
-before Scratch and do not split them into Hardware/Software or other sections.
-
-Codex update 2026-07-10: the `PR01.01` theory blocks were expanded without changing
-their topic boundaries. Current slide counts are:
-
-| File | Slides | Expansion focus |
-| --- | ---: | --- |
-| `pr01-01-introduzione-programmazione.html` | 30 | readability, maintenance, components, types, expressions, control flow, functions, errors, testing, paradigms and computability limits |
-| `pr01-02-dati-codifica.html` | 18 | text encoding, images, audio, compression, file formats, overflow, byte order and representation choices |
-| `pr01-03-algoritmi.html` | 20 | decomposition, preconditions, postconditions, sequence, decisions, loops, accumulators, counters, trace tables and efficiency |
-| `pr01-04-fondamenti-programmazione.html` | 37 | input/output, type conversion, expanded arithmetic/logical/assignment operators, symbols, indentation, lists, functions, scope, debugging, tests and documentation |
-
-The matching `.txt` files include additional explanatory notes for search and
-course completeness. `search-index.js` has been regenerated after the expansion.
+The `PR01.02`-`PR01.04` theory blocks are paraphrased and reorganized from the
+public PDF "Fondamenti di Informatica e Programmazione" by Edizioni Manna. Keep
+them in the Programmare group before Scratch; do not split them into
+Hardware/Software or other sections.
 
 Scratch navigation chain: pr02-01 → pr02-02
 
@@ -598,9 +561,9 @@ positioned at the right edge, stacked vertically, both 80px wide.
 The index has an inline JS snippet that auto-injects `↓ TXT` download buttons
 into every `.module-card[href]` at page load — no manual button markup needed.
 
-### Codex index badge
+### Index statistics badge
 
-Codex added a single right-side synthetic statistics badge. It mixes two
+The index shows a single right-side synthetic statistics badge. It mixes two
 conceptually separate values into one visible `N/10` score:
 
 - `completeness-index.js` is generated by `scripts/build-completeness.js` and
@@ -608,7 +571,7 @@ conceptually separate values into one visible `N/10` score:
   density**, not quality. The script ignores title/closing slides and scores
   each inner slide as `min(10, words/25)`. Those per-slide values stay
   fractional; the deck score is their mean, rounded once at the very end.
-- `quality-index.js` is a manual editorial map added by Codex. It provides the
+- `quality-index.js` is a manual editorial map. It provides the
   quality component and contains five easy-to-edit fields for every index
   card: `coverage`, `clarity`, `examples`, `correctness`, `freshness`.
   Each field is `0`, `1`, or `2`; their sum is `Q N/10`.
@@ -669,37 +632,6 @@ script. The script computes the total from `.question` elements, so adding or
 removing questions should not require changing scoring code. Still update the
 visible score text and index card labels when the question count changes.
 
-## Codex slide skills
-
-Codex update 2026-07-10: after pushing commit `665671a`, the user asked Codex to
-check `https://github.com/ToseaAI/awesome-html-slide-skills` and install whatever
-was usable. Codex scanned the linked repositories for `SKILL.md` files and
-installed 34 slide-related skills into `~/.codex/skills/`.
-
-Notable installed skills include:
-
-- `frontend-slides`
-- `frontend-slides-editable`
-- `html-ppt-skill`
-- `html-slide`
-- `html-slide-plan`
-- `html-slide-prompt`
-- `html-slide-render`
-- `html-slide-to-pptx`
-- `slide-design`
-- `slide-creator`
-- `slide-writer`
-- `ppt-workflow`
-- `ppt-master`
-- `ppt-forge`
-- `ppt-design`
-- `visual-explainer`
-- `visual-cognition-slides`
-
-These skills are installed locally but require restarting Codex before they are
-listed as active skills in a new session. Until then, continue using the repo's
-existing HTML/TXT/index workflow.
-
 ## Source materials
 
 Original PPTX/PDF/source files live in `corsi/`. Some files are large. The
@@ -710,8 +642,8 @@ deduplicated by MD5, organized per source deck with slide numbers in filenames
 (`slide003_img01.png`). Browse via `corsi/images/index.html` (lightbox gallery).
 Regenerable from the PPTX files; do not commit it.
 
-Codex started integrating selected legacy screenshots into the new standalone
-HTML decks through `assets/legacy-slides/`. Use this folder only for small,
+Selected legacy screenshots are integrated into the standalone HTML decks
+through `assets/legacy-slides/`. Use this folder only for small,
 curated images that are actually referenced by published slides; keep the full
 PPTX image dump in ignored `corsi/images/`.
 
