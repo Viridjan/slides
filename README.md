@@ -74,8 +74,15 @@ All decks end with the same centered structure: `.closing` contains a
 `.closing-inner` with one headline, one short summary and exactly one primary
 action. The action links to the next deck, or to the relevant index when the
 module is terminal. The page number remains outside the inner container at the
-bottom-right. Shared geometry lives in `theme-corsi.css`; deck files keep only
-their content and navigation destination.
+bottom-right. Optional source links sit between the summary and the action and
+remain visually secondary.
+
+The primary link must use `.chip.closing-primary`. `theme-corsi.css` renders it
+as a centered translucent pill with a light border, balanced text and shared
+hover/focus states. Do not add deck-local colors, padding, positioning or a
+second decorative closing badge. Shared geometry and link placement live in
+`theme-corsi.css`; deck files keep only their content and navigation
+destination.
 
 After adding or substantially editing decks, normalize the closing slides and
 rebuild search:

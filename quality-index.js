@@ -19,6 +19,7 @@ window.QUALITY_INDEX = {
   "rw01-05-affidabilita.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "rw02-03-contenuti.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "rw02-04-collaborazione-digitale.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
+  "rw02-05-account-email.html": { coverage: 2, clarity: 2, examples: 1, correctness: 2, freshness: 1 },
   "cd01-01-licenze-oer.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "cd01-02-accessibilita-immagini.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "cd01-03-metadati-formati.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },

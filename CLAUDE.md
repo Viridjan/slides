@@ -137,8 +137,20 @@ but alignment, spacing and action placement do not:
 
 - `.closing-inner` is centered horizontally and vertically by `theme-corsi.css`.
 - Use one balanced headline, normally no more than two lines, and one summary.
+- Keep all closing copy centered. The shared visual order is: headline,
+  summary, optional source links, then the primary action.
 - Show exactly one primary action: `Prossimo` when another deck follows;
   otherwise link to the same index used by `.home-btn` with `Torna all’indice`.
+- Always use `.chip.closing-primary` for that action. Its shared appearance is
+  a translucent white pill with a light border and centered text; do not
+  override it with deck-local gold fills, opaque backgrounds, inline padding,
+  shadows or alternative button geometry.
+- Source and reference links are visually secondary. Keep them in `.sources`,
+  `.source-mini` or `[data-source-list="true"]`; `theme-corsi.css` places them
+  between the summary and the action (or in the compact source footer). Never
+  mix source links into `.closing-actions`.
+- Do not add decorative closing chips such as `Fine serie`: legacy `.chips`
+  groups without links are hidden so the final slide presents one action only.
 - Keep the page marker outside `.closing-inner`, at bottom-right.
 - Do not use inline positioning, `.deck-tab`, alternative alignment wrappers or
   multiple navigation buttons on closing slides.
@@ -365,7 +377,7 @@ Navigation chain: hs01 → hs02 → hs03 → hs04 → hs05
 
 ### Reti e Web
 
-Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw02-01 → rw02-02 → rw02-03 → rw02-04 → rw03-01 → rw03-02 → rw03-03 → rw03-04 → rw03-05
+Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw02-01 → rw02-02 → rw02-03 → rw02-04 → rw02-05 → rw03-01 → rw03-02 → rw03-03 → rw03-04 → rw03-05
 
 | File | Title |
 | --- | --- |
@@ -378,6 +390,7 @@ Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw
 | `rw01-05-affidabilita.html` | Navigare con Spirito Critico |
 | `rw02-03-contenuti.html` | Gestire e Archiviare Contenuti |
 | `rw02-04-collaborazione-digitale.html` | Collaborazione Digitale |
+| `rw02-05-account-email.html` | Il tuo account email |
 | `rw03-01-identita.html` | La tua identità online |
 | `rw03-02-societa.html` | Tecnologia e Società |
 | `rw03-03-vr-ar.html` | VR, AR e Metaverso |
