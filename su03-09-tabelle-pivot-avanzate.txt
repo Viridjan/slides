@@ -32,7 +32,7 @@ Campi calcolati: una misura derivata Un campo calcolato usa i campi della sorgen
 Commissione = Vendite * 0,05 Quando usarlo La logica è semplice, stabile e appartiene al report. Quando evitarlo Se servono condizioni complesse, prepara la colonna nella sorgente o nel modello dati. Fonte: Calcoli nelle tabelle pivot — Microsoft ↗ (https://support.microsoft.com/en-us/excel/calculate-values-in-a-pivottable)
 
 --- Slide 9 ---
-Dal totale alle righe che lo compongono Il drill-down permette di controllare un numero: apri il dettaglio della cella e confronta le righe sorgente. 1 Individua Scegli il totale anomalo. 2 Apri il dettaglio Visualizza i record che contribuiscono. 3 Verifica Controlla duplicati, date, categorie e importi. Regola: una cifra affidabile deve essere tracciabile fino ai dati sorgente. Fonte: Creare e usare tabelle pivot — Google Sheets ↗ (https://support.google.com/docs/answer/1272900)
+Dal totale alle righe che lo compongono La pivot mostra i totali ma nasconde le righe che li formano. Il drill-down le riporta a galla: doppio clic su un valore e si apre un nuovo foglio con le righe sorgente esatte che, sommate, danno quel numero — in Excel come in Google Sheets. 1 Individua Trova nella pivot il totale da controllare: per esempio un incasso che sembra troppo alto. 2 Apri il dettaglio Doppio clic sulla cella: si apre un foglio con tutte le righe sorgente che compongono quel valore. 3 Verifica Scorri quelle righe a caccia di duplicati, date sbagliate, categorie errate o importi anomali. Regola: una cifra affidabile deve essere tracciabile fino ai dati sorgente.
 
 --- Slide 10 ---
 Segmentazioni e timeline rendono il report esplorabile ▣ Slicer 
