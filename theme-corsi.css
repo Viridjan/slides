@@ -196,7 +196,15 @@ em.sky,.accent{color:var(--accent-2) !important;}
   background:rgba(255,248,224,.90) !important;
 }
 
-.note .lbl{
+/* Decks style `.note.teal` for a dark teal background (light text). The theme
+   forces every note to the same light background, so that light text turns
+   invisible. Loading after the deck's inline CSS, this wins: dark text back. */
+.note.teal,.note.teal *{
+  color:var(--ink) !important;
+}
+
+.note .lbl,
+.note.teal .lbl{
   color:var(--course-dark) !important;
   letter-spacing:.8px !important;
 }
