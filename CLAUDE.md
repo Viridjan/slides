@@ -364,7 +364,7 @@ Navigation chain: hs01 → hs02 → hs03 → hs04 → hs05
 
 ### Reti e Web
 
-Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw02-01 → rw02-02 → rw02-03 → rw02-04 → rw03-01 → rw03-02 → rw03-03 → rw03-04 → rw03-05
+Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw02-01 → rw02-02 → rw02-03 → rw02-04 → rw02-05 → rw02-06 → rw02-07 → rw02-08 → rw03-01 → rw03-02 → rw03-03 → rw03-04 → rw03-05
 
 | File | Title |
 | --- | --- |
@@ -377,6 +377,10 @@ Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw
 | `rw01-05-affidabilita.html` | Navigare con Spirito Critico |
 | `rw02-03-contenuti.html` | Gestire e Archiviare Contenuti |
 | `rw02-04-collaborazione-digitale.html` | Collaborazione Digitale |
+| `rw02-05-licenze-oer.html` | Licenze aperte e OER |
+| `rw02-06-accessibilita-immagini.html` | Accessibilità delle immagini |
+| `rw02-07-metadati-formati.html` | Metadati e formati |
+| `rw02-08-podcast-storytelling.html` | Podcast e storytelling |
 | `rw03-01-identita.html` | La tua identità online |
 | `rw03-02-societa.html` | Tecnologia e Società |
 | `rw03-03-vr-ar.html` | VR, AR e Metaverso |
@@ -475,7 +479,7 @@ Navigation chain: pm01 → pm02 → pm03 → pm04
 
 Index numbering uses `PR01.01`-`PR01.06` for general programming theory, `PR02.xx` for Scratch, `PR03.xx` for Micro:bit and `PR04.xx` for coding tools.
 
-General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-04 → pr01-05 → pr01-06
+General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-04 → pr01-05 → pr01-06 → pr01-07
 
 | File | Title |
 | --- | --- |
@@ -485,6 +489,7 @@ General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-0
 | `pr01-04-costrutti-verifica.html` | Costrutti e verifica |
 | `pr01-05-operatori-funzioni.html` | Operatori e funzioni |
 | `pr01-06-python-base.html` | Python di base |
+| `pr01-07-iterazione-cicli.html` | Iterazione e cicli |
 
 The `PR01.02`-`PR01.06` theory blocks are paraphrased and reorganized from the
 public PDF "Fondamenti di Informatica e Programmazione" by Edizioni Manna. Keep

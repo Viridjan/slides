@@ -1,46 +1,50 @@
-<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 Accessibilità delle immagini · RW02.06
-================================================
+========================================
 
 --- Slide 1 ---
 Accessibilità delle immagini Testo alternativo, immagini decorative e decisioni coerenti con WCAG 2.1. analizzare · scegliere · documentare Francesco Antonio Binetti
 
 --- Slide 2 ---
-Accessibile significa percepibile Se un’immagine trasmette informazione, la stessa funzione deve essere disponibile anche a chi non la vede. 01 Contenuto equivalente 02 Contesto d’uso 03 Tecnologia assistiva
+Cosa vedremo 01 Perché l'accessibilità
+ Accessibile significa percepibile, e il requisito WCAG 1.1.1. 02 Che funzione ha l'immagine
+ Informativa, funzionale o decorativa, e l'attributo alt giusto per ciascuna. 03 Casi difficili
+ Quando alt vuoto non basta, le immagini complesse e l'albero decisionale.
 
 --- Slide 3 ---
-Il requisito WCAG 1.1.1 I contenuti non testuali richiedono un’alternativa testuale equivalente, salvo casi specifici come la pura decorazione. 01 Descrivere lo scopo 02 Non replicare dettagli inutili 03 Permettere l’ignoramento della decorazione Regola: La scelta corretta dipende dalla funzione, dal contesto e dalle condizioni verificabili.
+Accessibile significa percepibile Se un’immagine trasmette informazione, la stessa funzione deve essere disponibile anche a chi non la vede. 01 Contenuto equivalente 02 Contesto d’uso 03 Tecnologia assistiva
 
 --- Slide 4 ---
-Prima domanda: che funzione ha? Lo stesso file può richiedere alt diversi in pagine diverse. La decisione dipende da ciò che comunica nel contesto. 01 Informativa 02 Funzionale 03 Decorativa 04 Complessa
+Il requisito WCAG 1.1.1 I contenuti non testuali richiedono un’alternativa testuale equivalente, salvo casi specifici come la pura decorazione. 01 Descrivere lo scopo 02 Non replicare dettagli inutili 03 Permettere l’ignoramento della decorazione Regola: La scelta corretta dipende dalla funzione, dal contesto e dalle condizioni verificabili. [Fonte: WCAG 2.2 — W3C — https://www.w3.org/Translations/WCAG22-it/]
 
 --- Slide 5 ---
-Immagine informativa L’alt comunica l’informazione essenziale che andrebbe persa rimuovendo l’immagine. 01 Breve ma sufficiente 02 Niente “immagine di” se superfluo 03 Usa il testo vicino come contesto
+Prima domanda: che funzione ha? Lo stesso file può richiedere alt diversi in pagine diverse. La decisione dipende da ciò che comunica nel contesto. 01 Informativa 02 Funzionale 03 Decorativa 04 Complessa
 
 --- Slide 6 ---
-Immagine funzionale Se l’immagine è un pulsante o un link, l’alt descrive l’azione o la destinazione, non l’aspetto. 01 “Cerca” 02 “Scarica il report” 03 “Pagina iniziale”
+Immagine informativa L’alt comunica l’informazione essenziale che andrebbe persa rimuovendo l’immagine. 01 Breve ma sufficiente 02 Niente “immagine di” se superfluo 03 Usa il testo vicino come contesto
 
 --- Slide 7 ---
-Immagine puramente decorativa Se non aggiunge informazione e serve solo all’estetica, deve poter essere ignorata dalle tecnologie assistive. 01 Nessun contenuto utile 02 Nessuna azione 03 Nessuna informazione unica
+Immagine funzionale Se l’immagine è un pulsante o un link, l’alt descrive l’azione o la destinazione, non l’aspetto. 01 “Cerca” 02 “Scarica il report” 03 “Pagina iniziale”
 
 --- Slide 8 ---
-La soluzione HTML: alt vuoto Per un elemento img decorativo si usa alt="". Non è un alt mancante: è una decisione esplicita. 01 Risposta alla domanda 2 02 Lo screen reader può ignorarla 03 Mantiene pulito il flusso di lettura
+Immagine puramente decorativa Se non aggiunge informazione e serve solo all’estetica, deve poter essere ignorata dalle tecnologie assistive. 01 Nessun contenuto utile 02 Nessuna azione 03 Nessuna informazione unica
 
 --- Slide 9 ---
-Vuoto non significa assente Omettere alt può far annunciare il nome del file; alt="" comunica invece che l’immagine non porta contenuto. 01 alt="" · intenzionale 02 nessun alt · errore o ambiguità 03 decorazione.png · rumore informativo
+La soluzione HTML: alt vuoto Per un elemento img decorativo si usa alt="". Non è un alt mancante: è una decisione esplicita. 01 Risposta alla domanda 2 02 Lo screen reader può ignorarla 03 Mantiene pulito il flusso di lettura [Fonte: HTML — Wikipedia — https://it.wikipedia.org/wiki/HTML]
 
 --- Slide 10 ---
-Quando non basta alt="" Un diagramma, una foto probatoria o un’icona cliccabile non sono decorazioni solo perché rendono la pagina più bella. 01 Diagramma: riassunto e descrizione 02 Foto: informazione contestuale 03 Icona-link: nome accessibile
+Vuoto non significa assente Omettere alt può far annunciare il nome del file; alt="" comunica invece che l’immagine non porta contenuto. 01 alt="" · intenzionale 02 nessun alt · errore o ambiguità 03 decorazione.png · rumore informativo
 
 --- Slide 11 ---
-Immagini complesse Grafici e infografiche richiedono un alt sintetico e una spiegazione estesa vicina o collegata. 01 Messaggio principale 02 Dati o tendenze 03 Posizione della descrizione lunga
+Quando non basta alt="" Un diagramma, una foto probatoria o un’icona cliccabile non sono decorazioni solo perché rendono la pagina più bella. 01 Diagramma: riassunto e descrizione 02 Foto: informazione contestuale 03 Icona-link: nome accessibile
 
 --- Slide 12 ---
-Decision tree operativo Chiedi in ordine: è un controllo? comunica informazione? duplica interamente il testo vicino? è pura decorazione? 01 Azione → nome dell’azione 02 Informazione → equivalente breve 03 Duplicata/decorativa → alt vuoto
+Immagini complesse Grafici e infografiche richiedono un alt sintetico e una spiegazione estesa vicina o collegata. 01 Messaggio principale 02 Dati o tendenze 03 Posizione della descrizione lunga
 
 --- Slide 13 ---
-Verifica: decorativa o informativa? Una linea ornamentale tra due sezioni non aggiunge contenuto: quale attributo useresti e perché? 01 Risposta: alt="" 02 Permette di ignorare l’immagine 03 Non usare nome file o descrizione dei colori
+Decision tree operativo Chiedi in ordine: è un controllo? comunica informazione? duplica interamente il testo vicino? è pura decorazione? 01 Azione → nome dell’azione 02 Informazione → equivalente breve 03 Duplicata/decorativa → alt vuoto
 
 --- Slide 14 ---
-Punti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. WCAG 2.1 ↗ WAI: immagini decorative ↗ Tecnica H67 ↗ Prossimo → RW02.07 · Metadati e formati Francesco Antonio Binetti
+Verifica: decorativa o informativa? Una linea ornamentale tra due sezioni non aggiunge contenuto: quale attributo useresti e perché? 01 Risposta: alt="" 02 Permette di ignorare l’immagine 03 Non usare nome file o descrizione dei colori
 
+--- Slide 15 ---
+Punti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. WCAG 2.1 ↗ (https://www.w3.org/TR/WCAG21/)WAI: immagini decorative ↗ (https://www.w3.org/WAI/tutorials/images/decorative/)Tecnica H67 ↗ (https://www.w3.org/WAI/WCAG21/Techniques/html/H67.html) Prossimo → RW02.07 · Metadati e formati Francesco Antonio Binetti Fonti e approfondimenti WCAG 2.2 — W3C ↗ (https://www.w3.org/Translations/WCAG22-it/)HTML — Wikipedia ↗ (https://it.wikipedia.org/wiki/HTML)
