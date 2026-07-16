@@ -11,46 +11,66 @@ Cosa vedremo 01 I metadati
  Raster e vettoriale, JPEG, PNG, SVG e quale formato scegliere.
 
 --- Slide 3 ---
-Il file non è solo pixel Un’immagine può contenere o essere accompagnata da dati che descrivono provenienza, contenuto, diritti e caratteristiche tecniche. 01 Contenuto visivo 02 Metadati descrittivi 03 Metadati tecnici e amministrativi
+Le famiglie di metadati
+ Oltre ai pixel, un'immagine porta o è accompagnata da dati che la descrivono. Si raggruppano in tre famiglie.
+ — Descrittivi
+ Cosa rappresenta: titolo, autore, parole chiave, descrizione. Servono a capirla e a ritrovarla. — Amministrativi
+ Provenienza e diritti: chi l'ha creata, quando e con quale licenza. Servono a gestirla legalmente. — Tecnici
+ Come è fatta: risoluzione, spazio colore, dispositivo, versione del formato. Servono a controllo e conservazione.
 
 --- Slide 4 ---
 Che cosa sono i metadati Sono dati strutturati su una risorsa. Rendono esplicite informazioni che altrimenti resterebbero nel nome file o nella memoria di qualcuno. 01 Titolo e autore 02 Data e luogo 03 Licenza e diritti 04 Formato e dimensioni Regola: La scelta corretta dipende dalla funzione, dal contesto e dalle condizioni verificabili.
 
 --- Slide 5 ---
-Perché servono in archivio La funzione principale è facilitare indicizzazione, ricerca, comprensione e gestione nel tempo. 01 Risposta alla domanda 4 02 Filtri e ordinamento 03 Recupero affidabile
+A cosa servono: ritrovare
+ La funzione principale dei metadati è far ritrovare, capire e gestire un'immagine nel tempo — molto meglio del solo nome file.
+ — Ricerca per più criteri
+ Autore, data, parole chiave, diritti: cerchi e filtri su chiavi diverse, non solo sul nome del file. — Più chiavi, un solo file
+ Un buon nome aiuta, ma i metadati aggiungono etichette di ricerca senza duplicare l'immagine. — Recupero affidabile
+ Con campi coerenti ritrovi l'immagine giusta anche fra migliaia, anni dopo.
 
 --- Slide 6 ---
-Tre famiglie utili Una classificazione pratica distingue metadati descrittivi, amministrativi e strutturali. 01 Descrittivi: cosa rappresenta 02 Amministrativi: provenienza e diritti 03 Strutturali: relazioni tra parti
+Qualità dei metadati
+ I campi valgono solo se coerenti: applicati con regole comuni, non a sentimento.
+ — Vocabolari condivisi
+ Termini concordati, non sinonimi a caso: «robotica» sempre uguale, non «robot» o «automazione». — Date in formato uniforme
+ Sempre lo stesso schema, per esempio 2026-07-16, così ordinamento e ricerca funzionano. — Nomi non ambigui
+ Autore e titolo scritti in un solo modo: niente «G. Rossi» e «Giulia Rossi» mischiati.
 
 --- Slide 7 ---
-Metadati tecnici Dimensioni, profilo colore, dispositivo, software e data di acquisizione aiutano controllo e conservazione. 01 Risoluzione in pixel 02 Spazio colore 03 Versione del formato
+Metadati sensibili
+ L'EXIF di una foto può contenere più di quanto pensi. Prima di pubblicare, valuta privacy e sicurezza.
+ — Controlla la geolocalizzazione
+ Le coordinate GPS dello scatto restano nel file: verifica prima di mettere online una foto. — Rimuovi il superfluo
+ Modello del dispositivo, data, posizione: togli ciò che non serve a chi la riceve. — Conserva l'originale
+ Tieni una copia archivistica completa; rimuovi i metadati solo dalla versione pubblicata.
 
 --- Slide 8 ---
-Indicizzare non è rinominare Un buon nome file aiuta, ma i metadati consentono più chiavi di ricerca senza duplicare l’immagine. 01 Titolo leggibile 02 Parole chiave controllate 03 Autore e data separati
+Raster e vettoriale
+ Due modi opposti di memorizzare un'immagine, con conseguenze pratiche quando la ingrandisci.
+ — Raster: griglia di pixel
+ JPEG e PNG salvano un colore per pixel: ingranditi oltre misura, sgranano. — Vettoriale: forme
+ SVG descrive curve, forme e testo, disegnati al momento: scala a qualsiasi dimensione. — Usi diversi, non qualità
+ Nessuno dei due è «migliore»: dipende dal contenuto e dall'uso finale.
 
 --- Slide 9 ---
-Qualità dei metadati I campi devono essere coerenti, comprensibili e applicati con regole comuni. 01 Vocabolari condivisi 02 Date in formato uniforme 03 Nomi non ambigui
+JPEG, PNG e SVG
+ Tre formati per tre lavori diversi. Non è una classifica di qualità: è questione di adattarsi al contenuto.
+ — JPEG
+ Fotografie e immagini con molte sfumature. Compressione con perdita: file compatto, ma niente trasparenza e bordi netti fragili. — PNG
+ Screenshot, grafica nitida e trasparenze col canale alfa. Senza perdita: bordi puliti, ma pesante con le foto. — SVG
+ Loghi e icone: forme in XML, indipendenti dalla risoluzione. Si ridimensiona senza perdere nitidezza ed è modificabile.
 
 --- Slide 10 ---
-Metadati sensibili EXIF può includere coordinate GPS, modello del dispositivo e data. Prima di pubblicare valuta privacy e sicurezza. 01 Controlla geolocalizzazione 02 Rimuovi dati non necessari 03 Conserva una copia archivistica
-
---- Slide 11 ---
-Raster e vettoriale Le immagini raster memorizzano pixel; le vettoriali descrivono forme geometriche che vengono rasterizzate al momento della visualizzazione. 01 JPEG/PNG: griglia di pixel 02 SVG: forme, curve e testo 03 Usi differenti, non classifica di qualità
-
---- Slide 12 ---
-JPEG Adatto soprattutto a fotografie e immagini con molte variazioni tonali; la compressione con perdita può introdurre artefatti. 01 File spesso compatto 02 Niente trasparenza standard 03 Non ideale per loghi con bordi netti
-
---- Slide 13 ---
-PNG Adatto a schermate, grafica raster nitida e trasparenze; usa compressione senza perdita. 01 Bordi netti 02 Canale alfa 03 Può pesare molto con fotografie
-
---- Slide 14 ---
-SVG Descrive grafica bidimensionale in XML ed è indipendente dalla risoluzione: si adatta a dimensioni diverse. 01 Risposta alla domanda 6 02 Ideale per loghi e icone 03 Modificabile come struttura vettoriale
-
---- Slide 15 ---
 Scegliere il formato Parti dal contenuto e dall’uso finale, non dall’abitudine. 01 Logo → SVG 02 Fotografia web → JPEG o formati moderni 03 Screenshot trasparente → PNG
 
---- Slide 16 ---
-Verifica: archivio e logo Perché i metadati aiutano a ritrovare un’immagine? Quale formato useresti per un logo ridimensionabile? 01 Indicizzazione e reperimento 02 SVG per grafica vettoriale 03 Motivare entrambe le scelte
+--- Slide 11 ---
+Verifica: archivio e logo
+ Perché i metadati aiutano a ritrovare un'immagine? Quale formato per un logo ridimensionabile?
+ — Perché i metadati aiutano
+ Rendono l'immagine ritrovabile per più criteri — autore, data, parole chiave — non solo per nome. — Quale formato per un logo
+ SVG: è vettoriale, si ridimensiona senza perdere nitidezza. — Motiva entrambe
+ Spiega il perché di ogni scelta, non solo la risposta.
 
---- Slide 17 ---
+--- Slide 12 ---
 Punti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. PREMIS — Library of Congress ↗ (https://www.loc.gov/standards/premis/)SVG — W3C ↗ (https://www.w3.org/TR/SVG11/single-page.html) Prossimo → RW02.08 · Podcast e storytelling Francesco Antonio Binetti

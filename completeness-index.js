@@ -49,7 +49,7 @@ window.COMPLETENESS = {
   "rw02-04-collaborazione-digitale.html": 5,
   "rw02-05-licenze-oer.html": 3,
   "rw02-06-accessibilita-immagini.html": 3,
-  "rw02-07-metadati-formati.html": 1,
+  "rw02-07-metadati-formati.html": 3,
   "rw02-08-podcast-storytelling.html": 1,
   "rw03-01-identita.html": 4,
   "rw03-02-societa.html": 5,
