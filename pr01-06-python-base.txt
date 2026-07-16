@@ -17,6 +17,8 @@ Cosa vedremo 01 La sintassi di Python
 
 --- Slide 3 ---
 Dal linguaggio naturale al linguaggio macchina Il linguaggio naturale è flessibile ma ambiguo: «metti in ordine questi file» è chiaro per un collega, ma la macchina non sa se ordinare per nome, per data, crescente o decrescente. Il linguaggio macchina è eseguibile ma illeggibile. I linguaggi di programmazione stanno nel mezzo: formali come la matematica, leggibili quasi come una frase. Naturale Comodo per spiegare, rischioso per eseguire: sottintesi, contesto, ambiguità. Perfetto per raccogliere requisiti, inadatto come istruzione diretta. Macchina Sequenze binarie come 10110000 01100001, eseguite direttamente dal processore. Velocissime, ma illeggibili e diverse per ogni famiglia di CPU. Alto livello Python, JavaScript, C: parole chiave leggibili e regole precise. Un compilatore o interprete le traduce in linguaggio macchina al posto tuo.
+Fonti ufficiali:
+- JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript
 
 --- Slide 4 ---
 Python: un primo ponte verso il codice Python è adatto per iniziare: sintassi leggibile, poca cerimonia, risultato immediato. Queste otto righe sono già un programma completo: chiedono dati, li convertono, decidono e rispondono. nome = input("Come ti chiami? ")
@@ -27,6 +29,8 @@ if eta >= 18:
  print("Maggiorenne")
 else:
  print("Minorenne") Riga per riga input() mostra la domanda e restituisce ciò che scrivi, sempre come testo. int() lo trasforma in numero. if confronta e sceglie il ramo: con 25 stampa «Maggiorenne», con 15 stampa «Minorenne». Errore comune: dimenticare int(). input() restituisce una stringa, e confrontare "15" &gt;= 18 produce un errore di tipo.
+Fonti ufficiali:
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 5 ---
 Simboli fondamentali nella sintassi Ogni linguaggio usa simboli per separare blocchi, argomenti, liste, stringhe e commenti. Riconoscerli aiuta a leggere codice nuovo. () chiamata o raggruppamento
@@ -44,6 +48,8 @@ print("fine controllo")
 
 --- Slide 7 ---
 Rappresentare i dati prima di elaborarli Un programma non tocca oggetti reali: lavora su dati rappresentati in modo formale. Scegliere il tipo giusto fin dall'inizio rende più semplice scrivere l'algoritmo e previene errori: non puoi moltiplicare un testo, né mettere in maiuscolo un numero. Numeri Per calcoli, misure, contatori e indici: eta = 25, prezzo = 12.50. Si possono sommare, confrontare, dividere e usare per calcolare medie e totali. Stringhe Sequenze di caratteri tra virgolette: nome = "Giulia". Servono per nomi, messaggi, indirizzi. Anche "25" è una stringa: sembra un numero, ma non lo è. Booleani Solo due valori: True o False. attivo = True. Guidano ogni decisione del programma: entrare in un ramo, ripetere un ciclo, filtrare una tabella. Errore comune "23" + "1" produce "231", perché incolla due testi; 23 + 1 produce 24. Stesso simbolo +, tipi diversi, risultati opposti: per questo il tipo va scelto con cura.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 8 ---
 Conversione dei tipi: quando un valore deve cambiare Molti input arrivano come testo, anche quando rappresentano numeri. Convertire significa trasformare il valore nel tipo necessario per l'operazione successiva. eta_testo = "18"
@@ -79,6 +85,8 @@ Tre famiglie di errori da riconoscere Sintassi Il linguaggio non riesce a legger
 
 --- Slide 15 ---
 Debug: osservare il programma mentre lavora Fare debug significa ricostruire cosa succede davvero durante l'esecuzione. Si controllano input, valori intermedi, rami scelti e punto in cui il comportamento diverge dalle attese. Stampe Mostrano valori temporanei. Breakpoint Fermano l'esecuzione in un punto. Traccia Segue il percorso del programma.
+Fonti ufficiali:
+- Debugging — Wikipedia — https://it.wikipedia.org/wiki/Debugging
 
 --- Slide 16 ---
 Sviluppare piccoli passi verificabili Un buon flusso di lavoro alterna progettazione, scrittura, esecuzione e correzione. Meglio costruire programmi piccoli e testabili che scrivere molte istruzioni senza controllarle. Scrivi poco Aggiungi una parte alla volta. Esegui spesso Controlla subito cosa cambia. Testa casi Prova esempi normali, limite e sbagliati.
@@ -88,4 +96,3 @@ Spiegare ciò che il codice non dice da solo I commenti non devono ripetere istr
 
 --- Slide 18 ---
 Dal testo ai blocchi. Con Python hai visto un programma scritto per intero. In Scratch gli stessi concetti diventano visivi e si trascinano con il mouse. Prossimo &#8594; PR02.01 · Scratch Francesco Antonio Binetti
-

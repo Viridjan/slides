@@ -27,6 +27,8 @@ Bit e byte Le unità minime della memoria Il bit è la moneta più piccola dell'
 
 --- Slide 6 ---
 Misure Quanto spazio occupano i dati? La memoria si conta aggregando byte: circa mille byte fanno un kilobyte, mille kilobyte un megabyte, e così via fino a gigabyte e terabyte. Conoscere questi ordini di grandezza permette di stimare se un allegato passerà via email, quanti video entrano nel telefono o quanto durerà un download. KB / MB Un'email di solo testo pesa pochi KB; una foto da smartphone 3–5 MB; una canzone MP3 circa 4 MB. Molti servizi email rifiutano allegati oltre i 25 MB. GB Un film in alta definizione occupa 4–8 GB; un videogioco moderno anche 80 GB; gli smartphone comuni offrono 128 o 256 GB. TB 1 TB = mille GB: contiene circa 250.000 foto o 500 ore di video. È la taglia tipica di dischi esterni, backup e server. Fonte: Internet Message Format — RFC 5322 ↗
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 7 ---
 Conversioni Dal decimale al binario Il sistema decimale usa potenze di 10, il binario potenze di 2: convertire significa riscrivere lo stesso valore in una base diversa, senza cambiarlo. Le potenze di 2 da tenere a mente sono 1, 2, 4, 8, 16, 32, 64 e 128: bastano per qualunque numero fino a 255. 13 in decimale
@@ -38,6 +40,8 @@ prova tu: 10 = 8 + 2 = 1010 Metodo operativo Parti dalla potenza di 2 più grand
 
 --- Slide 8 ---
 Memoria Dati e programmi condividono la stessa materia In memoria tutto è fatto della stessa materia: sequenze di bit. Il significato non sta nei bit, ma nel modo in cui il programma li interpreta. La stessa identica sequenza 01000001 può valere tre cose completamente diverse a seconda del contesto in cui viene letta. Numero Letta come valore aritmetico, 01000001 vale 65: un'età, un prezzo, un punteggio su cui fare calcoli. Carattere Letta con la tabella ASCII, la stessa sequenza indica la lettera maiuscola A all'interno di un testo. Istruzione Letta dal processore come linguaggio macchina, può essere un comando da eseguire, ad esempio caricare un valore. Fonte: ASCII — Wikipedia ↗
+Fonti ufficiali:
+- ASCII — Wikipedia — https://it.wikipedia.org/wiki/ASCII
 
 --- Slide 9 ---
 Esadecimale Una forma compatta per leggere il binario L'esadecimale usa 16 simboli — le cifre da 0 a 9 più le lettere da A a F, dove A vale 10 e F vale 15. Ogni cifra esadecimale riassume esattamente quattro bit, quindi un intero byte si scrive con due sole cifre. Lo incontri nei colori web, negli indirizzi di memoria e nel debugging. 1111 1111 = FF = 255
@@ -48,6 +52,9 @@ colore rosso puro: #FF0000
 
 --- Slide 10 ---
 Codici Codici: una tabella collega numeri e simboli Per trasformare testo in dati serve una convenzione condivisa: una tabella che assegna un numero a ogni carattere, uguale per chi scrive e per chi legge. Se i due usano tabelle diverse compaiono simboli strani — le famose sequenze "Ã¨" al posto delle lettere accentate nelle email codificate male. ASCII Codifica storica da 128 caratteri, pensata per l'inglese: A=65, a=97, la cifra 0=48, lo spazio=32. Non contiene le lettere accentate italiane né i simboli speciali. Unicode Assegna un codice a oltre 150.000 caratteri: alfabeti di tutto il mondo, ideogrammi, simboli matematici ed emoji. Il formato UTF-8 lo rende compatto ed è oggi lo standard del web. Fonte: Unicode Standard ↗ Fonte: UTF-8 — Unicode Standard ↗
+Fonti ufficiali:
+- Unicode Standard — https://www.unicode.org/versions/latest/
+- UTF-8 — Unicode Standard — https://www.unicode.org/versions/latest/core-spec/chapter-2/
 
 --- Slide 11 ---
 Testo Anche una frase è una sequenza di numeri Quando salviamo un documento, ogni carattere viene tradotto nel suo codice numerico. Contano anche spazi, accenti, punteggiatura e ritorni a capo: occupano byte esattamente come le lettere visibili. La parola «Ciao» diventa quattro numeri: per il computer non esiste la frase, esiste solo la sequenza. "Ciao" in ASCII:
@@ -59,12 +66,16 @@ o → 111
 
 --- Slide 12 ---
 Immagini Pixel, risoluzione e colore Una immagine raster è una griglia di pixel. Ogni pixel conserva valori numerici che descrivono il colore; più pixel e più dettagli di colore significano file più grandi. Risoluzione Numero di pixel in larghezza e altezza. Profondità Quanti bit descrivono il colore di ogni pixel. Compressione Metodo per ridurre la dimensione del file. Fonte: Pixel — Wikipedia ↗
+Fonti ufficiali:
+- Pixel — Wikipedia — https://it.wikipedia.org/wiki/Pixel
 
 --- Slide 13 ---
 Audio Campionare un segnale nel tempo Un suono digitale nasce misurando il segnale sonoro molte volte al secondo. Ogni misurazione diventa un numero; più campioni e più precisione aumentano qualità e peso del file. Frequenza Quante misurazioni vengono prese ogni secondo. Profondità Quanti bit descrivono ciascun campione.
 
 --- Slide 14 ---
 Compressione Ridurre lo spazio senza perdere il significato utile La compressione cerca ridondanze nei dati o elimina dettagli poco percepibili. È una scelta importante quando salviamo immagini, audio, video o archivi. Lossless Permette di ricostruire i dati originali senza perdita. Lossy Riduce di più il peso, ma sacrifica parte dell'informazione. Fonte: Compressione dei dati — Wikipedia ↗
+Fonti ufficiali:
+- Compressione dei dati — Wikipedia — https://it.wikipedia.org/wiki/Compressione_dei_dati
 
 --- Slide 15 ---
 Formati Il formato dice come leggere i byte Un file non è solo una sequenza di byte: ha una struttura. Il formato specifica dove sono i metadati, come sono organizzati i contenuti e quale programma può interpretarli. TXT Testo semplice con poche informazioni aggiuntive. PNG Immagine compressa senza perdita. MP3 Audio compresso con perdita controllata.
@@ -83,4 +94,3 @@ Pratica Domande da farsi quando si sceglie una rappresentazione Precisione Quant
 
 --- Slide 19 ---
 Ogni programma lavora su rappresentazioni. Prima di scrivere istruzioni dobbiamo sapere come le informazioni diventano dati. Da qui possiamo passare agli algoritmi. Prossimo → PR01.03 · Algoritmi Fonti e approfondimenti Internet Message Format — RFC 5322 ↗ ASCII — Wikipedia ↗ Unicode Standard ↗ UTF-8 — Unicode Standard ↗ Pixel — Wikipedia ↗ Compressione dei dati — Wikipedia ↗
-

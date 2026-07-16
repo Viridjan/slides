@@ -410,7 +410,7 @@ Navigation chain: cd01-01 → cd01-02 → cd01-03 → cd02-01
 
 ### Sicurezza Digitale
 
-Navigation chain: sd01 → sd02 → sd03 → sd04 → sd05
+Navigation chain: sd01 → sd02 → sd03 → sd04 → sd05 → sd06
 
 | File | Title |
 | --- | --- |
@@ -419,6 +419,7 @@ Navigation chain: sd01 → sd02 → sd03 → sd04 → sd05
 | `sd03-privacy.html` | Privacy, Anonimato e Pseudonimia |
 | `sd04-professioni.html` | Professioni nella Sicurezza Informatica |
 | `sd05-assessment.html` | Assessment, Compliance e Dati Personali |
+| `sd06-piani-b-digitali.html` | Piani B digitali |
 
 ### Smartphones
 

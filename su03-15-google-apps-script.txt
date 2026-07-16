@@ -17,6 +17,8 @@ Cosa vedremo 01 Fondamenti
 
 --- Slide 3 ---
 Fondamenti Che cos’è Apps Script Google Apps Script è JavaScript nel cloud Google: automatizza Sheets, Docs, Drive, Gmail, Calendar e servizi esterni. Caso concreto Un foglio con gli appuntamenti del salone genera ogni sera i promemoria, archivia un PDF su Drive e registra l’esito senza lasciare acceso un computer. Punto di forza Il codice gira nell’infrastruttura Google e usa direttamente i servizi Workspace dell’account, con autorizzazioni esplicite. Errore da evitare Trattarlo come JavaScript nel browser: non esistono DOM e window; si lavora con servizi come SpreadsheetApp e GmailApp. Esercizio Scegli un’attività in Workspace e descrivi origine dei dati, azione automatica, destinazione e frequenza di esecuzione. [Fonte: JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript]
+Fonti ufficiali:
+- JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript
 
 --- Slide 4 ---
 Fondamenti Editor e progetto Ogni progetto ha file .gs, manifest, trigger e autorizzazioni. Il codice vive online ed è legato a un account Google. function mostraContesto() {
@@ -31,9 +33,13 @@ Fondamenti Editor e progetto Ogni progetto ha file .gs, manifest, trigger e auto
 
 --- Slide 5 ---
 Fondamenti JavaScript essenziale Variabili let/const, funzioni, array, oggetti e template string sono la base per scrivere script leggibili. Dati del foglio getValues restituisce un array di righe; map, filter e for...of permettono di trasformarlo in memoria prima di riscriverlo. Scelte leggibili Usa const quando il riferimento non cambia, let per i contatori e piccoli oggetti per rappresentare record con proprietà nominate. Errore da evitare Confondere indice dell’array e numero di riga: gli array partono da 0, i range di Sheets da 1. In pratica: Apps Script è JavaScript che vive nel foglio: stesso mestiere, altro linguaggio. [Fonte: Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel]
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 6 ---
 Costrutti SpreadsheetApp SpreadsheetApp apre file, fogli, range e valori. È l’API centrale per lavorare con Google Sheets. Accesso esplicito getActiveSpreadsheet è comodo nei menu; openById è più affidabile nei trigger, perché indica esattamente quale file deve essere elaborato. Catena degli oggetti Spreadsheet → Sheet → Range → valori: ogni passaggio restringe l’oggetto su cui lavorano le istruzioni successive. Errore da evitare Affidarsi al foglio attivo in un’esecuzione automatica: un trigger non ha necessariamente la stessa selezione dell’utente. [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603]
+Fonti ufficiali:
+- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 7 ---
 Costrutti getValues e setValues Leggere e scrivere in blocco è molto più veloce che cella per cella: usa array bidimensionali. function applicaIva() {
@@ -50,6 +56,8 @@ Costrutti Range e fogli getSheetByName, getRange, appendRow, clearContent e setB
 
 --- Slide 9 ---
 Costrutti Menu personalizzati onOpen può aggiungere un menu al foglio: Aggiorna report, Importa dati, Invia email. Interfaccia semplice onOpen crea il menu «Automazioni» con voci come Aggiorna report e Genera PDF: l’utente avvia funzioni nominate senza aprire l’editor. Separare UI e logica La voce di menu chiama una funzione breve, che valida il contesto e poi delega il lavoro a funzioni riutilizzabili e testabili. Errore da evitare Cambiare il nome della funzione senza aggiornare addItem: il menu resta visibile ma il clic genera «funzione non trovata». [Fonte: Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322]
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 10 ---
 Costrutti Trigger semplici onOpen e onEdit reagiscono ad apertura e modifica. Sono comodi ma hanno limiti di autorizzazione. function onEdit(e) {
@@ -92,6 +100,8 @@ Automazione JSON e oggetti Le API parlano spesso JSON. Devi saper leggere propri
 
 --- Slide 17 ---
 Automazione HTML Service Apps Script può mostrare sidebar, dialoghi e piccole web app con HTML, CSS e JavaScript client. Architettura La sidebar mostra HTML e JavaScript client; google.script.run chiama in modo asincrono le funzioni server che leggono Sheets o Drive. Esperienza utente Disabilita il pulsante durante l’elaborazione e gestisci success e failure handler, così l’utente sa se l’operazione è riuscita. Errore da evitare Aspettarsi un valore di ritorno sincrono da google.script.run: la risposta arriva dopo e deve essere gestita con una callback. [Fonte: HTML — Wikipedia — https://it.wikipedia.org/wiki/HTML]
+Fonti ufficiali:
+- HTML — Wikipedia — https://it.wikipedia.org/wiki/HTML
 
 --- Slide 18 ---
 Automazione Web app Pubblicare come web app consente moduli personalizzati, dashboard e endpoint semplici. Endpoint doGet restituisce una pagina o un output; doPost riceve dati da moduli e servizi esterni. Ogni deployment ha un URL e una versione. Chi esegue La scelta «esegui come proprietario» o «come utente» cambia accesso ai dati e autorizzazioni: va decisa prima della pubblicazione. Errore da evitare Pubblicare accesso anonimo a dati riservati: valida input, identità e permessi anche se l’interfaccia sembra interna. Esercizio Definisci quali dati accetta doPost, come li valida e quale risposta JSON restituisce in caso di successo o errore.
@@ -128,4 +138,3 @@ Produzione Progetto finale Apps Script Un progetto completo legge un foglio, fil
 
 --- Slide 25 ---
 Apps Script collega i fogli agli strumenti Google. È ideale quando il lavoro parte da Sheets ma deve produrre email, file, report e azioni programmate. Prossimo → SU04.01 · Presentazioni Torna all’indice Fonti e approfondimenti JavaScript — Wikipedia ↗ (https://it.wikipedia.org/wiki/JavaScript)Formule e funzioni — Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)Internet Message Format — RFC 5322 ↗ (https://www.rfc-editor.org/rfc/rfc5322)HTML — Wikipedia ↗ (https://it.wikipedia.org/wiki/HTML) Francesco Antonio Binetti
-

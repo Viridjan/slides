@@ -28,6 +28,7 @@ Computer tascabile
  Niente mouse né tastiera fisica: si comanda con tocchi, gesti e voce. In questo capitolo apriamo il "cofano" e guardiamo i pezzi uno per uno. A differenza del PC da scrivania, lo smartphone è progettato per essere usato con una mano sola, in mobilità, con la connettività sempre attiva — un paradigma completamente diverso.
 Fonti ufficiali:
 - Specifiche Bluetooth — Bluetooth SIG — https://www.bluetooth.com/specifications/specs/
+- CPU — Wikipedia — https://it.wikipedia.org/wiki/CPU
 
 --- Slide 4 ---
 SoC 
@@ -45,6 +46,8 @@ SoC
  Scheda logica 
  Il "pavimento" su cui vive tutta l'elettronica: ogni componente ci è fissato sopra e comunica attraverso di essa. 
  Riparabilità Quasi tutto è saldato: RAM, processore e memoria non si sostituiscono. In pratica si riparano solo schermo e batteria su modelli mainstream — e solo da tecnici specializzati. Gli smartphone progettati per la riparazione (come Fairphone) sono eccezioni: la norma del mercato è che un componente guasto equivale a sostituire l'intero telefono. Prima di acquistare, verifica i costi di riparazione e la politica di ricambi ufficiali del produttore.
+Fonti ufficiali:
+- RAM — Wikipedia — https://it.wikipedia.org/wiki/RAM
 
 --- Slide 5 ---
 CPU, SoC e RAM 
@@ -118,8 +121,6 @@ GPS e posizione
  ⚙️ 
  Satelliti, WiFi e celle 
  Il GPS riceve segnali da satelliti (GNSS) per stimare latitudine e longitudine. WiFi positioning e celle telefoniche integrano il GPS per velocità e precisione in interni. La localizzazione è utile per mappe, meteo e sicurezza, ma va gestita per privacy e batteria.
-Fonti ufficiali:
-- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 11 ---
 Sensori di movimento e ambiente 
@@ -144,9 +145,6 @@ Microfoni e altoparlanti
  💡 
  Audio in entrata e in uscita 
  Più microfoni permettono cancellazione del rumore e audio stereo durante le riprese. Usati per chiamate, assistenti vocali, dettatura, traduzione e registrazione video. Gli altoparlanti stereo migliorano l'ascolto di musica e podcast senza cuffie.
-Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
-- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
 
 --- Slide 13 ---
 Confronto con altri dispositivi 
@@ -196,4 +194,3 @@ in pratica.
  Prossimo → SMA02 · Connessioni e reti mobili 
  
  Fonti e approfondimenti Specifiche Bluetooth — Bluetooth SIG ↗ CPU — Wikipedia ↗ RAM — Wikipedia ↗ Guida ufficiale Android ↗ Documenti e specifiche USB — USB-IF ↗
-

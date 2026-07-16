@@ -27,8 +27,6 @@ Ogni cella ha un indirizzo
  4 
  
  Colonna B × Riga 3 = cella B3
-Fonti ufficiali:
-- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 4 ---
 Riferimenti relativi 
@@ -105,8 +103,6 @@ Range: più celle
  
  B2:B5;D2:D5 
  Due intervalli separati (punto e virgola)
-Fonti ufficiali:
-- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 8 ---
 Nominare celle e range 
@@ -145,8 +141,6 @@ Riferimenti alle colonne
  4 14/03 Verdi 80 
  
  Tabella "Vendite" — Vendite[Importo] = colonna C
-Fonti ufficiali:
-- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 10 ---
 Riferimento ad altro foglio 
@@ -167,8 +161,6 @@ Somma la cella B3 da tutti i fogli tra "Gen" e "Dic".
  
  
  ⚠️ Attenzione Se rinomini il foglio sorgente, i riferimenti si aggiornano automaticamente. Se lo elimini, le formule mostrano #RIF!
-Fonti ufficiali:
-- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 11 ---
 La funzione LET 
@@ -222,8 +214,6 @@ Cosa rompe le formule — e come evitarlo
  📋 
  Dati misti 
  Numeri salvati come testo (allineati a sinistra) non vengono sommati correttamente.
-Fonti ufficiali:
-- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 13 ---
 Formula copiata,
@@ -233,4 +223,3 @@ formula corretta.
  Prossimo → SU08 · Prime formule 
  
  Fonti e approfondimenti Guida ufficiale Google Sheets ↗
-

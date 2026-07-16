@@ -18,22 +18,15 @@ Fonti ufficiali:
 
 --- Slide 4 ---
 Microcontrollore Il microcontrollore è un circuito integrato pensato per applicazioni specifiche di controllo digitale. A differenza di un computer generale, non serve a navigare sul web o a editare testi: esegue un programma fisso che legge sensori, elabora dati e controlla attuatori in tempo reale. 🔌 Embedded Il termine "embedded" (incorporato) indica che la scheda è progettata per stare dentro oggetti, prototipi e sistemi di controllo. Non si usa da sola sul tavolo: fa parte di un prodotto con uno scopo preciso. 🧠 Non è un PC generico Micro:bit ha 512 KB di flash e 128 KB di RAM, sufficienti per programmi di controllo ma non per applicazioni desktop. Questa limitazione è didattica: forza a pensare in modo efficiente. 💡 Output immediato La matrice LED 5×5 è il primo output visibile: mostra icone, numeri scorrevoli e stringhe di testo. Il risultato è visibile senza schermo aggiuntivo, il che rende ogni modifica immediatamente osservabile. 📦 Progetto fisico Il codice viene caricato sulla scheda tramite un file .hex — il programma tradotto in un formato che il processore sa eseguire — e produce un comportamento reale, non simulato. Tenere la scheda in mano e vedere la risposta ai propri gesti è l'elemento più motivante per chi impara.
-Fonti ufficiali:
-- Guida ufficiale micro:bit — https://microbit.org/get-started/user-guide/overview/
 
 --- Slide 5 ---
 Tour della scheda Conoscere i componenti fisici aiuta a progettare: ogni sensore corrisponde a un tipo di input che possiamo usare nel codice. 💡 Matrice LED 25 LED rossi disposti in griglia 5×5, programmabili singolarmente. Permette icone, numeri, frecce, testo scorrevole e animazioni frame-by-frame. 🔘 Pulsanti A e B Due pulsanti digitali fisici per input immediato. Supportano pressione singola di A, di B o simultanea A+B, ideali per menu, giochi e conferme. 📌 Pin di contatto I grandi pin (P0, P1, P2, GND, 3V) permettono di chiudere circuiti con le dita o collegare componenti esterni come LED, buzzer e sensori aggiuntivi. 🤝 Accelerometro Misura accelerazione su 3 assi. Rileva gesti come shake, face-up, face-down e tilt, trasformando il movimento fisico in evento nel programma. 🧭 Bussola Il magnetometro misura il campo magnetico terrestre e restituisce la direzione in gradi. Richiede una breve calibrazione ruotando la scheda prima dell'uso. 🎙 Microfono (v2) Presente su Micro:bit v2: rileva il livello sonoro e gesti come il clap. Apre progetti di interazione basati sul suono senza hardware aggiuntivo.
-Fonti ufficiali:
-- Guida ufficiale micro:bit — https://microbit.org/get-started/user-guide/overview/
 
 --- Slide 6 ---
 Fronte e retro della scheda Sul fronte quello che si tocca e si guarda; sul retro i componenti che lavorano invisibili. Output: i 25 LED e lo speaker. Input: pulsanti, logo touch, microfono, accelerometro e bussola. Lungo il bordo inferiore corre il connettore: i cinque fori grandi si usano con le dita o con clip a coccodrillo, le piste sottili tra un foro e l'altro richiedono una basetta di espansione.
 
 --- Slide 7 ---
 Entrare in MakeCode Si lavora online su makecode.microbit.org senza installare nulla: basta aprire il browser, creare un nuovo progetto, dargli un nome e iniziare a trascinare blocchi nel workspace. Il simulatore si aggiorna in tempo reale mentre si costruisce il programma. 🌐 Browser MakeCode funziona interamente nel browser: nessuna installazione, nessun account obbligatorio. Questo lo rende accessibile su qualsiasi computer della classe, anche quelli con limitazioni di installazione software. ➕ New Project Il pulsante "New Project" crea uno spazio di lavoro vuoto e chiede un nome. Dare un nome significativo fin dall'inizio aiuta a ritrovare i progetti e a condividerli con i compagni. 🧰 Toolbox La toolbox è divisa in categorie colorate (Basic, Input, Music, Logic, Loops, Variables…). Ogni categoria raggruppa blocchi dello stesso tipo, rendendo più rapido trovare ciò che serve. 🗂 Workspace Il workspace è l'area di disegno dove si incastrano i blocchi per formare l'algoritmo. I blocchi si collegano solo se compatibili, riducendo gli errori di sintassi tipici del codice testuale.
-Fonti ufficiali:
-- MakeCode per micro:bit — https://makecode.microbit.org/tutorials/getting-started
-- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 8 ---
 La home di MakeCode Aprendo makecode.microbit.org si arriva alla pagina iniziale. In alto un banner mostra progetti in evidenza; al centro l'area "My Projects" raccoglie i lavori salvati nella memoria del browser, con il pulsante viola "New Project" per crearne uno nuovo. Più in basso la galleria "Tutorials" propone progetti guidati passo passo — Flashing Heart, Name Tag, Smiley Buttons, Dice — utili per iniziare senza partire dalla pagina bianca. 💡 Consiglio Su un computer condiviso la memoria del browser può essere svuotata da altri: esporta i progetti importanti con "Salva su disco", così potrai reimportarli in qualsiasi momento con il pulsante "Import". La home di MakeCode: banner dei progetti in evidenza, "My Projects" con "New Project" e la galleria dei tutorial guidati.
@@ -43,19 +36,13 @@ Fonti ufficiali:
 --- Slide 9 ---
 Le aree dell'IDE MakeCode organizza l'interfaccia in sette zone con funzioni specifiche. La legenda numerata le individua sullo screenshot: sapere dove guardare riduce il tempo perso a cercare e aumenta il tempo speso a programmare. 1 2 3 4 5 6 7 L'editor MakeCode appena aperto: un nuovo progetto con i blocchi "on start" e "forever" già nel workspace. Simulatore — la scheda virtuale reagisce in tempo reale Toolbox — blocchi in categorie colorate, con ricerca Selettore linguaggio — Blocks, JavaScript o Python Azioni rapide — impostazioni, guida, condivisione Workspace — l'area dove si incastrano i blocchi Salvataggio — nome progetto e salva su disco Download — genera il file .hex per la scheda
 Fonti ufficiali:
-- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
-- MakeCode per micro:bit — https://makecode.microbit.org/tutorials/getting-started
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 10 ---
 Dal simulatore alla scheda Il ciclo di lavoro è sempre lo stesso: costruire nel workspace, verificare nel simulatore, scaricare il file .hex, copiarlo sulla scheda e osservare il comportamento reale. Ogni anomalia diventa un'opportunità per modificare e ripetere il ciclo. Il simulatore non può riprodurre tutto — vibrazioni, latenze fisiche e sensori reali si verificano solo sulla scheda vera. crea progetto → aggiungi blocchi → test simulatore → download .hex → carica su Micro:bit → prova fisica → modifica e ripeti Regola: il simulatore verifica la logica, la scheda verifica la realtà: se qualcosa funziona solo in uno dei due, il problema sta nel punto di passaggio.
-Fonti ufficiali:
-- Guida ufficiale micro:bit — https://microbit.org/get-started/user-guide/overview/
 
 --- Slide 11 ---
 Dove vivono i blocchi In MakeCode un blocco da solo non fa nulla: deve stare dentro un contenitore che decide quando viene eseguito. Un programma Micro:bit non parte dall'alto e finisce in basso come una ricetta: resta in ascolto di eventi e reagisce. Tre contenitori coprono quasi tutti i casi. 🚀 All'avvio Eseguito una sola volta, quando la scheda si accende o riceve un nuovo programma. È il posto giusto per i preparativi: mostrare un titolo, azzerare un contatore, dare il valore iniziale alle variabili. 🔁 Per sempre Ripete i suoi blocchi in ciclo continuo, senza mai fermarsi. Serve per le animazioni e per controllare di continuo un sensore, come la bussola che va riletta a ogni istante. ⚡ Quando… Resta in attesa e scatta solo se l'evento accade: "quando shake", "quando pulsante A premuto", "quando suono forte". È il cuore della programmazione a eventi. 💡 Nota Nei prossimi progetti ritroverai sempre questi tre contenitori: Love usa "per sempre", il dado usa "quando shake", il Love Meter combina "all'avvio" e "quando pin premuto".
-Fonti ufficiali:
-- MakeCode per micro:bit — https://makecode.microbit.org/tutorials/getting-started
-- Guida ufficiale micro:bit — https://microbit.org/get-started/user-guide/overview/
 
 --- Slide 12 ---
 Love! Il primo progetto usa due disegni LED alternati dentro un ciclo "per sempre": un cuore grande e uno piccolo che si alternano ogni 500 ms, creando un effetto pulsante. Il blocco "per sempre" è fondamentale: senza di esso il programma eseguirebbe l'animazione una sola volta e si fermerebbe. La pausa controlla la velocità: valori più bassi accelerano, valori più alti rallentano. 💡 Lettura Il simulatore mostra subito l'animazione pulsante prima del download. Prova a cambiare la pausa a 100 ms e poi a 1000 ms nel simulatore per capire l'effetto senza caricare sulla scheda ogni volta. I blocchi reali: due "show leds" dentro "forever" — cuore acceso, poi schermo spento. Aggiungi una "pause" di 500 ms dopo ogni disegno per controllare il battito.
@@ -65,8 +52,6 @@ Show leds e show string La matrice LED 5×5 è limitata, ma didatticamente molto
 
 --- Slide 14 ---
 Eventi fisici Micro:bit è utile perché gli eventi non arrivano solo da mouse e tastiera: arrivano dal corpo e dall'ambiente. Ogni sensore della scheda è una porta d'ingresso verso il mondo fisico, e ognuno si traduce in un blocco "quando…" nel codice. 🤝 Shake L'accelerometro rileva la variazione brusca di accelerazione quando la scheda viene scossa. Serve anche per rilevare drop, face-up, face-down e tilt su più assi: ognuno è un gesto diverso da gestire con blocchi separati. 🔘 Button pressed I pulsanti A e B sono input digitali semplici e affidabili. Supportano pressione di A, di B e combinazione A+B simultanea, permettendo tre comandi distinti con soli due pulsanti fisici. 📌 Pin pressed Toccare il pin P0 (o P1, P2) mentre si tiene GND chiude un circuito elettrico e genera un evento. La conduttività del corpo umano è sufficiente: non serve un componente esterno per questo tipo di input. 👏 Sound Il microfono integrato (Micro:bit v2) rileva il livello sonoro in tempo reale e gesti come il singolo clap. Permette di creare interruttori sonori, giochi a reazione e rilevatori di silenzio senza aggiungere hardware.
-Fonti ufficiali:
-- Guida ufficiale micro:bit — https://microbit.org/get-started/user-guide/overview/
 
 --- Slide 15 ---
 Dado a 6 facce Il dado trasforma un gesto fisico — scuotere la scheda — in un numero casuale tra 1 e 6. L'accelerometro rileva la vibrazione e genera il trigger "shake". Il blocco "pick random" restituisce un numero intero nell'intervallo specificato. Questo progetto unisce evento fisico, generazione casuale e output visivo in sole due istruzioni. 💡 Lettura Attenzione agli estremi: il blocco "pick random da 0 a 5" più 1 e il blocco "pick random da 1 a 6" producono lo stesso risultato, ma il secondo è più leggibile. Se il random parte da 0, il dado può mostrare zero — un errore frequente nei primi progetti. Due soli blocchi: "on shake" intercetta la scossa, "show number" con "pick random 1 to 6" mostra il risultato del lancio.
@@ -85,14 +70,9 @@ Contapassi Il contapassi mette insieme tutto ciò che abbiamo visto: un evento f
 
 --- Slide 20 ---
 Variabili su Micro:bit Clap, Bussola e Contapassi funzionano solo perché il programma ricorda qualcosa tra un evento e l'altro. Una variabile è una scatola con un nome e un contenuto che può cambiare: il blocco "porta … a" scrive un valore nuovo, il blocco "cambia … di" somma al valore esistente. Rileggiamo le tre variabili appena usate. 🔢 steps Variabile numerica del contapassi: parte da 0 all'avvio e cresce di 1 a ogni shake. In MakeCode una variabile numerica parte normalmente da 0; inizializzarla esplicitamente rende però l'intenzione chiara e facilita le modifiche future. 🧭 degrees Conserva l'ultima lettura della bussola. Salvare il valore in una variabile permette di confrontarlo con più soglie nelle condizioni, senza rileggere il sensore a ogni confronto. 💡 lightsOn Variabile booleana: può valere solo vero o falso. Ricorda lo stato dell'interruttore e permette al clap di alternare acceso e spento invece di accendere sempre. 🔁 Aggiornamento Ogni evento può leggere o cambiare le variabili. È questo che dà memoria al programma: senza variabili, ogni evento ripartirebbe da zero ignorando tutto ciò che è successo prima.
-Fonti ufficiali:
-- Guida ufficiale micro:bit — https://microbit.org/get-started/user-guide/overview/
 
 --- Slide 21 ---
 Download e caricamento Il pulsante Download trasforma i blocchi in un file .hex: il programma tradotto nel formato binario che il processore della scheda sa eseguire. Non serve installare nulla: il Micro:bit collegato via USB appare sul computer come una normale chiavetta chiamata MICROBIT, e caricare il programma significa semplicemente copiarci dentro il file. ⬇️ Scarica Il pulsante Download genera il file .hex e lo salva nella cartella dei download del computer. Ogni file contiene l'intero programma: non esistono aggiornamenti parziali. 🔌 Collega La scheda si collega con un cavo USB, che fornisce anche l'alimentazione. Con il porta-batterie funziona da sola: il programma resta in memoria anche senza corrente. 📁 Copia Trascina il file .hex nel drive MICROBIT. Durante la copia il LED giallo sul retro lampeggia: è la scheda che sta scrivendo il programma nella sua memoria flash. 🧪 Prova Finita la copia, la scheda si riavvia da sola ed esegue subito il nuovo programma al posto del precedente. Se il comportamento non è quello atteso, si modifica in MakeCode e si ripete.
-Fonti ufficiali:
-- Guida ufficiale micro:bit — https://microbit.org/get-started/user-guide/overview/
-- Documenti e specifiche USB — USB-IF — https://www.usb.org/documents
 
 --- Slide 22 ---
 Debug fisico Con Micro:bit il debug non è solo guardare lo schermo: bisogna osservare insieme il codice, il dispositivo e il gesto. Se il programma non risponde, il problema può stare nei blocchi, nel sensore o nel modo in cui il gesto viene eseguito — e ogni ipotesi va verificata separatamente. Testa nel simulatore
@@ -101,9 +81,6 @@ Solo il dispositivo reale conferma sensori, contatti e tempi di risposta: il sim
 Scuoti, premi, tocca o batti le mani più volte: un evento che scatta una volta su tre indica una soglia da regolare, non un programma rotto. Cambia un elemento 
 Modifica una sola cosa alla volta — una soglia, una pausa, un messaggio — così sai con certezza quale modifica ha prodotto l'effetto. Annota il risultato 
 Segna cosa cambia tra simulatore e scheda reale: le differenze ricorrenti diventano regole utili per i progetti successivi.
-Fonti ufficiali:
-- Guida ufficiale micro:bit — https://microbit.org/get-started/user-guide/overview/
 
 --- Slide 23 ---
 Dal codice al mondo fisico Micro:bit rende visibile il legame tra algoritmo, sensore, evento e comportamento della scheda. Prossimo: CreateAI Fonti e approfondimenti Guida ufficiale micro:bit ↗ MakeCode per micro:bit ↗ Tutorial ufficiale Python ↗
-

@@ -1,0 +1,185 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piani B digitali · SD06</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;background:#fff;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}.slide:last-child{break-after:auto;page-break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}.d5{transition-delay:.68s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+.lead{font-size:32px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:27px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:10px;line-height:1;}
+.card p{font-size:24px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:50px;line-height:1;display:block;margin-bottom:8px;}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa;}
+.note.sky{background:var(--sky);}.note.sky *{color:#fff !important;}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.4;color:var(--ink);}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:22px;}
+.tight-slide .h-big{font-size:78px;}
+.tight-slide .h-sec{font-size:64px;}
+.tight-slide .lead{font-size:28px;line-height:1.34;}
+.tight-slide .body{font-size:24px;line-height:1.35;}
+.tight-slide .split{height:auto;}
+.tight-slide .stack>*+*{margin-top:12px;}
+.tight-slide .grid2{gap:18px;}
+.tight-slide .grid3{gap:16px;}
+.tight-slide .grid4{gap:16px;}
+.tight-slide .card{padding:18px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12);}
+.tight-slide .card h3{font-size:30px;margin-bottom:6px;}
+.tight-slide .card p{font-size:21px;line-height:1.28;}
+.tight-slide .card .ic{font-size:34px;margin-bottom:5px;}
+.tight-slide .note{padding:18px 22px;}
+.tight-slide .note .lbl{font-size:19px;margin-bottom:6px;}
+.tight-slide .note p{font-size:22px;line-height:1.3;}
+.tight-slide .step-row{padding:9px 0;gap:16px;}
+.tight-slide .step-row .num{font-size:42px;min-width:54px;}
+.tight-slide .step-row .body-text{font-size:22px;line-height:1.3;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu svg{width:100%;height:auto;display:block;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#2a6b40,#163b35);right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:18px 60px;margin-top:16px;}
+.agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:15px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:72px;}
+.agenda-item .t{font-size:28px;font-weight:600;color:var(--ink);}
+.step-row{display:flex;gap:24px;align-items:flex-start;padding:16px 0;border-bottom:2px dashed var(--line);}
+.step-row .num{font-family:var(--font-display);font-weight:900;font-size:54px;color:var(--red);min-width:72px;line-height:1;}
+.step-row .body-text{font-size:26px;line-height:1.4;color:var(--ink-soft);}
+.step-row .body-text b{color:var(--ink);}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing .gold{color:var(--gold);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease);}
+.title-slide .lead,.title-slide .chips{display:none;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+</style>
+<link rel="stylesheet" href="theme-corsi.css">
+</head>
+<body class="course-sd">
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- === SLIDE 1: TITLE === -->
+<section class="slide title-slide active visible"><div class="title-left"><h1 class="h-big reveal">Piani B<br><em class="teal">digitali</em></h1><p class="lead reveal" style="margin-top:26px;">Ogni anello della tua vita digitale può rompersi: telefono, email, password, computer. Un piano B già pronto trasforma il disastro in una seccatura.</p></div><div class="title-right"><div class="reveal" style="font-size:190px;z-index:2;">🧯</div></div><div class="deck-author">Francesco Antonio Binetti</div></section><section class="slide no-top-label"><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-columns:1fr;grid-template-rows:repeat(3,auto);gap:18px;margin-top:24px;"><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">01</span><div><b class="t">Il principio</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Ogni anello può cedere: la catena deve reggere lo stesso. Trovare i punti deboli.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">02</span><div><b class="t">Le reti di sicurezza</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Email di riserva, codici di recupero, backup 3-2-1, copie dei documenti.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">03</span><div><b class="t">Gli scenari</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Perdo il telefono, l'email, il PC: per ognuno, la contromossa già pronta.</span></div></div></div><div class="num"></div></section><section class="slide">
+<h2 class="h-sec reveal">Ogni anello può rompersi</h2>
+<p class="lead reveal d1">Il telefono cade in acqua, la password si dimentica, il disco muore. Non è pessimismo: è statistica. La domanda giusta non è «se», ma «quando — e cosa succede dopo?»</p>
+<div class="reveal d2" style="display:flex;flex-direction:column;gap:11px;margin-top:24px;"><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Il guasto singolo è normale</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Prima o poi capita a tutti. Il disastro nasce solo quando un guasto singolo trascina tutto il resto.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Il nemico: il punto unico</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Se una sola cosa — un telefono, un indirizzo, una password — è l'unica via d'accesso a tutto, quella cosa è una bomba a orologeria.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">La difesa: la ridondanza</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Ogni accesso importante deve avere una seconda strada, preparata prima e mai usata finché non serve.</span></div></div></div><div class="analogy reveal d3" style="margin-top:20px;"><span class="big">Regola:</span> un piano B si prepara quando tutto funziona; quando serve, è troppo tardi per farlo.</div>
+<div class="page-num"></div>
+</section><section class="slide">
+<h2 class="h-sec reveal">Trova i tuoi punti unici</h2>
+<p class="lead reveal d1">Prima di costruire le reti di sicurezza, individua dove cadresti. Tre domande bastano.</p>
+<div class="reveal d2" style="display:flex;flex-direction:column;gap:11px;margin-top:24px;"><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">1</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">«Se perdo il telefono, cosa non posso più fare?»</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Ricevere i codici 2FA? Pagare? Accedere alla banca? Ogni risposta è un punto da coprire.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">2</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">«Se perdo l'accesso all'email, cosa recupero e cosa no?»</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">L'email resetta le password di tutto: senza, molti account sono persi.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">3</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">«Se questo disco muore adesso, cosa sparisce per sempre?»</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Foto, documenti, lavoro: ciò che esiste in una sola copia è già a rischio.</span></div></div></div>
+<div class="page-num"></div>
+</section><section class="slide">
+<h2 class="h-sec reveal">La rete di recupero degli account</h2>
+<p class="lead reveal d1">Due strumenti gratuiti coprono quasi tutti gli scenari di blocco: configurali oggi su email e account principali.</p>
+<div class="reveal d2" style="display:flex;flex-direction:column;gap:11px;margin-top:24px;"><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Email di riserva</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Il secondo indirizzo dove arrivano i link di recupero. Come si crea e si imposta lo trovi in RW02.05.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Codici di recupero 2FA</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Quando attivi la verifica in due passaggi, il servizio genera 8-10 codici usa-e-getta: stampali o scrivili. Sono la porta di servizio se perdi il telefono.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Dove custodirli</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Su carta, insieme ai documenti di casa — non in un file sul desktop né in una foto nella galleria.</span></div></div></div><div class="note reveal d3" style="margin-top:20px;"><div class="lbl">⚠️ Attenzione</div><p>I codici di recupero mostrati una sola volta e mai salvati sono l'errore più comune: chi perde il telefono con la 2FA attiva e senza codici resta chiuso fuori davvero.</p></div>
+<div class="page-num"></div>
+</section><section class="slide">
+<h2 class="h-sec reveal">Backup 3-2-1</h2>
+<p class="lead reveal d1">La regola d'oro per non perdere i dati: tre copie, due supporti diversi, una fuori casa.</p>
+<div class="reveal d2" style="display:flex;flex-direction:column;gap:11px;margin-top:24px;"><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">1</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">3 — tre copie</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">L'originale più due copie. Una copia sola non è un backup: è un rinvio del problema.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">2</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">2 — due supporti diversi</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Per esempio il PC e un disco esterno: un fulmine o un furto non devono poterle prendere entrambe.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">3</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">1 — una copia altrove</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Nel cloud o a casa di un familiare: sopravvive anche a incendio, allagamento o furto in casa.</span></div></div></div><div class="note reveal d3" style="margin-top:20px;"><div class="lbl">💡 In pratica</div><p>Per la maggior parte delle persone: foto e documenti sul telefono → backup automatico nel cloud → copia periodica su un disco esterno tenuto altrove.</p></div>
+<div class="page-num"></div>
+</section><section class="slide">
+<h2 class="h-sec reveal">Documenti e numeri che salvano</h2>
+<p class="lead reveal d1">Quando qualcosa si rompe, servono dati che di solito stanno... dentro la cosa rotta. Portali fuori prima.</p>
+<div class="reveal d2" style="display:flex;flex-direction:column;gap:11px;margin-top:24px;"><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Copia dei documenti</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Scansione di carta d'identità, tessera sanitaria e codici importanti, custodita nel cloud e su carta.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Il foglio di emergenza</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Un foglio fisico con: email di riserva, numeri utili (banca, operatore), codici di recupero. In un cassetto, come le chiavi di scorta.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">IMEI e numeri seriali</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">L'IMEI del telefono (componi *#06#) serve per il blocco in caso di furto: scrivilo ora, non dopo.</span></div></div></div>
+<div class="page-num"></div>
+</section><section class="slide">
+<h2 class="h-sec reveal">Scenario: perdo il telefono</h2>
+<p class="lead reveal d1">Il caso più probabile. Con le reti di sicurezza pronte, la sequenza è meccanica.</p>
+<div class="reveal d2" style="display:flex;flex-direction:column;gap:11px;margin-top:24px;"><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">1</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Blocca da remoto</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Da un altro dispositivo: «Trova il mio dispositivo» blocca, localizza e se serve cancella (visto in SM06).</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">2</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Entra con i codici di recupero</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">La 2FA non ti chiude fuori: usi uno dei codici usa-e-getta custoditi su carta.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">3</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Blocca SIM e pagamenti</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Chiama l'operatore per la SIM e revoca le carte dal wallet: due telefonate, se hai i numeri sul foglio di emergenza.</span></div></div></div>
+<div class="page-num"></div>
+</section><section class="slide">
+<h2 class="h-sec reveal">Scenario: perdo l'accesso all'email</h2>
+<p class="lead reveal d1">Il più pericoloso, perché l'email recupera tutto il resto. Ma anche lei ha la sua rete.</p>
+<div class="reveal d2" style="display:flex;flex-direction:column;gap:11px;margin-top:24px;"><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">1</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Usa l'email di riserva</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Il modulo di recupero manda il link al secondo indirizzo: la strada maestra.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">2</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Rispondi da un dispositivo conosciuto</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">I provider si fidano di più di un accesso dal solito PC o telefono: tenta il recupero da lì.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">3</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Poi rafforza</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Riottenuto l'accesso: cambia password, verifica i dati di recupero, controlla gli accessi recenti e gli inoltri impostati da altri.</span></div></div></div>
+<div class="page-num"></div>
+</section><section class="slide">
+<h2 class="h-sec reveal">Scenario: muore il computer</h2>
+<p class="lead reveal d1">Con il backup 3-2-1 la morte di un disco è una spesa, non una perdita.</p>
+<div class="reveal d2" style="display:flex;flex-direction:column;gap:11px;margin-top:24px;"><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">I dati sono altrove</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Cloud più disco esterno: si ricompra il PC, si riscaricano i dati. Niente di irripetibile era in un posto solo.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">I programmi si reinstallano</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Le applicazioni non sono dati: si riscaricano. Ciò che conta è la lista di cosa avevi — tienila nel foglio di emergenza.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Prova il ripristino</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Un backup mai provato è una speranza, non un piano: una volta all'anno, apri una copia e verifica che si legga.</span></div></div></div>
+<div class="page-num"></div>
+</section><section class="slide">
+<h2 class="h-sec reveal">Esercizio: mappa i tuoi punti unici</h2>
+<p class="lead reveal d1">Mezz'ora di lavoro che vale anni di tranquillità.</p>
+<div class="reveal d2" style="display:flex;flex-direction:column;gap:11px;margin-top:24px;"><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">1</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Elenca</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Scrivi i tuoi 5 account più importanti e per ciascuno: come lo recupero se perdo password, telefono o email?</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">2</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Copri</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Per ogni «non saprei»: imposta email di riserva, genera i codici 2FA, aggiungi al foglio di emergenza.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">3</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Verifica</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Simula: riesci ad accedere alla tua email da un dispositivo nuovo usando solo il piano B?</span></div></div></div>
+<div class="page-num"></div>
+</section><section class="slide closing"><div class="closing-inner"><h2 class="h-mega reveal">Il piano B si costruisce col sole.</h2><p class="lead reveal d1">Email di riserva, codici di recupero, backup 3-2-1 e un foglio di emergenza: quattro reti che trasformano ogni disastro digitale in una seccatura gestibile.</p><div class="closing-actions reveal d2"><a class="chip closing-primary" href="00-indice.html">Torna all'indice</a></div></div><div class="page-num"></div><div class="deck-author">Francesco Antonio Binetti</div></section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="00-indice.html" title="Torna all'indice (I)">↩ Indice</a>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+
+<script src="deck.js"></script>
+</body>
+</html>

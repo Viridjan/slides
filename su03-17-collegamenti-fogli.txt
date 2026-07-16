@@ -20,6 +20,8 @@ Riferimento a un'altra scheda Nello stesso file, per leggere una cella di un'alt
 = 'Incassi 2026'!B3
 
 = SOMMA(Dati!C2:C40)
+Fonti ufficiali:
+- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 5 ---
 IMPORTRANGE: collegare file diversi Per leggere dati da un altro file di Google Sheets si usa IMPORTRANGE: gli dai l'indirizzo del foglio sorgente e l'intervallo da importare. 🟢 Solo Google Sheets IMPORTRANGE è una funzione di Google Sheets. In Excel il collegamento tra file si fa in altro modo — lo vediamo dopo. =IMPORTRANGE(

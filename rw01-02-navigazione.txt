@@ -73,6 +73,8 @@ sul Web
  
  
  Il browser: finestra sul Web
+Fonti ufficiali:
+- HTML — Wikipedia — https://it.wikipedia.org/wiki/HTML
 
 --- Slide 4 ---
 I protocolli di rete 
@@ -146,8 +148,6 @@ Transfer
  👁️ 
  
  HTTP: testo leggibile da chiunque
-Fonti ufficiali:
-- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 6 ---
 HTTPS HTTP
@@ -192,7 +192,6 @@ HTTPS HTTP
  
  HTTPS: dati illeggibili in transito
 Fonti ufficiali:
-- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 - TLS 1.3 — RFC 8446 — https://www.rfc-editor.org/rfc/rfc8446
 
 --- Slide 7 ---
@@ -225,9 +224,6 @@ HTTP vs HTTPS
  
  Regola pratica 
  Se devi inserire dati personali (username, password, carta di credito), verifica sempre il lucchetto e che l'indirizzo inizi con https:// .
-Fonti ufficiali:
-- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
-- Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password
 
 --- Slide 8 ---
 Cos'è un URL 
@@ -253,9 +249,6 @@ Cos'è un URL
  https:// www.wikipedia.org /wiki/Internet 
  
  Questo URL identifica la pagina "Internet" su Wikipedia in italiano
-Fonti ufficiali:
-- Web Audio API — W3C — https://www.w3.org/TR/webaudio/
-- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
 --- Slide 9 ---
 Anatomia di un URL 
@@ -283,8 +276,7 @@ Anatomia di un URL
  ?anno=2&tipo=base 
  Parametri opzionali passati al server. Inizia con ? . Coppie chiave=valore separate da & . Usati per filtri, ricerche, opzioni.
 Fonti ufficiali:
-- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
-- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
+- Indirizzo IP — Wikipedia — https://it.wikipedia.org/wiki/Indirizzo_IP
 
 --- Slide 10 ---
 Cos'è un
@@ -337,8 +329,6 @@ Cos'è un
  🖥️ Google 
  
  DNS: traduce nomi in indirizzi
-Fonti ufficiali:
-- Domain Name System — ICANN — https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en
 
 --- Slide 11 ---
 Cos'è un hyperlink 
@@ -365,8 +355,6 @@ Cos'è un hyperlink
  
  Link esterni 
  Puntano a un sito diverso. Es: una fonte citata, un social network, una risorsa esterna. Si aprono spesso in una nuova scheda.
-Fonti ufficiali:
-- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 12 ---
 Navigazione! 🌐 
@@ -375,4 +363,3 @@ Navigazione! 🌐
  Prossimo → W08 · Domini e Estensioni 
  
  Fonti e approfondimenti HTML — Wikipedia ↗ HTTP Semantics — RFC 9110 ↗ Domain Name System — ICANN ↗ TLS 1.3 — RFC 8446 ↗ Indirizzo IP — Wikipedia ↗
-

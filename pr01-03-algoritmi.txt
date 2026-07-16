@@ -20,6 +20,9 @@ Dal problema al codice: prima si capisce, poi si codifica Programmare non parte 
 
 --- Slide 4 ---
 Che cos'è un algoritmo? Un algoritmo è una procedura finita e ordinata che, partendo da dati iniziali, permette di ottenere un risultato. Deve essere abbastanza preciso da poter essere eseguito da una persona o da una macchina. Non è solo codice Può essere descritto in linguaggio naturale, diagramma di flusso, pseudocodice o linguaggio di programmazione. È una strategia Dice cosa fare, in quale ordine e con quali decisioni intermedie.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
+- Algoritmo — Wikipedia — https://it.wikipedia.org/wiki/Algoritmo
 
 --- Slide 5 ---
 Un buon algoritmo deve essere controllabile Finito Non deve procedere all'infinito: prima o poi termina. Non ambiguo Ogni istruzione deve avere un significato chiaro. Eseguibile Ogni passo deve essere realizzabile con gli strumenti disponibili. Generale Deve funzionare per una classe di casi, non per un solo esempio fortunato. Verificabile Deve permettere controlli su risultati intermedi e finali.
@@ -35,6 +38,8 @@ Le azioni fondamentali Assegnazione Memorizza un valore in una variabile. Input 
 
 --- Slide 8 ---
 Flowchart: rappresentare il flusso Un diagramma di flusso mostra il percorso dell'algoritmo. La forma del simbolo dice già che tipo di passo è, prima ancora di leggerne il testo. Linea di flusso La freccia collega un simbolo al successivo e fissa l'ordine di esecuzione. Si legge dall'alto verso il basso e da sinistra a destra: la punta serve proprio quando il flusso torna indietro o devia da questa direzione. Terminatore L'ovale segna dove il procedimento comincia e dove finisce. Contiene «Inizio» e «Fine», oppure ciò che lo avvia e lo chiude: «ricevi ordine», «consegna scontrino».
+Fonti ufficiali:
+- Diagramma di flusso — Wikipedia — https://it.wikipedia.org/wiki/Diagramma_di_flusso
 
 --- Slide 9 ---
 Flowchart: i due simboli principali Un algoritmo, ridotto all'osso, è una catena di operazioni interrotta ogni tanto da una domanda. Questi due simboli coprono quasi tutto il resto del diagramma. Processo Il rettangolo è un'operazione che cambia i dati: un calcolo, un'assegnazione, una trasformazione. È il simbolo più frequente, e ogni rettangolo dovrebbe fare una cosa sola. Decisione Il rombo pone una domanda con risposta sì/no, e da lì escono due percorsi alternativi. Ogni uscita va etichettata: senza etichette chi legge non sa quale ramo seguire.
@@ -59,6 +64,8 @@ Strategie per progettare algoritmi Attorno a queste due direzioni ruotano alcuni
 
 --- Slide 16 ---
 Flowgorithm: il diagramma che si esegue Un diagramma su carta non ti dice se hai sbagliato. Flowgorithm è un programma gratuito che ti fa disegnare il diagramma con gli stessi simboli visti finora e poi lo esegue : i valori scorrono davanti ai tuoi occhi e l'errore di ragionamento salta fuori prima di aver scritto una riga di codice. Disegna I simboli si aggiungono cliccando sulle frecce del diagramma: ingresso, processo, decisione, ciclo. Non riesci a costruire un diagramma malformato, perché lo strumento non te lo lascia fare. Esegui e osserva Premi Play e il diagramma si illumina simbolo per simbolo. Puoi rallentare l'esecuzione e guardare le variabili mentre cambiano: è la tabella di traccia, compilata dal computer al posto tuo. Genera il codice Con un clic lo stesso diagramma diventa codice sorgente in una ventina di linguaggi: Python, C++, Java, JavaScript. Vedi con i tuoi occhi che l'algoritmo viene prima del linguaggio.
+Fonti ufficiali:
+- Flowgorithm — sito ufficiale — https://www.flowgorithm.org/
 
 --- Slide 17 ---
 Flowgorithm: cosa sapere prima di iniziare Flowgorithm è gratuito e ha l'interfaccia anche in italiano. Nasce come strumento didattico: serve a imparare il ragionamento, non a scrivere software da consegnare. Cosa ti serve Un PC Windows: la versione ufficiale gira solo lì. Si scarica da flowgorithm.org (https://www.flowgorithm.org/), senza registrazione. L'ultima versione è la 4.5, di ottobre 2024. Come impostarlo Dalle opzioni scegli l'italiano come lingua e, quando servirà, il linguaggio in cui far generare il codice. Diagramma
@@ -74,6 +81,8 @@ se eta >= 18 allora
 altrimenti
  scrivi "minorenne"
 fine se
+Fonti ufficiali:
+- Pseudocodice — Wikipedia — https://it.wikipedia.org/wiki/Pseudocodice
 
 --- Slide 19 ---
 Provare l'algoritmo a mano Prima di tradurre in codice conviene simulare l'algoritmo con pochi esempi. Questo controllo permette di scoprire passaggi mancanti, condizioni sbagliate e casi limite. Traccia Segna valore delle variabili dopo ogni passo. Casi limite Prova valori minimi, massimi, nulli o insoliti.

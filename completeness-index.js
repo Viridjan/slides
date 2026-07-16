@@ -62,6 +62,7 @@ window.COMPLETENESS = {
   "sd03-privacy.html": 5,
   "sd04-professioni.html": 5,
   "sd05-assessment.html": 5,
+  "sd06-piani-b-digitali.html": 4,
   "sm01-smartphone-computer.html": 4,
   "sm02-connessioni-reti-mobili.html": 4,
   "sm03-android-ios.html": 4,

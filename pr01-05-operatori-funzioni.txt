@@ -41,6 +41,8 @@ Incrementi, decrementi e accumuli Molti algoritmi aggiornano una variabile a par
 totale = totale + prezzo
 scorta = scorta - venduti
 saldo += versamento [Fonte: Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/]
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 8 ---
 Esempi pratici di formule numeriche La stessa logica appare in gestionali, fogli di calcolo e app: calcolo prezzo, IVA, durata, percentuali, punteggi. iva = imponibile * 0.22
@@ -107,6 +109,8 @@ Uguale, confronto e identità Molti bug nascono dalla confusione tra assegnare, 
 x == 5 # confronta valore
 x != 5 # diverso
 x is None # identità/speciale in Python [Fonte: Tutorial ufficiale Python — https://docs.python.org/3/tutorial/]
+Fonti ufficiali:
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 19 ---
 Scegliere l’operatore giusto Prima chiediti che tipo di risultato vuoi: numero, vero/falso, aggiornamento di variabile o struttura sintattica. numero → + - * / // % **

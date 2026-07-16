@@ -71,6 +71,7 @@ window.QUALITY_INDEX = {
   "sd03-privacy.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "sd04-professioni.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "sd05-assessment.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
+  "sd06-piani-b-digitali.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "ia01-concetti-generali.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "ia02-esercizio-generazione.html": { coverage: 1, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "ia03-llm.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },

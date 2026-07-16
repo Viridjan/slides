@@ -1,0 +1,87 @@
+Piani B digitali · SD06
+========================================
+
+--- Slide 1 ---
+Piani B
+ digitali Ogni anello della tua vita digitale può rompersi: telefono, email, password, computer. Un piano B già pronto trasforma il disastro in una seccatura. 🧯 Francesco Antonio Binetti
+
+--- Slide 2 ---
+Cosa vedremo 01 Il principio
+ Ogni anello può cedere: la catena deve reggere lo stesso. Trovare i punti deboli. 02 Le reti di sicurezza
+ Email di riserva, codici di recupero, backup 3-2-1, copie dei documenti. 03 Gli scenari
+ Perdo il telefono, l'email, il PC: per ognuno, la contromossa già pronta.
+
+--- Slide 3 ---
+Ogni anello può rompersi
+ Il telefono cade in acqua, la password si dimentica, il disco muore. Non è pessimismo: è statistica. La domanda giusta non è «se», ma «quando — e cosa succede dopo?»
+ — Il guasto singolo è normale
+ Prima o poi capita a tutti. Il disastro nasce solo quando un guasto singolo trascina tutto il resto. — Il nemico: il punto unico
+ Se una sola cosa — un telefono, un indirizzo, una password — è l'unica via d'accesso a tutto, quella cosa è una bomba a orologeria. — La difesa: la ridondanza
+ Ogni accesso importante deve avere una seconda strada, preparata prima e mai usata finché non serve. Regola: un piano B si prepara quando tutto funziona; quando serve, è troppo tardi per farlo.
+
+--- Slide 4 ---
+Trova i tuoi punti unici
+ Prima di costruire le reti di sicurezza, individua dove cadresti. Tre domande bastano.
+ 1 «Se perdo il telefono, cosa non posso più fare?»
+ Ricevere i codici 2FA? Pagare? Accedere alla banca? Ogni risposta è un punto da coprire. 2 «Se perdo l'accesso all'email, cosa recupero e cosa no?»
+ L'email resetta le password di tutto: senza, molti account sono persi. 3 «Se questo disco muore adesso, cosa sparisce per sempre?»
+ Foto, documenti, lavoro: ciò che esiste in una sola copia è già a rischio.
+
+--- Slide 5 ---
+La rete di recupero degli account
+ Due strumenti gratuiti coprono quasi tutti gli scenari di blocco: configurali oggi su email e account principali.
+ — Email di riserva
+ Il secondo indirizzo dove arrivano i link di recupero. Come si crea e si imposta lo trovi in RW02.05. — Codici di recupero 2FA
+ Quando attivi la verifica in due passaggi, il servizio genera 8-10 codici usa-e-getta: stampali o scrivili. Sono la porta di servizio se perdi il telefono. — Dove custodirli
+ Su carta, insieme ai documenti di casa — non in un file sul desktop né in una foto nella galleria. ⚠️ Attenzione I codici di recupero mostrati una sola volta e mai salvati sono l'errore più comune: chi perde il telefono con la 2FA attiva e senza codici resta chiuso fuori davvero.
+
+--- Slide 6 ---
+Backup 3-2-1
+ La regola d'oro per non perdere i dati: tre copie, due supporti diversi, una fuori casa.
+ 1 3 — tre copie
+ L'originale più due copie. Una copia sola non è un backup: è un rinvio del problema. 2 2 — due supporti diversi
+ Per esempio il PC e un disco esterno: un fulmine o un furto non devono poterle prendere entrambe. 3 1 — una copia altrove
+ Nel cloud o a casa di un familiare: sopravvive anche a incendio, allagamento o furto in casa. 💡 In pratica Per la maggior parte delle persone: foto e documenti sul telefono → backup automatico nel cloud → copia periodica su un disco esterno tenuto altrove.
+
+--- Slide 7 ---
+Documenti e numeri che salvano
+ Quando qualcosa si rompe, servono dati che di solito stanno... dentro la cosa rotta. Portali fuori prima.
+ — Copia dei documenti
+ Scansione di carta d'identità, tessera sanitaria e codici importanti, custodita nel cloud e su carta. — Il foglio di emergenza
+ Un foglio fisico con: email di riserva, numeri utili (banca, operatore), codici di recupero. In un cassetto, come le chiavi di scorta. — IMEI e numeri seriali
+ L'IMEI del telefono (componi *#06#) serve per il blocco in caso di furto: scrivilo ora, non dopo.
+
+--- Slide 8 ---
+Scenario: perdo il telefono
+ Il caso più probabile. Con le reti di sicurezza pronte, la sequenza è meccanica.
+ 1 Blocca da remoto
+ Da un altro dispositivo: «Trova il mio dispositivo» blocca, localizza e se serve cancella (visto in SM06). 2 Entra con i codici di recupero
+ La 2FA non ti chiude fuori: usi uno dei codici usa-e-getta custoditi su carta. 3 Blocca SIM e pagamenti
+ Chiama l'operatore per la SIM e revoca le carte dal wallet: due telefonate, se hai i numeri sul foglio di emergenza.
+
+--- Slide 9 ---
+Scenario: perdo l'accesso all'email
+ Il più pericoloso, perché l'email recupera tutto il resto. Ma anche lei ha la sua rete.
+ 1 Usa l'email di riserva
+ Il modulo di recupero manda il link al secondo indirizzo: la strada maestra. 2 Rispondi da un dispositivo conosciuto
+ I provider si fidano di più di un accesso dal solito PC o telefono: tenta il recupero da lì. 3 Poi rafforza
+ Riottenuto l'accesso: cambia password, verifica i dati di recupero, controlla gli accessi recenti e gli inoltri impostati da altri.
+
+--- Slide 10 ---
+Scenario: muore il computer
+ Con il backup 3-2-1 la morte di un disco è una spesa, non una perdita.
+ — I dati sono altrove
+ Cloud più disco esterno: si ricompra il PC, si riscaricano i dati. Niente di irripetibile era in un posto solo. — I programmi si reinstallano
+ Le applicazioni non sono dati: si riscaricano. Ciò che conta è la lista di cosa avevi — tienila nel foglio di emergenza. — Prova il ripristino
+ Un backup mai provato è una speranza, non un piano: una volta all'anno, apri una copia e verifica che si legga.
+
+--- Slide 11 ---
+Esercizio: mappa i tuoi punti unici
+ Mezz'ora di lavoro che vale anni di tranquillità.
+ 1 Elenca
+ Scrivi i tuoi 5 account più importanti e per ciascuno: come lo recupero se perdo password, telefono o email? 2 Copri
+ Per ogni «non saprei»: imposta email di riserva, genera i codici 2FA, aggiungi al foglio di emergenza. 3 Verifica
+ Simula: riesci ad accedere alla tua email da un dispositivo nuovo usando solo il piano B?
+
+--- Slide 12 ---
+Il piano B si costruisce col sole. Email di riserva, codici di recupero, backup 3-2-1 e un foglio di emergenza: quattro reti che trasformano ogni disastro digitale in una seccatura gestibile. Torna all'indice Francesco Antonio Binetti
