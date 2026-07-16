@@ -1,4 +1,4 @@
-Programmare · PR01.04 — Operatori e funzioni
+Programmare · PR01.05 — Operatori e funzioni
 ============================================
 
 --- Slide 1 ---
@@ -9,13 +9,13 @@ logici and or not
 funzione nome(input) &#8594; output Francesco Antonio Binetti
 
 --- Slide 2 ---
-Cosa vedremo 01 Operatori aritmetici 
- Somma, divisione, resto, potenza e assegnazione, con la precedenza che decide l'ordine dei calcoli. 02 Confronto e logica 
- Confrontare valori, e combinare condizioni vere o false con AND, OR e NOT. 03 Funzioni 
+Cosa vedremo 01 Operatori aritmetici
+ Somma, divisione, resto, potenza e assegnazione, con la precedenza che decide l'ordine dei calcoli. 02 Confronto e logica
+ Confrontare valori, e combinare condizioni vere o false con AND, OR e NOT. 03 Funzioni
  Isolare una responsabilità in un blocco riusabile, capirne lo scope e verificarlo con esempi.
 
 --- Slide 3 ---
-Aritmetici, relazionali e logici Gli operatori sono simboli o parole che combinano valori. Alcuni calcolano, altri confrontano, altri costruiscono condizioni più complesse. Aritmetici +, -, *, / per calcoli numerici. Relazionali ==, !=, &gt;, &lt; per confrontare. Logici and, or, not per combinare condizioni.
+Aritmetici, relazionali e logici Gli operatori sono simboli o parole che combinano valori. Quattro famiglie, ognuna con un compito: calcolare, confrontare, decidere, assegnare — le vediamo tutte in questo modulo. Aritmetici Trasformano numeri in numeri: + − * / (somma, sottrazione, prodotto, divisione), // divisione intera, % resto, ** potenza. Più incrementi e la precedenza gestita con le parentesi. Di confronto (relazionali) Confrontano due valori e restituiscono vero o falso : == uguale, != diverso, &gt; e &lt; maggiore e minore, &gt;= e &lt;= con l'uguale. Logici Combinano condizioni vere o false in una decisione: and (tutte vere), or (almeno una), not (inverte). Le parentesi decidono l'ordine. Di assegnazione Mettono un valore in una variabile: = semplice, e i composti += −= *= /= che la aggiornano dal valore precedente. Da non confondere con == .
 
 --- Slide 4 ---
 Operatori aritmetici: somma, sottrazione, prodotto Gli operatori aritmetici trasformano numeri in altri numeri. Sono la base di calcoli, statistiche, coordinate, prezzi, tempi e quantità. prezzo = 12
@@ -40,7 +40,7 @@ area = base * altezza
 Incrementi, decrementi e accumuli Molti algoritmi aggiornano una variabile a partire dal suo valore precedente: contatori, totali, medie progressive, inventari. contatore = contatore + 1
 totale = totale + prezzo
 scorta = scorta - venduti
-saldo += versamento
+saldo += versamento [Fonte: Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/]
 
 --- Slide 8 ---
 Esempi pratici di formule numeriche La stessa logica appare in gestionali, fogli di calcolo e app: calcolo prezzo, IVA, durata, percentuali, punteggi. iva = imponibile * 0.22
@@ -106,7 +106,7 @@ x %= 2 # x = x % 2
 Uguale, confronto e identità Molti bug nascono dalla confusione tra assegnare, confrontare e controllare identità o equivalenza. x = 5 # assegna
 x == 5 # confronta valore
 x != 5 # diverso
-x is None # identità/speciale in Python
+x is None # identità/speciale in Python [Fonte: Tutorial ufficiale Python — https://docs.python.org/3/tutorial/]
 
 --- Slide 19 ---
 Scegliere l’operatore giusto Prima chiediti che tipo di risultato vuoi: numero, vero/falso, aggiornamento di variabile o struttura sintattica. numero → + - * / // % **
@@ -129,5 +129,4 @@ area_rettangolo(0, 3) → 0
 area_rettangolo(2, 2) → 4
 
 --- Slide 23 ---
-Gli stessi operatori, ora in un linguaggio. Aritmetici, logici e funzioni sono idee indipendenti dal linguaggio. Il prossimo modulo le scrive in Python, dove diventano codice che gira davvero. Prossimo &#8594; PR01.05 · Python di base Francesco Antonio Binetti
-
+Gli stessi operatori, ora in un linguaggio. Aritmetici, logici e funzioni sono idee indipendenti dal linguaggio. Il prossimo modulo le scrive in Python, dove diventano codice che gira davvero. Prossimo &#8594; PR01.06 · Python di base Francesco Antonio Binetti Fonti e approfondimenti Dictionary of Algorithms and Data Structures — NIST ↗ (https://xlinux.nist.gov/dads/)Tutorial ufficiale Python ↗ (https://docs.python.org/3/tutorial/)
