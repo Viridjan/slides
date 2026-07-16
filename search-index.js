@@ -1373,6 +1373,330 @@ globalThis.COURSE_SEARCH_INDEX = [
     ]
   },
   {
+    "href": "rw02-05-licenze-oer.html",
+    "section": "Reti e Web",
+    "code": "RW02.05",
+    "title": "Licenze aperte e OER",
+    "description": "Diritto d’autore, Creative Commons, attribuzione, remix, compatibilità e le cinque R delle risorse educative aperte.",
+    "topics": "Creative Commons OER Remix",
+    "text": "<!-- Proprietà intellettuale di Francesco Antonio Binetti -->\nLicenze aperte e OER · RW02.05\n================================================\n\n--- Slide 1 ---\nLicenze aperte e OER Diritto d’autore, Creative Commons, remix e pratiche delle risorse educative aperte. analizzare · scegliere · documentare Francesco Antonio Binetti\n\n--- Slide 2 ---\nOrientarsi tra diritti e permessi Un contenuto trovato online non è automaticamente libero da usare. Prima si identifica l’opera, poi si legge la licenza, infine si documenta la fonte. 01 Opera e autore 02 Licenza applicata 03 Uso che vuoi farne\n\n--- Slide 3 ---\nDiritto d’autore e licenza Il diritto nasce con l’opera; la licenza comunica in anticipo quali usi il titolare autorizza. Non sono sinonimi. 01 Diritto: insieme delle tutele 02 Licenza: permesso con condizioni 03 Pubblicazione online: non equivale a rinuncia Regola: La scelta corretta dipende dalla funzione, dal contesto e dalle condizioni verificabili.\n\n--- Slide 4 ---\nDiritti morali e patrimoniali I diritti patrimoniali riguardano gli usi economici; il diritto morale tutela il legame personale tra autore e opera. 01 Riproduzione e distribuzione 02 Elaborazione e comunicazione 03 Paternità e integrità dell’opera\n\n--- Slide 5 ---\nLa paternità dell’opera In Italia l’articolo 20 della legge 633/1941 consente all’autore di rivendicare la paternità anche dopo la cessione dei diritti economici. 01 Indicare correttamente l’autore 02 Non attribuirsi il lavoro altrui 03 Separare credito e permesso d’uso\n\n--- Slide 6 ---\nLe licenze Creative Commons Le sigle combinano condizioni standard e leggibili. BY è presente nelle sei licenze principali. 01 BY · attribuzione 02 SA · stessa licenza 03 NC · non commerciale 04 ND · nessuna opera derivata\n\n--- Slide 7 ---\nCC BY Consente condivisione e adattamento, anche commerciale, a condizione di attribuire correttamente la fonte. 01 Massima apertura tra le licenze CC 02 Adattamenti permessi 03 Attribuzione obbligatoria\n\n--- Slide 8 ---\nCC BY-SA Consente la modifica, ma l’opera derivata deve essere distribuita con gli stessi termini o con una licenza compatibile. 01 BY: cita l’autore 02 SA: condividi allo stesso modo 03 È la risposta alla domanda 1\n\n--- Slide 9 ---\nCC BY-ND Consente la redistribuzione, anche commerciale, ma non autorizza la condivisione di versioni modificate. 01 ND significa NoDerivatives 02 Una traduzione è un adattamento 03 Non confonderla con SA\n\n--- Slide 10 ---\nCC BY-NC e BY-NC-SA NC limita gli usi commerciali; SA aggiunge l’obbligo di mantenere gli stessi termini sulle opere derivate. 01 Definire il contesto d’uso 02 Verificare eventuali eccezioni 03 Chiedere permesso se il caso è dubbio\n\n--- Slide 11 ---\nCC0 non è una licenza CC ordinaria CC0 è uno strumento di rinuncia e dedica al pubblico dominio nella misura consentita dalla legge. 01 Nessun obbligo licenziale standard 02 Citare resta una buona pratica 03 I diritti morali dipendono dalla legge applicabile\n\n--- Slide 12 ---\nAttribuire con il metodo TASL Una buona attribuzione permette di risalire senza ambiguità all’opera e alle condizioni d’uso. 01 T · Titolo 02 A · Autore 03 S · Source, collegamento 04 L · Licenza, collegamento\n\n--- Slide 13 ---\nChe cos’è un adattamento Tradurre, montare, trasformare o combinare creativamente può produrre un’opera derivata; la semplice copia non è un remix. 01 Traduzione 02 Montaggio audiovisivo 03 Rielaborazione grafica\n\n--- Slide 14 ---\nRemix: combinare per creare Nel lessico OER, Remix significa combinare il contenuto originale o rivisto con altro materiale per produrre qualcosa di nuovo. 01 Non basta inserire un link 02 Non è duplicare un file 03 Non coincide con cambiare formato\n\n--- Slide 15 ---\nCompatibilità prima del remix Due materiali possono avere condizioni incompatibili. Prima del montaggio confronta licenze, attribuzioni e destinazione finale. 01 ND blocca la condivisione dell’adattamento 02 SA condiziona la licenza finale 03 NC richiede attenzione all’uso\n\n--- Slide 16 ---\nOER: risorse educative aperte Una OER unisce finalità educativa e permessi aperti che rendono possibili pratiche oltre la semplice consultazione. 01 Materiale di apprendimento 02 Licenza aperta o pubblico dominio 03 Possibilità concreta di riuso\n\n--- Slide 17 ---\nLe 5R complete David Wiley definisce cinque permessi distinti: Retain, Revise, Remix, Reuse e Redistribute. 01 Conservare 02 Rivedere 03 Rimescolare 04 Riutilizzare 05 Ridistribuire\n\n--- Slide 18 ---\nCorrezione della domanda 7 L’opzione indicata contiene solo quattro azioni: manca Retain, cioè il diritto di possedere e controllare copie. 01 La risposta è la più vicina 02 Ma non definisce tutte le 5R 03 Il quiz va corretto\n\n--- Slide 19 ---\nCaso pratico: dispensa di classe Vuoi tradurre una dispensa CC BY-SA, aggiungere esercizi e distribuirla. L’adattamento è permesso, con credito e stessa licenza. 01 Conserva la fonte 02 Descrivi le modifiche 03 Applica CC BY-SA compatibile\n\n--- Slide 20 ---\nChecklist prima di pubblicare Trasforma il controllo giuridico in una procedura ripetibile, documentata e verificabile. 01 Identifica autore e provenienza 02 Leggi la licenza completa 03 Verifica compatibilità e scopo 04 Scrivi attribuzione e modifiche\n\n--- Slide 21 ---\nVerifica: scegli e motiva Quale licenza consente di modificare purché la derivata mantenga gli stessi termini? Spiega il ruolo di BY e SA. 01 Risposta: CC BY-SA 02 BY richiede attribuzione 03 SA mantiene la condivisione alle stesse condizioni\n\n--- Slide 22 ---\nPunti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. Licenze Creative Commons ↗ Definizione delle 5R ↗ Legge 633/1941, art. 20 ↗ Prossimo → RW02.06 · Accessibilità delle immagini Francesco Antonio Binetti\n\n",
+    "slides": [
+      {
+        "number": 1,
+        "text": "Licenze aperte e OER Diritto d’autore, Creative Commons, remix e pratiche delle risorse educative aperte. analizzare · scegliere · documentare Francesco Antonio Binetti"
+      },
+      {
+        "number": 2,
+        "text": "Orientarsi tra diritti e permessi Un contenuto trovato online non è automaticamente libero da usare. Prima si identifica l’opera, poi si legge la licenza, infine si documenta la fonte. 01 Opera e autore 02 Licenza applicata 03 Uso che vuoi farne"
+      },
+      {
+        "number": 3,
+        "text": "Diritto d’autore e licenza Il diritto nasce con l’opera; la licenza comunica in anticipo quali usi il titolare autorizza. Non sono sinonimi. 01 Diritto: insieme delle tutele 02 Licenza: permesso con condizioni 03 Pubblicazione online: non equivale a rinuncia Regola: La scelta corretta dipende dalla funzione, dal contesto e dalle condizioni verificabili."
+      },
+      {
+        "number": 4,
+        "text": "Diritti morali e patrimoniali I diritti patrimoniali riguardano gli usi economici; il diritto morale tutela il legame personale tra autore e opera. 01 Riproduzione e distribuzione 02 Elaborazione e comunicazione 03 Paternità e integrità dell’opera"
+      },
+      {
+        "number": 5,
+        "text": "La paternità dell’opera In Italia l’articolo 20 della legge 633/1941 consente all’autore di rivendicare la paternità anche dopo la cessione dei diritti economici. 01 Indicare correttamente l’autore 02 Non attribuirsi il lavoro altrui 03 Separare credito e permesso d’uso"
+      },
+      {
+        "number": 6,
+        "text": "Le licenze Creative Commons Le sigle combinano condizioni standard e leggibili. BY è presente nelle sei licenze principali. 01 BY · attribuzione 02 SA · stessa licenza 03 NC · non commerciale 04 ND · nessuna opera derivata"
+      },
+      {
+        "number": 7,
+        "text": "CC BY Consente condivisione e adattamento, anche commerciale, a condizione di attribuire correttamente la fonte. 01 Massima apertura tra le licenze CC 02 Adattamenti permessi 03 Attribuzione obbligatoria"
+      },
+      {
+        "number": 8,
+        "text": "CC BY-SA Consente la modifica, ma l’opera derivata deve essere distribuita con gli stessi termini o con una licenza compatibile. 01 BY: cita l’autore 02 SA: condividi allo stesso modo 03 È la risposta alla domanda 1"
+      },
+      {
+        "number": 9,
+        "text": "CC BY-ND Consente la redistribuzione, anche commerciale, ma non autorizza la condivisione di versioni modificate. 01 ND significa NoDerivatives 02 Una traduzione è un adattamento 03 Non confonderla con SA"
+      },
+      {
+        "number": 10,
+        "text": "CC BY-NC e BY-NC-SA NC limita gli usi commerciali; SA aggiunge l’obbligo di mantenere gli stessi termini sulle opere derivate. 01 Definire il contesto d’uso 02 Verificare eventuali eccezioni 03 Chiedere permesso se il caso è dubbio"
+      },
+      {
+        "number": 11,
+        "text": "CC0 non è una licenza CC ordinaria CC0 è uno strumento di rinuncia e dedica al pubblico dominio nella misura consentita dalla legge. 01 Nessun obbligo licenziale standard 02 Citare resta una buona pratica 03 I diritti morali dipendono dalla legge applicabile"
+      },
+      {
+        "number": 12,
+        "text": "Attribuire con il metodo TASL Una buona attribuzione permette di risalire senza ambiguità all’opera e alle condizioni d’uso. 01 T · Titolo 02 A · Autore 03 S · Source, collegamento 04 L · Licenza, collegamento"
+      },
+      {
+        "number": 13,
+        "text": "Che cos’è un adattamento Tradurre, montare, trasformare o combinare creativamente può produrre un’opera derivata; la semplice copia non è un remix. 01 Traduzione 02 Montaggio audiovisivo 03 Rielaborazione grafica"
+      },
+      {
+        "number": 14,
+        "text": "Remix: combinare per creare Nel lessico OER, Remix significa combinare il contenuto originale o rivisto con altro materiale per produrre qualcosa di nuovo. 01 Non basta inserire un link 02 Non è duplicare un file 03 Non coincide con cambiare formato"
+      },
+      {
+        "number": 15,
+        "text": "Compatibilità prima del remix Due materiali possono avere condizioni incompatibili. Prima del montaggio confronta licenze, attribuzioni e destinazione finale. 01 ND blocca la condivisione dell’adattamento 02 SA condiziona la licenza finale 03 NC richiede attenzione all’uso"
+      },
+      {
+        "number": 16,
+        "text": "OER: risorse educative aperte Una OER unisce finalità educativa e permessi aperti che rendono possibili pratiche oltre la semplice consultazione. 01 Materiale di apprendimento 02 Licenza aperta o pubblico dominio 03 Possibilità concreta di riuso"
+      },
+      {
+        "number": 17,
+        "text": "Le 5R complete David Wiley definisce cinque permessi distinti: Retain, Revise, Remix, Reuse e Redistribute. 01 Conservare 02 Rivedere 03 Rimescolare 04 Riutilizzare 05 Ridistribuire"
+      },
+      {
+        "number": 18,
+        "text": "Correzione della domanda 7 L’opzione indicata contiene solo quattro azioni: manca Retain, cioè il diritto di possedere e controllare copie. 01 La risposta è la più vicina 02 Ma non definisce tutte le 5R 03 Il quiz va corretto"
+      },
+      {
+        "number": 19,
+        "text": "Caso pratico: dispensa di classe Vuoi tradurre una dispensa CC BY-SA, aggiungere esercizi e distribuirla. L’adattamento è permesso, con credito e stessa licenza. 01 Conserva la fonte 02 Descrivi le modifiche 03 Applica CC BY-SA compatibile"
+      },
+      {
+        "number": 20,
+        "text": "Checklist prima di pubblicare Trasforma il controllo giuridico in una procedura ripetibile, documentata e verificabile. 01 Identifica autore e provenienza 02 Leggi la licenza completa 03 Verifica compatibilità e scopo 04 Scrivi attribuzione e modifiche"
+      },
+      {
+        "number": 21,
+        "text": "Verifica: scegli e motiva Quale licenza consente di modificare purché la derivata mantenga gli stessi termini? Spiega il ruolo di BY e SA. 01 Risposta: CC BY-SA 02 BY richiede attribuzione 03 SA mantiene la condivisione alle stesse condizioni"
+      },
+      {
+        "number": 22,
+        "text": "Punti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. Licenze Creative Commons ↗ Definizione delle 5R ↗ Legge 633/1941, art. 20 ↗ Prossimo → RW02.06 · Accessibilità delle immagini Francesco Antonio Binetti"
+      }
+    ]
+  },
+  {
+    "href": "rw02-06-accessibilita-immagini.html",
+    "section": "Reti e Web",
+    "code": "RW02.06",
+    "title": "Accessibilità delle immagini",
+    "description": "WCAG 2.1, testo alternativo, immagini informative, funzionali, complesse e puramente decorative.",
+    "topics": "WCAG Testo alternativo",
+    "text": "<!-- Proprietà intellettuale di Francesco Antonio Binetti -->\nAccessibilità delle immagini · RW02.06\n================================================\n\n--- Slide 1 ---\nAccessibilità delle immagini Testo alternativo, immagini decorative e decisioni coerenti con WCAG 2.1. analizzare · scegliere · documentare Francesco Antonio Binetti\n\n--- Slide 2 ---\nAccessibile significa percepibile Se un’immagine trasmette informazione, la stessa funzione deve essere disponibile anche a chi non la vede. 01 Contenuto equivalente 02 Contesto d’uso 03 Tecnologia assistiva\n\n--- Slide 3 ---\nIl requisito WCAG 1.1.1 I contenuti non testuali richiedono un’alternativa testuale equivalente, salvo casi specifici come la pura decorazione. 01 Descrivere lo scopo 02 Non replicare dettagli inutili 03 Permettere l’ignoramento della decorazione Regola: La scelta corretta dipende dalla funzione, dal contesto e dalle condizioni verificabili.\n\n--- Slide 4 ---\nPrima domanda: che funzione ha? Lo stesso file può richiedere alt diversi in pagine diverse. La decisione dipende da ciò che comunica nel contesto. 01 Informativa 02 Funzionale 03 Decorativa 04 Complessa\n\n--- Slide 5 ---\nImmagine informativa L’alt comunica l’informazione essenziale che andrebbe persa rimuovendo l’immagine. 01 Breve ma sufficiente 02 Niente “immagine di” se superfluo 03 Usa il testo vicino come contesto\n\n--- Slide 6 ---\nImmagine funzionale Se l’immagine è un pulsante o un link, l’alt descrive l’azione o la destinazione, non l’aspetto. 01 “Cerca” 02 “Scarica il report” 03 “Pagina iniziale”\n\n--- Slide 7 ---\nImmagine puramente decorativa Se non aggiunge informazione e serve solo all’estetica, deve poter essere ignorata dalle tecnologie assistive. 01 Nessun contenuto utile 02 Nessuna azione 03 Nessuna informazione unica\n\n--- Slide 8 ---\nLa soluzione HTML: alt vuoto Per un elemento img decorativo si usa alt=\"\". Non è un alt mancante: è una decisione esplicita. 01 Risposta alla domanda 2 02 Lo screen reader può ignorarla 03 Mantiene pulito il flusso di lettura\n\n--- Slide 9 ---\nVuoto non significa assente Omettere alt può far annunciare il nome del file; alt=\"\" comunica invece che l’immagine non porta contenuto. 01 alt=\"\" · intenzionale 02 nessun alt · errore o ambiguità 03 decorazione.png · rumore informativo\n\n--- Slide 10 ---\nQuando non basta alt=\"\" Un diagramma, una foto probatoria o un’icona cliccabile non sono decorazioni solo perché rendono la pagina più bella. 01 Diagramma: riassunto e descrizione 02 Foto: informazione contestuale 03 Icona-link: nome accessibile\n\n--- Slide 11 ---\nImmagini complesse Grafici e infografiche richiedono un alt sintetico e una spiegazione estesa vicina o collegata. 01 Messaggio principale 02 Dati o tendenze 03 Posizione della descrizione lunga\n\n--- Slide 12 ---\nDecision tree operativo Chiedi in ordine: è un controllo? comunica informazione? duplica interamente il testo vicino? è pura decorazione? 01 Azione → nome dell’azione 02 Informazione → equivalente breve 03 Duplicata/decorativa → alt vuoto\n\n--- Slide 13 ---\nVerifica: decorativa o informativa? Una linea ornamentale tra due sezioni non aggiunge contenuto: quale attributo useresti e perché? 01 Risposta: alt=\"\" 02 Permette di ignorare l’immagine 03 Non usare nome file o descrizione dei colori\n\n--- Slide 14 ---\nPunti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. WCAG 2.1 ↗ WAI: immagini decorative ↗ Tecnica H67 ↗ Prossimo → RW02.07 · Metadati e formati Francesco Antonio Binetti\n\n",
+    "slides": [
+      {
+        "number": 1,
+        "text": "Accessibilità delle immagini Testo alternativo, immagini decorative e decisioni coerenti con WCAG 2.1. analizzare · scegliere · documentare Francesco Antonio Binetti"
+      },
+      {
+        "number": 2,
+        "text": "Accessibile significa percepibile Se un’immagine trasmette informazione, la stessa funzione deve essere disponibile anche a chi non la vede. 01 Contenuto equivalente 02 Contesto d’uso 03 Tecnologia assistiva"
+      },
+      {
+        "number": 3,
+        "text": "Il requisito WCAG 1.1.1 I contenuti non testuali richiedono un’alternativa testuale equivalente, salvo casi specifici come la pura decorazione. 01 Descrivere lo scopo 02 Non replicare dettagli inutili 03 Permettere l’ignoramento della decorazione Regola: La scelta corretta dipende dalla funzione, dal contesto e dalle condizioni verificabili."
+      },
+      {
+        "number": 4,
+        "text": "Prima domanda: che funzione ha? Lo stesso file può richiedere alt diversi in pagine diverse. La decisione dipende da ciò che comunica nel contesto. 01 Informativa 02 Funzionale 03 Decorativa 04 Complessa"
+      },
+      {
+        "number": 5,
+        "text": "Immagine informativa L’alt comunica l’informazione essenziale che andrebbe persa rimuovendo l’immagine. 01 Breve ma sufficiente 02 Niente “immagine di” se superfluo 03 Usa il testo vicino come contesto"
+      },
+      {
+        "number": 6,
+        "text": "Immagine funzionale Se l’immagine è un pulsante o un link, l’alt descrive l’azione o la destinazione, non l’aspetto. 01 “Cerca” 02 “Scarica il report” 03 “Pagina iniziale”"
+      },
+      {
+        "number": 7,
+        "text": "Immagine puramente decorativa Se non aggiunge informazione e serve solo all’estetica, deve poter essere ignorata dalle tecnologie assistive. 01 Nessun contenuto utile 02 Nessuna azione 03 Nessuna informazione unica"
+      },
+      {
+        "number": 8,
+        "text": "La soluzione HTML: alt vuoto Per un elemento img decorativo si usa alt=\"\". Non è un alt mancante: è una decisione esplicita. 01 Risposta alla domanda 2 02 Lo screen reader può ignorarla 03 Mantiene pulito il flusso di lettura"
+      },
+      {
+        "number": 9,
+        "text": "Vuoto non significa assente Omettere alt può far annunciare il nome del file; alt=\"\" comunica invece che l’immagine non porta contenuto. 01 alt=\"\" · intenzionale 02 nessun alt · errore o ambiguità 03 decorazione.png · rumore informativo"
+      },
+      {
+        "number": 10,
+        "text": "Quando non basta alt=\"\" Un diagramma, una foto probatoria o un’icona cliccabile non sono decorazioni solo perché rendono la pagina più bella. 01 Diagramma: riassunto e descrizione 02 Foto: informazione contestuale 03 Icona-link: nome accessibile"
+      },
+      {
+        "number": 11,
+        "text": "Immagini complesse Grafici e infografiche richiedono un alt sintetico e una spiegazione estesa vicina o collegata. 01 Messaggio principale 02 Dati o tendenze 03 Posizione della descrizione lunga"
+      },
+      {
+        "number": 12,
+        "text": "Decision tree operativo Chiedi in ordine: è un controllo? comunica informazione? duplica interamente il testo vicino? è pura decorazione? 01 Azione → nome dell’azione 02 Informazione → equivalente breve 03 Duplicata/decorativa → alt vuoto"
+      },
+      {
+        "number": 13,
+        "text": "Verifica: decorativa o informativa? Una linea ornamentale tra due sezioni non aggiunge contenuto: quale attributo useresti e perché? 01 Risposta: alt=\"\" 02 Permette di ignorare l’immagine 03 Non usare nome file o descrizione dei colori"
+      },
+      {
+        "number": 14,
+        "text": "Punti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. WCAG 2.1 ↗ WAI: immagini decorative ↗ Tecnica H67 ↗ Prossimo → RW02.07 · Metadati e formati Francesco Antonio Binetti"
+      }
+    ]
+  },
+  {
+    "href": "rw02-07-metadati-formati.html",
+    "section": "Reti e Web",
+    "code": "RW02.07",
+    "title": "Metadati e formati",
+    "description": "Indicizzazione e conservazione delle immagini, privacy dei metadati, grafica raster e formati JPEG, PNG e SVG.",
+    "topics": "Metadati SVG",
+    "text": "<!-- Proprietà intellettuale di Francesco Antonio Binetti -->\nMetadati e formati · RW02.07\n================================================\n\n--- Slide 1 ---\nMetadati e formati Descrivere, ritrovare e conservare immagini scegliendo il formato adatto. analizzare · scegliere · documentare Francesco Antonio Binetti\n\n--- Slide 2 ---\nIl file non è solo pixel Un’immagine può contenere o essere accompagnata da dati che descrivono provenienza, contenuto, diritti e caratteristiche tecniche. 01 Contenuto visivo 02 Metadati descrittivi 03 Metadati tecnici e amministrativi\n\n--- Slide 3 ---\nChe cosa sono i metadati Sono dati strutturati su una risorsa. Rendono esplicite informazioni che altrimenti resterebbero nel nome file o nella memoria di qualcuno. 01 Titolo e autore 02 Data e luogo 03 Licenza e diritti 04 Formato e dimensioni Regola: La scelta corretta dipende dalla funzione, dal contesto e dalle condizioni verificabili.\n\n--- Slide 4 ---\nPerché servono in archivio La funzione principale è facilitare indicizzazione, ricerca, comprensione e gestione nel tempo. 01 Risposta alla domanda 4 02 Filtri e ordinamento 03 Recupero affidabile\n\n--- Slide 5 ---\nTre famiglie utili Una classificazione pratica distingue metadati descrittivi, amministrativi e strutturali. 01 Descrittivi: cosa rappresenta 02 Amministrativi: provenienza e diritti 03 Strutturali: relazioni tra parti\n\n--- Slide 6 ---\nMetadati tecnici Dimensioni, profilo colore, dispositivo, software e data di acquisizione aiutano controllo e conservazione. 01 Risoluzione in pixel 02 Spazio colore 03 Versione del formato\n\n--- Slide 7 ---\nIndicizzare non è rinominare Un buon nome file aiuta, ma i metadati consentono più chiavi di ricerca senza duplicare l’immagine. 01 Titolo leggibile 02 Parole chiave controllate 03 Autore e data separati\n\n--- Slide 8 ---\nQualità dei metadati I campi devono essere coerenti, comprensibili e applicati con regole comuni. 01 Vocabolari condivisi 02 Date in formato uniforme 03 Nomi non ambigui\n\n--- Slide 9 ---\nMetadati sensibili EXIF può includere coordinate GPS, modello del dispositivo e data. Prima di pubblicare valuta privacy e sicurezza. 01 Controlla geolocalizzazione 02 Rimuovi dati non necessari 03 Conserva una copia archivistica\n\n--- Slide 10 ---\nRaster e vettoriale Le immagini raster memorizzano pixel; le vettoriali descrivono forme geometriche che vengono rasterizzate al momento della visualizzazione. 01 JPEG/PNG: griglia di pixel 02 SVG: forme, curve e testo 03 Usi differenti, non classifica di qualità\n\n--- Slide 11 ---\nJPEG Adatto soprattutto a fotografie e immagini con molte variazioni tonali; la compressione con perdita può introdurre artefatti. 01 File spesso compatto 02 Niente trasparenza standard 03 Non ideale per loghi con bordi netti\n\n--- Slide 12 ---\nPNG Adatto a schermate, grafica raster nitida e trasparenze; usa compressione senza perdita. 01 Bordi netti 02 Canale alfa 03 Può pesare molto con fotografie\n\n--- Slide 13 ---\nSVG Descrive grafica bidimensionale in XML ed è indipendente dalla risoluzione: si adatta a dimensioni diverse. 01 Risposta alla domanda 6 02 Ideale per loghi e icone 03 Modificabile come struttura vettoriale\n\n--- Slide 14 ---\nScegliere il formato Parti dal contenuto e dall’uso finale, non dall’abitudine. 01 Logo → SVG 02 Fotografia web → JPEG o formati moderni 03 Screenshot trasparente → PNG\n\n--- Slide 15 ---\nVerifica: archivio e logo Perché i metadati aiutano a ritrovare un’immagine? Quale formato useresti per un logo ridimensionabile? 01 Indicizzazione e reperimento 02 SVG per grafica vettoriale 03 Motivare entrambe le scelte\n\n--- Slide 16 ---\nPunti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. PREMIS — Library of Congress ↗ SVG — W3C ↗ Prossimo → RW02.08 · Podcast e storytelling Francesco Antonio Binetti\n\n",
+    "slides": [
+      {
+        "number": 1,
+        "text": "Metadati e formati Descrivere, ritrovare e conservare immagini scegliendo il formato adatto. analizzare · scegliere · documentare Francesco Antonio Binetti"
+      },
+      {
+        "number": 2,
+        "text": "Il file non è solo pixel Un’immagine può contenere o essere accompagnata da dati che descrivono provenienza, contenuto, diritti e caratteristiche tecniche. 01 Contenuto visivo 02 Metadati descrittivi 03 Metadati tecnici e amministrativi"
+      },
+      {
+        "number": 3,
+        "text": "Che cosa sono i metadati Sono dati strutturati su una risorsa. Rendono esplicite informazioni che altrimenti resterebbero nel nome file o nella memoria di qualcuno. 01 Titolo e autore 02 Data e luogo 03 Licenza e diritti 04 Formato e dimensioni Regola: La scelta corretta dipende dalla funzione, dal contesto e dalle condizioni verificabili."
+      },
+      {
+        "number": 4,
+        "text": "Perché servono in archivio La funzione principale è facilitare indicizzazione, ricerca, comprensione e gestione nel tempo. 01 Risposta alla domanda 4 02 Filtri e ordinamento 03 Recupero affidabile"
+      },
+      {
+        "number": 5,
+        "text": "Tre famiglie utili Una classificazione pratica distingue metadati descrittivi, amministrativi e strutturali. 01 Descrittivi: cosa rappresenta 02 Amministrativi: provenienza e diritti 03 Strutturali: relazioni tra parti"
+      },
+      {
+        "number": 6,
+        "text": "Metadati tecnici Dimensioni, profilo colore, dispositivo, software e data di acquisizione aiutano controllo e conservazione. 01 Risoluzione in pixel 02 Spazio colore 03 Versione del formato"
+      },
+      {
+        "number": 7,
+        "text": "Indicizzare non è rinominare Un buon nome file aiuta, ma i metadati consentono più chiavi di ricerca senza duplicare l’immagine. 01 Titolo leggibile 02 Parole chiave controllate 03 Autore e data separati"
+      },
+      {
+        "number": 8,
+        "text": "Qualità dei metadati I campi devono essere coerenti, comprensibili e applicati con regole comuni. 01 Vocabolari condivisi 02 Date in formato uniforme 03 Nomi non ambigui"
+      },
+      {
+        "number": 9,
+        "text": "Metadati sensibili EXIF può includere coordinate GPS, modello del dispositivo e data. Prima di pubblicare valuta privacy e sicurezza. 01 Controlla geolocalizzazione 02 Rimuovi dati non necessari 03 Conserva una copia archivistica"
+      },
+      {
+        "number": 10,
+        "text": "Raster e vettoriale Le immagini raster memorizzano pixel; le vettoriali descrivono forme geometriche che vengono rasterizzate al momento della visualizzazione. 01 JPEG/PNG: griglia di pixel 02 SVG: forme, curve e testo 03 Usi differenti, non classifica di qualità"
+      },
+      {
+        "number": 11,
+        "text": "JPEG Adatto soprattutto a fotografie e immagini con molte variazioni tonali; la compressione con perdita può introdurre artefatti. 01 File spesso compatto 02 Niente trasparenza standard 03 Non ideale per loghi con bordi netti"
+      },
+      {
+        "number": 12,
+        "text": "PNG Adatto a schermate, grafica raster nitida e trasparenze; usa compressione senza perdita. 01 Bordi netti 02 Canale alfa 03 Può pesare molto con fotografie"
+      },
+      {
+        "number": 13,
+        "text": "SVG Descrive grafica bidimensionale in XML ed è indipendente dalla risoluzione: si adatta a dimensioni diverse. 01 Risposta alla domanda 6 02 Ideale per loghi e icone 03 Modificabile come struttura vettoriale"
+      },
+      {
+        "number": 14,
+        "text": "Scegliere il formato Parti dal contenuto e dall’uso finale, non dall’abitudine. 01 Logo → SVG 02 Fotografia web → JPEG o formati moderni 03 Screenshot trasparente → PNG"
+      },
+      {
+        "number": 15,
+        "text": "Verifica: archivio e logo Perché i metadati aiutano a ritrovare un’immagine? Quale formato useresti per un logo ridimensionabile? 01 Indicizzazione e reperimento 02 SVG per grafica vettoriale 03 Motivare entrambe le scelte"
+      },
+      {
+        "number": 16,
+        "text": "Punti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. PREMIS — Library of Congress ↗ SVG — W3C ↗ Prossimo → RW02.08 · Podcast e storytelling Francesco Antonio Binetti"
+      }
+    ]
+  },
+  {
+    "href": "rw02-08-podcast-storytelling.html",
+    "section": "Reti e Web",
+    "code": "RW02.08",
+    "title": "Podcast e storytelling digitale",
+    "description": "Strutture narrative, scrittura per l’ascolto, registrazione, montaggio e differenza fra normalizzazione di picco e loudness.",
+    "topics": "Podcast Storytelling",
+    "text": "<!-- Proprietà intellettuale di Francesco Antonio Binetti -->\nPodcast e storytelling digitale · RW02.08\n================================================\n\n--- Slide 1 ---\nPodcast e storytelling digitale Progettare una storia, registrare una voce e consegnare un audio coerente. analizzare · scegliere · documentare Francesco Antonio Binetti\n\n--- Slide 2 ---\nDal messaggio all’esperienza Un contenuto digitale efficace coordina obiettivo, pubblico, struttura narrativa, voce, ritmo e interazione. 01 Cosa deve capire il pubblico 02 Cosa deve ricordare 03 Cosa deve fare dopo\n\n--- Slide 3 ---\nIl nucleo narrativo Prima degli effetti definisci una trasformazione: una situazione iniziale cambia attraverso tensione, scelta o scoperta. 01 Contesto 02 Tensione 03 Svolta 04 Esito Regola: La scelta corretta dipende dalla funzione, dal contesto e dalle condizioni verificabili.\n\n--- Slide 4 ---\nPubblico e promessa La prima parte chiarisce perché vale la pena ascoltare e quale bisogno verrà soddisfatto. 01 Domanda guida 02 Beneficio concreto 03 Tempo richiesto\n\n--- Slide 5 ---\nStruttura lineare Segue un ordine stabilito dall’autore. È adatta a spiegazioni progressive e racconti con forte causalità. 01 Inizio 02 Sviluppo 03 Conclusione\n\n--- Slide 6 ---\nStruttura non lineare Permette salti temporali, percorsi o approfondimenti scelti dall’utente. È una tecnica possibile, non un obbligo universale. 01 Flashback 02 Rami interattivi 03 Collegamenti contestuali\n\n--- Slide 7 ---\nCorrezione della domanda 10 “Uso di una struttura non lineare” può sostenere l’attenzione in alcuni contenuti web, ma non è di per sé un principio fondamentale. 01 Dipende da pubblico e obiettivo 02 La chiarezza resta prioritaria 03 La domanda va resa meno assoluta\n\n--- Slide 8 ---\nUna domanda migliore Quale tecnica può aumentare coinvolgimento e controllo in un racconto web interattivo? In quel contesto, una struttura non lineare è plausibile. 01 Specificare “può” 02 Specificare “interattivo” 03 Evitare una regola universale\n\n--- Slide 9 ---\nScrivere per l’ascolto Le frasi devono funzionare senza poter tornare indietro con gli occhi. 01 Periodi brevi 02 Una idea per frase 03 Segnalazioni verbali della struttura\n\n--- Slide 10 ---\nScaletta di un podcast Una scaletta distribuisce tempo, funzione e responsabilità di ogni segmento prima della registrazione. 01 Apertura 02 Sviluppo in blocchi 03 Riepilogo 04 Chiusura e invito all’azione\n\n--- Slide 11 ---\nLivello in registrazione Registra con margine per evitare clipping; un picco tagliato non si recupera davvero in post-produzione. 01 Controlla i passaggi più forti 02 Evita il rosso sul meter 03 Mantieni distanza costante\n\n--- Slide 12 ---\nMontaggio editoriale Taglia esitazioni inutili e ripetizioni, ma conserva respiri e pause che rendono naturale il discorso. 01 Chiarezza 02 Ritmo 03 Continuità\n\n--- Slide 13 ---\nPicco e loudness non sono uguali Il picco misura un massimo istantaneo; la loudness descrive il livello percepito nel tempo. Due file con lo stesso picco possono sembrare diversi. 01 Peak 02 True peak 03 Loudness integrata in LUFS\n\n--- Slide 14 ---\nNormalizzazione di picco Sposta il guadagno affinché il picco massimo raggiunga un valore obiettivo. Non uniforma automaticamente la percezione tra episodi. 01 È ciò che descrive la domanda 9 02 Modifica globale del livello 03 Non elimina rumore né riverbero\n\n--- Slide 15 ---\nNormalizzazione della loudness Gli standard moderni come EBU R 128 misurano la loudness media e controllano separatamente il true peak. 01 Coerenza percepita 02 Target di distribuzione 03 Limite tecnico dei picchi\n\n--- Slide 16 ---\nCorrezione della domanda 9 “Uniformare il picco massimo” descrive la normalizzazione di picco, ma per un podcast conviene distinguere picco e loudness. 01 Risposta A nel significato stretto 02 Formulazione incompleta per la produzione moderna 03 Aggiungere LUFS e true peak\n\n--- Slide 17 ---\nVerifica: racconta e consegna Spiega quando useresti una struttura non lineare e perché il solo picco non garantisce episodi percepiti allo stesso volume. 01 Scelta narrativa motivata 02 Loudness media vs massimo 03 Controllo finale su più dispositivi\n\n--- Slide 18 ---\nPunti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. EBU R 128 ↗ EBU: Loudness ↗ Prossimo → RW03.01 · Identità online Francesco Antonio Binetti\n\n",
+    "slides": [
+      {
+        "number": 1,
+        "text": "Podcast e storytelling digitale Progettare una storia, registrare una voce e consegnare un audio coerente. analizzare · scegliere · documentare Francesco Antonio Binetti"
+      },
+      {
+        "number": 2,
+        "text": "Dal messaggio all’esperienza Un contenuto digitale efficace coordina obiettivo, pubblico, struttura narrativa, voce, ritmo e interazione. 01 Cosa deve capire il pubblico 02 Cosa deve ricordare 03 Cosa deve fare dopo"
+      },
+      {
+        "number": 3,
+        "text": "Il nucleo narrativo Prima degli effetti definisci una trasformazione: una situazione iniziale cambia attraverso tensione, scelta o scoperta. 01 Contesto 02 Tensione 03 Svolta 04 Esito Regola: La scelta corretta dipende dalla funzione, dal contesto e dalle condizioni verificabili."
+      },
+      {
+        "number": 4,
+        "text": "Pubblico e promessa La prima parte chiarisce perché vale la pena ascoltare e quale bisogno verrà soddisfatto. 01 Domanda guida 02 Beneficio concreto 03 Tempo richiesto"
+      },
+      {
+        "number": 5,
+        "text": "Struttura lineare Segue un ordine stabilito dall’autore. È adatta a spiegazioni progressive e racconti con forte causalità. 01 Inizio 02 Sviluppo 03 Conclusione"
+      },
+      {
+        "number": 6,
+        "text": "Struttura non lineare Permette salti temporali, percorsi o approfondimenti scelti dall’utente. È una tecnica possibile, non un obbligo universale. 01 Flashback 02 Rami interattivi 03 Collegamenti contestuali"
+      },
+      {
+        "number": 7,
+        "text": "Correzione della domanda 10 “Uso di una struttura non lineare” può sostenere l’attenzione in alcuni contenuti web, ma non è di per sé un principio fondamentale. 01 Dipende da pubblico e obiettivo 02 La chiarezza resta prioritaria 03 La domanda va resa meno assoluta"
+      },
+      {
+        "number": 8,
+        "text": "Una domanda migliore Quale tecnica può aumentare coinvolgimento e controllo in un racconto web interattivo? In quel contesto, una struttura non lineare è plausibile. 01 Specificare “può” 02 Specificare “interattivo” 03 Evitare una regola universale"
+      },
+      {
+        "number": 9,
+        "text": "Scrivere per l’ascolto Le frasi devono funzionare senza poter tornare indietro con gli occhi. 01 Periodi brevi 02 Una idea per frase 03 Segnalazioni verbali della struttura"
+      },
+      {
+        "number": 10,
+        "text": "Scaletta di un podcast Una scaletta distribuisce tempo, funzione e responsabilità di ogni segmento prima della registrazione. 01 Apertura 02 Sviluppo in blocchi 03 Riepilogo 04 Chiusura e invito all’azione"
+      },
+      {
+        "number": 11,
+        "text": "Livello in registrazione Registra con margine per evitare clipping; un picco tagliato non si recupera davvero in post-produzione. 01 Controlla i passaggi più forti 02 Evita il rosso sul meter 03 Mantieni distanza costante"
+      },
+      {
+        "number": 12,
+        "text": "Montaggio editoriale Taglia esitazioni inutili e ripetizioni, ma conserva respiri e pause che rendono naturale il discorso. 01 Chiarezza 02 Ritmo 03 Continuità"
+      },
+      {
+        "number": 13,
+        "text": "Picco e loudness non sono uguali Il picco misura un massimo istantaneo; la loudness descrive il livello percepito nel tempo. Due file con lo stesso picco possono sembrare diversi. 01 Peak 02 True peak 03 Loudness integrata in LUFS"
+      },
+      {
+        "number": 14,
+        "text": "Normalizzazione di picco Sposta il guadagno affinché il picco massimo raggiunga un valore obiettivo. Non uniforma automaticamente la percezione tra episodi. 01 È ciò che descrive la domanda 9 02 Modifica globale del livello 03 Non elimina rumore né riverbero"
+      },
+      {
+        "number": 15,
+        "text": "Normalizzazione della loudness Gli standard moderni come EBU R 128 misurano la loudness media e controllano separatamente il true peak. 01 Coerenza percepita 02 Target di distribuzione 03 Limite tecnico dei picchi"
+      },
+      {
+        "number": 16,
+        "text": "Correzione della domanda 9 “Uniformare il picco massimo” descrive la normalizzazione di picco, ma per un podcast conviene distinguere picco e loudness. 01 Risposta A nel significato stretto 02 Formulazione incompleta per la produzione moderna 03 Aggiungere LUFS e true peak"
+      },
+      {
+        "number": 17,
+        "text": "Verifica: racconta e consegna Spiega quando useresti una struttura non lineare e perché il solo picco non garantisce episodi percepiti allo stesso volume. 01 Scelta narrativa motivata 02 Loudness media vs massimo 03 Controllo finale su più dispositivi"
+      },
+      {
+        "number": 18,
+        "text": "Punti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. EBU R 128 ↗ EBU: Loudness ↗ Prossimo → RW03.01 · Identità online Francesco Antonio Binetti"
+      }
+    ]
+  },
+  {
     "href": "rw03-01-identita.html",
     "section": "Reti e Web",
     "code": "RW03.01",
@@ -3695,7 +4019,7 @@ globalThis.COURSE_SEARCH_INDEX = [
     "title": "Tabelle pivot avanzate",
     "description": "Percentuali, confronti temporali, raggruppamenti, campi calcolati, drill-down, slicer, timeline, PivotChart e controlli di qualità.",
     "topics": "",
-    "text": "Suite Ufficio · SU03.09 — Tabelle pivot avanzate\n================================================\n\n--- Slide 1 ---\nPivot\n avanzate Dai primi riepiloghi a percentuali, raggruppamenti, campi calcolati, segmentazioni e grafici pivot controllabili. 🧭 Francesco Antonio Binetti\n\n--- Slide 2 ---\nCosa vedremo 01 La domanda giusta \n La domanda viene prima dei campi, e lo stesso valore raccontato in più modi. 02 Analisi avanzata \n Percentuali, confronti tra periodi, raggruppare date e campi calcolati. 03 Cruscotti \n Segmentazioni e timeline, il grafico pivot, più pivot su una sorgente e i controlli.\n\n--- Slide 3 ---\nLa domanda viene prima dei campi Una pivot avanzata non nasce trascinando campi a caso. Definisci prima indicatore, dimensioni, periodo e confronto. Regola: misura + categoria + tempo + filtro. Misura Incasso Categoria Servizio Tempo Mese Filtro Sede\n\n--- Slide 4 ---\nLo stesso valore può raccontare storie diverse Σ Somma Quanto vale il totale della categoria. # Conteggio Quanti record contribuiscono al risultato. % % del totale Quanto pesa ogni categoria sull’insieme. Δ Differenza Quanto cambia rispetto a un riferimento. 💡 Controllo Aggiungi due volte lo stesso campo nei Valori: una copia come totale, l’altra come percentuale. Il confronto evita letture ingannevoli.\n\n--- Slide 5 ---\nPercentuale di riga, colonna o totale? Il denominatore cambia il significato. Scrivilo nel titolo del report e non lasciare che il lettore debba indovinarlo. Calcolo Domanda Esempio % totale generale Quanto pesa sul complesso? Colore = 42% degli incassi % totale riga Come si divide questa categoria? Servizio per sede % totale colonna Come si compone questo periodo? Servizi dentro marzo\n\n--- Slide 6 ---\nConfrontare periodi senza formule esterne ↔ Differenza da Valore corrente meno periodo precedente. % % differenza da Variazione relativa rispetto al riferimento. ∑ Totale progressivo Accumula mese dopo mese per leggere l’andamento. In pratica: mostra valore assoluto e variazione insieme: +20 euro e +40% non raccontano la stessa scala.\n\n--- Slide 7 ---\nRaggruppare date e fasce Centinaia di date diventano mesi, trimestri o anni; valori continui diventano fasce leggibili. ⚠️ Attenzione Date vuote, testi che sembrano date e valori misti possono impedire il raggruppamento. 📅 Tempo Giorno → mese → trimestre → anno. ▥ Intervalli Età 18–24, 25–34; importi 0–49, 50–99.\n\n--- Slide 8 ---\nCampi calcolati: una misura derivata Un campo calcolato usa i campi della sorgente per produrre un nuovo indicatore, per esempio margine o commissione. Margine = Ricavo - Costo\n\nCommissione = Vendite * 0,05 Quando usarlo La logica è semplice, stabile e appartiene al report. Quando evitarlo Se servono condizioni complesse, prepara la colonna nella sorgente o nel modello dati. Fonte: Calcoli nelle tabelle pivot — Microsoft ↗ (https://support.microsoft.com/en-us/excel/calculate-values-in-a-pivottable)\n\n--- Slide 9 ---\nDal totale alle righe che lo compongono Il drill-down permette di controllare un numero: apri il dettaglio della cella e confronta le righe sorgente. 1 Individua Scegli il totale anomalo. 2 Apri il dettaglio Visualizza i record che contribuiscono. 3 Verifica Controlla duplicati, date, categorie e importi. Regola: una cifra affidabile deve essere tracciabile fino ai dati sorgente. Fonte: Creare e usare tabelle pivot — Google Sheets ↗ (https://support.google.com/docs/answer/1272900)\n\n--- Slide 10 ---\nSegmentazioni e timeline rendono il report esplorabile ▣ Slicer\n Pulsanti visuali per categoria, sede o responsabile. ↔ Timeline\n Filtro temporale dedicato in Excel. 🔗 Connessioni\n Un controllo può pilotare più pivot che condividono la stessa sorgente. 💡 Progettazione Limita i controlli a quelli che cambiano davvero una decisione. Fonte: Filtrare grafici e pivot con slicer — Google ↗ (https://support.google.com/docs/answer/9245556)\n\n--- Slide 11 ---\nIl grafico pivot resta collegato al report Filtri, raggruppamenti e aggiornamenti della pivot si riflettono nel grafico associato. In pratica: pivot per controllare i numeri, grafico per comunicare il pattern. Il filtro cambia tabella e grafico insieme\n\n--- Slide 12 ---\nPiù pivot, una sola sorgente pulita 🗃 Sorgente unica Evita copie divergenti della stessa tabella. 🔄 Aggiornamento Definisci chi aggiorna, quando e da quale intervallo. 🧠 Cache e modello In Excel pivot collegate possono condividere cache e comportamento. ⚠️ Effetto collegato In Excel, copie della stessa pivot possono condividere cache: raggruppamenti e campi calcolati possono influenzarsi. Verifica prima di progettare report indipendenti.\n\n--- Slide 13 ---\nControlli prima della consegna ✓ Quadratura Totale pivot uguale al totale sorgente. ✓ Aggiornamento Nuove righe comprese nel range. ✓ Formato Percentuali, valute e date coerenti. ✓ Filtri Filtri attivi visibili al lettore. Regola: salva una vista senza filtri nascosti e con la data dell’ultimo aggiornamento.\n\n--- Slide 14 ---\nLaboratorio: cruscotto vendite Parti da Data, Sede, Servizio, Operatore, Ricavo e Costo. A Pivot 1 Ricavo e margine per servizio, con % del totale. B Pivot 2 Trend mensile e variazione dal mese precedente. C Controlli Slicer per sede e operatore, periodo visibile. D Verifica Apri il dettaglio di un valore e quadrane il totale.\n\n--- Slide 15 ---\nUna pivot avanzata\nè un report verificabile. Percentuali, confronti e filtri servono solo quando la domanda è chiara e il totale resta tracciabile. Prossimo → SU03.10 · GraficiTorna all’indice Francesco Antonio Binetti\n\n",
+    "text": "Suite Ufficio · SU03.09 — Tabelle pivot avanzate\n================================================\n\n--- Slide 1 ---\nPivot\n avanzate Dai primi riepiloghi a percentuali, raggruppamenti, campi calcolati, segmentazioni e grafici pivot controllabili. 🧭 Francesco Antonio Binetti\n\n--- Slide 2 ---\nCosa vedremo 01 La domanda giusta \n La domanda viene prima dei campi, e lo stesso valore raccontato in più modi. 02 Analisi avanzata \n Percentuali, confronti tra periodi, raggruppare date e campi calcolati. 03 Cruscotti \n Segmentazioni e timeline, il grafico pivot, più pivot su una sorgente e i controlli.\n\n--- Slide 3 ---\nLa domanda viene prima dei campi Una pivot avanzata non nasce trascinando campi a caso. Definisci prima indicatore, dimensioni, periodo e confronto. Regola: misura + categoria + tempo + filtro. Misura Incasso Categoria Servizio Tempo Mese Filtro Sede\n\n--- Slide 4 ---\nLo stesso valore può raccontare storie diverse Σ Somma Quanto vale il totale della categoria. # Conteggio Quanti record contribuiscono al risultato. % % del totale Quanto pesa ogni categoria sull’insieme. Δ Differenza Quanto cambia rispetto a un riferimento. 💡 Controllo Aggiungi due volte lo stesso campo nei Valori: una copia come totale, l’altra come percentuale. Il confronto evita letture ingannevoli.\n\n--- Slide 5 ---\nPercentuale di riga, colonna o totale? Il denominatore cambia il significato. Scrivilo nel titolo del report e non lasciare che il lettore debba indovinarlo. Calcolo Domanda Esempio % totale generale Quanto pesa sul complesso? Colore = 42% degli incassi % totale riga Come si divide questa categoria? Servizio per sede % totale colonna Come si compone questo periodo? Servizi dentro marzo\n\n--- Slide 6 ---\nConfrontare periodi senza formule esterne ↔ Differenza da Valore corrente meno periodo precedente. % % differenza da Variazione relativa rispetto al riferimento. ∑ Totale progressivo Accumula mese dopo mese per leggere l’andamento. In pratica: mostra valore assoluto e variazione insieme: +20 euro e +40% non raccontano la stessa scala. ⚠️ Solo Excel Queste tre voci sono opzioni «Mostra valori come» delle pivot di Excel. Le pivot di Google Sheets non le hanno in modo nativo: lì servono una colonna d'appoggio o un campo calcolato nei dati sorgente.\n\n--- Slide 7 ---\nRaggruppare date e fasce Centinaia di date diventano mesi, trimestri o anni; valori continui diventano fasce leggibili. ⚠️ Attenzione Date vuote, testi che sembrano date e valori misti possono impedire il raggruppamento. 📅 Tempo Giorno → mese → trimestre → anno. ▥ Intervalli Età 18–24, 25–34; importi 0–49, 50–99.\n\n--- Slide 8 ---\nCampi calcolati: una misura derivata Un campo calcolato usa i campi della sorgente per produrre un nuovo indicatore, per esempio margine o commissione. Margine = Ricavo - Costo\n\nCommissione = Vendite * 0,05 Quando usarlo La logica è semplice, stabile e appartiene al report. Quando evitarlo Se servono condizioni complesse, prepara la colonna nella sorgente o nel modello dati. Fonte: Calcoli nelle tabelle pivot — Microsoft ↗ (https://support.microsoft.com/en-us/excel/calculate-values-in-a-pivottable)\n\n--- Slide 9 ---\nDal totale alle righe che lo compongono Il drill-down permette di controllare un numero: apri il dettaglio della cella e confronta le righe sorgente. 1 Individua Scegli il totale anomalo. 2 Apri il dettaglio Visualizza i record che contribuiscono. 3 Verifica Controlla duplicati, date, categorie e importi. Regola: una cifra affidabile deve essere tracciabile fino ai dati sorgente. Fonte: Creare e usare tabelle pivot — Google Sheets ↗ (https://support.google.com/docs/answer/1272900)\n\n--- Slide 10 ---\nSegmentazioni e timeline rendono il report esplorabile ▣ Slicer \n Pulsanti visuali per categoria, sede o responsabile. ↔ Timeline \n Filtro temporale dedicato, solo in Excel; in Google Sheets si usano gli slicer. 🔗 Connessioni \n Un controllo può pilotare più pivot che condividono la stessa sorgente. 💡 Progettazione Limita i controlli a quelli che cambiano davvero una decisione. Fonte: Supporto Microsoft Excel ↗\n\n--- Slide 11 ---\nIl grafico pivot resta collegato al report Filtri, raggruppamenti e aggiornamenti della pivot si riflettono nel grafico associato. In pratica: pivot per controllare i numeri, grafico per comunicare il pattern. Il filtro cambia tabella e grafico insieme\n\n--- Slide 12 ---\nPiù pivot, una sola sorgente pulita 🗃 Sorgente unica Evita copie divergenti della stessa tabella. 🔄 Aggiornamento Definisci chi aggiorna, quando e da quale intervallo. 🧠 Cache e modello In Excel pivot collegate possono condividere cache e comportamento. ⚠️ Effetto collegato In Excel, copie della stessa pivot possono condividere cache: raggruppamenti e campi calcolati possono influenzarsi. Verifica prima di progettare report indipendenti.\n\n--- Slide 13 ---\nControlli prima della consegna ✓ Quadratura Totale pivot uguale al totale sorgente. ✓ Aggiornamento Nuove righe comprese nel range. ✓ Formato Percentuali, valute e date coerenti. ✓ Filtri Filtri attivi visibili al lettore. Regola: salva una vista senza filtri nascosti e con la data dell’ultimo aggiornamento.\n\n--- Slide 14 ---\nLaboratorio: cruscotto vendite Parti da Data, Sede, Servizio, Operatore, Ricavo e Costo. A Pivot 1 Ricavo e margine per servizio, con % del totale. B Pivot 2 Trend mensile e variazione dal mese precedente. C Controlli Slicer per sede e operatore, periodo visibile. D Verifica Apri il dettaglio di un valore e quadrane il totale.\n\n--- Slide 15 ---\nUna pivot avanzata\nè un report verificabile. Percentuali, confronti e filtri servono solo quando la domanda è chiara e il totale resta tracciabile. Prossimo → SU03.10 · GraficiTorna all’indice Francesco Antonio Binetti\n\n",
     "slides": [
       {
         "number": 1,
@@ -3719,7 +4043,7 @@ globalThis.COURSE_SEARCH_INDEX = [
       },
       {
         "number": 6,
-        "text": "Confrontare periodi senza formule esterne ↔ Differenza da Valore corrente meno periodo precedente. % % differenza da Variazione relativa rispetto al riferimento. ∑ Totale progressivo Accumula mese dopo mese per leggere l’andamento. In pratica: mostra valore assoluto e variazione insieme: +20 euro e +40% non raccontano la stessa scala."
+        "text": "Confrontare periodi senza formule esterne ↔ Differenza da Valore corrente meno periodo precedente. % % differenza da Variazione relativa rispetto al riferimento. ∑ Totale progressivo Accumula mese dopo mese per leggere l’andamento. In pratica: mostra valore assoluto e variazione insieme: +20 euro e +40% non raccontano la stessa scala. ⚠️ Solo Excel Queste tre voci sono opzioni «Mostra valori come» delle pivot di Excel. Le pivot di Google Sheets non le hanno in modo nativo: lì servono una colonna d'appoggio o un campo calcolato nei dati sorgente."
       },
       {
         "number": 7,
@@ -3735,7 +4059,7 @@ globalThis.COURSE_SEARCH_INDEX = [
       },
       {
         "number": 10,
-        "text": "Segmentazioni e timeline rendono il report esplorabile ▣ Slicer\n Pulsanti visuali per categoria, sede o responsabile. ↔ Timeline\n Filtro temporale dedicato in Excel. 🔗 Connessioni\n Un controllo può pilotare più pivot che condividono la stessa sorgente. 💡 Progettazione Limita i controlli a quelli che cambiano davvero una decisione. Fonte: Filtrare grafici e pivot con slicer — Google ↗ (https://support.google.com/docs/answer/9245556)"
+        "text": "Segmentazioni e timeline rendono il report esplorabile ▣ Slicer \n Pulsanti visuali per categoria, sede o responsabile. ↔ Timeline \n Filtro temporale dedicato, solo in Excel; in Google Sheets si usano gli slicer. 🔗 Connessioni \n Un controllo può pilotare più pivot che condividono la stessa sorgente. 💡 Progettazione Limita i controlli a quelli che cambiano davvero una decisione. Fonte: Supporto Microsoft Excel ↗"
       },
       {
         "number": 11,
@@ -5687,6 +6011,57 @@ globalThis.COURSE_SEARCH_INDEX = [
       {
         "number": 18,
         "text": "Dal testo ai blocchi. Con Python hai visto un programma scritto per intero. In Scratch gli stessi concetti diventano visivi e si trascinano con il mouse. Prossimo &#8594; PR02.01 · Scratch Francesco Antonio Binetti"
+      }
+    ]
+  },
+  {
+    "href": "pr01-07-iterazione-cicli.html",
+    "section": "Programmazione",
+    "code": "PR01.07",
+    "title": "Iterazione e cicli",
+    "description": "Ripetizione, cicli a conteggio e condizionali, tabelle di traccia, loop infiniti e accumulatori.",
+    "topics": "Iterazione Cicli",
+    "text": "<!-- Proprietà intellettuale di Francesco Antonio Binetti -->\nIterazione e cicli · PR01.07\n================================================\n\n--- Slide 1 ---\nIterazione e cicli Ripetere istruzioni con una condizione, controllare lo stato e dimostrare la terminazione. analizzare · scegliere · documentare Francesco Antonio Binetti\n\n--- Slide 2 ---\nDalla ripetizione al ciclo Un’iterazione è l’esecuzione ripetuta di un blocco di istruzioni. Il ciclo definisce che cosa ripetere e quando fermarsi. 01 Risposta alla domanda 5 02 Blocco ripetuto 03 Regola di avanzamento\n\n--- Slide 3 ---\nLe parti di un ciclo Per ragionare senza dipendere dal linguaggio individua stato iniziale, condizione, corpo e aggiornamento. 01 Inizializzazione 02 Test 03 Istruzioni 04 Aggiornamento Regola: La scelta corretta dipende dalla funzione, dal contesto e dalle condizioni verificabili.\n\n--- Slide 4 ---\nCiclo condizionale Quando non sai quante ripetizioni serviranno, continua finché una condizione resta vera o fino a un evento. 01 Finché ci sono dati 02 Finché la password è errata 03 Finché non arriva il segnale\n\n--- Slide 5 ---\nPseudocodice di un while Lo pseudocodice rende visibili condizione e aggiornamento prima della sintassi del linguaggio. 01 contatore ← 0 02 MENTRE contatore 03 stampa e incrementa\n\n--- Slide 6 ---\nTracciare lo stato Una tabella di traccia mostra il valore delle variabili a ogni iterazione e aiuta a individuare errori logici. 01 Iterazione 02 Condizione 03 Valori prima e dopo 04 Output\n\n--- Slide 7 ---\nLoop infinito Se la condizione resta sempre vera o lo stato non avanza verso l’uscita, il programma non termina. 01 Aggiornamento mancante 02 Condizione impossibile 03 Dato esterno mai ricevuto\n\n--- Slide 8 ---\nAccumulatore e contatore Il contatore misura quante volte; l’accumulatore combina progressivamente valori, per esempio una somma. 01 conteggio ← conteggio + 1 02 totale ← totale + valore 03 Ruoli diversi\n\n--- Slide 9 ---\nVerifica: progetta il ciclo Descrivi un ciclo che legge cinque prezzi e calcola il totale. Indica inizializzazione, condizione, corpo e aggiornamento. 01 totale iniziale 0 02 cinque iterazioni 03 somma ogni prezzo 04 incrementa il contatore\n\n--- Slide 10 ---\nPunti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. Python: while ↗ Python: for ↗ Prossimo → PR02.01 · Introduzione a Scratch Francesco Antonio Binetti\n\n",
+    "slides": [
+      {
+        "number": 1,
+        "text": "Iterazione e cicli Ripetere istruzioni con una condizione, controllare lo stato e dimostrare la terminazione. analizzare · scegliere · documentare Francesco Antonio Binetti"
+      },
+      {
+        "number": 2,
+        "text": "Dalla ripetizione al ciclo Un’iterazione è l’esecuzione ripetuta di un blocco di istruzioni. Il ciclo definisce che cosa ripetere e quando fermarsi. 01 Risposta alla domanda 5 02 Blocco ripetuto 03 Regola di avanzamento"
+      },
+      {
+        "number": 3,
+        "text": "Le parti di un ciclo Per ragionare senza dipendere dal linguaggio individua stato iniziale, condizione, corpo e aggiornamento. 01 Inizializzazione 02 Test 03 Istruzioni 04 Aggiornamento Regola: La scelta corretta dipende dalla funzione, dal contesto e dalle condizioni verificabili."
+      },
+      {
+        "number": 4,
+        "text": "Ciclo condizionale Quando non sai quante ripetizioni serviranno, continua finché una condizione resta vera o fino a un evento. 01 Finché ci sono dati 02 Finché la password è errata 03 Finché non arriva il segnale"
+      },
+      {
+        "number": 5,
+        "text": "Pseudocodice di un while Lo pseudocodice rende visibili condizione e aggiornamento prima della sintassi del linguaggio. 01 contatore ← 0 02 MENTRE contatore 03 stampa e incrementa"
+      },
+      {
+        "number": 6,
+        "text": "Tracciare lo stato Una tabella di traccia mostra il valore delle variabili a ogni iterazione e aiuta a individuare errori logici. 01 Iterazione 02 Condizione 03 Valori prima e dopo 04 Output"
+      },
+      {
+        "number": 7,
+        "text": "Loop infinito Se la condizione resta sempre vera o lo stato non avanza verso l’uscita, il programma non termina. 01 Aggiornamento mancante 02 Condizione impossibile 03 Dato esterno mai ricevuto"
+      },
+      {
+        "number": 8,
+        "text": "Accumulatore e contatore Il contatore misura quante volte; l’accumulatore combina progressivamente valori, per esempio una somma. 01 conteggio ← conteggio + 1 02 totale ← totale + valore 03 Ruoli diversi"
+      },
+      {
+        "number": 9,
+        "text": "Verifica: progetta il ciclo Descrivi un ciclo che legge cinque prezzi e calcola il totale. Indica inizializzazione, condizione, corpo e aggiornamento. 01 totale iniziale 0 02 cinque iterazioni 03 somma ogni prezzo 04 incrementa il contatore"
+      },
+      {
+        "number": 10,
+        "text": "Punti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. Python: while ↗ Python: for ↗ Prossimo → PR02.01 · Introduzione a Scratch Francesco Antonio Binetti"
       }
     ]
   },

@@ -21,7 +21,7 @@ Lo stesso valore può raccontare storie diverse Σ Somma Quanto vale il totale d
 Percentuale di riga, colonna o totale? Il denominatore cambia il significato. Scrivilo nel titolo del report e non lasciare che il lettore debba indovinarlo. Calcolo Domanda Esempio % totale generale Quanto pesa sul complesso? Colore = 42% degli incassi % totale riga Come si divide questa categoria? Servizio per sede % totale colonna Come si compone questo periodo? Servizi dentro marzo
 
 --- Slide 6 ---
-Confrontare periodi senza formule esterne ↔ Differenza da Valore corrente meno periodo precedente. % % differenza da Variazione relativa rispetto al riferimento. ∑ Totale progressivo Accumula mese dopo mese per leggere l’andamento. In pratica: mostra valore assoluto e variazione insieme: +20 euro e +40% non raccontano la stessa scala.
+Confrontare periodi senza formule esterne ↔ Differenza da Valore corrente meno periodo precedente. % % differenza da Variazione relativa rispetto al riferimento. ∑ Totale progressivo Accumula mese dopo mese per leggere l’andamento. In pratica: mostra valore assoluto e variazione insieme: +20 euro e +40% non raccontano la stessa scala. ⚠️ Solo Excel Queste tre voci sono opzioni «Mostra valori come» delle pivot di Excel. Le pivot di Google Sheets non le hanno in modo nativo: lì servono una colonna d'appoggio o un campo calcolato nei dati sorgente.
 
 --- Slide 7 ---
 Raggruppare date e fasce Centinaia di date diventano mesi, trimestri o anni; valori continui diventano fasce leggibili. ⚠️ Attenzione Date vuote, testi che sembrano date e valori misti possono impedire il raggruppamento. 📅 Tempo Giorno → mese → trimestre → anno. ▥ Intervalli Età 18–24, 25–34; importi 0–49, 50–99.
@@ -35,10 +35,10 @@ Commissione = Vendite * 0,05 Quando usarlo La logica è semplice, stabile e appa
 Dal totale alle righe che lo compongono Il drill-down permette di controllare un numero: apri il dettaglio della cella e confronta le righe sorgente. 1 Individua Scegli il totale anomalo. 2 Apri il dettaglio Visualizza i record che contribuiscono. 3 Verifica Controlla duplicati, date, categorie e importi. Regola: una cifra affidabile deve essere tracciabile fino ai dati sorgente. Fonte: Creare e usare tabelle pivot — Google Sheets ↗ (https://support.google.com/docs/answer/1272900)
 
 --- Slide 10 ---
-Segmentazioni e timeline rendono il report esplorabile ▣ Slicer
- Pulsanti visuali per categoria, sede o responsabile. ↔ Timeline
- Filtro temporale dedicato in Excel. 🔗 Connessioni
- Un controllo può pilotare più pivot che condividono la stessa sorgente. 💡 Progettazione Limita i controlli a quelli che cambiano davvero una decisione. Fonte: Filtrare grafici e pivot con slicer — Google ↗ (https://support.google.com/docs/answer/9245556)
+Segmentazioni e timeline rendono il report esplorabile ▣ Slicer 
+ Pulsanti visuali per categoria, sede o responsabile. ↔ Timeline 
+ Filtro temporale dedicato, solo in Excel; in Google Sheets si usano gli slicer. 🔗 Connessioni 
+ Un controllo può pilotare più pivot che condividono la stessa sorgente. 💡 Progettazione Limita i controlli a quelli che cambiano davvero una decisione. Fonte: Supporto Microsoft Excel ↗
 
 --- Slide 11 ---
 Il grafico pivot resta collegato al report Filtri, raggruppamenti e aggiornamenti della pivot si riflettono nel grafico associato. In pratica: pivot per controllare i numeri, grafico per comunicare il pattern. Il filtro cambia tabella e grafico insieme
