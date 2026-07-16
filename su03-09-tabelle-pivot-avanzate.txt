@@ -35,24 +35,18 @@ Commissione = Vendite * 0,05 Quando usarlo La logica è semplice, stabile e appa
 Dal totale alle righe che lo compongono La pivot mostra i totali ma nasconde le righe che li formano. Il drill-down le riporta a galla: doppio clic su un valore e si apre un nuovo foglio con le righe sorgente esatte che, sommate, danno quel numero — in Excel come in Google Sheets. 1 Individua Trova nella pivot il totale da controllare: per esempio un incasso che sembra troppo alto. 2 Apri il dettaglio Doppio clic sulla cella: si apre un foglio con tutte le righe sorgente che compongono quel valore. 3 Verifica Scorri quelle righe a caccia di duplicati, date sbagliate, categorie errate o importi anomali. Regola: una cifra affidabile deve essere tracciabile fino ai dati sorgente.
 
 --- Slide 10 ---
-Segmentazioni e timeline rendono il report esplorabile ▣ Slicer 
- Pulsanti visuali per categoria, sede o responsabile. ↔ Timeline 
- Filtro temporale dedicato, solo in Excel; in Google Sheets si usano gli slicer. 🔗 Connessioni 
- Un controllo può pilotare più pivot che condividono la stessa sorgente. 💡 Progettazione Limita i controlli a quelli che cambiano davvero una decisione. Fonte: Supporto Microsoft Excel ↗
-
---- Slide 11 ---
 Il grafico pivot resta collegato al report Filtri, raggruppamenti e aggiornamenti della pivot si riflettono nel grafico associato. In pratica: pivot per controllare i numeri, grafico per comunicare il pattern. Il filtro cambia tabella e grafico insieme
 
---- Slide 12 ---
+--- Slide 11 ---
 Più pivot, una sola sorgente pulita 🗃 Sorgente unica Evita copie divergenti della stessa tabella. 🔄 Aggiornamento Definisci chi aggiorna, quando e da quale intervallo. 🧠 Cache e modello In Excel pivot collegate possono condividere cache e comportamento. ⚠️ Effetto collegato In Excel, copie della stessa pivot possono condividere cache: raggruppamenti e campi calcolati possono influenzarsi. Verifica prima di progettare report indipendenti.
 
---- Slide 13 ---
+--- Slide 12 ---
 Controlli prima della consegna ✓ Quadratura Totale pivot uguale al totale sorgente. ✓ Aggiornamento Nuove righe comprese nel range. ✓ Formato Percentuali, valute e date coerenti. ✓ Filtri Filtri attivi visibili al lettore. Regola: salva una vista senza filtri nascosti e con la data dell’ultimo aggiornamento.
 
---- Slide 14 ---
+--- Slide 13 ---
 Laboratorio: cruscotto vendite Parti da Data, Sede, Servizio, Operatore, Ricavo e Costo. A Pivot 1 Ricavo e margine per servizio, con % del totale. B Pivot 2 Trend mensile e variazione dal mese precedente. C Controlli Slicer per sede e operatore, periodo visibile. D Verifica Apri il dettaglio di un valore e quadrane il totale.
 
---- Slide 15 ---
+--- Slide 14 ---
 Una pivot avanzata
 è un report verificabile. Percentuali, confronti e filtri servono solo quando la domanda è chiara e il totale resta tracciabile. Prossimo → SU03.10 · GraficiTorna all’indice Francesco Antonio Binetti
 

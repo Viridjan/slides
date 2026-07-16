@@ -31,6 +31,7 @@ window.COMPLETENESS = {
   "pr01-04-costrutti-verifica.html": 3,
   "pr01-05-operatori-funzioni.html": 2,
   "pr01-06-python-base.html": 3,
+  "pr01-07-iterazione-cicli.html": 1,
   "pr02-01-introduzione.html": 6,
   "pr02-02-questionario.html": 6,
   "pr03-01-microbit.html": 6,
@@ -46,6 +47,10 @@ window.COMPLETENESS = {
   "rw02-02-firma.html": 4,
   "rw02-03-contenuti.html": 4,
   "rw02-04-collaborazione-digitale.html": 5,
+  "rw02-05-licenze-oer.html": 1,
+  "rw02-06-accessibilita-immagini.html": 1,
+  "rw02-07-metadati-formati.html": 1,
+  "rw02-08-podcast-storytelling.html": 1,
   "rw03-01-identita.html": 4,
   "rw03-02-societa.html": 5,
   "rw03-03-vr-ar.html": 4,
@@ -90,5 +95,7 @@ window.COMPLETENESS = {
   "su03-13-macro-fogli-calcolo.html": 2,
   "su03-14-vba.html": 4,
   "su03-15-google-apps-script.html": 3,
-  "su04-01-presentazioni.html": 4
+  "su03-16-segmentazioni.html": 3,
+  "su03-17-collegamenti-fogli.html": 3,
+  "su04-01-presentazioni.html": 5
 };

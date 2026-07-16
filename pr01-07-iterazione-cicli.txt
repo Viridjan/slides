@@ -1,0 +1,34 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+Iterazione e cicli · PR01.07
+================================================
+
+--- Slide 1 ---
+Iterazione e cicli Ripetere istruzioni con una condizione, controllare lo stato e dimostrare la terminazione. analizzare · scegliere · documentare Francesco Antonio Binetti
+
+--- Slide 2 ---
+Dalla ripetizione al ciclo Un’iterazione è l’esecuzione ripetuta di un blocco di istruzioni. Il ciclo definisce che cosa ripetere e quando fermarsi. 01 Risposta alla domanda 5 02 Blocco ripetuto 03 Regola di avanzamento
+
+--- Slide 3 ---
+Le parti di un ciclo Per ragionare senza dipendere dal linguaggio individua stato iniziale, condizione, corpo e aggiornamento. 01 Inizializzazione 02 Test 03 Istruzioni 04 Aggiornamento Regola: La scelta corretta dipende dalla funzione, dal contesto e dalle condizioni verificabili.
+
+--- Slide 4 ---
+Ciclo condizionale Quando non sai quante ripetizioni serviranno, continua finché una condizione resta vera o fino a un evento. 01 Finché ci sono dati 02 Finché la password è errata 03 Finché non arriva il segnale
+
+--- Slide 5 ---
+Pseudocodice di un while Lo pseudocodice rende visibili condizione e aggiornamento prima della sintassi del linguaggio. 01 contatore ← 0 02 MENTRE contatore 03 stampa e incrementa
+
+--- Slide 6 ---
+Tracciare lo stato Una tabella di traccia mostra il valore delle variabili a ogni iterazione e aiuta a individuare errori logici. 01 Iterazione 02 Condizione 03 Valori prima e dopo 04 Output
+
+--- Slide 7 ---
+Loop infinito Se la condizione resta sempre vera o lo stato non avanza verso l’uscita, il programma non termina. 01 Aggiornamento mancante 02 Condizione impossibile 03 Dato esterno mai ricevuto
+
+--- Slide 8 ---
+Accumulatore e contatore Il contatore misura quante volte; l’accumulatore combina progressivamente valori, per esempio una somma. 01 conteggio ← conteggio + 1 02 totale ← totale + valore 03 Ruoli diversi
+
+--- Slide 9 ---
+Verifica: progetta il ciclo Descrivi un ciclo che legge cinque prezzi e calcola il totale. Indica inizializzazione, condizione, corpo e aggiornamento. 01 totale iniziale 0 02 cinque iterazioni 03 somma ogni prezzo 04 incrementa il contatore
+
+--- Slide 10 ---
+Punti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. Python: while ↗ Python: for ↗ Prossimo → PR02.01 · Introduzione a Scratch Francesco Antonio Binetti
+

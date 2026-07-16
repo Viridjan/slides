@@ -415,7 +415,7 @@ Navigation chain: sm01 → … → sm11
 
 ### Suite Ufficio
 
-Navigation chain: su01-01 → su01-02 → su01-03 → su01-04 → su02-01 → su02-02 → su02-03 → su02-04 → su03-01 → su03-02 → su03-03 → su03-04 → su03-05 → su03-06 → su03-07 → su03-08 → su03-09 → su03-10 → su03-11 → su03-12 → su03-13 → su03-14 → su03-15 → su04-01
+Navigation chain: su01-01 → su01-02 → su01-03 → su01-04 → su02-01 → su02-02 → su02-03 → su02-04 → su03-01 → su03-02 → su03-03 → su03-04 → su03-05 → su03-06 → su03-07 → su03-08 → su03-09 → su03-10 → su03-11 → su03-12 → su03-13 → su03-14 → su03-15 → su03-16 → su03-17 → su04-01
 
 The filename prefixes mirror the index sub-series: `su01-01`-`su01-04`
 software, `su02-01`-`su02-04` documenti e Word, `su03-01`-`su03-15` fogli di calcolo and
@@ -446,6 +446,8 @@ automation, and `su04-01` presentazioni.
 | `su03-13-macro-fogli-calcolo.html` | Macro nei fogli di calcolo |
 | `su03-14-vba.html` | VBA per Excel |
 | `su03-15-google-apps-script.html` | Google Apps Script |
+| `su03-16-segmentazioni.html` | Segmentazioni e slicer |
+| `su03-17-collegamenti-fogli.html` | Collegare fogli e file |
 | `su04-01-presentazioni.html` | Dillo con una slide |
 
 ### Intelligenza Artificiale
@@ -659,3 +661,11 @@ PPTX image dump in ignored `corsi/images/`.
 
 Topics still mainly represented by original course files, not fully converted
 in this root-level HTML course set, include Arduino and Blender/3D.
+
+## Lesson expansion 2026-07-16
+
+The question-driven lesson on digital content is documented in
+`REPORT-LEZIONE-CONTENUTI-DIGITALI.md`. It contains 80 slides split by topic:
+`RW02.05` licenses/OER, `RW02.06` image accessibility, `RW02.07` metadata and
+formats, `RW02.08` podcast/storytelling, and `PR01.07` iteration/cycles.
+Generate the five HTML/TXT pairs with `node scripts/build-question-lesson.js`.
