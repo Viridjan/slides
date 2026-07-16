@@ -1373,278 +1373,6 @@ globalThis.COURSE_SEARCH_INDEX = [
     ]
   },
   {
-    "href": "rw02-05-licenze-oer.html",
-    "section": "Reti e Web",
-    "code": "RW02.05",
-    "title": "Licenze aperte e OER",
-    "description": "Diritto d’autore, Creative Commons, attribuzione, remix, compatibilità e le cinque R delle risorse educative aperte.",
-    "topics": "Creative Commons OER Remix",
-    "text": "Licenze aperte e OER · RW02.05\n========================================\n\n--- Slide 1 ---\nLicenze aperte e OER\n Diritto d’autore, Creative Commons, remix e pratiche delle risorse educative aperte.\n\n\n\n\n\n\n\n\n\n analizzare · scegliere · documentare\n\n\n\n\n Francesco Antonio Binetti\n\n--- Slide 2 ---\nCosa vedremo\n\n\n 01\n\n Diritto d'autore e licenze\n\n\n Diritti morali e patrimoniali, la paternità dell'opera e cosa significa una licenza.\n\n\n\n 02\n\n Creative Commons\n\n\n Le licenze CC, da BY a NC, la CC0 e attribuire col metodo TASL.\n\n\n\n 03\n\n Remix e OER\n\n\n Adattamento e compatibilità, le risorse educative aperte e le 5R.\n\n--- Slide 3 ---\nOrientarsi tra diritti e permessi\n Un contenuto trovato online non è automaticamente libero da usare. Prima si identifica l’opera, poi si legge la licenza, infine si documenta la fonte.\n 01 Opera e autore\n Chi l'ha creata e quando: è il punto di partenza per capire chi detiene i diritti. 02 Licenza applicata\n Cerca la licenza dichiarata: dice in anticipo cosa puoi fare senza chiedere. 03 Uso che vuoi farne\n Copiare, modificare, vendere: usi diversi richiedono permessi diversi.\n\n--- Slide 4 ---\nDiritto d’autore e licenza\n Il diritto nasce con l’opera; la licenza comunica in anticipo quali usi il titolare autorizza. Non sono sinonimi.\n — Diritto: insieme delle tutele\n Nasce automaticamente con l'opera, senza bisogno di registrarla da nessuna parte. — Licenza: permesso con condizioni\n È l'autore che dichiara in anticipo quali usi concede e a quali patti. — Pubblicazione online: non equivale a rinuncia\n Un'immagine trovata sul web resta protetta: «era su Internet» non è un permesso.\n\n Regola: Essere online non significa essere libero: cerca sempre autore, licenza e condizioni d’uso.\n\n--- Slide 5 ---\nI diritti: patrimoniali e morali\n Su ogni opera coesistono due tipi di diritto, con regole diverse.\n — Diritti patrimoniali\n Riproduzione, distribuzione, elaborazione e comunicazione al pubblico: gli usi economici dell'opera. Sono cedibili, ed è questo che una licenza concede. — Diritto morale\n Tutela il legame tra autore e opera — la paternità e la sua integrità. Non si vende e non scade, e resta all'autore anche dopo la cessione dei diritti economici. — La paternità in pratica\n In Italia l'art. 20 della legge 633/1941 lascia all'autore il diritto di essere riconosciuto tale. Per te: cita sempre l'autore e non spacciare per tuo il lavoro altrui. 💡 Credito ≠ permesso Citare l'autore non ti dà il diritto di usare l'opera, e avere la licenza non ti esonera dal citarlo. Servono entrambi.\n\n--- Slide 6 ---\nLe licenze Creative Commons\n Quattro condizioni si combinano in sei licenze. I simboli non misurano la qualità dell’opera: descrivono ciò che puoi farne.\n\n BY Attribuzione Indica autore, titolo, fonte e licenza.\n SA Stessa licenza Distribuisci gli adattamenti con termini compatibili.\n NC Non commerciale Non usare principalmente per vantaggio commerciale.\n ND Niente derivate Puoi condividere l’opera, ma non versioni adattate.\n\n\n\n\n [Fonte: Licenze Creative Commons — https://creativecommons.org/share-your-work/cclicenses/]\n\n--- Slide 7 ---\nCC BY\n Consente condivisione e adattamento, anche commerciale, a condizione di attribuire correttamente la fonte.\n — Massima apertura tra le licenze CC\n Il permesso più ampio: quasi tutto è consentito, con una sola condizione. — Adattamenti permessi\n Puoi tradurre, tagliare, rielaborare e ripubblicare la tua versione. — Attribuzione obbligatoria\n L'unico obbligo: indicare l'autore, la fonte e la licenza.\n\n--- Slide 8 ---\nCC BY-SA\n Consente la modifica, ma l’opera derivata deve essere distribuita con gli stessi termini o con una licenza compatibile.\n ORIGINALE Dispensa CC BY-SA Autore e fonte restano tracciabili. ADATTA Traduci e annota Segnala chiaramente che hai modificato l’opera. ATTRIBUISCI Credito completo BY richiede un’attribuzione verificabile. CONDIVIDI Ancora BY-SA SA mantiene aperta anche la versione derivata.\n\n--- Slide 9 ---\nLe clausole restrittive: NC e ND\n Partendo da BY, due clausole tolgono libertà a chi riusa. Riconoscerle evita usi non permessi.\n — NC — Non commerciale\n Vieta gli usi a scopo di guadagno. «Commerciale» dipende dallo scopo, non da chi sei: chiediti se l'uso produce o promuove un profitto, e nel dubbio chiedi permesso. — ND — No Derivatives\n Puoi ridistribuirla, ma solo così com'è. Anche una traduzione o un ritaglio è una modifica: con ND non è consentito. — Non confondere ND e SA\n Sono opposte: ND vieta le modifiche, mentre SA le permette ma impone la stessa licenza sul risultato. ⚠️ Più clausole, meno libertà BY-NC-ND è la CC più restrittiva: attribuzione, niente uso commerciale e niente modifiche.\n\n--- Slide 10 ---\nCC0 non è una licenza CC ordinaria\n CC0 è uno strumento di rinuncia e dedica al pubblico dominio nella misura consentita dalla legge.\n — Nessun obbligo licenziale standard\n Chi riusa non deve rispettare condizioni: né attribuzione, né share-alike, né limiti d'uso. — Citare resta una buona pratica\n La legge non lo impone, ma indicare l'autore è corretto e aiuta chi verrà dopo a risalire alla fonte. — I diritti morali dipendono dalla legge applicabile\n In alcuni paesi la paternità dell'opera resta all'autore anche dopo la rinuncia ai diritti economici.\n\n--- Slide 11 ---\nAttribuire con il metodo TASL\n TASL trasforma quattro dati in un credito breve ma verificabile. Se modifichi l’opera, dichiaralo.\n T Titolo A Autore S Source · fonte L Licenza “Mappa dei quartieri” di Giulia Rossi · www.esempio.it/mappa\nLicenza CC BY-SA 4.0 · creativecommons.org/licenses/by-sa/4.0 MODIFICHE: colori aggiornati, testi tradotti in italiano.\n\n--- Slide 12 ---\nAdattamento e remix\n Trasformare o combinare un'opera crea qualcosa di nuovo — un'opera derivata. Ma non ogni gesto conta come adattamento.\n È un adattamento — Traduzione\n Portare il testo in un'altra lingua. — Montaggio audiovisivo\n Tagliare e ricomporre video o audio. — Rielaborazione grafica\n Ridisegnare o ricolorare un'immagine. Non lo è — Inserire un link\n Rimandare a un contenuto non lo combina col tuo. — Duplicare un file\n Una copia identica non aggiunge nulla. — Cambiare formato\n Convertire un PDF in Word non è creativo. 💡 Remix Nel lessico OER il remix combina più materiali per produrre qualcosa di nuovo. Conta come modifica: con una licenza ND non è permesso.\n\n--- Slide 13 ---\nCompatibilità prima del remix\n Non basta che ogni fonte sia “Creative Commons”: le condizioni devono essere compatibili con il progetto finale.\n Condizione Copia invariata Adattamento Uso commerciale BY ✓ Con credito ✓ Con credito ✓ Consentito BY-SA ✓ Con credito ⚠ Stessa licenza ✓ Consentito BY-NC ✓ Con credito ✓ Con credito ✗ Non consentito BY-ND ✓ Con credito ✗ Non condividere ✓ Se invariata\n\n--- Slide 14 ---\nOER: risorse educative aperte\n Una OER unisce finalità educativa e permessi aperti che rendono possibili pratiche oltre la semplice consultazione.\n — Materiale di apprendimento\n Una dispensa, un video, un esercizio: qualcosa pensato per insegnare. — Licenza aperta o pubblico dominio\n Con permessi che consentono di riusarlo, non solo di consultarlo. — Possibilità concreta di riuso\n Non basta il permesso: il formato deve permettere davvero di modificarlo.\n\n--- Slide 15 ---\nLe 5R complete\n Una risorsa è davvero aperta quando permette non solo di leggerla, ma di conservarla, trasformarla e farla circolare.\n R Retain Conservare e controllare copie del contenuto. R Reuse Usarlo in lezioni, siti, video o altri contesti. R Revise Tradurre, correggere o adattare il materiale. R Remix Combinarlo con altre risorse per crearne una nuova. R Redistribute Condividere copie dell’originale o della versione nuova.\n Il framework delle 5R è formulato da David Wiley e diffuso con licenza CC BY.\n\n--- Slide 16 ---\nCaso pratico: dispensa di classe\n Vuoi tradurre una dispensa CC BY-SA, aggiungere esercizi e distribuirla alla classe. Segui la catena senza perdere provenienza e condizioni.\n 01 · VERIFICA Leggi la licenza Traduzione e nuovi esercizi sono adattamenti permessi. 02 · CONSERVA Salva la fonte Registra autore, titolo, URL e versione originale. 03 · DICHIARA Descrivi le modifiche Indica lingua, tagli, aggiunte e autore dell’adattamento. 04 · PUBBLICA Usa CC BY-SA Attribuisci e mantieni termini compatibili sulla derivata.\n\n--- Slide 17 ---\nChecklist prima di pubblicare\n Trasforma il controllo giuridico in una procedura ripetibile, documentata e verificabile.\n 01 Identifica autore e provenienza\n Da dove viene ogni pezzo e chi l'ha fatto: annotalo mentre raccogli. 02 Leggi la licenza completa\n Non fermarti alla sigla: le condizioni esatte stanno nel testo. 03 Verifica compatibilità e scopo\n Le licenze dei vari pezzi devono convivere e reggere all'uso che ne fai. 04 Scrivi attribuzione e modifiche\n Indica autori, fonti, licenze e cosa hai cambiato: rende tutto tracciabile.\n\n--- Slide 18 ---\nVerifica: scegli e motiva\n Quale licenza consente di modificare purché la derivata mantenga gli stessi termini? Spiega il ruolo di BY e SA.\n — Risposta: CC BY-SA\n L'unica che permette la modifica imponendo però la stessa licenza sul risultato. — BY richiede attribuzione\n Come ogni licenza CC, va sempre citato l'autore dell'opera. — SA mantiene la condivisione alle stesse condizioni\n Chi riusa la tua versione dovrà a sua volta lasciarla aperta uguale.\n\n--- Slide 19 ---\nAprire significa dare permessi chiari.\n Prima di riusare: identifica l’opera, leggi la licenza, verifica la compatibilità e lascia un’attribuzione che altri possano seguire.\n Prossimo → RW02.06 · Accessibilità delle immagini\n Creative Commons (https://creativecommons.org/share-your-work/cclicenses/) · 5R dell’open content (https://opencontent.org/definition/) · Legge 633/1941, art. 20 (https://www.normattiva.it/uri-res/N2Ls?urn%3Anir%3Astato%3Alegge%3A1941-04-22%3B633~art20=)\n\n\n Fonti e approfondimenti Licenze Creative Commons ↗ (https://creativecommons.org/share-your-work/cclicenses/)\n",
-    "slides": [
-      {
-        "number": 1,
-        "text": "Licenze aperte e OER\n Diritto d’autore, Creative Commons, remix e pratiche delle risorse educative aperte.\n\n\n\n\n\n\n\n\n\n analizzare · scegliere · documentare\n\n\n\n\n Francesco Antonio Binetti"
-      },
-      {
-        "number": 2,
-        "text": "Cosa vedremo\n\n\n 01\n\n Diritto d'autore e licenze\n\n\n Diritti morali e patrimoniali, la paternità dell'opera e cosa significa una licenza.\n\n\n\n 02\n\n Creative Commons\n\n\n Le licenze CC, da BY a NC, la CC0 e attribuire col metodo TASL.\n\n\n\n 03\n\n Remix e OER\n\n\n Adattamento e compatibilità, le risorse educative aperte e le 5R."
-      },
-      {
-        "number": 3,
-        "text": "Orientarsi tra diritti e permessi\n Un contenuto trovato online non è automaticamente libero da usare. Prima si identifica l’opera, poi si legge la licenza, infine si documenta la fonte.\n 01 Opera e autore\n Chi l'ha creata e quando: è il punto di partenza per capire chi detiene i diritti. 02 Licenza applicata\n Cerca la licenza dichiarata: dice in anticipo cosa puoi fare senza chiedere. 03 Uso che vuoi farne\n Copiare, modificare, vendere: usi diversi richiedono permessi diversi."
-      },
-      {
-        "number": 4,
-        "text": "Diritto d’autore e licenza\n Il diritto nasce con l’opera; la licenza comunica in anticipo quali usi il titolare autorizza. Non sono sinonimi.\n — Diritto: insieme delle tutele\n Nasce automaticamente con l'opera, senza bisogno di registrarla da nessuna parte. — Licenza: permesso con condizioni\n È l'autore che dichiara in anticipo quali usi concede e a quali patti. — Pubblicazione online: non equivale a rinuncia\n Un'immagine trovata sul web resta protetta: «era su Internet» non è un permesso.\n\n Regola: Essere online non significa essere libero: cerca sempre autore, licenza e condizioni d’uso."
-      },
-      {
-        "number": 5,
-        "text": "I diritti: patrimoniali e morali\n Su ogni opera coesistono due tipi di diritto, con regole diverse.\n — Diritti patrimoniali\n Riproduzione, distribuzione, elaborazione e comunicazione al pubblico: gli usi economici dell'opera. Sono cedibili, ed è questo che una licenza concede. — Diritto morale\n Tutela il legame tra autore e opera — la paternità e la sua integrità. Non si vende e non scade, e resta all'autore anche dopo la cessione dei diritti economici. — La paternità in pratica\n In Italia l'art. 20 della legge 633/1941 lascia all'autore il diritto di essere riconosciuto tale. Per te: cita sempre l'autore e non spacciare per tuo il lavoro altrui. 💡 Credito ≠ permesso Citare l'autore non ti dà il diritto di usare l'opera, e avere la licenza non ti esonera dal citarlo. Servono entrambi."
-      },
-      {
-        "number": 6,
-        "text": "Le licenze Creative Commons\n Quattro condizioni si combinano in sei licenze. I simboli non misurano la qualità dell’opera: descrivono ciò che puoi farne.\n\n BY Attribuzione Indica autore, titolo, fonte e licenza.\n SA Stessa licenza Distribuisci gli adattamenti con termini compatibili.\n NC Non commerciale Non usare principalmente per vantaggio commerciale.\n ND Niente derivate Puoi condividere l’opera, ma non versioni adattate.\n\n\n\n\n [Fonte: Licenze Creative Commons — https://creativecommons.org/share-your-work/cclicenses/]"
-      },
-      {
-        "number": 7,
-        "text": "CC BY\n Consente condivisione e adattamento, anche commerciale, a condizione di attribuire correttamente la fonte.\n — Massima apertura tra le licenze CC\n Il permesso più ampio: quasi tutto è consentito, con una sola condizione. — Adattamenti permessi\n Puoi tradurre, tagliare, rielaborare e ripubblicare la tua versione. — Attribuzione obbligatoria\n L'unico obbligo: indicare l'autore, la fonte e la licenza."
-      },
-      {
-        "number": 8,
-        "text": "CC BY-SA\n Consente la modifica, ma l’opera derivata deve essere distribuita con gli stessi termini o con una licenza compatibile.\n ORIGINALE Dispensa CC BY-SA Autore e fonte restano tracciabili. ADATTA Traduci e annota Segnala chiaramente che hai modificato l’opera. ATTRIBUISCI Credito completo BY richiede un’attribuzione verificabile. CONDIVIDI Ancora BY-SA SA mantiene aperta anche la versione derivata."
-      },
-      {
-        "number": 9,
-        "text": "Le clausole restrittive: NC e ND\n Partendo da BY, due clausole tolgono libertà a chi riusa. Riconoscerle evita usi non permessi.\n — NC — Non commerciale\n Vieta gli usi a scopo di guadagno. «Commerciale» dipende dallo scopo, non da chi sei: chiediti se l'uso produce o promuove un profitto, e nel dubbio chiedi permesso. — ND — No Derivatives\n Puoi ridistribuirla, ma solo così com'è. Anche una traduzione o un ritaglio è una modifica: con ND non è consentito. — Non confondere ND e SA\n Sono opposte: ND vieta le modifiche, mentre SA le permette ma impone la stessa licenza sul risultato. ⚠️ Più clausole, meno libertà BY-NC-ND è la CC più restrittiva: attribuzione, niente uso commerciale e niente modifiche."
-      },
-      {
-        "number": 10,
-        "text": "CC0 non è una licenza CC ordinaria\n CC0 è uno strumento di rinuncia e dedica al pubblico dominio nella misura consentita dalla legge.\n — Nessun obbligo licenziale standard\n Chi riusa non deve rispettare condizioni: né attribuzione, né share-alike, né limiti d'uso. — Citare resta una buona pratica\n La legge non lo impone, ma indicare l'autore è corretto e aiuta chi verrà dopo a risalire alla fonte. — I diritti morali dipendono dalla legge applicabile\n In alcuni paesi la paternità dell'opera resta all'autore anche dopo la rinuncia ai diritti economici."
-      },
-      {
-        "number": 11,
-        "text": "Attribuire con il metodo TASL\n TASL trasforma quattro dati in un credito breve ma verificabile. Se modifichi l’opera, dichiaralo.\n T Titolo A Autore S Source · fonte L Licenza “Mappa dei quartieri” di Giulia Rossi · www.esempio.it/mappa\nLicenza CC BY-SA 4.0 · creativecommons.org/licenses/by-sa/4.0 MODIFICHE: colori aggiornati, testi tradotti in italiano."
-      },
-      {
-        "number": 12,
-        "text": "Adattamento e remix\n Trasformare o combinare un'opera crea qualcosa di nuovo — un'opera derivata. Ma non ogni gesto conta come adattamento.\n È un adattamento — Traduzione\n Portare il testo in un'altra lingua. — Montaggio audiovisivo\n Tagliare e ricomporre video o audio. — Rielaborazione grafica\n Ridisegnare o ricolorare un'immagine. Non lo è — Inserire un link\n Rimandare a un contenuto non lo combina col tuo. — Duplicare un file\n Una copia identica non aggiunge nulla. — Cambiare formato\n Convertire un PDF in Word non è creativo. 💡 Remix Nel lessico OER il remix combina più materiali per produrre qualcosa di nuovo. Conta come modifica: con una licenza ND non è permesso."
-      },
-      {
-        "number": 13,
-        "text": "Compatibilità prima del remix\n Non basta che ogni fonte sia “Creative Commons”: le condizioni devono essere compatibili con il progetto finale.\n Condizione Copia invariata Adattamento Uso commerciale BY ✓ Con credito ✓ Con credito ✓ Consentito BY-SA ✓ Con credito ⚠ Stessa licenza ✓ Consentito BY-NC ✓ Con credito ✓ Con credito ✗ Non consentito BY-ND ✓ Con credito ✗ Non condividere ✓ Se invariata"
-      },
-      {
-        "number": 14,
-        "text": "OER: risorse educative aperte\n Una OER unisce finalità educativa e permessi aperti che rendono possibili pratiche oltre la semplice consultazione.\n — Materiale di apprendimento\n Una dispensa, un video, un esercizio: qualcosa pensato per insegnare. — Licenza aperta o pubblico dominio\n Con permessi che consentono di riusarlo, non solo di consultarlo. — Possibilità concreta di riuso\n Non basta il permesso: il formato deve permettere davvero di modificarlo."
-      },
-      {
-        "number": 15,
-        "text": "Le 5R complete\n Una risorsa è davvero aperta quando permette non solo di leggerla, ma di conservarla, trasformarla e farla circolare.\n R Retain Conservare e controllare copie del contenuto. R Reuse Usarlo in lezioni, siti, video o altri contesti. R Revise Tradurre, correggere o adattare il materiale. R Remix Combinarlo con altre risorse per crearne una nuova. R Redistribute Condividere copie dell’originale o della versione nuova.\n Il framework delle 5R è formulato da David Wiley e diffuso con licenza CC BY."
-      },
-      {
-        "number": 16,
-        "text": "Caso pratico: dispensa di classe\n Vuoi tradurre una dispensa CC BY-SA, aggiungere esercizi e distribuirla alla classe. Segui la catena senza perdere provenienza e condizioni.\n 01 · VERIFICA Leggi la licenza Traduzione e nuovi esercizi sono adattamenti permessi. 02 · CONSERVA Salva la fonte Registra autore, titolo, URL e versione originale. 03 · DICHIARA Descrivi le modifiche Indica lingua, tagli, aggiunte e autore dell’adattamento. 04 · PUBBLICA Usa CC BY-SA Attribuisci e mantieni termini compatibili sulla derivata."
-      },
-      {
-        "number": 17,
-        "text": "Checklist prima di pubblicare\n Trasforma il controllo giuridico in una procedura ripetibile, documentata e verificabile.\n 01 Identifica autore e provenienza\n Da dove viene ogni pezzo e chi l'ha fatto: annotalo mentre raccogli. 02 Leggi la licenza completa\n Non fermarti alla sigla: le condizioni esatte stanno nel testo. 03 Verifica compatibilità e scopo\n Le licenze dei vari pezzi devono convivere e reggere all'uso che ne fai. 04 Scrivi attribuzione e modifiche\n Indica autori, fonti, licenze e cosa hai cambiato: rende tutto tracciabile."
-      },
-      {
-        "number": 18,
-        "text": "Verifica: scegli e motiva\n Quale licenza consente di modificare purché la derivata mantenga gli stessi termini? Spiega il ruolo di BY e SA.\n — Risposta: CC BY-SA\n L'unica che permette la modifica imponendo però la stessa licenza sul risultato. — BY richiede attribuzione\n Come ogni licenza CC, va sempre citato l'autore dell'opera. — SA mantiene la condivisione alle stesse condizioni\n Chi riusa la tua versione dovrà a sua volta lasciarla aperta uguale."
-      },
-      {
-        "number": 19,
-        "text": "Aprire significa dare permessi chiari.\n Prima di riusare: identifica l’opera, leggi la licenza, verifica la compatibilità e lascia un’attribuzione che altri possano seguire.\n Prossimo → RW02.06 · Accessibilità delle immagini\n Creative Commons (https://creativecommons.org/share-your-work/cclicenses/) · 5R dell’open content (https://opencontent.org/definition/) · Legge 633/1941, art. 20 (https://www.normattiva.it/uri-res/N2Ls?urn%3Anir%3Astato%3Alegge%3A1941-04-22%3B633~art20=)\n\n\n Fonti e approfondimenti Licenze Creative Commons ↗ (https://creativecommons.org/share-your-work/cclicenses/)"
-      }
-    ]
-  },
-  {
-    "href": "rw02-06-accessibilita-immagini.html",
-    "section": "Reti e Web",
-    "code": "RW02.06",
-    "title": "Accessibilità delle immagini",
-    "description": "WCAG 2.1, testo alternativo, immagini informative, funzionali, complesse e puramente decorative.",
-    "topics": "WCAG Testo alternativo",
-    "text": "Accessibilità delle immagini · RW02.06\n========================================\n\n--- Slide 1 ---\nAccessibilità delle immagini\n Testo alternativo, immagini decorative e decisioni coerenti con WCAG 2.1.\n\n\n\n\n\n\n\n\n\n analizzare · scegliere · documentare\n\n\n\n\n Francesco Antonio Binetti\n\n--- Slide 2 ---\nCosa vedremo\n\n\n 01\n\n Perché l'accessibilità\n\n\n Accessibile significa percepibile, e il requisito WCAG 1.1.1.\n\n\n\n 02\n\n Che funzione ha l'immagine\n\n\n Informativa, funzionale o decorativa, e l'attributo alt giusto per ciascuna.\n\n\n\n 03\n\n Casi difficili\n\n\n Quando alt vuoto non basta, le immagini complesse e l'albero decisionale.\n\n--- Slide 3 ---\nPerché conta, e cosa chiede WCAG\n Se un'immagine trasmette un'informazione, quella funzione deve arrivare anche a chi non la vede — con uno screen reader, per esempio.\n — Contenuto equivalente\n Ciò che l'immagine comunica va reso disponibile in un'altra forma, di solito testo. — Il requisito 1.1.1\n WCAG chiede un'alternativa testuale per ogni contenuto non testuale, salvo la pura decorazione. — Descrivi la funzione, non i pixel\n L'alt dice a cosa serve l'immagine nel contesto, non com'è fatta né i dettagli inutili.\n\n--- Slide 4 ---\nChe funzione ha l'immagine?\n Lo stesso file può richiedere alt diversi in pagine diverse: conta ciò che comunica nel contesto. Tre casi, più uno.\n — Informativa\n Porta un'informazione: l'alt scrive l'essenziale che si perderebbe togliendo l'immagine, breve e senza «immagine di». — Funzionale\n È un pulsante o un link: l'alt descrive l'azione o la destinazione — «Cerca», «Scarica il report» — non l'aspetto. — Decorativa\n Serve solo all'estetica: nessuna informazione, nessuna azione. Va resa ignorabile — lo vediamo con alt vuoto. — Complessa\n Un grafico o un'infografica: serve più di una riga. Se ne parla tra poco.\n\n--- Slide 5 ---\nalt vuoto: una scelta esplicita\n Per un'immagine decorativa si scrive alt=\"\". Non è un alt dimenticato: è una decisione che dice «qui non c'è informazione».\n — alt=\"\" — intenzionale\n Lo screen reader salta l'immagine: la decorazione non disturba la lettura. — alt assente — errore o ambiguità\n Senza attributo alcuni lettori annunciano il nome del file, «decorazione.png»: rumore inutile. — La differenza conta\n Vuoto e mancante sembrano uguali sullo schermo, ma per chi ascolta sono opposti.\n\n--- Slide 6 ---\nQuando alt vuoto non basta\n Un'immagine non è decorativa solo perché abbellisce la pagina. Diagrammi, foto e icone cliccabili portano contenuto o funzione.\n — Icona-link\n Se è cliccabile serve un nome accessibile: descrivi l'azione, non l'icona. — Foto informativa\n Se aggiunge un dato o un contesto — una foto probatoria — va descritta, non ignorata. — Immagine complessa\n Grafici e infografiche vogliono un alt sintetico col messaggio principale, più una descrizione estesa vicina o collegata.\n\n--- Slide 7 ---\nDecision tree operativo\n Chiedi in ordine: è un controllo? comunica informazione? duplica interamente il testo vicino? è pura decorazione?\n 01 È un controllo? Descrivi l’azione: “Cerca”, “Scarica il report”. 02 Informa? Scrivi l’equivalente essenziale nel contesto. 03 Duplica il testo? Evita di far ascoltare due volte la stessa cosa. 04 È decorativa? Usa alt=\"\" e lasciala fuori dal flusso.\n\n--- Slide 8 ---\nVerifica: decorativa o informativa?\n Una linea ornamentale tra due sezioni non aggiunge contenuto: quale attributo useresti, e perché?\n — Risposta: alt=\"\"\n È una decorazione: l'attributo vuoto la rende ignorabile. — Perché funziona\n Permette allo screen reader di saltarla, senza annunciare nulla. — Cosa non fare\n Non scrivere il nome del file né descrivere i colori: sarebbe rumore.\n\n--- Slide 9 ---\nUn’immagine è accessibile quando conserva la sua funzione.\n Descrivi ciò che serve, nomina l’azione e usa alt vuoto solo quando l’immagine è davvero decorativa.\n\nProssimo → RW02.07 · Metadati e formati\n\n\n\n\n\n Fonti e approfondimenti\n\nWCAG 2.2 — W3C ↗ (https://www.w3.org/Translations/WCAG22-it/)\nHTML — Wikipedia ↗ (https://it.wikipedia.org/wiki/HTML)\n\n\n Fonti e approfondimenti WCAG 2.2 — W3C ↗ (https://www.w3.org/Translations/WCAG22-it/)HTML — Wikipedia ↗ (https://it.wikipedia.org/wiki/HTML)\n",
-    "slides": [
-      {
-        "number": 1,
-        "text": "Accessibilità delle immagini\n Testo alternativo, immagini decorative e decisioni coerenti con WCAG 2.1.\n\n\n\n\n\n\n\n\n\n analizzare · scegliere · documentare\n\n\n\n\n Francesco Antonio Binetti"
-      },
-      {
-        "number": 2,
-        "text": "Cosa vedremo\n\n\n 01\n\n Perché l'accessibilità\n\n\n Accessibile significa percepibile, e il requisito WCAG 1.1.1.\n\n\n\n 02\n\n Che funzione ha l'immagine\n\n\n Informativa, funzionale o decorativa, e l'attributo alt giusto per ciascuna.\n\n\n\n 03\n\n Casi difficili\n\n\n Quando alt vuoto non basta, le immagini complesse e l'albero decisionale."
-      },
-      {
-        "number": 3,
-        "text": "Perché conta, e cosa chiede WCAG\n Se un'immagine trasmette un'informazione, quella funzione deve arrivare anche a chi non la vede — con uno screen reader, per esempio.\n — Contenuto equivalente\n Ciò che l'immagine comunica va reso disponibile in un'altra forma, di solito testo. — Il requisito 1.1.1\n WCAG chiede un'alternativa testuale per ogni contenuto non testuale, salvo la pura decorazione. — Descrivi la funzione, non i pixel\n L'alt dice a cosa serve l'immagine nel contesto, non com'è fatta né i dettagli inutili."
-      },
-      {
-        "number": 4,
-        "text": "Che funzione ha l'immagine?\n Lo stesso file può richiedere alt diversi in pagine diverse: conta ciò che comunica nel contesto. Tre casi, più uno.\n — Informativa\n Porta un'informazione: l'alt scrive l'essenziale che si perderebbe togliendo l'immagine, breve e senza «immagine di». — Funzionale\n È un pulsante o un link: l'alt descrive l'azione o la destinazione — «Cerca», «Scarica il report» — non l'aspetto. — Decorativa\n Serve solo all'estetica: nessuna informazione, nessuna azione. Va resa ignorabile — lo vediamo con alt vuoto. — Complessa\n Un grafico o un'infografica: serve più di una riga. Se ne parla tra poco."
-      },
-      {
-        "number": 5,
-        "text": "alt vuoto: una scelta esplicita\n Per un'immagine decorativa si scrive alt=\"\". Non è un alt dimenticato: è una decisione che dice «qui non c'è informazione».\n — alt=\"\" — intenzionale\n Lo screen reader salta l'immagine: la decorazione non disturba la lettura. — alt assente — errore o ambiguità\n Senza attributo alcuni lettori annunciano il nome del file, «decorazione.png»: rumore inutile. — La differenza conta\n Vuoto e mancante sembrano uguali sullo schermo, ma per chi ascolta sono opposti."
-      },
-      {
-        "number": 6,
-        "text": "Quando alt vuoto non basta\n Un'immagine non è decorativa solo perché abbellisce la pagina. Diagrammi, foto e icone cliccabili portano contenuto o funzione.\n — Icona-link\n Se è cliccabile serve un nome accessibile: descrivi l'azione, non l'icona. — Foto informativa\n Se aggiunge un dato o un contesto — una foto probatoria — va descritta, non ignorata. — Immagine complessa\n Grafici e infografiche vogliono un alt sintetico col messaggio principale, più una descrizione estesa vicina o collegata."
-      },
-      {
-        "number": 7,
-        "text": "Decision tree operativo\n Chiedi in ordine: è un controllo? comunica informazione? duplica interamente il testo vicino? è pura decorazione?\n 01 È un controllo? Descrivi l’azione: “Cerca”, “Scarica il report”. 02 Informa? Scrivi l’equivalente essenziale nel contesto. 03 Duplica il testo? Evita di far ascoltare due volte la stessa cosa. 04 È decorativa? Usa alt=\"\" e lasciala fuori dal flusso."
-      },
-      {
-        "number": 8,
-        "text": "Verifica: decorativa o informativa?\n Una linea ornamentale tra due sezioni non aggiunge contenuto: quale attributo useresti, e perché?\n — Risposta: alt=\"\"\n È una decorazione: l'attributo vuoto la rende ignorabile. — Perché funziona\n Permette allo screen reader di saltarla, senza annunciare nulla. — Cosa non fare\n Non scrivere il nome del file né descrivere i colori: sarebbe rumore."
-      },
-      {
-        "number": 9,
-        "text": "Un’immagine è accessibile quando conserva la sua funzione.\n Descrivi ciò che serve, nomina l’azione e usa alt vuoto solo quando l’immagine è davvero decorativa.\n\nProssimo → RW02.07 · Metadati e formati\n\n\n\n\n\n Fonti e approfondimenti\n\nWCAG 2.2 — W3C ↗ (https://www.w3.org/Translations/WCAG22-it/)\nHTML — Wikipedia ↗ (https://it.wikipedia.org/wiki/HTML)\n\n\n Fonti e approfondimenti WCAG 2.2 — W3C ↗ (https://www.w3.org/Translations/WCAG22-it/)HTML — Wikipedia ↗ (https://it.wikipedia.org/wiki/HTML)"
-      }
-    ]
-  },
-  {
-    "href": "rw02-07-metadati-formati.html",
-    "section": "Reti e Web",
-    "code": "RW02.07",
-    "title": "Metadati e formati",
-    "description": "Indicizzazione e conservazione delle immagini, privacy dei metadati, grafica raster e formati JPEG, PNG e SVG.",
-    "topics": "Metadati SVG",
-    "text": "Metadati e formati · RW02.07\n========================================\n\n--- Slide 1 ---\nMetadati e formati Descrivere, ritrovare e conservare immagini scegliendo il formato adatto. analizzare · scegliere · documentare Francesco Antonio Binetti\n\n--- Slide 2 ---\nCosa vedremo 01 I metadati\n Cosa sono, perché servono in archivio e le tre famiglie utili. 02 Qualità e privacy\n Indicizzare bene, la qualità dei metadati e quelli sensibili. 03 I formati immagine\n Raster e vettoriale, JPEG, PNG, SVG e quale formato scegliere.\n\n--- Slide 3 ---\nLe famiglie di metadati\n Oltre ai pixel, un'immagine porta o è accompagnata da dati che la descrivono. Si raggruppano in tre famiglie.\n — Descrittivi\n Cosa rappresenta: titolo, autore, parole chiave, descrizione. Servono a capirla e a ritrovarla. — Amministrativi\n Provenienza e diritti: chi l'ha creata, quando e con quale licenza. Servono a gestirla legalmente. — Tecnici\n Come è fatta: risoluzione, spazio colore, dispositivo, versione del formato. Servono a controllo e conservazione.\n\n--- Slide 4 ---\nChe cosa sono i metadati Sono dati strutturati su una risorsa. Rendono esplicite informazioni che altrimenti resterebbero nel nome file o nella memoria di qualcuno. IMG Titolo Laboratorio di robotica Autore Giulia Rossi Data 2026-07-16 Diritti CC BY 4.0 Parole chiave robotica · scuola · laboratorio Tecnici 2400×1600 · sRGB · JPEG Regola: Un file senza contesto si può aprire oggi, ma potrebbe diventare impossibile da capire domani.\n\n--- Slide 5 ---\nA cosa servono: ritrovare\n La funzione principale dei metadati è far ritrovare, capire e gestire un'immagine nel tempo — molto meglio del solo nome file.\n — Ricerca per più criteri\n Autore, data, parole chiave, diritti: cerchi e filtri su chiavi diverse, non solo sul nome del file. — Più chiavi, un solo file\n Un buon nome aiuta, ma i metadati aggiungono etichette di ricerca senza duplicare l'immagine. — Recupero affidabile\n Con campi coerenti ritrovi l'immagine giusta anche fra migliaia, anni dopo.\n\n--- Slide 6 ---\nQualità dei metadati\n I campi valgono solo se coerenti: applicati con regole comuni, non a sentimento.\n — Vocabolari condivisi\n Termini concordati, non sinonimi a caso: «robotica» sempre uguale, non «robot» o «automazione». — Date in formato uniforme\n Sempre lo stesso schema, per esempio 2026-07-16, così ordinamento e ricerca funzionano. — Nomi non ambigui\n Autore e titolo scritti in un solo modo: niente «G. Rossi» e «Giulia Rossi» mischiati.\n\n--- Slide 7 ---\nMetadati sensibili\n L'EXIF di una foto può contenere più di quanto pensi. Prima di pubblicare, valuta privacy e sicurezza.\n — Controlla la geolocalizzazione\n Le coordinate GPS dello scatto restano nel file: verifica prima di mettere online una foto. — Rimuovi il superfluo\n Modello del dispositivo, data, posizione: togli ciò che non serve a chi la riceve. — Conserva l'originale\n Tieni una copia archivistica completa; rimuovi i metadati solo dalla versione pubblicata.\n\n--- Slide 8 ---\nRaster e vettoriale\n Due modi opposti di memorizzare un'immagine, con conseguenze pratiche quando la ingrandisci.\n — Raster: griglia di pixel\n JPEG e PNG salvano un colore per pixel: ingranditi oltre misura, sgranano. — Vettoriale: forme\n SVG descrive curve, forme e testo, disegnati al momento: scala a qualsiasi dimensione. — Usi diversi, non qualità\n Nessuno dei due è «migliore»: dipende dal contenuto e dall'uso finale.\n\n--- Slide 9 ---\nJPEG, PNG e SVG\n Tre formati per tre lavori diversi. Non è una classifica di qualità: è questione di adattarsi al contenuto.\n — JPEG\n Fotografie e immagini con molte sfumature. Compressione con perdita: file compatto, ma niente trasparenza e bordi netti fragili. — PNG\n Screenshot, grafica nitida e trasparenze col canale alfa. Senza perdita: bordi puliti, ma pesante con le foto. — SVG\n Loghi e icone: forme in XML, indipendenti dalla risoluzione. Si ridimensiona senza perdere nitidezza ed è modificabile.\n\n--- Slide 10 ---\nScegliere il formato Parti dal contenuto e dall’uso finale, non dall’abitudine. 01 Logo → SVG 02 Fotografia web → JPEG o formati moderni 03 Screenshot trasparente → PNG\n\n--- Slide 11 ---\nVerifica: archivio e logo\n Perché i metadati aiutano a ritrovare un'immagine? Quale formato per un logo ridimensionabile?\n — Perché i metadati aiutano\n Rendono l'immagine ritrovabile per più criteri — autore, data, parole chiave — non solo per nome. — Quale formato per un logo\n SVG: è vettoriale, si ridimensiona senza perdere nitidezza. — Motiva entrambe\n Spiega il perché di ogni scelta, non solo la risposta.\n\n--- Slide 12 ---\nPunti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. PREMIS — Library of Congress ↗ (https://www.loc.gov/standards/premis/)SVG — W3C ↗ (https://www.w3.org/TR/SVG11/single-page.html) Prossimo → RW02.08 · Podcast e storytelling Francesco Antonio Binetti\n",
-    "slides": [
-      {
-        "number": 1,
-        "text": "Metadati e formati Descrivere, ritrovare e conservare immagini scegliendo il formato adatto. analizzare · scegliere · documentare Francesco Antonio Binetti"
-      },
-      {
-        "number": 2,
-        "text": "Cosa vedremo 01 I metadati\n Cosa sono, perché servono in archivio e le tre famiglie utili. 02 Qualità e privacy\n Indicizzare bene, la qualità dei metadati e quelli sensibili. 03 I formati immagine\n Raster e vettoriale, JPEG, PNG, SVG e quale formato scegliere."
-      },
-      {
-        "number": 3,
-        "text": "Le famiglie di metadati\n Oltre ai pixel, un'immagine porta o è accompagnata da dati che la descrivono. Si raggruppano in tre famiglie.\n — Descrittivi\n Cosa rappresenta: titolo, autore, parole chiave, descrizione. Servono a capirla e a ritrovarla. — Amministrativi\n Provenienza e diritti: chi l'ha creata, quando e con quale licenza. Servono a gestirla legalmente. — Tecnici\n Come è fatta: risoluzione, spazio colore, dispositivo, versione del formato. Servono a controllo e conservazione."
-      },
-      {
-        "number": 4,
-        "text": "Che cosa sono i metadati Sono dati strutturati su una risorsa. Rendono esplicite informazioni che altrimenti resterebbero nel nome file o nella memoria di qualcuno. IMG Titolo Laboratorio di robotica Autore Giulia Rossi Data 2026-07-16 Diritti CC BY 4.0 Parole chiave robotica · scuola · laboratorio Tecnici 2400×1600 · sRGB · JPEG Regola: Un file senza contesto si può aprire oggi, ma potrebbe diventare impossibile da capire domani."
-      },
-      {
-        "number": 5,
-        "text": "A cosa servono: ritrovare\n La funzione principale dei metadati è far ritrovare, capire e gestire un'immagine nel tempo — molto meglio del solo nome file.\n — Ricerca per più criteri\n Autore, data, parole chiave, diritti: cerchi e filtri su chiavi diverse, non solo sul nome del file. — Più chiavi, un solo file\n Un buon nome aiuta, ma i metadati aggiungono etichette di ricerca senza duplicare l'immagine. — Recupero affidabile\n Con campi coerenti ritrovi l'immagine giusta anche fra migliaia, anni dopo."
-      },
-      {
-        "number": 6,
-        "text": "Qualità dei metadati\n I campi valgono solo se coerenti: applicati con regole comuni, non a sentimento.\n — Vocabolari condivisi\n Termini concordati, non sinonimi a caso: «robotica» sempre uguale, non «robot» o «automazione». — Date in formato uniforme\n Sempre lo stesso schema, per esempio 2026-07-16, così ordinamento e ricerca funzionano. — Nomi non ambigui\n Autore e titolo scritti in un solo modo: niente «G. Rossi» e «Giulia Rossi» mischiati."
-      },
-      {
-        "number": 7,
-        "text": "Metadati sensibili\n L'EXIF di una foto può contenere più di quanto pensi. Prima di pubblicare, valuta privacy e sicurezza.\n — Controlla la geolocalizzazione\n Le coordinate GPS dello scatto restano nel file: verifica prima di mettere online una foto. — Rimuovi il superfluo\n Modello del dispositivo, data, posizione: togli ciò che non serve a chi la riceve. — Conserva l'originale\n Tieni una copia archivistica completa; rimuovi i metadati solo dalla versione pubblicata."
-      },
-      {
-        "number": 8,
-        "text": "Raster e vettoriale\n Due modi opposti di memorizzare un'immagine, con conseguenze pratiche quando la ingrandisci.\n — Raster: griglia di pixel\n JPEG e PNG salvano un colore per pixel: ingranditi oltre misura, sgranano. — Vettoriale: forme\n SVG descrive curve, forme e testo, disegnati al momento: scala a qualsiasi dimensione. — Usi diversi, non qualità\n Nessuno dei due è «migliore»: dipende dal contenuto e dall'uso finale."
-      },
-      {
-        "number": 9,
-        "text": "JPEG, PNG e SVG\n Tre formati per tre lavori diversi. Non è una classifica di qualità: è questione di adattarsi al contenuto.\n — JPEG\n Fotografie e immagini con molte sfumature. Compressione con perdita: file compatto, ma niente trasparenza e bordi netti fragili. — PNG\n Screenshot, grafica nitida e trasparenze col canale alfa. Senza perdita: bordi puliti, ma pesante con le foto. — SVG\n Loghi e icone: forme in XML, indipendenti dalla risoluzione. Si ridimensiona senza perdere nitidezza ed è modificabile."
-      },
-      {
-        "number": 10,
-        "text": "Scegliere il formato Parti dal contenuto e dall’uso finale, non dall’abitudine. 01 Logo → SVG 02 Fotografia web → JPEG o formati moderni 03 Screenshot trasparente → PNG"
-      },
-      {
-        "number": 11,
-        "text": "Verifica: archivio e logo\n Perché i metadati aiutano a ritrovare un'immagine? Quale formato per un logo ridimensionabile?\n — Perché i metadati aiutano\n Rendono l'immagine ritrovabile per più criteri — autore, data, parole chiave — non solo per nome. — Quale formato per un logo\n SVG: è vettoriale, si ridimensiona senza perdere nitidezza. — Motiva entrambe\n Spiega il perché di ogni scelta, non solo la risposta."
-      },
-      {
-        "number": 12,
-        "text": "Punti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. PREMIS — Library of Congress ↗ (https://www.loc.gov/standards/premis/)SVG — W3C ↗ (https://www.w3.org/TR/SVG11/single-page.html) Prossimo → RW02.08 · Podcast e storytelling Francesco Antonio Binetti"
-      }
-    ]
-  },
-  {
-    "href": "rw02-08-podcast-storytelling.html",
-    "section": "Reti e Web",
-    "code": "RW02.08",
-    "title": "Podcast e storytelling digitale",
-    "description": "Strutture narrative, scrittura per l’ascolto, registrazione, montaggio e differenza fra normalizzazione di picco e loudness.",
-    "topics": "Podcast Storytelling",
-    "text": "Podcast e storytelling digitale · RW02.08\n=========================================\n\n--- Slide 1 ---\nPodcast e storytelling digitale\n Progettare una storia, registrare una voce e consegnare un audio coerente.\n\n\n\n\n\n\n\n\n\n analizzare · scegliere · documentare\n\n\n\n\n Francesco Antonio Binetti\n\n--- Slide 2 ---\nCosa vedremo\n\n\n 01\n\n Il racconto\n\n\n Il nucleo narrativo, pubblico e promessa, struttura lineare e non lineare.\n\n\n\n 02\n\n Scrivere e registrare\n\n\n Scrivere per l'ascolto, la scaletta di un podcast e il livello in registrazione.\n\n\n\n 03\n\n Montaggio e audio\n\n\n Il montaggio editoriale, picco contro loudness e la normalizzazione.\n\n--- Slide 3 ---\nDal messaggio all’esperienza\n Un contenuto digitale efficace coordina obiettivo, pubblico, struttura narrativa, voce, ritmo e interazione.\n\n\n 01\n Cosa deve capire il pubblico\n\n\n 02\n Cosa deve ricordare\n\n\n 03\n Cosa deve fare dopo\n\n--- Slide 4 ---\nIl nucleo narrativo\n Prima degli effetti definisci una trasformazione: una situazione iniziale cambia attraverso tensione, scelta o scoperta.\n\n\n 01\n Contesto\n\n\n 02\n Tensione\n\n\n 03\n Svolta\n\n\n 04\n Esito\n\n\n\n Regola: Prima degli effetti definisci quale cambiamento deve vivere e ricordare chi ascolta.\n\n--- Slide 5 ---\nPubblico e promessa\n La prima parte chiarisce perché vale la pena ascoltare e quale bisogno verrà soddisfatto.\n\n\n 01\n Domanda guida\n\n\n 02\n Beneficio concreto\n\n\n 03\n Tempo richiesto\n\n--- Slide 6 ---\nStruttura lineare\n Segue un ordine stabilito dall’autore. È adatta a spiegazioni progressive e racconti con forte causalità.\n\n\n 01\n Inizio\n\n\n 02\n Sviluppo\n\n\n 03\n Conclusione\n\n--- Slide 7 ---\nStruttura non lineare\n Permette salti temporali, percorsi o approfondimenti scelti dall’utente. È una tecnica possibile, non un obbligo universale.\n\n\n 01\n Flashback\n\n\n 02\n Rami interattivi\n\n\n 03\n Collegamenti contestuali\n\n--- Slide 8 ---\nQuando scegliere una struttura non lineare\n È utile quando il pubblico può esplorare, confrontare o scegliere un percorso; una spiegazione progressiva resta spesso più chiara in forma lineare.\n\n\n 01\n Esplorazione libera di un archivio\n\n\n 02\n Rami narrativi con scelte reali\n\n\n 03\n Percorsi diversi per bisogni diversi\n\n--- Slide 9 ---\nScrivere per l’ascolto\n Le frasi devono funzionare senza poter tornare indietro con gli occhi.\n\n\n 01\n Periodi brevi\n\n\n 02\n Una idea per frase\n\n\n 03\n Segnalazioni verbali della struttura\n\n--- Slide 10 ---\nScaletta di un podcast\n Una scaletta distribuisce tempo, funzione e responsabilità di ogni segmento prima della registrazione.\n 00:00 Aggancio Una domanda, una scena o una promessa concreta. 00:30 Contesto Chi parla, perché il tema conta, dove andremo. 02:00 Sviluppo Blocchi brevi, esempi e transizioni udibili. 08:00 Riepilogo Tre idee da ricordare senza riaprire nuovi temi. 09:00 Chiusura Invito all’azione e saluto riconoscibile.\n\n--- Slide 11 ---\nLivello in registrazione\n Registra con margine per evitare clipping; un picco tagliato non si recupera davvero in post-produzione.\n\n\n 01\n Controlla i passaggi più forti\n\n\n 02\n Evita il rosso sul meter\n\n\n 03\n Mantieni distanza costante\n\n--- Slide 12 ---\nMontaggio editoriale\n Taglia esitazioni inutili e ripetizioni, ma conserva respiri e pause che rendono naturale il discorso.\n\n\n 01\n Chiarezza\n\n\n 02\n Ritmo\n\n\n 03\n Continuità\n\n--- Slide 13 ---\nPicco e loudness non sono uguali\n Il picco misura un massimo istantaneo; la loudness descrive il livello percepito nel tempo. Due file con lo stesso picco possono sembrare diversi.\n Picco Il massimo istantaneo segnala il rischio tecnico di clipping. Non dice quanto forte sembra l’intero episodio. Loudness · LUFS La media percepita nel tempo aiuta a mantenere coerenti episodi e programmi diversi.\n\n--- Slide 14 ---\nNormalizzazione di picco\n Sposta il guadagno affinché il picco massimo raggiunga un valore obiettivo. Non uniforma automaticamente la percezione tra episodi.\n\n\n 01\n Agisce sul massimo istantaneo\n\n\n 02\n Modifica globale del livello\n\n\n 03\n Non elimina rumore né riverbero\n\n--- Slide 15 ---\nNormalizzazione della loudness\n Gli standard moderni come EBU R 128 misurano la loudness media e controllano separatamente il true peak.\n\n\n 01\n Coerenza percepita\n\n\n 02\n Target di distribuzione\n\n\n 03\n Limite tecnico dei picchi\n\n--- Slide 16 ---\nVerifica: racconta e consegna\n Spiega quando useresti una struttura non lineare e perché il solo picco non garantisce episodi percepiti allo stesso volume.\n\n\n 01\n Scelta narrativa motivata\n\n\n 02\n Loudness media vs massimo\n\n\n 03\n Controllo finale su più dispositivi\n\n--- Slide 17 ---\nUna buona storia si scrive anche con il silenzio.\n Progetta la promessa, registra con margine, monta per chiarezza e controlla insieme picchi e loudness percepita.\n\nEBU R 128 ↗ (https://tech.ebu.ch/publications/r128)\nEBU: Loudness ↗ (https://tech.ebu.ch/loudness/)\n\n\nProssimo → RW03.01 · Identità online\n",
-    "slides": [
-      {
-        "number": 1,
-        "text": "Podcast e storytelling digitale\n Progettare una storia, registrare una voce e consegnare un audio coerente.\n\n\n\n\n\n\n\n\n\n analizzare · scegliere · documentare\n\n\n\n\n Francesco Antonio Binetti"
-      },
-      {
-        "number": 2,
-        "text": "Cosa vedremo\n\n\n 01\n\n Il racconto\n\n\n Il nucleo narrativo, pubblico e promessa, struttura lineare e non lineare.\n\n\n\n 02\n\n Scrivere e registrare\n\n\n Scrivere per l'ascolto, la scaletta di un podcast e il livello in registrazione.\n\n\n\n 03\n\n Montaggio e audio\n\n\n Il montaggio editoriale, picco contro loudness e la normalizzazione."
-      },
-      {
-        "number": 3,
-        "text": "Dal messaggio all’esperienza\n Un contenuto digitale efficace coordina obiettivo, pubblico, struttura narrativa, voce, ritmo e interazione.\n\n\n 01\n Cosa deve capire il pubblico\n\n\n 02\n Cosa deve ricordare\n\n\n 03\n Cosa deve fare dopo"
-      },
-      {
-        "number": 4,
-        "text": "Il nucleo narrativo\n Prima degli effetti definisci una trasformazione: una situazione iniziale cambia attraverso tensione, scelta o scoperta.\n\n\n 01\n Contesto\n\n\n 02\n Tensione\n\n\n 03\n Svolta\n\n\n 04\n Esito\n\n\n\n Regola: Prima degli effetti definisci quale cambiamento deve vivere e ricordare chi ascolta."
-      },
-      {
-        "number": 5,
-        "text": "Pubblico e promessa\n La prima parte chiarisce perché vale la pena ascoltare e quale bisogno verrà soddisfatto.\n\n\n 01\n Domanda guida\n\n\n 02\n Beneficio concreto\n\n\n 03\n Tempo richiesto"
-      },
-      {
-        "number": 6,
-        "text": "Struttura lineare\n Segue un ordine stabilito dall’autore. È adatta a spiegazioni progressive e racconti con forte causalità.\n\n\n 01\n Inizio\n\n\n 02\n Sviluppo\n\n\n 03\n Conclusione"
-      },
-      {
-        "number": 7,
-        "text": "Struttura non lineare\n Permette salti temporali, percorsi o approfondimenti scelti dall’utente. È una tecnica possibile, non un obbligo universale.\n\n\n 01\n Flashback\n\n\n 02\n Rami interattivi\n\n\n 03\n Collegamenti contestuali"
-      },
-      {
-        "number": 8,
-        "text": "Quando scegliere una struttura non lineare\n È utile quando il pubblico può esplorare, confrontare o scegliere un percorso; una spiegazione progressiva resta spesso più chiara in forma lineare.\n\n\n 01\n Esplorazione libera di un archivio\n\n\n 02\n Rami narrativi con scelte reali\n\n\n 03\n Percorsi diversi per bisogni diversi"
-      },
-      {
-        "number": 9,
-        "text": "Scrivere per l’ascolto\n Le frasi devono funzionare senza poter tornare indietro con gli occhi.\n\n\n 01\n Periodi brevi\n\n\n 02\n Una idea per frase\n\n\n 03\n Segnalazioni verbali della struttura"
-      },
-      {
-        "number": 10,
-        "text": "Scaletta di un podcast\n Una scaletta distribuisce tempo, funzione e responsabilità di ogni segmento prima della registrazione.\n 00:00 Aggancio Una domanda, una scena o una promessa concreta. 00:30 Contesto Chi parla, perché il tema conta, dove andremo. 02:00 Sviluppo Blocchi brevi, esempi e transizioni udibili. 08:00 Riepilogo Tre idee da ricordare senza riaprire nuovi temi. 09:00 Chiusura Invito all’azione e saluto riconoscibile."
-      },
-      {
-        "number": 11,
-        "text": "Livello in registrazione\n Registra con margine per evitare clipping; un picco tagliato non si recupera davvero in post-produzione.\n\n\n 01\n Controlla i passaggi più forti\n\n\n 02\n Evita il rosso sul meter\n\n\n 03\n Mantieni distanza costante"
-      },
-      {
-        "number": 12,
-        "text": "Montaggio editoriale\n Taglia esitazioni inutili e ripetizioni, ma conserva respiri e pause che rendono naturale il discorso.\n\n\n 01\n Chiarezza\n\n\n 02\n Ritmo\n\n\n 03\n Continuità"
-      },
-      {
-        "number": 13,
-        "text": "Picco e loudness non sono uguali\n Il picco misura un massimo istantaneo; la loudness descrive il livello percepito nel tempo. Due file con lo stesso picco possono sembrare diversi.\n Picco Il massimo istantaneo segnala il rischio tecnico di clipping. Non dice quanto forte sembra l’intero episodio. Loudness · LUFS La media percepita nel tempo aiuta a mantenere coerenti episodi e programmi diversi."
-      },
-      {
-        "number": 14,
-        "text": "Normalizzazione di picco\n Sposta il guadagno affinché il picco massimo raggiunga un valore obiettivo. Non uniforma automaticamente la percezione tra episodi.\n\n\n 01\n Agisce sul massimo istantaneo\n\n\n 02\n Modifica globale del livello\n\n\n 03\n Non elimina rumore né riverbero"
-      },
-      {
-        "number": 15,
-        "text": "Normalizzazione della loudness\n Gli standard moderni come EBU R 128 misurano la loudness media e controllano separatamente il true peak.\n\n\n 01\n Coerenza percepita\n\n\n 02\n Target di distribuzione\n\n\n 03\n Limite tecnico dei picchi"
-      },
-      {
-        "number": 16,
-        "text": "Verifica: racconta e consegna\n Spiega quando useresti una struttura non lineare e perché il solo picco non garantisce episodi percepiti allo stesso volume.\n\n\n 01\n Scelta narrativa motivata\n\n\n 02\n Loudness media vs massimo\n\n\n 03\n Controllo finale su più dispositivi"
-      },
-      {
-        "number": 17,
-        "text": "Una buona storia si scrive anche con il silenzio.\n Progetta la promessa, registra con margine, monta per chiarezza e controlla insieme picchi e loudness percepita.\n\nEBU R 128 ↗ (https://tech.ebu.ch/publications/r128)\nEBU: Loudness ↗ (https://tech.ebu.ch/loudness/)\n\n\nProssimo → RW03.01 · Identità online"
-      }
-    ]
-  },
-  {
     "href": "rw03-01-identita.html",
     "section": "Reti e Web",
     "code": "RW03.01",
@@ -2028,6 +1756,278 @@ globalThis.COURSE_SEARCH_INDEX = [
       {
         "number": 19,
         "text": "Online! \n LinkedIn, Instagram, TikTok, Behance: la funzione di ogni piattaforma, come scegliere quella giusta e come usarla con strategia. \n\n Torna all’indice"
+      }
+    ]
+  },
+  {
+    "href": "rw04-01-licenze-oer.html",
+    "section": "Reti e Web",
+    "code": "RW04.01",
+    "title": "Licenze aperte e OER",
+    "description": "Diritto d’autore, Creative Commons, attribuzione, remix, compatibilità e le cinque R delle risorse educative aperte.",
+    "topics": "Creative Commons OER Remix",
+    "text": "Licenze aperte e OER · RW02.05\n========================================\n\n--- Slide 1 ---\nLicenze aperte e OER\n Diritto d’autore, Creative Commons, remix e pratiche delle risorse educative aperte.\n\n\n\n\n\n\n\n\n\n analizzare · scegliere · documentare\n\n\n\n\n Francesco Antonio Binetti\n\n--- Slide 2 ---\nCosa vedremo\n\n\n 01\n\n Diritto d'autore e licenze\n\n\n Diritti morali e patrimoniali, la paternità dell'opera e cosa significa una licenza.\n\n\n\n 02\n\n Creative Commons\n\n\n Le licenze CC, da BY a NC, la CC0 e attribuire col metodo TASL.\n\n\n\n 03\n\n Remix e OER\n\n\n Adattamento e compatibilità, le risorse educative aperte e le 5R.\n\n--- Slide 3 ---\nOrientarsi tra diritti e permessi\n Un contenuto trovato online non è automaticamente libero da usare. Prima si identifica l’opera, poi si legge la licenza, infine si documenta la fonte.\n 01 Opera e autore\n Chi l'ha creata e quando: è il punto di partenza per capire chi detiene i diritti. 02 Licenza applicata\n Cerca la licenza dichiarata: dice in anticipo cosa puoi fare senza chiedere. 03 Uso che vuoi farne\n Copiare, modificare, vendere: usi diversi richiedono permessi diversi.\n\n--- Slide 4 ---\nDiritto d’autore e licenza\n Il diritto nasce con l’opera; la licenza comunica in anticipo quali usi il titolare autorizza. Non sono sinonimi.\n — Diritto: insieme delle tutele\n Nasce automaticamente con l'opera, senza bisogno di registrarla da nessuna parte. — Licenza: permesso con condizioni\n È l'autore che dichiara in anticipo quali usi concede e a quali patti. — Pubblicazione online: non equivale a rinuncia\n Un'immagine trovata sul web resta protetta: «era su Internet» non è un permesso.\n\n Regola: Essere online non significa essere libero: cerca sempre autore, licenza e condizioni d’uso.\n\n--- Slide 5 ---\nI diritti: patrimoniali e morali\n Su ogni opera coesistono due tipi di diritto, con regole diverse.\n — Diritti patrimoniali\n Riproduzione, distribuzione, elaborazione e comunicazione al pubblico: gli usi economici dell'opera. Sono cedibili, ed è questo che una licenza concede. — Diritto morale\n Tutela il legame tra autore e opera — la paternità e la sua integrità. Non si vende e non scade, e resta all'autore anche dopo la cessione dei diritti economici. — La paternità in pratica\n In Italia l'art. 20 della legge 633/1941 lascia all'autore il diritto di essere riconosciuto tale. Per te: cita sempre l'autore e non spacciare per tuo il lavoro altrui. 💡 Credito ≠ permesso Citare l'autore non ti dà il diritto di usare l'opera, e avere la licenza non ti esonera dal citarlo. Servono entrambi.\n\n--- Slide 6 ---\nLe licenze Creative Commons\n Quattro condizioni si combinano in sei licenze. I simboli non misurano la qualità dell’opera: descrivono ciò che puoi farne.\n\n BY Attribuzione Indica autore, titolo, fonte e licenza.\n SA Stessa licenza Distribuisci gli adattamenti con termini compatibili.\n NC Non commerciale Non usare principalmente per vantaggio commerciale.\n ND Niente derivate Puoi condividere l’opera, ma non versioni adattate.\n\n\n\n\n [Fonte: Licenze Creative Commons — https://creativecommons.org/share-your-work/cclicenses/]\n\n--- Slide 7 ---\nCC BY\n Consente condivisione e adattamento, anche commerciale, a condizione di attribuire correttamente la fonte.\n — Massima apertura tra le licenze CC\n Il permesso più ampio: quasi tutto è consentito, con una sola condizione. — Adattamenti permessi\n Puoi tradurre, tagliare, rielaborare e ripubblicare la tua versione. — Attribuzione obbligatoria\n L'unico obbligo: indicare l'autore, la fonte e la licenza.\n\n--- Slide 8 ---\nCC BY-SA\n Consente la modifica, ma l’opera derivata deve essere distribuita con gli stessi termini o con una licenza compatibile.\n ORIGINALE Dispensa CC BY-SA Autore e fonte restano tracciabili. ADATTA Traduci e annota Segnala chiaramente che hai modificato l’opera. ATTRIBUISCI Credito completo BY richiede un’attribuzione verificabile. CONDIVIDI Ancora BY-SA SA mantiene aperta anche la versione derivata.\n\n--- Slide 9 ---\nLe clausole restrittive: NC e ND\n Partendo da BY, due clausole tolgono libertà a chi riusa. Riconoscerle evita usi non permessi.\n — NC — Non commerciale\n Vieta gli usi a scopo di guadagno. «Commerciale» dipende dallo scopo, non da chi sei: chiediti se l'uso produce o promuove un profitto, e nel dubbio chiedi permesso. — ND — No Derivatives\n Puoi ridistribuirla, ma solo così com'è. Anche una traduzione o un ritaglio è una modifica: con ND non è consentito. — Non confondere ND e SA\n Sono opposte: ND vieta le modifiche, mentre SA le permette ma impone la stessa licenza sul risultato. ⚠️ Più clausole, meno libertà BY-NC-ND è la CC più restrittiva: attribuzione, niente uso commerciale e niente modifiche.\n\n--- Slide 10 ---\nCC0 non è una licenza CC ordinaria\n CC0 è uno strumento di rinuncia e dedica al pubblico dominio nella misura consentita dalla legge.\n — Nessun obbligo licenziale standard\n Chi riusa non deve rispettare condizioni: né attribuzione, né share-alike, né limiti d'uso. — Citare resta una buona pratica\n La legge non lo impone, ma indicare l'autore è corretto e aiuta chi verrà dopo a risalire alla fonte. — I diritti morali dipendono dalla legge applicabile\n In alcuni paesi la paternità dell'opera resta all'autore anche dopo la rinuncia ai diritti economici.\n\n--- Slide 11 ---\nAttribuire con il metodo TASL\n TASL trasforma quattro dati in un credito breve ma verificabile. Se modifichi l’opera, dichiaralo.\n T Titolo A Autore S Source · fonte L Licenza “Mappa dei quartieri” di Giulia Rossi · www.esempio.it/mappa\nLicenza CC BY-SA 4.0 · creativecommons.org/licenses/by-sa/4.0 MODIFICHE: colori aggiornati, testi tradotti in italiano.\n\n--- Slide 12 ---\nAdattamento e remix\n Trasformare o combinare un'opera crea qualcosa di nuovo — un'opera derivata. Ma non ogni gesto conta come adattamento.\n È un adattamento — Traduzione\n Portare il testo in un'altra lingua. — Montaggio audiovisivo\n Tagliare e ricomporre video o audio. — Rielaborazione grafica\n Ridisegnare o ricolorare un'immagine. Non lo è — Inserire un link\n Rimandare a un contenuto non lo combina col tuo. — Duplicare un file\n Una copia identica non aggiunge nulla. — Cambiare formato\n Convertire un PDF in Word non è creativo. 💡 Remix Nel lessico OER il remix combina più materiali per produrre qualcosa di nuovo. Conta come modifica: con una licenza ND non è permesso.\n\n--- Slide 13 ---\nCompatibilità prima del remix\n Non basta che ogni fonte sia “Creative Commons”: le condizioni devono essere compatibili con il progetto finale.\n Condizione Copia invariata Adattamento Uso commerciale BY ✓ Con credito ✓ Con credito ✓ Consentito BY-SA ✓ Con credito ⚠ Stessa licenza ✓ Consentito BY-NC ✓ Con credito ✓ Con credito ✗ Non consentito BY-ND ✓ Con credito ✗ Non condividere ✓ Se invariata\n\n--- Slide 14 ---\nOER: risorse educative aperte\n Una OER unisce finalità educativa e permessi aperti che rendono possibili pratiche oltre la semplice consultazione.\n — Materiale di apprendimento\n Una dispensa, un video, un esercizio: qualcosa pensato per insegnare. — Licenza aperta o pubblico dominio\n Con permessi che consentono di riusarlo, non solo di consultarlo. — Possibilità concreta di riuso\n Non basta il permesso: il formato deve permettere davvero di modificarlo.\n\n--- Slide 15 ---\nLe 5R complete\n Una risorsa è davvero aperta quando permette non solo di leggerla, ma di conservarla, trasformarla e farla circolare.\n R Retain Conservare e controllare copie del contenuto. R Reuse Usarlo in lezioni, siti, video o altri contesti. R Revise Tradurre, correggere o adattare il materiale. R Remix Combinarlo con altre risorse per crearne una nuova. R Redistribute Condividere copie dell’originale o della versione nuova.\n Il framework delle 5R è formulato da David Wiley e diffuso con licenza CC BY.\n\n--- Slide 16 ---\nCaso pratico: dispensa di classe\n Vuoi tradurre una dispensa CC BY-SA, aggiungere esercizi e distribuirla alla classe. Segui la catena senza perdere provenienza e condizioni.\n 01 · VERIFICA Leggi la licenza Traduzione e nuovi esercizi sono adattamenti permessi. 02 · CONSERVA Salva la fonte Registra autore, titolo, URL e versione originale. 03 · DICHIARA Descrivi le modifiche Indica lingua, tagli, aggiunte e autore dell’adattamento. 04 · PUBBLICA Usa CC BY-SA Attribuisci e mantieni termini compatibili sulla derivata.\n\n--- Slide 17 ---\nChecklist prima di pubblicare\n Trasforma il controllo giuridico in una procedura ripetibile, documentata e verificabile.\n 01 Identifica autore e provenienza\n Da dove viene ogni pezzo e chi l'ha fatto: annotalo mentre raccogli. 02 Leggi la licenza completa\n Non fermarti alla sigla: le condizioni esatte stanno nel testo. 03 Verifica compatibilità e scopo\n Le licenze dei vari pezzi devono convivere e reggere all'uso che ne fai. 04 Scrivi attribuzione e modifiche\n Indica autori, fonti, licenze e cosa hai cambiato: rende tutto tracciabile.\n\n--- Slide 18 ---\nVerifica: scegli e motiva\n Quale licenza consente di modificare purché la derivata mantenga gli stessi termini? Spiega il ruolo di BY e SA.\n — Risposta: CC BY-SA\n L'unica che permette la modifica imponendo però la stessa licenza sul risultato. — BY richiede attribuzione\n Come ogni licenza CC, va sempre citato l'autore dell'opera. — SA mantiene la condivisione alle stesse condizioni\n Chi riusa la tua versione dovrà a sua volta lasciarla aperta uguale.\n\n--- Slide 19 ---\nAprire significa dare permessi chiari.\n Prima di riusare: identifica l’opera, leggi la licenza, verifica la compatibilità e lascia un’attribuzione che altri possano seguire.\n Prossimo → RW02.06 · Accessibilità delle immagini\n Creative Commons (https://creativecommons.org/share-your-work/cclicenses/) · 5R dell’open content (https://opencontent.org/definition/) · Legge 633/1941, art. 20 (https://www.normattiva.it/uri-res/N2Ls?urn%3Anir%3Astato%3Alegge%3A1941-04-22%3B633~art20=)\n\n\n Fonti e approfondimenti Licenze Creative Commons ↗ (https://creativecommons.org/share-your-work/cclicenses/)\n",
+    "slides": [
+      {
+        "number": 1,
+        "text": "Licenze aperte e OER\n Diritto d’autore, Creative Commons, remix e pratiche delle risorse educative aperte.\n\n\n\n\n\n\n\n\n\n analizzare · scegliere · documentare\n\n\n\n\n Francesco Antonio Binetti"
+      },
+      {
+        "number": 2,
+        "text": "Cosa vedremo\n\n\n 01\n\n Diritto d'autore e licenze\n\n\n Diritti morali e patrimoniali, la paternità dell'opera e cosa significa una licenza.\n\n\n\n 02\n\n Creative Commons\n\n\n Le licenze CC, da BY a NC, la CC0 e attribuire col metodo TASL.\n\n\n\n 03\n\n Remix e OER\n\n\n Adattamento e compatibilità, le risorse educative aperte e le 5R."
+      },
+      {
+        "number": 3,
+        "text": "Orientarsi tra diritti e permessi\n Un contenuto trovato online non è automaticamente libero da usare. Prima si identifica l’opera, poi si legge la licenza, infine si documenta la fonte.\n 01 Opera e autore\n Chi l'ha creata e quando: è il punto di partenza per capire chi detiene i diritti. 02 Licenza applicata\n Cerca la licenza dichiarata: dice in anticipo cosa puoi fare senza chiedere. 03 Uso che vuoi farne\n Copiare, modificare, vendere: usi diversi richiedono permessi diversi."
+      },
+      {
+        "number": 4,
+        "text": "Diritto d’autore e licenza\n Il diritto nasce con l’opera; la licenza comunica in anticipo quali usi il titolare autorizza. Non sono sinonimi.\n — Diritto: insieme delle tutele\n Nasce automaticamente con l'opera, senza bisogno di registrarla da nessuna parte. — Licenza: permesso con condizioni\n È l'autore che dichiara in anticipo quali usi concede e a quali patti. — Pubblicazione online: non equivale a rinuncia\n Un'immagine trovata sul web resta protetta: «era su Internet» non è un permesso.\n\n Regola: Essere online non significa essere libero: cerca sempre autore, licenza e condizioni d’uso."
+      },
+      {
+        "number": 5,
+        "text": "I diritti: patrimoniali e morali\n Su ogni opera coesistono due tipi di diritto, con regole diverse.\n — Diritti patrimoniali\n Riproduzione, distribuzione, elaborazione e comunicazione al pubblico: gli usi economici dell'opera. Sono cedibili, ed è questo che una licenza concede. — Diritto morale\n Tutela il legame tra autore e opera — la paternità e la sua integrità. Non si vende e non scade, e resta all'autore anche dopo la cessione dei diritti economici. — La paternità in pratica\n In Italia l'art. 20 della legge 633/1941 lascia all'autore il diritto di essere riconosciuto tale. Per te: cita sempre l'autore e non spacciare per tuo il lavoro altrui. 💡 Credito ≠ permesso Citare l'autore non ti dà il diritto di usare l'opera, e avere la licenza non ti esonera dal citarlo. Servono entrambi."
+      },
+      {
+        "number": 6,
+        "text": "Le licenze Creative Commons\n Quattro condizioni si combinano in sei licenze. I simboli non misurano la qualità dell’opera: descrivono ciò che puoi farne.\n\n BY Attribuzione Indica autore, titolo, fonte e licenza.\n SA Stessa licenza Distribuisci gli adattamenti con termini compatibili.\n NC Non commerciale Non usare principalmente per vantaggio commerciale.\n ND Niente derivate Puoi condividere l’opera, ma non versioni adattate.\n\n\n\n\n [Fonte: Licenze Creative Commons — https://creativecommons.org/share-your-work/cclicenses/]"
+      },
+      {
+        "number": 7,
+        "text": "CC BY\n Consente condivisione e adattamento, anche commerciale, a condizione di attribuire correttamente la fonte.\n — Massima apertura tra le licenze CC\n Il permesso più ampio: quasi tutto è consentito, con una sola condizione. — Adattamenti permessi\n Puoi tradurre, tagliare, rielaborare e ripubblicare la tua versione. — Attribuzione obbligatoria\n L'unico obbligo: indicare l'autore, la fonte e la licenza."
+      },
+      {
+        "number": 8,
+        "text": "CC BY-SA\n Consente la modifica, ma l’opera derivata deve essere distribuita con gli stessi termini o con una licenza compatibile.\n ORIGINALE Dispensa CC BY-SA Autore e fonte restano tracciabili. ADATTA Traduci e annota Segnala chiaramente che hai modificato l’opera. ATTRIBUISCI Credito completo BY richiede un’attribuzione verificabile. CONDIVIDI Ancora BY-SA SA mantiene aperta anche la versione derivata."
+      },
+      {
+        "number": 9,
+        "text": "Le clausole restrittive: NC e ND\n Partendo da BY, due clausole tolgono libertà a chi riusa. Riconoscerle evita usi non permessi.\n — NC — Non commerciale\n Vieta gli usi a scopo di guadagno. «Commerciale» dipende dallo scopo, non da chi sei: chiediti se l'uso produce o promuove un profitto, e nel dubbio chiedi permesso. — ND — No Derivatives\n Puoi ridistribuirla, ma solo così com'è. Anche una traduzione o un ritaglio è una modifica: con ND non è consentito. — Non confondere ND e SA\n Sono opposte: ND vieta le modifiche, mentre SA le permette ma impone la stessa licenza sul risultato. ⚠️ Più clausole, meno libertà BY-NC-ND è la CC più restrittiva: attribuzione, niente uso commerciale e niente modifiche."
+      },
+      {
+        "number": 10,
+        "text": "CC0 non è una licenza CC ordinaria\n CC0 è uno strumento di rinuncia e dedica al pubblico dominio nella misura consentita dalla legge.\n — Nessun obbligo licenziale standard\n Chi riusa non deve rispettare condizioni: né attribuzione, né share-alike, né limiti d'uso. — Citare resta una buona pratica\n La legge non lo impone, ma indicare l'autore è corretto e aiuta chi verrà dopo a risalire alla fonte. — I diritti morali dipendono dalla legge applicabile\n In alcuni paesi la paternità dell'opera resta all'autore anche dopo la rinuncia ai diritti economici."
+      },
+      {
+        "number": 11,
+        "text": "Attribuire con il metodo TASL\n TASL trasforma quattro dati in un credito breve ma verificabile. Se modifichi l’opera, dichiaralo.\n T Titolo A Autore S Source · fonte L Licenza “Mappa dei quartieri” di Giulia Rossi · www.esempio.it/mappa\nLicenza CC BY-SA 4.0 · creativecommons.org/licenses/by-sa/4.0 MODIFICHE: colori aggiornati, testi tradotti in italiano."
+      },
+      {
+        "number": 12,
+        "text": "Adattamento e remix\n Trasformare o combinare un'opera crea qualcosa di nuovo — un'opera derivata. Ma non ogni gesto conta come adattamento.\n È un adattamento — Traduzione\n Portare il testo in un'altra lingua. — Montaggio audiovisivo\n Tagliare e ricomporre video o audio. — Rielaborazione grafica\n Ridisegnare o ricolorare un'immagine. Non lo è — Inserire un link\n Rimandare a un contenuto non lo combina col tuo. — Duplicare un file\n Una copia identica non aggiunge nulla. — Cambiare formato\n Convertire un PDF in Word non è creativo. 💡 Remix Nel lessico OER il remix combina più materiali per produrre qualcosa di nuovo. Conta come modifica: con una licenza ND non è permesso."
+      },
+      {
+        "number": 13,
+        "text": "Compatibilità prima del remix\n Non basta che ogni fonte sia “Creative Commons”: le condizioni devono essere compatibili con il progetto finale.\n Condizione Copia invariata Adattamento Uso commerciale BY ✓ Con credito ✓ Con credito ✓ Consentito BY-SA ✓ Con credito ⚠ Stessa licenza ✓ Consentito BY-NC ✓ Con credito ✓ Con credito ✗ Non consentito BY-ND ✓ Con credito ✗ Non condividere ✓ Se invariata"
+      },
+      {
+        "number": 14,
+        "text": "OER: risorse educative aperte\n Una OER unisce finalità educativa e permessi aperti che rendono possibili pratiche oltre la semplice consultazione.\n — Materiale di apprendimento\n Una dispensa, un video, un esercizio: qualcosa pensato per insegnare. — Licenza aperta o pubblico dominio\n Con permessi che consentono di riusarlo, non solo di consultarlo. — Possibilità concreta di riuso\n Non basta il permesso: il formato deve permettere davvero di modificarlo."
+      },
+      {
+        "number": 15,
+        "text": "Le 5R complete\n Una risorsa è davvero aperta quando permette non solo di leggerla, ma di conservarla, trasformarla e farla circolare.\n R Retain Conservare e controllare copie del contenuto. R Reuse Usarlo in lezioni, siti, video o altri contesti. R Revise Tradurre, correggere o adattare il materiale. R Remix Combinarlo con altre risorse per crearne una nuova. R Redistribute Condividere copie dell’originale o della versione nuova.\n Il framework delle 5R è formulato da David Wiley e diffuso con licenza CC BY."
+      },
+      {
+        "number": 16,
+        "text": "Caso pratico: dispensa di classe\n Vuoi tradurre una dispensa CC BY-SA, aggiungere esercizi e distribuirla alla classe. Segui la catena senza perdere provenienza e condizioni.\n 01 · VERIFICA Leggi la licenza Traduzione e nuovi esercizi sono adattamenti permessi. 02 · CONSERVA Salva la fonte Registra autore, titolo, URL e versione originale. 03 · DICHIARA Descrivi le modifiche Indica lingua, tagli, aggiunte e autore dell’adattamento. 04 · PUBBLICA Usa CC BY-SA Attribuisci e mantieni termini compatibili sulla derivata."
+      },
+      {
+        "number": 17,
+        "text": "Checklist prima di pubblicare\n Trasforma il controllo giuridico in una procedura ripetibile, documentata e verificabile.\n 01 Identifica autore e provenienza\n Da dove viene ogni pezzo e chi l'ha fatto: annotalo mentre raccogli. 02 Leggi la licenza completa\n Non fermarti alla sigla: le condizioni esatte stanno nel testo. 03 Verifica compatibilità e scopo\n Le licenze dei vari pezzi devono convivere e reggere all'uso che ne fai. 04 Scrivi attribuzione e modifiche\n Indica autori, fonti, licenze e cosa hai cambiato: rende tutto tracciabile."
+      },
+      {
+        "number": 18,
+        "text": "Verifica: scegli e motiva\n Quale licenza consente di modificare purché la derivata mantenga gli stessi termini? Spiega il ruolo di BY e SA.\n — Risposta: CC BY-SA\n L'unica che permette la modifica imponendo però la stessa licenza sul risultato. — BY richiede attribuzione\n Come ogni licenza CC, va sempre citato l'autore dell'opera. — SA mantiene la condivisione alle stesse condizioni\n Chi riusa la tua versione dovrà a sua volta lasciarla aperta uguale."
+      },
+      {
+        "number": 19,
+        "text": "Aprire significa dare permessi chiari.\n Prima di riusare: identifica l’opera, leggi la licenza, verifica la compatibilità e lascia un’attribuzione che altri possano seguire.\n Prossimo → RW02.06 · Accessibilità delle immagini\n Creative Commons (https://creativecommons.org/share-your-work/cclicenses/) · 5R dell’open content (https://opencontent.org/definition/) · Legge 633/1941, art. 20 (https://www.normattiva.it/uri-res/N2Ls?urn%3Anir%3Astato%3Alegge%3A1941-04-22%3B633~art20=)\n\n\n Fonti e approfondimenti Licenze Creative Commons ↗ (https://creativecommons.org/share-your-work/cclicenses/)"
+      }
+    ]
+  },
+  {
+    "href": "rw04-02-accessibilita-immagini.html",
+    "section": "Reti e Web",
+    "code": "RW04.02",
+    "title": "Accessibilità delle immagini",
+    "description": "WCAG 2.1, testo alternativo, immagini informative, funzionali, complesse e puramente decorative.",
+    "topics": "WCAG Testo alternativo",
+    "text": "Accessibilità delle immagini · RW02.06\n========================================\n\n--- Slide 1 ---\nAccessibilità delle immagini\n Testo alternativo, immagini decorative e decisioni coerenti con WCAG 2.1.\n\n\n\n\n\n\n\n\n\n analizzare · scegliere · documentare\n\n\n\n\n Francesco Antonio Binetti\n\n--- Slide 2 ---\nCosa vedremo\n\n\n 01\n\n Perché l'accessibilità\n\n\n Accessibile significa percepibile, e il requisito WCAG 1.1.1.\n\n\n\n 02\n\n Che funzione ha l'immagine\n\n\n Informativa, funzionale o decorativa, e l'attributo alt giusto per ciascuna.\n\n\n\n 03\n\n Casi difficili\n\n\n Quando alt vuoto non basta, le immagini complesse e l'albero decisionale.\n\n--- Slide 3 ---\nPerché conta, e cosa chiede WCAG\n Se un'immagine trasmette un'informazione, quella funzione deve arrivare anche a chi non la vede — con uno screen reader, per esempio.\n — Contenuto equivalente\n Ciò che l'immagine comunica va reso disponibile in un'altra forma, di solito testo. — Il requisito 1.1.1\n WCAG chiede un'alternativa testuale per ogni contenuto non testuale, salvo la pura decorazione. — Descrivi la funzione, non i pixel\n L'alt dice a cosa serve l'immagine nel contesto, non com'è fatta né i dettagli inutili.\n\n--- Slide 4 ---\nChe funzione ha l'immagine?\n Lo stesso file può richiedere alt diversi in pagine diverse: conta ciò che comunica nel contesto. Tre casi, più uno.\n — Informativa\n Porta un'informazione: l'alt scrive l'essenziale che si perderebbe togliendo l'immagine, breve e senza «immagine di». — Funzionale\n È un pulsante o un link: l'alt descrive l'azione o la destinazione — «Cerca», «Scarica il report» — non l'aspetto. — Decorativa\n Serve solo all'estetica: nessuna informazione, nessuna azione. Va resa ignorabile — lo vediamo con alt vuoto. — Complessa\n Un grafico o un'infografica: serve più di una riga. Se ne parla tra poco.\n\n--- Slide 5 ---\nalt vuoto: una scelta esplicita\n Per un'immagine decorativa si scrive alt=\"\". Non è un alt dimenticato: è una decisione che dice «qui non c'è informazione».\n — alt=\"\" — intenzionale\n Lo screen reader salta l'immagine: la decorazione non disturba la lettura. — alt assente — errore o ambiguità\n Senza attributo alcuni lettori annunciano il nome del file, «decorazione.png»: rumore inutile. — La differenza conta\n Vuoto e mancante sembrano uguali sullo schermo, ma per chi ascolta sono opposti.\n\n--- Slide 6 ---\nQuando alt vuoto non basta\n Un'immagine non è decorativa solo perché abbellisce la pagina. Diagrammi, foto e icone cliccabili portano contenuto o funzione.\n — Icona-link\n Se è cliccabile serve un nome accessibile: descrivi l'azione, non l'icona. — Foto informativa\n Se aggiunge un dato o un contesto — una foto probatoria — va descritta, non ignorata. — Immagine complessa\n Grafici e infografiche vogliono un alt sintetico col messaggio principale, più una descrizione estesa vicina o collegata.\n\n--- Slide 7 ---\nDecision tree operativo\n Chiedi in ordine: è un controllo? comunica informazione? duplica interamente il testo vicino? è pura decorazione?\n 01 È un controllo? Descrivi l’azione: “Cerca”, “Scarica il report”. 02 Informa? Scrivi l’equivalente essenziale nel contesto. 03 Duplica il testo? Evita di far ascoltare due volte la stessa cosa. 04 È decorativa? Usa alt=\"\" e lasciala fuori dal flusso.\n\n--- Slide 8 ---\nVerifica: decorativa o informativa?\n Una linea ornamentale tra due sezioni non aggiunge contenuto: quale attributo useresti, e perché?\n — Risposta: alt=\"\"\n È una decorazione: l'attributo vuoto la rende ignorabile. — Perché funziona\n Permette allo screen reader di saltarla, senza annunciare nulla. — Cosa non fare\n Non scrivere il nome del file né descrivere i colori: sarebbe rumore.\n\n--- Slide 9 ---\nUn’immagine è accessibile quando conserva la sua funzione.\n Descrivi ciò che serve, nomina l’azione e usa alt vuoto solo quando l’immagine è davvero decorativa.\n\nProssimo → RW02.07 · Metadati e formati\n\n\n\n\n\n Fonti e approfondimenti\n\nWCAG 2.2 — W3C ↗ (https://www.w3.org/Translations/WCAG22-it/)\nHTML — Wikipedia ↗ (https://it.wikipedia.org/wiki/HTML)\n\n\n Fonti e approfondimenti WCAG 2.2 — W3C ↗ (https://www.w3.org/Translations/WCAG22-it/)HTML — Wikipedia ↗ (https://it.wikipedia.org/wiki/HTML)\n",
+    "slides": [
+      {
+        "number": 1,
+        "text": "Accessibilità delle immagini\n Testo alternativo, immagini decorative e decisioni coerenti con WCAG 2.1.\n\n\n\n\n\n\n\n\n\n analizzare · scegliere · documentare\n\n\n\n\n Francesco Antonio Binetti"
+      },
+      {
+        "number": 2,
+        "text": "Cosa vedremo\n\n\n 01\n\n Perché l'accessibilità\n\n\n Accessibile significa percepibile, e il requisito WCAG 1.1.1.\n\n\n\n 02\n\n Che funzione ha l'immagine\n\n\n Informativa, funzionale o decorativa, e l'attributo alt giusto per ciascuna.\n\n\n\n 03\n\n Casi difficili\n\n\n Quando alt vuoto non basta, le immagini complesse e l'albero decisionale."
+      },
+      {
+        "number": 3,
+        "text": "Perché conta, e cosa chiede WCAG\n Se un'immagine trasmette un'informazione, quella funzione deve arrivare anche a chi non la vede — con uno screen reader, per esempio.\n — Contenuto equivalente\n Ciò che l'immagine comunica va reso disponibile in un'altra forma, di solito testo. — Il requisito 1.1.1\n WCAG chiede un'alternativa testuale per ogni contenuto non testuale, salvo la pura decorazione. — Descrivi la funzione, non i pixel\n L'alt dice a cosa serve l'immagine nel contesto, non com'è fatta né i dettagli inutili."
+      },
+      {
+        "number": 4,
+        "text": "Che funzione ha l'immagine?\n Lo stesso file può richiedere alt diversi in pagine diverse: conta ciò che comunica nel contesto. Tre casi, più uno.\n — Informativa\n Porta un'informazione: l'alt scrive l'essenziale che si perderebbe togliendo l'immagine, breve e senza «immagine di». — Funzionale\n È un pulsante o un link: l'alt descrive l'azione o la destinazione — «Cerca», «Scarica il report» — non l'aspetto. — Decorativa\n Serve solo all'estetica: nessuna informazione, nessuna azione. Va resa ignorabile — lo vediamo con alt vuoto. — Complessa\n Un grafico o un'infografica: serve più di una riga. Se ne parla tra poco."
+      },
+      {
+        "number": 5,
+        "text": "alt vuoto: una scelta esplicita\n Per un'immagine decorativa si scrive alt=\"\". Non è un alt dimenticato: è una decisione che dice «qui non c'è informazione».\n — alt=\"\" — intenzionale\n Lo screen reader salta l'immagine: la decorazione non disturba la lettura. — alt assente — errore o ambiguità\n Senza attributo alcuni lettori annunciano il nome del file, «decorazione.png»: rumore inutile. — La differenza conta\n Vuoto e mancante sembrano uguali sullo schermo, ma per chi ascolta sono opposti."
+      },
+      {
+        "number": 6,
+        "text": "Quando alt vuoto non basta\n Un'immagine non è decorativa solo perché abbellisce la pagina. Diagrammi, foto e icone cliccabili portano contenuto o funzione.\n — Icona-link\n Se è cliccabile serve un nome accessibile: descrivi l'azione, non l'icona. — Foto informativa\n Se aggiunge un dato o un contesto — una foto probatoria — va descritta, non ignorata. — Immagine complessa\n Grafici e infografiche vogliono un alt sintetico col messaggio principale, più una descrizione estesa vicina o collegata."
+      },
+      {
+        "number": 7,
+        "text": "Decision tree operativo\n Chiedi in ordine: è un controllo? comunica informazione? duplica interamente il testo vicino? è pura decorazione?\n 01 È un controllo? Descrivi l’azione: “Cerca”, “Scarica il report”. 02 Informa? Scrivi l’equivalente essenziale nel contesto. 03 Duplica il testo? Evita di far ascoltare due volte la stessa cosa. 04 È decorativa? Usa alt=\"\" e lasciala fuori dal flusso."
+      },
+      {
+        "number": 8,
+        "text": "Verifica: decorativa o informativa?\n Una linea ornamentale tra due sezioni non aggiunge contenuto: quale attributo useresti, e perché?\n — Risposta: alt=\"\"\n È una decorazione: l'attributo vuoto la rende ignorabile. — Perché funziona\n Permette allo screen reader di saltarla, senza annunciare nulla. — Cosa non fare\n Non scrivere il nome del file né descrivere i colori: sarebbe rumore."
+      },
+      {
+        "number": 9,
+        "text": "Un’immagine è accessibile quando conserva la sua funzione.\n Descrivi ciò che serve, nomina l’azione e usa alt vuoto solo quando l’immagine è davvero decorativa.\n\nProssimo → RW02.07 · Metadati e formati\n\n\n\n\n\n Fonti e approfondimenti\n\nWCAG 2.2 — W3C ↗ (https://www.w3.org/Translations/WCAG22-it/)\nHTML — Wikipedia ↗ (https://it.wikipedia.org/wiki/HTML)\n\n\n Fonti e approfondimenti WCAG 2.2 — W3C ↗ (https://www.w3.org/Translations/WCAG22-it/)HTML — Wikipedia ↗ (https://it.wikipedia.org/wiki/HTML)"
+      }
+    ]
+  },
+  {
+    "href": "rw04-03-metadati-formati.html",
+    "section": "Reti e Web",
+    "code": "RW04.03",
+    "title": "Metadati e formati",
+    "description": "Indicizzazione e conservazione delle immagini, privacy dei metadati, grafica raster e formati JPEG, PNG e SVG.",
+    "topics": "Metadati SVG",
+    "text": "Metadati e formati · RW02.07\n========================================\n\n--- Slide 1 ---\nMetadati e formati Descrivere, ritrovare e conservare immagini scegliendo il formato adatto. analizzare · scegliere · documentare Francesco Antonio Binetti\n\n--- Slide 2 ---\nCosa vedremo 01 I metadati\n Cosa sono, perché servono in archivio e le tre famiglie utili. 02 Qualità e privacy\n Indicizzare bene, la qualità dei metadati e quelli sensibili. 03 I formati immagine\n Raster e vettoriale, JPEG, PNG, SVG e quale formato scegliere.\n\n--- Slide 3 ---\nLe famiglie di metadati\n Oltre ai pixel, un'immagine porta o è accompagnata da dati che la descrivono. Si raggruppano in tre famiglie.\n — Descrittivi\n Cosa rappresenta: titolo, autore, parole chiave, descrizione. Servono a capirla e a ritrovarla. — Amministrativi\n Provenienza e diritti: chi l'ha creata, quando e con quale licenza. Servono a gestirla legalmente. — Tecnici\n Come è fatta: risoluzione, spazio colore, dispositivo, versione del formato. Servono a controllo e conservazione.\n\n--- Slide 4 ---\nChe cosa sono i metadati Sono dati strutturati su una risorsa. Rendono esplicite informazioni che altrimenti resterebbero nel nome file o nella memoria di qualcuno. IMG Titolo Laboratorio di robotica Autore Giulia Rossi Data 2026-07-16 Diritti CC BY 4.0 Parole chiave robotica · scuola · laboratorio Tecnici 2400×1600 · sRGB · JPEG Regola: Un file senza contesto si può aprire oggi, ma potrebbe diventare impossibile da capire domani.\n\n--- Slide 5 ---\nA cosa servono: ritrovare\n La funzione principale dei metadati è far ritrovare, capire e gestire un'immagine nel tempo — molto meglio del solo nome file.\n — Ricerca per più criteri\n Autore, data, parole chiave, diritti: cerchi e filtri su chiavi diverse, non solo sul nome del file. — Più chiavi, un solo file\n Un buon nome aiuta, ma i metadati aggiungono etichette di ricerca senza duplicare l'immagine. — Recupero affidabile\n Con campi coerenti ritrovi l'immagine giusta anche fra migliaia, anni dopo.\n\n--- Slide 6 ---\nQualità dei metadati\n I campi valgono solo se coerenti: applicati con regole comuni, non a sentimento.\n — Vocabolari condivisi\n Termini concordati, non sinonimi a caso: «robotica» sempre uguale, non «robot» o «automazione». — Date in formato uniforme\n Sempre lo stesso schema, per esempio 2026-07-16, così ordinamento e ricerca funzionano. — Nomi non ambigui\n Autore e titolo scritti in un solo modo: niente «G. Rossi» e «Giulia Rossi» mischiati.\n\n--- Slide 7 ---\nMetadati sensibili\n L'EXIF di una foto può contenere più di quanto pensi. Prima di pubblicare, valuta privacy e sicurezza.\n — Controlla la geolocalizzazione\n Le coordinate GPS dello scatto restano nel file: verifica prima di mettere online una foto. — Rimuovi il superfluo\n Modello del dispositivo, data, posizione: togli ciò che non serve a chi la riceve. — Conserva l'originale\n Tieni una copia archivistica completa; rimuovi i metadati solo dalla versione pubblicata.\n\n--- Slide 8 ---\nRaster e vettoriale\n Due modi opposti di memorizzare un'immagine, con conseguenze pratiche quando la ingrandisci.\n — Raster: griglia di pixel\n JPEG e PNG salvano un colore per pixel: ingranditi oltre misura, sgranano. — Vettoriale: forme\n SVG descrive curve, forme e testo, disegnati al momento: scala a qualsiasi dimensione. — Usi diversi, non qualità\n Nessuno dei due è «migliore»: dipende dal contenuto e dall'uso finale.\n\n--- Slide 9 ---\nJPEG, PNG e SVG\n Tre formati per tre lavori diversi. Non è una classifica di qualità: è questione di adattarsi al contenuto.\n — JPEG\n Fotografie e immagini con molte sfumature. Compressione con perdita: file compatto, ma niente trasparenza e bordi netti fragili. — PNG\n Screenshot, grafica nitida e trasparenze col canale alfa. Senza perdita: bordi puliti, ma pesante con le foto. — SVG\n Loghi e icone: forme in XML, indipendenti dalla risoluzione. Si ridimensiona senza perdere nitidezza ed è modificabile.\n\n--- Slide 10 ---\nScegliere il formato Parti dal contenuto e dall’uso finale, non dall’abitudine. 01 Logo → SVG 02 Fotografia web → JPEG o formati moderni 03 Screenshot trasparente → PNG\n\n--- Slide 11 ---\nVerifica: archivio e logo\n Perché i metadati aiutano a ritrovare un'immagine? Quale formato per un logo ridimensionabile?\n — Perché i metadati aiutano\n Rendono l'immagine ritrovabile per più criteri — autore, data, parole chiave — non solo per nome. — Quale formato per un logo\n SVG: è vettoriale, si ridimensiona senza perdere nitidezza. — Motiva entrambe\n Spiega il perché di ogni scelta, non solo la risposta.\n\n--- Slide 12 ---\nPunti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. PREMIS — Library of Congress ↗ (https://www.loc.gov/standards/premis/)SVG — W3C ↗ (https://www.w3.org/TR/SVG11/single-page.html) Prossimo → RW02.08 · Podcast e storytelling Francesco Antonio Binetti\n",
+    "slides": [
+      {
+        "number": 1,
+        "text": "Metadati e formati Descrivere, ritrovare e conservare immagini scegliendo il formato adatto. analizzare · scegliere · documentare Francesco Antonio Binetti"
+      },
+      {
+        "number": 2,
+        "text": "Cosa vedremo 01 I metadati\n Cosa sono, perché servono in archivio e le tre famiglie utili. 02 Qualità e privacy\n Indicizzare bene, la qualità dei metadati e quelli sensibili. 03 I formati immagine\n Raster e vettoriale, JPEG, PNG, SVG e quale formato scegliere."
+      },
+      {
+        "number": 3,
+        "text": "Le famiglie di metadati\n Oltre ai pixel, un'immagine porta o è accompagnata da dati che la descrivono. Si raggruppano in tre famiglie.\n — Descrittivi\n Cosa rappresenta: titolo, autore, parole chiave, descrizione. Servono a capirla e a ritrovarla. — Amministrativi\n Provenienza e diritti: chi l'ha creata, quando e con quale licenza. Servono a gestirla legalmente. — Tecnici\n Come è fatta: risoluzione, spazio colore, dispositivo, versione del formato. Servono a controllo e conservazione."
+      },
+      {
+        "number": 4,
+        "text": "Che cosa sono i metadati Sono dati strutturati su una risorsa. Rendono esplicite informazioni che altrimenti resterebbero nel nome file o nella memoria di qualcuno. IMG Titolo Laboratorio di robotica Autore Giulia Rossi Data 2026-07-16 Diritti CC BY 4.0 Parole chiave robotica · scuola · laboratorio Tecnici 2400×1600 · sRGB · JPEG Regola: Un file senza contesto si può aprire oggi, ma potrebbe diventare impossibile da capire domani."
+      },
+      {
+        "number": 5,
+        "text": "A cosa servono: ritrovare\n La funzione principale dei metadati è far ritrovare, capire e gestire un'immagine nel tempo — molto meglio del solo nome file.\n — Ricerca per più criteri\n Autore, data, parole chiave, diritti: cerchi e filtri su chiavi diverse, non solo sul nome del file. — Più chiavi, un solo file\n Un buon nome aiuta, ma i metadati aggiungono etichette di ricerca senza duplicare l'immagine. — Recupero affidabile\n Con campi coerenti ritrovi l'immagine giusta anche fra migliaia, anni dopo."
+      },
+      {
+        "number": 6,
+        "text": "Qualità dei metadati\n I campi valgono solo se coerenti: applicati con regole comuni, non a sentimento.\n — Vocabolari condivisi\n Termini concordati, non sinonimi a caso: «robotica» sempre uguale, non «robot» o «automazione». — Date in formato uniforme\n Sempre lo stesso schema, per esempio 2026-07-16, così ordinamento e ricerca funzionano. — Nomi non ambigui\n Autore e titolo scritti in un solo modo: niente «G. Rossi» e «Giulia Rossi» mischiati."
+      },
+      {
+        "number": 7,
+        "text": "Metadati sensibili\n L'EXIF di una foto può contenere più di quanto pensi. Prima di pubblicare, valuta privacy e sicurezza.\n — Controlla la geolocalizzazione\n Le coordinate GPS dello scatto restano nel file: verifica prima di mettere online una foto. — Rimuovi il superfluo\n Modello del dispositivo, data, posizione: togli ciò che non serve a chi la riceve. — Conserva l'originale\n Tieni una copia archivistica completa; rimuovi i metadati solo dalla versione pubblicata."
+      },
+      {
+        "number": 8,
+        "text": "Raster e vettoriale\n Due modi opposti di memorizzare un'immagine, con conseguenze pratiche quando la ingrandisci.\n — Raster: griglia di pixel\n JPEG e PNG salvano un colore per pixel: ingranditi oltre misura, sgranano. — Vettoriale: forme\n SVG descrive curve, forme e testo, disegnati al momento: scala a qualsiasi dimensione. — Usi diversi, non qualità\n Nessuno dei due è «migliore»: dipende dal contenuto e dall'uso finale."
+      },
+      {
+        "number": 9,
+        "text": "JPEG, PNG e SVG\n Tre formati per tre lavori diversi. Non è una classifica di qualità: è questione di adattarsi al contenuto.\n — JPEG\n Fotografie e immagini con molte sfumature. Compressione con perdita: file compatto, ma niente trasparenza e bordi netti fragili. — PNG\n Screenshot, grafica nitida e trasparenze col canale alfa. Senza perdita: bordi puliti, ma pesante con le foto. — SVG\n Loghi e icone: forme in XML, indipendenti dalla risoluzione. Si ridimensiona senza perdere nitidezza ed è modificabile."
+      },
+      {
+        "number": 10,
+        "text": "Scegliere il formato Parti dal contenuto e dall’uso finale, non dall’abitudine. 01 Logo → SVG 02 Fotografia web → JPEG o formati moderni 03 Screenshot trasparente → PNG"
+      },
+      {
+        "number": 11,
+        "text": "Verifica: archivio e logo\n Perché i metadati aiutano a ritrovare un'immagine? Quale formato per un logo ridimensionabile?\n — Perché i metadati aiutano\n Rendono l'immagine ritrovabile per più criteri — autore, data, parole chiave — non solo per nome. — Quale formato per un logo\n SVG: è vettoriale, si ridimensiona senza perdere nitidezza. — Motiva entrambe\n Spiega il perché di ogni scelta, non solo la risposta."
+      },
+      {
+        "number": 12,
+        "text": "Punti da portare con sé Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo. PREMIS — Library of Congress ↗ (https://www.loc.gov/standards/premis/)SVG — W3C ↗ (https://www.w3.org/TR/SVG11/single-page.html) Prossimo → RW02.08 · Podcast e storytelling Francesco Antonio Binetti"
+      }
+    ]
+  },
+  {
+    "href": "rw05-01-podcast-storytelling.html",
+    "section": "Reti e Web",
+    "code": "RW05.01",
+    "title": "Podcast e storytelling digitale",
+    "description": "Strutture narrative, scrittura per l’ascolto, registrazione, montaggio e differenza fra normalizzazione di picco e loudness.",
+    "topics": "Podcast Storytelling",
+    "text": "Podcast e storytelling digitale · RW02.08\n=========================================\n\n--- Slide 1 ---\nPodcast e storytelling digitale\n Progettare una storia, registrare una voce e consegnare un audio coerente.\n\n\n\n\n\n\n\n\n\n analizzare · scegliere · documentare\n\n\n\n\n Francesco Antonio Binetti\n\n--- Slide 2 ---\nCosa vedremo\n\n\n 01\n\n Il racconto\n\n\n Il nucleo narrativo, pubblico e promessa, struttura lineare e non lineare.\n\n\n\n 02\n\n Scrivere e registrare\n\n\n Scrivere per l'ascolto, la scaletta di un podcast e il livello in registrazione.\n\n\n\n 03\n\n Montaggio e audio\n\n\n Il montaggio editoriale, picco contro loudness e la normalizzazione.\n\n--- Slide 3 ---\nDal messaggio all’esperienza\n Un contenuto digitale efficace coordina obiettivo, pubblico, struttura narrativa, voce, ritmo e interazione.\n\n\n 01\n Cosa deve capire il pubblico\n\n\n 02\n Cosa deve ricordare\n\n\n 03\n Cosa deve fare dopo\n\n--- Slide 4 ---\nIl nucleo narrativo\n Prima degli effetti definisci una trasformazione: una situazione iniziale cambia attraverso tensione, scelta o scoperta.\n\n\n 01\n Contesto\n\n\n 02\n Tensione\n\n\n 03\n Svolta\n\n\n 04\n Esito\n\n\n\n Regola: Prima degli effetti definisci quale cambiamento deve vivere e ricordare chi ascolta.\n\n--- Slide 5 ---\nPubblico e promessa\n La prima parte chiarisce perché vale la pena ascoltare e quale bisogno verrà soddisfatto.\n\n\n 01\n Domanda guida\n\n\n 02\n Beneficio concreto\n\n\n 03\n Tempo richiesto\n\n--- Slide 6 ---\nStruttura lineare\n Segue un ordine stabilito dall’autore. È adatta a spiegazioni progressive e racconti con forte causalità.\n\n\n 01\n Inizio\n\n\n 02\n Sviluppo\n\n\n 03\n Conclusione\n\n--- Slide 7 ---\nStruttura non lineare\n Permette salti temporali, percorsi o approfondimenti scelti dall’utente. È una tecnica possibile, non un obbligo universale.\n\n\n 01\n Flashback\n\n\n 02\n Rami interattivi\n\n\n 03\n Collegamenti contestuali\n\n--- Slide 8 ---\nQuando scegliere una struttura non lineare\n È utile quando il pubblico può esplorare, confrontare o scegliere un percorso; una spiegazione progressiva resta spesso più chiara in forma lineare.\n\n\n 01\n Esplorazione libera di un archivio\n\n\n 02\n Rami narrativi con scelte reali\n\n\n 03\n Percorsi diversi per bisogni diversi\n\n--- Slide 9 ---\nScrivere per l’ascolto\n Le frasi devono funzionare senza poter tornare indietro con gli occhi.\n\n\n 01\n Periodi brevi\n\n\n 02\n Una idea per frase\n\n\n 03\n Segnalazioni verbali della struttura\n\n--- Slide 10 ---\nScaletta di un podcast\n Una scaletta distribuisce tempo, funzione e responsabilità di ogni segmento prima della registrazione.\n 00:00 Aggancio Una domanda, una scena o una promessa concreta. 00:30 Contesto Chi parla, perché il tema conta, dove andremo. 02:00 Sviluppo Blocchi brevi, esempi e transizioni udibili. 08:00 Riepilogo Tre idee da ricordare senza riaprire nuovi temi. 09:00 Chiusura Invito all’azione e saluto riconoscibile.\n\n--- Slide 11 ---\nLivello in registrazione\n Registra con margine per evitare clipping; un picco tagliato non si recupera davvero in post-produzione.\n\n\n 01\n Controlla i passaggi più forti\n\n\n 02\n Evita il rosso sul meter\n\n\n 03\n Mantieni distanza costante\n\n--- Slide 12 ---\nMontaggio editoriale\n Taglia esitazioni inutili e ripetizioni, ma conserva respiri e pause che rendono naturale il discorso.\n\n\n 01\n Chiarezza\n\n\n 02\n Ritmo\n\n\n 03\n Continuità\n\n--- Slide 13 ---\nPicco e loudness non sono uguali\n Il picco misura un massimo istantaneo; la loudness descrive il livello percepito nel tempo. Due file con lo stesso picco possono sembrare diversi.\n Picco Il massimo istantaneo segnala il rischio tecnico di clipping. Non dice quanto forte sembra l’intero episodio. Loudness · LUFS La media percepita nel tempo aiuta a mantenere coerenti episodi e programmi diversi.\n\n--- Slide 14 ---\nNormalizzazione di picco\n Sposta il guadagno affinché il picco massimo raggiunga un valore obiettivo. Non uniforma automaticamente la percezione tra episodi.\n\n\n 01\n Agisce sul massimo istantaneo\n\n\n 02\n Modifica globale del livello\n\n\n 03\n Non elimina rumore né riverbero\n\n--- Slide 15 ---\nNormalizzazione della loudness\n Gli standard moderni come EBU R 128 misurano la loudness media e controllano separatamente il true peak.\n\n\n 01\n Coerenza percepita\n\n\n 02\n Target di distribuzione\n\n\n 03\n Limite tecnico dei picchi\n\n--- Slide 16 ---\nVerifica: racconta e consegna\n Spiega quando useresti una struttura non lineare e perché il solo picco non garantisce episodi percepiti allo stesso volume.\n\n\n 01\n Scelta narrativa motivata\n\n\n 02\n Loudness media vs massimo\n\n\n 03\n Controllo finale su più dispositivi\n\n--- Slide 17 ---\nUna buona storia si scrive anche con il silenzio.\n Progetta la promessa, registra con margine, monta per chiarezza e controlla insieme picchi e loudness percepita.\n\nEBU R 128 ↗ (https://tech.ebu.ch/publications/r128)\nEBU: Loudness ↗ (https://tech.ebu.ch/loudness/)\n\n\nProssimo → RW03.01 · Identità online\n",
+    "slides": [
+      {
+        "number": 1,
+        "text": "Podcast e storytelling digitale\n Progettare una storia, registrare una voce e consegnare un audio coerente.\n\n\n\n\n\n\n\n\n\n analizzare · scegliere · documentare\n\n\n\n\n Francesco Antonio Binetti"
+      },
+      {
+        "number": 2,
+        "text": "Cosa vedremo\n\n\n 01\n\n Il racconto\n\n\n Il nucleo narrativo, pubblico e promessa, struttura lineare e non lineare.\n\n\n\n 02\n\n Scrivere e registrare\n\n\n Scrivere per l'ascolto, la scaletta di un podcast e il livello in registrazione.\n\n\n\n 03\n\n Montaggio e audio\n\n\n Il montaggio editoriale, picco contro loudness e la normalizzazione."
+      },
+      {
+        "number": 3,
+        "text": "Dal messaggio all’esperienza\n Un contenuto digitale efficace coordina obiettivo, pubblico, struttura narrativa, voce, ritmo e interazione.\n\n\n 01\n Cosa deve capire il pubblico\n\n\n 02\n Cosa deve ricordare\n\n\n 03\n Cosa deve fare dopo"
+      },
+      {
+        "number": 4,
+        "text": "Il nucleo narrativo\n Prima degli effetti definisci una trasformazione: una situazione iniziale cambia attraverso tensione, scelta o scoperta.\n\n\n 01\n Contesto\n\n\n 02\n Tensione\n\n\n 03\n Svolta\n\n\n 04\n Esito\n\n\n\n Regola: Prima degli effetti definisci quale cambiamento deve vivere e ricordare chi ascolta."
+      },
+      {
+        "number": 5,
+        "text": "Pubblico e promessa\n La prima parte chiarisce perché vale la pena ascoltare e quale bisogno verrà soddisfatto.\n\n\n 01\n Domanda guida\n\n\n 02\n Beneficio concreto\n\n\n 03\n Tempo richiesto"
+      },
+      {
+        "number": 6,
+        "text": "Struttura lineare\n Segue un ordine stabilito dall’autore. È adatta a spiegazioni progressive e racconti con forte causalità.\n\n\n 01\n Inizio\n\n\n 02\n Sviluppo\n\n\n 03\n Conclusione"
+      },
+      {
+        "number": 7,
+        "text": "Struttura non lineare\n Permette salti temporali, percorsi o approfondimenti scelti dall’utente. È una tecnica possibile, non un obbligo universale.\n\n\n 01\n Flashback\n\n\n 02\n Rami interattivi\n\n\n 03\n Collegamenti contestuali"
+      },
+      {
+        "number": 8,
+        "text": "Quando scegliere una struttura non lineare\n È utile quando il pubblico può esplorare, confrontare o scegliere un percorso; una spiegazione progressiva resta spesso più chiara in forma lineare.\n\n\n 01\n Esplorazione libera di un archivio\n\n\n 02\n Rami narrativi con scelte reali\n\n\n 03\n Percorsi diversi per bisogni diversi"
+      },
+      {
+        "number": 9,
+        "text": "Scrivere per l’ascolto\n Le frasi devono funzionare senza poter tornare indietro con gli occhi.\n\n\n 01\n Periodi brevi\n\n\n 02\n Una idea per frase\n\n\n 03\n Segnalazioni verbali della struttura"
+      },
+      {
+        "number": 10,
+        "text": "Scaletta di un podcast\n Una scaletta distribuisce tempo, funzione e responsabilità di ogni segmento prima della registrazione.\n 00:00 Aggancio Una domanda, una scena o una promessa concreta. 00:30 Contesto Chi parla, perché il tema conta, dove andremo. 02:00 Sviluppo Blocchi brevi, esempi e transizioni udibili. 08:00 Riepilogo Tre idee da ricordare senza riaprire nuovi temi. 09:00 Chiusura Invito all’azione e saluto riconoscibile."
+      },
+      {
+        "number": 11,
+        "text": "Livello in registrazione\n Registra con margine per evitare clipping; un picco tagliato non si recupera davvero in post-produzione.\n\n\n 01\n Controlla i passaggi più forti\n\n\n 02\n Evita il rosso sul meter\n\n\n 03\n Mantieni distanza costante"
+      },
+      {
+        "number": 12,
+        "text": "Montaggio editoriale\n Taglia esitazioni inutili e ripetizioni, ma conserva respiri e pause che rendono naturale il discorso.\n\n\n 01\n Chiarezza\n\n\n 02\n Ritmo\n\n\n 03\n Continuità"
+      },
+      {
+        "number": 13,
+        "text": "Picco e loudness non sono uguali\n Il picco misura un massimo istantaneo; la loudness descrive il livello percepito nel tempo. Due file con lo stesso picco possono sembrare diversi.\n Picco Il massimo istantaneo segnala il rischio tecnico di clipping. Non dice quanto forte sembra l’intero episodio. Loudness · LUFS La media percepita nel tempo aiuta a mantenere coerenti episodi e programmi diversi."
+      },
+      {
+        "number": 14,
+        "text": "Normalizzazione di picco\n Sposta il guadagno affinché il picco massimo raggiunga un valore obiettivo. Non uniforma automaticamente la percezione tra episodi.\n\n\n 01\n Agisce sul massimo istantaneo\n\n\n 02\n Modifica globale del livello\n\n\n 03\n Non elimina rumore né riverbero"
+      },
+      {
+        "number": 15,
+        "text": "Normalizzazione della loudness\n Gli standard moderni come EBU R 128 misurano la loudness media e controllano separatamente il true peak.\n\n\n 01\n Coerenza percepita\n\n\n 02\n Target di distribuzione\n\n\n 03\n Limite tecnico dei picchi"
+      },
+      {
+        "number": 16,
+        "text": "Verifica: racconta e consegna\n Spiega quando useresti una struttura non lineare e perché il solo picco non garantisce episodi percepiti allo stesso volume.\n\n\n 01\n Scelta narrativa motivata\n\n\n 02\n Loudness media vs massimo\n\n\n 03\n Controllo finale su più dispositivi"
+      },
+      {
+        "number": 17,
+        "text": "Una buona storia si scrive anche con il silenzio.\n Progetta la promessa, registra con margine, monta per chiarezza e controlla insieme picchi e loudness percepita.\n\nEBU R 128 ↗ (https://tech.ebu.ch/publications/r128)\nEBU: Loudness ↗ (https://tech.ebu.ch/loudness/)\n\n\nProssimo → RW03.01 · Identità online"
       }
     ]
   },

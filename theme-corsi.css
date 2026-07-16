@@ -315,6 +315,7 @@ em.sky,.accent{color:var(--accent-2) !important;}
 
 .closing h1,.closing h2,
 .closing .h-mega,.closing .h-big,.closing .h-sec,.closing .h2{
+  order:1;
   max-width:1480px;
   margin:0 auto !important;
   color:#fff !important;
@@ -330,6 +331,7 @@ em.sky,.accent{color:var(--accent-2) !important;}
 .closing .lead,.closing .body,
 .closing-inner > p:not(:has(>a)),
 .closing-inner > .center > p:not(:has(>a)){
+  order:2;
   width:100%;
   max-width:1180px !important;
   margin:28px auto 0 !important;
@@ -340,11 +342,18 @@ em.sky,.accent{color:var(--accent-2) !important;}
 .closing .chips,
 .closing p:has(>a.chip),
 .closing .closing-actions{
+  order:4;
   display:flex !important;
   align-items:center;
   justify-content:center !important;
   gap:16px;
   margin:0 !important;
+}
+
+/* Closing slides expose one action only; legacy status badges are metadata,
+   not navigation, and would otherwise look like a second button. */
+.closing .chips:not(:has(a)){
+  display:none !important;
 }
 
 .closing a.chip{
@@ -360,6 +369,83 @@ em.sky,.accent{color:var(--accent-2) !important;}
   box-shadow:none !important;
   text-decoration:none !important;
   white-space:nowrap;
+}
+
+/* Sources always sit between the summary and the single primary action. */
+.closing .sources,
+.closing .source-mini,
+.closing [data-source-list="true"]{
+  order:3;
+  width:100%;
+  max-width:1180px;
+  margin:30px auto 0 !important;
+  text-align:center !important;
+}
+
+.closing .sources,
+.closing [data-source-list="true"] > div:last-child{
+  display:flex !important;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:10px 30px !important;
+}
+
+.closing .sources a,
+.closing .source-mini a,
+.closing [data-source-list="true"] a{
+  color:rgba(255,255,255,.76) !important;
+  font-family:var(--font-mono,"Space Mono",monospace) !important;
+  font-size:17px !important;
+  line-height:1.35 !important;
+  text-align:center !important;
+  text-underline-offset:4px;
+}
+
+/* Primary closing action: translucent shared geometry for both current and
+   legacy deck markup. */
+.closing .closing-actions a,
+.closing .closing-actions a.closing-primary,
+.closing p:has(>a.chip) > a.chip,
+.closing .chips > a.chip{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:auto !important;
+  min-width:440px;
+  max-width:1040px;
+  min-height:68px;
+  margin:42px 0 0 !important;
+  padding:18px 34px !important;
+  background:rgba(255,255,255,.10) !important;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.34) !important;
+  border-radius:999px !important;
+  box-shadow:0 12px 32px rgba(0,0,0,.12) !important;
+  font-family:var(--font-body,"Space Grotesk",sans-serif) !important;
+  font-size:23px !important;
+  font-weight:700 !important;
+  line-height:1.25 !important;
+  letter-spacing:0 !important;
+  text-align:center !important;
+  text-decoration:none !important;
+  text-wrap:balance;
+  white-space:normal !important;
+  transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease;
+}
+
+.closing .closing-actions a:hover,
+.closing .closing-actions a:focus-visible,
+.closing p:has(>a.chip) > a.chip:hover,
+.closing p:has(>a.chip) > a.chip:focus-visible,
+.closing .chips > a.chip:hover,
+.closing .chips > a.chip:focus-visible{
+  background:rgba(255,255,255,.18) !important;
+  border-color:rgba(255,255,255,.58) !important;
+  box-shadow:0 16px 38px rgba(0,0,0,.16) !important;
+  transform:translateY(-2px);
+  outline:3px solid rgba(255,255,255,.88);
+  outline-offset:5px;
 }
 
 .closing:has(a[href]:not([href*="indice"])) a[href*="indice"]{

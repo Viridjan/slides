@@ -364,7 +364,7 @@ Navigation chain: hs01 → hs02 → hs03 → hs04 → hs05
 
 ### Reti e Web
 
-Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw02-01 → rw02-02 → rw02-03 → rw02-04 → rw02-05 → rw02-06 → rw02-07 → rw02-08 → rw03-01 → rw03-02 → rw03-03 → rw03-04 → rw03-05
+Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw02-01 → rw02-02 → rw02-03 → rw02-04 → rw03-01 → rw03-02 → rw03-03 → rw03-04 → rw03-05 → rw04-01 → rw04-02 → rw04-03 → rw05-01
 
 | File | Title |
 | --- | --- |
@@ -377,15 +377,15 @@ Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw
 | `rw01-05-affidabilita.html` | Navigare con Spirito Critico |
 | `rw02-03-contenuti.html` | Gestire e Archiviare Contenuti |
 | `rw02-04-collaborazione-digitale.html` | Collaborazione Digitale |
-| `rw02-05-licenze-oer.html` | Licenze aperte e OER |
-| `rw02-06-accessibilita-immagini.html` | Accessibilità delle immagini |
-| `rw02-07-metadati-formati.html` | Metadati e formati |
-| `rw02-08-podcast-storytelling.html` | Podcast e storytelling |
 | `rw03-01-identita.html` | La tua identità online |
 | `rw03-02-societa.html` | Tecnologia e Società |
 | `rw03-03-vr-ar.html` | VR, AR e Metaverso |
 | `rw03-04-branding.html` | Farsi riconoscere |
 | `rw03-05-social.html` | I social giusti |
+| `rw04-01-licenze-oer.html` | Licenze aperte e OER |
+| `rw04-02-accessibilita-immagini.html` | Accessibilità delle immagini |
+| `rw04-03-metadati-formati.html` | Metadati e formati |
+| `rw05-01-podcast-storytelling.html` | Podcast e storytelling (RW05, in attesa di una sezione multimediale dedicata) |
 
 ### Sicurezza Digitale
 

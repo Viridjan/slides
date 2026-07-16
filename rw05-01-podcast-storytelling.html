@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Iterazione e cicli · PR01.07</title>
+<title>Podcast e storytelling digitale · RW05.01</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -23,13 +23,13 @@
 .closing-inner{max-width:1400px}.closing .h-mega{font-size:90px;line-height:.96}.closing .lead{max-width:1100px}.closing .source-mini{margin-top:30px;font:18px/1.5 var(--font-mono)}.closing .source-mini a{color:var(--paper)}
 </style>
 </head>
-<body class="course-sc">
+<body class="course-rw">
 <div class="deck-viewport">
 <main class="deck-stage">
 <section class="slide title-slide">
 <div class="title-left">
-<div class="h-mega reveal">Iterazione e cicli</div>
-<p class="lead reveal">Ripetere istruzioni con una condizione, controllare lo stato e dimostrare la terminazione.</p>
+<div class="h-mega reveal">Podcast e storytelling digitale</div>
+<p class="lead reveal">Progettare una storia, registrare una voce e consegnare un audio coerente.</p>
 </div>
 <div class="title-right">
 <div class="illu">
@@ -52,25 +52,25 @@
 <div class="agenda-item" style="align-items:flex-start;padding:16px 4px;">
 <span class="n">01</span>
 <div>
-<b class="t">Che cos'è un ciclo</b>
+<b class="t">Il racconto</b>
 <br>
-<span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Dalla ripetizione al ciclo, le sue parti e il ciclo condizionale.</span>
+<span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Il nucleo narrativo, pubblico e promessa, struttura lineare e non lineare.</span>
 </div>
 </div>
 <div class="agenda-item" style="align-items:flex-start;padding:16px 4px;">
 <span class="n">02</span>
 <div>
-<b class="t">Scrivere e tracciare</b>
+<b class="t">Scrivere e registrare</b>
 <br>
-<span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Lo pseudocodice di un while, tracciare lo stato e il rischio del loop infinito.</span>
+<span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Scrivere per l'ascolto, la scaletta di un podcast e il livello in registrazione.</span>
 </div>
 </div>
 <div class="agenda-item" style="align-items:flex-start;padding:16px 4px;">
 <span class="n">03</span>
 <div>
-<b class="t">Costruire risultati</b>
+<b class="t">Montaggio e audio</b>
 <br>
-<span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Accumulatore e contatore, e progettare un ciclo che si ferma.</span>
+<span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Il montaggio editoriale, picco contro loudness e la normalizzazione.</span>
 </div>
 </div>
 </div>
@@ -78,140 +78,262 @@
 </div>
 </section>
 <section class="slide">
-<h2 class="h-sec reveal">Dalla ripetizione al ciclo</h2>
-<p class="lead reveal">Un’iterazione è l’esecuzione ripetuta di un blocco di istruzioni. Il ciclo definisce che cosa ripetere e quando fermarsi.</p>
+<h2 class="h-sec reveal">Dal messaggio all’esperienza</h2>
+<p class="lead reveal">Un contenuto digitale efficace coordina obiettivo, pubblico, struttura narrativa, voce, ritmo e interazione.</p>
 <div class="grid">
 <div class="card agenda-item reveal">
 <b>01</b>
-<p>Blocco di istruzioni ripetuto</p>
+<p>Cosa deve capire il pubblico</p>
 </div>
 <div class="card agenda-item reveal">
 <b>02</b>
-<p>Blocco ripetuto</p>
+<p>Cosa deve ricordare</p>
 </div>
 <div class="card agenda-item reveal">
 <b>03</b>
-<p>Regola di avanzamento</p>
+<p>Cosa deve fare dopo</p>
 </div>
 </div>
 <div class="page-num">
 </div>
 </section>
 <section class="slide">
-<h2 class="h-sec reveal">Le parti di un ciclo</h2>
-<p class="lead reveal">Per ragionare senza dipendere dal linguaggio individua stato iniziale, condizione, corpo e aggiornamento.</p>
-<div class="loop-ring reveal"><div class="loop-node"><b>01</b><h3>Inizializza</h3><p>Imposta lo stato di partenza: <code>i ← 0</code>.</p></div><div class="loop-node"><b>02</b><h3>Verifica</h3><p>La condizione <code>i &lt; 5</code> è ancora vera?</p></div><div class="loop-node"><b>03</b><h3>Esegui</h3><p>Applica le istruzioni previste dal corpo.</p></div><div class="loop-node"><b>04</b><h3>Aggiorna</h3><p>Cambia lo stato: <code>i ← i + 1</code>, poi torna al test.</p></div></div>
-<div class="analogy reveal">
-<span class="big">Regola:</span> Ogni ciclo deve modificare lo stato e avvicinarsi alla condizione di uscita.</div>
-<div class="page-num">
-</div>
-</section>
-<section class="slide">
-<h2 class="h-sec reveal">Ciclo condizionale</h2>
-<p class="lead reveal">Quando non sai quante ripetizioni serviranno, continua finché una condizione resta vera o fino a un evento.</p>
+<h2 class="h-sec reveal">Il nucleo narrativo</h2>
+<p class="lead reveal">Prima degli effetti definisci una trasformazione: una situazione iniziale cambia attraverso tensione, scelta o scoperta.</p>
 <div class="grid">
 <div class="card reveal">
 <b>01</b>
-<p>Finché ci sono dati</p>
+<p>Contesto</p>
 </div>
 <div class="card reveal">
 <b>02</b>
-<p>Finché la password è errata</p>
+<p>Tensione</p>
 </div>
 <div class="card reveal">
 <b>03</b>
-<p>Finché non arriva il segnale</p>
-</div>
-</div>
-<div class="page-num">
-</div>
-</section>
-<section class="slide">
-<h2 class="h-sec reveal">Pseudocodice di un while</h2>
-<p class="lead reveal">Lo pseudocodice rende visibili condizione e aggiornamento prima della sintassi del linguaggio.</p>
-<div class="grid">
-<div class="card reveal">
-<b>01</b>
-<p>contatore ← 0</p>
-</div>
-<div class="card reveal">
-<b>02</b>
-<p>MENTRE contatore < 5</p>
-</div>
-<div class="card reveal">
-<b>03</b>
-<p>stampa e incrementa</p>
-</div>
-</div>
-<div class="page-num">
-</div>
-</section>
-<section class="slide">
-<h2 class="h-sec reveal">Tracciare lo stato</h2>
-<p class="lead reveal">Una tabella di traccia mostra il valore delle variabili a ogni iterazione e aiuta a individuare errori logici.</p>
-<div class="trace reveal"><div class="head">Passo</div><div class="head">i prima</div><div class="head">i &lt; 5?</div><div class="head">Output</div><div class="head">i dopo</div><div>1</div><div>0</div><div>vero</div><div>0</div><div>1</div><div>2</div><div>1</div><div>vero</div><div>1</div><div>2</div><div>3</div><div>2</div><div>vero</div><div>2</div><div>3</div><div>…</div><div>5</div><div>falso</div><div>—</div><div>stop</div></div>
-<div class="page-num">
-</div>
-</section>
-<section class="slide">
-<h2 class="h-sec reveal">Loop infinito</h2>
-<p class="lead reveal">Se la condizione resta sempre vera o lo stato non avanza verso l’uscita, il programma non termina.</p>
-<div class="grid">
-<div class="card reveal">
-<b>01</b>
-<p>Aggiornamento mancante</p>
-</div>
-<div class="card reveal">
-<b>02</b>
-<p>Condizione impossibile</p>
-</div>
-<div class="card reveal">
-<b>03</b>
-<p>Dato esterno mai ricevuto</p>
-</div>
-</div>
-<div class="page-num">
-</div>
-</section>
-<section class="slide">
-<h2 class="h-sec reveal">Accumulatore e contatore</h2>
-<p class="lead reveal">Il contatore misura quante volte; l’accumulatore combina progressivamente valori, per esempio una somma.</p>
-<div class="grid">
-<div class="card reveal">
-<b>01</b>
-<p>conteggio ← conteggio + 1</p>
-</div>
-<div class="card reveal">
-<b>02</b>
-<p>totale ← totale + valore</p>
-</div>
-<div class="card reveal">
-<b>03</b>
-<p>Ruoli diversi</p>
-</div>
-</div>
-<div class="page-num">
-</div>
-</section>
-<section class="slide">
-<h2 class="h-sec reveal">Verifica: progetta il ciclo</h2>
-<p class="lead reveal">Descrivi un ciclo che legge cinque prezzi e calcola il totale. Indica inizializzazione, condizione, corpo e aggiornamento.</p>
-<div class="grid">
-<div class="card reveal">
-<b>01</b>
-<p>totale iniziale 0</p>
-</div>
-<div class="card reveal">
-<b>02</b>
-<p>cinque iterazioni</p>
-</div>
-<div class="card reveal">
-<b>03</b>
-<p>somma ogni prezzo</p>
+<p>Svolta</p>
 </div>
 <div class="card reveal">
 <b>04</b>
-<p>incrementa il contatore</p>
+<p>Esito</p>
+</div>
+</div>
+<div class="analogy reveal">
+<span class="big">Regola:</span> Prima degli effetti definisci quale cambiamento deve vivere e ricordare chi ascolta.</div>
+<div class="page-num">
+</div>
+</section>
+<section class="slide">
+<h2 class="h-sec reveal">Pubblico e promessa</h2>
+<p class="lead reveal">La prima parte chiarisce perché vale la pena ascoltare e quale bisogno verrà soddisfatto.</p>
+<div class="grid">
+<div class="card reveal">
+<b>01</b>
+<p>Domanda guida</p>
+</div>
+<div class="card reveal">
+<b>02</b>
+<p>Beneficio concreto</p>
+</div>
+<div class="card reveal">
+<b>03</b>
+<p>Tempo richiesto</p>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+<section class="slide">
+<h2 class="h-sec reveal">Struttura lineare</h2>
+<p class="lead reveal">Segue un ordine stabilito dall’autore. È adatta a spiegazioni progressive e racconti con forte causalità.</p>
+<div class="grid">
+<div class="card reveal">
+<b>01</b>
+<p>Inizio</p>
+</div>
+<div class="card reveal">
+<b>02</b>
+<p>Sviluppo</p>
+</div>
+<div class="card reveal">
+<b>03</b>
+<p>Conclusione</p>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+<section class="slide">
+<h2 class="h-sec reveal">Struttura non lineare</h2>
+<p class="lead reveal">Permette salti temporali, percorsi o approfondimenti scelti dall’utente. È una tecnica possibile, non un obbligo universale.</p>
+<div class="grid">
+<div class="card reveal">
+<b>01</b>
+<p>Flashback</p>
+</div>
+<div class="card reveal">
+<b>02</b>
+<p>Rami interattivi</p>
+</div>
+<div class="card reveal">
+<b>03</b>
+<p>Collegamenti contestuali</p>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+
+<section class="slide">
+<h2 class="h-sec reveal">Quando scegliere una struttura non lineare</h2>
+<p class="lead reveal">È utile quando il pubblico può esplorare, confrontare o scegliere un percorso; una spiegazione progressiva resta spesso più chiara in forma lineare.</p>
+<div class="grid">
+<div class="card reveal">
+<b>01</b>
+<p>Esplorazione libera di un archivio</p>
+</div>
+<div class="card reveal">
+<b>02</b>
+<p>Rami narrativi con scelte reali</p>
+</div>
+<div class="card reveal">
+<b>03</b>
+<p>Percorsi diversi per bisogni diversi</p>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+<section class="slide">
+<h2 class="h-sec reveal">Scrivere per l’ascolto</h2>
+<p class="lead reveal">Le frasi devono funzionare senza poter tornare indietro con gli occhi.</p>
+<div class="grid">
+<div class="card reveal">
+<b>01</b>
+<p>Periodi brevi</p>
+</div>
+<div class="card reveal">
+<b>02</b>
+<p>Una idea per frase</p>
+</div>
+<div class="card reveal">
+<b>03</b>
+<p>Segnalazioni verbali della struttura</p>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+<section class="slide">
+<h2 class="h-sec reveal">Scaletta di un podcast</h2>
+<p class="lead reveal">Una scaletta distribuisce tempo, funzione e responsabilità di ogni segmento prima della registrazione.</p>
+<div class="timeline reveal"><div class="beat"><b>00:00</b><h3>Aggancio</h3><p>Una domanda, una scena o una promessa concreta.</p></div><div class="beat"><b>00:30</b><h3>Contesto</h3><p>Chi parla, perché il tema conta, dove andremo.</p></div><div class="beat"><b>02:00</b><h3>Sviluppo</h3><p>Blocchi brevi, esempi e transizioni udibili.</p></div><div class="beat"><b>08:00</b><h3>Riepilogo</h3><p>Tre idee da ricordare senza riaprire nuovi temi.</p></div><div class="beat"><b>09:00</b><h3>Chiusura</h3><p>Invito all’azione e saluto riconoscibile.</p></div></div>
+<div class="page-num">
+</div>
+</section>
+<section class="slide">
+<h2 class="h-sec reveal">Livello in registrazione</h2>
+<p class="lead reveal">Registra con margine per evitare clipping; un picco tagliato non si recupera davvero in post-produzione.</p>
+<div class="grid">
+<div class="card reveal">
+<b>01</b>
+<p>Controlla i passaggi più forti</p>
+</div>
+<div class="card reveal">
+<b>02</b>
+<p>Evita il rosso sul meter</p>
+</div>
+<div class="card reveal">
+<b>03</b>
+<p>Mantieni distanza costante</p>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+<section class="slide">
+<h2 class="h-sec reveal">Montaggio editoriale</h2>
+<p class="lead reveal">Taglia esitazioni inutili e ripetizioni, ma conserva respiri e pause che rendono naturale il discorso.</p>
+<div class="grid">
+<div class="card reveal">
+<b>01</b>
+<p>Chiarezza</p>
+</div>
+<div class="card reveal">
+<b>02</b>
+<p>Ritmo</p>
+</div>
+<div class="card reveal">
+<b>03</b>
+<p>Continuità</p>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+<section class="slide">
+<h2 class="h-sec reveal">Picco e loudness non sono uguali</h2>
+<p class="lead reveal">Il picco misura un massimo istantaneo; la loudness descrive il livello percepito nel tempo. Due file con lo stesso picco possono sembrare diversi.</p>
+<div class="meter-board reveal"><div class="meter-card"><h3>Picco</h3><div class="meter" style="--pos:91%"></div><p>Il massimo istantaneo segnala il rischio tecnico di clipping. Non dice quanto forte sembra l’intero episodio.</p></div><div class="meter-card"><h3>Loudness · LUFS</h3><div class="meter" style="--pos:67%"></div><p>La media percepita nel tempo aiuta a mantenere coerenti episodi e programmi diversi.</p></div></div>
+<div class="page-num">
+</div>
+</section>
+<section class="slide">
+<h2 class="h-sec reveal">Normalizzazione di picco</h2>
+<p class="lead reveal">Sposta il guadagno affinché il picco massimo raggiunga un valore obiettivo. Non uniforma automaticamente la percezione tra episodi.</p>
+<div class="grid">
+<div class="card reveal">
+<b>01</b>
+<p>Agisce sul massimo istantaneo</p>
+</div>
+<div class="card reveal">
+<b>02</b>
+<p>Modifica globale del livello</p>
+</div>
+<div class="card reveal">
+<b>03</b>
+<p>Non elimina rumore né riverbero</p>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+<section class="slide">
+<h2 class="h-sec reveal">Normalizzazione della loudness</h2>
+<p class="lead reveal">Gli standard moderni come EBU R 128 misurano la loudness media e controllano separatamente il true peak.</p>
+<div class="grid">
+<div class="card reveal">
+<b>01</b>
+<p>Coerenza percepita</p>
+</div>
+<div class="card reveal">
+<b>02</b>
+<p>Target di distribuzione</p>
+</div>
+<div class="card reveal">
+<b>03</b>
+<p>Limite tecnico dei picchi</p>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+
+<section class="slide">
+<h2 class="h-sec reveal">Verifica: racconta e consegna</h2>
+<p class="lead reveal">Spiega quando useresti una struttura non lineare e perché il solo picco non garantisce episodi percepiti allo stesso volume.</p>
+<div class="grid">
+<div class="card reveal">
+<b>01</b>
+<p>Scelta narrativa motivata</p>
+</div>
+<div class="card reveal">
+<b>02</b>
+<p>Loudness media vs massimo</p>
+</div>
+<div class="card reveal">
+<b>03</b>
+<p>Controllo finale su più dispositivi</p>
 </div>
 </div>
 <div class="page-num">
@@ -219,14 +341,14 @@
 </section>
 <section class="slide closing">
 <div class="closing-inner">
-<h2 class="h-mega reveal">Un ciclo utile avanza verso una fine.</h2>
-<p class="lead reveal">Definisci stato, condizione, corpo e aggiornamento; poi traccia i valori per dimostrare che il risultato è corretto.</p>
+<h2 class="h-mega reveal">Una buona storia si scrive anche con il silenzio.</h2>
+<p class="lead reveal">Progetta la promessa, registra con margine, monta per chiarezza e controlla insieme picchi e loudness percepita.</p>
 <div class="sources">
-<a href="https://docs.python.org/3/reference/compound_stmts.html#the-while-statement" target="_blank" rel="noopener noreferrer">Python: while ↗</a>
-<a href="https://docs.python.org/3/tutorial/controlflow.html#for-statements" target="_blank" rel="noopener noreferrer">Python: for ↗</a>
+<a href="https://tech.ebu.ch/publications/r128" target="_blank" rel="noopener noreferrer">EBU R 128 ↗</a>
+<a href="https://tech.ebu.ch/loudness/" target="_blank" rel="noopener noreferrer">EBU: Loudness ↗</a>
 </div>
 <div class="closing-actions">
-<a class="chip closing-primary" href="pr02-01-introduzione.html">Prossimo → PR02.01 · Introduzione a Scratch</a>
+<a class="chip closing-primary" href="00-indice.html">Torna all’indice</a>
 </div>
 </div>
 <div class="page-num">

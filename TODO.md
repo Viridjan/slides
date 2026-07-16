@@ -77,3 +77,10 @@ Le espansioni indicate nel vecchio TODO sono coperte dai deck attuali:
 Le integrazioni provenienti dal programma sono documentate in
 `proposte-merge-programma/`; le tabelle in quei file segnano gli argomenti come
 aggiunti o gia presenti.
+
+## Da fare
+
+- **Categoria multimediale dedicata.** `rw05-01-podcast-storytelling.html` è
+  parcheggiato in RW05 in attesa di una sezione ad hoc per i contenuti
+  multimediali (registrazione audio, montaggio, mixaggio, normalizzazione,
+  loudness). Quando la sezione esiste, spostarci il deck e rinumerarlo.
