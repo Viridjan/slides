@@ -134,19 +134,22 @@ mentre i &lt; 5:
 
 --- Slide 9 ---
 Accumulatore e contatore
- Il contatore misura quante volte; l’accumulatore combina progressivamente valori, per esempio una somma.
+ Due variabili che si aggiornano a ogni giro del ciclo: una conta quante volte, l'altra costruisce un risultato. Insieme rispondono a quasi ogni domanda su una serie di dati.
 
+ — Il contatore
+ Conta quante volte succede qualcosa. Parte da 0 e a ogni giro fa conteggio ← conteggio + 1 . Ti dice il «quanti». — L'accumulatore
+ Costruisce un risultato pezzo dopo pezzo. Parte da 0 e a ogni giro fa totale ← totale + valore . Ti dà il «quanto». — Ruoli diversi
+ Il contatore avanza sempre di 1; l'accumulatore somma il valore letto, che cambia ogni volta. Spesso lavorano insieme nello stesso ciclo.
+ # media dei voti: contatore + accumulatore
+conteggio = 0
+totale = 0
+per ogni voto in voti:
+ conteggio = conteggio + 1
+ totale = totale + voto
 
- 01
- conteggio ← conteggio + 1
+media = totale / conteggio
 
-
- 02
- totale ← totale + valore
-
-
- 03
- Ruoli diversi
+ Regola: inizializza sempre contatore e accumulatore prima del ciclo, non dentro, o riparti da zero a ogni giro.
 
 --- Slide 10 ---
 Verifica: progetta il ciclo

@@ -174,23 +174,20 @@ mentre i &lt; 5:
 </section>
 <section class="slide">
 <h2 class="h-sec reveal">Accumulatore e contatore</h2>
-<p class="lead reveal">Il contatore misura quante volte; l’accumulatore combina progressivamente valori, per esempio una somma.</p>
-<div class="grid">
-<div class="card reveal">
-<b>01</b>
-<p>conteggio ← conteggio + 1</p>
+<p class="lead reveal d1">Due variabili che si aggiornano a ogni giro del ciclo: una conta quante volte, l'altra costruisce un risultato. Insieme rispondono a quasi ogni domanda su una serie di dati.</p>
+<div class="reveal d2" style="display:grid;grid-template-columns:1.05fr .95fr;gap:44px;margin-top:22px;align-items:start;">
+<div style="display:flex;flex-direction:column;gap:10px;"><div style="display:flex;gap:20px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 2px;"><span style="font-family:var(--font-display);font-weight:900;font-size:34px;color:var(--red);min-width:38px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:27px;color:var(--ink);line-height:1.1;">Il contatore</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Conta quante volte succede qualcosa. Parte da 0 e a ogni giro fa <code>conteggio ← conteggio + 1</code>. Ti dice il «quanti».</span></div></div><div style="display:flex;gap:20px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 2px;"><span style="font-family:var(--font-display);font-weight:900;font-size:34px;color:var(--red);min-width:38px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:27px;color:var(--ink);line-height:1.1;">L'accumulatore</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Costruisce un risultato pezzo dopo pezzo. Parte da 0 e a ogni giro fa <code>totale ← totale + valore</code>. Ti dà il «quanto».</span></div></div><div style="display:flex;gap:20px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 2px;"><span style="font-family:var(--font-display);font-weight:900;font-size:34px;color:var(--red);min-width:38px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:27px;color:var(--ink);line-height:1.1;">Ruoli diversi</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Il contatore avanza sempre di 1; l'accumulatore somma il valore letto, che cambia ogni volta. Spesso lavorano insieme nello stesso ciclo.</span></div></div></div>
+<div style="background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:19px;line-height:1.5;border-radius:14px;padding:22px 24px;white-space:pre;"><span style="color:#9ad0c0;"># media dei voti: contatore + accumulatore</span>
+conteggio = 0
+totale = 0
+per ogni voto in voti:
+    conteggio = conteggio + 1
+    totale = totale + voto
+
+media = totale / conteggio</div>
 </div>
-<div class="card reveal">
-<b>02</b>
-<p>totale ← totale + valore</p>
-</div>
-<div class="card reveal">
-<b>03</b>
-<p>Ruoli diversi</p>
-</div>
-</div>
-<div class="page-num">
-</div>
+<div class="analogy reveal d3" style="margin-top:22px;"><span class="big">Regola:</span> inizializza sempre contatore e accumulatore <b>prima</b> del ciclo, non dentro, o riparti da zero a ogni giro.</div>
+<div class="page-num"></div>
 </section>
 <section class="slide">
 <h2 class="h-sec reveal">Verifica: progetta il ciclo</h2>
