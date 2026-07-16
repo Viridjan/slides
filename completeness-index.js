@@ -99,5 +99,6 @@ window.COMPLETENESS = {
   "su03-15-google-apps-script.html": 3,
   "su03-16-segmentazioni.html": 3,
   "su03-17-collegamenti-fogli.html": 3,
+  "su03-18-oltre-il-foglio.html": 4,
   "su04-01-presentazioni.html": 5
 };

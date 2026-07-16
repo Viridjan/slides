@@ -66,6 +66,7 @@ window.QUALITY_INDEX = {
   "su03-15-google-apps-script.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "su03-16-segmentazioni.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "su03-17-collegamenti-fogli.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
+  "su03-18-oltre-il-foglio.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "sd01-introduzione.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "sd02-minacce.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "sd03-privacy.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
