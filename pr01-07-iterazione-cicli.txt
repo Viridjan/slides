@@ -113,19 +113,24 @@ Tracciare lo stato
 
 --- Slide 8 ---
 Loop infinito
- Se la condizione resta sempre vera o lo stato non avanza verso l’uscita, il programma non termina.
+ Un ciclo che non finisce mai blocca il programma. Succede quando la condizione resta sempre vera o lo stato non si avvicina all'uscita.
 
+ — Aggiornamento mancante
+ Il contatore non cambia mai: i resta 0 e i &lt; 5 è sempre vero. Manca la riga che avanza lo stato — è l'errore più comune. — Condizione impossibile
+ Il test non può mai diventare falso: i &gt;= 0 , con i che cresce, resta vero per sempre. La condizione è scritta male. — Dato esterno mai ricevuto
+ Il ciclo aspetta un input o una risposta che non arriva, e resta in attesa all'infinito senza mai proseguire.
+ # manca l'aggiornamento: gira all'infinito
+i = 0
+mentre i &lt; 5:
+ stampa(i)
 
- 01
- Aggiornamento mancante
+ # corretto: i avanza verso l'uscita
+i = 0
+mentre i &lt; 5:
+ stampa(i)
+ i = i + 1
 
-
- 02
- Condizione impossibile
-
-
- 03
- Dato esterno mai ricevuto
+ Regola: prima di lanciare un ciclo, individua la riga che lo avvicina all'uscita. Se non c'è, è un loop infinito.
 
 --- Slide 9 ---
 Accumulatore e contatore

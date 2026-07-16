@@ -155,23 +155,22 @@
 </section>
 <section class="slide">
 <h2 class="h-sec reveal">Loop infinito</h2>
-<p class="lead reveal">Se la condizione resta sempre vera o lo stato non avanza verso l’uscita, il programma non termina.</p>
-<div class="grid">
-<div class="card reveal">
-<b>01</b>
-<p>Aggiornamento mancante</p>
+<p class="lead reveal d1">Un ciclo che non finisce mai blocca il programma. Succede quando la condizione resta sempre vera o lo stato non si avvicina all'uscita.</p>
+<div class="reveal d2" style="display:grid;grid-template-columns:1.05fr .95fr;gap:44px;margin-top:22px;align-items:start;">
+<div style="display:flex;flex-direction:column;gap:10px;"><div style="display:flex;gap:20px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 2px;"><span style="font-family:var(--font-display);font-weight:900;font-size:34px;color:var(--red);min-width:38px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:27px;color:var(--ink);line-height:1.1;">Aggiornamento mancante</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Il contatore non cambia mai: <code>i</code> resta 0 e <code>i &lt; 5</code> è sempre vero. Manca la riga che avanza lo stato — è l'errore più comune.</span></div></div><div style="display:flex;gap:20px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 2px;"><span style="font-family:var(--font-display);font-weight:900;font-size:34px;color:var(--red);min-width:38px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:27px;color:var(--ink);line-height:1.1;">Condizione impossibile</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Il test non può mai diventare falso: <code>i &gt;= 0</code>, con <code>i</code> che cresce, resta vero per sempre. La condizione è scritta male.</span></div></div><div style="display:flex;gap:20px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 2px;"><span style="font-family:var(--font-display);font-weight:900;font-size:34px;color:var(--red);min-width:38px;line-height:1;">—</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:27px;color:var(--ink);line-height:1.1;">Dato esterno mai ricevuto</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Il ciclo aspetta un input o una risposta che non arriva, e resta in attesa all'infinito senza mai proseguire.</span></div></div></div>
+<div style="background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:19px;line-height:1.5;border-radius:14px;padding:22px 24px;white-space:pre;"><span style="color:#e69a8a;"># manca l'aggiornamento: gira all'infinito</span>
+i = 0
+mentre i &lt; 5:
+    stampa(i)
+
+<span style="color:#9ad0c0;"># corretto: i avanza verso l'uscita</span>
+i = 0
+mentre i &lt; 5:
+    stampa(i)
+    i = i + 1</div>
 </div>
-<div class="card reveal">
-<b>02</b>
-<p>Condizione impossibile</p>
-</div>
-<div class="card reveal">
-<b>03</b>
-<p>Dato esterno mai ricevuto</p>
-</div>
-</div>
-<div class="page-num">
-</div>
+<div class="analogy reveal d3" style="margin-top:22px;"><span class="big">Regola:</span> prima di lanciare un ciclo, individua la riga che lo avvicina all'uscita. Se non c'è, è un loop infinito.</div>
+<div class="page-num"></div>
 </section>
 <section class="slide">
 <h2 class="h-sec reveal">Accumulatore e contatore</h2>
