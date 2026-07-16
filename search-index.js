@@ -1760,9 +1760,9 @@ globalThis.COURSE_SEARCH_INDEX = [
     ]
   },
   {
-    "href": "rw04-01-licenze-oer.html",
-    "section": "Reti e Web",
-    "code": "RW04.01",
+    "href": "cd01-01-licenze-oer.html",
+    "section": "Contenuti digitali",
+    "code": "CD01.01",
     "title": "Licenze aperte e OER",
     "description": "Diritto d’autore, Creative Commons, attribuzione, remix, compatibilità e le cinque R delle risorse educative aperte.",
     "topics": "Creative Commons OER Remix",
@@ -1847,9 +1847,9 @@ globalThis.COURSE_SEARCH_INDEX = [
     ]
   },
   {
-    "href": "rw04-02-accessibilita-immagini.html",
-    "section": "Reti e Web",
-    "code": "RW04.02",
+    "href": "cd01-02-accessibilita-immagini.html",
+    "section": "Contenuti digitali",
+    "code": "CD01.02",
     "title": "Accessibilità delle immagini",
     "description": "WCAG 2.1, testo alternativo, immagini informative, funzionali, complesse e puramente decorative.",
     "topics": "WCAG Testo alternativo",
@@ -1894,9 +1894,9 @@ globalThis.COURSE_SEARCH_INDEX = [
     ]
   },
   {
-    "href": "rw04-03-metadati-formati.html",
-    "section": "Reti e Web",
-    "code": "RW04.03",
+    "href": "cd01-03-metadati-formati.html",
+    "section": "Contenuti digitali",
+    "code": "CD01.03",
     "title": "Metadati e formati",
     "description": "Indicizzazione e conservazione delle immagini, privacy dei metadati, grafica raster e formati JPEG, PNG e SVG.",
     "topics": "Metadati SVG",
@@ -1953,9 +1953,9 @@ globalThis.COURSE_SEARCH_INDEX = [
     ]
   },
   {
-    "href": "rw05-01-podcast-storytelling.html",
-    "section": "Reti e Web",
-    "code": "RW05.01",
+    "href": "cd02-01-podcast-storytelling.html",
+    "section": "Contenuti digitali",
+    "code": "CD02.01",
     "title": "Podcast e storytelling digitale",
     "description": "Strutture narrative, scrittura per l’ascolto, registrazione, montaggio e differenza fra normalizzazione di picco e loudness.",
     "topics": "Podcast Storytelling",

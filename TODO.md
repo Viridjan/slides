@@ -80,7 +80,7 @@ aggiunti o gia presenti.
 
 ## Da fare
 
-- **Categoria multimediale dedicata.** `rw05-01-podcast-storytelling.html` è
-  parcheggiato in RW05 in attesa di una sezione ad hoc per i contenuti
+- **Categoria multimediale dedicata.** `cd02-01-podcast-storytelling.html` è
+  parcheggiato in CD02 in attesa di una sezione ad hoc per i contenuti
   multimediali (registrazione audio, montaggio, mixaggio, normalizzazione,
   loudness). Quando la sezione esiste, spostarci il deck e rinumerarlo.

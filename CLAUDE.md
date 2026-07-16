@@ -292,6 +292,7 @@ published area, and record that exception here before creating files:
 | --- | --- | --- |
 | `hs` | Hardware e Software | `hs01-componenti.html` |
 | `rw` | Reti e Web | `rw01-01-reti.html` |
+| `cd` | Contenuti Digitali | `cd01-01-licenze-oer.html` |
 | `sd` | Sicurezza Digitale | `sd01-introduzione.html` |
 | `sm` | Smartphones | `sm01-smartphone-computer.html` |
 | `su` | Suite Ufficio | `su01-01-microsoft.html` |
@@ -364,7 +365,7 @@ Navigation chain: hs01 → hs02 → hs03 → hs04 → hs05
 
 ### Reti e Web
 
-Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw02-01 → rw02-02 → rw02-03 → rw02-04 → rw03-01 → rw03-02 → rw03-03 → rw03-04 → rw03-05 → rw04-01 → rw04-02 → rw04-03 → rw05-01
+Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw02-01 → rw02-02 → rw02-03 → rw02-04 → rw03-01 → rw03-02 → rw03-03 → rw03-04 → rw03-05
 
 | File | Title |
 | --- | --- |
@@ -382,10 +383,17 @@ Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw
 | `rw03-03-vr-ar.html` | VR, AR e Metaverso |
 | `rw03-04-branding.html` | Farsi riconoscere |
 | `rw03-05-social.html` | I social giusti |
-| `rw04-01-licenze-oer.html` | Licenze aperte e OER |
-| `rw04-02-accessibilita-immagini.html` | Accessibilità delle immagini |
-| `rw04-03-metadati-formati.html` | Metadati e formati |
-| `rw05-01-podcast-storytelling.html` | Podcast e storytelling (RW05, in attesa di una sezione multimediale dedicata) |
+
+### Contenuti digitali
+
+Navigation chain: cd01-01 → cd01-02 → cd01-03 → cd02-01
+
+| File | Title |
+| --- | --- |
+| `cd01-01-licenze-oer.html` | Licenze aperte e OER |
+| `cd01-02-accessibilita-immagini.html` | Accessibilità delle immagini |
+| `cd01-03-metadati-formati.html` | Metadati e formati |
+| `cd02-01-podcast-storytelling.html` | Podcast e storytelling (CD02, in attesa di una sezione multimediale dedicata) |
 
 ### Sicurezza Digitale
 
