@@ -65,8 +65,10 @@ Inside any deck:
 
 - All deck files are self-contained (inline CSS + JS). Sole shared file: `theme-corsi.css`.
 - Every deck has a sibling `.txt` companion — the index injects a `↓ TXT` button automatically.
-- Every index card shows a generated last-modified date beneath its evaluation
-  badge. Rebuild it with `node scripts/build-last-modified.js` after deck edits.
+- Every index card shows a generated content-last-modified date beneath its
+  evaluation badge. It tracks visible text changes in internal slides, not
+  cover/closing, CSS or technical edits. Rebuild it with
+  `node scripts/build-last-modified.js` after deck edits.
 - Links between decks use bare filenames: `href="rw01-02-navigazione.html"`.
 - `corsi/` holds source PPTX/PDF; `corsi/images/` holds extracted images (untracked, ~200 MB, regenerable).
 

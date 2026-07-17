@@ -12,19 +12,73 @@ const files = [...new Set(
 const today = new Date().toISOString().slice(0, 10);
 const dates = {};
 
-for (const file of files) {
-  let dirty = false;
+const git = args => {
   try {
-    dirty = execFileSync('git', ['status', '--porcelain', '--', file], { encoding: 'utf8' }).trim().length > 0;
-  } catch {}
-
-  let date = '';
-  if (!dirty) {
-    try {
-      date = execFileSync('git', ['log', '-1', '--format=%cs', '--', file], { encoding: 'utf8' }).trim();
-    } catch {}
+    return execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+  } catch {
+    return '';
   }
-  dates[file] = dirty || !date ? today : date;
+};
+
+const decode = text => text
+  .replace(/&nbsp;/gi, ' ')
+  .replace(/&amp;/gi, '&')
+  .replace(/&lt;/gi, '<')
+  .replace(/&gt;/gi, '>')
+  .replace(/&quot;/gi, '"')
+  .replace(/&#39;|&apos;/gi, "'")
+  .replace(/&#(\d+);/g, (_, code) => String.fromCodePoint(Number(code)));
+
+// Canonical educational content only. Title/closing slides and generated or
+// technical chrome must not move the editorial last-modified date.
+const contentFingerprint = html => {
+  if (!html) return '';
+  const cleaned = html
+    .replace(/<!--([\s\S]*?)-->/g, ' ')
+    .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ');
+  const slides = [...cleaned.matchAll(/<section\b([^>]*)>([\s\S]*?)<\/section>/gi)];
+  return slides
+    .filter(([, attrs]) => {
+      const classes = attrs.match(/class="([^"]*)"/i)?.[1]?.split(/\s+/) || [];
+      return classes.includes('slide')
+        && !classes.includes('title')
+        && !classes.includes('title-slide')
+        && !classes.includes('closing');
+    })
+    .map(([, , body]) => body
+      .replace(/<div\b[^>]*class="[^"]*\b(page-num|num|deck-author)\b[^"]*"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+      .replace(/<div\b[^>]*data-source-footer="true"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+      .replace(/<a\b[^>]*data-source-origin="auto"[^>]*>[\s\S]*?<\/a>/gi, ' ')
+      .replace(/<[^>]+>/g, ' '))
+    .map(decode)
+    .map(text => text.replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+    .join('\n---\n');
+};
+
+for (const file of files) {
+  let date = '';
+  const workingContent = contentFingerprint(fs.readFileSync(file, 'utf8'));
+  const headContent = contentFingerprint(git(['show', `HEAD:${file}`]));
+
+  // Dirty layout, CSS, title or closing changes are ignored. Only a changed
+  // internal-slide fingerprint receives today's date before commit.
+  if (workingContent !== headContent) {
+    date = today;
+  } else {
+    const history = git(['log', '--format=%H|%cs', '--', file]).trim().split('\n').filter(Boolean);
+    for (const entry of history) {
+      const [commit, commitDate] = entry.split('|');
+      const current = contentFingerprint(git(['show', `${commit}:${file}`]));
+      if (!current) continue;
+      const previous = contentFingerprint(git(['show', `${commit}^:${file}`]));
+      if (current !== previous) {
+        date = commitDate;
+        break;
+      }
+    }
+  }
+  dates[file] = date || today;
 }
 
 fs.writeFileSync(
