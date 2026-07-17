@@ -1915,6 +1915,7 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
     if (e.detail !== 0 && (e.clientX < rect.left + 234 || e.clientX >= rect.right - 232)) {
       e.preventDefault();
       e.stopPropagation();
+      return;
     }
   });
   const btn = document.createElement('button');
@@ -2029,6 +2030,7 @@ document.querySelectorAll('.module-grid').forEach(grid => {
       currentKey = key;
       const group = document.createElement('div');
       group.className = 'subseries-group collapsed';
+      group.dataset.key = key;
       const label = document.createElement('button');
       label.type = 'button';
       label.className = 'subseries-label';
@@ -2039,13 +2041,66 @@ document.querySelectorAll('.module-grid').forEach(grid => {
       group.append(label, body);
       grid.insertBefore(group, card);
       label.addEventListener('click', () => {
-        const collapsed = group.classList.toggle('collapsed');
-        label.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+        const willOpen = group.classList.contains('collapsed');
+        if (willOpen) {
+          grid.querySelectorAll(':scope > .subseries-group').forEach(other => {
+            other.classList.add('collapsed');
+            other.querySelector(':scope > .subseries-label')?.setAttribute('aria-expanded', 'false');
+          });
+          group.classList.remove('collapsed');
+          label.setAttribute('aria-expanded', 'true');
+        } else {
+          group.classList.add('collapsed');
+          label.setAttribute('aria-expanded', 'false');
+        }
       });
     }
     body.appendChild(card);
   });
 });
+
+// deck.js communicates the originating deck directly in the index URL. No
+// persistent browser state is needed, and the URL can be opened in a new tab.
+const returnHref = new URLSearchParams(location.search).get('from');
+if (returnHref) {
+  const targetCard = [...document.querySelectorAll('.module-card')]
+    .find(card => (card.dataset.baseHref || card.getAttribute('href')) === returnHref);
+  const mainGroup = targetCard?.closest('.section-group');
+  if (targetCard && mainGroup) {
+    openGroup(mainGroup);
+    const subGroup = targetCard.closest('.subseries-group');
+    if (subGroup) {
+      subGroup.parentElement.querySelectorAll(':scope > .subseries-group').forEach(other => {
+        const active = other === subGroup;
+        other.classList.toggle('collapsed', !active);
+        other.querySelector(':scope > .subseries-label')?.setAttribute('aria-expanded', active ? 'true' : 'false');
+      });
+    }
+    const centerTarget = () => {
+      const rect = targetCard.getBoundingClientRect();
+      const absoluteTop = scrollY + rect.top;
+      window.scrollTo({
+        top: Math.max(0, absoluteTop + rect.height / 2 - innerHeight / 2),
+        left: 0,
+        behavior: 'auto'
+      });
+    };
+    requestAnimationFrame(() => requestAnimationFrame(centerTarget));
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(() => setTimeout(centerTarget, 80));
+    } else {
+      setTimeout(centerTarget, 120);
+    }
+    if (document.readyState === 'complete') {
+      setTimeout(centerTarget, 240);
+    } else {
+      addEventListener('load', () => setTimeout(centerTarget, 120), {once:true});
+    }
+  }
+  const cleanUrl = new URL(location.href);
+  cleanUrl.searchParams.delete('from');
+  history.replaceState(null, '', cleanUrl.href);
+}
 </script>
 </body>
 </html>
