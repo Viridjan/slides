@@ -182,7 +182,8 @@ activated either by the URL carrying `?feedback`
 records a note (file, slide, position, nearest element, text) and a toolbar
 copies all notes to the clipboard so the author can paste them into a work
 request. Notes live in localStorage under `deck-feedback-notes` until cleared.
-Off by default: nothing runs until `?feedback` is present or `F` is pressed.
+Off by default: nothing runs until `?feedback` is present or `F` is pressed;
+`Esc` or the toolbar's ✕ turns it back off and restores normal clicks/links.
 Do not remove it as cruft.
 
 ## Warm Study Zine tokens

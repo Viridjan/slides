@@ -206,7 +206,8 @@
   };
   const btnCopy = mkBtn('Copia');
   const btnClear = mkBtn('Svuota');
-  bar.append('📝 ', label, btnCopy, btnClear);
+  const btnClose = mkBtn('✕');
+  bar.append('📝 ', label, btnCopy, btnClear, btnClose);
   document.body.appendChild(bar);
 
   const update = () => { label.textContent = `${load().length} note`; };
@@ -243,7 +244,7 @@
 
   // Capture phase: in feedback mode a click means "annotate here", so links and
   // other slide controls must not fire. The toolbar handles its own clicks above.
-  stage.addEventListener('click', e => {
+  const onClick = e => {
     e.preventDefault();
     e.stopPropagation();
     const slides = [...document.querySelectorAll('.slide')];
@@ -262,6 +263,24 @@
     save(notes);
     update();
     marker(e.clientX, e.clientY);
-  }, true);
+  };
+  stage.addEventListener('click', onClick, true);
+
+  // Close: the ✕ button or Esc. Removes the toolbar and the click hijack, and
+  // clears the URL's ?feedback so a reload does not re-enter the mode.
+  const stop = () => {
+    active = false;
+    stage.removeEventListener('click', onClick, true);
+    bar.remove();
+    removeEventListener('keydown', onEsc);
+    if (/[?&]feedback\b/.test(location.search)) {
+      const url = new URL(location.href);
+      url.searchParams.delete('feedback');
+      history.replaceState(null, '', url.pathname + url.search + url.hash);
+    }
+  };
+  const onEsc = e => { if (e.key === 'Escape') stop(); };
+  addEventListener('keydown', onEsc);
+  btnClose.addEventListener('click', e => { e.stopPropagation(); stop(); });
   }
 })();
