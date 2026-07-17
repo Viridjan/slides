@@ -162,3 +162,94 @@
   numberPages();
   show(fromHash() ?? 0, false);
 })();
+
+/* Feedback mode — review overlay, opt-in via ?feedback in the URL.
+   This is NOT the old inline editor: it never touches slide content. It turns
+   clicks into notes (file, slide, position, nearest element, your text) and
+   copies them all to the clipboard, so the author can paste a precise work
+   request into a chat. Without ?feedback none of this exists at runtime.
+   Notes persist in localStorage ('deck-feedback-notes') until cleared, so a
+   review can span several decks before one copy. */
+(() => {
+  if (!/[?&]feedback\b/.test(location.search)) return;
+  const stage = document.getElementById('deckStage') || document.querySelector('.deck-stage');
+  if (!stage) return;
+
+  const KEY = 'deck-feedback-notes';
+  const file = location.pathname.split('/').pop();
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { return []; } };
+  const save = notes => localStorage.setItem(KEY, JSON.stringify(notes));
+
+  const bar = document.createElement('div');
+  bar.style.cssText = 'position:fixed;right:18px;bottom:64px;z-index:10002;display:flex;gap:10px;' +
+    'align-items:center;font-family:"Space Mono",monospace;font-size:14px;' +
+    'background:rgba(28,23,20,.94);color:#f4ece0;padding:10px 16px;border-radius:999px;' +
+    'border:1px solid rgba(230,193,74,.6);box-shadow:0 8px 24px rgba(0,0,0,.35)';
+  const label = document.createElement('span');
+  const mkBtn = text => {
+    const b = document.createElement('button');
+    b.textContent = text;
+    b.style.cssText = 'font:inherit;color:#e6c14a;background:none;border:1px solid rgba(230,193,74,.5);' +
+      'border-radius:999px;padding:3px 12px;cursor:pointer';
+    return b;
+  };
+  const btnCopy = mkBtn('Copia');
+  const btnClear = mkBtn('Svuota');
+  bar.append('📝 ', label, btnCopy, btnClear);
+  document.body.appendChild(bar);
+
+  const update = () => { label.textContent = `${load().length} note`; };
+  update();
+
+  btnCopy.addEventListener('click', e => {
+    e.stopPropagation();
+    const text = load().join('\n');
+    if (!text) return;
+    // file:// is a secure context, but keep a fallback for stubborn setups.
+    (navigator.clipboard?.writeText(text) || Promise.reject()).then(
+      () => { btnCopy.textContent = 'Copiato ✓'; setTimeout(() => btnCopy.textContent = 'Copia', 1500); },
+      () => {
+        const ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); ta.remove();
+        btnCopy.textContent = 'Copiato ✓'; setTimeout(() => btnCopy.textContent = 'Copia', 1500);
+      });
+  });
+  btnClear.addEventListener('click', e => {
+    e.stopPropagation();
+    if (confirm('Svuotare tutte le note di revisione?')) { save([]); update(); }
+  });
+
+  const marker = (x, y) => {
+    const dot = document.createElement('div');
+    dot.style.cssText = `position:fixed;left:${x - 9}px;top:${y - 9}px;width:18px;height:18px;` +
+      'border-radius:50%;background:rgba(230,83,59,.85);border:2px solid #fff;z-index:10001;' +
+      'pointer-events:none;transition:opacity 1s ease 3s;';
+    document.body.appendChild(dot);
+    requestAnimationFrame(() => { dot.style.opacity = '0'; });
+    setTimeout(() => dot.remove(), 4500);
+  };
+
+  // Capture phase: in feedback mode a click means "annotate here", so links and
+  // other slide controls must not fire. The toolbar handles its own clicks above.
+  stage.addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    const slides = [...document.querySelectorAll('.slide')];
+    const current = document.querySelector('.slide.visible, .slide.active');
+    const idx = slides.indexOf(current) + 1;
+    const r = stage.getBoundingClientRect();
+    const x = Math.round((e.clientX - r.left) / r.width * 100);
+    const y = Math.round((e.clientY - r.top) / r.height * 100);
+    const el = e.target.closest('h1,h2,h3,.card,.note,.analogy,.agenda-item,.code,.illu,.lead');
+    const near = el ? (el.querySelector('h3,b')?.textContent || el.textContent)
+      .trim().replace(/\s+/g, ' ').slice(0, 40) : '';
+    const txt = prompt(`Nota per slide ${idx}${near ? ` · «${near}»` : ''}:`);
+    if (!txt) return;
+    const notes = load();
+    notes.push(`${file}#slide-${idx} (${x}%,${y}%)${near ? ` «${near}»` : ''}: ${txt}`);
+    save(notes);
+    update();
+    marker(e.clientX, e.clientY);
+  }, true);
+})();

@@ -169,10 +169,20 @@ attach click-to-next, click-to-previous, hotspot navigation or other actions to
 use keyboard and wheel; clicks are reserved for explicit visible controls such
 as links, quiz inputs and the home button.
 
-Do not add swipe/touch navigation (`touchstart`, `touchmove`, `touchend`) or an
-inline editor, edit hotzone, edit toggle, `contenteditable` mode, localStorage
-editing state, `E` shortcut or editor-download behavior to any deck. Slides are
-read-only at runtime.
+Do not add an inline editor, edit hotzone, edit toggle, `contenteditable`
+mode, localStorage editing state, `E` shortcut or editor-download behavior to
+any deck. Slides are read-only at runtime: the old inline editor saved edits to
+localStorage that never reached the HTML files, and was removed for that.
+(Touch/swipe navigation is fine — `deck.js` ships it.)
+
+**Exception — feedback mode.** `deck.js` contains an opt-in review overlay,
+active only when the URL carries `?feedback`
+(e.g. `su03-09-tabelle-pivot-avanzate.html?feedback#slide-6`). It never edits
+slide content: clicking a slide records a note (file, slide, position, nearest
+element, text) and a toolbar copies all notes to the clipboard so the author
+can paste them into a work request. Notes live in localStorage under
+`deck-feedback-notes` until cleared. Without `?feedback` the overlay does not
+exist. Do not remove it as cruft.
 
 ## Warm Study Zine tokens
 
@@ -605,11 +615,19 @@ corso" badge or the difficulty legend under the title.
 Sections with at least two hierarchical sub-series use a second accordion
 level generated from their card codes, for example `RW01`/`RW02`/`RW03`,
 `SU01`-`SU04` and `PR01`-`PR04`. Sub-series start collapsed and open
-independently inside the active main section. Flat series such as Hardware,
-Smartphones or Game Design must not receive redundant submenus. Search expands
-matching sub-series automatically and hides those without results. Maintain
-human-readable names in the `subseriesLabels` map in `00-indice.html` whenever
-a new hierarchical block is introduced.
+as an accordion inside the active main section: opening one closes the
+previously open sibling. Flat series such as Hardware, Smartphones or Game
+Design must not receive redundant submenus. Search expands matching sub-series
+automatically and hides those without results. Maintain human-readable names
+in the `subseriesLabels` map in `00-indice.html` whenever a new hierarchical
+block is introduced.
+
+Before navigating from the index to a deck, store the current main section,
+sub-series and deck href in `sessionStorage`. Returning to the index must
+restore both accordion levels and scroll the originating card as close as
+possible to the vertical center of the viewport. Consume the saved state once
+after restoration so an ordinary index reload does not keep forcing an old
+position.
 
 Card layout: single full-width row divided into three visually separate zones.
 The module code (`XX00` or `XX00.00`) stands outside the central box on the
