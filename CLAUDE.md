@@ -169,22 +169,53 @@ attach click-to-next, click-to-previous, hotspot navigation or other actions to
 use keyboard and wheel; clicks are reserved for explicit visible controls such
 as links, quiz inputs and the home button.
 
-Do not add an inline editor, edit hotzone, edit toggle, `contenteditable`
-mode, localStorage editing state, `E` shortcut or editor-download behavior to
-any deck. Slides are read-only at runtime: the old inline editor saved edits to
-localStorage that never reached the HTML files, and was removed for that.
+Slides are read-only at runtime outside of feedback mode (below). Do not add
+an always-on editor, edit hotzone, edit toggle, `contenteditable` mode or `E`
+shortcut to a deck — anything that could edit a slide just by opening it.
 (Touch/swipe navigation is fine — `deck.js` ships it.)
 
-**Exception — feedback mode.** `deck.js` contains an opt-in review overlay,
-activated either by the URL carrying `?feedback`
+**Feedback mode.** `deck.js` contains an opt-in review overlay, activated
+either by the URL carrying `?feedback`
 (e.g. `su03-09-tabelle-pivot-avanzate.html?feedback#slide-6`) or by pressing
-`F` on any deck at any time. It never edits slide content: clicking a slide
-records a note (file, slide, position, nearest element, text) and a toolbar
-copies all notes to the clipboard so the author can paste them into a work
-request. Notes live in localStorage under `deck-feedback-notes` until cleared.
-Off by default: nothing runs until `?feedback` is present or `F` is pressed;
-`Esc` or the toolbar's ✕ turns it back off and restores normal clicks/links.
-Do not remove it as cruft.
+`F` on any deck at any time. Off by default: nothing runs until one of those
+happens; `Esc` or the toolbar's ✕ turns it back off and restores normal
+clicks/links.
+
+It has two actions:
+
+- **Click** a slide → a prompt records a note (file, slide, click position,
+  nearest element, free text). A persistent numbered pin marks the spot on
+  that slide for as long as feedback mode stays open — the visual "what to
+  change" indicator, tracked via a `MutationObserver` on `deck.js`'s
+  active/visible class toggles rather than hooking into its `show()`.
+- **Double-click** a text element with zero child elements (an `<h3>`, a
+  `<p>` with no nested tags — never something like `.card`, which has
+  children, or a `<span>` nested inside a heading) → it becomes editable in
+  place. `Enter` or blur commits, `Esc` reverts. A commit does not touch the
+  file: it records a `{before, after}` text diff and keeps the on-screen text
+  changed only until feedback mode closes, at which point every live edit
+  reverts to `before` — the DOM always matches the real file the moment
+  feedback mode is off. Paste is forced to plain text. The zero-children rule
+  is what makes this safe where the old editor was not: a plain
+  `textContent`-based diff can never corrupt nested markup, because anything
+  with nested markup is simply not eligible for direct editing (fall back to
+  a note there instead).
+
+The toolbar's **Copia** exports both notes and edits — the edits as a
+readable `- prima / + dopo` diff — as one clipboard payload, so the author can
+paste a precise, file-and-slide-addressed work request into a chat. **Svuota**
+clears both and reverts any edit still showing. Data lives in localStorage
+under `deck-feedback-notes` until cleared; nothing is ever written to the HTML
+files by this code. Do not remove it as cruft.
+
+Save a **Copia** payload to a text file and run
+`node scripts/apply-feedback-diff.js payload.txt` to apply the `MODIFICHE
+DIRETTE` edits straight to the HTML files — it locates each edited element by
+slide number, tag and first class, matches its current text against the
+recorded `before`, and only writes when that match is unique; anything
+unmatched or ambiguous is skipped and reported, never guessed. It is
+text-only, not semantic: always open the touched deck with `xdg-open`
+afterward and check the slide before committing.
 
 ## Warm Study Zine tokens
 
@@ -624,12 +655,14 @@ automatically and hides those without results. Maintain human-readable names
 in the `subseriesLabels` map in `00-indice.html` whenever a new hierarchical
 block is introduced.
 
-Before navigating from the index to a deck, store the current main section,
-sub-series and deck href in `sessionStorage`. Returning to the index must
-restore both accordion levels and scroll the originating card as close as
-possible to the vertical center of the viewport. Consume the saved state once
-after restoration so an ordinary index reload does not keep forcing an old
-position.
+`deck.js` must append the current deck filename to the index link as a `from`
+query parameter for both `.home-btn` and the `I` shortcut, for example
+`00-indice.html?from=rw02-01-email.html`. The index reads that parameter,
+restores both accordion levels and scrolls the originating card as close as
+possible to the vertical center of the viewport, then removes only `from` with
+`history.replaceState`. Do not use `sessionStorage` or `localStorage` for this
+navigation context: the return URL must remain deterministic and work in a new
+tab.
 
 Card layout: single full-width row divided into three visually separate zones.
 The module code (`XX00` or `XX00.00`) stands outside the central box on the

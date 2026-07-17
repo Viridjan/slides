@@ -13,7 +13,13 @@
 
   const stage = document.getElementById('deckStage') || document.querySelector('.deck-stage');
   const progress = document.getElementById('progress') || document.querySelector('.progress');
-  const indexHref = document.querySelector('.home-btn')?.getAttribute('href') || '00-indice.html';
+  const homeButton = document.querySelector('.home-btn');
+  const indexHref = homeButton?.getAttribute('href') || '00-indice.html';
+  const currentFile = decodeURIComponent(location.pathname.split('/').pop() || '');
+  const indexReturnUrl = new URL(indexHref, location.href);
+  if (currentFile) indexReturnUrl.searchParams.set('from', currentFile);
+  const indexReturnHref = indexReturnUrl.href;
+  if (homeButton) homeButton.href = indexReturnHref;
 
   let current = 0;
 
@@ -95,7 +101,7 @@
     else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); prev(); }
     else if (e.key === 'Home') show(0);
     else if (e.key === 'End') show(slides.length - 1);
-    else if (e.key.toLowerCase() === 'i') location.href = indexHref;
+    else if (e.key.toLowerCase() === 'i') location.href = indexReturnHref;
     else if (e.key === '+' || e.key === '=') { e.preventDefault(); setZoom(zoom + 0.25); }
     else if (e.key === '-' || e.key === '_') { e.preventDefault(); setZoom(zoom - 0.25); }
     else if (e.key === '0') { e.preventDefault(); setZoom(1); }
@@ -186,10 +192,27 @@
   if (!stage) return;
   active = true;
 
+  // Storage shape: { notes: [...], edits: [...] }. A note is either a plain
+  // string (the format shipped before this revision — kept working so nothing
+  // already collected is lost) or an object {file,slide,x,y,near,text}. An
+  // edit is always {file,slide,near,before,after} — a text diff, never DOM
+  // state: the live-edited element itself reverts to `before` when feedback
+  // mode closes, so the page never shows content that disagrees with the file.
   const KEY = 'deck-feedback-notes';
   const file = location.pathname.split('/').pop();
-  const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { return []; } };
-  const save = notes => localStorage.setItem(KEY, JSON.stringify(notes));
+  const load = () => {
+    try {
+      const raw = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (Array.isArray(raw)) return { notes: raw, edits: [] };
+      if (raw && typeof raw === 'object') return { notes: raw.notes || [], edits: raw.edits || [] };
+    } catch {}
+    return { notes: [], edits: [] };
+  };
+  const save = data => localStorage.setItem(KEY, JSON.stringify(data));
+  const fmtNote = n => typeof n === 'string' ? n :
+    `${n.file}#slide-${n.slide} (${n.x}%,${n.y}%)${n.near ? ` «${n.near}»` : ''}: ${n.text}`;
+  const fmtEdit = ed => `${ed.file}#slide-${ed.slide} «${ed.near}»\n` +
+    `- prima: ${JSON.stringify(ed.before)}\n+ dopo:  ${JSON.stringify(ed.after)}`;
 
   const bar = document.createElement('div');
   bar.style.cssText = 'position:fixed;right:18px;bottom:64px;z-index:10002;display:flex;gap:10px;' +
@@ -210,12 +233,56 @@
   bar.append('📝 ', label, btnCopy, btnClear, btnClose);
   document.body.appendChild(bar);
 
-  const update = () => { label.textContent = `${load().length} note`; };
+  const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+  const update = () => {
+    const d = load();
+    label.textContent = `${plural(d.notes.length, 'nota', 'note')} · ${plural(d.edits.length, 'modifica', 'modifiche')}`;
+  };
   update();
+
+  // Persistent pins: unlike the 4.5s flash below, these stay on the slide for
+  // as long as feedback mode is open, so scrolling back to a slide shows
+  // exactly where its open notes are — the "what to change" indicator.
+  const renderPins = () => {
+    document.querySelectorAll('.fb-pin').forEach(p => p.remove());
+    const allSlides = [...document.querySelectorAll('.slide')];
+    load().notes.forEach((n, i) => {
+      if (typeof n === 'string' || n.file !== file) return;
+      const slideEl = allSlides[n.slide - 1];
+      if (!slideEl) return;
+      const pin = document.createElement('div');
+      pin.className = 'fb-pin';
+      pin.textContent = String(i + 1);
+      pin.title = n.text;
+      pin.style.cssText = `position:absolute;left:${n.x}%;top:${n.y}%;transform:translate(-50%,-50%);` +
+        'width:24px;height:24px;border-radius:50%;background:#e6533b;color:#fff;' +
+        'font:700 12px/24px "Space Mono",monospace;text-align:center;z-index:9999;' +
+        'border:2px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.35);pointer-events:none;';
+      slideEl.appendChild(pin);
+    });
+  };
+  // deck.js navigates by toggling .visible/.active classes, not by re-rendering,
+  // so watch for that instead of hooking into its show() function.
+  const pinObserver = new MutationObserver(renderPins);
+  pinObserver.observe(stage, { attributes: true, attributeFilter: ['class'], subtree: true });
+  renderPins();
+
+  const addNote = note => { const d = load(); d.notes.push(note); save(d); update(); renderPins(); };
+  const upsertEdit = (slide, near, before, after) => {
+    const d = load();
+    d.edits = d.edits.filter(e2 => !(e2.file === file && e2.slide === slide && e2.near === near));
+    d.edits.push({ file, slide, near, before, after });
+    save(d);
+    update();
+  };
 
   btnCopy.addEventListener('click', e => {
     e.stopPropagation();
-    const text = load().join('\n');
+    const d = load();
+    const parts = [];
+    if (d.notes.length) parts.push(d.notes.map(fmtNote).join('\n'));
+    if (d.edits.length) parts.push('=== MODIFICHE DIRETTE ===\n\n' + d.edits.map(fmtEdit).join('\n\n'));
+    const text = parts.join('\n\n');
     if (!text) return;
     // file:// is a secure context, but keep a fallback for stubborn setups.
     (navigator.clipboard?.writeText(text) || Promise.reject()).then(
@@ -229,7 +296,12 @@
   });
   btnClear.addEventListener('click', e => {
     e.stopPropagation();
-    if (confirm('Svuotare tutte le note di revisione?')) { save([]); update(); }
+    if (!confirm('Svuotare tutte le note e le modifiche di revisione?')) return;
+    editedEls.forEach(revertEl);
+    editedEls.clear();
+    save({ notes: [], edits: [] });
+    update();
+    renderPins();
   });
 
   const marker = (x, y) => {
@@ -242,35 +314,148 @@
     setTimeout(() => dot.remove(), 4500);
   };
 
-  // Capture phase: in feedback mode a click means "annotate here", so links and
-  // other slide controls must not fire. The toolbar handles its own clicks above.
-  const onClick = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    const slides = [...document.querySelectorAll('.slide')];
+  const doNote = ev => {
+    const slidesNow = [...document.querySelectorAll('.slide')];
     const current = document.querySelector('.slide.visible, .slide.active');
-    const idx = slides.indexOf(current) + 1;
+    const idx = slidesNow.indexOf(current) + 1;
     const r = stage.getBoundingClientRect();
-    const x = Math.round((e.clientX - r.left) / r.width * 100);
-    const y = Math.round((e.clientY - r.top) / r.height * 100);
-    const el = e.target.closest('h1,h2,h3,.card,.note,.analogy,.agenda-item,.code,.illu,.lead');
+    const x = Math.round((ev.clientX - r.left) / r.width * 100);
+    const y = Math.round((ev.clientY - r.top) / r.height * 100);
+    const el = ev.target.closest('h1,h2,h3,.card,.note,.analogy,.agenda-item,.code,.illu,.lead');
     const near = el ? (el.querySelector('h3,b')?.textContent || el.textContent)
       .trim().replace(/\s+/g, ' ').slice(0, 40) : '';
     const txt = prompt(`Nota per slide ${idx}${near ? ` · «${near}»` : ''}:`);
     if (!txt) return;
-    const notes = load();
-    notes.push(`${file}#slide-${idx} (${x}%,${y}%)${near ? ` «${near}»` : ''}: ${txt}`);
-    save(notes);
-    update();
-    marker(e.clientX, e.clientY);
+    addNote({ file, slide: idx, x, y, near, text: txt });
+    marker(ev.clientX, ev.clientY);
+  };
+
+  // Live editing: text-only, and only on elements with zero child elements —
+  // e.g. an <h3> or a <p> with no nested tags. That guarantee is what makes it
+  // safe: textContent-based edit/revert can never corrupt nested markup like
+  // `<span class="cc0">CC0</span> non è...`, because such elements are simply
+  // not eligible (their closest() still resolves to something WITH children,
+  // so children.length !== 0 excludes them). Paste is forced to plain text for
+  // the same reason.
+  const editedEls = new Set();
+  let editing = null;
+
+  const nearLabel = el => el.tagName.toLowerCase() +
+    (el.className && typeof el.className === 'string' ? '.' + el.className.split(' ')[0] : '');
+  const currentSlideIndex = () => {
+    const allSlides = [...document.querySelectorAll('.slide')];
+    return allSlides.indexOf(document.querySelector('.slide.visible, .slide.active')) + 1;
+  };
+  const revertEl = el => {
+    el.style.background = '';
+    if (el.dataset.fbBefore !== undefined) { el.textContent = el.dataset.fbBefore; delete el.dataset.fbBefore; }
+  };
+  const endEdit = el => {
+    el.removeAttribute('contenteditable');
+    el.style.outline = '';
+    el._fbCleanup?.();
+    delete el._fbCleanup;
+    editing = null;
+  };
+  const cancelCurrentEdit = () => {
+    if (!editing) return;
+    const el = editing;
+    endEdit(el);
+    revertEl(el);
+  };
+  const commitCurrentEdit = () => {
+    if (!editing) return;
+    const el = editing;
+    endEdit(el);
+    const before = el.dataset.fbBefore ?? '';
+    const after = el.textContent.trim();
+    if (after === before.trim()) { revertEl(el); return; }
+    el.style.background = 'rgba(230,193,74,.18)';
+    editedEls.add(el);
+    upsertEdit(currentSlideIndex(), nearLabel(el), before.trim(), after);
+  };
+  const beginEdit = el => {
+    commitCurrentEdit();
+    el.dataset.fbBefore = el.textContent;
+    el.setAttribute('contenteditable', 'true');
+    el.style.outline = '3px dashed #e6c14a';
+    el.style.outlineOffset = '2px';
+    el.style.background = 'rgba(230,193,74,.12)';
+    const onPaste = ev => {
+      ev.preventDefault();
+      const txt = (ev.clipboardData || window.clipboardData).getData('text/plain');
+      document.execCommand('insertText', false, txt);
+    };
+    const onKeydown = ev => {
+      if (ev.key === 'Enter' && !ev.shiftKey) { ev.preventDefault(); commitCurrentEdit(); }
+    };
+    const onBlur = () => commitCurrentEdit();
+    el.addEventListener('paste', onPaste);
+    el.addEventListener('keydown', onKeydown);
+    el.addEventListener('blur', onBlur);
+    el._fbCleanup = () => {
+      el.removeEventListener('paste', onPaste);
+      el.removeEventListener('keydown', onKeydown);
+      el.removeEventListener('blur', onBlur);
+    };
+    editing = el;
+    el.focus();
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    range.collapse(false);
+    const sel = getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  };
+
+  // Capture phase: in feedback mode a click means "annotate here" and a
+  // double-click means "edit this", so links and other slide controls must
+  // not fire. The toolbar handles its own clicks above. The 250ms delay on a
+  // single click exists only to tell it apart from the first half of a
+  // double-click — clearing it here is what stops a stray note prompt from
+  // popping up when you meant to edit.
+  let clickTimer = null;
+  const onClick = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (clickTimer) clearTimeout(clickTimer);
+    const snap = { clientX: e.clientX, clientY: e.clientY, target: e.target };
+    clickTimer = setTimeout(() => { clickTimer = null; doNote(snap); }, 250);
   };
   stage.addEventListener('click', onClick, true);
 
-  // Close: the ✕ button or Esc. Removes the toolbar and the click hijack, and
-  // clears the URL's ?feedback so a reload does not re-enter the mode.
+  const EDIT_SEL = 'h1,h2,h3,p,li,span,b,.lbl';
+  const onDblClick = e => {
+    const el = e.target.closest(EDIT_SEL);
+    if (!el || el.children.length !== 0 || !stage.contains(el)) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if (clickTimer) { clearTimeout(clickTimer); clickTimer = null; }
+    beginEdit(el);
+  };
+  stage.addEventListener('dblclick', onDblClick, true);
+
+  if (!localStorage.getItem('deck-feedback-hint-seen')) {
+    localStorage.setItem('deck-feedback-hint-seen', '1');
+    alert('Modalità feedback attiva.\n\n' +
+      'Clic su un punto della slide → lascia una nota.\n' +
+      'Doppio clic su un titolo o una riga breve → modificala sul posto.\n' +
+      'Invio conferma la modifica, Esc la annulla (o chiude la modalità).\n\n' +
+      '«Copia» esporta tutto — note e modifiche — negli appunti.');
+  }
+
+  // Close: the ✕ button or Esc. Reverts any live edit still showing (its diff
+  // is already saved, so nothing is lost) and removes the toolbar and pins, so
+  // the page matches the real file exactly once feedback mode is off.
   const stop = () => {
+    cancelCurrentEdit();
+    editedEls.forEach(revertEl);
+    editedEls.clear();
+    pinObserver.disconnect();
+    document.querySelectorAll('.fb-pin').forEach(p => p.remove());
     active = false;
     stage.removeEventListener('click', onClick, true);
+    stage.removeEventListener('dblclick', onDblClick, true);
     bar.remove();
     removeEventListener('keydown', onEsc);
     if (/[?&]feedback\b/.test(location.search)) {
@@ -279,7 +464,11 @@
       history.replaceState(null, '', url.pathname + url.search + url.hash);
     }
   };
-  const onEsc = e => { if (e.key === 'Escape') stop(); };
+  const onEsc = e => {
+    if (e.key !== 'Escape') return;
+    if (editing) { e.preventDefault(); cancelCurrentEdit(); return; }
+    stop();
+  };
   addEventListener('keydown', onEsc);
   btnClose.addEventListener('click', e => { e.stopPropagation(); stop(); });
   }
