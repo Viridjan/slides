@@ -176,13 +176,14 @@ localStorage that never reached the HTML files, and was removed for that.
 (Touch/swipe navigation is fine — `deck.js` ships it.)
 
 **Exception — feedback mode.** `deck.js` contains an opt-in review overlay,
-active only when the URL carries `?feedback`
-(e.g. `su03-09-tabelle-pivot-avanzate.html?feedback#slide-6`). It never edits
-slide content: clicking a slide records a note (file, slide, position, nearest
-element, text) and a toolbar copies all notes to the clipboard so the author
-can paste them into a work request. Notes live in localStorage under
-`deck-feedback-notes` until cleared. Without `?feedback` the overlay does not
-exist. Do not remove it as cruft.
+activated either by the URL carrying `?feedback`
+(e.g. `su03-09-tabelle-pivot-avanzate.html?feedback#slide-6`) or by pressing
+`F` on any deck at any time. It never edits slide content: clicking a slide
+records a note (file, slide, position, nearest element, text) and a toolbar
+copies all notes to the clipboard so the author can paste them into a work
+request. Notes live in localStorage under `deck-feedback-notes` until cleared.
+Off by default: nothing runs until `?feedback` is present or `F` is pressed.
+Do not remove it as cruft.
 
 ## Warm Study Zine tokens
 

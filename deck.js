@@ -163,17 +163,28 @@
   show(fromHash() ?? 0, false);
 })();
 
-/* Feedback mode — review overlay, opt-in via ?feedback in the URL.
+/* Feedback mode — review overlay, opt-in via ?feedback in the URL or the F key.
    This is NOT the old inline editor: it never touches slide content. It turns
    clicks into notes (file, slide, position, nearest element, your text) and
    copies them all to the clipboard, so the author can paste a precise work
-   request into a chat. Without ?feedback none of this exists at runtime.
-   Notes persist in localStorage ('deck-feedback-notes') until cleared, so a
-   review can span several decks before one copy. */
+   request into a chat. Off by default: nothing runs until ?feedback is in the
+   URL or F is pressed. Notes persist in localStorage ('deck-feedback-notes')
+   until cleared, so a review can span several decks before one copy. */
 (() => {
-  if (!/[?&]feedback\b/.test(location.search)) return;
+  let active = false;
+  const startIfRequested = () => {
+    if (active) return;
+    if (/[?&]feedback\b/.test(location.search)) startFeedback();
+  };
+  addEventListener('keydown', e => {
+    if (e.key.toLowerCase() === 'f' && !active) startFeedback();
+  });
+  startIfRequested();
+
+  function startFeedback() {
   const stage = document.getElementById('deckStage') || document.querySelector('.deck-stage');
   if (!stage) return;
+  active = true;
 
   const KEY = 'deck-feedback-notes';
   const file = location.pathname.split('/').pop();
@@ -252,4 +263,5 @@
     update();
     marker(e.clientX, e.clientY);
   }, true);
+  }
 })();
