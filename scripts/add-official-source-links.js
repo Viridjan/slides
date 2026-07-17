@@ -42,8 +42,10 @@ const SOURCES = [
   ['Word', 'https://support.microsoft.com/word', 'Supporto Microsoft Word', /^su/],
   ['Microsoft Excel', 'https://support.microsoft.com/excel', 'Supporto Microsoft Excel', /^su/],
   ['Excel', 'https://support.microsoft.com/excel', 'Supporto Microsoft Excel', /^su/],
-  ['formule', 'https://support.microsoft.com/excel', 'Formule e funzioni — Supporto Microsoft Excel', /^su03/],
-  ['funzioni', 'https://support.microsoft.com/excel', 'Formule e funzioni — Supporto Microsoft Excel', /^su03/],
+  // Not in su03-14/15/18: there 'funzioni' means VBA/JavaScript functions, and
+  // an Excel-formulas link on a JavaScript slide is the homonym bug again.
+  ['formule', 'https://support.microsoft.com/excel', 'Formule e funzioni — Supporto Microsoft Excel', /^su03-(?!1[458])/],
+  ['funzioni', 'https://support.microsoft.com/excel', 'Formule e funzioni — Supporto Microsoft Excel', /^su03-(?!1[458])/],
   ['VBA', 'https://learn.microsoft.com/office/vba/api/overview/', 'Riferimento VBA per Office — Microsoft Learn'],
   ['Google Workspace', 'https://support.google.com/a/users/', 'Centro didattico Google Workspace', /^su/],
   ['Google Docs', 'https://support.google.com/docs/', 'Guida ufficiale Google Docs Editors', /^su/],

@@ -225,6 +225,15 @@ content; the card `h3` must not duplicate the slide `h2`. Verification slides
 must ask questions specific to the deck content, not generic template
 questions.
 
+Avoid placing two consecutive slides in the same visual format. Repeating the
+same title/lead/card grid, split layout, comparison table or other composition
+back-to-back is not recommended because it flattens the visual rhythm and makes
+distinct ideas feel interchangeable. Alternate layouts, visual hierarchy or
+content treatment between adjacent slides. A repeated format is acceptable
+only when the continuity is intentional and educationally useful, such as a
+short step-by-step sequence, a controlled before/after comparison or parallel
+examples whose sameness is itself part of the explanation.
+
 ## Title slide invariants
 
 Every deck has a title slide with `.title-left` (text column) and `.title-right`
@@ -592,6 +601,15 @@ Card color classes:
 Sections start collapsed. Opening one section closes the others. The course
 header title is `Educazione digitale`; do not reintroduce the old "Indice del
 corso" badge or the difficulty legend under the title.
+
+Sections with at least two hierarchical sub-series use a second accordion
+level generated from their card codes, for example `RW01`/`RW02`/`RW03`,
+`SU01`-`SU04` and `PR01`-`PR04`. Sub-series start collapsed and open
+independently inside the active main section. Flat series such as Hardware,
+Smartphones or Game Design must not receive redundant submenus. Search expands
+matching sub-series automatically and hides those without results. Maintain
+human-readable names in the `subseriesLabels` map in `00-indice.html` whenever
+a new hierarchical block is introduced.
 
 Card layout: single full-width row divided into three visually separate zones.
 The module code (`XX00` or `XX00.00`) stands outside the central box on the
