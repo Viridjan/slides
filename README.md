@@ -89,12 +89,30 @@ second decorative closing badge. Shared geometry and link placement live in
 destination.
 
 After adding or substantially editing decks, normalize the closing slides and
-rebuild search:
+rebuild the generated indexes and topic inventory:
 
 ```bash
 node scripts/normalize-closing-slides.js
+node scripts/build-slide-topic-inventory.js
 node scripts/build-search-index.js
 ```
+
+### Slide topic inventory
+
+`inventario-argomenti-slide.csv` is generated from headings, bold terms,
+table headers and semantic labels in every published deck. It is used to find
+repeated subjects, linguistic variants and related subtopics across the course.
+Do not edit the CSV manually; regenerate it with:
+
+```bash
+node scripts/build-slide-topic-inventory.js
+```
+
+The inventory preserves the wording shown on each slide while also exposing a
+normalized lemma, a semantic key, a macro-category and an editorial group.
+`tipo_accorpamento` distinguishes linguistic variants, macro-category members
+and autonomous topics. `blocco_principale` identifies the deck that owns the
+full treatment when a cross-reference is preferable to repeating it elsewhere.
 
 ## Adding a deck
 
@@ -106,6 +124,7 @@ node scripts/build-search-index.js
 
 ```bash
 node scripts/build-last-modified.js
+node scripts/build-slide-topic-inventory.js
 node scripts/build-search-index.js
 ```
 

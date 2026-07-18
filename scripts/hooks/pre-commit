@@ -1,0 +1,8 @@
+#!/bin/sh
+# Proprietà intellettuale di Francesco Antonio Binetti
+# Keeps last-modified-index.js in sync automatically. Install once per clone:
+#   cp scripts/hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+if git diff --cached --name-only --diff-filter=ACMR | grep -qE '^[a-z]{2}[0-9]{2}.*\.html$'; then
+  node scripts/build-last-modified.js > /dev/null
+  git add last-modified-index.js
+fi

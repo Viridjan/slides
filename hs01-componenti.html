@@ -19,30 +19,7 @@
    THEME TOKENS — change these to restyle the whole course.
    "Warm Study Zine": cream paper, ink, red/teal/gold accents.
    ============================================================ */
-:root{
-  --paper:#f4ece0;        /* cream paper background */
-  --paper-2:#ece0cf;      /* slightly darker paper */
-  --ink:#1c1714;          /* near-black ink */
-  --ink-soft:#3a322c;     /* softened ink for body copy */
-  --ink-faint:#6b5f54;    /* captions / meta */
-  --red:#e6533b;          /* primary accent (tape, highlights) */
-  --teal:#163b35;         /* deep green panel */
-  --teal-2:#1f5249;       /* lighter green */
-  --gold:#e6c14a;         /* gold accent */
-  --gold-deep:#d98a2b;    /* amber */
-  --sky:#3f7e8c;          /* cool accent */
-  --line:#d8c9b4;         /* hairline on paper */
-
-  --font-display:"Fraunces",Georgia,serif;
-  --font-body:"Space Grotesk",sans-serif;
-  --font-mono:"Space Mono",monospace;
-
-  --stage-bg:#241d17;     /* letterbox color around the stage */
-  --slide-bg:var(--paper);
-
-  --ease:cubic-bezier(.2,.8,.2,1);
-  --dur:.6s;
-}
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
@@ -920,7 +897,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <h2 class="h-big reveal">I programmi che <em class="hot">non puoi toccare</em></h2>
       <p class="lead reveal d1">Il <b>software</b> è l'insieme dei programmi e delle istruzioni che permettono al computer di svolgere compiti specifici. Sono elementi <b>immateriali</b>: non li tocchi, ma senza di loro l'hardware sarebbe solo una scatola di metallo e plastica.</p>
       <div class="grid3 reveal d2" style="margin-top:14px;">
-        <div class="card"><span class="ic">🪟</span><h3>Sistema operativo</h3><p>Il software di base che fa funzionare tutto il resto.</p></div>
+        <div class="card"><span class="ic">🪟</span><h3>Sistema operativo: ruolo di base</h3><p>Il software che gestisce hardware e programmi. Approfondimento in <a href="hs03-os.html#slide-5">HS03 · Sistemi operativi</a>.</p></div>
         <div class="card"><span class="ic">🌐</span><h3>Browser</h3><p>Per navigare in internet.</p></div>
         <div class="card"><span class="ic">📄</span><h3>Programmi</h3><p>Word, Excel, giochi, app: ognuno fa un compito.</p></div>
       </div>
@@ -939,13 +916,13 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <p class="body reveal d2">Gestisce lo schermo, i file, le periferiche e fa da “traduttore” tra te e l'hardware. Ne esistono diversi, ognuno con il suo stile — ma il compito è sempre lo stesso.</p>
         <div class="note reveal d3">
           <div class="lbl">Attenzione</div>
-          <p>Il sistema operativo dei computer è diverso da quello degli smartphone: <b>Android</b> e <b>iOS</b> sono pensati per il touch, <b>Windows</b> e <b>macOS</b> per mouse e tastiera.</p>
+          <p><b>Android e iOS sono sistemi operativi mobili</b>; Windows e macOS sono usati principalmente sui computer. Il confronto generale è in HS03, quello tra i sistemi mobili in SM03.</p>
         </div>
       </div>
       <div class="col" style="gap:24px;">
-        <div class="card reveal d2"><span class="ic">🪟</span><h3>Windows</h3><p>Il più diffuso sui PC di tutto il mondo.</p></div>
-        <div class="card reveal d3"><span class="ic">🍎</span><h3>macOS</h3><p>Il sistema dei computer Apple (Mac).</p></div>
-        <div class="card reveal d4"><span class="ic">🐧</span><h3>Linux</h3><p>Gratuito e libero, molto usato dai tecnici.</p></div>
+        <div class="card reveal d2"><span class="ic">🪟</span><h3>Windows: sistema per PC</h3><p>Sistema Microsoft disponibile su computer di molti produttori. Approfondimento in <a href="hs03-os.html#slide-7">HS03 · Sistemi operativi</a>.</p></div>
+        <div class="card reveal d3"><span class="ic">🍎</span><h3>macOS: sistema per Mac</h3><p>Sistema Apple distribuito con i computer Mac. Approfondimento in <a href="hs03-os.html#slide-7">HS03 · Sistemi operativi</a>.</p></div>
+        <div class="card reveal d4"><span class="ic">🐧</span><h3>Linux: famiglia di sistemi</h3><p>Famiglia open source disponibile in diverse distribuzioni. Approfondimento in <a href="hs03-os.html#slide-7">HS03 · Sistemi operativi</a>.</p></div>
       </div>
     </div>
     <div class="page-num"><b>16</b> / 21</div>
@@ -994,8 +971,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
           <p>Per <b>scrivere</b>: lettere, relazioni, curriculum, documenti di ogni tipo.</p>
         </div>
         <div class="card" style="border-color:var(--teal);">
-          <span class="ic">📊</span><h3>Excel</h3>
-          <p>Per i <b>fogli di calcolo</b>: tabelle, conti, grafici e numeri.</p>
+          <span class="ic">📊</span><h3>Excel: fogli di calcolo</h3>
+          <p>Per tabelle, conti, grafici e numeri. Il percorso completo parte da <a href="su03-01-sistema.html#slide-3">SU03.01 · Sistema di lavoro</a>.</p>
         </div>
         <div class="card" style="border-color:var(--red);">
           <span class="ic">📽️</span><h3>PowerPoint</h3>
@@ -1025,7 +1002,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <div class="card" style="border-color:var(--red);">
           <h3 style="color:var(--red);">🧠 Software — la mente</h3>
           <p style="margin-top:10px;line-height:1.55;">
-            <b>Sistema operativo</b> = la base che fa funzionare tutto · <b>Browser</b> = per internet · <b>Suite ufficio</b> = Word, Excel, PowerPoint per studiare e lavorare.
+            <b>Sistema operativo: software di base</b> = fa funzionare tutto · <b>Browser</b> = per internet · <b>Suite ufficio</b> = Word, Excel, PowerPoint per studiare e lavorare.
           </p>
         </div>
       </div>

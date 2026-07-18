@@ -35,81 +35,81 @@ Versione e compatibilità: leggere prima di installare
  ✓ Controllo minimo Verifica fonte, sistema supportato, spazio richiesto e permessi. Se un requisito non è chiaro, non procedere alla cieca.
 
 --- Slide 5 ---
-Il sistema operativo non è un programma come gli altri 
- 
- 
- 
- 🏗️ 
- Sistema Operativo 
- Il fondamento: gestisce hardware, memoria, processi e periferiche. Esempi : Windows, macOS, Linux, Android.
+Il sistema operativo non è un programma come gli altri
 
-Gira sempre in background, anche quando non si vede nulla sullo schermo. 
- 
- 
- 📦 
- Applicazioni 
+
+
+ 🏗️
+ Sistema operativo: livello fondamentale
+ Gestisce hardware, memoria, processi e periferiche. Esempi : Windows, macOS, Linux, Android. Il quadro completo è in HS03 · Sistemi operativi.
+
+Gira sempre in background, anche quando non si vede nulla sullo schermo.
+
+
+ 📦
+ Applicazioni
  Programmi che svolgono compiti specifici usando le risorse che l'OS mette a disposizione. Esempi : Word, Chrome, VLC, Spotify.
 
-Non possono girare senza un OS sottostante. 
- 
- 
- 
- 
- Come collaborano 
+Non possono girare senza un OS sottostante.
+
+
+
+
+ Come collaborano
  Quando avvii un'app, l'OS:
 
 
- 1 — La carica nella RAM 
+ 1 — La carica nella RAM
 
- 2 — Le assegna tempo CPU 
+ 2 — Le assegna tempo CPU
 
- 3 — Gestisce l'accesso a disco e rete 
+ 3 — Gestisce l'accesso a disco e rete
 
- 4 — Controlla permessi e errori 
+ 4 — Controlla permessi e errori
 
 
- L'utente vede solo l'app. L'OS è invisibile, ma presente. 
- 
- 
- 💡 Analogia 
- L'OS è il palazzo . Le app sono gli inquilini . Il palazzo fornisce elettricità, acqua, ascensore — le app usano queste risorse senza preoccuparsene. 
- 
- 
- 
- 
- Fonte: Guida ufficiale Android ↗ Fonte: CPU — Wikipedia ↗
+ L'utente vede solo l'app. L'OS è invisibile, ma presente.
+
+
+ 💡 Analogia
+ L'OS è il palazzo . Le app sono gli inquilini . Il palazzo fornisce elettricità, acqua, ascensore — le app usano queste risorse senza preoccuparsene.
+
+
+
+
+ [Fonte: Guida ufficiale Android — https://support.google.com/android/] [Fonte: CPU — Wikipedia — https://it.wikipedia.org/wiki/CPU]
 Fonti ufficiali:
 - Guida ufficiale Android — https://support.google.com/android/
 - CPU — Wikipedia — https://it.wikipedia.org/wiki/CPU
 
 --- Slide 6 ---
-Installare un programma: cosa succede davvero 
- 
- 
- 
- 1 Copia dei file — i file del programma vengono copiati nelle cartelle del sistema (es. C:\Program Files su Windows, /usr/bin su Linux). 
- 2 Registrazione nel sistema — il programma viene "annunciato" all'OS: icone nel menu, associazioni file, servizi in avvio. 
- 3 Librerie aggiuntive — se l'app ha dipendenze (DLL su Windows, shared libraries su Linux), vengono installate anch'esse. 
- 4 Impostazioni di sistema — chiavi di registro (Windows) o file di configurazione scritti nelle cartelle utente. 
- 
- 
- 
- Formati per OS 
- 
- 🪟 Windows 
- .exe (installer eseguibile) e .msi (Windows Installer). Esegui il file, segui la procedura guidata. 
- 
- 
- 🍎 macOS 
- .pkg (installer guidato) e .dmg (immagine disco: trascini l'app nella cartella Applicazioni). 
- 
- 
- 🐧 Linux — package manager 
- apt install , dnf install , pacman -S , zypper in : un comando, il sistema scarica e installa tutto in sicurezza dai repository ufficiali. 
- 
- 
- 🤖 Android 
- Play Store (consigliato) oppure file .apk manuale (sideloading — più rischio).
+Installare un programma: cosa succede davvero
+
+
+
+ 1 Copia dei file — i file del programma vengono copiati nelle cartelle del sistema (es. C:\Program Files su Windows, /usr/bin su Linux).
+ 2 Registrazione nel sistema — il programma viene "annunciato" all'OS: icone nel menu, associazioni file, servizi in avvio.
+ 3 Librerie aggiuntive — se l'app ha dipendenze (DLL su Windows, shared libraries su Linux), vengono installate anch'esse.
+ 4 Impostazioni di sistema — chiavi di registro (Windows) o file di configurazione scritti nelle cartelle utente.
+
+
+
+ Formati per OS
+
+ Windows: programmi EXE/MSI
+ .exe (installer eseguibile) e .msi (Windows Installer). Esegui il file, segui la procedura guidata.
+
+
+ macOS: pacchetti PKG/DMG
+ .pkg (installer guidato) e .dmg (immagine disco: trascini l'app nella cartella Applicazioni).
+
+
+ 🐧 Linux — package manager
+ apt install , dnf install , pacman -S , zypper in : un comando, il sistema scarica e installa tutto in sicurezza dai repository ufficiali.
+
+
+ Android: canali di installazione
+ Play Store oppure pacchetti .apk . La procedura e il modello di sicurezza sono approfonditi in SM03 · Store e sideloading →
 
 --- Slide 7 ---
 Il ponte tra OS e hardware 
@@ -181,30 +181,30 @@ Aggiornare OS e applicazioni: non rimandare
  • Verifica che i driver siano aggiornati, specie GPU e rete
 
 --- Slide 9 ---
-Proprietario, Open Source, Software Libero 
- 
- 
- 
- 🔒 
- Software Proprietario 
+Proprietario, Open Source, Software Libero
+
+
+
+ 🔒
+ Software Proprietario
  Codice sorgente segreto. Licenza d'uso a pagamento con condizioni definite dal produttore. Non puoi modificarlo né ridistribuirlo.
 
- Esempi : Windows, macOS, Microsoft Office, Adobe Photoshop. 
- 
- 
- 
- 
- 👁️ 
- Open Source 
+ Esempi : Windows, macOS, Microsoft Office, Adobe Photoshop.
+
+
+
+
+ 👁️
+ Open Source
  Codice sorgente pubblico e leggibile. Focus sulla collaborazione tecnica : chiunque può contribuire, studiare, spesso modificare. Non sempre garantisce tutte le libertà.
 
- Esempi : Android (AOSP), Chromium, VS Code. 
- 
- 
- 
- 
- 🔓 
- Software Libero 
+ Esempi : Android (AOSP), Chromium, VS Code.
+
+
+
+
+ 🔓
+ Software Libero
  Le 4 libertà (FSF):
 0 — Eseguire
 1 — Studiare
@@ -213,16 +213,17 @@ Proprietario, Open Source, Software Libero
 
 Focus sulla libertà dell'utente , non solo sul codice aperto. Gratis ≠ libero.
 
- Esempi : Linux, Firefox, LibreOffice, VLC. 
- 
- 
- 
- 
- Come si sovrappongono 
- Quasi tutto il software libero è anche open source. Non tutto l'open source è "libero" nel senso politico (alcune licenze open source limitano usi commerciali). Molti software appartengono a entrambe le categorie: Linux, Firefox, Git, Python. 
- 
- 
- Fonte: Guida ufficiale Adobe Photoshop ↗
+ Esempi : Linux, Firefox, LibreOffice, VLC.
+
+
+
+
+ Come si sovrappongono
+ Quasi tutto il software libero è anche open source. Non tutto l'open source è "libero" nel senso politico (alcune licenze open source limitano usi commerciali). Molti software appartengono a entrambe le categorie: Linux, Firefox, Git, Python.
+
+
+ [Fonte: Guida ufficiale Adobe Photoshop — https://helpx.adobe.com/photoshop/user-guide.html]
+
 Fonti ufficiali:
 - Guida ufficiale Adobe Photoshop — https://helpx.adobe.com/photoshop/user-guide.html
 
@@ -241,7 +242,6 @@ Gli store digitali: installazione sicura e centralizzata
  Lo store più controllato: ogni app è revisionata da Apple. Sandboxing obbligatorio. Privacy label obbligatorie. Standard di sicurezza più alti. 
  
  
- 🤖 
  Google Play Store 
  Milioni di app. Play Protect scansiona per malware. Meno restrittivo di Apple: qualche app malevola riesce a passare, ma viene rimossa velocemente. 
  
@@ -265,63 +265,65 @@ Gli store digitali: installazione sicura e centralizzata
  Software non distribuito tramite store (es. software aziendale, tool professionali) va scaricato solo dal sito ufficiale del produttore . Mai da siti di download generici.
 
 --- Slide 11 ---
-Utenti, privilegi e perché importano per la sicurezza 
- 
- 
- 
- 👑 
- Amministratore 
- Può fare tutto: installare software, modificare impostazioni di sistema, accedere a tutti i file. Su Windows: "Amministratore". Su Linux/macOS: root / sudo . Da non usare per il lavoro quotidiano . 
- 
- 
- 🧑 
- Utente standard 
- Può usare le app installate, gestire i propri file, cambiare le proprie impostazioni. Non può installare software di sistema o modificare configurazioni globali. Consigliato per uso quotidiano . 
- 
- 
- 👤 
- Ospite 
- Accesso minimo: usa il computer temporaneamente. Nessun file personale salvato tra una sessione e l'altra. Ideale per prestare il PC a qualcuno senza rischi. 
- 
- 
- 
- 
- Principio del minimo privilegio 
- Ogni utente (e ogni app) dovrebbe avere solo i permessi strettamente necessari. Un malware che gira come utente standard fa molto meno danno di uno che gira come amministratore. 
- 
- 
- ‍👩‍👧 Account separati 
+Utenti, privilegi e perché importano per la sicurezza
+
+
+
+ 👑
+ Amministratore
+ Può fare tutto: installare software, modificare impostazioni di sistema, accedere a tutti i file. Su Windows: "Amministratore". Su Linux/macOS: root / sudo . Da non usare per il lavoro quotidiano .
+
+
+ 🧑
+ Utente standard
+ Può usare le app installate, gestire i propri file, cambiare le proprie impostazioni. Non può installare software di sistema o modificare configurazioni globali. Consigliato per uso quotidiano .
+
+
+ 👤
+ Ospite
+ Accesso minimo: usa il computer temporaneamente. Nessun file personale salvato tra una sessione e l'altra. Ideale per prestare il PC a qualcuno senza rischi.
+
+
+
+
+ Principio del minimo privilegio
+ Ogni utente (e ogni app) dovrebbe avere solo i permessi strettamente necessari. Un malware che gira come utente standard fa molto meno danno di uno che gira come amministratore.
+
+
+ ‍👩‍👧 Account separati
  Su un PC condiviso (famiglia, ufficio) ogni persona dovrebbe avere il proprio account:
 
 • Impostazioni personali separate
 • Documenti accessibili solo a se stessi
 • Password e sessioni distinte
-• Nessuna contaminazione tra profili 
- 
- 
- Su Android / iOS 
- Le app chiedono permessi espliciti (fotocamera, posizione, microfono, contatti). Concedili solo se l'app ne ha bisogno per funzionare. Un torcia-app non ha bisogno dei tuoi contatti. 
- 
- 
- 
- 
- Fonte: Manuale utente iPhone — Apple ↗
+• Nessuna contaminazione tra profili
+
+
+ Permessi delle app mobili
+ Android e iOS richiedono autorizzazioni esplicite per risorse come fotocamera, posizione, microfono e contatti. La revisione operativa dei permessi è trattata nel modulo dedicato.
+ Vai a SM04 · App e permessi →
+
+
+
+
+ [Fonte: Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios]
+
 Fonti ufficiali:
 - Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
 
 --- Slide 12 ---
-Un backup è utile solo se si può ripristinare 
- 
- 
- 
- 💾 
- Cos'è un backup 
- Una copia dei propri dati in un luogo diverso dall'originale. Protegge da: guasti hardware , ransomware (i dati cifrati non lo sono nel backup), furto , cancellazione accidentale , errori software . 
- 
- 
- 📍 
- Dove fare il backup 
- 
+Un backup è utile solo se si può ripristinare
+
+
+
+ 💾
+ Cos'è un backup
+ Una copia dei propri dati in un luogo diverso dall'originale. Protegge da: guasti hardware , ransomware (i dati cifrati non lo sono nel backup), furto , cancellazione accidentale , errori software .
+
+
+ 📍
+ Dove fare il backup
+
  🔌 Disco esterno — veloce, economico, fisicamente separato
 
  🏠 NAS (Network Attached Storage) — server casalingo automatico
@@ -329,34 +331,34 @@ Un backup è utile solo se si può ripristinare
  ☁️ Cloud — Google Drive, OneDrive, iCloud, Backblaze — accesso ovunque
 
 
- La regola 3-2-1 : 3 copie, su 2 supporti diversi, 1 fuori sede. 
- 
- 
- 
- 
- 🔄 
- Ripristino 
+ La regola 3-2-1 : 3 copie, su 2 supporti diversi, 1 fuori sede.
+
+
+
+
+ 🔄
+ Ripristino
  Recuperare documenti, impostazioni o l'intero sistema dal backup. Strumenti nativi:
 
 
- 🪟 Windows : Cronologia file, Punto di ripristino, Backup e ripristino
+ 🪟 Backup su Windows : Cronologia file, Punto di ripristino, Backup e ripristino
 
- 🍎 macOS : Time Machine (backup automatico ogni ora su disco esterno)
+ 🍎 Backup su macOS : Time Machine (backup automatico ogni ora su disco esterno)
 
- 🤖 Android : Backup Google One
+ Backup mobile Android : servizio associato all’account Google; dettagli in SM03
 
- 🐧 Linux : rsync , Déjà Dup, Timeshift 
- 
- 
- ⚠️ Il backup non testato non esiste 
+ 🐧 Backup su Linux : rsync , Déjà Dup, Timeshift
+
+
+ ⚠️ Il backup non testato non esiste
  Un backup non verificato potrebbe essere corrotto, incompleto o su un disco già guasto. Prova a ripristinare un file di test almeno una volta ogni 3 mesi . Il momento peggiore per scoprire che il backup non funziona è dopo un disastro.
 
 --- Slide 13 ---
-Come sapere quale sistema operativo usi 
- 
- 
- 🪟 
- Windows 
+Come sapere quale sistema operativo usi
+
+
+ 🪟
+ Windows: versione e build
  Metodo 1 :
 Start → Impostazioni → Sistema → Informazioni sul sistema
 
@@ -364,48 +366,48 @@ Start → Impostazioni → Sistema → Informazioni sul sistema
 Tasto Win + Pausa/Break
 
  Da terminale :
- winver 
- 
- 
- 🍎 
- macOS 
+ winver
+
+
+ 🍎
+ macOS: versione e hardware
  Metodo 1 :
 Menu Apple (🍎) → Informazioni su questo Mac
 
 Mostra versione (es. Ventura 13.6), chip (Intel o Apple Silicon), RAM e spazio disco.
 
  Da terminale :
- sw_vers 
- 
- 
- 🐧 
- Linux 
+ sw_vers
+
+
+ 🐧
+ Linux: distribuzione e kernel
  GUI :
 Impostazioni → Informazioni (varia per distro)
 
  Terminale :
  uname -a — versione kernel
  cat /etc/os-release — distro e versione
- lsb_release -a — info complete 
- 
- 
- 🤖 
- Android 
+ lsb_release -a — info complete
+
+
+ Android: versione e patch
  Metodo :
 Impostazioni → Informazioni sul telefono → Versione Android
 
 Qui trovi anche:
 • Livello patch sicurezza
 • Versione kernel Linux
-• Versione UI del produttore (es. One UI 6.1) 
- 
- 
- 
- 💡 A cosa serve saperlo 
- Sai se il tuo sistema riceve ancora aggiornamenti di sicurezza (es. Windows 10 termina supporto ottobre 2025). Puoi verificare la compatibilità con un nuovo software. Serve a chi ti supporta tecnicamente per darti istruzioni precise. 
- 
- 
- Fonte: RAM — Wikipedia ↗
+• Versione UI del produttore (es. One UI 6.1)
+
+
+
+ 💡 A cosa serve saperlo
+ Sai se il tuo sistema riceve ancora aggiornamenti di sicurezza (es. Windows 10 termina supporto ottobre 2025). Puoi verificare la compatibilità con un nuovo software. Serve a chi ti supporta tecnicamente per darti istruzioni precise.
+
+
+ [Fonte: RAM — Wikipedia — https://it.wikipedia.org/wiki/RAM]
+
 Fonti ufficiali:
 - RAM — Wikipedia — https://it.wikipedia.org/wiki/RAM
 

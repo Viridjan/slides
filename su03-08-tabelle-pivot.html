@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s}
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
 *{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);font-family:var(--font-body)}
 .deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0}
 .slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;visibility:hidden;opacity:0;pointer-events:none;background:var(--paper);color:var(--ink);padding:96px 110px}
@@ -96,8 +96,8 @@
 
         <h2 class="h-big reveal">Da tabella a <em class="hot">pivot</em></h2>
         <p class="lead reveal d1">In Excel e Google Sheets il flusso è quasi identico: selezioni la tabella, scegli Inserisci → Tabella pivot e decidi dove creare il report. Il lavoro vero inizia nel pannello dei campi.</p>
-        <div class="note sky reveal d2"><div class="lbl">Excel</div><p>Seleziona i dati → Inserisci → Tabella pivot → nuovo foglio o foglio esistente.</p></div>
-        <div class="note reveal d3"><div class="lbl">Google Sheets</div><p>Seleziona i dati → Inserisci → Tabella pivot → nuovo foglio. Sheets può proporre riepiloghi automatici.</p></div>
+        <div class="note sky reveal d2"><div class="lbl">Excel: procedura pivot</div><p>Seleziona i dati → Inserisci → Tabella pivot → nuovo foglio o foglio esistente.</p></div>
+        <div class="note reveal d3"><div class="lbl">Google Sheets: procedura pivot</div><p>Seleziona i dati → Inserisci → Tabella pivot → nuovo foglio. Sheets può proporre riepiloghi automatici.</p></div>
       </div>
       <div class="pivot-box reveal d1">
         <div class="pivot-field"><span>1. Seleziona dati</span><b>A1:E500</b></div>
@@ -199,8 +199,8 @@
 
         <h2 class="h-big reveal">Vedere solo ciò che <em class="hot">serve</em></h2>
         <p class="lead reveal d1">I filtri limitano il report senza cancellare dati. Puoi analizzare un solo anno, una sola sede, un operatore specifico o un insieme di servizi.</p>
-        <div class="note reveal d2"><div class="lbl">Excel</div><p>Usa filtri nel pannello pivot oppure aggiungi segmentazioni dati per controlli visuali.</p></div>
-        <div class="note sky reveal d3"><div class="lbl">Google Sheets</div><p>Usa Filtri nel pannello editor o aggiungi slicer da Dati → Aggiungi filtro dei dati.</p></div>
+        <div class="note reveal d2"><div class="lbl">Excel: filtri pivot</div><p>Usa filtri nel pannello pivot oppure aggiungi segmentazioni dati per controlli visuali.</p></div>
+        <div class="note sky reveal d3"><div class="lbl">Google Sheets: filtri pivot</div><p>Usa Filtri nel pannello editor o aggiungi slicer da Dati → Aggiungi filtro dei dati.</p></div>
       </div>
       <div class="pivot-box reveal d1">
         <div class="pivot-field"><span>Filtro anno</span><b>2026</b></div>

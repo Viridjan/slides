@@ -115,53 +115,53 @@ Fonti ufficiali:
 - RAM — Wikipedia — https://it.wikipedia.org/wiki/RAM
 
 --- Slide 7 ---
-I principali sistemi operativi 
- 
- 
- 🪟 
- Windows 
- Desktop 
+I principali sistemi operativi
 
-Sviluppato da Microsoft. ~73% dei PC desktop mondiali. Standard de facto in uffici e aziende. Compatibile con la stragrande maggioranza del software commerciale. 
- 
- 
- 🍎 
- macOS 
- Desktop 
 
-Sviluppato da Apple. Esclusivo su hardware Apple (Mac). ~15% dei PC. Preferito in ambienti creativi: design, video, musica, sviluppo software. 
- 
- 
- 🐧 
- Linux 
- Desktop / Server 
+ 🪟
+ Windows: sistema Microsoft per PC
+ Desktop
 
-Open source. ~3% desktop, ma domina server (~96%) e supercomputer (100% dei top 500). Centinaia di distribuzioni. Gratis. 
- 
- 
- 🤖 
- Android 
- Mobile 
+Sviluppato da Microsoft. ~73% dei PC desktop mondiali. Standard de facto in uffici e aziende. Compatibile con la stragrande maggioranza del software commerciale.
 
-Sviluppato da Google, basato su Linux. ~72% degli smartphone mondiali. Open source (AOSP). Usato da Samsung, Xiaomi, Google, Motorola e molti altri. 
- 
- 
- 📱 
- iOS / iPadOS 
- Mobile Apple 
 
-Sistema mobile di Apple. ~28% degli smartphone. Esclusivo su iPhone e iPad. Ecosistema molto chiuso ma stabile e aggiornato a lungo. 
- 
- 
- 🖥️ 
- Linux Server 
- Server / Cloud 
+ 🍎
+ macOS: sistema Apple per Mac
+ Desktop
 
-Il 96% dei server web gira su Linux. AWS, Google Cloud, Azure: tutti basati su Linux. Robusto, sicuro, gratuito, gestibile da remoto via terminale. 
- 
- 
- 
- Fonte: Guida ufficiale Android ↗ Fonte: Manuale utente iPhone — Apple ↗
+Sviluppato da Apple. Esclusivo su hardware Apple (Mac). ~15% dei PC. Preferito in ambienti creativi: design, video, musica, sviluppo software.
+
+
+ 🐧
+ Linux: distribuzioni desktop e server
+ Desktop / Server
+
+Open source. ~3% desktop, ma domina server (~96%) e supercomputer (100% dei top 500). Centinaia di distribuzioni. Gratis.
+
+
+ Android: sistema mobile
+ Mobile
+
+Usa il kernel Linux; la base AOSP è open source. Produttori diversi distribuiscono Android su smartphone e altri dispositivi.
+
+
+ 📱
+ iOS / iPadOS
+ Mobile Apple
+
+Sistema mobile di Apple. ~28% degli smartphone. Esclusivo su iPhone e iPad. Ecosistema molto chiuso ma stabile e aggiornato a lungo.
+
+
+ 🖥️
+ Linux Server
+ Server / Cloud
+
+Il 96% dei server web gira su Linux. AWS, Google Cloud, Azure: tutti basati su Linux. Robusto, sicuro, gratuito, gestibile da remoto via terminale.
+
+
+
+ [Fonte: Guida ufficiale Android — https://support.google.com/android/] [Fonte: Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios]
+
 Fonti ufficiali:
 - Guida ufficiale Android — https://support.google.com/android/
 - Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
@@ -318,255 +318,252 @@ Fonti ufficiali:
 - Guida ufficiale Adobe Photoshop — https://helpx.adobe.com/photoshop/user-guide.html
 
 --- Slide 12 ---
-Android: il mobile OS più diffuso al mondo 
- 
- 
- 
- 🤖 
- Cos'è Android 
- OS mobile sviluppato da Google, acquisita Android Inc. nel 2005. Basato sul kernel Linux. Il codice base (AOSP) è open source, ma i servizi Google (Gmail, Maps, Play Store) sono proprietari. 
- 
- 
- 🏭 
- Ecosistema produttori 
- Ogni produttore personalizza Android con la propria interfaccia: Samsung (One UI), Xiaomi (MIUI/HyperOS), Google (Pixel UI), OnePlus (OxygenOS). Questo porta varietà ma anche frammentazione . 
- 
- 
- 
- 
- ✅ 
- Pro 
- Scelta : da 80 € a 1.500 € di fascia. Personalizzazione : launcher, widget, file manager, default app. Sideloading : installi app da fonti esterne al Play Store. 
- 
- 
- ⚠️ 
- Contro 
- Frammentazione : migliaia di modelli con versioni diverse. Aggiornamenti : i produttori economici aggiornano poco. Malware : più esposto di iOS per il sideloading e lo store meno controllato.
+Android nel quadro dei sistemi operativi
+
+
+
+ Classificazione tecnica
+ Android è un sistema operativo mobile basato sul kernel Linux. La base AOSP è open source; i servizi Google distribuiti su molti dispositivi hanno licenze separate.
+
+
+ Ruolo in questo modulo
+ Qui Android serve come esempio di OS mobile nel confronto con Windows, macOS e Linux desktop. Architettura, varianti e uso quotidiano sono raccolti nel modulo dedicato.
+
+
+
+
+ Trattazione principale
+ SM03 · Android e iOS tratta produttori, aggiornamenti, account, store, backup, personalizzazione e criteri di scelta senza duplicare questi contenuti.
+
+
+ Rimando
+ Prosegui nel punto in cui viene spiegata la struttura di Android e il rapporto tra versione di sistema e personalizzazione del produttore.
+ Vai a SM03 · Android →
 
 --- Slide 13 ---
-Tabella comparativa 
- 
- 
- 
- Caratteristica 
- 🪟 Windows 
- 🍎 macOS 
- 🐧 Linux 
- 🤖 Android 
- 
- 
- 
- 
- Costo 
- 100–200 € (licenza) 
- Incluso nel Mac (hardware costoso) 
- Gratuito 
- Incluso nel dispositivo 
- 
- 
- Open source 
- No 
- Parziale (Darwin kernel) 
- Sì (kernel + distro) 
- Parziale (AOSP sì, servizi Google no) 
- 
- 
- Aggiornamenti 
- Automatici, a volte invasivi 
- Gratuiti, 5–7 anni 
- Sempre gratuiti, frequenti 
- Variabili: Google ~5 anni, altri meno 
- 
- 
- Uso principale 
- Ufficio, gaming, scuola 
- Creativi, sviluppo, università 
- Server, sviluppo, utenti esperti 
- Smartphone, tablet, IoT 
- 
- 
- Sicurezza 
- Target principale malware 
- Buona, Gatekeeper + SIP 
- Ottima, permessi granulari 
+Tabella comparativa
+
+
+
+ Criterio di confronto
+ 🪟 Windows · licenza e compatibilità
+ 🍎 macOS · integrazione hardware
+ 🐧 Linux · distribuzioni
+ Android · modello distributivo
+
+
+
+
+ Costo
+ 100–200 € (licenza)
+ Incluso nel Mac (hardware costoso)
+ Gratuito
+ Incluso nel dispositivo
+
+
+ Open source
+ No
+ Parziale (Darwin kernel)
+ Sì (kernel + distro)
+ Parziale (AOSP sì, servizi Google no)
+
+
+ Aggiornamenti
+ Automatici, a volte invasivi
+ Gratuiti, 5–7 anni
+ Sempre gratuiti, frequenti
+ Variabili: Google ~5 anni, altri meno
+
+
+ Uso principale
+ Ufficio, gaming, scuola
+ Creativi, sviluppo, università
+ Server, sviluppo, utenti esperti
+ Smartphone, tablet, IoT
+
+
+ Sicurezza
+ Target principale malware
+ Buona, Gatekeeper + SIP
+ Ottima, permessi granulari
  Variabile per frammentazione
 
 --- Slide 14 ---
-Come si installano le app e come sono organizzati i file 
- 
- 
- Installazione applicazioni 
- 
- 🪟 Windows — Setup (.exe / .msi) 
- Scarichi un installer, lo esegui, clicchi "Avanti". Rapido ma rischioso: il file può venire da qualsiasi fonte. Windows Store disponibile ma poco usato. 
- 
- 
- 🍎 macOS — .dmg / App Store 
- App Store ufficiale o .dmg firmati da Apple (Gatekeeper blocca i non firmati). Più sicuro di Windows ma meno aperto. 
- 
- 
- 🐧 Linux — Package manager 
- apt install , dnf install , pacman -S : il terminale scarica, installa e aggiorna tutto dai repository ufficiali. Estremamente sicuro. 
- 
- 
- 🤖 Android — Play Store / APK 
- Play Store è il canale ufficiale. APK (sideloading) permette di installare da fonti terze, ma aumenta il rischio malware. 
- 
- 
- 
- File system 
- 
- 🪟 NTFS 
- File di grandi dimensioni, permessi per utente, journaling (recupero dopo crash). Standard Windows dalla versione NT in poi. 
- 
- 
- 🍎 APFS 
- Apple File System, ottimizzato per SSD e flash. Snapshot (backup istantanei), crittografia nativa, cloni di file a costo zero. 
- 
- 
- 🐧 ext4 / btrfs 
+Come si installano le app e come sono organizzati i file
+
+
+ Installazione applicazioni
+
+ 🪟 Windows — Setup (.exe / .msi)
+ Scarichi un installer, lo esegui, clicchi "Avanti". Rapido ma rischioso: il file può venire da qualsiasi fonte. Windows Store disponibile ma poco usato.
+
+
+ 🍎 macOS — .dmg / App Store
+ App Store ufficiale o .dmg firmati da Apple (Gatekeeper blocca i non firmati). Più sicuro di Windows ma meno aperto.
+
+
+ 🐧 Linux — Package manager
+ apt install , dnf install , pacman -S : il terminale scarica, installa e aggiorna tutto dai repository ufficiali. Estremamente sicuro.
+
+
+ Android: installazione mobile
+ Play Store distribuisce app verificate; i pacchetti APK consentono installazioni esterne. Procedure e rischi sono trattati in SM03 · Store e sideloading →
+
+
+
+ File system
+
+ 🪟 NTFS
+ File di grandi dimensioni, permessi per utente, journaling (recupero dopo crash). Standard Windows dalla versione NT in poi.
+
+
+ 🍎 APFS
+ Apple File System, ottimizzato per SSD e flash. Snapshot (backup istantanei), crittografia nativa, cloni di file a costo zero.
+
+
+ 🐧 ext4 / btrfs
  ext4 è lo standard Linux: robusto e veloce. btrfs è il futuro: snapshot, compressione trasparente, correzione errori. F2FS usato da Android per flash storage.
 
 --- Slide 15 ---
-Come ogni OS gestisce sicurezza e aggiornamenti 
- 
- 
- 🪟 
- Windows 
- UAC (richiesta permessi admin). Windows Defender incluso. Aggiornamenti ogni "Patch Tuesday". Target principale malware per la sua diffusione. Telemetria inviata a Microsoft. 
- 
- 
- 🍎 
- macOS 
- Gatekeeper blocca app non firmate. SIP (System Integrity Protection) protegge i file di sistema. Sandboxing sull'App Store. Aggiornamenti rapidi e coerenti. 
- 
- 
- 🐧 
- Linux 
- Permessi Unix : ogni file ha proprietario e permessi rwx. sudo per operazioni privilegiate. Aggiornamenti di sicurezza pubblicati rapidamente dalla community. Pochissimi malware. 
- 
- 
- 🤖 
- Android 
- Sandbox per app : ogni app è isolata. Play Protect scansiona le app. Patch di sicurezza mensili — ma i produttori economici ritardano. Rischio sideloading. 
- 
- 
- 
- Aggiornamenti: non rimandare mai 
+Come ogni OS gestisce sicurezza e aggiornamenti
+
+
+ 🪟
+ Windows: protezioni e patch
+ UAC (richiesta permessi admin). Windows Defender incluso. Aggiornamenti ogni "Patch Tuesday". Target principale malware per la sua diffusione. Telemetria inviata a Microsoft.
+
+
+ 🍎
+ macOS: firma e integrità
+ Gatekeeper blocca app non firmate. SIP (System Integrity Protection) protegge i file di sistema. Sandboxing sull'App Store. Aggiornamenti rapidi e coerenti.
+
+
+ 🐧
+ Linux: permessi e aggiornamenti
+ Permessi Unix : ogni file ha proprietario e permessi rwx. sudo per operazioni privilegiate. Aggiornamenti di sicurezza pubblicati rapidamente dalla community. Pochissimi malware.
+
+
+ Android nel confronto di sicurezza
+ Android usa isolamento delle app, controllo dello store e patch distribuite secondo il dispositivo. La gestione operativa è raccolta in SM06 · Sicurezza dello smartphone →
+
+
+
+ Aggiornamenti: non rimandare mai
  Le vulnerabilità sfruttate dagli attacchi più gravi sono spesso già note e corrette da patch disponibili. Il problema è che gli utenti non aggiornano. WannaCry (2017) ha infettato 200.000 PC usando una vulnerabilità per cui Microsoft aveva rilasciato la patch 60 giorni prima.
 
 --- Slide 16 ---
-Raccolta dati, GUI e personalizzazione a confronto 
- 
- 
- 
- Aspetto 
- 🪟 Windows 
- 🍎 macOS 
- 🐧 Linux 
- 🤖 Android 
- 
- 
- 
- 
- Dati raccolti 
- Telemetria attiva di default (navigazione, errori, app usate) 
- Minimale, disattivabile nelle impostazioni privacy 
- Nessuno (a meno che la distro non abbia opt-in) 
- Molto (Google lega dati di posizione, uso, account) 
- 
- 
- Interfaccia grafica 
- Taskbar, Start menu, Explorer. Personalizzabile ma nei limiti di Microsoft 
- Dock, Finder, menu bar top. Design coerente, poco modificabile 
- GNOME, KDE, XFCE, i3… puoi cambiare tutto, incluso il desktop manager 
- Launcher sostituibile, widget liberi, temi 
- 
- 
- Personalizzazione 
- Media — sfondo, colori, dimensioni icone 
- Bassa — Apple vuole coerenza visiva 
- Massima — puoi ricostruire l'intera esperienza da zero 
- Alta — launcher, icone, tema, widget 
- 
- 
- Prestazioni RAM 
- ~4–8 GB solo per il sistema a riposo 
- Ottima compressione memoria, efficiente su M-chip 
- ~300 MB–1 GB con GUI leggera (XFCE, i3) 
+Raccolta dati, GUI e personalizzazione a confronto
+
+
+
+ Aspetto
+ 🪟 Windows · dati e interfaccia
+ 🍎 macOS · dati e interfaccia
+ 🐧 Linux · dati e interfaccia
+ Android · dati e interfaccia
+
+
+
+
+ Dati raccolti
+ Telemetria attiva di default (navigazione, errori, app usate)
+ Minimale, disattivabile nelle impostazioni privacy
+ Nessuno (a meno che la distro non abbia opt-in)
+ Molto (Google lega dati di posizione, uso, account)
+
+
+ Interfaccia grafica
+ Taskbar, Start menu, Explorer. Personalizzabile ma nei limiti di Microsoft
+ Dock, Finder, menu bar top. Design coerente, poco modificabile
+ GNOME, KDE, XFCE, i3… puoi cambiare tutto, incluso il desktop manager
+ Launcher sostituibile, widget liberi, temi
+
+
+ Personalizzazione
+ Media — sfondo, colori, dimensioni icone
+ Bassa — Apple vuole coerenza visiva
+ Massima — puoi ricostruire l'intera esperienza da zero
+ Alta — launcher, icone, tema, widget
+
+
+ Prestazioni RAM
+ ~4–8 GB solo per il sistema a riposo
+ Ottima compressione memoria, efficiente su M-chip
+ ~300 MB–1 GB con GUI leggera (XFCE, i3)
  Ottimizzato per mobile, gestione aggressiva
 
 --- Slide 17 ---
-Chi usa cosa 
- 
- 
- 
- Contesto 
- 🪟 
- 🍎 
- 🐧 
- 
- 
- 
- Gaming ⭐⭐⭐ ⭐ ⭐⭐ 
- Ufficio / Office ⭐⭐⭐ ⭐⭐⭐ ⭐⭐ 
- Grafica / Video ⭐⭐ ⭐⭐⭐ ⭐⭐ 
- Sviluppo software ⭐⭐ ⭐⭐⭐ ⭐⭐⭐ 
- Server / Cloud ⭐ ⭐ ⭐⭐⭐ 
- Scuola ⭐⭐⭐ ⭐⭐ ⭐ 
- 
- 
- 
- 
+Chi usa cosa
 
- Luoghi comuni sbagliati 
- 
- 
- "Linux è solo per hacker" 
- Ubuntu è usato da milioni di persone comuni. ChromeOS (Google) è Linux. Android è Linux. La difficoltà dipende dalla distro scelta. 
- 
- 
- "I Mac non prendono virus" 
- Falso. I malware per macOS esistono e crescono. La minore diffusione li rende meno bersagliati, non immuni. Xprotect di Apple non è infallibile. 
- 
- 
- "Windows è lento" 
- Windows 10/11 su SSD è veloce. Il rallentamento viene da hardware vecchio, troppi programmi in avvio automatico o mancanza di manutenzione. 
- 
- 
- "Android è insicuro" 
- Android con aggiornamenti regolari e Play Store è sicuro. Il rischio aumenta con dispositivi non aggiornati e APK da fonti sconosciute.
+
+
+ Contesto
+ 🪟
+ 🍎
+ 🐧
+
+
+
+ Gaming ⭐⭐⭐ ⭐ ⭐⭐
+ Ufficio / Office ⭐⭐⭐ ⭐⭐⭐ ⭐⭐
+ Grafica / Video ⭐⭐ ⭐⭐⭐ ⭐⭐
+ Sviluppo software ⭐⭐ ⭐⭐⭐ ⭐⭐⭐
+ Server / Cloud ⭐ ⭐ ⭐⭐⭐
+ Scuola ⭐⭐⭐ ⭐⭐ ⭐
+
+
+
+
+
+ Luoghi comuni sbagliati
+
+
+ "Linux è solo per hacker"
+ Ubuntu è usato da milioni di persone comuni. ChromeOS (Google) è Linux. Android è Linux. La difficoltà dipende dalla distro scelta.
+
+
+ "I Mac non prendono virus"
+ Falso. I malware per macOS esistono e crescono. La minore diffusione li rende meno bersagliati, non immuni. Xprotect di Apple non è infallibile.
+
+
+ "Windows è lento"
+ Windows 10/11 su SSD è veloce. Il rallentamento viene da hardware vecchio, troppi programmi in avvio automatico o mancanza di manutenzione.
+
+
+ Sicurezza di Android
+ Il livello di rischio dipende soprattutto dalla disponibilità delle patch, dal loro stato di installazione e dalla provenienza delle app.
 
 --- Slide 18 ---
-Non esiste il "migliore": dipende da te 
- 
- 
- 🪟 
- Scegli Windows se... 
- Usi software specifici solo Windows (gestionali aziendali, alcuni CAD, giochi). Lavori in un contesto scolastico o aziendale con infrastruttura Microsoft. Vuoi la massima compatibilità hardware. 
- 
- 
- 🍎 
- Scegli macOS se... 
- Hai già iPhone/iPad e vuoi l'ecosistema integrato. Lavori con grafica, video, musica o sviluppo software. Vuoi un sistema stabile che "funziona e basta" per anni. 
- 
- 
- 🐧 
- Scegli Linux se... 
- Vuoi imparare come funziona un OS. Hai hardware vecchio da far rivivere. Lavori su server o sviluppo. Vuoi il massimo controllo sulla tua macchina e zero spese. 
- 
- 
- 🤖 
- Scegli Android se... 
- Vuoi ampia scelta di dispositivi a ogni fascia di prezzo. Tieni alla personalizzazione del telefono. Non sei vincolato all'ecosistema Apple. Vuoi installare app da fonti esterne al Play Store. 
- 
- 
- 
- 💡 Il consiglio finale 
- Prova. Ubuntu ha una versione live che puoi usare da chiavetta USB senza installare nulla. macOS puoi provarlo nei negozi Apple. Nessuna scelta è permanente — e conoscere più sistemi è una competenza professionale. 
- 
- 
- Fonte: Documenti e specifiche USB — USB-IF ↗
+Non esiste il "migliore": dipende da te
+
+
+ 🪟
+ Scegli Windows se...
+ Usi software specifici solo Windows (gestionali aziendali, alcuni CAD, giochi). Lavori in un contesto scolastico o aziendale con infrastruttura Microsoft. Vuoi la massima compatibilità hardware.
+
+
+ 🍎
+ Scegli macOS se...
+ Hai già iPhone/iPad e vuoi l'ecosistema integrato. Lavori con grafica, video, musica o sviluppo software. Vuoi un sistema stabile che "funziona e basta" per anni.
+
+
+ 🐧
+ Scegli Linux se...
+ Vuoi imparare come funziona un OS. Hai hardware vecchio da far rivivere. Lavori su server o sviluppo. Vuoi il massimo controllo sulla tua macchina e zero spese.
+
+
+ Android: criteri di scelta
+ La scelta di uno smartphone dipende da durata del supporto, compatibilità con i dispositivi posseduti, disponibilità delle app e budget. Il confronto completo è in SM03 .
+ Confronta in SM03 →
+
+
+
+ 💡 Il consiglio finale
+ Prova. Ubuntu ha una versione live che puoi usare da chiavetta USB senza installare nulla. macOS puoi provarlo nei negozi Apple. Nessuna scelta è permanente — e conoscere più sistemi è una competenza professionale.
+
+
+ [Fonte: Documenti e specifiche USB — USB-IF — https://www.usb.org/documents]
+
 Fonti ufficiali:
 - Documenti e specifiche USB — USB-IF — https://www.usb.org/documents
 

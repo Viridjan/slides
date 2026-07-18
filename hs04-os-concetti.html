@@ -175,8 +175,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="stack">
         <div class="card teal reveal d1">
           <span class="ic">🏗️</span>
-          <h3>Sistema Operativo</h3>
-          <p>Il fondamento: gestisce hardware, memoria, processi e periferiche. <strong>Esempi</strong>: Windows, macOS, Linux, Android.<br><br>Gira sempre in background, anche quando non si vede nulla sullo schermo.</p>
+          <h3>Sistema operativo: livello fondamentale</h3>
+          <p>Gestisce hardware, memoria, processi e periferiche. <strong>Esempi</strong>: Windows, macOS, Linux, Android. Il quadro completo è in <a href="hs03-os.html#slide-5">HS03 · Sistemi operativi</a>.<br><br>Gira sempre in background, anche quando non si vede nulla sullo schermo.</p>
         </div>
         <div class="card sky reveal d2">
           <span class="ic">📦</span>
@@ -219,11 +219,11 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="stack">
         <p style="font-family:var(--font-display);font-weight:900;font-size:34px;color:var(--teal);">Formati per OS</p>
         <div class="card sky reveal d1" style="padding:18px 24px;">
-          <h3>🪟 Windows</h3>
+          <h3>Windows: programmi EXE/MSI</h3>
           <p><code>.exe</code> (installer eseguibile) e <code>.msi</code> (Windows Installer). Esegui il file, segui la procedura guidata.</p>
         </div>
         <div class="card teal reveal d2" style="padding:18px 24px;">
-          <h3>🍎 macOS</h3>
+          <h3>macOS: pacchetti PKG/DMG</h3>
           <p><code>.pkg</code> (installer guidato) e <code>.dmg</code> (immagine disco: trascini l'app nella cartella Applicazioni).</p>
         </div>
         <div class="card gold reveal d3" style="padding:18px 24px;">
@@ -231,8 +231,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
           <p><code>apt install</code>, <code>dnf install</code>, <code>pacman -S</code>, <code>zypper in</code>: un comando, il sistema scarica e installa tutto in sicurezza dai repository ufficiali.</p>
         </div>
         <div class="card red reveal d4" style="padding:18px 24px;">
-          <h3>🤖 Android</h3>
-          <p>Play Store (consigliato) oppure file <code>.apk</code> manuale (sideloading — più rischio).</p>
+          <h3>Android: canali di installazione</h3>
+          <p>Play Store oppure pacchetti <code>.apk</code>. La procedura e il modello di sicurezza sono approfonditi in <a href="sm03-android-ios.html#slide-8">SM03 · Store e sideloading →</a></p>
         </div>
       </div>
     </div>
@@ -361,7 +361,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
           <p>Lo store più controllato: ogni app è revisionata da Apple. Sandboxing obbligatorio. Privacy label obbligatorie. Standard di sicurezza più alti.</p>
         </div>
         <div class="card red" style="padding:20px 24px;">
-          <span class="ic" style="font-size:36px;">🤖</span>
           <h3>Google Play Store</h3>
           <p>Milioni di app. Play Protect scansiona per malware. Meno restrittivo di Apple: qualche app malevola riesce a passare, ma viene rimossa velocemente.</p>
         </div>
@@ -417,8 +416,9 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
           <p>Su un PC condiviso (famiglia, ufficio) ogni persona dovrebbe avere il proprio account:<br><br>• <strong>Impostazioni personali</strong> separate<br>• <strong>Documenti</strong> accessibili solo a se stessi<br>• <strong>Password e sessioni</strong> distinte<br>• Nessuna contaminazione tra profili</p>
         </div>
         <div class="note sky reveal d3">
-          <div class="lbl">Su Android / iOS</div>
-          <p>Le app chiedono <strong>permessi</strong> espliciti (fotocamera, posizione, microfono, contatti). Concedili solo se l'app ne ha bisogno per funzionare. Un torcia-app non ha bisogno dei tuoi contatti.</p>
+          <div class="lbl">Permessi delle app mobili</div>
+          <p>Android e iOS richiedono autorizzazioni esplicite per risorse come fotocamera, posizione, microfono e contatti. La revisione operativa dei permessi è trattata nel modulo dedicato.</p>
+          <a class="chip" href="sm04-app-permessi.html#slide-10" style="margin-top:14px;display:inline-flex;">Vai a SM04 · App e permessi →</a>
         </div>
       </div>
     </div>
@@ -451,10 +451,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
           <span class="ic">🔄</span>
           <h3>Ripristino</h3>
           <p>Recuperare documenti, impostazioni o l'intero sistema dal backup. Strumenti nativi:<br><br>
-          🪟 <strong>Windows</strong>: Cronologia file, Punto di ripristino, Backup e ripristino<br>
-          🍎 <strong>macOS</strong>: Time Machine (backup automatico ogni ora su disco esterno)<br>
-          🤖 <strong>Android</strong>: Backup Google One<br>
-          🐧 <strong>Linux</strong>: <code>rsync</code>, Déjà Dup, Timeshift</p>
+          🪟 <strong>Backup su Windows</strong>: Cronologia file, Punto di ripristino, Backup e ripristino<br>
+          🍎 <strong>Backup su macOS</strong>: Time Machine (backup automatico ogni ora su disco esterno)<br>
+          <strong>Backup mobile Android</strong>: servizio associato all’account Google; dettagli in SM03<br>
+          🐧 <strong>Backup su Linux</strong>: <code>rsync</code>, Déjà Dup, Timeshift</p>
         </div>
         <div class="note red reveal d2">
           <div class="lbl">⚠️ Il backup non testato non esiste</div>
@@ -472,22 +472,21 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="grid4 reveal d1" style="margin-top:36px;">
       <div class="card sky">
         <span class="ic">🪟</span>
-        <h3>Windows</h3>
+        <h3>Windows: versione e build</h3>
         <p><strong>Metodo 1</strong>:<br>Start → Impostazioni → Sistema → Informazioni sul sistema<br><br><strong>Metodo 2</strong>:<br>Tasto Win + Pausa/Break<br><br><strong>Da terminale</strong>:<br><code>winver</code></p>
       </div>
       <div class="card teal">
         <span class="ic">🍎</span>
-        <h3>macOS</h3>
+        <h3>macOS: versione e hardware</h3>
         <p><strong>Metodo 1</strong>:<br>Menu Apple (🍎) → Informazioni su questo Mac<br><br>Mostra versione (es. Ventura 13.6), chip (Intel o Apple Silicon), RAM e spazio disco.<br><br><strong>Da terminale</strong>:<br><code>sw_vers</code></p>
       </div>
       <div class="card gold">
         <span class="ic">🐧</span>
-        <h3>Linux</h3>
+        <h3>Linux: distribuzione e kernel</h3>
         <p><strong>GUI</strong>:<br>Impostazioni → Informazioni (varia per distro)<br><br><strong>Terminale</strong>:<br><code>uname -a</code> — versione kernel<br><code>cat /etc/os-release</code> — distro e versione<br><code>lsb_release -a</code> — info complete</p>
       </div>
       <div class="card red">
-        <span class="ic">🤖</span>
-        <h3>Android</h3>
+        <h3>Android: versione e patch</h3>
         <p><strong>Metodo</strong>:<br>Impostazioni → Informazioni sul telefono → Versione Android<br><br>Qui trovi anche:<br>• Livello patch sicurezza<br>• Versione kernel Linux<br>• Versione UI del produttore (es. One UI 6.1)</p>
       </div>
     </div>

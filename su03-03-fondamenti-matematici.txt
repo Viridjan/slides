@@ -18,7 +18,7 @@ La matematica è un linguaggio Simboli e regole permettono di esprimere relazion
 Gli insiemi numerici Ogni insieme estende il precedente per rendere possibili nuove operazioni. ℕ Naturali 0, 1, 2, 3… contano quantità discrete. ℤ Interi …−2, −1, 0, 1, 2… includono i negativi. ℚ Razionali Frazioni a/b con a e b interi e b ≠ 0. ℝ Reali Razionali e irrazionali sulla retta numerica. 💡 In pratica ℕ ⊆ ℤ ⊆ ℚ ⊆ ℝ: ogni naturale è anche intero, razionale e reale.
 
 --- Slide 5 ---
-Intervalli sulla retta reale Un intervallo descrive molti numeri compresi tra due estremi. Forma: [a,b] · (a,b) · [a,b) · (a,b] [ ] Estremo incluso
+Intervalli sulla retta reale Un intervallo descrive molti numeri compresi tra due estremi. Notazione degli intervalli: [a,b] · (a,b) · [a,b) · (a,b] [ ] Estremo incluso
  La parentesi quadra include il valore. ( ) Estremo escluso
  La parentesi tonda esclude il valore. ∞ Infinito
  Con infinito si usa sempre la parentesi tonda.
@@ -36,7 +36,7 @@ Unione e intersezione Le due operazioni fondamentali combinano o restringono ins
 Differenza e complemento Queste operazioni descrivono ciò che resta dopo un’esclusione. \ Differenza A \ B: elementi di A che non sono in B. Aᶜ Complemento Elementi dell’universo U che non appartengono ad A. △ Differenza simmetrica Elementi in A o B, ma non in entrambi. 💡 In pratica Ordini \ ordini consegnati = ordini ancora da completare.
 
 --- Slide 10 ---
-Prodotto cartesiano Combina ogni elemento di A con ogni elemento di B formando coppie ordinate. Forma: A × B = {(a,b) | a∈A, b∈B} (a,b) Coppia ordinata
+Prodotto cartesiano Combina ogni elemento di A con ogni elemento di B formando coppie ordinate. Operatore prodotto cartesiano: A × B = {(a,b) | a∈A, b∈B} (a,b) Coppia ordinata
  Prima e seconda posizione hanno ruoli distinti. |A×B| Cardinalità
  Per insiemi finiti vale |A|·|B|. tabella Applicazione
  Righe × colonne identificano celle possibili.
@@ -54,7 +54,7 @@ Proposizioni Una proposizione è una frase dichiarativa alla quale si può attri
 Valori di verità e condizioni Una condizione trasforma dati concreti in un risultato logico. V Vero La condizione è soddisfatta. F Falso La condizione non è soddisfatta. x>10 Predicato Diventa vero o falso quando assegniamo un valore a x. 💡 In pratica Nel foglio A2>10 restituisce VERO o FALSO.
 
 --- Slide 15 ---
-Negazione La negazione inverte il valore di verità di una proposizione. Forma: ¬p p=V ¬p=F
+Negazione La negazione inverte il valore di verità di una proposizione. Operatore di negazione: ¬p p=V ¬p=F
  Se p è vera, la negazione è falsa. p=F ¬p=V
  Se p è falsa, la negazione è vera. NON Foglio
  NON(A2>10) verifica che A2 non superi 10.
@@ -63,13 +63,13 @@ Negazione La negazione inverte il valore di verità di una proposizione. Forma: 
 Congiunzione e disgiunzione AND richiede tutte le condizioni; OR ne richiede almeno una nel significato inclusivo. ∧ Congiunzione AND p∧q è vera soltanto quando p e q sono entrambe vere. ∨ Disgiunzione OR p∨q è falsa soltanto quando p e q sono entrambe false. ⊕ OR esclusivo Vero quando esattamente una condizione è vera. 💡 In pratica “Pagato E consegnato” è più restrittivo di “pagato O consegnato”.
 
 --- Slide 17 ---
-Implicazione “Se p, allora q” è falsa soltanto quando p è vera ma q è falsa. Forma: p → q V→V Vero
+Implicazione “Se p, allora q” è falsa soltanto quando p è vera ma q è falsa. Operatore di implicazione: p → q V→V Vero
  La promessa è rispettata. V→F Falso
  La premessa avviene ma la conseguenza no. F→* Vero
  L’implicazione non viene smentita dalla premessa falsa.
 
 --- Slide 18 ---
-Equivalenza Due proposizioni sono equivalenti quando hanno sempre lo stesso valore di verità. Forma: p ↔ q V,V Vero
+Equivalenza Due proposizioni sono equivalenti quando hanno sempre lo stesso valore di verità. Operatore di equivalenza: p ↔ q V,V Vero
  Entrambe vere. F,F Vero
  Entrambe false. diverse Falso
  Una vera e l’altra falsa.
@@ -81,7 +81,7 @@ Tabella di verità Elenca tutte le combinazioni possibili e calcola il risultato
 Quantificatori I quantificatori specificano quanti elementi devono soddisfare una proprietà. ∀ Per ogni ∀x∈A, P(x): tutti gli elementi soddisfano P. ∃ Esiste ∃x∈A: P(x): almeno un elemento soddisfa P. ∄ Non esiste Nessun elemento soddisfa la proprietà. 💡 In pratica Negare “tutti” significa trovare almeno un controesempio.
 
 --- Slide 21 ---
-Leggi di De Morgan Negare una combinazione scambia AND e OR e nega ogni parte. Forma: ¬(p∧q)=¬p∨¬q · ¬(p∨q)=¬p∧¬q NON(E) diventa O
+Leggi di De Morgan Negare una combinazione scambia AND e OR e nega ogni parte. Equivalenze di De Morgan: ¬(p∧q)=¬p∨¬q · ¬(p∨q)=¬p∧¬q NON(E) diventa O
  Non entrambi = almeno uno non vero. NON(O) diventa E
  Nessuno dei due = entrambi non veri. filtri Applicazione
  Escludere una combinazione richiede attenzione alle parentesi.
@@ -93,7 +93,7 @@ Logica nei fogli di calcolo Le formule logiche traducono condizioni matematiche 
 Che cos’è una funzione Una funzione associa a ogni input ammesso esattamente un output. x Input Valore scelto nel dominio. f Regola Trasformazione applicata all’input. f(x) Output Risultato associato a x. 💡 In pratica Più input possono avere lo stesso output; un input non può avere due output diversi.
 
 --- Slide 24 ---
-Dominio, codominio e immagine Tre insiemi descrivono da dove partono e dove arrivano i valori. Forma: f: A → B A Dominio
+Dominio, codominio e immagine Tre insiemi descrivono da dove partono e dove arrivano i valori. Notazione di funzione: f: A → B A Dominio
  Tutti gli input ammessi. B Codominio
  Insieme dichiarato dei possibili output. Im(f) Immagine
  Output effettivamente prodotti dalla funzione. Fonte: Dominio e immagine — OpenStax ↗ (https://openstax.org/books/college-algebra/pages/3-2-domain-and-range)
@@ -108,55 +108,55 @@ Zeri, intercette e segno Questi elementi permettono di leggere dove una funzione
 Crescenza, estremi e simmetria Le proprietà descrivono la forma senza elencare ogni singolo punto. ↗ Crescente All’aumentare di x aumenta f(x). ↘ Decrescente All’aumentare di x diminuisce f(x). min/max Estremi Valori più bassi o più alti, locali o globali. ±x Simmetria Pari: asse y; dispari: simmetria rispetto all’origine.
 
 --- Slide 28 ---
-Funzione costante e identità Sono i due modelli più semplici: output fisso oppure output uguale all’input. Forma: f(x)=c · f(x)=x c Costante
+Funzione costante e identità Sono i due modelli più semplici: output fisso oppure output uguale all’input. Funzioni costante e identità: f(x)=c · f(x)=x c Costante
  Retta orizzontale; ogni input produce c. x Identità
  Retta con pendenza 1 passante per l’origine. uso Modello
  Soglia fissa oppure valore trasferito senza modifica.
 
 --- Slide 29 ---
-Funzione affine Modella una variazione costante più un valore iniziale. Forma: f(x)=mx+q m Pendenza
+Funzione affine Modella una variazione costante più un valore iniziale. Funzione affine: f(x)=mx+q m Pendenza
  Quanto cambia y quando x aumenta di 1. q Intercetta
  Valore iniziale f(0). m=0 Costante
  La funzione affine diventa costante.
 
 --- Slide 30 ---
-Funzione quadratica Il grafico è una parabola con un minimo oppure un massimo. Forma: f(x)=ax²+bx+c, a≠0 a Concavità
+Funzione quadratica Il grafico è una parabola con un minimo oppure un massimo. Funzione quadratica: f(x)=ax²+bx+c, a≠0 a Concavità
  a>0 apre verso l’alto; a vertice Estremo
  Punto di minimo o massimo. zeri Intersezioni
  Possono essere due, uno oppure nessuno nei reali. Fonte: Funzioni quadratiche — OpenStax ↗ (https://openstax.org/books/college-algebra/pages/5-key-concepts)
 
 --- Slide 31 ---
-Funzioni polinomiali Sommano potenze intere non negative di x con coefficienti reali. Forma: aₙxⁿ+…+a₂x²+a₁x+a₀ n Grado
+Funzioni polinomiali Sommano potenze intere non negative di x con coefficienti reali. Funzione polinomiale: aₙxⁿ+…+a₂x²+a₁x+a₀ n Grado
  Massimo esponente con coefficiente non nullo. zeri Radici
  Un polinomio di grado n ha al massimo n zeri reali. forma Continuità
  Il grafico non presenta salti o denominatori nulli.
 
 --- Slide 32 ---
-Funzioni razionali Sono rapporti tra polinomi e non sono definite dove il denominatore vale zero. Forma: f(x)=p(x)/q(x), q(x)≠0 dominio Esclusioni
+Funzioni razionali Sono rapporti tra polinomi e non sono definite dove il denominatore vale zero. Funzione razionale: f(x)=p(x)/q(x), q(x)≠0 dominio Esclusioni
  Rimuovi gli zeri di q(x). asintoti Comportamento
  Il grafico può avvicinarsi a rette senza raggiungerle. foglio #DIV/0!
  La divisione per zero produce un errore.
 
 --- Slide 33 ---
-Valore assoluto Misura la distanza da zero e quindi non è mai negativo. Forma: f(x)=|x| x≥0 f(x)=x
+Valore assoluto Misura la distanza da zero e quindi non è mai negativo. Funzione valore assoluto: f(x)=|x| x≥0 f(x)=x
  A destra dell’origine coincide con l’identità. x f(x)=−x
  A sinistra cambia segno. grafico Forma a V
  Vertice nell’origine per |x|.
 
 --- Slide 34 ---
-Potenze e radici Le potenze descrivono crescita per esponenti; le radici invertono potenze appropriate. Forma: f(x)=xᵃ · f(x)=ⁿ√x a intero Potenza
+Potenze e radici Le potenze descrivono crescita per esponenti; le radici invertono potenze appropriate. Funzioni potenza e radice: f(x)=xᵃ · f(x)=ⁿ√x a intero Potenza
  Parità dell’esponente influenza simmetria e segno. a negativo Reciproco
  x⁻ⁿ=1/xⁿ, quindi x≠0. radice pari Dominio
  Nel campo reale il radicando deve essere ≥0.
 
 --- Slide 35 ---
-Esponenziali e logaritmi L’esponenziale ha la variabile nell’esponente; il logaritmo è la sua inversa. Forma: aˣ ↔ logₐ(x), a>0, a≠1 a>1 Crescita
+Esponenziali e logaritmi L’esponenziale ha la variabile nell’esponente; il logaritmo è la sua inversa. Funzioni esponenziale e logaritmica: aˣ ↔ logₐ(x), a>0, a≠1 a>1 Crescita
  L’esponenziale cresce rapidamente. 0 Decadimento
  La funzione diminuisce verso zero. log Dominio
  Il logaritmo reale richiede x>0.
 
 --- Slide 36 ---
-Funzioni trigonometriche Seno, coseno e tangente descrivono angoli, rapporti e fenomeni periodici. Forma: sin(x) · cos(x) · tan(x) sin/cos Periodicità
+Funzioni trigonometriche Seno, coseno e tangente descrivono angoli, rapporti e fenomeni periodici. Funzioni trigonometriche: sin(x) · cos(x) · tan(x) sin/cos Periodicità
  Ripetono i valori ogni 2π. tan Periodo π
  Non è definita dove cos(x)=0. uso Onde e cicli
  Stagionalità, rotazioni, oscillazioni.

@@ -50,8 +50,8 @@ Prima regola: una riga = un record
 --- Slide 5 ---
 Da tabella a pivot
  In Excel e Google Sheets il flusso è quasi identico: selezioni la tabella, scegli Inserisci → Tabella pivot e decidi dove creare il report. Il lavoro vero inizia nel pannello dei campi.
- Excel Seleziona i dati → Inserisci → Tabella pivot → nuovo foglio o foglio esistente.
- Google Sheets Seleziona i dati → Inserisci → Tabella pivot → nuovo foglio. Sheets può proporre riepiloghi automatici.
+ Excel: procedura pivot Seleziona i dati → Inserisci → Tabella pivot → nuovo foglio o foglio esistente.
+ Google Sheets: procedura pivot Seleziona i dati → Inserisci → Tabella pivot → nuovo foglio. Sheets può proporre riepiloghi automatici.
 
 
  1. Seleziona dati A1:E500
@@ -127,8 +127,8 @@ Somma, conteggio, media
 --- Slide 10 ---
 Vedere solo ciò che serve
  I filtri limitano il report senza cancellare dati. Puoi analizzare un solo anno, una sola sede, un operatore specifico o un insieme di servizi.
- Excel Usa filtri nel pannello pivot oppure aggiungi segmentazioni dati per controlli visuali.
- Google Sheets Usa Filtri nel pannello editor o aggiungi slicer da Dati → Aggiungi filtro dei dati.
+ Excel: filtri pivot Usa filtri nel pannello pivot oppure aggiungi segmentazioni dati per controlli visuali.
+ Google Sheets: filtri pivot Usa Filtri nel pannello editor o aggiungi slicer da Dati → Aggiungi filtro dei dati.
 
 
  Filtro anno 2026

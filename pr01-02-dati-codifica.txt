@@ -78,7 +78,7 @@ Fonti ufficiali:
 - Compressione dei dati — Wikipedia — https://it.wikipedia.org/wiki/Compressione_dei_dati
 
 --- Slide 15 ---
-Formati Il formato dice come leggere i byte Un file non è solo una sequenza di byte: ha una struttura. Il formato specifica dove sono i metadati, come sono organizzati i contenuti e quale programma può interpretarli. TXT Testo semplice con poche informazioni aggiuntive. PNG Immagine compressa senza perdita. MP3 Audio compresso con perdita controllata.
+Il formato dice come leggere i byte Un file non è solo una sequenza di byte: ha una struttura. Il formato specifica dove sono i metadati, come sono organizzati i contenuti e quale programma può interpretarli. TXT: testo semplice Testo semplice con poche informazioni aggiuntive. PNG: compressione senza perdita Immagine compressa senza perdita. Formati immagine a confronto in CD01.03. MP3: audio compresso Audio compresso con perdita controllata.
 
 --- Slide 16 ---
 Overflow Anche i numeri hanno un limite pratico Se usiamo un numero fisso di bit, possiamo rappresentare solo un intervallo finito di valori. Superare quel limite può produrre errori o risultati inattesi. con 8 bit senza segno:
