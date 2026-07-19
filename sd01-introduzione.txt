@@ -484,20 +484,6 @@ Sicurezza vs Usabilità
  Applica la massima protezione dove il rischio è massimo : email e banca prima di tutto. Meno attenzione dove il rischio è basso. Non trattare tutte le password allo stesso modo.
 
 --- Slide 18 ---
-10 Buone Abitudini Digitali 
- 
- 01 Password diverse e robuste per ogni account 
- 02 Attiva il 2FA su email e app bancarie 
- 03 Aggiorna sempre app e sistema operativo 
- 04 Blocca il dispositivo quando lo lasci 
- 05 Non cliccare link senza verificare il mittente 
- 06 Evita WiFi pubblici per operazioni sensibili 
- 07 Non condividere la password con nessuno 
- 08 Controlla i permessi delle app installate 
- 09 Usa un gestore di password (es. Bitwarden) 
- 10 Backup regolari dei dati importanti
-
---- Slide 19 ---
 Crittografia
  end-to-end 
  La crittografia rende un messaggio illeggibile a chiunque non abbia la chiave. End-to-end (E2EE) significa che solo mittente e destinatario possono leggere il contenuto — nemmeno il servizio che trasporta il messaggio. 
@@ -531,7 +517,7 @@ Crittografia
 Fonti ufficiali:
 - HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
---- Slide 20 ---
+--- Slide 19 ---
 Protetti! 
  CIA triad (riservatezza, integrità, disponibilità), attori di minaccia, superficie d'attacco e principio del minimo privilegio. 
  Prossimo → C2 · Minacce e Vulnerabilità 
