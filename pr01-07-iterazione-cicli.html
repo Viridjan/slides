@@ -46,37 +46,7 @@
 </div>
 <div class="deck-author">Francesco Antonio Binetti</div>
 </section>
-<section class="slide no-top-label">
-<h2 class="h2">Cosa vedremo</h2>
-<div class="agenda-list" style="grid-template-columns:1fr;grid-template-rows:repeat(3,auto);gap:18px;margin-top:24px;">
-<div class="agenda-item" style="align-items:flex-start;padding:16px 4px;">
-<span class="n">01</span>
-<div>
-<b class="t">Che cos'è un ciclo</b>
-<br>
-<span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Dalla ripetizione al ciclo, le sue parti e il ciclo condizionale.</span>
-</div>
-</div>
-<div class="agenda-item" style="align-items:flex-start;padding:16px 4px;">
-<span class="n">02</span>
-<div>
-<b class="t">Scrivere e tracciare</b>
-<br>
-<span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Lo pseudocodice di un while, tracciare lo stato e il rischio del loop infinito.</span>
-</div>
-</div>
-<div class="agenda-item" style="align-items:flex-start;padding:16px 4px;">
-<span class="n">03</span>
-<div>
-<b class="t">Costruire risultati</b>
-<br>
-<span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Accumulatore e contatore, e progettare un ciclo che si ferma.</span>
-</div>
-</div>
-</div>
-<div class="num">
-</div>
-</section>
+
 <section class="slide">
 <h2 class="h-sec reveal">Dalla ripetizione al ciclo</h2>
 <p class="lead reveal">Un’iterazione è l’esecuzione ripetuta di un blocco di istruzioni. Il ciclo definisce che cosa ripetere e quando fermarsi.</p>
@@ -100,7 +70,7 @@
 <section class="slide">
 <h2 class="h-sec reveal">Le parti di un ciclo</h2>
 <p class="lead reveal">Per ragionare senza dipendere dal linguaggio individua stato iniziale, condizione, corpo e aggiornamento.</p>
-<div class="loop-ring reveal"><div class="loop-node"><b>01</b><h3>Inizializza</h3><p>Imposta lo stato di partenza:<br><code>i ← 0</code>.</p></div><div class="loop-node"><b>02</b><h3>Verifica</h3><p>La condizione <code>i &lt; 5</code> è ancora vera?</p></div><div class="loop-node"><b>03</b><h3>Esegui</h3><p>Applica le istruzioni previste dal corpo.</p></div><div class="loop-node"><b>4</b><h3>Aggiorna</h3><p>Cambia lo stato:<br><code>i ← i + 1</code>, poi torna al test.</p></div></div>
+<div class="loop-ring reveal"><div class="loop-node"><b>01</b><h3>Inizializza</h3><p>Imposta lo stato di partenza:<br><code>i ← 0</code>.</p></div><div class="loop-node"><b>02</b><h3>Verifica</h3><p>La condizione <code>i &lt; 5</code> è ancora vera?</p></div><div class="loop-node"><b>03</b><span style="display:block;font-family:var(--font-display);font-size:28px;font-weight:700;line-height:1.1;margin-bottom:8px;">Esegui</span><p>Applica le istruzioni previste dal corpo.</p></div><div class="loop-node"><b>4</b><h3>Aggiorna</h3><p>Cambia lo stato:<br><code>i ← i + 1</code>, poi torna al test.</p></div></div>
 <div class="analogy reveal">
 <span class="big">Regola:</span> Ogni ciclo deve modificare lo stato e avvicinarsi alla condizione di uscita.</div>
 <div class="page-num">
@@ -189,32 +159,7 @@ media = totale / conteggio</div>
 <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">Regola:</span> inizializza sempre contatore e accumulatore <b>prima</b> del ciclo, non dentro, o riparti da zero a ogni giro.</div>
 <div class="page-num"></div>
 </section>
-<section class="slide">
-<h2 class="h-sec reveal">Verifica: progetta il ciclo</h2>
-<p class="lead reveal">Descrivi un ciclo che legge cinque prezzi e calcola il totale. Indica inizializzazione, condizione, corpo e aggiornamento.</p>
-<div class="grid">
-<div class="card reveal">
-<b>01</b>
-<p>totale iniziale 0</p>
-</div>
-<div class="card reveal">
-<b>02</b>
-<p>cinque iterazioni</p>
-</div>
-<div class="card reveal">
-<b>03</b>
-<p>somma ogni prezzo</p>
-</div>
-<div class="card reveal">
-<b>04</b>
-<p>incrementa il contatore</p>
-</div>
-</div>
-<div class="page-num">
-</div>
-</section>
-<section class="slide closing">
-<div class="closing-inner">
+<section class="slide closing"><div class="closing-inner"><div class="closing-inner">
 <h2 class="h-mega reveal">Un ciclo utile avanza verso una fine.</h2>
 <p class="lead reveal">Definisci stato, condizione, corpo e aggiornamento; poi traccia i valori per dimostrare che il risultato è corretto.</p>
 <div class="sources">
@@ -225,9 +170,8 @@ media = totale / conteggio</div>
 <a class="chip closing-primary" href="pr02-01-introduzione.html">Prossimo → PR02.01 · Introduzione a Scratch</a>
 </div>
 </div>
-<div class="page-num">
-</div>
-</section>
+</div><div class="page-num">
+</div></section>
 </main>
 </div>
 <div class="progress">

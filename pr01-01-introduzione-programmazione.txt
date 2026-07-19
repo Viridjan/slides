@@ -10,31 +10,31 @@ Cosa vedremo 01 Cosa significa programmare
  Esprimere un comportamento in un linguaggio, scritto perché lo capiscano due lettori: la macchina e le persone. 02 I concetti di ogni linguaggio 
  Variabili e tipi, espressioni, controllo del flusso e procedure: i mattoni che ritrovi in qualunque linguaggio. 03 Correttezza e limiti 
  Validità e famiglie di linguaggi, errori e test, e ciò che nessun programma può calcolare.
+Fonti ufficiali:
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 3 ---
 Programmare è esprimere un comportamento I linguaggi di programmazione sono il mezzo espressivo nell'arte della programmazione dei computer. Un buon linguaggio aiuta a scrivere programmi chiari, funzionanti e comprensibili anche dopo molto tempo. E probabilmente ne avete già usato uno senza saperlo: una formula nel foglio di calcolo o un progetto Scratch sono già programmi, con parole, regole e uno stile. Idea chiave: un programma non deve solo funzionare oggi; deve poter essere letto, modificato e mantenuto domani, spesso da una persona diversa da chi l'ha scritto. programma = istruzioni + dati + struttura
 qualità = comportamento corretto + leggibilità
 manutenzione = capire cosa succede senza riscrivere tutto Fonte: Scratch per educatori — MIT ↗
-Fonti ufficiali:
-- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 4 ---
 Il codice è scritto per due lettori Un corretto stile di programmazione permette a chiunque legga il programma di comprenderne il comportamento. Il computer esegue, ma persone diverse progettano, correggono, testano e mantengono il software lungo tutto il suo ciclo di vita. 🧠 Chi progetta Deve riconoscere l'idea generale, i confini del problema e le componenti principali. 🛠 Chi modifica Deve capire dove intervenire senza rompere parti non correlate. 🧪 Chi testa Deve sapere quali comportamenti verificare e quali casi limite cercare. Regola Nomi chiari, struttura coerente e commenti utili valgono quanto la conoscenza della sintassi. Un programma criptico funziona lo stesso, ma costa ore a chiunque debba rimetterci le mani mesi dopo — compresi voi stessi.
+Fonti ufficiali:
+- Progetti e ciclo di vita — PMI — https://www.pmi.org/about/what-is-a-project
 
 --- Slide 5 ---
 Come un linguaggio supporta il software Valutare un linguaggio significa chiedersi come aiuta progettazione, implementazione, testing e mantenimento. Un linguaggio adatto a un contesto può essere scomodo in un altro. È lo stesso ragionamento del project management: ogni fase ha esigenze proprie, e lo strumento va scelto guardando l'intero ciclo di vita, non solo la velocità con cui si scrive la prima versione. Progettazione → Implementazione → Testing → Mantenimento Domanda progettuale Il linguaggio rende semplice esprimere l'architettura e le interazioni tra componenti software? Se per spiegare il programma serve una lavagna piena di frecce, il linguaggio non sta aiutando. Domanda operativa Il linguaggio rende semplice trovare errori, creare strumenti di test e modificare codice esistente? L'errore comune è valutare solo quanto è rapido scrivere il primo prototipo. Fonte: Progetti e ciclo di vita — PMI ↗
 Fonti ufficiali:
-- Progetti e ciclo di vita — PMI — https://www.pmi.org/about/what-is-a-project
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 6 ---
 Ogni linguaggio sceglie compromessi Nella progettazione di un linguaggio non esiste una scelta migliore in assoluto. Alcuni linguaggi privilegiano velocità di scrittura, altri controllo, ottimizzazione, sicurezza, espressività o facilità di analisi. Chiedersi qual è il linguaggio "migliore" è come chiedere qual è l'attrezzo migliore in officina: dipende dal lavoro da fare. ⚡ Scrittura rapida Utile per prototipi e automazione, ma può rendere più difficile verificare tutto prima dell'esecuzione. È la filosofia di Python e dei linguaggi di scripting. ⚙️ Ottimizzazione Costrutti più rigidi possono aiutare compilatore e prestazioni, ma rendere il codice più ingombrante. C e C++ accettano questa fatica in cambio della velocità. 🧰 Ambiente d'uso Sistemi embedded, web, data analysis e didattica richiedono caratteristiche diverse. Scratch, per esempio, sacrifica tutto alla facilità di apprendimento. Conclusione: esistono molti linguaggi perché esistono molti obiettivi. Fonte: Tutorial ufficiale Python ↗
 Fonti ufficiali:
-- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
+- JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript
 
 --- Slide 7 ---
 Il vocabolario condiviso Linguaggi diversi hanno forme diverse, ma condividono molti concetti fondamentali. Impararli bene una volta conviene: chi capisce variabili e cicli in Scratch li riconosce subito anche in Python o JavaScript, perché cambia solo la forma con cui si scrivono. Memoria e dati Variabile, tipo, struttura dati: permettono di rappresentare informazioni e conservarle. Azioni Istruzione, espressione, sottoprogramma: descrivono cosa calcolare e come organizzarlo. Controllo Strutture di controllo: sequenza, decisioni, cicli e chiamate che determinano il flusso. Sintassi I simboli e le regole formali con cui si scrive un programma: parole chiave, parentesi, punteggiatura. Semantica Le azioni che avvengono quando il programma viene eseguito: il significato dietro la forma scritta. Analisi Il modo in cui il linguaggio controlla o interpreta il programma, prima o durante l'esecuzione. Fonte: JavaScript — Wikipedia ↗
-Fonti ufficiali:
-- JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript
 
 --- Slide 8 ---
 Scrivere in modo valido La sintassi identifica i simboli e le regole usate per scrivere un programma: parentesi, parole chiave, operatori, punteggiatura, indentazione quando richiesta. Errore sintattico Il programma non rispetta la grammatica del linguaggio: il compilatore o l'interprete non riesce nemmeno a leggerlo correttamente. Esempio: una parentesi aperta e mai chiusa blocca tutto. Eseguire il comportamento La semantica descrive le azioni che il programma compie quando viene eseguito. Un codice può essere sintatticamente corretto ma semanticamente sbagliato. È il caso più insidioso, perché nessun messaggio d'errore ci avvisa. Errore logico Il programma parte, ma calcola il risultato sbagliato o si comporta in modo diverso da quello previsto. Esempio: una media calcolata dividendo per il numero sbagliato di valori.

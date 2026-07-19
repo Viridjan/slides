@@ -13,12 +13,12 @@ Cosa vedremo 01 Cosa sono gli slicer
 
 --- Slide 3 ---
 Cos'è uno slicer Uno slicer è un filtro fatto di pulsanti. Invece di aprire un menù a tendina e spuntare voci, chi legge il report clicca «Milano» o «Taglio» e la tabella si aggiorna subito. Il filtro attivo è sempre visibile: si vede a colpo d'occhio cosa stai guardando. 🎛️ Visivo I valori disponibili sono pulsanti in chiaro: niente menù nascosti da aprire. 👆 Immediato Un clic filtra; un altro clic toglie il filtro. Nessuna formula da toccare. 👀 Trasparente Il filtro attivo resta in evidenza: chi guarda sa sempre cosa mostra il report.
-
---- Slide 4 ---
-Aggiungere uno slicer Si parte da una tabella o da una tabella pivot, e si sceglie la colonna su cui filtrare. 🪟 In Excel Seleziona la tabella o la pivot, poi scheda Inserisci → Filtro dei dati (slicer). Spunta i campi da filtrare, per esempio Sede e Servizio. 🟢 In Google Sheets Menù Dati → Aggiungi filtro a intervalli (slicer), poi scegli la colonna. Compare come pulsante sopra il foglio. 💡 Consiglio Aggiungi uno slicer per ciascuna domanda ricorrente — sede, periodo, responsabile — non uno per ogni colonna.
 Fonti ufficiali:
 - Supporto Microsoft Excel — https://support.microsoft.com/excel
 - Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
+
+--- Slide 4 ---
+Aggiungere uno slicer Si parte da una tabella o da una tabella pivot, e si sceglie la colonna su cui filtrare. 🪟 In Excel Seleziona la tabella o la pivot, poi scheda Inserisci → Filtro dei dati (slicer). Spunta i campi da filtrare, per esempio Sede e Servizio. 🟢 In Google Sheets Menù Dati → Aggiungi filtro a intervalli (slicer), poi scegli la colonna. Compare come pulsante sopra il foglio. 💡 Consiglio Aggiungi uno slicer per ciascuna domanda ricorrente — sede, periodo, responsabile — non uno per ogni colonna.
 
 --- Slide 5 ---
 La timeline: il filtro del tempo Per le date esiste un controllo dedicato con un cursore, che filtra per giorni, mesi, trimestri o anni scorrendo una barra. ↔️ Timeline (solo Excel) Excel ha la Sequenza temporale : un cursore per selezionare un intervallo di date senza spuntare mesi a uno a uno. 🟢 In Google Sheets Non esiste una timeline dedicata: si usa uno slicer sulla colonna data , oppure il raggruppamento delle date nella pivot. In pratica: la timeline è comoda ma è una feature di Excel; lo slicer sulle date la sostituisce ovunque.

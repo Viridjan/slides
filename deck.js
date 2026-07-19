@@ -101,13 +101,11 @@
     else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); prev(); }
     else if (e.key === 'Home') show(0);
     else if (e.key === 'End') show(slides.length - 1);
-    else if (e.key.toLowerCase() === 'i') location.href = indexReturnHref;
     else if (e.key === '+' || e.key === '=') { e.preventDefault(); setZoom(zoom + 0.25); }
     else if (e.key === '-' || e.key === '_') { e.preventDefault(); setZoom(zoom - 0.25); }
     else if (e.key === '0') { e.preventDefault(); setZoom(1); }
   });
 
-  let wheelLock = false;
   addEventListener('wheel', e => {
     // Ctrl+wheel is the universal zoom gesture; preventDefault stops the browser
     // from zooming the page (which the fixed stage would just refit away).
@@ -116,12 +114,9 @@
       setZoom(zoom - Math.sign(e.deltaY) * 0.2, e.clientX, e.clientY);
       return;
     }
-    // While zoomed in, the wheel pans instead of changing slide.
-    if (zoom > 1) { panY -= e.deltaY; apply(); return; }
-    if (wheelLock || Math.abs(e.deltaY) < 20) return;
-    wheelLock = true;
-    e.deltaY > 0 ? next() : prev();
-    setTimeout(() => { wheelLock = false; }, 700);
+    // While zoomed in, the wheel pans. At normal zoom it does nothing: slide
+    // navigation is keyboard and touch swipe only.
+    if (zoom > 1) { panY -= e.deltaY; apply(); }
   }, { passive: false });
 
   // Drag to pan when zoomed in.
@@ -194,7 +189,10 @@
 
   // Storage shape: { notes: [...], edits: [...] }. A note is either a plain
   // string (the format shipped before this revision — kept working so nothing
-  // already collected is lost) or an object {file,slide,x,y,near,text}. An
+  // already collected is lost) or an object {file,slide,x,y,near,target,quote,
+  // sel,text}: `near` is the surrounding container for orientation, `target`
+  // is the exact element clicked (tag.class) and `quote` its text — or the
+  // reviewer's text selection when `sel` is true, the most precise anchor. An
   // edit is always {file,slide,near,before,after} — a text diff, never DOM
   // state: the live-edited element itself reverts to `before` when feedback
   // mode closes, so the page never shows content that disagrees with the file.
@@ -209,8 +207,13 @@
     return { notes: [], edits: [] };
   };
   const save = data => localStorage.setItem(KEY, JSON.stringify(data));
-  const fmtNote = n => typeof n === 'string' ? n :
-    `${n.file}#slide-${n.slide} (${n.x}%,${n.y}%)${n.near ? ` «${n.near}»` : ''}: ${n.text}`;
+  const fmtNote = n => {
+    if (typeof n === 'string') return n;
+    const anchor = n.quote
+      ? ` → ${n.target || 'testo'}${n.sel ? ' (selezione)' : ''} "${n.quote}"`
+      : '';
+    return `${n.file}#slide-${n.slide} (${n.x}%,${n.y}%)${n.near ? ` «${n.near}»` : ''}${anchor}: ${n.text}`;
+  };
   const fmtEdit = ed => `${ed.file}#slide-${ed.slide} «${ed.near}»\n` +
     `- prima: ${JSON.stringify(ed.before)}\n+ dopo:  ${JSON.stringify(ed.after)}`;
 
@@ -324,9 +327,19 @@
     const el = ev.target.closest('h1,h2,h3,.card,.note,.analogy,.agenda-item,.code,.illu,.lead');
     const near = el ? (el.querySelector('h3,b')?.textContent || el.textContent)
       .trim().replace(/\s+/g, ' ').slice(0, 40) : '';
-    const txt = prompt(`Nota per slide ${idx}${near ? ` · «${near}»` : ''}:`);
+    // Anchor the note to the exact element under the cursor, not just the
+    // container: tag.class plus its own text. If the reviewer selected text
+    // before clicking, that selection is the anchor — the most precise way to
+    // say "this note is about these exact words".
+    let t = ev.target;
+    while (t && t !== stage && !(t.textContent || '').trim()) t = t.parentElement;
+    const target = t && t !== stage ? t.tagName.toLowerCase() +
+      (typeof t.className === 'string' && t.className.trim() ? '.' + t.className.trim().split(/\s+/)[0] : '') : '';
+    const quote = (ev.sel ||
+      (t && t !== stage ? (t.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 90) : ''));
+    const txt = prompt(`Nota per slide ${idx}${quote ? ` · "${quote.slice(0, 60)}"` : near ? ` · «${near}»` : ''}:`);
     if (!txt) return;
-    addNote({ file, slide: idx, x, y, near, text: txt });
+    addNote({ file, slide: idx, x, y, near, target, quote, sel: !!ev.sel, text: txt });
     marker(ev.clientX, ev.clientY);
   };
 
@@ -419,7 +432,9 @@
     e.preventDefault();
     e.stopPropagation();
     if (clickTimer) clearTimeout(clickTimer);
-    const snap = { clientX: e.clientX, clientY: e.clientY, target: e.target };
+    // Snapshot the selection now: it may collapse before the 250ms timer fires.
+    const sel = (getSelection()?.toString() || '').trim().replace(/\s+/g, ' ').slice(0, 200);
+    const snap = { clientX: e.clientX, clientY: e.clientY, target: e.target, sel };
     clickTimer = setTimeout(() => { clickTimer = null; doNote(snap); }, 250);
   };
   stage.addEventListener('click', onClick, true);
@@ -435,10 +450,11 @@
   };
   stage.addEventListener('dblclick', onDblClick, true);
 
-  if (!localStorage.getItem('deck-feedback-hint-seen')) {
-    localStorage.setItem('deck-feedback-hint-seen', '1');
+  if (!localStorage.getItem('deck-feedback-hint-seen-2')) {
+    localStorage.setItem('deck-feedback-hint-seen-2', '1');
     alert('Modalità feedback attiva.\n\n' +
-      'Clic su un punto della slide → lascia una nota.\n' +
+      'Clic su un elemento della slide → lascia una nota agganciata a quell\'elemento e al suo testo.\n' +
+      'Seleziona prima delle parole e poi clicca → la nota cita esattamente quelle parole.\n' +
       'Doppio clic su un titolo o una riga breve → modificala sul posto.\n' +
       'Invio conferma la modifica, Esc la annulla (o chiude la modalità).\n\n' +
       '«Copia» esporta tutto — note e modifiche — negli appunti.');

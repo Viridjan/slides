@@ -10,14 +10,16 @@ Cosa vedremo 01 L'ambiente Scratch
  Online o offline, la mappa dell'interfaccia e come si leggono i blocchi. 02 Muovere e far reagire 
  Movimento, eventi, sprite e stage, ripetizioni, decisioni e messaggi tra oggetti. 03 Un progetto completo 
  Da Abby e il Gatto ai costumi, ai suoni, agli errori tipici e al salvataggio.
-
---- Slide 3 ---
-Scratch in breve Scratch è un ambiente gratuito di programmazione grafica sviluppato dal MIT Media Lab e disponibile su scratch.mit.edu. Permette di creare animazioni, giochi, simulazioni e storie interattive senza installare niente: basta un browser. È usato in scuole di tutto il mondo come primo passo verso la programmazione, perché elimina gli errori di sintassi: i blocchi si incastrano solo dove ha senso, così ci si concentra sulla logica e non sulla punteggiatura. In pratica: si programma incastrando blocchi colorati, ma si ragiona comunque da programmatori: eventi, stato, sequenza, dati e test. I concetti sono reali, solo il formato cambia. Il sito scratch.mit.edu: da "Crea" si lavora subito nel browser, senza installare nulla.
 Fonti ufficiali:
 - Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
+--- Slide 3 ---
+Scratch in breve Scratch è un ambiente gratuito di programmazione grafica sviluppato dal MIT Media Lab e disponibile su scratch.mit.edu. Permette di creare animazioni, giochi, simulazioni e storie interattive senza installare niente: basta un browser. È usato in scuole di tutto il mondo come primo passo verso la programmazione, perché elimina gli errori di sintassi: i blocchi si incastrano solo dove ha senso, così ci si concentra sulla logica e non sulla punteggiatura. In pratica: si programma incastrando blocchi colorati, ma si ragiona comunque da programmatori: eventi, stato, sequenza, dati e test. I concetti sono reali, solo il formato cambia. Il sito scratch.mit.edu: da "Crea" si lavora subito nel browser, senza installare nulla.
+
 --- Slide 4 ---
 Online oppure offline Scratch funziona sia nel browser sia come applicazione installata. La modalità online richiede connessione internet; quella offline elimina la dipendenza dalla rete e riduce i problemi tipici dei laboratori scolastici. 🌐 Online Dal sito scratch.mit.edu si entra in "Crea" e si lavora direttamente nel browser senza installare nulla. Comodo se i computer del laboratorio non permettono installazioni. 💻 Offline L'app Scratch Desktop si scarica una volta e funziona senza rete. Riduce problemi di connessione, blocchi del browser e dipendenza dalla velocità del Wi-Fi scolastico. 🌍 Lingua Dal mappamondo in alto a sinistra si cambia la lingua dell'interfaccia in qualsiasi momento, anche a metà lezione, senza perdere il progetto aperto. 💾 File locali I progetti si salvano come file .sb3 sul computer o su una chiavetta USB. Si ricaricano con "Carica dal computer" e si può lavorare su più macchine diverse.
+Fonti ufficiali:
+- Guida ufficiale micro:bit — https://microbit.org/get-started/user-guide/overview/
 
 --- Slide 5 ---
 La mappa dell'ambiente Scratch divide lo schermo in zone distinte: blocchi a sinistra, area script al centro, stage in alto a destra, elenco sprite in basso. L'editor dal vero: blocchi, area script, stage, pannello sprite e sfondi. 🧱 Blocchi
@@ -27,8 +29,6 @@ La mappa dell'ambiente Scratch divide lo schermo in zone distinte: blocchi a sin
  Ogni oggetto ha codice, costumi, suoni, coordinate, direzione, dimensione e visibilità. Cliccando su uno sprite nel pannello si vede solo il suo codice. 🖼 Sfondi 
  Lo stage può cambiare sfondo da libreria, disegno o immagine importata. Gli sfondi possono anche avere script propri per gestire la scena. ➕ Estensioni 
  Si aggiungono blocchi speciali: Music, Text to Speech, Translate, Video Sensing, LEGO e Micro:bit. Utili per progetti più avanzati o con hardware esterno.
-Fonti ufficiali:
-- Guida ufficiale micro:bit — https://microbit.org/get-started/user-guide/overview/
 
 --- Slide 6 ---
 Leggere i blocchi Le forme dei blocchi non sono casuali: indicano dove possono stare nella pila, cosa possono contenere e quali input richiedono. Riconoscere la forma aiuta a capire l'errore prima ancora di eseguire il codice. 🧱 Blocchi pila Si agganciano sopra e sotto: compongono sequenze di istruzioni. Sono la maggioranza dei blocchi — "fai 10 passi", "attendi 1 secondo", "dire Ciao" sono tutti blocchi pila. 🟦 Input ovali Accettano numeri, testo o variabili come valore: per esempio 10 passi o 2 secondi. Si possono sostituire con una variabile o con un blocco operatore dello stesso tipo. ⬡ Condizioni Le forme esagonali restituiscono vero o falso e si usano nei blocchi "se" e "ripeti fino a". Esempi: "tocca il colore", "risposta = sì", "x &gt; 100". 🧺 Blocchi contenitore Cicli e condizioni hanno uno spazio interno dove si inseriscono altri blocchi. L'indentazione visiva mostra cosa è dentro e cosa è fuori dal ciclo.

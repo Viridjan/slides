@@ -10,6 +10,9 @@ Cosa vedremo 01 Dentro lo smartphone
  La scheda logica, CPU, SoC e RAM, la memoria interna e la batteria. 02 Schermo e sensori 
  Il touch, le fotocamere, il GPS, i sensori di movimento, microfoni e altoparlanti. 03 Un computer particolare 
  Il confronto con altri dispositivi e i suoi limiti fisici.
+Fonti ufficiali:
+- Specifiche Bluetooth — Bluetooth SIG — https://www.bluetooth.com/specifications/specs/
+- CPU — Wikipedia — https://it.wikipedia.org/wiki/CPU
 
 --- Slide 3 ---
 Computer tascabile 
@@ -27,8 +30,7 @@ Computer tascabile
  Un'interfaccia diversa 
  Niente mouse né tastiera fisica: si comanda con tocchi, gesti e voce. In questo capitolo apriamo il "cofano" e guardiamo i pezzi uno per uno. A differenza del PC da scrivania, lo smartphone è progettato per essere usato con una mano sola, in mobilità, con la connettività sempre attiva — un paradigma completamente diverso.
 Fonti ufficiali:
-- Specifiche Bluetooth — Bluetooth SIG — https://www.bluetooth.com/specifications/specs/
-- CPU — Wikipedia — https://it.wikipedia.org/wiki/CPU
+- RAM — Wikipedia — https://it.wikipedia.org/wiki/RAM
 
 --- Slide 4 ---
 SoC 
@@ -46,8 +48,6 @@ SoC
  Scheda logica 
  Il "pavimento" su cui vive tutta l'elettronica: ogni componente ci è fissato sopra e comunica attraverso di essa. 
  Riparabilità Quasi tutto è saldato: RAM, processore e memoria non si sostituiscono. In pratica si riparano solo schermo e batteria su modelli mainstream — e solo da tecnici specializzati. Gli smartphone progettati per la riparazione (come Fairphone) sono eccezioni: la norma del mercato è che un componente guasto equivale a sostituire l'intero telefono. Prima di acquistare, verifica i costi di riparazione e la politica di ricambi ufficiali del produttore.
-Fonti ufficiali:
-- RAM — Wikipedia — https://it.wikipedia.org/wiki/RAM
 
 --- Slide 5 ---
 CPU, SoC e RAM 
@@ -58,6 +58,8 @@ CPU, SoC e RAM
  🏭 Chi li produce Apple (serie A), Qualcomm (Snapdragon), MediaTek e Samsung (Exynos): il nome del SoC dice molto sulla fascia del telefono. 
  
  In pratica Più RAM = multitasking più fluido: passi da un'app all'altra senza attese né riavvii. Sui volantini, guarda la sigla del SoC oltre ai gigabyte.
+Fonti ufficiali:
+- Guida ufficiale Android — https://support.google.com/android/
 
 --- Slide 6 ---
 Memoria interna 
@@ -75,7 +77,7 @@ Memoria interna
  
  💾 Scegliere il taglio giusto Quasi mai espandibile con microSD sui modelli recenti: lo spazio si decide all'acquisto, non dopo. Foto e video in 4K riempiono in fretta i tagli piccoli.
 Fonti ufficiali:
-- Guida ufficiale Android — https://support.google.com/android/
+- Documenti e specifiche USB — USB-IF — https://www.usb.org/documents
 
 --- Slide 7 ---
 Batteria e ricarica 
@@ -89,8 +91,6 @@ Batteria e ricarica
  cicli, calore e ricariche a 0% accelerano il degrado 
  🔌 USB-C è lo standard comune 
  la ricarica rapida richiede caricatore, cavo e telefono compatibili — senza tutti e tre, la velocità di ricarica scende sensibilmente
-Fonti ufficiali:
-- Documenti e specifiche USB — USB-IF — https://www.usb.org/documents
 
 --- Slide 8 ---
 Schermo touch 

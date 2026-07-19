@@ -48,10 +48,12 @@ const contentFingerprint = html => {
     .map(([, , body]) => body
       .replace(/<div\b[^>]*class="[^"]*\b(page-num|num|deck-author)\b[^"]*"[^>]*>[\s\S]*?<\/div>/gi, ' ')
       .replace(/<div\b[^>]*data-source-footer="true"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+      .replace(/<div\b[^>]*data-cross-reference-footer="true"[^>]*>[\s\S]*?<\/div>/gi, ' ')
       .replace(/<a\b[^>]*data-source-origin="auto"[^>]*>[\s\S]*?<\/a>/gi, ' ')
       .replace(/<[^>]+>/g, ' '))
     .map(decode)
-    .map(text => text.replace(/\s+/g, ' ').trim())
+    // Navigation arrows are presentation chrome, not educational content.
+    .map(text => text.replace(/[→↗]/g, ' ').replace(/\s+/g, ' ').trim())
     .filter(Boolean)
     .join('\n---\n');
 };

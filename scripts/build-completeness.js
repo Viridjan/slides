@@ -8,6 +8,7 @@ const outPath = path.join(root, 'completeness-index.js');
 const countWords = text => text
   .replace(/\[Fonte:[^\]]+\]/g, '')
   .replace(/^Fonti ufficiali:[\s\S]*$/m, '')
+  .replace(/^Rimandi interni:.*$/gm, '')
   .trim().split(/\s+/).filter(w => w.length > 0).length;
 
 const parseSlides = txt => {

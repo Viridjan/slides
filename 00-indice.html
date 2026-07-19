@@ -68,11 +68,11 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
 .module-card{
   display:grid;grid-template-columns:220px 1fr;grid-template-areas:"num title" "num desc";align-items:center;gap:2px 28px;
   min-height:100px;background:transparent;border:0;border-radius:10px;
-  padding:14px 244px 14px 0;text-decoration:none;color:var(--paper);
+  padding:14px 356px 14px 0;text-decoration:none;color:var(--paper);
   transition:background .2s ease, border-color .2s ease;
   cursor:default;position:relative;overflow:visible;
 }
-.module-card::after{content:"";position:absolute;left:234px;right:232px;top:0;bottom:0;border:1px solid rgba(216,201,180,.12);border-radius:10px;background:rgba(244,236,224,.04);transition:background .2s ease,border-color .2s ease,box-shadow .2s ease;z-index:0;}
+.module-card::after{content:"";position:absolute;left:234px;right:344px;top:0;bottom:0;border:1px solid rgba(216,201,180,.12);border-radius:10px;background:rgba(244,236,224,.04);transition:background .2s ease,border-color .2s ease,box-shadow .2s ease;z-index:0;}
 .module-card:has(.card-title:hover,.card-desc:hover)::after{background:rgba(244,236,224,.08);border-color:rgba(216,201,180,.3);box-shadow:0 14px 34px rgba(0,0,0,.26);}
 .module-card.pre::after{border-left:3px solid var(--sky);background-image:linear-gradient(135deg,rgba(63,126,140,.06),transparent);}
 .module-card.sec::after{border-left:3px solid var(--red);background-image:linear-gradient(135deg,rgba(230,83,59,.06),transparent);}
@@ -132,10 +132,26 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
 /* Download button */
 .dl-btn{position:absolute;right:124px;top:calc(50% + 8px);z-index:2;}
 .dl-btn:hover{background:rgba(244,236,224,.18);color:var(--paper);border-color:rgba(216,201,180,.5);}
+.exercise-btn{position:absolute;right:244px;top:calc(50% - 15px);width:88px;z-index:3;color:var(--gold);border-color:rgba(230,193,74,.38);background:rgba(230,193,74,.08);}
+.exercise-btn:hover,.exercise-btn:focus-visible,.exercise-btn[aria-expanded="true"]{color:var(--paper);border-color:rgba(230,193,74,.68);background:rgba(230,193,74,.18);}
+.exercise-panel{position:fixed;width:340px;max-height:360px;overflow:auto;padding:11px;border:1px solid rgba(230,193,74,.42);border-radius:9px;background:rgba(22,18,16,.98);box-shadow:0 18px 50px rgba(0,0,0,.48);z-index:110;opacity:0;visibility:hidden;transform:translateY(-5px);transition:opacity .16s ease,transform .16s ease,visibility .16s;}
+.exercise-panel.open{opacity:1;visibility:visible;transform:none;}
+.exercise-panel-title{padding:2px 5px 9px;color:rgba(244,236,224,.48);font:11px/1 var(--font-mono);letter-spacing:1.4px;text-transform:uppercase;}
+.exercise-list{display:grid;gap:8px;}
+.exercise-link{display:grid;grid-template-columns:34px 1fr;gap:8px;align-items:start;padding:11px 12px;border:1px solid rgba(216,201,180,.18);border-left:3px solid var(--gold-deep);border-radius:7px;background:rgba(244,236,224,.045);color:rgba(244,236,224,.82);font:13px/1.3 var(--font-body);text-decoration:none;}
+.exercise-link:hover,.exercise-link:focus-visible{border-color:rgba(230,193,74,.5);background:rgba(230,193,74,.12);color:var(--paper);outline:none;}
+.exercise-link-num{color:var(--gold);font-family:var(--font-mono);font-size:11px;padding-top:2px;}
+.agenda-tooltip{position:fixed;width:440px;padding:13px;border:1px solid rgba(63,126,140,.48);border-radius:10px;background:rgba(18,15,13,.98);box-shadow:0 20px 54px rgba(0,0,0,.5);z-index:105;opacity:0;visibility:hidden;transform:translateY(-5px);transition:opacity .14s ease,transform .14s ease,visibility .14s;pointer-events:none;}
+.agenda-tooltip.open{opacity:1;visibility:visible;transform:none;}
+.agenda-tooltip-title{margin-bottom:9px;color:var(--paper);font:700 12px/1 var(--font-mono);letter-spacing:1.3px;text-transform:uppercase;}
+.agenda-tooltip-list{display:grid;gap:7px;}
+.agenda-tooltip-item{padding:8px 10px;border-left:3px solid var(--sky);border-radius:5px;background:rgba(244,236,224,.055);color:rgba(244,236,224,.74);font:13px/1.35 var(--font-body);}
 </style>
 <script src="completeness-index.js"></script>
 <script src="quality-index.js"></script>
 <script src="last-modified-index.js"></script>
+<script src="exercise-index.js"></script>
+<script src="agenda-index.js"></script>
 </head>
 <body>
 <div class="page">
@@ -875,7 +891,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
           <div class="card-tag">SUITE UFFICIO · SU03.04</div>
           <div class="card-title">Prime formule</div>
           <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
-          <div class="card-desc">Come funziona una formula, operatori, SOMMA, MEDIA, MIN, MAX, CONTA.NUMERI, CONTA.VALORI, CONTA.SE e SE — le funzioni fondamentali.</div>
+          <div class="card-desc">Formule, operatori e funzioni fondamentali; diagnosi completa degli errori classici, dinamici e di connessione in Excel e Google Sheets.</div>
           <div class="card-topics">
             <span class="topic">SOMMA</span>
             <span class="topic">MEDIA</span>
@@ -1875,6 +1891,29 @@ statsPanel.className = 'stats-panel';
 statsPanel.setAttribute('aria-hidden', 'true');
 document.body.appendChild(statsPanel);
 let activeStatsBadge = null;
+const exercisePanel = document.createElement('aside');
+exercisePanel.className = 'exercise-panel';
+exercisePanel.setAttribute('aria-hidden', 'true');
+document.body.appendChild(exercisePanel);
+let activeExerciseButton = null;
+const agendaTooltip = document.createElement('aside');
+agendaTooltip.className = 'agenda-tooltip';
+agendaTooltip.setAttribute('aria-hidden', 'true');
+document.body.appendChild(agendaTooltip);
+
+const closeAgendaTooltip = () => {
+  agendaTooltip.classList.remove('open');
+  agendaTooltip.setAttribute('aria-hidden', 'true');
+};
+
+const escapeAgendaText = value => String(value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+const closeExercisePanel = () => {
+  exercisePanel.classList.remove('open');
+  exercisePanel.setAttribute('aria-hidden', 'true');
+  if (activeExerciseButton) activeExerciseButton.setAttribute('aria-expanded', 'false');
+  activeExerciseButton = null;
+};
 
 const closeStatsPanel = () => {
   statsPanel.classList.remove('open');
@@ -1912,7 +1951,7 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
   card.addEventListener('click', e => {
     if (e.defaultPrevented || e.target.closest('button,.stats-badge')) return;
     const rect = card.getBoundingClientRect();
-    if (e.detail !== 0 && (e.clientX < rect.left + 234 || e.clientX >= rect.right - 232)) {
+    if (e.detail !== 0 && (e.clientX < rect.left + 234 || e.clientX >= rect.right - 344)) {
       e.preventDefault();
       e.stopPropagation();
       return;
@@ -1933,6 +1972,62 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
     document.body.removeChild(a);
   });
   card.appendChild(btn);
+  const exercises = window.EXERCISE_INDEX?.[href] || [];
+  const agenda = window.AGENDA_INDEX?.[href];
+  if (agenda?.items?.length) {
+    const agendaTargets = [title, card.querySelector('.card-desc')].filter(Boolean);
+    const showAgenda = () => {
+      closeStatsPanel();
+      closeExercisePanel();
+      agendaTooltip.innerHTML = `<div class="agenda-tooltip-title">${escapeAgendaText(agenda.title)}</div><div class="agenda-tooltip-list">${agenda.items.map(item => `<div class="agenda-tooltip-item">${escapeAgendaText(item)}</div>`).join('')}</div>`;
+      const rect = card.getBoundingClientRect();
+      // Align the tooltip to the right side of the central title/description
+      // panel, before the four-control rail.
+      const centralRight = rect.right - 344;
+      const left = Math.max(8, Math.min(innerWidth - 456, centralRight - 440));
+      agendaTooltip.style.left = `${left}px`;
+      agendaTooltip.style.top = `${rect.bottom + 7}px`;
+      agendaTooltip.classList.add('open');
+      agendaTooltip.setAttribute('aria-hidden', 'false');
+      const tooltipRect = agendaTooltip.getBoundingClientRect();
+      if (tooltipRect.bottom > innerHeight - 8) agendaTooltip.style.top = `${Math.max(8, rect.top - tooltipRect.height - 7)}px`;
+    };
+    agendaTargets.forEach(target => {
+      target.setAttribute('tabindex', '0');
+      target.addEventListener('mouseenter', showAgenda);
+      target.addEventListener('mouseleave', closeAgendaTooltip);
+      target.addEventListener('focus', showAgenda);
+      target.addEventListener('blur', closeAgendaTooltip);
+    });
+  }
+  if (exercises.length) {
+    const exerciseButton = document.createElement('button');
+    exerciseButton.className = 'exercise-btn index-control-box';
+    exerciseButton.type = 'button';
+    exerciseButton.setAttribute('aria-expanded', 'false');
+    exerciseButton.setAttribute('aria-label', `${exercises.length} esercizi nel capitolo`);
+    exerciseButton.textContent = 'Esercizi';
+    exerciseButton.addEventListener('click', e => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeAgendaTooltip();
+      const reopening = activeExerciseButton !== exerciseButton;
+      closeExercisePanel();
+      if (!reopening) return;
+      closeStatsPanel();
+      activeExerciseButton = exerciseButton;
+      exerciseButton.setAttribute('aria-expanded', 'true');
+      exercisePanel.innerHTML = `<div class="exercise-panel-title">Esercizi del capitolo · ${exercises.length}</div><div class="exercise-list">${exercises.map(item =>
+        `<a class="exercise-link" href="${item.file || href}#slide-${item.slide}"><span class="exercise-link-num">${item.slide}</span><span>${item.title.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</span></a>`
+      ).join('')}</div>`;
+      const rect = exerciseButton.getBoundingClientRect();
+      exercisePanel.style.top = `${rect.bottom + 6}px`;
+      exercisePanel.style.left = `${Math.max(8, Math.min(innerWidth - 336, rect.left))}px`;
+      exercisePanel.classList.add('open');
+      exercisePanel.setAttribute('aria-hidden', 'false');
+    });
+    card.appendChild(exerciseButton);
+  }
   const isoDate = window.LAST_MODIFIED_INDEX?.[href];
   if (isoDate) {
     const date = document.createElement('div');
@@ -1961,6 +2056,8 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
     const openPanel = e => {
       e.preventDefault();
       e.stopPropagation();
+      closeAgendaTooltip();
+      closeExercisePanel();
       if (activeStatsBadge === badge) {
         closeStatsPanel();
         return;
@@ -1997,11 +2094,13 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
 
 document.addEventListener('click', e => {
   if (activeStatsBadge && !statsPanel.contains(e.target) && !activeStatsBadge.contains(e.target)) closeStatsPanel();
+  if (activeExerciseButton && !exercisePanel.contains(e.target) && !activeExerciseButton.contains(e.target)) closeExercisePanel();
 });
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeStatsPanel();
+  if (e.key === 'Escape') { closeStatsPanel(); closeExercisePanel(); closeAgendaTooltip(); }
 });
-addEventListener('resize', closeStatsPanel);
+addEventListener('resize', () => { closeStatsPanel(); closeExercisePanel(); closeAgendaTooltip(); });
+addEventListener('scroll', closeAgendaTooltip, {passive:true});
 
 // Sottomenu richiudibili per le vere sottoserie gerarchiche.
 const subseriesLabels = {

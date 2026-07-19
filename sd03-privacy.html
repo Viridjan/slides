@@ -94,6 +94,7 @@ em.hot{font-style:italic;color:var(--red);}
 .title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
 .title-left .tape{position:absolute;top:84px;left:90px;}
 .title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right>div,.title-right>svg{position:relative;z-index:2;}
 .title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--sky),#1c4a56);right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
 @keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
 .agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:18px 60px;margin-top:16px;}
@@ -101,12 +102,6 @@ em.hot{font-style:italic;color:var(--red);}
 .agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:72px;}
 .agenda-item .t{font-size:28px;font-weight:600;color:var(--ink);}
 .closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing .gold{color:var(--gold);}
-.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
-.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
-.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
-body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
-.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
-.edit-hint.show{display:block;}
 .progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease);}
 .title-slide .lead,.title-slide .chips{display:none;}
 
@@ -149,7 +144,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 <div class="deck-author">Francesco Antonio Binetti</div></section>
 
 <!-- === SLIDE 2: AGENDA === -->
-<section class="slide no-top-label"><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-columns:1fr;grid-template-rows:repeat(3,auto);gap:18px;margin-top:24px;"><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">01</span><div><b class="t">Privacy e tracciamento</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Cos'è la privacy, i diritti del GDPR, come veniamo tracciati e i metadati.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">02</span><div><b class="t">Anonimato e strumenti</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Anonimato e pseudonimato, TOR, browser e ricerca rispettosi della privacy.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">03</span><div><b class="t">Proteggere la privacy</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Social, telefono, diritto all'oblio, messaggi privati e la checklist finale.</span></div></div></div><div class="num"></div></section>
+
 
 <!-- === SLIDE 3: COS'È LA PRIVACY DIGITALE === -->
 <section class="slide">
@@ -678,7 +673,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="stack reveal d3">
         <div class="note">
           <div class="lbl">Fai una OSINT su te stesso</div>
-          <p>Cerca il tuo nome su Google. Guarda cosa appare nelle immagini. Controlla cosa è visibile pubblicamente sui social. Quello che vedi, lo vede anche chiunque altro.</p>
+          <p>Cerca il tuo nome su Google. Guarda cosa appare nelle immagini. Controlla cosa è visibile pubblicamente sui social. Verifica su haveibeenpwned.com se la tua email è comparsa in violazioni di dati. Quello che vedi, lo vede anche chiunque altro.</p>
         </div>
         <div class="analogy" style="font-size:25px;margin-top:0;"><span class="big">Regola:</span> Non postare nulla che non diresti in pubblico.</div>
       </div>
@@ -739,24 +734,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 </section>
 
 <!-- === SLIDE 18: CHECKLIST PRIVACY PERSONALE === -->
-<section class="slide">
-  <div class="center">
 
-    <h2 class="h-sec reveal" style="margin-top:14px;">La tua <em class="hot">Checklist Privacy</em></h2>
-    <p class="lead reveal d1">Cosa puoi fare questa settimana per migliorare concretamente la tua privacy digitale:</p>
-    <div class="grid2 reveal d2" style="margin-top:16px;gap:14px 50px;">
-      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">01</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Controlla le impostazioni privacy di Instagram, Facebook e TikTok</p></div>
-      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">02</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Revoca i permessi di posizione alle app che non ne hanno bisogno</p></div>
-      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">03</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Installa uBlock Origin sul browser e smetti di essere tracciato</p></div>
-      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">04</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Cerca il tuo nome su Google — cosa vedi? Cosa si potrebbe rimuovere?</p></div>
-      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">05</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Verifica su <a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">haveibeenpwned.com</a> se la tua email è stata esposta in leak</p></div>
-      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">06</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Cambia il motore di ricerca predefinito in DuckDuckGo o Startpage</p></div>
-      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">07</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Disattiva la pubblicità personalizzata nelle impostazioni del telefono</p></div>
-      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--teal);min-width:44px;line-height:1.1;">08</span><p style="font-size:25px;line-height:1.4;color:var(--ink-soft);">Revoca l'accesso alle app collegate ai tuoi profili social non usate</p></div>
-    </div>
-  </div>
-  <div class="page-num"></div>
-</section>
 
 <!-- === SLIDE 19: QUIZ === -->
 
@@ -769,18 +747,13 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <a class="chip" href="sd04-professioni.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → C4 · Professioni</a>
     </div>
     <p class="reveal d3" style="color:var(--paper);margin-top:36px;font-family:var(--font-mono);font-size:24px;opacity:.6;">Corso di Informatica · Sicurezza Digitale · 2024-2025</p>
-  </div></div><div class="page-num"></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a><a href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Android ↗</a><a href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">HTTP Semantics — RFC 9110 ↗</a></div></div></section>
+  </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a><a href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Android ↗</a><a href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">HTTP Semantics — RFC 9110 ↗</a></div></div><div class="page-num"></div></section>
 
 </main>
 </div>
 
 <div class="progress" id="progress"></div>
 <a class="home-btn" href="00-indice.html" title="Torna all'indice (I)">↩ Indice</a>
-<div class="edit-hotzone" aria-hidden="true"></div>
-<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
-<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
-
-
 <script src="deck.js"></script>
 </body>
 </html>

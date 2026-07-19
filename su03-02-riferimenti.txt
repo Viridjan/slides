@@ -161,6 +161,8 @@ Somma la cella B3 da tutti i fogli tra "Gen" e "Dic".
  
  
  ⚠️ Attenzione Se rinomini il foglio sorgente, i riferimenti si aggiornano automaticamente. Se lo elimini, le formule mostrano #RIF!
+Fonti ufficiali:
+- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 11 ---
 La funzione LET 
@@ -179,8 +181,6 @@ La funzione LET
  =LET(margine;(B2-C2)/B2;
 &nbsp;&nbsp;SE(margine&gt;0,2;"OK";"BASSO")) 
  Il nome margine spiega il calcolo.
-Fonti ufficiali:
-- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 12 ---
 Cosa rompe le formule — e come evitarlo 

@@ -92,15 +92,10 @@ code{font-family:var(--font-mono);}
 .title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
 .title-left .tape{position:absolute;top:84px;left:90px;}
 .title-right{background:var(--gold-deep);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right>div,.title-right>svg{position:relative;z-index:2;}
 .title-right::before{content:"";position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#e8a050,#7a3d08);right:-140px;top:-120px;animation:float 8s ease-in-out infinite alternate;}
 @keyframes float{to{transform:translate(-28px,40px) scale(1.04);}}
 .closing{background:var(--gold-deep);}.closing::before{opacity:.10;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing em.hot{color:var(--gold);}
-.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
-.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
-.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--gold-deep);}
-body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offset:4px;border-radius:4px;}
-.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
-.edit-hint.show{display:block;}
 .progress{position:fixed;left:0;bottom:0;height:6px;background:var(--gold-deep);z-index:1000;transition:width .35s var(--ease);}
 .title-slide .lead,.title-slide .chips{display:none;}
 
@@ -138,7 +133,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
 <div class="deck-author">Francesco Antonio Binetti</div></section>
 
 <!-- SLIDE 2: INTRODUZIONE E AGENDA -->
-<section class="slide no-top-label"><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-columns:1fr;grid-template-rows:repeat(3,auto);gap:18px;margin-top:24px;"><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">01</span><div><b class="t">Visualizzare e salvare</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Cosa sono i contenuti digitali, i formati, salvare pagine, segnalibri, stampa e PDF.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">02</span><div><b class="t">Copiare e scaricare</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Scaricare file, copiare testo e immagini, multimedia, screenshot e OCR.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">03</span><div><b class="t">Cloud e diritti</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Il cloud, organizzare l'archivio, il copyright e le Creative Commons.</span></div></div></div><div class="num"></div></section>
+
 <section class="slide">
   <div class="split even">
     <div class="col stack">
@@ -589,7 +584,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
 </section>
 
 <!-- SLIDE 17: SCREENSHOT E OCR (merge cattura schermo + OCR) -->
-<section class="slide">
+<section class="slide" data-content-review-hash="b31a5f5c32d17609" data-content-review-date="2026-07-19">
   <div class="split even">
     <div class="col stack">
 
@@ -613,7 +608,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a></div></section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a></div><div class="cross-reference-footer" data-cross-reference-footer="true"><a href="su01-02-google-workspace.html#slide-4">Google Drive ↗</a></div></section>
 
 <!-- SLIDE 18: CONDIVIDERE CONTENUTI SOCIAL (merge intro social + condivisione) -->
 <section class="slide">
@@ -728,7 +723,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
 </section>
 
 <!-- SLIDE 22: SALVARE NEL CLOUD — I SERVIZI (merge provider + collaborazione) -->
-<section class="slide">
+<section class="slide" data-content-review-hash="e6166e510c9ac7d1" data-content-review-date="2026-07-19">
   <div class="center">
 
     <h2 class="h-sec reveal" style="margin-top:14px;">Salvare nel <em class="warm">cloud</em></h2>
@@ -761,7 +756,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
     </div>
   </div>
   <div class="page-num"></div>
-</section>
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="su01-02-google-workspace.html#slide-4">Google Drive ↗</a></div></section>
 
 <!-- SLIDE 23: CLOUD COMPUTING E CLOUD O LOCALE (merge, da inf02) -->
 <section class="slide">
@@ -825,6 +820,32 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
   <div class="page-num"></div>
 </section>
 
+<section class="slide tight-slide">
+  <h2 class="h-sec reveal">Backup 3-2-1: copiare non basta</h2>
+  <p class="lead reveal d1" style="margin-top:12px;">Un backup protegge soltanto se è separato dall’originale, aggiornato e realmente ripristinabile. La sincronizzazione da sola non basta: una cancellazione o un file corrotto può propagarsi su tutti i dispositivi.</p>
+  <div class="grid4 reveal d2" style="margin-top:18px;">
+    <div class="card"><h3>3 copie complessive</h3><p>Conserva il file di lavoro e almeno due copie. Se esiste in un solo posto, non è ancora protetto.</p></div>
+    <div class="card"><h3>2 supporti differenti</h3><p>Per esempio computer e disco esterno. Due cartelle sullo stesso disco condividono lo stesso guasto.</p></div>
+    <div class="card"><h3>1 copia fuori sede</h3><p>Cloud con versioni precedenti oppure supporto custodito altrove: furto, incendio e ransomware non devono raggiungere ogni copia.</p></div>
+    <div class="card"><h3>Prova il ripristino</h3><p>Ogni tre mesi recupera un file di prova e aprilo. Controlla completezza, data e leggibilità.</p></div>
+  </div>
+  <div class="analogy reveal d3" style="margin-top:18px;"><span class="big">Regola:</span> automatizza le copie, conserva versioni precedenti e verifica il ripristino.</div>
+  <div class="page-num"></div>
+</section>
+
+<section class="slide tight-slide">
+  <h2 class="h-sec reveal">Dove salvare e come ripristinare</h2>
+  <p class="lead reveal d1" style="margin-top:12px;">Ogni supporto copre rischi diversi. La protezione nasce dalla combinazione, non dal nome del servizio o del dispositivo.</p>
+  <div class="grid4 reveal d2" style="margin-top:18px;">
+    <div class="card"><h3>Disco esterno</h3><p>È rapido ed economico. Collegalo per la copia, poi scollegalo: ransomware e sovratensioni non devono raggiungerlo.</p></div>
+    <div class="card"><h3>NAS</h3><p>Automatizza le copie nella rete locale e può conservare versioni. Non è però una copia fuori sede.</p></div>
+    <div class="card"><h3>Cloud con versioni</h3><p>Offre una copia remota. Controlla spazio, cifratura, accesso all’account e durata della cronologia.</p></div>
+    <div class="card"><h3>Ripristino verificato</h3><p>Recupera un file altrove, aprilo e confronta nome, data e contenuto. Per dati critici prova cartelle complete.</p></div>
+  </div>
+  <div class="analogy reveal d3" style="margin-top:18px;"><span class="big">In pratica:</span> assegna una frequenza, controlla l’esito automatico e prova un recupero almeno ogni tre mesi.</div>
+  <div class="page-num"></div>
+</section>
+
 <!-- SLIDE 25: CREATIVE COMMONS -->
 <section class="slide">
   <div class="split">
@@ -832,7 +853,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
 
       <h2 class="h-big reveal">Diritti durante<br><em class="gold">l’archiviazione</em></h2>
       <p class="lead reveal d1">Quando salvi o redistribuisci un contenuto, conserva insieme al file anche autore, fonte e licenza: senza queste informazioni non puoi ricostruire gli usi consentiti.</p>
-      <div class="analogy reveal d3"><span class="big">Approfondisci:</span> condizioni CC, compatibilità e metodo di attribuzione sono raccolti in <a href="cd01-01-licenze-oer.html#slide-5">CD01.01 · Licenze aperte e OER</a>.</div>
+      <div class="analogy reveal d3"><span class="big">Approfondisci:</span> condizioni CC, compatibilità e metodo di attribuzione sono raccolti in CD01.01 · Licenze aperte e OER.</div>
     </div>
     <div class="col stack reveal d2">
       <div class="agenda-item" style="padding:10px 4px;border-color:var(--teal);"><span style="font-size:28px;min-width:46px;">01</span><div><b style="font-size:25px;">Conserva la provenienza</b><br><span style="font-size:21px;color:var(--ink-faint);">URL, autore e data di acquisizione</span></div></div>
@@ -843,31 +864,10 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
     </div>
   </div>
   <div class="page-num"></div>
-</section>
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="cd01-01-licenze-oer.html#slide-5">CD01.01 · Licenze aperte e OER ↗</a></div></section>
 
 <!-- SLIDE 26: RIEPILOGO -->
-<section class="slide">
-  <div class="center">
 
-    <h2 class="h-sec reveal" style="margin-top:14px;">Riepilogo del <em class="warm">modulo</em></h2>
-    <p class="lead reveal d1">Le competenze operative apprese in questo modulo:</p>
-    <div class="grid2 reveal d2" style="margin-top:16px;gap:14px;">
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">👁️</span><div class="tx"><b>Visualizzare</b> contenuti digitali con gli strumenti giusti</div></div>
-        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">💾</span><div class="tx"><b>Salvare pagine web</b> come HTML, PDF o segnalibri</div></div>
-        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">🖨️</span><div class="tx"><b>Stampare documenti</b> verificando l'anteprima</div></div>
-        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">⬇️</span><div class="tx"><b>Scaricare file</b> in modo sicuro e organizzato</div></div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">📋</span><div class="tx"><b>Copiare contenuti</b> dal web rispettando copyright e fonti</div></div>
-        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">📸</span><div class="tx"><b>Usare screenshot e OCR</b> per contenuti multimediali</div></div>
-        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">📱</span><div class="tx"><b>Gestire contenuti da social</b> rispettando privacy e regole</div></div>
-        <div class="check-row" style="background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 20px;"><span class="ck">🗂️</span><div class="tx"><b>Organizzare l'archivio</b> con cartelle, nomi chiari e backup nel cloud</div></div>
-      </div>
-    </div>
-  </div>
-  <div class="page-num"></div>
-</section>
 
 
 <!-- SLIDE NEW: IMMAGINI DAL WEB -->
@@ -892,16 +892,12 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
     <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
       <a class="chip" href="rw02-04-collaborazione-digitale.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → RW09 · Collaborazione Digitale</a>
     </div>
-  </div></div><div class="page-num"></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://helpx.adobe.com/acrobat/user-guide.html" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Adobe Acrobat ↗</a><a href="https://it.wikipedia.org/wiki/HTML" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">HTML — Wikipedia ↗</a><a href="https://creativecommons.org/share-your-work/cclicenses/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Licenze Creative Commons ↗</a><a href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Android ↗</a><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a></div></div></section>
+  </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://helpx.adobe.com/acrobat/user-guide.html" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Adobe Acrobat ↗</a><a href="https://it.wikipedia.org/wiki/HTML" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">HTML — Wikipedia ↗</a><a href="https://creativecommons.org/share-your-work/cclicenses/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Licenze Creative Commons ↗</a><a href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Android ↗</a><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a></div></div><div class="page-num"></div></section>
 
 </main>
 </div>
 <div class="progress" id="progress"></div>
 <a class="home-btn" href="00-indice.html" title="Torna all'indice (I)">↩ Indice</a>
-<div class="edit-hotzone" aria-hidden="true"></div>
-<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
-<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
-
 <script src="deck.js"></script>
 </body>
 </html>

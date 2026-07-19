@@ -13,6 +13,8 @@ Cosa vedremo 01 Riferimenti tra schede
 
 --- Slide 3 ---
 Perché collegare i fogli Copiare e incollare gli stessi dati in tre file crea tre versioni che, prima o poi, divergono. Un collegamento tiene una sola sorgente: la aggiorni in un posto e tutti i report la leggono già corretta. 📄 Una sorgente I dati grezzi stanno in un foglio solo. Nessuna copia da tenere allineata a mano. 🔄 Sempre aggiornati Cambi il dato alla sorgente e il report collegato lo mostra da solo, senza reincollare. 🧭 Ruoli separati Chi inserisce i dati lavora sulla sorgente; chi legge il report non la tocca.
+Fonti ufficiali:
+- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 4 ---
 Riferimento a un'altra scheda Nello stesso file, per leggere una cella di un'altra scheda scrivi il nome della scheda, un punto esclamativo e la cella. Se il nome contiene spazi, va tra apici singoli. 💡 Vale ovunque Funziona uguale in Google Sheets e in Excel: la scheda-sorgente resta l'unico posto dove aggiorni il dato. = Dati!B3
@@ -20,8 +22,6 @@ Riferimento a un'altra scheda Nello stesso file, per leggere una cella di un'alt
 = 'Incassi 2026'!B3
 
 = SOMMA(Dati!C2:C40)
-Fonti ufficiali:
-- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 5 ---
 IMPORTRANGE: collegare file diversi Per leggere dati da un altro file di Google Sheets si usa IMPORTRANGE: gli dai l'indirizzo del foglio sorgente e l'intervallo da importare. 🟢 Solo Google Sheets IMPORTRANGE è una funzione di Google Sheets. In Excel il collegamento tra file si fa in altro modo — lo vediamo dopo. =IMPORTRANGE(

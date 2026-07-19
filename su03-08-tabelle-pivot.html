@@ -45,7 +45,7 @@
     <div class="title-right"><div class="reveal" style="font-size:210px;line-height:1;z-index:2;">📊</div></div>
   <div class="deck-author">Francesco Antonio Binetti</div></section>
 
-  <section class="slide no-top-label"><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-columns:1fr;grid-template-rows:repeat(3,auto);gap:18px;margin-top:24px;"><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">01</span><div><b class="t">Perché una pivot</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Quando la tabella è troppo lunga e la regola una riga uguale un record.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">02</span><div><b class="t">Costruirla</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Da tabella a pivot, righe, colonne, valori e filtri, e somma, conteggio, media.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">03</span><div><b class="t">Usarla bene</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Vedere solo ciò che serve, aggiornare la pivot e sapere quando mente.</span></div></div></div><div class="num"></div></section>
+
 <section class="slide">
     <div class="split">
       <div class="stack">
@@ -109,7 +109,7 @@
     <div class="page-num"></div>
   <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Google Sheets" aria-label="Fonte ufficiale: Guida ufficiale Google Sheets" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Google Sheets ↗</a><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Supporto Microsoft Excel" aria-label="Fonte ufficiale: Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Supporto Microsoft Excel ↗</a></div></section>
 
-  <section class="slide">
+  <section class="slide" data-content-review-hash="adaf406dd13a92cf" data-content-review-date="2026-07-19">
     <div class="center">
 
       <h2 class="h-sec reveal" style="margin-top:16px;">Righe, colonne, valori, filtri</h2>
@@ -117,10 +117,10 @@
       <div class="grid4 reveal d2" style="margin-top:34px;">
         <div class="card teal"><span class="ic">↕</span><h3>Righe</h3><p>Decidono le categorie verticali: Servizio, Operatore, Cliente, Mese.</p></div>
         <div class="card sky"><span class="ic">↔</span><h3>Colonne</h3><p>Creano il confronto orizzontale: anni, mesi, sedi, canali.</p></div>
-        <div class="card gold"><span class="ic">Σ</span><h3>Valori</h3><p>Contengono i numeri da sommare, contare, mediare o confrontare.</p></div>
+        <div class="card gold"><span class="ic">Σ</span><div role="heading" aria-level="3" style="font-family:var(--font-display);font-size:30px;font-weight:800;line-height:1.08;margin:8px 0 10px;">Valori</div><p>Contengono i numeri da sommare, contare, mediare o confrontare.</p></div>
         <div class="card red"><span class="ic">🔍</span><h3>Filtri</h3><p>Limitano il report: solo 2026, solo Milano, solo servizi attivi.</p></div>
       </div>
-      <div class="analogy reveal d3" style="margin-top:36px;"><span class="big">Domanda guida:</span> "Voglio vedere quale numero, diviso per quale categoria, con quali limiti?"</div>
+      <div class="analogy reveal d3" style="margin-top:36px;"><span>Domanda guida:</span> "Voglio vedere quale numero, diviso per quale categoria, con quali limiti?"</div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -131,14 +131,12 @@
 
         <h2 class="h-big reveal">Incasso per <em class="hot">servizio</em></h2>
         <p class="lead reveal d1">Per sapere quali servizi generano più ricavi, metti <b>Servizio</b> nelle righe e <b>Incasso</b> nei valori con aggregazione Somma.</p>
-        <div class="pivot-box reveal d2">
-          <div class="pivot-field"><span>Righe</span><b>Servizio</b></div>
-          <div class="pivot-field"><span>Valori</span><b>Somma di Incasso</b></div>
-          <div class="pivot-field"><span>Ordina</span><b>Dal più alto</b></div>
-        </div>
       </div>
       <div class="pivot-box reveal d1">
-        <table class="table">
+        <div class="pivot-field"><span>Righe</span><b>Servizio</b></div>
+        <div class="pivot-field"><span>Valori</span><b>Somma di Incasso</b></div>
+        <div class="pivot-field"><span>Ordina</span><b>Dal più alto</b></div>
+        <table class="table" style="margin-top:20px;">
           <tr><th>Servizio</th><th class="cell-num">Somma incasso</th></tr>
           <tr><td>Colore</td><td class="cell-num hi">1.820</td></tr>
           <tr><td>Taglio</td><td class="cell-num">1.140</td></tr>
@@ -157,14 +155,12 @@
 
         <h2 class="h-big reveal">Confronto per <em class="hot">mese</em></h2>
         <p class="lead reveal d1">Aggiungendo un campo nelle colonne, la pivot diventa una matrice. Le righe mostrano i servizi, le colonne mostrano i mesi, i valori sommano gli incassi.</p>
-        <div class="pivot-box reveal d2">
-          <div class="pivot-field"><span>Righe</span><b>Servizio</b></div>
-          <div class="pivot-field"><span>Colonne</span><b>Mese</b></div>
-          <div class="pivot-field"><span>Valori</span><b>Somma Incasso</b></div>
-        </div>
       </div>
       <div class="pivot-box reveal d1">
-        <table class="table">
+        <div class="pivot-field"><span>Righe</span><b>Servizio</b></div>
+        <div class="pivot-field"><span>Colonne</span><b>Mese</b></div>
+        <div class="pivot-field"><span>Valori</span><b>Somma Incasso</b></div>
+        <table class="table" style="margin-top:20px;">
           <tr><th>Servizio</th><th class="cell-num">Gen</th><th class="cell-num">Feb</th><th class="cell-num">Mar</th><th class="cell-num">Totale</th></tr>
           <tr><td>Colore</td><td class="cell-num">600</td><td class="cell-num">540</td><td class="cell-num">680</td><td class="cell-num hi">1.820</td></tr>
           <tr><td>Taglio</td><td class="cell-num">390</td><td class="cell-num">360</td><td class="cell-num">390</td><td class="cell-num">1.140</td></tr>
@@ -262,12 +258,12 @@
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a class="chip" href="su03-09-tabelle-pivot-avanzate.html" style="background:var(--gold);color:var(--ink);">Prossimo → SU03.09 · Pivot avanzate</a>
       </div>
-    </div></div><div class="page-num"></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Google Sheets ↗</a><a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Supporto Microsoft Excel ↗</a></div></div></section>
+    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Google Sheets ↗</a><a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Supporto Microsoft Excel ↗</a></div></div><div class="page-num"></div></section>
 
 </div>
 </div>
 <div class="progress" id="progress"></div>
-<a class="home-btn" href="00-indice.html" title="Torna all'indice (I)">↩ Indice</a>
+<a class="home-btn" href="00-indice.html" title="Torna all'indice">↩ Indice</a>
 
 <script src="deck.js"></script>
 </body>

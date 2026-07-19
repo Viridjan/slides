@@ -187,6 +187,9 @@ una email di phishing
  Accedi subito → 
  
  Anatomia di una email di phishing
+Fonti ufficiali:
+- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
+- Rete privata virtuale — Wikipedia — https://it.wikipedia.org/wiki/Rete_privata_virtuale
 
 --- Slide 8 ---
 Attacchi alle Reti WiFi 
@@ -214,9 +217,6 @@ Attacchi alle Reti WiFi
  
  Regole per il WiFi pubblico 
  Non fare operazioni bancarie su WiFi pubblico. Usa sempre HTTPS (🔒 nel browser). Se possibile, attiva una VPN per cifrare tutto il traffico.
-Fonti ufficiali:
-- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
-- Rete privata virtuale — Wikipedia — https://it.wikipedia.org/wiki/Rete_privata_virtuale
 
 --- Slide 9 ---
 Attacco
@@ -258,6 +258,8 @@ Attacco
  password, dati, messaggi 
  
  Il postino che apre le lettere
+Fonti ufficiali:
+- Domain Name System — ICANN — https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en
 
 --- Slide 10 ---
 Botnet e
@@ -301,7 +303,7 @@ Botnet e
  
  Il botmaster comanda dall'ombra
 Fonti ufficiali:
-- Domain Name System — ICANN — https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en
+- Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
 
 --- Slide 11 ---
 Vulnerabilità Zero-Day 
@@ -326,8 +328,6 @@ Vulnerabilità Zero-Day
  
  Esempio famoso 
  WannaCry (2017): sfruttò una vulnerabilità SMB per cui Microsoft aveva già pubblicato la patch MS17-010; molti sistemi colpiti non erano aggiornati. Colpì 230.000 computer in 150 paesi in un solo weekend. Incluso il NHS britannico.
-Fonti ufficiali:
-- Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
 
 --- Slide 12 ---
 Ingegneria Sociale: le tecniche 

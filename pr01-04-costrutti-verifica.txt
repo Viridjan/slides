@@ -14,11 +14,11 @@ Cosa vedremo 01 Decisioni e cicli
  Condizioni verificabili, le tre forme di ciclo, cicli annidati e uscite anticipate. 02 Accumulatore e contatore
  Costruire un risultato passo dopo passo, e sapere quante volte accade qualcosa. 03 Verificare e valutare
  La tabella di traccia, il costo di una soluzione e due esercizi da far girare.
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 3 ---
 L'ordine cambia il risultato In un algoritmo, spostare una istruzione può cambiare completamente il comportamento. Alcuni passi devono avvenire prima perché preparano dati usati dai passi successivi. Prima inizializzo Creo valori di partenza, contatori e accumuli. Poi aggiorno Uso quei valori per calcolare risultati successivi.
-Fonti ufficiali:
-- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 4 ---
 Decisioni: condizioni verificabili Una decisione efficace usa una condizione chiara, valutabile come vera o falsa. Condizioni vaghe producono algoritmi ambigui. Vaga "Se il valore è abbastanza alto" non basta senza soglia. Verificabile "Se il valore è maggiore o uguale a 18" è controllabile.
@@ -31,14 +31,14 @@ Le tre forme del ciclo Cambia una cosa sola: quando viene controllata la condizi
 
 --- Slide 7 ---
 Per ogni, annidati, uscite Tre varianti che incontrerai ovunque, e la trappola che ciascuna si porta dietro. ⚠️ Attenzione Un ciclo annidato moltiplica il lavoro: dieci righe per dieci colonne fanno cento passaggi. Prima di annidare, chiediti se un ciclo solo non basti. Per ogni elemento Attraversa una collezione senza contatore: ogni voto dell'elenco, ogni riga della tabella. Non puoi sbagliare l'indice, perché non c'è. È la forma da preferire quando devi solo passare su tutti gli elementi. Cicli annidati Un ciclo dentro l'altro: per ogni riga, per ogni colonna. Servono per griglie, tabelline e confronti a coppie. Il ciclo interno ricomincia da capo a ogni giro di quello esterno. Uscita anticipata Appena trovi quel che cercavi, esci: continuare a scorrere l'elenco è lavoro sprecato. Attenzione però — un'uscita nascosta in mezzo al corpo rende il ciclo difficile da seguire per chi legge.
+Fonti ufficiali:
+- Iterazione — Wikipedia — https://it.wikipedia.org/wiki/Iterazione
 
 --- Slide 8 ---
 L’accumulatore: costruire un risultato passo dopo passo L'accumulatore è una variabile che conserva un risultato parziale. A ogni iterazione viene aggiornato con una nuova informazione. totale = 0
 per ogni prezzo nella lista:
  totale = totale + prezzo
 fine ciclo
-Fonti ufficiali:
-- Iterazione — Wikipedia — https://it.wikipedia.org/wiki/Iterazione
 
 --- Slide 9 ---
 Il contatore: sapere quante volte qualcosa accade Il contatore aumenta o diminuisce secondo una regola. Serve per ripetere un numero definito di volte, indicizzare elementi o contare occorrenze. Indice Indica quale elemento stiamo osservando. Occorrenze Conta quante volte una condizione è vera.
@@ -54,8 +54,6 @@ Non tutte le soluzioni costano uguale Due algoritmi possono produrre lo stesso r
 
 --- Slide 12 ---
 Esercizio: tre diagrammi da far girare Per ognuno: scrivi prima che cosa entra e che cosa esce, poi disegnalo in Flowgorithm ed eseguilo almeno tre volte, cambiando i dati. 1 · Pari o dispari Entra un numero intero, esce la scritta «pari» o «dispari». Serve un solo rombo: la condizione è il resto della divisione per 2. Provalo con lo zero: che cosa risponde, e ti convince? 2 · Esito dello scrutinio Entrano tre voti. Esce la media, e «promosso» se raggiunge il 6, «rimandato» altrimenti. Tre ingressi, un processo per la media, un rombo con i rami etichettati. 3 · Sconto alla cassa Entra il totale della spesa. Se supera i 100 euro applica il 10% di sconto, altrimenti lascia il totale invariato. Esce la cifra da pagare. Provalo con esattamente 100: il tuo rombo usa «maggiore» o «maggiore o uguale»?
-Fonti ufficiali:
-- Flowgorithm — sito ufficiale — https://www.flowgorithm.org/
 
 --- Slide 13 ---
 Esercizio: tre diagrammi con un ciclo Questi richiedono una freccia che torna indietro. Prima di eseguirli compila a mano la tabella di traccia dei primi due giri: se poi il computer ti smentisce, l'errore è nel diagramma. 4 · Somma dei primi N Entra un numero N, esce la somma di tutti gli interi da 1 a N. Servono un contatore e un accumulatore, azzerati prima del ciclo. Verifica con N=5: deve uscire 15. 5 · Il voto più alto Entrano cinque voti, uno alla volta, ed esce il più alto. Il trucco è tenere una variabile «massimo finora» e aggiornarla solo quando il voto letto la supera. Con quale valore la fai partire? 6 · Indovina il numero Il programma tiene un numero fisso, per esempio 7. Legge tentativi finché non lo indovini e a ogni tentativo risponde «troppo alto» o «troppo basso». Il ciclo si ferma solo alla risposta esatta. ⚠️ Attenzione Nell'esercizio 6, se dimentichi di rileggere il tentativo dentro il ciclo, la condizione non cambia mai e il diagramma gira all'infinito. Flowgorithm continua finché non lo fermi: è il modo migliore per vedere dal vivo che cos'è un ciclo infinito.

@@ -11,6 +11,8 @@ Cosa vedremo 01 Dove finiscono i dati
  RAM contro spazio disco, HDD e SSD, e le unità di misura da bit a terabyte. 02 Il file system 
  Partizioni e percorsi, metadati e permessi, e i formati FAT32, exFAT, NTFS, ext4, APFS. 03 Gestire i file 
  Organizzare le cartelle, la salute del disco, la compressione (ZIP, 7z, RAR) e i link.
+Fonti ufficiali:
+- RAM — Wikipedia — https://it.wikipedia.org/wiki/RAM
 
 --- Slide 3 ---
 RAM e spazio disco non sono la stessa cosa 
@@ -23,7 +25,7 @@ RAM e spazio disco non sono la stessa cosa
  
  Fonte: RAM — Wikipedia ↗
 Fonti ufficiali:
-- RAM — Wikipedia — https://it.wikipedia.org/wiki/RAM
+- Documenti e specifiche USB — USB-IF — https://www.usb.org/documents
 
 --- Slide 4 ---
 Prima domanda: dove sto salvando? 
@@ -36,8 +38,6 @@ Prima domanda: dove sto salvando?
  💡 Controllo rapido Guarda sempre il percorso o il nome della cartella prima di confermare il salvataggio. 
  
  Fonte: Documenti e specifiche USB — USB-IF ↗
-Fonti ufficiali:
-- Documenti e specifiche USB — USB-IF — https://www.usb.org/documents
 
 --- Slide 5 ---
 Salvare non vuol dire capire 
@@ -68,6 +68,8 @@ SSD: veloce, silenzioso, senza parti mobili
  🧮 Usura gestita Le celle flash supportano un numero limitato di cicli di scrittura. Il controller distribuisce le scritture uniformemente tramite wear leveling . 
  
  TRIM Il comando TRIM informa l'SSD quali blocchi non sono più usati dal file system, permettendogli di prepararli per la prossima scrittura e mantenere velocità e durata nel tempo.
+Fonti ufficiali:
+- UTF-8 — Unicode Standard — https://www.unicode.org/versions/latest/core-spec/chapter-2/
 
 --- Slide 8 ---
 Bit, byte, KB, MB, GB, TB 
@@ -83,8 +85,6 @@ Bit, byte, KB, MB, GB, TB
  
  
  Fonte: UTF-8 — Unicode Standard ↗
-Fonti ufficiali:
-- UTF-8 — Unicode Standard — https://www.unicode.org/versions/latest/core-spec/chapter-2/
 
 --- Slide 9 ---
 Partizioni e formattazione 
@@ -165,6 +165,8 @@ NTFS
  🔐 ACL e cifratura Permessi granulari per utenti e gruppi tramite Access Control List. Supporta anche la cifratura EFS (Encrypted File System) a livello di cartella o file. 
  📦 File grandi Nessun limite pratico da 4 GB. Un singolo file video può occupare decine di GB senza problemi su NTFS. 
  🪟 Scelta naturale È la scelta standard per il disco principale e le partizioni dati di un PC Windows moderno. Ottimizzato per prestazioni su sistemi Windows.
+Fonti ufficiali:
+- Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
 
 --- Slide 15 ---
 Btrfs, ext4, APFS 
@@ -178,8 +180,6 @@ Btrfs, ext4, APFS
  
  
  Fonte: Manuale utente iPhone — Apple ↗
-Fonti ufficiali:
-- Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
 
 --- Slide 16 ---
 Organizzare i file 

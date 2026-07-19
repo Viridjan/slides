@@ -1,0 +1,200 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esercizi · Programmare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;}.slide:last-child{break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--red);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal-2);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+em.gold{font-style:italic;color:var(--gold-deep);}
+em.teal{font-style:italic;color:var(--teal-2);}
+.lead{font-size:32px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:10px;line-height:1;}
+.card p{font-size:24px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:50px;line-height:1;display:block;margin-bottom:8px;}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.teal{background:var(--teal-2);}.note.teal *{color:#fff !important;}.note.teal .lbl{color:var(--gold) !important;}
+.note.red{background:#f3b6aa;}
+.note.dark{background:var(--ink);}.note.dark *{color:var(--paper) !important;}.note.dark .lbl{color:var(--gold) !important;}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.4;color:var(--ink);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:20px;}
+.tight-slide .h-big{font-size:78px;}
+.tight-slide .h-sec{font-size:64px;}
+.tight-slide .lead{font-size:28px;line-height:1.34;}
+.tight-slide .body{font-size:27px;line-height:1.35;}
+.tight-slide .split{height:auto;}
+.tight-slide .stack>*+*{margin-top:12px;}
+.tight-slide .grid2{gap:18px;}
+.tight-slide .grid3{gap:16px;}
+.tight-slide .grid4{gap:16px;}
+.tight-slide .card{padding:18px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12);}
+.tight-slide .card h3{font-size:30px;margin-bottom:6px;}
+.tight-slide .card p{font-size:21px;line-height:1.28;}
+.tight-slide .card .ic{font-size:34px;margin-bottom:5px;}
+.tight-slide .note{padding:18px 22px;}
+.tight-slide .note .lbl{font-size:19px;margin-bottom:6px;}
+.tight-slide .note p{font-size:22px;line-height:1.3;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--red);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:740px;height:740px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f07055,#8a2010);right:-160px;top:-130px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-30px,44px) scale(1.04);}}
+.closing{background:var(--red);}.closing::before{opacity:.10;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing em.hot{color:var(--gold);}
+.mono-box{background:var(--ink);color:var(--gold);font-family:var(--font-mono);font-size:28px;padding:16px 26px;border-radius:10px;border:2px solid var(--red);display:inline-block;line-height:1.6;}
+.mono-box.sm{font-size:22px;}
+.check-row{display:flex;align-items:flex-start;gap:20px;padding:14px 0;border-bottom:1px dashed var(--line);}
+.check-row .ck{font-size:28px;min-width:36px;}
+.check-row .tx{font-size:27px;line-height:1.4;color:var(--ink-soft);}
+.cmp-tag{font-family:var(--font-mono);font-size:20px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.cmp-ok{color:#2e7d4f;}.cmp-bad{color:var(--red);}
+.sig-block{background:#fbf5ec;border:3px solid var(--ink);border-radius:14px;padding:36px 44px;box-shadow:7px 8px 0 rgba(28,23,20,.14);}
+.sig-line{font-family:var(--font-mono);font-size:26px;line-height:1.7;color:var(--ink);}
+.sig-name{font-family:var(--font-display);font-weight:900;font-size:40px;color:var(--ink);line-height:1.1;}
+.sig-role{font-family:var(--font-body);font-size:26px;color:var(--teal-2);font-weight:600;}
+.sig-company{font-family:var(--font-body);font-size:24px;color:var(--ink-faint);font-weight:600;margin-bottom:12px;}
+.sig-divider{border:none;border-top:2px dashed var(--line);margin:12px 0;}
+.sig-contact{font-family:var(--font-mono);font-size:22px;color:var(--ink-soft);line-height:1.8;}
+.sig-link{color:var(--teal-2);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease);}
+.title-slide .lead,.title-slide .chips{display:none;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display),Georgia,serif;font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}
+/* Regole locali dei deck di origine */
+.h2{font-family:var(--font-display);font-size:76px;line-height:.96;margin:0 0 22px}
+.source-footer{position:absolute!important;left:220px!important;bottom:38px!important;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+.source-footer a{font-family:var(--font-mono);font-size:15px;line-height:1.2;color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:40px}
+.steps{counter-reset:st;display:flex;flex-direction:column;gap:13px}
+.step{display:flex;align-items:flex-start;gap:18px;background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:15px 22px;box-shadow:4px 5px 0 rgba(28,23,20,.12)}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--font-display);font-weight:900;font-size:34px;color:var(--red);min-width:38px;line-height:1}
+.step .t{font-size:24px;line-height:1.32;color:var(--ink-soft);padding-top:3px}
+.step .t b{color:var(--ink)}
+.tape.sky{background:var(--sky)}
+em.sky{font-style:italic;color:var(--sky)}
+.card.sky{border-color:var(--sky)}
+.card.sky h3{color:var(--sky)}
+.note.sky{background:#d4eaee;border-color:var(--sky)}
+.tight .h-sec{font-size:58px}
+.tight .lead{font-size:26px}
+.tight .card{padding:16px 20px}
+.tight .card h3{font-size:27px}
+.tight .card p,.tight .card li{font-size:20px}
+.tight .grid2{gap:16px}
+.tight .grid3{gap:14px}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:15px 27px;font-size:27px;font-weight:600}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold)}
+.analogy .big{font:900 31px var(--font-display);color:var(--gold)}
+</style>
+<link rel="stylesheet" href="theme-corsi.css">
+</head>
+<body class="course-sc">
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<section class="slide active visible">
+  <div class="center">
+    <h2 class="h-big reveal">Esercizi · <em class="hot">Programmare</em></h2>
+    <p class="lead reveal d1" style="margin-top:24px;">Le esercitazioni pratiche dei moduli di Programmare. Svolgi ogni esercizio dopo aver studiato il capitolo da cui nasce.</p>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<section class="slide no-top-label" data-source="pr01-04-costrutti-verifica.html"><h2 class="h2">Esercizio: tre diagrammi da far girare</h2><p class="lead">Per ognuno: scrivi prima che cosa entra e che cosa esce, poi disegnalo in Flowgorithm ed eseguilo almeno tre volte, cambiando i dati.</p><div class="grid3"><div class="card"><h3>1 · Pari o dispari</h3><p>Entra un numero intero, esce la scritta «pari» o «dispari». Serve un solo rombo: la condizione è il resto della divisione per 2. Provalo con lo zero: che cosa risponde, e ti convince?</p></div><div class="card"><h3>2 · Esito dello scrutinio</h3><p>Entrano tre voti. Esce la media, e «promosso» se raggiunge il 6, «rimandato» altrimenti. Tre ingressi, un processo per la media, un rombo con i rami etichettati.</p></div><div class="card"><h3>3 · Sconto alla cassa</h3><p>Entra il totale della spesa. Se supera i 100 euro applica il 10% di sconto, altrimenti lascia il totale invariato. Esce la cifra da pagare. Provalo con esattamente 100: il tuo rombo usa «maggiore» o «maggiore o uguale»?</p></div></div><div class="num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.flowgorithm.org/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Flowgorithm — sito ufficiale" aria-label="Fonte ufficiale: Flowgorithm — sito ufficiale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Flowgorithm — sito ufficiale ↗</a></div></section>
+
+<section class="slide no-top-label" data-source="pr01-04-costrutti-verifica.html"><h2 class="h2">Esercizio: tre diagrammi con un ciclo</h2><p class="lead">Questi richiedono una freccia che torna indietro. Prima di eseguirli compila a mano la tabella di traccia dei primi due giri: se poi il computer ti smentisce, l'errore è nel diagramma.</p><div class="grid3"><div class="card"><h3>4 · Somma dei primi N</h3><p>Entra un numero N, esce la somma di tutti gli interi da 1 a N. Servono un contatore e un accumulatore, azzerati prima del ciclo. Verifica con N=5: deve uscire 15.</p></div><div class="card"><h3>5 · Il voto più alto</h3><p>Entrano cinque voti, uno alla volta, ed esce il più alto. Il trucco è tenere una variabile «massimo finora» e aggiornarla solo quando il voto letto la supera. Con quale valore la fai partire?</p></div><div class="card"><h3>6 · Indovina il numero</h3><p>Il programma tiene un numero fisso, per esempio 7. Legge tentativi finché non lo indovini e a ogni tentativo risponde «troppo alto» o «troppo basso». Il ciclo si ferma solo alla risposta esatta.</p></div></div><div style="margin-top:20px"><div class="note"><div class="lbl">⚠️ Attenzione</div><p>Nell'esercizio 6, se dimentichi di rileggere il tentativo dentro il ciclo, la condizione non cambia mai e il diagramma gira all'infinito. Flowgorithm continua finché non lo fermi: è il modo migliore per vedere dal vivo che cos'è un ciclo infinito.</p></div></div><div class="num"></div></section>
+
+<section class="slide" data-source="pr01-07-iterazione-cicli.html">
+<h2 class="h-sec reveal">Verifica: progetta il ciclo</h2>
+<p class="lead reveal">Descrivi un ciclo che legge cinque prezzi e calcola il totale. Indica inizializzazione, condizione, corpo e aggiornamento.</p>
+<div class="grid">
+<div class="card reveal">
+<b>01</b>
+<p>totale iniziale 0</p>
+</div>
+<div class="card reveal">
+<b>02</b>
+<p>cinque iterazioni</p>
+</div>
+<div class="card reveal">
+<b>03</b>
+<p>somma ogni prezzo</p>
+</div>
+<div class="card reveal">
+<b>04</b>
+<p>incrementa il contatore</p>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+
+<section class="slide" data-source="pr02-02-questionario.html"><h2 class="h-sec reveal">Collaudare il quiz</h2><p class="lead reveal d1" style="margin-top:12px;">Un quiz che "sembra funzionare" non è ancora finito: va provato come farebbe un utente distratto, non come l'autore che conosce già tutte le risposte. Esegui questi test uno alla volta e correggi ogni problema prima di passare al successivo.</p><div class="steps reveal d2" style="margin-top:20px;"><div class="step"><div class="t"><b>Risposta corretta</b> — <em class="sky">punti</em> aumenta di 1, compare "Corretto!" e arriva la domanda successiva.</div></div><div class="step"><div class="t"><b>Risposta sbagliata</b> — nessun punto, compare il feedback di errore e il quiz prosegue comunque senza bloccarsi.</div></div><div class="step"><div class="t"><b>Varianti di testo</b> — prova "Si", "sì" e " si" con lo spazio: verifica quali forme accetta davvero il tuo <em class="sky">oppure</em>.</div></div><div class="step"><div class="t"><b>Tempo a zero</b> — lascia scadere il timer mentre una domanda è aperta: il quiz mostra il punteggio e si chiude in modo ordinato?</div></div><div class="step"><div class="t"><b>Secondo avvio</b> — riclicca la bandierina verde: <em class="sky">punti</em> torna a 0, <em class="sky">tempo</em> a 60 e gli sprite allo stato iniziale.</div></div></div><div class="note sky reveal d3" style="margin-top:18px;"><div class="lbl">💡 Trucco</div><p>Per testare il timer senza aspettare un minuto intero, porta temporaneamente <em class="sky">tempo</em> a 5 nello script di avvio. Ricordati di rimetterlo a 60 prima della consegna.</p></div><div class="page-num"></div></section>
+
+<section class="slide tight" data-source="pr04-02-strumenti-ambiente.html"><h2 class="h-sec reveal">Esercizio: esplora senza installare tutto</h2><div class="grid2 reveal d1" style="margin-top:24px;"><div class="card teal"><h3>Parte A · Orientamento</h3><p>Apri una cartella-progetto e individua Explorer, editor, ricerca, terminale e pannello dei problemi.</p></div><div class="card sky"><h3>Parte B · Scrittura</h3><p>Crea un file breve, osserva colori e suggerimenti, poi introduci volontariamente un errore di sintassi.</p></div><div class="card gold"><h3>Parte C · Esecuzione</h3><p>Salva, esegui dal terminale e collega l'eventuale messaggio di errore alla riga corretta.</p></div><div class="card red"><h3>Parte D · Controllo</h3><p>Apri il diff Git, descrivi la modifica e crea un commit con un messaggio significativo.</p></div></div><div class="analogy reveal d2" style="margin-top:22px;"><span class="big">Obiettivo:</span> comprendere il flusso, non memorizzare ogni pulsante.</div><div class="page-num"></div></section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="00-indice.html" title="Torna all'indice">↩ Indice</a>
+
+<script src="deck.js"></script>
+</body>
+</html>

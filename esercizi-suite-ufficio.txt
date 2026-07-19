@@ -1,0 +1,29 @@
+Esercizi · Suite Ufficio
+========================================
+
+--- Slide 1 ---
+Esercizi · Suite Ufficio
+ Le esercitazioni pratiche dei moduli di Suite Ufficio. Svolgi ogni esercizio dopo aver studiato il capitolo da cui nasce.
+
+--- Slide 2 ---
+Laboratorio: riconoscere struttura e funzione Per ogni situazione identifica insieme, condizione logica e famiglia di funzione. A Clienti attivi Definisci l’insieme e il suo complemento. B Sconto Scrivi una condizione con AND/OR. C Costo fisso + ore Riconosci una funzione affine. D Crescita percentuale Riconosci una funzione esponenziale. 💡 In pratica Consegna: dominio, formula, esempio numerico e grafico essenziale.
+
+--- Slide 3 ---
+Laboratorio: cruscotto vendite Parti da Data, Sede, Servizio, Operatore, Ricavo e Costo. A Pivot 1 Ricavo e margine per servizio, con % del totale. B Pivot 2 Trend mensile e variazione dal mese precedente. C Controlli Slicer per sede e operatore, periodo visibile. D Verifica Apri il dettaglio di un valore e quadrane il totale.
+
+--- Slide 4 ---
+Laboratorio: quattro domande, quattro grafici Confronto Ricavi per servizio → barre ordinate. Inserisci unità in euro, periodo osservato e una nota se alcune categorie aggregano servizi differenti. Trend Incasso mensile → linea. Mantieni tutti i mesi, segnala quelli incompleti e annota eventi che spiegano picchi o cadute. Composizione Quota per sede → barre 100% impilate. Controlla che ogni barra rappresenti lo stesso universo e affianca il totale se le dimensioni cambiano molto. Relazione Prezzo e quantità → dispersione. Etichetta gli outlier, osserva eventuali gruppi e non presentare la relazione come prova di causalità. Consegna Per ogni grafico scrivi il messaggio nel titolo, giustifica il tipo scelto e indica una scelta che potrebbe distorcere la lettura.
+
+--- Slide 5 ---
+Esercizio: un cruscotto filtrabile Parti dalla tabella incassi del salone, con Data, Sede, Servizio, Operatore e Ricavo. 1 Costruisci Una pivot con il ricavo per servizio e un grafico a barre accanto. 2 Aggiungi i controlli Uno slicer per Sede e uno per Operatore; se usi Excel, prova anche la timeline sulle date. 3 Collauda Clicca una sede: pivot e grafico devono cambiare insieme. Togli il filtro e verifica che il totale torni.
+
+--- Slide 6 ---
+Esercizio: sorgente e report Crea due file di Google Sheets e collegali. 1 Il file dati In un file «Incassi» metti Data, Sede, Servizio e Ricavo, con qualche riga di esempio. 2 Il file report In un secondo file usa IMPORTRANGE per leggere gli incassi, e autorizza l'accesso. 3 Filtra e prova Avvolgi in QUERY per vedere solo una sede, poi aggiungi una riga alla sorgente e guarda il report aggiornarsi.
+
+--- Slide 7 ---
+Esercizio: dal foglio alla specifica
+ Prendi il foglio più stanco che usi davvero e trasformalo in una richiesta per l'IA.
+ 1 Descrivi
+ Elenca colonne, formule e il rito settimanale che fai a mano, in un testo di dieci righe. 2 Chiedi
+ Fatti proporre dall'IA un piccolo software: solo la prima funzione, quella che fa più male. 3 Valuta
+ Confronta il risultato col foglio su dati veri, e decidi con la regola: manutenzione contro tempo risparmiato.

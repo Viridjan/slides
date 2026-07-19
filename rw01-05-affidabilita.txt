@@ -60,6 +60,8 @@ I rischi delle informazioni non verificate
  😔
  Danno alla reputazione
  Condividere informazioni false può compromettere la propria credibilità professionale e personale — online e offline.
+Fonti ufficiali:
+- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
 --- Slide 5 ---
 Come riconoscere un sito web sicuro
@@ -81,7 +83,7 @@ Come riconoscere un sito web sicuro
  04 Certificato valido
  Il browser avvisa con un messaggio di errore se il certificato è scaduto o non valido. In quel caso, non procedere con l'inserimento di dati.
 Fonti ufficiali:
-- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
+- TLS 1.3 — RFC 8446 — https://www.rfc-editor.org/rfc/rfc8446
 
 --- Slide 6 ---
 Il protocollo
@@ -103,8 +105,6 @@ Il protocollo
 
  🔒
  https:// www.bancaonline.it/accesso
-Fonti ufficiali:
-- TLS 1.3 — RFC 8446 — https://www.rfc-editor.org/rfc/rfc8446
 
 --- Slide 7 ---
 Le informazioni sulla
@@ -438,6 +438,8 @@ Proteggere i dati personali
 
  📲 Codici OTP
  I codici monouso ricevuti via SMS o app. Non comunicarli a nessuno: chi li chiede sta quasi certamente tentando una truffa.
+Fonti ufficiali:
+- Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
 
 --- Slide 22 ---
 I moduli
@@ -461,7 +463,7 @@ online
  🗑️ Come verranno usati?
  Per quanto tempo saranno conservati? Posso cancellarli in seguito? Il GDPR mi dà questi diritti — verificali.
 Fonti ufficiali:
-- Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
+- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 23 ---
 Disconnessione
@@ -478,8 +480,6 @@ e logout
  2️⃣ Chiudi la sessione — svuota cache e cookie se su dispositivo altrui
  3️⃣ Verifica che non siano rimasti account aperti in altre schede
  4️⃣ Non salvare le password nel browser su dispositivi condivisi
-Fonti ufficiali:
-- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
 
 --- Slide 24 ---
 Il controllo dell'uso di Internet

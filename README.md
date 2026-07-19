@@ -3,6 +3,10 @@
 
 Static HTML slide decks for the Italian **Educazione digitale** course.
 
+All learner-facing content is authored in Italian. The language used while
+discussing changes with an automated agent does not alter the course language;
+another language is used in slides only after an explicit content request.
+
 Open the course index at:
 
 ```text
@@ -113,6 +117,18 @@ normalized lemma, a semantic key, a macro-category and an editorial group.
 `tipo_accorpamento` distinguishes linguistic variants, macro-category members
 and autonomous topics. `blocco_principale` identifies the deck that owns the
 full treatment when a cross-reference is preferable to repeating it elsewhere.
+The final review columns identify slides whose content has been checked. Apply
+or verify the hash-backed tag with:
+
+```bash
+node scripts/manage-slide-review-tags.js tag file.html#slide-N
+node scripts/manage-slide-review-tags.js check
+```
+
+Changing the educational content makes the saved tag `SCADUTA`; page numbers,
+generated source footers and technical chrome do not invalidate it.
+Opening and closing slides are excluded from review tags. Remove any legacy
+boundary tags with `node scripts/manage-slide-review-tags.js prune-boundaries`.
 
 ## Adding a deck
 
@@ -124,8 +140,31 @@ full treatment when a cross-reference is preferable to repeating it elsewhere.
 
 ```bash
 node scripts/build-last-modified.js
+node scripts/build-exercise-index.js
 node scripts/build-slide-topic-inventory.js
 node scripts/build-search-index.js
 ```
 
 6. Update `CLAUDE.md` inventory and navigation chain.
+
+### Exercise links in the course index
+
+`exercise-index.js` is generated from explicit exercise, laboratory, guided
+project and verification slides. `00-indice.html` shows an `Esercizi` button
+between the chapter link panel and its four metadata controls. The button opens
+a compact chapter panel where every exercise is an independent linked block. Rebuild
+the map after adding, removing, renaming or reordering exercise slides:
+
+```bash
+node scripts/build-exercise-index.js
+```
+
+### Chapter overview tooltips
+
+The short chapter agenda is stored in `agenda-index.json`, not in a dedicated
+slide 2. Hovering or focusing an index card title or description displays its
+three-part overview. After editing the source data, regenerate the browser map:
+
+```bash
+node scripts/build-agenda-index.js
+```

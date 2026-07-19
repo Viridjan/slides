@@ -28,7 +28,7 @@ const extractSlides = text => {
   while ((match = pattern.exec(text))) {
     slides.push({
       number: Number(match[1]),
-      text: match[2].trim()
+      text: match[2].replace(/^Rimandi interni:.*$/gm, '').trim()
     });
   }
   return slides;
@@ -54,7 +54,8 @@ while ((match = cardPattern.exec(html))) {
   const href = match[1];
   const block = match[2];
   const txtPath = path.join(root, href.replace(/\.html$/, '.txt'));
-  const text = fs.existsSync(txtPath) ? fs.readFileSync(txtPath, 'utf8') : '';
+  const rawText = fs.existsSync(txtPath) ? fs.readFileSync(txtPath, 'utf8') : '';
+  const text = rawText.replace(/^Rimandi interni:.*$/gm, '');
   const slides = extractSlides(text);
 
   cards.push({

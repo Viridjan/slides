@@ -12,6 +12,8 @@ Cosa vedremo 01 Vulnerability assessment
  Le cinque fasi, il punteggio CVSS e la differenza col penetration test. 02 Compliance e normative 
  Le principali normative, le regole, le responsabilità e le licenze. 03 I tuoi dati 
  Quali dati abbiamo e dove sono, chi li raccoglie e perché, e come riprenderne il controllo.
+Fonti ufficiali:
+- Common Vulnerability Scoring System — FIRST — https://www.first.org/cvss/
 
 --- Slide 3 ---
 Vulnerability
@@ -54,8 +56,6 @@ Vulnerability
 
 
  Scan → inventario falle → priorità
-Fonti ufficiali:
-- Common Vulnerability Scoring System — FIRST — https://www.first.org/cvss/
 
 --- Slide 4 ---
 Le 5 fasi del Vulnerability Assessment
@@ -197,6 +197,9 @@ Compliance
 
 
  Compliance è un ciclo continuo
+Fonti ufficiali:
+- Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
+- Direttiva NIS2 — EUR-Lex — https://eur-lex.europa.eu/eli/dir/2022/2555/oj
 
 --- Slide 8 ---
 Le principali normative
@@ -226,9 +229,6 @@ Le principali normative
 
  💡 Non è solo burocrazia
  Le normative nascono da incidenti reali. Il GDPR fu adottato nel 2016 ed è applicabile dal 2018; lo scandalo Cambridge Analytica aumentò nello stesso periodo l'attenzione pubblica sulla protezione dei dati. PCI DSS dopo massicce violazioni di dati delle carte. NIS2 dopo attacchi alle infrastrutture critiche europee. Le leggi fotografano il rischio del momento.
-Fonti ufficiali:
-- Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
-- Direttiva NIS2 — EUR-Lex — https://eur-lex.europa.eu/eli/dir/2022/2555/oj
 
 --- Slide 9 ---
 Dati personali scambiati in rete
@@ -310,6 +310,8 @@ Riprendere il controllo dei dati
 
  💡 Privacy come igiene digitale quotidiana
  Come lavarsi le mani, la privacy non si fa una volta. Controlla periodicamente le impostazioni delle app, revoca permessi non necessari, leggi (almeno) i titoli delle privacy policy prima di accettare. La consapevolezza è la prima difesa.
+Fonti ufficiali:
+- ISO/IEC 27001 — ISO — https://www.iso.org/isoiec-27001-information-security.html
 
 --- Slide 12 ---
 I concetti chiave di questo modulo
@@ -338,8 +340,6 @@ I concetti chiave di questo modulo
 
  💡 Il filo rosso del corso
  Sicurezza = consapevolezza + strumenti + processo continuo. Non esiste "sicuri per sempre" — esiste "più sicuri di ieri".
-Fonti ufficiali:
-- ISO/IEC 27001 — ISO — https://www.iso.org/isoiec-27001-information-security.html
 
 --- Slide 13 ---
 Non si rompe la matematica: si aggira il sistema
@@ -350,6 +350,8 @@ Non si rompe la matematica: si aggira il sistema
  ☁️ Backup deboli Una copia non cifrata può esporre ciò che il canale principale protegge.
  🔑 Password riusate Una violazione su un sito apre account diversi se le credenziali sono le stesse.
  🧠 Social engineering Convincere una persona ad autorizzare l'accesso spesso basta.
+Fonti ufficiali:
+- Licenze Creative Commons — https://creativecommons.org/share-your-work/cclicenses/
 
 --- Slide 14 ---
 Regole, responsabilità e licenze
@@ -358,8 +360,6 @@ Regole, responsabilità e licenze
  🛡️ NIS2 Rafforza obblighi di cybersicurezza per soggetti essenziali e importanti.
  🏛️ Cybersecurity Act Rafforza ENISA e introduce schemi europei di certificazione della cybersicurezza.
  ©️ IPR e Open Resources Diritti di proprietà intellettuale e risorse riutilizzabili secondo licenze aperte o Creative Commons.
-Fonti ufficiali:
-- Licenze Creative Commons — https://creativecommons.org/share-your-work/cclicenses/
 
 --- Slide 15 ---
 Sapere quali dati abbiamo e dove sono

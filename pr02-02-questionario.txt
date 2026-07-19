@@ -10,11 +10,11 @@ Cosa vedremo 01 Impostare il quiz
  I materiali, un file ordinato, le variabili e l'inizializzazione. 02 Domande e logica 
  Porre domande, confronti case-sensitive, if/then/else, più risposte e punteggio. 03 Struttura avanzata 
  Timer, architettura a messaggi, più sprite, liste e collaudo finale.
+Fonti ufficiali:
+- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 3 ---
 Il progetto quiz L'obiettivo è realizzare un questionario a tempo con personaggi, domande, risposte controllate, punteggio e fine automatica. Il quiz combina tutti gli strumenti principali di Scratch — sprite, variabili, messaggi, condizioni, cicli — in un unico progetto coerente. In pratica: un quiz è una conversazione guidata, ma con memoria, regole e stato interno che cambia ad ogni risposta. 💡 Lettura Un quiz ben strutturato ha uno stato iniziale chiaro (punti = 0, tempo = 60), una sequenza di domande ordinata tramite messaggi e un risultato finale calcolato in automatico alla fine del tempo. Il quiz visto da chi gioca: il fumetto mostra la domanda, la casella in basso raccoglie la risposta.
-Fonti ufficiali:
-- Scratch per educatori — MIT — https://scratch.mit.edu/educators
 
 --- Slide 4 ---
 Preparare i materiali Prima di scrivere il codice conviene pianificare il progetto: personaggi, sfondo, variabili e messaggi. Un progetto narrativo come il quiz letterario usa sprite importati e uno stage scelto dalla libreria di Scratch. 🧑‍🎨 Personaggi Dante, Paolo e Francesca sono esempi di sprite importati per rendere il quiz narrativo e visivamente interessante. Ogni sprite può fare una o più domande. 🖼 Stage Lo sfondo definisce il contesto visivo. Il codice dello stage gestisce il timer e i messaggi globali condivisi da tutti gli sprite. ⏱ Tempo La variabile tempo memorizza i secondi rimasti. Il timer la decrementa ogni secondo fino a zero, poi invia TempoScaduto. 🏆 Punti La variabile punti parte da zero e aumenta di uno per ogni risposta corretta. Alla fine viene mostrata con un messaggio del gatto.

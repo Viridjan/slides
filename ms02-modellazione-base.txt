@@ -10,16 +10,16 @@ Cosa vedremo 01 L'ambiente
  La mappa dell'ambiente, il piano di lavoro, la griglia di snap e il mouse come strumento. 02 Costruire e modificare 
  Forme semplici, modificarle, i colori RGB, solidi e vuoti, raggruppare e separare. 03 Muovere nello spazio 
  Spostare sugli assi, ruotare senza perdersi, e il mini-esercizio del portachiavi.
+Fonti ufficiali:
+- Tinkercad Learn — Autodesk — https://www.tinkercad.com/learn
 
 --- Slide 3 ---
 La mappa dell’ambiente L’interfaccia di TinkerCAD è volutamente minimale: tutto è in vista, senza menu nascosti. Prima di modellare conviene costruirsi una mappa mentale delle zone di lavoro: sapere dove sta ogni comando riduce il tempo perso a cercarlo e gli errori fatti di fretta. 🧰 Barra degli strumenti In alto a sinistra: copia, incolla, duplica, elimina, annulla e ripristina. Annulla (Ctrl+Z) è il comando più prezioso per chi inizia: qualsiasi tentativo si può disfare, quindi sperimentare non costa nulla. 🧱 Pannello forme La colonna a destra elenca gli oggetti da inserire: geometrie base, lettere e numeri 3D, componenti pre-costruiti. Ogni forma si trascina direttamente sul piano di lavoro al centro dello schermo. ⚙️ Opzioni della forma Selezionando un oggetto compare il suo pannello proprietà: dimensioni, colore, stato solido o vuoto e i parametri specifici della forma, come raggio, numero di lati o passi della scala. 📤 Import, export e titolo In alto a destra si importano modelli esterni e si esporta il proprio; in alto al centro c’è il nome del progetto: rinominalo subito, per ritrovarlo poi nella dashboard tra decine di «Copia di…». L'ambiente reale: piano di lavoro, cubo delle viste a sinistra, forme di base a destra, strumenti in alto.
 Fonti ufficiali:
-- Tinkercad Learn — Autodesk — https://www.tinkercad.com/learn
+- Stampa 3D — Wikipedia — https://it.wikipedia.org/wiki/Stampa_3D
 
 --- Slide 4 ---
 Il piano di lavoro Il workplane è la superficie quadrettata su cui si costruisce: funziona come un tavolo magnetico, e le forme trascinate vi si appoggiano restando allineate alla griglia. Tutte le posizioni e le altezze del modello si misurano a partire da questo piano. Perché conta: un oggetto sollevato dal piano di pochi millimetri, invisibile da davanti, in stampa 3D diventa un pezzo «fluttuante» che fa fallire la stampa. Appoggiare bene le forme è la prima abitudine da costruire. In pratica: le dimensioni della griglia si personalizzano da «Modifica griglia» in basso a destra; per un progetto da stampare, imposta il piano sulle misure reali del piatto della tua stampante. ✓ ✗ Forma appoggiata al piano ✓ · forma sospesa nel vuoto ✗
-Fonti ufficiali:
-- Stampa 3D — Wikipedia — https://it.wikipedia.org/wiki/Stampa_3D
 
 --- Slide 5 ---
 Osservare il modello La camera è il punto di vista da cui guardiamo la scena: si ruota attorno al modello, si avvicina e si allontana. In 3D nessuna singola inquadratura dice tutta la verità, perciò saper muovere la camera è importante quanto saper muovere le forme. 🧊 Cubo delle viste In alto a sinistra: cliccando le facce del cubo (alto, fronte, lato, retro) la camera salta a viste standard. «Vista iniziale» riporta all’inquadratura di partenza; «Adatta alla selezione» (tasto F) centra l’oggetto scelto. 👁️ Vista prospettica Simula l’occhio umano: gli oggetti lontani appaiono più piccoli. È la più naturale per lavorare e presentare il modello, ma distorce le proporzioni e può ingannare sugli allineamenti. 📏 Vista ortogonale Elimina la prospettiva: le linee parallele restano parallele e le misure si confrontano a colpo d’occhio. È la modalità tecnica per verificare allineamenti e proporzioni prima di unire o stampare. Regola In 3D non basta guardare da davanti: controlla sempre dall’alto per la profondità, dal lato per l’altezza e dal retro per le parti nascoste.

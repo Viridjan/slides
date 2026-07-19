@@ -52,6 +52,8 @@ Anatomia di un dominio
  
  💡 Lettura da destra 
  .it → chi gestisce il TLD (es. Registro.it) · accademia → chi ha registrato il dominio · www → quale servizio (sito web principale)
+Fonti ufficiali:
+- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
 --- Slide 4 ---
 Domini geografici 
@@ -85,8 +87,6 @@ Domini geografici
  
  💡 Attenzione: dominio ≠ origine del sito 
  Un sito con .it non garantisce che sia gestito da italiani o rispetti le leggi italiane. Il dominio è solo un nome — la fiducia si guadagna con altri strumenti (HTTPS, reputazione, trasparenza).
-Fonti ufficiali:
-- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
 --- Slide 5 ---
 Domini tematici 
@@ -116,6 +116,9 @@ Domini tematici
  
  Nuovi gTLD dal 2012 
  ICANN ha aperto centinaia di nuovi TLD generici: .app · .blog · .cloud · .shop · .tech · .pizza . Oggi esistono oltre 1500 TLD diversi. Il sistema è in continua espansione.
+Fonti ufficiali:
+- Domain Name System — ICANN — https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en
+- Indirizzo IP — Wikipedia — https://it.wikipedia.org/wiki/Indirizzo_IP
 
 --- Slide 6 ---
 Il DNS — traduttore 
@@ -147,9 +150,6 @@ di indirizzi
  
  💡 IP — Internet Protocol 
  Ogni sito corrisponde a un numero univoco. Il DNS ti evita di ricordare 142.250.74.46 invece di google.com .
-Fonti ufficiali:
-- Domain Name System — ICANN — https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en
-- Indirizzo IP — Wikipedia — https://it.wikipedia.org/wiki/Indirizzo_IP
 
 --- Slide 7 ---
 Come si registra un dominio 

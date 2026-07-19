@@ -1,0 +1,170 @@
+PERCORSO DIDATTICO DELL'AREA SU03
+=================================
+
+Proprietà intellettuale di Francesco Antonio Binetti
+
+L'area SU03 conduce la spiegazione come un percorso progressivo: parte dal
+foglio come ambiente di lavoro, introduce il linguaggio matematico e le
+formule, passa all'analisi dei dati e arriva infine all'automazione e al
+superamento del foglio stesso.
+
+
+1. COMPRENDERE IL FOGLIO COME SISTEMA
+-------------------------------------
+
+SU03.01 — Il foglio di calcolo: sistema di lavoro
+
+È una panoramica introduttiva. Presenta:
+
+- interfaccia, celle, indirizzi e tipi di dati;
+- organizzazione in fogli;
+- formattazione e grafici;
+- stampa, condivisione ed errori comuni.
+
+Qui gli errori, compreso #DIV/0!, servono a far capire che il foglio è un
+sistema con regole e segnali diagnostici. La spiegazione è volutamente
+generale.
+
+SU03.02 — Riferimenti e range
+
+Approfondisce il modo in cui le formule identificano i dati:
+
+- riferimenti relativi, assoluti e misti;
+- intervalli e nomi;
+- riferimenti tra fogli;
+- formule che rimangono corrette quando vengono copiate.
+
+Questa è la grammatica tecnica necessaria per tutto ciò che segue.
+
+
+2. COSTRUIRE LE FONDAMENTA LOGICHE E MATEMATICHE
+------------------------------------------------
+
+SU03.03 — Fondamenti matematici
+
+Sospende temporaneamente l'uso operativo del foglio e introduce il linguaggio
+concettuale:
+
+- insiemi numerici;
+- logica e condizioni;
+- dominio;
+- famiglie di funzioni;
+- rappresentazioni grafiche.
+
+Gli argomenti del foglio vengono qui usati come applicazioni della matematica.
+Per esempio, #DIV/0! non viene presentato principalmente come errore da
+correggere, ma come conseguenza informatica del fatto che una funzione
+razionale non è definita quando il denominatore vale zero.
+
+
+3. IMPARARE A CALCOLARE
+-----------------------
+
+SU03.04 — Prime formule
+
+Traduce le basi precedenti in operazioni concrete:
+
+- sintassi di una formula;
+- operatori;
+- SOMMA, MEDIA, MIN e MAX;
+- conteggi;
+- condizioni con SE;
+- errori e buone abitudini.
+
+È il primo blocco realmente operativo sulle formule. Qui gli errori dovrebbero
+essere affrontati come problemi che emergono mentre si scrivono formule, con
+particolare attenzione alla diagnosi e alla correzione.
+
+SU03.06 — Le 10 funzioni più usate
+
+Prosegue verso formule più professionali:
+
+- calcoli condizionali;
+- subtotali;
+- gestione degli errori con SE.ERRORE;
+- arrotondamento, formati e date.
+
+Tra SU03.04 e SU03.06 avviene quindi il passaggio da "scrivere una formula" a
+"costruire una formula robusta".
+
+
+4. TRASFORMARE E ANALIZZARE I DATI
+----------------------------------
+
+Il percorso si divide poi in competenze specialistiche:
+
+- SU03.05: ordinare, filtrare, cercare e incrociare dati;
+- SU03.07: pulire e trasformare dati testuali;
+- SU03.08: creare una tabella pivot;
+- SU03.09: usare pivot avanzate per confronti e cruscotti;
+- SU03.10: scegliere grafici coerenti con la domanda;
+- SU03.16: rendere report e pivot esplorabili mediante slicer;
+- SU03.17: collegare schede e file mantenendo una sola sorgente.
+
+Il criterio ricorrente è: prima si chiarisce la domanda, poi si prepara la
+struttura dei dati, infine si sceglie lo strumento.
+
+
+5. PROGETTARE FOGLI AFFIDABILI
+------------------------------
+
+SU03.11 — Fogli di calcolo avanzati
+
+Ricomponde le competenze precedenti in un metodo professionale:
+
+dati grezzi → pulizia → struttura tabellare → formule → report affidabile
+
+Qui l'attenzione non è più sulla singola funzione, ma sulla qualità complessiva
+del foglio:
+
+- prevenzione degli errori;
+- convalida;
+- protezione;
+- importazione;
+- collaborazione;
+- preparazione per pivot, query e automazioni.
+
+
+6. INTERROGARE E AUTOMATIZZARE
+------------------------------
+
+La parte finale aumenta progressivamente il livello di astrazione:
+
+- SU03.12 — Query: descrivere quali dati estrarre, filtrare e raggruppare;
+- SU03.13 — Macro: registrare e ripetere procedure stabili;
+- SU03.14 — VBA: programmare esplicitamente Excel;
+- SU03.15 — Apps Script: automatizzare Google Workspace e servizi cloud;
+- SU03.18 — Oltre il foglio: riconoscere quando serve un vero software e come
+  farselo costruire con l'IA.
+
+La progressione è quindi:
+
+uso manuale → formule → analisi → modello affidabile → query → macro → codice
+→ software
+
+
+METODO RICORRENTE DELLE SINGOLE SLIDE
+-------------------------------------
+
+All'interno dei blocchi, la spiegazione segue generalmente questa sequenza:
+
+1. presenta una domanda o un problema concreto;
+2. definisce il concetto;
+3. ne scompone gli elementi in card o passaggi;
+4. mostra un esempio nel foglio;
+5. introduce errori o limiti;
+6. chiude con una regola pratica, un controllo o una checklist.
+
+
+IL CASO #DIV/0!
+---------------
+
+Le tre occorrenze possono avere ruoli distinti:
+
+- SU03.01: riconoscere il segnale di errore;
+- SU03.03: comprenderne la causa matematica;
+- SU03.04: correggerlo nella formula.
+
+Il problema attuale non è quindi la presenza in tre blocchi, ma il fatto che
+SU03.01 e SU03.04 lo spiegano quasi con lo stesso testo. Conviene differenziare
+esplicitamente i tre livelli: riconoscimento, comprensione e correzione.

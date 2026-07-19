@@ -35,14 +35,14 @@ Potenza, radici e precedenza La precedenza decide cosa viene calcolato prima. Le
 (2 + 3) * 4 → 20
 2 ** 3 → 8
 area = base * altezza
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 7 ---
 Incrementi, decrementi e accumuli Molti algoritmi aggiornano una variabile a partire dal suo valore precedente: contatori, totali, medie progressive, inventari. contatore = contatore + 1
 totale = totale + prezzo
 scorta = scorta - venduti
 saldo += versamento [Fonte: Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/]
-Fonti ufficiali:
-- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 8 ---
 Esempi pratici di formule numeriche La stessa logica appare in gestionali, fogli di calcolo e app: calcolo prezzo, IVA, durata, percentuali, punteggi. iva = imponibile * 0.22
@@ -103,14 +103,14 @@ x -= 2 # x = x - 2
 x *= 3 # x = x * 3
 x /= 4 # x = x / 4
 x %= 2 # x = x % 2
+Fonti ufficiali:
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 18 ---
 Uguale, confronto e identità Molti bug nascono dalla confusione tra assegnare, confrontare e controllare identità o equivalenza. x = 5 # assegna
 x == 5 # confronta valore
 x != 5 # diverso
 x is None # identità/speciale in Python [Fonte: Tutorial ufficiale Python — https://docs.python.org/3/tutorial/]
-Fonti ufficiali:
-- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 19 ---
 Scegliere l’operatore giusto Prima chiediti che tipo di risultato vuoi: numero, vero/falso, aggiornamento di variabile o struttura sintattica. numero → + - * / // % **
@@ -125,7 +125,7 @@ Funzioni: separare una responsabilità Una funzione riceve dati, esegue un compi
 area = area_rettangolo(5, 3)
 
 --- Slide 21 ---
-Dove vive una variabile Lo scope indica in quale parte del programma un nome è visibile. Capirlo evita confusione tra variabili locali, parametri e valori globali. Locale Esiste dentro una funzione o un blocco specifico. Globale È accessibile da più parti, ma va usato con prudenza.
+Dove vive una variabile Lo scope indica in quale parte del programma un nome è visibile. Capirlo evita confusione tra variabili locali, parametri e valori globali. Variabili locali Esistono dentro una funzione o un blocco specifico. Variabili globali Sono accessibili da più parti, ma vanno usate con prudenza.
 
 --- Slide 22 ---
 Controllare funzioni piccole Una funzione con input e output chiari può essere testata con esempi semplici. Questo riduce il rischio che errori nascosti si sommino nel programma completo. area_rettangolo(5, 3) → 15

@@ -1,6 +1,7 @@
 /* Proprietà intellettuale di Francesco Antonio Binetti */
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const root = path.resolve(__dirname, '..');
 const indexPath = path.join(root, '00-indice.html');
@@ -21,6 +22,22 @@ const cleanText = value => decodeEntities(value)
   .replace(/<[^>]+>/g, ' ')
   .replace(/\s+/g, ' ')
   .trim();
+
+const reviewFingerprint = body => {
+  const cleaned = body
+    .replace(/<!--([\s\S]*?)-->/g, ' ')
+    .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<div\b[^>]*class="[^"]*\b(page-num|num|deck-author)\b[^"]*"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+    .replace(/<div\b[^>]*data-source-footer="true"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+    .replace(/<div\b[^>]*data-source-list="true"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+    .replace(/<div\b[^>]*data-cross-reference-footer="true"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+    .replace(/<a\b[^>]*data-source-origin="auto"[^>]*>[\s\S]*?<\/a>/gi, ' ');
+  const targets = [...cleaned.matchAll(/\b(?:href|src|alt)\s*=\s*["']([^"']+)["']/gi)]
+    .map(match => decodeEntities(match[1]).trim())
+    .filter(Boolean);
+  const text = cleanText(cleaned);
+  return crypto.createHash('sha256').update([text, ...targets].join('\n')).digest('hex').slice(0, 16);
+};
 
 const normalize = value => value
   .toLocaleLowerCase('it')
@@ -162,13 +179,19 @@ decks.forEach(deck => {
   const deckPath = path.join(root, deck.file);
   if (!fs.existsSync(deckPath)) return;
   const html = fs.readFileSync(deckPath, 'utf8');
-  const slidePattern = /<section\b([^>]*)\bclass\s*=\s*["'][^"']*\bslide\b[^"']*["'][^>]*>([\s\S]*?)<\/section>/gi;
+  const slidePattern = /<section\b([^>]*)>([\s\S]*?)<\/section>/gi;
   let slideMatch;
   let slideNumber = 0;
   while ((slideMatch = slidePattern.exec(html))) {
+    const classes = slideMatch[1].match(/\bclass\s*=\s*["']([^"']*)["']/i)?.[1].split(/\s+/) || [];
+    if (!classes.includes('slide')) continue;
     slideNumber++;
     const markers = extractMarkers(slideMatch[2]);
     const slideTitle = markers.find(marker => marker.type.startsWith('titolo_h'))?.text || '';
+    const reviewHash = slideMatch[1].match(/\bdata-content-review-hash=["']([^"']+)["']/i)?.[1] || '';
+    const reviewDate = slideMatch[1].match(/\bdata-content-review-date=["']([^"']+)["']/i)?.[1] || '';
+    const reviewState = !reviewHash ? 'non verificata'
+      : reviewHash === reviewFingerprint(slideMatch[2]) ? 'verificata' : 'verifica scaduta';
     const seen = new Set();
     markers.forEach(marker => {
       const normalized = normalize(marker.text);
@@ -176,7 +199,8 @@ decks.forEach(deck => {
       const localKey = `${marker.type}\u0000${normalized}`;
       if (seen.has(localKey)) return;
       seen.add(localKey);
-      rows.push({...deck, slideNumber, slideTitle, type: marker.type, text: marker.text, normalized});
+      rows.push({...deck, slideNumber, slideTitle, type: marker.type, text: marker.text, normalized,
+        reviewHash, reviewDate, reviewState});
     });
   }
 });
@@ -193,7 +217,7 @@ const structuralLabels = new Set([
   'aspetto', 'caratteristica', 'chi', 'collegamento', 'come fare', 'consegna',
   'controllo', 'da ricordare', 'differenza chiave', 'idea chiave', 'in breve',
   'obiettivo', 'perche funziona', 'quando usarlo', 'rischio', 'strumenti',
-  'vantaggio'
+  'vantaggio', 'pubblico principale', 'consiglio per il brand'
 ].map(normalize));
 
 // Short labels such as “Formato”, “Data” or “Output” are meaningful only in
@@ -251,7 +275,7 @@ const macroRules = [
   ['browser e navigazione web', /\b(browser|chrome|firefox|navigazione|https|sito web|web app)\b/],
   ['file system e archiviazione', /\b(file|cartella|ntfs|apfs|btrfs|ext4|estensioni|zip|salvataggio|archivio)\b/],
   ['formule funzioni ed errori del foglio', /\b(formula|formule|somma|conteggio|#div\/0|#nome|#rif|#valore|filter|filtro|trim|celle input)\b/],
-  ['collaborazione digitale', /\b(condivisione|condividi|commenti e menzioni|sullo stesso file|calendario condiviso|videoconferenze)\b/],
+  ['collaborazione digitale', /\b(condivisione|condividi|commenti e menzioni|sullo stesso file|calendario|calendario condiviso|videoconferenze)\b/],
   ['identita visiva e branding', /\b(brand|branding|identita visiva|logo|palette|portfolio|biglietto da visita|tono di voce)\b/],
   ['metadati e formati', /\b(metadati|exif|geotag|formato|formati|versioni metadati e consegna)\b/]
 ];
@@ -399,7 +423,8 @@ const header = [
   'occorrenze_macrocategoria', 'esito_revisione', 'blocco_principale', 'testo_originale',
   'azione_editoriale', 'gruppo_editoriale', 'tipo_accorpamento', 'occorrenze_gruppo_editoriale',
   'tipo_indicatore', 'natura', 'occorrenze_in_slide_distinte',
-  'area', 'codice_blocco', 'titolo_blocco', 'file', 'numero_slide', 'titolo_slide', 'riferimento'
+  'area', 'codice_blocco', 'titolo_blocco', 'file', 'numero_slide', 'titolo_slide',
+  'stato_verifica_contenuto', 'data_verifica_contenuto', 'hash_verifica_contenuto', 'riferimento'
 ];
 const lines = [header.map(csv).join(',')];
 topicRows.forEach(row => lines.push([
@@ -407,7 +432,8 @@ topicRows.forEach(row => lines.push([
   row.macroCategory, row.macroCount, row.reviewStatus,
   row.mainReference, row.text, row.editorialAction, row.editorialGroup, row.editorialGroupType,
   row.editorialGroupCount, row.type, row.nature, row.duplicateCount, row.area, row.code, row.title,
-  row.file, row.slideNumber, row.slideTitle, `${row.file}#slide-${row.slideNumber}`
+  row.file, row.slideNumber, row.slideTitle, row.reviewState, row.reviewDate, row.reviewHash,
+  `${row.file}#slide-${row.slideNumber}`
 ].map(csv).join(',')));
 
 fs.writeFileSync(outputPath, `\uFEFF${lines.join('\n')}\n`);

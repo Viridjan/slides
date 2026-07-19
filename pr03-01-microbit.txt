@@ -10,11 +10,11 @@ Cosa vedremo 01 La scheda
  Il microcontrollore, il tour di fronte e retro e i sensori a bordo. 02 L'ambiente MakeCode 
  Le aree dell'IDE, il simulatore e come si carica il codice sulla scheda. 03 Programmare la scheda 
  Dai LED agli eventi fisici, le variabili, i progetti e il debug.
+Fonti ufficiali:
+- Guida ufficiale micro:bit — https://microbit.org/get-started/user-guide/overview/
 
 --- Slide 3 ---
 Micro:bit in breve Micro:bit è un sistema embedded progettato per la formazione informatica: una piccola scheda programmabile con processore ARM Cortex-M4, matrice LED 5×5, pulsanti A e B, accelerometro, bussola, microfono e pin di contatto. Tutto il necessario per far dialogare codice e mondo fisico senza altri componenti. Nasce nel Regno Unito come progetto educativo della BBC ed è oggi usato nelle scuole di tutto il mondo. In pratica: è un computer minimo che trasforma ogni istruzione in un comportamento fisico osservabile: una luce che lampeggia, un numero che cambia, un suono che risponde. Il fronte della scheda: matrice LED 5×5, pulsanti A e B, logo touch, indicatore del microfono e i cinque pin grandi (0, 1, 2, 3V, GND).
-Fonti ufficiali:
-- Guida ufficiale micro:bit — https://microbit.org/get-started/user-guide/overview/
 
 --- Slide 4 ---
 Microcontrollore Il microcontrollore è un circuito integrato pensato per applicazioni specifiche di controllo digitale. A differenza di un computer generale, non serve a navigare sul web o a editare testi: esegue un programma fisso che legge sensori, elabora dati e controlla attuatori in tempo reale. 🔌 Embedded Il termine "embedded" (incorporato) indica che la scheda è progettata per stare dentro oggetti, prototipi e sistemi di controllo. Non si usa da sola sul tavolo: fa parte di un prodotto con uno scopo preciso. 🧠 Non è un PC generico Micro:bit ha 512 KB di flash e 128 KB di RAM, sufficienti per programmi di controllo ma non per applicazioni desktop. Questa limitazione è didattica: forza a pensare in modo efficiente. 💡 Output immediato La matrice LED 5×5 è il primo output visibile: mostra icone, numeri scorrevoli e stringhe di testo. Il risultato è visibile senza schermo aggiuntivo, il che rende ogni modifica immediatamente osservabile. 📦 Progetto fisico Il codice viene caricato sulla scheda tramite un file .hex — il programma tradotto in un formato che il processore sa eseguire — e produce un comportamento reale, non simulato. Tenere la scheda in mano e vedere la risposta ai propri gesti è l'elemento più motivante per chi impara.
@@ -27,16 +27,16 @@ Fronte e retro della scheda Sul fronte quello che si tocca e si guarda; sul retr
 
 --- Slide 7 ---
 Entrare in MakeCode Si lavora online su makecode.microbit.org senza installare nulla: basta aprire il browser, creare un nuovo progetto, dargli un nome e iniziare a trascinare blocchi nel workspace. Il simulatore si aggiorna in tempo reale mentre si costruisce il programma. 🌐 Browser MakeCode funziona interamente nel browser: nessuna installazione, nessun account obbligatorio. Questo lo rende accessibile su qualsiasi computer della classe, anche quelli con limitazioni di installazione software. ➕ New Project Il pulsante "New Project" crea uno spazio di lavoro vuoto e chiede un nome. Dare un nome significativo fin dall'inizio aiuta a ritrovare i progetti e a condividerli con i compagni. 🧰 Toolbox La toolbox è divisa in categorie colorate (Basic, Input, Music, Logic, Loops, Variables…). Ogni categoria raggruppa blocchi dello stesso tipo, rendendo più rapido trovare ciò che serve. 🗂 Workspace Il workspace è l'area di disegno dove si incastrano i blocchi per formare l'algoritmo. I blocchi si collegano solo se compatibili, riducendo gli errori di sintassi tipici del codice testuale.
+Fonti ufficiali:
+- MakeCode per micro:bit — https://makecode.microbit.org/tutorials/getting-started
 
 --- Slide 8 ---
 La home di MakeCode Aprendo makecode.microbit.org si arriva alla pagina iniziale. In alto un banner mostra progetti in evidenza; al centro l'area "My Projects" raccoglie i lavori salvati nella memoria del browser, con il pulsante viola "New Project" per crearne uno nuovo. Più in basso la galleria "Tutorials" propone progetti guidati passo passo — Flashing Heart, Name Tag, Smiley Buttons, Dice — utili per iniziare senza partire dalla pagina bianca. 💡 Consiglio Su un computer condiviso la memoria del browser può essere svuotata da altri: esporta i progetti importanti con "Salva su disco", così potrai reimportarli in qualsiasi momento con il pulsante "Import". La home di MakeCode: banner dei progetti in evidenza, "My Projects" con "New Project" e la galleria dei tutorial guidati.
 Fonti ufficiali:
-- MakeCode per micro:bit — https://makecode.microbit.org/tutorials/getting-started
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 9 ---
 Le aree dell'IDE MakeCode organizza l'interfaccia in sette zone con funzioni specifiche. La legenda numerata le individua sullo screenshot: sapere dove guardare riduce il tempo perso a cercare e aumenta il tempo speso a programmare. 1 2 3 4 5 6 7 L'editor MakeCode appena aperto: un nuovo progetto con i blocchi "on start" e "forever" già nel workspace. Simulatore — la scheda virtuale reagisce in tempo reale Toolbox — blocchi in categorie colorate, con ricerca Selettore linguaggio — Blocks, JavaScript o Python Azioni rapide — impostazioni, guida, condivisione Workspace — l'area dove si incastrano i blocchi Salvataggio — nome progetto e salva su disco Download — genera il file .hex per la scheda
-Fonti ufficiali:
-- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 10 ---
 Dal simulatore alla scheda Il ciclo di lavoro è sempre lo stesso: costruire nel workspace, verificare nel simulatore, scaricare il file .hex, copiarlo sulla scheda e osservare il comportamento reale. Ogni anomalia diventa un'opportunità per modificare e ripetere il ciclo. Il simulatore non può riprodurre tutto — vibrazioni, latenze fisiche e sensori reali si verificano solo sulla scheda vera. crea progetto → aggiungi blocchi → test simulatore → download .hex → carica su Micro:bit → prova fisica → modifica e ripeti Regola: il simulatore verifica la logica, la scheda verifica la realtà: se qualcosa funziona solo in uno dei due, il problema sta nel punto di passaggio.

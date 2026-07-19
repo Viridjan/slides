@@ -99,7 +99,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <section class="slide title-slide active visible">
     <div class="title-left">
       <h1 class="h-mega reveal">Prime <em class="hot">formule</em></h1>
-      <p class="lead reveal" style="margin-top:30px;">Come funzionano le formule, gli operatori, e le funzioni fondamentali: SOMMA, MEDIA, MIN, MAX, CONTA, CONTA.SE e SE.</p>
+      <p class="lead reveal" style="margin-top:30px;">Come funzionano formule e operatori, quali sono le funzioni fondamentali e come diagnosticare ogni famiglia di errore del foglio.</p>
 
     </div>
     <div class="title-right">
@@ -108,7 +108,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <div class="deck-author">Francesco Antonio Binetti</div></section>
 
   <!-- 2. AGENDA -->
-  <section class="slide no-top-label"><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-columns:1fr;grid-template-rows:repeat(3,auto);gap:18px;margin-top:24px;"><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">01</span><div><b class="t">Come funziona una formula</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Gli operatori aritmetici e logici, e la funzione più usata.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">02</span><div><b class="t">Contare</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Contare le celle presenti, con una condizione, e le decisioni automatiche.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">03</span><div><b class="t">Buone abitudini</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Le otto funzioni del modulo, gli errori tipici e le buone abitudini.</span></div></div></div><div class="num"></div></section>
+
 
   <!-- 3. COME FUNZIONA -->
   <section class="slide">
@@ -384,21 +384,61 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
     <div class="page-num"></div>
   </section>
 
-  <!-- 11. ERRORI FORMULE -->
+  <!-- 11. METODO DI DIAGNOSI -->
   <section class="slide">
-    <div class="col stack">
-
-      <h2 class="h-sec reveal">Errori tipici delle <em class="hot">formule</em></h2>
-      <p class="lead reveal d1">Quando qualcosa non torna, il foglio mostra un codice di errore. Ogni codice ha una causa precisa e una soluzione. Riconoscere e interpretare questi codici è fondamentale per lavorare in modo autonomo e corretto.</p>
-      <div class="grid2 reveal d2" style="margin-top:16px;">
-        <div class="err-card"><h3>#DIV/0!</h3><p>Divisione per zero o per cella vuota. Usa SE.ERRORE o controlla che il denominatore non sia 0.</p></div>
-        <div class="err-card"><h3>#VALORE!</h3><p>Tipo di dato sbagliato: stai sommando testo. Controlla il formato delle celle — i numeri devono essere allineati a destra.</p></div>
-        <div class="err-card"><h3>#RIF!</h3><p>Riferimento a una cella cancellata o spostata. Ricontrolla da dove proviene la formula.</p></div>
-        <div class="err-card"><h3>#NOME?</h3><p>Nome di funzione scritto male (es. SOMMMA invece di SOMMA) o nome di range inesistente.</p></div>
+    <div class="split">
+      <div class="col stack">
+        <h2 class="h-big reveal">Un errore è un<br><em class="hot">messaggio</em></h2>
+        <p class="lead reveal d1">Il codice identifica la famiglia del problema. Prima di nasconderlo, individua la cella che lo genera e risali ai dati usati dalla formula.</p>
+        <div class="analogy reveal d2"><span class="big">Regola:</span> leggi il codice → controlla la formula → verifica i riferimenti → correggi la causa.</div>
+      </div>
+      <div class="col stack reveal d1">
+        <div class="agenda-item" style="border-color:var(--red);"><span style="font-family:var(--font-mono);font-size:32px;min-width:72px;">01</span><div><b style="font-size:27px;">Seleziona la prima cella</b><br><span style="font-size:22px;color:var(--ink-faint);">Gli errori a cascata spesso dipendono da un solo punto iniziale.</span></div></div>
+        <div class="agenda-item" style="border-color:var(--gold-deep);"><span style="font-family:var(--font-mono);font-size:32px;min-width:72px;">02</span><div><b style="font-size:27px;">Leggi la barra della formula</b><br><span style="font-size:22px;color:var(--ink-faint);">Controlla operatori, parentesi, separatori, nomi e intervalli.</span></div></div>
+        <div class="agenda-item" style="border-color:var(--sky);"><span style="font-family:var(--font-mono);font-size:32px;min-width:72px;">03</span><div><b style="font-size:27px;">Correggi, poi gestisci</b><br><span style="font-size:22px;color:var(--ink-faint);">SE.ERRORE è un fallback, non una riparazione automatica.</span></div></div>
       </div>
     </div>
     <div class="page-num"></div>
   </section>
+
+  <!-- 12. DIV/0 -->
+  <section class="slide" data-content-review-hash="226569fc18d0abcc" data-content-review-date="2026-07-18"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:105px;color:var(--red);">#DIV/0!</h2><p class="lead reveal d1">La formula divide per zero oppure per una cella vuota.</p><div class="formula reveal d2">=B2/<b>C2</b></div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>C2 vale 0, è vuota oppure una formula la rende temporaneamente vuota.</p></div><div class="card"><h3>Controllo</h3><p>Verifica il denominatore e chiediti se il calcolo ha senso quando il dato manca.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>=SE(C2=0;"dato mancante";B2/C2). Usa SE.ERRORE solo se ogni errore previsto deve avere lo stesso fallback.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 13. VALORE -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:92px;color:var(--red);">#VALORE!</h2><p class="lead reveal d1">Un operatore o una funzione riceve un tipo di dato incompatibile.</p><div class="formula reveal d2">=<b>"dieci"</b>*2</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Numero salvato come testo, spazio invisibile, data non valida oppure argomento del tipo sbagliato.</p></div><div class="card"><h3>Controllo</h3><p>Verifica il contenuto reale della cella, non soltanto il suo aspetto o allineamento.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Converti il dato con VALORE, pulisci il testo o sostituisci l'argomento incompatibile.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 14. RIF -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:105px;color:var(--red);">#RIF!</h2><p class="lead reveal d1">La formula punta a celle, righe, colonne o fogli che non esistono più.</p><div class="formula reveal d2">=SOMMA(<b>#RIF!</b>)</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Un intervallo è stato eliminato, un riferimento è stato costruito male o un risultato dinamico non può espandersi.</p></div><div class="card"><h3>Controllo</h3><p>Apri la formula e individua il riferimento spezzato; controlla anche nomi di fogli e permessi esterni.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Ripristina la struttura eliminata oppure seleziona il nuovo intervallo corretto.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 15. NOME -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:105px;color:var(--red);">#NOME?</h2><p class="lead reveal d1">Il foglio non riconosce una funzione, un intervallo denominato o un testo non racchiuso tra virgolette.</p><div class="formula reveal d2">=<b>SOMMMA</b>(A1:A5)</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Errore di battitura, nome inesistente, funzione nella lingua sbagliata o virgolette mancanti.</p></div><div class="card"><h3>Controllo</h3><p>Usa i suggerimenti mentre digiti e verifica il gestore degli intervalli denominati.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Correggi il nome; scrivi il testo come "Nord" e non come Nord.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 16. N/D -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:118px;color:var(--red);">#N/D</h2><p class="lead reveal d1">Una ricerca non trova il valore richiesto: il risultato non è disponibile.</p><div class="formula reveal d2">=CERCA.X(<b>A2</b>;Listino[Codice];Listino[Prezzo])</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Chiave assente, spazio invisibile, differenza tra testo e numero oppure modalità di confronto sbagliata.</p></div><div class="card"><h3>Controllo</h3><p>Cerca la chiave nella sorgente e confronta tipo, spazi e maiuscole significative.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Pulisci le chiavi e usa il valore «se non trovato» previsto da CERCA.X; non inventare un prezzo pari a zero.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 17. NUM -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:110px;color:var(--red);">#NUM!</h2><p class="lead reveal d1">Il calcolo richiede un numero impossibile, fuori dai limiti o non converge.</p><div class="formula reveal d2">=RADQ(<b>-1</b>)</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Radice reale di un numero negativo, numero troppo grande o piccolo, iterazione finanziaria senza soluzione.</p></div><div class="card"><h3>Controllo</h3><p>Verifica dominio matematico, unità di misura e ordine di grandezza degli argomenti.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Correggi l'input oppure usa la funzione adatta al dominio; non trasformare automaticamente il valore in positivo.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 18. NULLO -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:95px;color:var(--red);">#NULLO!</h2><p class="lead reveal d1">Excel non trova l'intersezione tra due intervalli.</p><div class="formula reveal d2">=SOMMA(A1:A3 <b>B1:B3</b>)</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Uno spazio è stato usato per chiedere un'intersezione inesistente, spesso al posto di «;» o «:».</p></div><div class="card"><h3>Controllo</h3><p>Individua lo spazio tra i riferimenti e chiarisci se volevi un intervallo o due argomenti.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Usa A1:B3 per un intervallo oppure A1:A3;B1:B3 per argomenti separati. È un errore tipico di Excel.</p></div></div></div><div class="page-num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Supporto Microsoft Excel" aria-label="Fonte ufficiale: Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Supporto Microsoft Excel ↗</a></div></section>
+
+  <!-- 19. ERRORE DI ANALISI -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:82px;color:var(--red);">#ERROR!</h2><p class="lead reveal d1">Google Sheets non riesce ad analizzare la sintassi della formula.</p><div class="formula reveal d2">=SE(A1&gt;0<b>,</b>"sì"<b>,</b>"no")</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Separatore sbagliato per la lingua, parentesi o virgolette mancanti, operatori disposti male.</p></div><div class="card"><h3>Controllo</h3><p>Leggi il messaggio «Errore di analisi della formula» e verifica la lingua del file.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>In un file italiano usa normalmente il punto e virgola tra gli argomenti e chiudi ogni parentesi e virgoletta.</p></div></div></div><div class="page-num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Google Sheets" aria-label="Fonte ufficiale: Guida ufficiale Google Sheets" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Google Sheets ↗</a></div></section>
+
+  <!-- 20. ESPANSIONE -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:74px;color:var(--red);">#ESPANSIONE!</h2><p class="lead reveal d1">Una formula a matrice dinamica non trova spazio per distribuire tutti i risultati.</p><div class="formula reveal d2">=FILTRO(A2:C100;<b>C2:C100="Attivo"</b>)</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Celle occupate o unite, limite della griglia, area dentro una tabella oppure intervallo di uscita non libero.</p></div><div class="card"><h3>Controllo</h3><p>Seleziona l'avviso: Excel evidenzia l'area in cui il risultato dovrebbe espandersi.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Libera l'area o sposta la formula. In inglese il codice è #SPILL!; Sheets può mostrare #RIF! per un caso simile.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 21. CALC -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:105px;color:var(--red);">#CALC!</h2><p class="lead reveal d1">Excel incontra un caso di calcolo che la formula dinamica non sa restituire.</p><div class="formula reveal d2">=FILTRO(A2:A10;<b>B2:B10="assente"</b>)</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Risultato vuoto non gestito, matrice annidata o funzione personalizzata che restituisce un oggetto non supportato.</p></div><div class="card"><h3>Controllo</h3><p>Riduci la formula a parti più piccole e verifica quale passaggio non produce una matrice valida.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Specifica il risultato «se vuoto» di FILTRO oppure modifica la struttura della matrice.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 22. DATI COLLEGATI -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-big reveal">Errori dei<br><em class="hot">dati collegati</em></h2><p class="lead reveal d1">I tipi di dati e le sorgenti online introducono codici che dipendono dalla versione e dal servizio.</p><div class="chips reveal d2"><span class="chip">#FIELD!</span><span class="chip">#DATA!</span><span class="chip">#CONNECT!</span><span class="chip">#BLOCKED!</span></div></div><div class="col stack reveal d1"><div class="card"><h3>Campo o dato</h3><p>#FIELD! indica una proprietà inesistente; #DATA! un valore che il tipo collegato non riesce a recuperare.</p></div><div class="card"><h3>Connessione o blocco</h3><p>Credenziali, permessi, criteri aziendali, modalità offline o servizio non disponibile impediscono l'aggiornamento.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Controlla sorgente, accesso e aggiornamento. Questi codici moderni restano spesso in inglese anche nell'interfaccia italiana.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 23. ALTRI STATI MODERNI -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-big reveal">Altri stati<br><em class="hot">moderni</em></h2><p class="lead reveal d1">Alcuni codici descrivono attesa, compatibilità o servizi di calcolo, non una formula aritmetica sbagliata.</p><div class="chips reveal d2"><span class="chip">#BUSY!</span><span class="chip">#UNKNOWN!</span><span class="chip">#GETTING_DATA</span><span class="chip">#PYTHON!</span><span class="chip">#TIMEOUT!</span></div></div><div class="col stack reveal d1"><div class="card"><h3>Attesa o compatibilità</h3><p>#BUSY! e #GETTING_DATA indicano un calcolo in corso; #UNKNOWN! una funzione o un tipo non supportato dalla versione.</p></div><div class="card"><h3>Python in Excel</h3><p>#PYTHON! segnala un errore del codice o dell'ambiente; #TIMEOUT! indica che l'esecuzione ha superato il tempo consentito.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Attendi o ricalcola; poi verifica connessione, aggiornamenti, diagnostica Python e compatibilità della versione.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 24. NON SONO CODICI -->
+  <section class="slide"><div class="col stack"><h2 class="h-sec reveal">Sembrano errori, ma <em class="hot">non hanno un codice</em></h2><p class="lead reveal d1">Non tutti i problemi producono una cella rossa. Questi casi richiedono controlli diversi.</p><div class="grid3 reveal d2"><div class="card"><h3>#####</h3><p>La colonna è troppo stretta per mostrare il numero o la data; può anche indicare una data o un'ora negativa. Allarga e verifica il valore.</p></div><div class="card"><h3>Riferimento circolare</h3><p>La formula dipende da sé stessa, direttamente o tramite altre celle. Segui le frecce e interrompi il ciclo, salvo iterazioni intenzionali.</p></div><div class="card"><h3>Risultato sbagliato</h3><p>La formula è formalmente valida ma usa dati, unità o intervalli errati. È il caso più pericoloso perché non mostra alcun avviso.</p></div></div><div class="analogy reveal d3"><span class="big">Controllo:</span> un foglio senza codici di errore non è automaticamente un foglio corretto.</div></div><div class="page-num"></div></section>
 
   <!-- 12. BUONE ABITUDINI -->
   <section class="slide">
@@ -436,16 +476,16 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
   <!-- 14. CLOSING -->
   <section class="slide closing"><div class="closing-inner"><div class="center" style="text-align:center;">
       <h2 class="h-mega reveal" style="margin-top:10px;">I calcoli girano<br>da soli.</h2>
-      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">SOMMA, MEDIA, MIN, MAX, CONTA, CONTA.SE e SE: i mattoni fondamentali del foglio di calcolo. Ogni dato aggiornato attiva il ricalcolo automatico — la calcolatrice non serve più.</p>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Sai costruire le formule fondamentali e leggere i loro segnali: ogni codice indica dove cercare, quale causa verificare e come correggerla.</p>
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a class="chip" href="su03-05-analisi.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → SU03.05 · Analizzare e cercare</a>
       </div>
-    </div></div><div class="page-num"></div><div class="deck-author">Francesco Antonio Binetti</div></section>
+    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Supporto Microsoft Excel ↗</a><a href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Google Sheets ↗</a></div></div><div class="page-num"></div></section>
 
 </div>
 </div>
 <div class="progress" id="progress"></div>
-<a class="home-btn" href="00-indice.html" title="Torna all'indice (I)">↩ Indice</a>
+<a class="home-btn" href="00-indice.html" title="Torna all'indice">↩ Indice</a>
 
 <script src="deck.js"></script>
 </body>

@@ -57,6 +57,13 @@ opening and searching for it themselves.
 
 ## Editing rules
 
+- All learner-facing slide content must be written in Italian, including titles,
+  explanations, examples, exercises, navigation labels, index cards and TXT
+  companions. The language used by the user in the conversation does not change
+  the course language. Switch a deck to another language only when the user
+  explicitly requests that content change; preserve technical identifiers,
+  code, product names and official source titles where translation would be
+  incorrect or misleading.
 - Keep deck files self-contained (inline CSS) except for two shared files every
   deck links: `theme-corsi.css` sets per-section background tints via
   `body.course-XX` classes (e.g. `<body class="course-rw">`), and `deck.js` is
@@ -100,6 +107,18 @@ opening and searching for it themselves.
 
   `build-completeness.js` deliberately ignores source-list lines, so citations do
   not inflate content-density scores.
+- Cross-references to another teaching slide must not remain inline in the
+  authored content. Put them in the dedicated lower-right `Rimandi interni`
+  footer (`data-cross-reference-footer="true"`), visually separate from the
+  lower-left official sources. Run `node scripts/normalize-cross-reference-footers.js`
+  after adding or changing a bare-filename `deck.html#slide-N` reference; the
+  script also records the same category in the TXT companion.
+- Cross-references to another teaching slide must not remain inline in the
+  authored content. Put them in the dedicated lower-right `Rimandi interni`
+  footer (`data-cross-reference-footer="true"`), visually separate from the
+  lower-left official sources. Run `node scripts/normalize-cross-reference-footers.js`
+  after adding or changing a bare-filename `deck.html#slide-N` reference; the
+  script also records the same category in the TXT companion.
 - Preserve user changes in the working tree. This repo often has uncommitted
   generated decks and quizzes.
 
@@ -117,12 +136,25 @@ Every content deck should include:
 
 - fixed-stage CSS
 - progress bar
-- keyboard navigation
-- wheel navigation
+- keyboard and touch-swipe navigation (no wheel navigation and no `I`
+  shortcut: the wheel only zooms with Ctrl and pans while zoomed; the index
+  is reached through the home button)
 - a closing slide with an index link
 - a fixed `↩ Indice` home button (`.home-btn`, bottom-left, `position:fixed`)
   linking to `00-indice.html` (GD decks link to `00-indice-gd.html` and use the
-  arcade variant); the `I` keyboard shortcut must point to the same index
+  arcade variant)
+
+Do not add an agenda or “Cosa vedremo” slide after the title slide. Chapter
+overviews live in `agenda-index.json` and appear as tooltips when the matching
+index card title or description is hovered or focused. New decks must add a
+concise three-item overview there and rebuild `agenda-index.js` with
+`node scripts/build-agenda-index.js`.
+
+Do not add an agenda or “Cosa vedremo” slide after the title slide. Chapter
+overviews live in `agenda-index.json` and appear as tooltips when the matching
+index card title or description is hovered or focused. New decks must add a
+concise three-item overview there and rebuild `agenda-index.js` with
+`node scripts/build-agenda-index.js`.
 
 ### Closing slide standard
 
@@ -190,10 +222,14 @@ clicks/links.
 
 It has two actions:
 
-- **Click** a slide → a prompt records a note (file, slide, click position,
-  nearest element, free text). A persistent numbered pin marks the spot on
-  that slide for as long as feedback mode stays open — the visual "what to
-  change" indicator, tracked via a `MutationObserver` on `deck.js`'s
+- **Click** a slide → a prompt records a note anchored to the exact element
+  under the cursor: file, slide, click position, surrounding container, the
+  clicked element's `tag.class` and its text. Selecting words before clicking
+  makes the selection itself the anchor (`sel: true`), so a note can point at
+  specific words inside a paragraph rather than the whole element — never
+  just "change something on slide N". A persistent numbered pin marks the
+  spot on that slide for as long as feedback mode stays open — the visual
+  "what to change" indicator, tracked via a `MutationObserver` on `deck.js`'s
   active/visible class toggles rather than hooking into its `show()`.
 - **Double-click** a text element with zero child elements (an `<h3>`, a
   `<p>` with no nested tags — never something like `.card`, which has
@@ -662,8 +698,8 @@ automatically and hides those without results. Maintain human-readable names
 in the `subseriesLabels` map in `00-indice.html` whenever a new hierarchical
 block is introduced.
 
-`deck.js` must append the current deck filename to the index link as a `from`
-query parameter for both `.home-btn` and the `I` shortcut, for example
+`deck.js` must append the current deck filename to the index link of
+`.home-btn` as a `from` query parameter, for example
 `00-indice.html?from=rw02-01-email.html`. The index reads that parameter,
 restores both accordion levels and scrolls the originating card as close as
 possible to the vertical center of the viewport, then removes only `from` with
@@ -724,6 +760,22 @@ node scripts/build-search-index.js
 ```
 
 ### Topic inventory and duplicate handling
+
+Slides whose content has been editorially checked use
+`data-content-review-hash` and `data-content-review-date` on the `<section>`.
+The hash covers educational text and link/image targets while ignoring page
+numbers, generated source footers and technical chrome. Never copy a review
+tag to another slide or update its hash by hand. Validate reviewed slides with:
+
+```bash
+node scripts/manage-slide-review-tags.js tag file.html#slide-N
+node scripts/manage-slide-review-tags.js check
+```
+
+`check` reports a modified reviewed slide as `SCADUTA` and exits with an error;
+the pre-commit hook runs it automatically. Revalidate only after the changed
+content has been reviewed again. Opening and closing slides must never receive
+review tags; `tag` rejects them and `prune-boundaries` removes legacy tags.
 
 `inventario-argomenti-slide.csv` is generated by
 `scripts/build-slide-topic-inventory.js`. Never edit the CSV manually. Rebuild
@@ -806,6 +858,32 @@ node scripts/build-completeness.js
 
 After changing index cards or deck text, also rebuild `search-index.js`.
 
+Standalone exercise slides (whole slides titled Esercizio/Laboratorio/
+Verifica:/Esercitazione…) do not live inside the lesson decks: they are
+collected in per-area exercise decks named `esercizi-<area>.html`
+(`esercizi-reti-web.html`, `esercizi-suite-ufficio.html`, …). Each moved
+`<section>` carries `data-source="<origin-deck>.html"` linking it back to its
+module — that attribute is what wires the exercise to the right index card,
+so never remove it. Exercise *boxes* embedded inside a teaching slide (a
+`.lbl` label such as "Esercizio" on a content slide, as in the VBA and Apps
+Script series) stay in their module deck. When writing a new standalone
+exercise slide, put it directly in the area's `esercizi-*.html` deck with the
+proper `data-source`; do not add it to the lesson deck. The exercise decks
+have no index card: they are reached through the per-card `Esercizi` button.
+Because they are utility collections rather than lessons, they deviate from
+the standard deck structure on purpose: a plain one-heading intro slide
+instead of the `.title-slide` composition, and no closing slide (exit is the
+home button). Do not "normalize" them back.
+
+The index `Esercizi` buttons are generated from both sources — the
+`data-source` slides in `esercizi-*.html` and the embedded exercise boxes in
+module decks. After adding, removing, renaming or reordering either, rebuild
+`exercise-index.js` with:
+
+```bash
+node scripts/build-exercise-index.js
+```
+
 The index search reads `search-index.js`, generated from the index cards and
 their sibling `.txt` files. Rebuild it after changing deck text, `.txt`
 companions, or index cards:
@@ -856,7 +934,13 @@ in this root-level HTML course set, include Arduino and Blender/3D.
 ## Lesson expansion 2026-07-16
 
 The question-driven lesson on digital content is documented in
-`REPORT-LEZIONE-CONTENUTI-DIGITALI.md`. It contains 80 slides split by topic:
-`RW02.05` licenses/OER, `RW02.06` image accessibility, `RW02.07` metadata and
-formats, `RW02.08` podcast/storytelling, and `PR01.07` iteration/cycles.
-Generate the five HTML/TXT pairs with `node scripts/build-question-lesson.js`.
+`REPORT-LEZIONE-CONTENUTI-DIGITALI.md`. Its 80 slides were generated by
+`scripts/build-question-lesson.js` and are now published — after the
+RW04/RW05 → Contenuti digitali renumbering — as `cd01-01-licenze-oer.html`,
+`cd01-02-accessibilita-immagini.html`, `cd01-03-metadati-formati.html`,
+`cd02-01-podcast-storytelling.html` and `pr01-07-iterazione-cicli.html`.
+The generator (and the report) still reference the pre-renumbering
+`RW02.05`-`RW02.08` codes and filenames: do not re-run it — it would emit
+orphan duplicates under filenames that clash with the current numbering
+(`rw02-05` is now account-email). The published decks have also been edited
+by hand since generation; the script is kept as historical record only.

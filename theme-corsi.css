@@ -526,6 +526,45 @@ em.sky,.accent{color:var(--accent-2) !important;}
   bottom:14px !important;
 }
 
+/* Internal teaching links are visually distinct from external sources. They
+   occupy the lower-right edge, while generated official sources stay on the
+   lower-left edge. */
+.cross-reference-footer{
+  position:absolute !important;
+  right:220px !important;
+  bottom:14px !important;
+  z-index:5 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:8px !important;
+  max-width:760px !important;
+  margin:0 !important;
+  font-family:var(--font-mono,"Space Mono",monospace) !important;
+  font-size:16px !important;
+  line-height:1.25 !important;
+  text-align:right !important;
+  color:var(--ink-faint,#6b5f54) !important;
+}
+.cross-reference-footer::before{
+  content:"Rimandi interni:";
+  flex:0 0 auto;
+  color:var(--ink-faint,#6b5f54);
+}
+.cross-reference-footer a{
+  color:var(--teal,#163b35) !important;
+  text-decoration:underline !important;
+  text-underline-offset:3px !important;
+  white-space:nowrap;
+}
+.cross-reference-footer a+a::before{
+  content:"·";
+  display:inline-block;
+  margin-right:8px;
+  color:var(--ink-faint,#6b5f54);
+  text-decoration:none;
+}
+
 @media print{
   .deck-stage{box-shadow:none !important;}
   .slide{background:var(--slide-bg) !important;}
