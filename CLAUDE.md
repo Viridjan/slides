@@ -48,6 +48,13 @@ xdg-open gd01-introduzione.html
 auto-upgrades `http://localhost` to `https://`, causing `ERR_SSL_PROTOCOL_ERROR`
 on any plain HTTP server.
 
+**When referencing a specific slide in chat, link it.** Any time a response
+mentions a particular slide in a deck, give it as a clickable
+`file:///home/viridjan/Projects/slides/<deck>.html#slide-N` link (absolute
+path, `file://` scheme, `#slide-N` deep link) instead of just naming the deck
+and slide number — the user should be able to click straight to it instead of
+opening and searching for it themselves.
+
 ## Editing rules
 
 - Keep deck files self-contained (inline CSS) except for two shared files every
