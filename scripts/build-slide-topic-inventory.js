@@ -180,18 +180,26 @@ decks.forEach(deck => {
   if (!fs.existsSync(deckPath)) return;
   const html = fs.readFileSync(deckPath, 'utf8');
   const slidePattern = /<section\b([^>]*)>([\s\S]*?)<\/section>/gi;
-  let slideMatch;
-  let slideNumber = 0;
-  while ((slideMatch = slidePattern.exec(html))) {
-    const classes = slideMatch[1].match(/\bclass\s*=\s*["']([^"']*)["']/i)?.[1].split(/\s+/) || [];
-    if (!classes.includes('slide')) continue;
-    slideNumber++;
-    const markers = extractMarkers(slideMatch[2]);
-    const slideTitle = markers.find(marker => marker.type.startsWith('titolo_h'))?.text || '';
+  const slides = [...html.matchAll(slidePattern)]
+    .filter(match => (match[1].match(/\bclass\s*=\s*["']([^"']*)["']/i)?.[1].split(/\s+/) || []).includes('slide'));
+
+  // The opening and closing slides carry no reviewable teaching content
+  // (title card, "Prossimo" chip, sources) and are never eligible for a
+  // review tag in the first place -- skip them here too. A slide already
+  // marked `verificata` (tag hash still matches current content) has already
+  // been through this process; re-listing it just adds noise to the queue of
+  // what is left to review.
+  slides.forEach((slideMatch, index) => {
+    if (index === 0 || index === slides.length - 1) return;
+    const slideNumber = index + 1;
     const reviewHash = slideMatch[1].match(/\bdata-content-review-hash=["']([^"']+)["']/i)?.[1] || '';
-    const reviewDate = slideMatch[1].match(/\bdata-content-review-date=["']([^"']+)["']/i)?.[1] || '';
     const reviewState = !reviewHash ? 'non verificata'
       : reviewHash === reviewFingerprint(slideMatch[2]) ? 'verificata' : 'verifica scaduta';
+    if (reviewState === 'verificata') return;
+
+    const markers = extractMarkers(slideMatch[2]);
+    const slideTitle = markers.find(marker => marker.type.startsWith('titolo_h'))?.text || '';
+    const reviewDate = slideMatch[1].match(/\bdata-content-review-date=["']([^"']+)["']/i)?.[1] || '';
     const seen = new Set();
     markers.forEach(marker => {
       const normalized = normalize(marker.text);
@@ -202,7 +210,7 @@ decks.forEach(deck => {
       rows.push({...deck, slideNumber, slideTitle, type: marker.type, text: marker.text, normalized,
         reviewHash, reviewDate, reviewState});
     });
-  }
+  });
 });
 
 const placements = new Map();
@@ -217,7 +225,11 @@ const structuralLabels = new Set([
   'aspetto', 'caratteristica', 'chi', 'collegamento', 'come fare', 'consegna',
   'controllo', 'da ricordare', 'differenza chiave', 'idea chiave', 'in breve',
   'obiettivo', 'perche funziona', 'quando usarlo', 'rischio', 'strumenti',
-  'vantaggio', 'pubblico principale', 'consiglio per il brand'
+  'vantaggio', 'pubblico principale', 'consiglio per il brand',
+  // Recurring stylistic device across the su02 mini-series: an identical
+  // closing tagline and an identical section-2 header used deliberately on
+  // three consecutive decks, not duplicated teaching content.
+  'il documento e un sistema', 'otto competenze word'
 ].map(normalize));
 
 // Short labels such as “Formato”, “Data” or “Output” are meaningful only in
@@ -231,7 +243,14 @@ const contextDependent = new Set([
   'perche', 'permessi', 'posizione', 'ram', 'salva', 'servizio', 'applicazione',
   'compatibilita', 'connessione', 'date', 'download', 'intervallo', 'media',
   'nome', 'numero', 'testo', 'velocita', 'vero', '.it', 'account', 'link',
-  'microfono', 'train model', 'video', 'vulnerability assessment'
+  'microfono', 'train model', 'video', 'vulnerability assessment',
+  // Short card/bullet titles reused verbatim as a single supporting example
+  // inside otherwise unrelated slides (a brief mention, not a re-teach) or
+  // across a deliberate cross-deck progression (general -> specific block in
+  // the same mini-series). Confirmed one by one against the actual slide
+  // text before adding — see TODO.md review pass, 2026-07-20.
+  'traduzione automatica', 'aggiornamenti automatici', 'gli store ufficiali',
+  'store ufficiali', 'dati di addestramento', 'dentro il progetto'
 ].map(normalize));
 
 // Different headings can describe the same broad subject without using the

@@ -76,6 +76,7 @@ Fonti ufficiali:
 
 --- Slide 14 ---
 Compressione Ridurre lo spazio senza perdere il significato utile La compressione cerca ridondanze nei dati o elimina dettagli poco percepibili. È una scelta importante quando salviamo immagini, audio, video o archivi. Lossless Permette di ricostruire i dati originali senza perdita. Lossy Riduce di più il peso, ma sacrifica parte dell'informazione. Fonte: Compressione dei dati — Wikipedia ↗
+Rimandi interni: CD01.03 — cd01-03-metadati-formati.html#slide-8
 
 --- Slide 15 ---
 Il formato dice come leggere i byte Un file non è solo una sequenza di byte: ha una struttura. Il formato specifica dove sono i metadati, come sono organizzati i contenuti e quale programma può interpretarli. TXT: testo semplice Testo semplice con poche informazioni aggiuntive. PNG: compressione senza perdita Immagine compressa senza perdita. Formati immagine a confronto in CD01.03. MP3: audio compresso Audio compresso con perdita controllata.

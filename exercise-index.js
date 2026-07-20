@@ -30,6 +30,30 @@ globalThis.EXERCISE_INDEX = {
       "title": "Verifica: racconta e consegna"
     }
   ],
+  "ia02-esercizio-generazione.html": [
+    {
+      "file": "esercizi-intelligenza-artificiale.html",
+      "slide": 2,
+      "title": "Esercizio 1: l'inventario dell'ortofrutta"
+    },
+    {
+      "file": "esercizi-intelligenza-artificiale.html",
+      "slide": 3,
+      "title": "Esercizio 2: il supermercato, con un'altra IA"
+    },
+    {
+      "file": "esercizi-intelligenza-artificiale.html",
+      "slide": 4,
+      "title": "Esercizio 3: integrare i due inventari"
+    }
+  ],
+  "ia04-diversi-modelli-ia.html": [
+    {
+      "file": "esercizi-intelligenza-artificiale.html",
+      "slide": 5,
+      "title": "Esercizio 4: riconoscere il modello giusto"
+    }
+  ],
   "ms02-modellazione-base.html": [
     {
       "file": "esercizi-modellazione-3d.html",

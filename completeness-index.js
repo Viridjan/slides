@@ -4,7 +4,7 @@ window.COMPLETENESS = {
   "cd01-01-licenze-oer.html": 3,
   "cd01-02-accessibilita-immagini.html": 3,
   "cd01-03-metadati-formati.html": 3,
-  "cd01-04-sicurezza-contenuti.html": 5,
+  "cd01-04-sicurezza-contenuti.html": 4,
   "cd02-01-podcast-storytelling.html": 1,
   "gd01-introduzione.html": 4,
   "gd02-ost.html": 4,

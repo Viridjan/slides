@@ -494,13 +494,14 @@ Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw
 
 ### Contenuti digitali
 
-Navigation chain: cd01-01 → cd01-02 → cd01-03 → cd02-01
+Navigation chain: cd01-01 → cd01-02 → cd01-03 → cd01-04 → cd02-01
 
 | File | Title |
 | --- | --- |
 | `cd01-01-licenze-oer.html` | Licenze aperte e OER |
 | `cd01-02-accessibilita-immagini.html` | Accessibilità delle immagini |
 | `cd01-03-metadati-formati.html` | Metadati e formati |
+| `cd01-04-sicurezza-contenuti.html` | Sicurezza dei contenuti digitali |
 | `cd02-01-podcast-storytelling.html` | Podcast e storytelling (CD02, in attesa di una sezione multimediale dedicata) |
 
 ### Sicurezza Digitale
@@ -871,6 +872,14 @@ Script series) stay in their module deck. When writing a new standalone
 exercise slide, put it directly in the area's `esercizi-*.html` deck with the
 proper `data-source`; do not add it to the lesson deck. The exercise decks
 have no index card: they are reached through the per-card `Esercizi` button.
+Keep exercise syntax consistent inside every area deck: title standalone
+slides as `Esercizio N: <azione o obiettivo>` in sentence case, use sequential
+numbers within that exercise deck, introduce one observable task in the lead,
+and end with a `.note` whose plain `.lbl` is `Consegna` and whose paragraph
+states the required artifact or evidence. Do not mix `Verifica:`, numbered
+dots, dashes or alternative title formulas for equivalent standalone
+exercises. The visible title and `data-source` together are the stable index
+contract.
 Because they are utility collections rather than lessons, they deviate from
 the standard deck structure on purpose: a plain one-heading intro slide
 instead of the `.title-slide` composition, and no closing slide (exit is the

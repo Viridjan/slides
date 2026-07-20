@@ -22,7 +22,14 @@ for (const htmlFile of files) {
     return [...new Map(sources.map(source => [source.href, source])).values()];
   });
 
-  let txt = execFileSync('git', ['show', `HEAD:${txtFile}`], { encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });
+  let txt;
+  try {
+    txt = execFileSync('git', ['show', `HEAD:${txtFile}`], { encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });
+  } catch {
+    // New deck not yet committed: merge into the TXT already on disk instead.
+    if (!fs.existsSync(txtFile)) continue;
+    txt = fs.readFileSync(txtFile, 'utf8');
+  }
   txt = txt.replace(/--- Slide (\d+) ---\n([\s\S]*?)(?=\n--- Slide \d+ ---|\s*$)/g, (block, number, body) => {
     const sources = slideSources[Number(number) - 1] || [];
     const cleanBody = body.replace(/\n?Fonti ufficiali:\n(?:- [^\n]+\n?)+/g, '').trimEnd();

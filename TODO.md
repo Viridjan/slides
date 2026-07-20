@@ -14,20 +14,41 @@ pubblicata: i contenuti sono stati migrati nei blocchi attuali `hs`, `rw`,
 ### Completare la revisione editoriale dell'inventario argomenti
 
 `inventario-argomenti-slide.csv` contiene la coda puntuale generata per la
-revisione dei contenuti. Alla rilevazione del 20 luglio 2026 risultano 1.499
-slide di contenuto distinte: 32 verificate e 1.467 ancora `non verificata`.
-Il CSV è la fonte operativa slide per slide e non va modificato a mano.
+revisione dei contenuti. Il CSV è la fonte operativa slide per slide e non va
+modificato a mano. Aggiornamento del 20 luglio 2026: Project Management,
+Contenuti digitali e Modellazione e Stampa 3D sono state passate in rassegna
+per intero (contenuto letto, correttezza e collocazione verificate, ogni
+slide interna taggata) — restano aperte le altre sette aree.
 
-- [ ] Suite Ufficio: verificare 401 slide;
-- [ ] Reti e Web: verificare 252 slide;
-- [ ] Programmazione: verificare 236 slide;
-- [ ] Smartphones: verificare 151 slide;
-- [ ] Hardware e Software: verificare 105 slide;
-- [ ] Sicurezza Digitale: verificare 96 slide;
-- [ ] Project Management: verificare 67 slide;
-- [ ] Intelligenza Artificiale: verificare 63 slide;
-- [ ] Contenuti digitali: verificare 49 slide;
-- [ ] Modellazione e Stampa 3D: verificare 47 slide.
+Durante la revisione di questi tre gruppi è emerso che gran parte delle righe
+`usare il blocco principale come riferimento` erano falsi positivi del
+generatore: frasi brevi da card/bullet ("traduzione automatica",
+"aggiornamenti automatici", "store ufficiali", "dati di addestramento",
+"dentro il progetto") riusate in contesti realmente diversi o come
+progressione tra deck della stessa mini-serie, non contenuto duplicato. Sono
+state aggiunte a `contextDependent`/`structuralLabels` nel generatore
+(`scripts/build-slide-topic-inventory.js`) — verificare caso per caso, non
+fidarsi del solo conteggio, prima di aggiungere un rimando o tagliare
+contenuto nelle aree ancora aperte. Un cluster **era invece reale** (hs03#10 /
+hs04#8, "Software libero vs open source vs proprietario", quasi identico
+parola per parola): spiegazione completa tenuta in HS04, hs03 ridotto ad
+applicazione locale con rimando.
+
+Il generatore (`scripts/build-slide-topic-inventory.js`) esclude ora dal CSV
+sia le slide di apertura/chiusura di ogni deck (non taggabili per regola) sia
+quelle già `verificata`: il file elenca solo lavoro residuo, i conteggi sotto
+sono quindi slide-da-fare, non slide-totali.
+
+- [ ] Suite Ufficio: 347 slide da verificare;
+- [ ] Reti e Web: 223 slide da verificare;
+- [ ] Programmazione: 210 slide da verificare;
+- [ ] Smartphones: 129 slide da verificare;
+- [ ] Hardware e Software: 96 slide da verificare (hs04#8 già fatta: fix duplicato con hs03);
+- [ ] Sicurezza Digitale: 84 slide da verificare;
+- [ ] Intelligenza Artificiale: 72 slide da verificare;
+- [x] Project Management: completata;
+- [x] Contenuti digitali: completata (comprende il nuovo CD01.04);
+- [x] Modellazione e Stampa 3D: completata.
 
 Per ogni slide controllare correttezza, chiarezza, collocazione nel percorso e
 duplicazioni reali. Le righe con `rimandare al blocco principale` o `usare il
