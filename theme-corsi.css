@@ -448,7 +448,7 @@ em.sky,.accent{color:var(--accent-2) !important;}
   outline-offset:5px;
 }
 
-.closing:has(a[href]:not([href*="indice"])) a[href*="indice"]{
+.closing:has(.closing-actions a[href]:not([href*="indice"])) .closing-actions a[href*="indice"]{
   display:none !important;
 }
 

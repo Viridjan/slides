@@ -1,0 +1,550 @@
+Intelligenza Artificiale · IA04 — Diversi modelli di IA
+=======================================================
+
+--- Slide 1 ---
+Diversi
+
+ modelli
+
+di IA
+ Non esiste «l'IA» come strumento unico: modelli diversi vedono dati diversi, svolgono compiti diversi e fanno compromessi diversi.
+
+
+
+ IA
+ 💬
+ 🖼️
+ 🔊
+ ⚙️
+
+
+ Francesco Antonio Binetti
+
+--- Slide 2 ---
+Prima distinzione: modello, app, sistema
+
+
+
+ 🧠
+ Modello
+ La componente matematica addestrata sui dati: riceve input e produce una previsione o un output.
+
+ →
+
+ 📱
+ Applicazione
+ L'interfaccia che usa uno o più modelli: chat, editor, motore di ricerca, assistente.
+
+ →
+
+ 🧰
+ Sistema
+ Modello, istruzioni, strumenti, memoria, dati esterni, controlli e persone.
+
+
+
+ Analogia: il modello è il motore; l'app è il veicolo; il sistema comprende anche strada, regole e conducente.
+
+--- Slide 3 ---
+Una mappa per orientarsi
+
+ Non si confrontano i modelli soltanto per marca. Prima si osservano input, output e compito.
+
+ 💡 Domanda guida
+ Che cosa entra? Che cosa deve uscire? Con quali vincoli di tempo, costo, privacy e accuratezza?
+
+
+
+
+ Comprendere
+ Classificare, riconoscere, estrarre, prevedere.
+
+
+ Generare
+ Creare testo, codice, immagini, audio o video.
+
+
+ Rappresentare
+ Trasformare contenuti in vettori confrontabili.
+
+
+ Agire
+ Usare strumenti e completare sequenze di operazioni.
+
+--- Slide 4 ---
+Modelli predittivi e discriminativi
+
+ Non inventano necessariamente un nuovo contenuto: assegnano una classe, stimano un valore o scelgono tra alternative.
+
+
+ 🏷️
+ Classificazione
+ Spam/non spam, frode/non frode, specie in una fotografia.
+
+
+ 📈
+ Regressione
+ Stima un numero: domanda, consumo, durata o probabilità.
+
+
+ 🎯
+ Raccomandazione
+ Ordina prodotti, video o brani in base a segnali e preferenze.
+
+
+ 👁️
+ Rilevamento
+ Localizza oggetti, difetti, volti o eventi in immagini e sensori.
+
+
+
+ Regola: generare è solo una parte dell'IA; molte IA decidono, stimano o ordinano.
+
+--- Slide 5 ---
+Il
+
+ modello
+
+ predice
+
+
+
+ il token successivo
+
+ testo e codice vengono costruiti una scelta alla volta
+
+
+ Modelli di linguaggio
+
+ Gli LLM lavorano su token e possono produrre testo, codice o dati strutturati.
+
+ Generalisti
+ Conversazione, sintesi, traduzione, scrittura, analisi e domande su documenti. Le famiglie GPT di OpenAI sono un esempio.
+
+
+ Specializzati
+ Ottimizzati per codice, matematica, un dominio, una lingua o un formato di output. Mistral AI offre famiglie generaliste e specialistiche.
+
+
+
+
+
+
+ [Fonte: Catalogo modelli — OpenAI — https://developers.openai.com/api/docs/models] [Fonte: Catalogo modelli — Mistral AI — https://docs.mistral.ai/models/]
+Fonti ufficiali:
+- Catalogo modelli — OpenAI — https://developers.openai.com/api/docs/models
+- Catalogo modelli — Mistral AI — https://docs.mistral.ai/models/
+
+--- Slide 6 ---
+«Reasoning» non significa infallibile
+
+ Alcuni modelli, inclusi quelli con modalità thinking di DeepSeek, spendono più calcolo per scomporre problemi complessi, verificare passaggi o scegliere strumenti.
+
+
+ Più profondità
+ Utili per matematica, programmazione, pianificazione e problemi a più vincoli.
+
+
+ Più attesa e costo
+ Il tempo di risposta e il consumo di risorse possono aumentare.
+
+
+ Stessi rischi di fondo
+ Possono comunque fraintendere, allucinare o ragionare da premesse sbagliate.
+
+
+
+ ⚠️ Attenzione
+ Un testo lungo che mostra molti passaggi non prova che la conclusione sia corretta: verifica dati, fonti e risultato.
+
+
+
+
+ [Fonte: Modelli disponibili — DeepSeek — https://api-docs.deepseek.com/quick_start/pricing]
+Fonti ufficiali:
+- Modelli disponibili — DeepSeek — https://api-docs.deepseek.com/quick_start/pricing
+
+--- Slide 7 ---
+Modelli multimodali
+
+ Combinano più modalità nello stesso scambio: testo, immagini, documenti, audio o video. Gemini di Google è un esempio di ecosistema multimodale.
+
+
+ 🖼️
+ Vision-language
+ Descrivono immagini, leggono grafici, confrontano schermate e rispondono su documenti visuali.
+
+
+ 🎙️
+ Audio nativo
+ Ricevono e producono voce con ritmo, interruzioni e latenza adatti al dialogo.
+
+
+ 🎥
+ Video e spazio
+ Analizzano sequenze, movimenti e relazioni spaziali; alcuni si collegano alla robotica.
+
+
+
+ una modalità
+
+
+ modalità integrate
+
+
+
+ [Fonte: Catalogo modelli Gemini — Google — https://ai.google.dev/gemini-api/docs/models]
+Fonti ufficiali:
+- Catalogo modelli Gemini — Google — https://ai.google.dev/gemini-api/docs/models
+
+--- Slide 8 ---
+Immagini: generare e modificare
+
+ I modelli visuali trasformano istruzioni e riferimenti in pixel. Molte famiglie usano processi di diffusione; altre integrano la generazione in architetture multimodali.
+
+ In pratica: testo→immagine, immagine→immagine, riempimento, espansione e modifica guidata.
+
+
+
+ Punti forti
+ Stile, composizione, variazioni rapide, prototipi e ritocco.
+
+
+ Limiti tipici
+ Coerenza tra scene, dettagli esatti, testo nell'immagine, provenienza e diritti.
+
+
+ Controllo
+ Prompt, immagini di riferimento, maschere, rapporto d'aspetto e parametri.
+
+
+ Verifica
+ Controllare artefatti, stereotipi, autenticità e condizioni d'uso.
+
+--- Slide 9 ---
+Audio, musica e video: modelli diversi
+
+
+
+ 📝
+ Speech-to-text
+ Trascrive voce in testo. Conta la precisione con accenti, rumore, più parlanti e lessico tecnico.
+
+
+ 🗣️
+ Text-to-speech
+ Genera voce. Conta naturalezza, controllo, latenza, consenso e rischio di impersonificazione.
+
+
+ 🎵
+ Musica
+ Crea clip o brani da descrizioni, struttura e riferimenti stilistici.
+
+
+
+
+ 🎬
+ Video generativo
+ Produce o modifica sequenze: deve mantenere identità, movimento, fisica e continuità temporale.
+
+
+ 📡
+ Tempo reale
+ I modelli live privilegiano latenza e interazione; quelli offline possono spendere più calcolo per la qualità.
+
+--- Slide 10 ---
+Modelli che non conversano
+
+ Molti componenti essenziali lavorano dietro le quinte e restituiscono numeri, etichette o ordinamenti.
+
+ 💡 Idea chiave
+ Il modello più visibile non è sempre quello che svolge il lavoro più importante.
+
+
+
+
+ 🧭
+
+ Embedding
+
+
+ Colloca contenuti simili vicino nello spazio vettoriale: ricerca semantica, clustering, RAG.
+
+
+
+ ↕️
+
+ Reranker
+
+
+ Riordina risultati già trovati per aumentare la pertinenza.
+
+
+
+ 🛡️
+
+ Classificatore e moderazione
+
+
+ Rileva categorie, rischi, intenti o contenuti indesiderati.
+
+
+
+ 👓
+
+ OCR e document AI
+
+
+ Estrae testo, struttura e campi da immagini e documenti.
+
+--- Slide 11 ---
+Un agente è un sistema , non una specie di modello
+
+
+ Obiettivo
+ «Confronta tre offerte e prepara una tabella.»
+
+ →
+
+ Ciclo
+ Pianifica, usa strumenti, osserva il risultato, corregge.
+
+ →
+
+ Esito
+ Consegna un artefatto e registra ciò che è stato fatto.
+
+
+
+
+ Modello
+ Interpreta e decide il passo successivo.
+
+
+ Strumenti
+ Ricerca, file, codice, browser, database o API.
+
+
+ Controlli
+ Permessi, limiti, log, verifiche e approvazione umana.
+
+--- Slide 12 ---
+Sei ecosistemi generalisti
+
+ Esempi aggiornati al 20 luglio 2026. Le versioni cambiano rapidamente: confronta capacità e vincoli, non soltanto il numero nel nome.
+
+
+
+ Ecosistema
+ Famiglie rappresentative
+ Profilo distintivo
+ Accesso
+
+
+
+
+ OpenAI
+ GPT, reasoning, image, realtime, embedding
+ Famiglia ampia per testo, codice, strumenti e media
+ Servizi gestiti
+
+
+ Google
+ Gemini, Gemma, Nano Banana, Veo, Lyria
+ Multimodalità nativa e modelli media/specializzati
+ Gestiti + pesi aperti Gemma
+
+
+ Anthropic
+ Claude Fable, Opus, Sonnet, Haiku
+ Fasce capacità/velocità per testo, visione e agenti
+ Servizi gestiti
+
+
+ Meta
+ Llama
+ Modelli generalisti e multimodali distribuibili
+ Pesi disponibili con licenza
+
+
+ Mistral AI
+ Mistral, Magistral, Devstral, Codestral, Voxtral
+ Generalisti e specialisti; varie opzioni open-weight
+ Gestiti + open-weight
+
+
+ DeepSeek
+ V4 Flash, V4 Pro
+ Modalità thinking/non-thinking e API compatibili
+ Servizi gestiti
+
+
+
+
+
+
+ [Fonte: Panoramica modelli Claude — Anthropic — https://platform.claude.com/docs/en/about-claude/models/overview] [Fonte: Modelli Meta Llama — repository verificato — https://huggingface.co/meta-llama/models]
+Fonti ufficiali:
+- Panoramica modelli Claude — Anthropic — https://platform.claude.com/docs/en/about-claude/models/overview
+- Modelli Meta Llama — repository verificato — https://huggingface.co/meta-llama/models
+
+--- Slide 13 ---
+Aperti, chiusi, locali, cloud
+
+ Sono assi diversi. «Open» può riferirsi a pesi, codice, dati o licenza: va sempre precisato. Llama di Meta è un esempio di famiglia con pesi disponibili secondo licenza.
+
+ pesi disponibili
+
+
+ solo servizio
+
+
+ sul dispositivo
+
+
+ nel cloud
+
+
+
+
+ Locale
+ Più controllo e funzionamento offline; richiede hardware, gestione e competenze.
+
+
+ Cloud
+ Accesso semplice a modelli potenti; dati e costi dipendono dal fornitore e dal contratto.
+
+
+ Open-weight
+ I pesi sono scaricabili secondo una licenza; non implica necessariamente dati o codice completamente aperti.
+
+
+ Proprietario
+ Il modello è offerto come prodotto o API; dettagli e modifiche dipendono dal gestore.
+
+--- Slide 14 ---
+Grande, piccolo o mixture of experts ?
+
+
+ 🏗️
+ Modello grande
+ Più capacità potenziale e compiti complessi; in genere più memoria, energia, costo e latenza.
+
+
+ 📱
+ Small language model
+ Più economico e distribuibile anche vicino all'utente; adatto a compiti circoscritti e grandi volumi.
+
+
+ 🚦
+ Mixture of experts
+ Contiene più «esperti», ma ne attiva soltanto una parte per ogni token: capacità totale e costo attivo non coincidono.
+
+
+
+ ⚠️ Numeri non confrontabili da soli
+ Più parametri non garantiscono automaticamente un risultato migliore: contano dati, addestramento, architettura, strumenti, valutazione e compito reale.
+
+--- Slide 15 ---
+Come scegliere un modello
+ La scelta corretta è un compromesso misurato sul proprio caso d'uso.
+
+ Regola: prova con esempi reali e criteri dichiarati prima di scegliere.
+
+
+
+ 1
+
+ Qualità sul compito
+
+
+ Accuratezza, aderenza, robustezza, lingua e formato.
+
+
+
+ 2
+
+ Tempo e costo
+
+
+ Latenza, volume, token, hardware e consumo.
+
+
+
+ 3
+
+ Dati e controllo
+
+
+ Privacy, residenza, log, licenza e possibilità di esecuzione locale.
+
+
+
+ 4
+
+ Operatività
+
+
+ Contesto, strumenti, stabilità della versione, sicurezza e manutenzione.
+
+--- Slide 16 ---
+Stesso prompt, test equo
+
+ Confrontare due chatbot «a sensazione» non basta. Prepara una piccola valutazione ripetibile.
+
+
+ 1 · Casi
+ 10–20 richieste realistiche, incluse eccezioni e casi difficili.
+
+
+ 2 · Criteri
+ Correttezza, completezza, fonti, formato, tono, tempo e costo.
+
+
+ 3 · Condizioni
+ Stesso input, strumenti dichiarati, versione annotata, più esecuzioni.
+
+
+ 4 · Revisione
+ Valutazione cieca quando possibile e controllo umano degli errori importanti.
+
+
+
+ 💡 Risultato utile
+ Non una classifica assoluta, ma una decisione motivata: «per questo compito, con questi vincoli, scegliamo questo modello».
+
+--- Slide 17 ---
+Verifica: sai distinguere?
+
+
+ 1 · Playlist personalizzata
+ È generazione, raccomandazione o entrambe? Quale output produce davvero il modello?
+
+
+ 2 · Assistente che prenota
+ Qual è il modello e quali altri componenti trasformano la risposta in azione?
+
+
+ 3 · Ricerca nei documenti
+ Dove possono intervenire embedding, reranker, LLM e fonti esterne?
+
+
+ 4 · Modello sul telefono
+ Quali vantaggi e limiti prevedi rispetto a un grande modello cloud?
+
+
+
+ In pratica: descrivi sempre compito, input, output, vincoli e sistema completo.
+
+
+
+ [Fonte: Transformer — paper originale — https://arxiv.org/abs/1706.03762]
+Fonti ufficiali:
+- Transformer — paper originale — https://arxiv.org/abs/1706.03762
+
+--- Slide 18 ---
+Il modello migliore
+non esiste.
+ Esiste il modello più adatto a un compito, dentro un sistema progettato e verificato con criteri espliciti.
+ Fonti e approfondimenti Catalogo modelli — OpenAI ↗ (https://developers.openai.com/api/docs/models)Catalogo modelli — Mistral AI ↗ (https://docs.mistral.ai/models/)Modelli disponibili — DeepSeek ↗ (https://api-docs.deepseek.com/quick_start/pricing)Catalogo modelli Gemini — Google ↗ (https://ai.google.dev/gemini-api/docs/models)Panoramica modelli Claude — Anthropic ↗ (https://platform.claude.com/docs/en/about-claude/models/overview)Modelli Meta Llama — repository verificato ↗ (https://huggingface.co/meta-llama/models)Transformer — paper originale ↗ (https://arxiv.org/abs/1706.03762)
+Torna all’indice

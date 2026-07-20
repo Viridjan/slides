@@ -85,6 +85,12 @@ const SOURCES = [
   ['LLM', 'https://arxiv.org/abs/1706.03762', 'Transformer — paper originale'],
   ['machine learning', 'https://www.nist.gov/itl/ai-risk-management-framework', 'AI Risk Management Framework — NIST'],
   ['intelligenza artificiale', 'https://www.nist.gov/itl/ai-risk-management-framework', 'AI Risk Management Framework — NIST'],
+  ['OpenAI', 'https://developers.openai.com/api/docs/models', 'Catalogo modelli — OpenAI', /^ia04/],
+  ['Gemini', 'https://ai.google.dev/gemini-api/docs/models', 'Catalogo modelli Gemini — Google', /^ia04/],
+  ['Anthropic', 'https://platform.claude.com/docs/en/about-claude/models/overview', 'Panoramica modelli Claude — Anthropic', /^ia04/],
+  ['Meta', 'https://huggingface.co/meta-llama/models', 'Modelli Meta Llama — repository verificato', /^ia04/],
+  ['Mistral AI', 'https://docs.mistral.ai/models/', 'Catalogo modelli — Mistral AI', /^ia04/],
+  ['DeepSeek', 'https://api-docs.deepseek.com/quick_start/pricing', 'Modelli disponibili — DeepSeek', /^ia04/],
 ].sort((a, b) => b[0].length - a[0].length);
 
 // Wikipedia is a secondary source: it never displaces an official one. At most
@@ -313,7 +319,7 @@ function annotateSection(section, assigned = [], used = null) {
 // The closing slide collects every source the deck cites: one list to follow up
 // on, instead of a hunt back through the footers.
 function closingList(section, used) {
-  const stripped = section.replace(/<div\b[^>]*data-source-list="true"[^>]*>[\s\S]*?<\/div><\/div>/gi, '');
+  const stripped = section.replace(/<div\b[^>]*data-source-list="true"[^>]*>[\s\S]*?<\/div>\s*<\/div>/gi, '');
   if (!used.size) return stripped;
   // The closing slide is dark, but the shared theme forces .slide{color:ink}, so
   // an inherited colour would print dark text on a dark background. State the
@@ -323,6 +329,8 @@ function closingList(section, used) {
     `<a href="${href}" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">${escapeHtml(label)} ↗</a>`
   ).join('');
   const list = `<div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);">${items}</div></div>`;
+  const closingAction = /<div\b[^>]*class="[^"]*\bclosing-actions\b[^"]*"[^>]*>/i;
+  if (closingAction.test(stripped)) return stripped.replace(closingAction, `${list}$&`);
   return stripped.replace(/<\/section>\s*$/i, `${list}</section>`);
 }
 

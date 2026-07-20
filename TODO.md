@@ -1,7 +1,7 @@
 <!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # TODO
 
-Stato: una voce operativa aperta; contenuti del corso riconciliati con i
+Stato: due filoni operativi aperti; contenuti del corso riconciliati con i
 blocchi attuali.
 
 Questo file era nato su una versione precedente del corso, con nomi come
@@ -10,6 +10,43 @@ pubblicata: i contenuti sono stati migrati nei blocchi attuali `hs`, `rw`,
 `sd`, `sm`, `su`, `ia`, `pr` e `ms`.
 
 ## TODO aperti
+
+### Completare la revisione editoriale dell'inventario argomenti
+
+`inventario-argomenti-slide.csv` contiene la coda puntuale generata per la
+revisione dei contenuti. Alla rilevazione del 20 luglio 2026 risultano 1.499
+slide di contenuto distinte: 32 verificate e 1.467 ancora `non verificata`.
+Il CSV è la fonte operativa slide per slide e non va modificato a mano.
+
+- [ ] Suite Ufficio: verificare 401 slide;
+- [ ] Reti e Web: verificare 252 slide;
+- [ ] Programmazione: verificare 236 slide;
+- [ ] Smartphones: verificare 151 slide;
+- [ ] Hardware e Software: verificare 105 slide;
+- [ ] Sicurezza Digitale: verificare 96 slide;
+- [ ] Project Management: verificare 67 slide;
+- [ ] Intelligenza Artificiale: verificare 63 slide;
+- [ ] Contenuti digitali: verificare 49 slide;
+- [ ] Modellazione e Stampa 3D: verificare 47 slide.
+
+Per ogni slide controllare correttezza, chiarezza, collocazione nel percorso e
+duplicazioni reali. Le righe con `rimandare al blocco principale` o `usare il
+blocco principale come riferimento` richiedono in particolare di mantenere la
+spiegazione completa nel blocco indicato e lasciare altrove solo
+l'applicazione locale con un rimando interno. Le varianti linguistiche, le
+progressioni nello stesso blocco e i termini distinti per contesto non vanno
+uniformati meccanicamente.
+
+Dopo la revisione di una slide:
+
+```bash
+node scripts/manage-slide-review-tags.js tag file.html#slide-N
+node scripts/manage-slide-review-tags.js check
+node scripts/build-slide-topic-inventory.js
+```
+
+Se il contenuto educativo cambia dopo la verifica, il relativo hash diventa
+`verifica scaduta`: riesaminare la slide prima di applicare nuovamente il tag.
 
 ### Attivare la rendicontazione dei quiz con Google Sheets
 

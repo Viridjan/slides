@@ -574,13 +574,14 @@ automation, and `su04-01` presentazioni.
 
 ### Intelligenza Artificiale
 
-Navigation chain: ia01 → ia02 → ia03
+Navigation chain: ia01 → ia02 → ia03 → ia04
 
 | File | Title |
 | --- | --- |
 | `ia01-concetti-generali.html` | Concetti generali |
 | `ia02-esercizio-generazione.html` | Esercizio di generazione |
 | `ia03-llm.html` | LLM — Large Language Models |
+| `ia04-diversi-modelli-ia.html` | Diversi modelli di IA |
 
 ### Project Management
 
