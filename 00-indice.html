@@ -139,8 +139,10 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
 /* Download button */
 .dl-btn{position:absolute;right:124px;top:calc(50% + 8px);z-index:2;}
 .dl-btn:hover{background:rgba(244,236,224,.18);color:var(--paper);border-color:rgba(216,201,180,.5);}
-.exercise-btn{position:absolute;right:244px;top:calc(50% - 15px);width:88px;z-index:3;color:var(--gold);border-color:rgba(230,193,74,.38);background:rgba(230,193,74,.08);}
+.exercise-btn{position:absolute;right:244px;top:calc(50% - 30px);width:88px;z-index:3;color:var(--gold);border-color:rgba(230,193,74,.38);background:rgba(230,193,74,.08);}
 .exercise-btn:hover,.exercise-btn:focus-visible,.exercise-btn[aria-expanded="true"]{color:var(--paper);border-color:rgba(230,193,74,.68);background:rgba(230,193,74,.18);}
+.agenda-btn{position:absolute;right:244px;top:calc(50% + 8px);width:88px;z-index:3;color:var(--sky);border-color:rgba(63,126,140,.38);background:rgba(63,126,140,.08);}
+.agenda-btn:hover,.agenda-btn:focus-visible,.agenda-btn[aria-expanded="true"]{color:var(--paper);border-color:rgba(63,126,140,.68);background:rgba(63,126,140,.18);}
 .exercise-panel{position:fixed;width:340px;max-height:360px;overflow:auto;padding:11px;border:1px solid rgba(230,193,74,.42);border-radius:9px;background:rgba(22,18,16,.98);box-shadow:0 18px 50px rgba(0,0,0,.48);z-index:110;opacity:0;visibility:hidden;transform:translateY(-5px);transition:opacity .16s ease,transform .16s ease,visibility .16s;}
 .exercise-panel.open{opacity:1;visibility:visible;transform:none;}
 .exercise-panel-title{padding:2px 5px 9px;color:rgba(244,236,224,.48);font:11px/1 var(--font-mono);letter-spacing:1.4px;text-transform:uppercase;}
@@ -1986,9 +1988,12 @@ agendaTooltip.className = 'agenda-tooltip';
 agendaTooltip.setAttribute('aria-hidden', 'true');
 document.body.appendChild(agendaTooltip);
 
+let activeAgendaButton = null;
 const closeAgendaTooltip = () => {
   agendaTooltip.classList.remove('open');
   agendaTooltip.setAttribute('aria-hidden', 'true');
+  if (activeAgendaButton) activeAgendaButton.setAttribute('aria-expanded', 'false');
+  activeAgendaButton = null;
 };
 
 const escapeAgendaText = value => String(value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -2070,10 +2075,22 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
   const exercises = window.EXERCISE_INDEX?.[href] || [];
   const agenda = window.AGENDA_INDEX?.[href];
   if (agenda?.items?.length) {
-    const agendaTargets = [title, card.querySelector('.card-desc')].filter(Boolean);
-    const showAgenda = () => {
+    const agendaButton = document.createElement('button');
+    agendaButton.className = 'agenda-btn index-control-box';
+    agendaButton.type = 'button';
+    agendaButton.setAttribute('aria-expanded', 'false');
+    agendaButton.setAttribute('aria-label', 'Cosa vedremo in questo capitolo');
+    agendaButton.textContent = 'ⓘ';
+    agendaButton.addEventListener('click', e => {
+      e.preventDefault();
+      e.stopPropagation();
       closeStatsPanel();
       closeExercisePanel();
+      const reopening = activeAgendaButton !== agendaButton;
+      closeAgendaTooltip();
+      if (!reopening) return;
+      activeAgendaButton = agendaButton;
+      agendaButton.setAttribute('aria-expanded', 'true');
       agendaTooltip.innerHTML = `<div class="agenda-tooltip-title">${escapeAgendaText(agenda.title)}</div><div class="agenda-tooltip-list">${agenda.items.map(item => `<div class="agenda-tooltip-item">${escapeAgendaText(item)}</div>`).join('')}</div>`;
       const rect = card.getBoundingClientRect();
       // Align the tooltip to the right side of the central title/description
@@ -2086,14 +2103,8 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
       agendaTooltip.setAttribute('aria-hidden', 'false');
       const tooltipRect = agendaTooltip.getBoundingClientRect();
       if (tooltipRect.bottom > innerHeight - 8) agendaTooltip.style.top = `${Math.max(8, rect.top - tooltipRect.height - 7)}px`;
-    };
-    agendaTargets.forEach(target => {
-      target.setAttribute('tabindex', '0');
-      target.addEventListener('mouseenter', showAgenda);
-      target.addEventListener('mouseleave', closeAgendaTooltip);
-      target.addEventListener('focus', showAgenda);
-      target.addEventListener('blur', closeAgendaTooltip);
     });
+    controlRow.appendChild(agendaButton);
   }
   if (exercises.length) {
     const exerciseButton = document.createElement('button');
@@ -2190,6 +2201,7 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
 document.addEventListener('click', e => {
   if (activeStatsBadge && !statsPanel.contains(e.target) && !activeStatsBadge.contains(e.target)) closeStatsPanel();
   if (activeExerciseButton && !exercisePanel.contains(e.target) && !activeExerciseButton.contains(e.target)) closeExercisePanel();
+  if (activeAgendaButton && !agendaTooltip.contains(e.target) && !activeAgendaButton.contains(e.target)) closeAgendaTooltip();
 });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { closeStatsPanel(); closeExercisePanel(); closeAgendaTooltip(); }
@@ -2201,7 +2213,7 @@ addEventListener('scroll', closeAgendaTooltip, {passive:true});
 const subseriesLabels = {
   RW01:'Reti e navigazione', RW02:'Contenuti e collaborazione', RW03:'Identità e società',
   CD01:'Immagini e risorse aperte', CD02:'Podcast e storytelling',
-  SU01:'Software', SU02:'Documenti e Word', SU03:'Fogli di calcolo e automazione', SU04:'Presentazioni',
+  SU01:'Software', SU02:'Documenti', SU03:'Fogli di calcolo e automazione', SU04:'Presentazioni',
   PR01:'Fondamenti di programmazione', PR02:'Scratch', PR03:'Micro:bit', PR04:'Strumenti di sviluppo', PR05:'Python'
 };
 
