@@ -65,6 +65,15 @@ const SOURCES = [
   // Not in pr01-03: that deck only names Python as one of Flowgorithm's export
   // targets, and a tutorial link there sends the reader away from the algorithm.
   ['Python', 'https://docs.python.org/3/tutorial/', 'Tutorial ufficiale Python', /^pr(?!01-03)/],
+  ['dataclass', 'https://docs.python.org/3/library/dataclasses.html', 'Modulo dataclasses — documentazione Python', /^pr05-02/],
+  ['generatori', 'https://docs.python.org/3/howto/functional.html#generators', 'Generatori — Python Functional Programming HOWTO', /^pr05-02/],
+  ['ambiente virtuale', 'https://docs.python.org/3/library/venv.html', 'Modulo venv — documentazione Python', /^pr05-02/],
+  ['unittest', 'https://docs.python.org/3/library/unittest.html', 'Modulo unittest — documentazione Python', /^pr05-02/],
+  ['requests', 'https://requests.readthedocs.io/en/latest/user/quickstart/', 'Requests Quickstart — documentazione ufficiale', /^pr05-02/],
+  ['SQLite', 'https://docs.python.org/3/library/sqlite3.html', 'Modulo sqlite3 — documentazione Python', /^pr05-02/],
+  ['DictReader', 'https://docs.python.org/3/library/csv.html', 'Modulo csv — documentazione Python', /^pr05-01/],
+  ['JSON', 'https://docs.python.org/3/library/json.html', 'Modulo json — documentazione Python', /^pr05-01/],
+  ['pathlib', 'https://docs.python.org/3/library/pathlib.html', 'Modulo pathlib — documentazione Python', /^pr05-01/],
   ['algoritmo', 'https://xlinux.nist.gov/dads/', 'Dictionary of Algorithms and Data Structures — NIST', /^pr/],
   ['algoritmi', 'https://xlinux.nist.gov/dads/', 'Dictionary of Algorithms and Data Structures — NIST', /^pr/],
   ['Flowgorithm', 'https://www.flowgorithm.org/', 'Flowgorithm — sito ufficiale', /^pr/],

@@ -623,12 +623,20 @@
       "03 Funzioni · Isolare una responsabilità in un blocco riusabile, capirne lo scope e verificarlo con esempi."
     ]
   },
-  "pr01-06-python-base.html": {
+  "pr05-01-python-base.html": {
     "title": "Cosa vedremo",
     "items": [
-      "01 La sintassi di Python · Simboli e indentazione: la forma che il codice deve avere per essere eseguito.",
-      "02 Dati e input/output · Tipi e conversioni, liste, leggere ciò che entra e mostrare ciò che esce.",
-      "03 Scrivere e correggere · Dallo pseudocodice al programma: le famiglie di errori, il debug e i commenti."
+      "01 Costruire il programma · Sintassi, operatori, condizioni, cicli, funzioni, moduli ed errori.",
+      "02 Organizzare i dati · Stringhe, liste come vettori, matrici, dizionari, tuple e insiemi.",
+      "03 Conservare i risultati · Percorsi e file TXT, CSV e JSON fino a un programma completo."
+    ]
+  },
+  "pr05-02-python-strumenti.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "01 Organizzare il codice · Classi, oggetti, dataclass, moduli, pacchetti e ambienti virtuali.",
+      "02 Elaborare e verificare · Iteratori, generatori, pipeline, test automatici e casi limite.",
+      "03 Collegare applicazioni e dati · Richieste HTTP, API, autenticazione e database SQLite."
     ]
   },
   "pr01-07-iterazione-cicli.html": {

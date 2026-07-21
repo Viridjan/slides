@@ -614,9 +614,9 @@ Navigation chain: pm01 → pm02 → pm03 → pm04
 
 ### Programmare
 
-Index numbering uses `PR01.01`-`PR01.06` for general programming theory, `PR02.xx` for Scratch, `PR03.xx` for Micro:bit and `PR04.xx` for coding tools.
+Index numbering uses `PR01.xx` for general programming theory, `PR02.xx` for Scratch, `PR03.xx` for Micro:bit, `PR04.xx` for coding tools and `PR05.xx` for Python.
 
-General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-04 → pr01-05 → pr01-06 → pr01-07
+General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-04 → pr01-05 → pr01-07
 
 | File | Title |
 | --- | --- |
@@ -625,14 +625,12 @@ General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-0
 | `pr01-03-algoritmi.html` | Algoritmi e diagrammi di flusso |
 | `pr01-04-costrutti-verifica.html` | Costrutti e verifica |
 | `pr01-05-operatori-funzioni.html` | Operatori e funzioni |
-| `pr01-06-python-base.html` | Python di base |
 | `pr01-07-iterazione-cicli.html` | Iterazione e cicli |
 
-The `PR01.02`-`PR01.06` theory blocks are paraphrased and reorganized from the
+The `PR01.02`-`PR01.05` and `PR01.07` theory blocks are paraphrased and reorganized from the
 public PDF "Fondamenti di Informatica e Programmazione" by Edizioni Manna. Keep
 them in the Programmare group before Scratch; do not split them into
-Hardware/Software or other sections. `PR01.05` (operators and functions,
-language-agnostic) precedes `PR01.06` (the same ideas written in Python).
+Hardware/Software or other sections.
 
 Scratch navigation chain: pr02-01 → pr02-02
 
@@ -654,6 +652,13 @@ Coding tools navigation chain: pr04-01 → pr04-02 (pr03-02 closes into pr04-01)
 | --- | --- |
 | `pr04-01-editor-codice.html` | L'editor e Git |
 | `pr04-02-strumenti-ambiente.html` | Lavorare e scegliere |
+
+Python navigation chain: pr05-01 → pr05-02
+
+| File | Title |
+| --- | --- |
+| `pr05-01-python-base.html` | Python di base |
+| `pr05-02-python-strumenti.html` | Python: strumenti e applicazioni |
 
 ### Modellazione e stampa 3D
 
@@ -697,6 +702,16 @@ Navigation chain: gd01 → gd02 → gd03 → gd04 → gd05 → gd06 → gd07 →
 ## Index maintenance
 
 `00-indice.html` uses one `<div class="section-group">` per course section.
+Difficulty stars are generated, not assigned by hand. After adding a deck or
+substantially changing its content, run `node scripts/recalculate-difficulty.js`.
+The calculation combines 75% of the individual deck score (content units,
+words per unit, concept breadth and technical density) with 25% of the mean
+score of its macroarea. Quiz decks are measured from their questions and inherit
+the macroarea of the subject they assess. Stars are assigned by percentile with
+an approximately symmetric 10% / 20% / 40% / 20% / 10% distribution from one
+to five stars. The auditable intermediate values are written to
+`difficulty-index.js`; never edit that generated file directly.
+
 Card color classes:
 
 - `.pre` for Reti e Web
