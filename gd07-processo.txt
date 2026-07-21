@@ -3,151 +3,172 @@ Game Design · GD_07 — Processo di Design
 
 --- Slide 1 ---
 Processo
- di Design 
- Come si progetta un gioco davvero: validare l'idea, prototipare in fretta, testare coi giocatori e iterare senza innamorarsi della prima versione. 
+ di Design
+ Come si progetta un gioco davvero: validare l'idea, prototipare in fretta, testare coi giocatori e iterare senza innamorarsi della prima versione.
 
- 
- 
+
+
  🔁
 
+ Francesco Antonio Binetti
+
 --- Slide 2 ---
-Cosa vedremo 01 Validare un'idea 
- Da dove nasce un gioco, i sette criteri e gli otto core drives di Octalysis. 02 Iterare presto 
- Fail fast, i requirements e il ciclo bozza-analisi-correzione. 03 Mettere alla prova 
- Il playtesting, l'iterazione e validare la propria idea.
+Cosa vedremo 01 Validare un'idea
+ Da dove nasce un gioco, i sette criteri e gli otto core drives di Octalysis. 02 Iterare presto
+ Fail fast, i requirements e il ciclo bozza-analisi-correzione. 03 Mettere alla prova
+ Il playtesting, la rubrica a sei assi, l'iterazione e validare la propria idea.
 
 --- Slide 3 ---
-Da dove nasce un gioco 
- Ogni gioco parte da un impulso: un'idea, un'emozione, una meccanica curiosa vista altrove. Ma non tutte le idee reggono. Prima di costruire, si valida . 
- 
- L'idea non basta 
- Tutti hanno idee per giochi. Il design è il mestiere di trasformarle in qualcosa che funziona davvero in mano ai giocatori. 
- 
- 
- 
- 💡 L'impulso iniziale Una scintilla: "e se un gioco facesse questo?". È il punto di partenza, non il progetto. 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 7 CRITERI 
- 
- 
- 
- 
- 
- 
- 
- 
+Da dove nasce un gioco
+ Ogni gioco parte da un impulso: un'idea, un'emozione, una meccanica curiosa vista altrove. Ma non tutte le idee reggono. Prima di costruire, si valida .
+
+ L'idea non basta
+ Tutti hanno idee per giochi. Il design è il mestiere di trasformarle in qualcosa che funziona davvero in mano ai giocatori.
+
+
+
+ 💡 L'impulso iniziale Una scintilla: "e se un gioco facesse questo?". È il punto di partenza, non il progetto.
+
+
+
+
+
+
+
+
+
+
+
+ 7 CRITERI
+
+
+
+
+
+
+
+
  La validazione: tante idee entrano, un gioco esce
 
 --- Slide 4 ---
-I 7 criteri di validazione 
- Sette lenti per guardare la stessa idea: se una lente rivela un punto debole, meglio saperlo subito. 
- 
- 
- 🎨 Artistic impulse — cosa vuoi esprimere con questo gioco? 
- 👥 Demographics — per chi è? Età, gusti, esperienza di gioco. 
- 🎢 Experience — che esperienza offre a chi gioca? 
- ✨ Innovation — cosa porta di nuovo rispetto all'esistente? 
- 
- 
- 💰 Business — è sostenibile? C'è un mercato? 
- 🔧 Engineering — è realizzabile con i mezzi che hai? 
+I 7 criteri di validazione
+ Sette lenti per guardare la stessa idea: se una lente rivela un punto debole, meglio saperlo subito.
+
+
+ 🎨 Artistic impulse — cosa vuoi esprimere con questo gioco?
+ 👥 Demographics — per chi è? Età, gusti, esperienza di gioco.
+ 🎢 Experience — che esperienza offre a chi gioca?
+ ✨ Innovation — cosa porta di nuovo rispetto all'esistente?
+
+
+ 💰 Business — è sostenibile? C'è un mercato?
+ 🔧 Engineering — è realizzabile con i mezzi che hai?
  🌍 Social — che impatto o valore sociale genera?
 
 --- Slide 5 ---
-Octalysis: gli 8 core drives 
- Il framework di gamification di Yu-kai Chou : otto "motori" che spingono le persone a giocare — dal senso di progresso (🏆 Accomplishment) alla creatività (💪 Empowerment), dal possesso (🎁 Ownership) al legame sociale (👥 Social influence). 
- 
- 🔮 Unpredictability La curiosità di scoprire cosa succede dopo: sorpresa, casualità, mistero. 
- ⏳ Scarcity Ciò che è raro o richiede attesa diventa desiderabile: risorse limitate, tempi di ricarica. 
- ⚠️ Avoidance La paura di perdere qualcosa: progressi, serie di vittorie, occasioni irripetibili. 
- ⭐ Epic meaning Sentirsi parte di qualcosa più grande di sé: una missione, una causa, una storia. 
- 
- 
- Perché serve al designer 
+Octalysis: gli 8 core drives
+ Il framework di gamification di Yu-kai Chou : otto "motori" che spingono le persone a giocare — dal senso di progresso (🏆 Accomplishment) alla creatività (💪 Empowerment), dal possesso (🎁 Ownership) al legame sociale (👥 Social influence).
+
+ 🔮 Unpredictability La curiosità di scoprire cosa succede dopo: sorpresa, casualità, mistero.
+ ⏳ Scarcity Ciò che è raro o richiede attesa diventa desiderabile: risorse limitate, tempi di ricarica.
+ ⚠️ Avoidance La paura di perdere qualcosa: progressi, serie di vittorie, occasioni irripetibili.
+ ⭐ Epic meaning Sentirsi parte di qualcosa più grande di sé: una missione, una causa, una storia.
+
+
+ Perché serve al designer
  Capire cosa muove il tuo giocatore ti permette di progettare la motivazione, non solo le regole.
 
 --- Slide 6 ---
-Fail fast 
- Sbagliare presto, a basso costo. Meglio scoprire che un'idea non funziona con un prototipo di carta in un'ora, che dopo mesi di sviluppo. 
- 
- Fail fast 
- Prototipa grezzo, testa subito, butta via senza rimpianti. Ogni fallimento economico è una lezione a buon mercato. 
- 
- 
- 
- ⚡ Prototipo rapido Cartoncino, segnalini improvvisati, regole scritte a mano. Brutto va benissimo: deve solo essere giocabile. 
+Fail fast
+ Sbagliare presto, a basso costo. Meglio scoprire che un'idea non funziona con un prototipo di carta in un'ora, che dopo mesi di sviluppo.
+
+ Fail fast
+ Prototipa grezzo, testa subito, butta via senza rimpianti. Ogni fallimento economico è una lezione a buon mercato.
+
+
+
+ ⚡ Prototipo rapido Cartoncino, segnalini improvvisati, regole scritte a mano. Brutto va benissimo: deve solo essere giocabile.
  🗑️ Butta e rifai L'attaccamento è il nemico. Se il test dice che non funziona, si riparte — senza difendere la versione precedente.
 
 --- Slide 7 ---
-Requirements 
- Definire i vincoli prima di costruire: quanti giocatori, quanto dura una partita, che età ha il pubblico, che budget e componenti hai. I vincoli guidano il design, non lo limitano. 
- 
- La cornice serve 
- Un design senza vincoli è un design senza direzione: la pagina bianca paralizza, la cornice fa partire. 
- 
- 
- 
- 👥 Giocatori &amp; durata In quanti si gioca? Quanto dura una partita? 15 minuti e 2 ore sono giochi diversi. 
- 🎯 Target Bambini, famiglie, appassionati? Il pubblico decide complessità, tema e tono. 
+Requirements
+ Definire i vincoli prima di costruire: quanti giocatori, quanto dura una partita, che età ha il pubblico, che budget e componenti hai. I vincoli guidano il design, non lo limitano.
+
+ La cornice serve
+ Un design senza vincoli è un design senza direzione: la pagina bianca paralizza, la cornice fa partire.
+
+
+
+ 👥 Giocatori &amp; durata In quanti si gioca? Quanto dura una partita? 15 minuti e 2 ore sono giochi diversi.
+ 🎯 Target Bambini, famiglie, appassionati? Il pubblico decide complessità, tema e tono.
  📦 Componenti &amp; budget Cosa puoi permetterti di produrre? Dadi, carte, tabellone: ogni pezzo ha un costo.
 
 --- Slide 8 ---
-Bozza → analisi → correzione 
- 
- Prima bozza — una versione grezza ma giocabile: regole minime, materiali improvvisati. 
- Analisi — cosa funziona, cosa no, dove i giocatori si bloccano o si annoiano. 
- Bozza corretta — applica le lezioni del test: taglia, semplifica, aggiusta. 
- Ripeti — la nuova bozza torna al test. Ogni giro il gioco migliora un po'. 
- 
- 
- Non è una linea 
+Bozza → analisi → correzione
+
+ Prima bozza — una versione grezza ma giocabile: regole minime, materiali improvvisati.
+ Analisi — cosa funziona, cosa no, dove i giocatori si bloccano o si annoiano.
+ Bozza corretta — applica le lezioni del test: taglia, semplifica, aggiusta.
+ Ripeti — la nuova bozza torna al test. Ogni giro il gioco migliora un po'.
+
+
+ Non è una linea
  Il design non è lineare — è un loop . Non si passa da idea a gioco finito: si gira il ciclo finché funziona.
 
 --- Slide 9 ---
-Playtesting 
- Testare con giocatori reali è insostituibile. Osserva senza intervenire, non spiegare — se serve spiegare, le regole non sono chiare — e guarda dove si annoiano o si confondono. 
- Regola: testi il gioco, non i giocatori. Se sbagliano, è colpa del design. 
- 
- 
- 👀 Osserva In silenzio: dove esitano? Cosa rileggono? Quando guardano il telefono? Ogni gesto è un dato. 
+Playtesting
+ Testare con giocatori reali è insostituibile. Osserva senza intervenire, non spiegare — se serve spiegare, le regole non sono chiare — e guarda dove si annoiano o si confondono.
+ Regola: testi il gioco, non i giocatori. Se sbagliano, è colpa del design.
+
+
+ 👀 Osserva In silenzio: dove esitano? Cosa rileggono? Quando guardano il telefono? Ogni gesto è un dato.
  🤐 Non difendere Niente "sì ma volevo dire che...". Le critiche al gioco non sono critiche a te: sono materiale di lavoro.
 
 --- Slide 10 ---
-Iterazione 
- Il design è ciclico: ogni playtest genera correzioni, ogni correzione un nuovo test. Si itera finché il gioco "gira" da solo — i giocatori capiscono, si divertono, vogliono rigiocare. 
- In pratica: un gioco non si finisce — si abbandona quando funziona. 
- 
- 
- 🔄 Test → correzione Ogni giro del ciclo produce una versione un po' migliore. Dieci iterazioni piccole battono un grande piano perfetto. 
- ⚙️ Il gioco "gira" Il segnale d'arrivo: la partita fila senza il designer al tavolo a spiegare, correggere, giustificare.
+La rubrica del playtest
+ Sei assi per guardare lo stesso playtest senza farsi ingannare dall'entusiasmo del momento: per ognuno, cosa vuol dire il minimo e cosa il massimo.
+
+ Chiarezza Min: design non lineare, regole ambigue.
+ Max: design lineare, regole chiare e univoche.
+ Fluidità Min: elementi superflui, troppe eccezioni.
+ Max: nessuna azione inutile, poche o nessuna eccezione.
+ Bilanciamento Min: un leader scappa via, la fortuna domina.
+ Max: nessuna combo infinita, la fortuna pesa il giusto.
+ Ambientazione Min: meccaniche e tema non correlati.
+ Max: gli elementi si incastrano in un'esperienza solida.
+ Durata Min: troppo corta o troppo lunga per ciò che offre.
+ Max: durata appropriata a ciò che offre.
+ Divertimento Min: zero componente emotiva, molto downtime.
+ Max: tensione costante, downtime minimo.
 
 --- Slide 11 ---
-Valida un' idea 
- 
- Butta giù un'idea di gioco in una sola frase. 
- Passala ai 7 criteri di validazione : dove è debole? 
- Come faresti un prototipo di carta in 10 minuti? 
- Cosa osserveresti nel primo playtest ? 
- 
- 
- 💡 Bonus 
- Quale core drive di Octalysis spingerebbe di più i tuoi giocatori? Progresso, curiosità, paura di perdere, senso epico?
+Iterazione
+ Il design è ciclico: ogni playtest genera correzioni, ogni correzione un nuovo test. Si itera finché il gioco "gira" da solo — i giocatori capiscono, si divertono, vogliono rigiocare.
+ In pratica: un gioco non si finisce — si abbandona quando funziona.
+
+
+ 🔄 Test → correzione Ogni giro del ciclo produce una versione un po' migliore. Dieci iterazioni piccole battono un grande piano perfetto.
+ ⚙️ Il gioco "gira" Il segnale d'arrivo: la partita fila senza il designer al tavolo a spiegare, correggere, giustificare.
 
 --- Slide 12 ---
+Valida un' idea
+
+ Butta giù un'idea di gioco in una sola frase.
+ Passala ai 7 criteri di validazione : dove è debole?
+ Come faresti un prototipo di carta in 10 minuti?
+ Cosa osserveresti nel primo playtest ?
+
+
+ 💡 Bonus
+ Quale core drive di Octalysis spingerebbe di più i tuoi giocatori? Progresso, curiosità, paura di perdere, senso epico?
+
+--- Slide 13 ---
 Sbaglia presto.
-Itera sempre. 
- 
+Itera sempre.
+
  Il gioco non nasce finito dalla testa del designer: emerge da un ciclo di prototipi, test e correzioni. Il processo è il vero mestiere.
- 
- 
+
+
  → GD_08 · Progettare un Gioco Fisico
+
+ Francesco Antonio Binetti

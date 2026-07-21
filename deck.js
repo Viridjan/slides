@@ -489,3 +489,168 @@
   btnClose.addEventListener('click', e => { e.stopPropagation(); stop(); });
   }
 })();
+
+/* Reader mode — narrow-screen alternative to the fixed slide stage. The stage
+   always fits by scaling the full 1920x1080 canvas down (see fit() above), so
+   on a phone (~0.2x) the 24-90px authored text shrinks past readability with
+   big empty bars top/bottom. Reader mode never touches the stage: it walks
+   each .slide's live DOM once and renders the same content as a normal
+   scrollable document sized in rem/clamp(), so the browser's own viewport
+   width does the responsive work. On by default under ~820px width; a toggle
+   switches back to the exact slide (e.g. to pinch-zoom it) without reloading. */
+(() => {
+  const slides = [...document.querySelectorAll('.slide')];
+  if (!slides.length) return;
+  const stage = document.getElementById('deckStage') || document.querySelector('.deck-stage');
+  if (!stage) return;
+  const progress = document.getElementById('progress') || document.querySelector('.progress');
+
+  const mq = matchMedia('(max-width: 820px)');
+  let manualOverride = false;
+
+  // textContent alone concatenates across <br> with no space ("Introduzione<br>alla"
+  // becomes "Introduzionealla") — decks use <br> constantly for manual line breaks in
+  // headings, so read from a clone with <br> swapped for a space instead of relying on
+  // layout-dependent innerText (most slides are visibility:hidden when this runs).
+  const cleanText = el => {
+    if (!el) return '';
+    const clone = el.cloneNode(true);
+    clone.querySelectorAll('br').forEach(br => br.replaceWith(' '));
+    return (clone.textContent || '').replace(/\s+/g, ' ').trim();
+  };
+  // h1/h2/.lead are excluded from the generic walk too: renderSlide() already
+  // captures their full text as one block, so walking into them separately
+  // would re-emit fragments of the same sentence (e.g. an <em> inside the
+  // heading turning up again as its own stray paragraph).
+  const skipSelector = '.page-num,.num,.home-btn,.deck-author,[data-source-footer],' +
+    '[data-source-list],[data-cross-reference-footer],.progress,script,style,svg,' +
+    'h1,h2,.lead,.h-mega,.h-big,.h-sec';
+
+  // Generic on purpose: decks use dozens of different card/note/list layouts,
+  // so this reads DOM structure (headings, .lead, leaf text, table rows)
+  // rather than any one deck's specific component vocabulary.
+  const walk = (node, out) => {
+    for (const child of node.children) {
+      if (child.matches(skipSelector) || child.closest(skipSelector)) continue;
+      const tag = child.tagName.toLowerCase();
+      if (tag === 'tr') {
+        const row = [...child.children].map(cleanText).filter(Boolean).join(' · ');
+        if (row) out.push({ type: 'p', text: row });
+        continue;
+      }
+      if (tag === 'p' || tag === 'blockquote' || tag === 'li') {
+        const t = cleanText(child);
+        if (t) out.push({ type: tag === 'li' ? 'li' : 'p', text: t });
+        continue;
+      }
+      if (tag === 'h3' || child.classList.contains('lbl') ||
+          ((tag === 'b' || tag === 'strong') && cleanText(child).length <= 60)) {
+        const t = cleanText(child);
+        if (t) out.push({ type: 'sub', text: t });
+        continue;
+      }
+      if (child.children.length) { walk(child, out); continue; }
+      const t = cleanText(child);
+      if (t) out.push({ type: 'p', text: t });
+    }
+  };
+
+  const renderSlide = (slide, index) => {
+    const section = document.createElement('section');
+    section.className = 'deck-reader-slide';
+    section.id = `r-slide-${index + 1}`;
+
+    const num = document.createElement('div');
+    num.className = 'deck-reader-num';
+    num.textContent = `${String(index + 1).padStart(2, '0')} / ${slides.length}`;
+    section.appendChild(num);
+
+    // A handful of older decks set the title with a plain div.h-mega instead
+    // of a semantic h1 — fall back to the class so those slides still get a
+    // heading in the reader instead of silently starting with the lead.
+    const heading = slide.querySelector('h1, h2, .h-mega, .h-big, .h-sec');
+    if (heading) {
+      const h = document.createElement('h2');
+      h.textContent = cleanText(heading);
+      section.appendChild(h);
+    }
+
+    const lead = slide.querySelector('.lead');
+    if (lead) {
+      const p = document.createElement('p');
+      p.className = 'deck-reader-lead';
+      p.textContent = cleanText(lead);
+      section.appendChild(p);
+    }
+
+    const blocks = [];
+    walk(slide, blocks);
+    let list = null;
+    for (const block of blocks) {
+      if (heading && block.text === cleanText(heading)) continue;
+      if (lead && block.text === cleanText(lead)) continue;
+      if (block.type === 'li') {
+        if (!list) { list = document.createElement('ul'); section.appendChild(list); }
+        const li = document.createElement('li');
+        li.textContent = block.text;
+        list.appendChild(li);
+        continue;
+      }
+      list = null;
+      const el = document.createElement(block.type === 'sub' ? 'h3' : 'p');
+      el.className = block.type === 'sub' ? 'deck-reader-sub' : '';
+      el.textContent = block.text;
+      section.appendChild(el);
+    }
+    return section;
+  };
+
+  let built = false;
+  const reader = document.createElement('div');
+  reader.className = 'deck-reader';
+  const inner = document.createElement('div');
+  inner.className = 'deck-reader-inner';
+  reader.appendChild(inner);
+
+  const build = () => {
+    if (built) return;
+    built = true;
+    slides.forEach((slide, i) => inner.appendChild(renderSlide(slide, i)));
+    document.body.appendChild(reader);
+  };
+
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'deck-reader-toggle';
+
+  const fromHash = () => {
+    const m = location.hash.match(/(?:slide-|slide=|^#)(\d+)/);
+    return m ? Number(m[1]) - 1 : null;
+  };
+
+  const setReader = (on, { scroll = true } = {}) => {
+    if (on) build();
+    reader.classList.toggle('on', on);
+    stage.style.display = on ? 'none' : '';
+    if (progress) progress.style.display = on ? 'none' : '';
+    toggle.textContent = on ? '🖼️ Slide' : '📖 Leggi';
+    toggle.setAttribute('aria-pressed', String(on));
+    if (on && scroll) {
+      const n = fromHash();
+      const target = Number.isInteger(n) ? inner.children[n] : null;
+      (target || inner).scrollIntoView({ block: 'start' });
+    }
+  };
+
+  toggle.addEventListener('click', () => {
+    manualOverride = true;
+    setReader(!reader.classList.contains('on'));
+  });
+  document.body.appendChild(toggle);
+
+  mq.addEventListener('change', () => {
+    if (!manualOverride) setReader(mq.matches);
+  });
+
+  setReader(mq.matches);
+})();

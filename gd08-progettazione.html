@@ -136,7 +136,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <div class="deck-author">Francesco Antonio Binetti</div></section>
 
   <!-- SLIDE 2 · AGENDA -->
-  <section class="slide no-top-label"><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-columns:1fr;grid-template-rows:repeat(3,auto);gap:18px;margin-top:24px;"><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">01</span><div><b class="t">Le carte</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">L'anatomia di una carta, le dimensioni standard, il testo e le icone.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">02</span><div><b class="t">Materiali e regole</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Il calcolo dei materiali e un regolamento chiaro in quattro sezioni.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">03</span><div><b class="t">Creare e modificare</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Modificare giochi esistenti, alcuni esempi e progettare le proprie carte.</span></div></div></div><div class="num"></div></section>
+  <section class="slide no-top-label"><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-columns:1fr;grid-template-rows:repeat(3,auto);gap:18px;margin-top:24px;"><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">01</span><div><b class="t">Le carte</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">L'anatomia di una carta, le dimensioni standard, il testo e le icone.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">02</span><div><b class="t">Materiali e regole</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Il calcolo dei materiali con un caso numerico reale e un regolamento chiaro in quattro sezioni.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">03</span><div><b class="t">Creare e modificare</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Modificare giochi esistenti, alcuni esempi e progettare le proprie carte.</span></div></div></div><div class="num"></div></section>
 
   <!-- SLIDE 3 · ANATOMIA DELLA CARTA -->
   <section class="slide">
@@ -270,6 +270,23 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="page-num"></div>
   </section>
 
+  <!-- SLIDE 7B · UN CASO NUMERICO REALE -->
+  <section class="slide">
+
+    <h2 class="h-sec reveal" style="margin-top:24px;">Un caso <em class="hot">numerico reale</em></h2>
+    <p class="lead reveal d1" style="margin-top:12px;max-width:1500px;">Prova a giocare con i numeri prima di disegnare una sola carta: decidono quante ne servono davvero.</p>
+    <div class="steps reveal d2" style="margin-top:20px;">
+      <div class="step"><div class="t"><b>Quanti giocatori?</b> Proviamo 6: con 3 carte a testa e 6 copie ciascuna fanno 6 × 3 × 6 = <b>108 carte</b> in tavola.</div></div>
+      <div class="step"><div class="t"><b>Quante ne entrano in un foglio?</b> Il formato standard da stampare è <b>55 carte per foglio</b> — 108 carte significano circa 2 fogli.</div></div>
+      <div class="step"><div class="t"><b>Quante ne ricorda un giocatore?</b> Dopo <b>2-5 partite</b> il mazzo è già memorizzato quasi per intero: disegnarne molte più di così è lavoro che nessuno noterà al tavolo.</div></div>
+    </div>
+    <div class="note reveal d3" style="margin-top:18px;">
+      <div class="lbl">💡 Il numero giusto è il minimo che basta</div>
+      <p>Più carte uniche non significa un gioco migliore: significa più tempo di disegno per varietà che il giocatore smette di notare dopo poche partite.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
   <!-- SLIDE 8 · STRUTTURA DEL REGOLAMENTO -->
   <section class="slide">
 
@@ -327,13 +344,34 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <section class="slide">
 
     <h2 class="h-sec reveal" style="margin-top:24px;">Esempi di <em class="hot">modifica</em></h2>
-    <p class="lead reveal d1" style="margin-top:14px;max-width:1300px;">Cambia una regola e analizza l'effetto su strategia, durata e divertimento.</p>
-    <div class="grid3 reveal d2" style="margin-top:24px;">
-      <div class="card"><span class="ic">🃏</span><h3>Briscola</h3><p>E se il seme di briscola cambiasse a ogni mano? La strategia di lungo periodo salta.</p></div>
-      <div class="card gold"><span class="ic">🏠</span><h3>Monopoly</h3><p>E se le tasse finissero in un montepremi al centro? Nasce un nuovo incentivo a rischiare.</p></div>
-      <div class="card sky"><span class="ic">🂡</span><h3>Blackjack</h3><p>E se il banco si fermasse a 16 invece di 17? Le probabilità si spostano — di quanto?</p></div>
+    <p class="lead reveal d1" style="margin-top:12px;max-width:1500px;">Cambia una regola e analizza l'effetto su strategia, durata e divertimento.</p>
+    <div class="stack reveal d2" style="margin-top:20px;max-width:1600px;">
+      <div class="agenda-item" style="display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--gold-deep);padding:10px 4px;">
+        <span style="font-size:32px;min-width:48px;">🃏</span>
+        <div><b style="font-size:24px;">Briscola</b><br><span style="font-size:20px;color:var(--ink-faint);">E se il seme di briscola cambiasse a ogni mano? La strategia di lungo periodo salta.</span></div>
+      </div>
+      <div class="agenda-item" style="display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--sky);padding:10px 4px;">
+        <span style="font-size:32px;min-width:48px;">🏠</span>
+        <div><b style="font-size:24px;">Monopoly</b><br><span style="font-size:20px;color:var(--ink-faint);">E se le tasse finissero in un montepremi al centro? Nasce un nuovo incentivo a rischiare.</span></div>
+      </div>
+      <div class="agenda-item" style="display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--red);padding:10px 4px;">
+        <span style="font-size:32px;min-width:48px;">🂡</span>
+        <div><b style="font-size:24px;">Blackjack</b><br><span style="font-size:20px;color:var(--ink-faint);">E se il banco si fermasse a 16 invece di 17? Le probabilità si spostano — di quanto?</span></div>
+      </div>
+      <div class="agenda-item" style="display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--teal);padding:10px 4px;">
+        <span style="font-size:32px;min-width:48px;">🔄</span>
+        <div><b style="font-size:24px;">UNO</b><br><span style="font-size:20px;color:var(--ink-faint);">E se le carte +2 e +4 si potessero scaricare in gruppo sul giocatore dopo? L'effetto valanga cambia chi conviene colpire.</span></div>
+      </div>
+      <div class="agenda-item" style="display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--gold-deep);padding:10px 4px;">
+        <span style="font-size:32px;min-width:48px;">🪿</span>
+        <div><b style="font-size:24px;">Gioco dell'oca</b><br><span style="font-size:20px;color:var(--ink-faint);">E se ogni casella-trappola avesse un effetto diverso invece di "torna alla partenza"? La punizione uniforme sparisce.</span></div>
+      </div>
+      <div class="agenda-item" style="display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--sky);padding:10px 4px;">
+        <span style="font-size:32px;min-width:48px;">🧱</span>
+        <div><b style="font-size:24px;">Lego libero</b><br><span style="font-size:20px;color:var(--ink-faint);">E se dovessi costruire la torre più alta possibile in 3 minuti, senza vederla crollare? Un set di mattoncini diventa un gioco con un vincolo solo.</span></div>
+      </div>
     </div>
-    <div class="note reveal d3" style="margin-top:22px;">
+    <div class="note reveal d3" style="margin-top:18px;">
       <div class="lbl">Osserva l'effetto</div>
       <p>Ogni piccola modifica cambia strategia, durata e divertimento: annota <em>cosa</em> è cambiato e <em>perché</em>.</p>
     </div>

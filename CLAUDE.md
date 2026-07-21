@@ -132,6 +132,22 @@ All slide decks use a fixed 16:9 stage:
 - avoid responsive reflow inside the slide stage
 - page numbers are normally auto-filled by `numberPages()`
 
+**Reader mode** (`deck.js`, styled in `theme-corsi.css`) is the one sanctioned
+exception to "no responsive reflow inside the stage" — because it never
+touches the stage. Below ~820px width the fixed-scale stage would shrink
+authored 24-90px text to near-unreadable (`fit = min(w/1920, h/1080)`), so on
+narrow viewports `deck.js` instead walks each `.slide`'s live DOM once and
+renders the same content as a normal scrollable, `clamp()`-sized document in
+`.deck-reader` — heading, `.lead`, then a generic flattening of cards/notes/
+steps/table rows into subheadings and paragraphs. It is on by default under
+the breakpoint; a `📖 Leggi` / `🖼️ Slide` toggle (bottom-right, hidden above
+the breakpoint) switches back to the exact pinch-zoomable slide without
+reloading. Nothing to author per deck — it reads whatever markup is already
+there. Two DOM quirks it accounts for: `.textContent` alone collapses `<br>`
+line breaks with no space, so text is read from a clone with `<br>` swapped
+for a space first; a handful of older decks title-slide with `div.h-mega`
+instead of `<h1>`, so heading lookup falls back to `.h-mega/.h-big/.h-sec`.
+
 Every content deck should include:
 
 - fixed-stage CSS

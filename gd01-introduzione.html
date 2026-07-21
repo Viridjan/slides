@@ -69,6 +69,7 @@ em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--
 .split.even{grid-template-columns:1fr 1fr;}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
 .stack>*+*{margin-top:22px;}
 .tight-slide .h-sec{font-size:64px;}
 .tight-slide .lead{font-size:28px;line-height:1.34;}
@@ -136,7 +137,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <div class="deck-author">Francesco Antonio Binetti</div></section>
 
   <!-- SLIDE 2 · AGENDA -->
-  <section class="slide no-top-label"><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-columns:1fr;grid-template-rows:repeat(3,auto);gap:18px;margin-top:24px;"><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">01</span><div><b class="t">Classificare i giochi</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Il design applicato al gioco, i generi e perché le categorie non bastano.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">02</span><div><b class="t">Il modello MDA</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Meccaniche, dinamiche ed estetica, le regole e i comportamenti emergenti.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">03</span><div><b class="t">Designer e giocatore</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">L'esperienza del giocatore, il caso DOOM e analizzare un gioco con MDA.</span></div></div></div><div class="num"></div></section>
+  <section class="slide no-top-label"><h2 class="h2">Cosa vedremo</h2><div class="agenda-list" style="grid-template-columns:1fr;grid-template-rows:repeat(3,auto);gap:18px;margin-top:24px;"><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">01</span><div><b class="t">Classificare i giochi</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Il design applicato al gioco, game contro play, gamificare qualsiasi cosa, i generi e perché le categorie non bastano.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">02</span><div><b class="t">Il modello MDA</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">Meccaniche, dinamiche ed estetica, le regole e i comportamenti emergenti.</span></div></div><div class="agenda-item" style="align-items:flex-start;padding:16px 4px;"><span class="n">03</span><div><b class="t">Designer e giocatore</b><br><span style="font-size:23px;color:var(--ink-faint);line-height:1.32;">L'esperienza del giocatore, il caso DOOM e analizzare un gioco con MDA.</span></div></div></div><div class="num"></div></section>
 
   <!-- SLIDE 3 · COS'È IL GAME DESIGN -->
   <section class="slide">
@@ -167,6 +168,39 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
           <p>Sistemi digitali con feedback immediato: il computer applica le regole al posto dei giocatori.</p>
         </div>
       </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 3B · GAME O PLAY? -->
+  <section class="slide">
+
+    <h2 class="h-sec reveal" style="margin-top:24px;"><em class="hot">Game</em> o <em class="hot">play</em>?</h2>
+    <p class="lead reveal d1" style="margin-top:14px;max-width:1400px;">In italiano diciamo "giocare" per entrambi, ma in inglese la distinzione è netta: un <b>game</b> ha regole e un obiettivo misurabile da raggiungere o perdere; il <b>play</b> è attività libera, senza vincoli né un modo di "vincere".</p>
+    <div class="steps reveal d2" style="margin-top:22px;">
+      <div class="step"><div class="t"><b>To play a game</b> — giocare a scacchi seguendo le regole: il caso classico.</div></div>
+      <div class="step"><div class="t"><b>To play a play</b> — improvvisare a teatro: nessuna regola fissa, solo esplorazione libera.</div></div>
+      <div class="step"><div class="t"><b>To game a play</b> — una gara a tempo per lavare i piatti: un'attività libera diventa gioco solo perché le hai dato un obiettivo.</div></div>
+      <div class="step"><div class="t"><b>To game a game</b> — trovare l'exploit che rompe le regole di un gioco: giocare col gioco stesso.</div></div>
+    </div>
+    <div class="analogy reveal d3" style="margin-top:20px;"><span class="big">Regola:</span> dai a un'attività libera regole e un obiettivo, e diventa un gioco — è così che nasce ogni game design.</div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 3C · GAMIFICARE QUALSIASI COSA -->
+  <section class="slide">
+
+    <h2 class="h-sec reveal" style="margin-top:24px;">Gamificare <em class="hot">qualsiasi cosa</em></h2>
+    <p class="lead reveal d1" style="margin-top:14px;max-width:1400px;">Nessuno di questi oggetti è un gioco di per sé. Diventano un gioco solo quando qualcuno impone regole e un obiettivo — la stessa mossa che puoi fare su un lavoro, una commissione, un compito noioso.</p>
+    <div class="grid4 reveal d2" style="margin-top:26px;">
+      <div class="card"><span class="ic">🃏</span><h3>Un mazzo di carte</h3><p>Da solo è solo cartoncino stampato. Con delle regole diventa Poker, Solitario o Briscola.</p></div>
+      <div class="card sky"><span class="ic">🧩</span><h3>Un cubo di Rubik</h3><p>Sei facce colorate senza scopo. L'obiettivo "riallinea i colori" lo trasforma in un puzzle.</p></div>
+      <div class="card gold"><span class="ic">🪢</span><h3>Una corda</h3><p>Un oggetto qualunque. "Salta senza toccarla" la trasforma in un gioco di abilità.</p></div>
+      <div class="card red"><span class="ic">⭕</span><h3>Una griglia 3×3</h3><p>Nove caselle vuote. Le regole del tris bastano a renderle un gioco completo.</p></div>
+    </div>
+    <div class="note reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 Posso gamificare un lavoro?</div>
+      <p>Sì: dai a un compito noioso una regola chiara e un modo di "vincere" — un tempo limite, un punteggio, una sfida contro te stesso di ieri. È lo stesso principio, applicato fuori dal tavolo da gioco.</p>
     </div>
     <div class="page-num"></div>
   </section>

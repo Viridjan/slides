@@ -3,17 +3,19 @@ Game Design · GD_08 — Progettare un Gioco
 
 --- Slide 1 ---
 Progettare
- un Gioco 
- Dalla teoria al tavolo: come si disegnano le carte, si calcolano i materiali, si scrive un regolamento chiaro e si impara modificando giochi che già esistono. 
+ un Gioco
+ Dalla teoria al tavolo: come si disegnano le carte, si calcolano i materiali, si scrive un regolamento chiaro e si impara modificando giochi che già esistono.
 
- 
- 
+
+
  🃏
 
+ Francesco Antonio Binetti
+
 --- Slide 2 ---
-Cosa vedremo 01 Le carte 
- L'anatomia di una carta, le dimensioni standard, il testo e le icone. 02 Materiali e regole 
- Il calcolo dei materiali e un regolamento chiaro in quattro sezioni. 03 Creare e modificare 
+Cosa vedremo 01 Le carte
+ L'anatomia di una carta, le dimensioni standard, il testo e le icone. 02 Materiali e regole
+ Il calcolo dei materiali con un caso numerico reale e un regolamento chiaro in quattro sezioni. 03 Creare e modificare
  Modificare giochi esistenti, alcuni esempi e progettare le proprie carte.
 
 --- Slide 3 ---
@@ -111,6 +113,18 @@ Calcolo dei materiali
  🖨️ Conta i fogli Carte totali ÷ carte per foglio = pagine da stampare. Pianifica anche il tempo di taglio.
 
 --- Slide 8 ---
+Un caso numerico reale
+ Prova a giocare con i numeri prima di disegnare una sola carta: decidono quante ne servono davvero.
+
+ Quanti giocatori? Proviamo 6: con 3 carte a testa e 6 copie ciascuna fanno 6 × 3 × 6 = 108 carte in tavola.
+ Quante ne entrano in un foglio? Il formato standard da stampare è 55 carte per foglio — 108 carte significano circa 2 fogli.
+ Quante ne ricorda un giocatore? Dopo 2-5 partite il mazzo è già memorizzato quasi per intero: disegnarne molte più di così è lavoro che nessuno noterà al tavolo.
+
+
+ 💡 Il numero giusto è il minimo che basta
+ Più carte uniche non significa un gioco migliore: significa più tempo di disegno per varietà che il giocatore smette di notare dopo poche partite.
+
+--- Slide 9 ---
 Il regolamento in 4 sezioni
 
  🎯 1 · Obiettivo Come si vince — sempre per primo . Chi legge deve sapere subito verso cosa gioca.
@@ -122,7 +136,7 @@ Il regolamento in 4 sezioni
  💡 Perché l'obiettivo va primo
  Dire subito come si vince orienta tutta la lettura: ogni regola successiva acquista senso alla luce dell'obiettivo.
 
---- Slide 9 ---
+--- Slide 10 ---
 Scrivere regole chiare
  La regola più bella è inutile se non si capisce. Usa esempi concreti , immagini, un ordine logico e un glossario per le keyword. Poi testa il manuale dando il gioco a qualcuno senza spiegarlo .
  Regola: se devi spiegarlo tu, il manuale non è finito.
@@ -131,7 +145,7 @@ Scrivere regole chiare
  📖 Esempi &amp; immagini Un esempio di turno completo vale più di tre paragrafi di regole astratte.
  🔤 Glossario keyword Ogni parola-regola definita una sola volta, in un posto facile da ritrovare.
 
---- Slide 10 ---
+--- Slide 11 ---
 Modificare giochi esistenti
  Un ottimo esercizio per imparare: prendi un gioco che conosci e cambia una sola regola . Osserva come cambia tutto il resto. Capisci il design smontandolo .
 
@@ -142,19 +156,46 @@ Modificare giochi esistenti
 
  🔬 Una variabile alla volta Cambia una regola sola: se ne cambi tre, non saprai quale ha prodotto l'effetto.
 
---- Slide 11 ---
+--- Slide 12 ---
 Esempi di modifica
  Cambia una regola e analizza l'effetto su strategia, durata e divertimento.
 
- 🃏 Briscola E se il seme di briscola cambiasse a ogni mano? La strategia di lungo periodo salta.
- 🏠 Monopoly E se le tasse finissero in un montepremi al centro? Nasce un nuovo incentivo a rischiare.
- 🂡 Blackjack E se il banco si fermasse a 16 invece di 17? Le probabilità si spostano — di quanto?
+
+ 🃏
+ Briscola
+ E se il seme di briscola cambiasse a ogni mano? La strategia di lungo periodo salta.
+
+
+ 🏠
+ Monopoly
+ E se le tasse finissero in un montepremi al centro? Nasce un nuovo incentivo a rischiare.
+
+
+ 🂡
+ Blackjack
+ E se il banco si fermasse a 16 invece di 17? Le probabilità si spostano — di quanto?
+
+
+ 🔄
+ UNO
+ E se le carte +2 e +4 si potessero scaricare in gruppo sul giocatore dopo? L'effetto valanga cambia chi conviene colpire.
+
+
+ 🪿
+ Gioco dell'oca
+ E se ogni casella-trappola avesse un effetto diverso invece di "torna alla partenza"? La punizione uniforme sparisce.
+
+
+ 🧱
+ Lego libero
+ E se dovessi costruire la torre più alta possibile in 3 minuti, senza vederla crollare? Un set di mattoncini diventa un gioco con un vincolo solo.
+
 
 
  Osserva l'effetto
  Ogni piccola modifica cambia strategia, durata e divertimento: annota cosa è cambiato e perché .
 
---- Slide 12 ---
+--- Slide 13 ---
 Progetta le tue carte
 
  Scegli un tema per un mini gioco di carte.
@@ -166,14 +207,14 @@ Progetta le tue carte
  💡 Bonus
  Prendi un gioco che conosci e cambia una sola regola: prova mentalmente una partita e osserva come cambia.
 
---- Slide 13 ---
+--- Slide 14 ---
 Dall'idea
-al tavolo. 
- 
+al tavolo.
+
  Hai attraversato tutto il game design: dai tipi di gioco al suono, dal feedback alla difficoltà, dalle meccaniche al processo, fino a stampare le tue carte. Ora tocca a te progettare.
- 
- 
- Fine serie Game Design 
- 
- 
- Torna all’indice
+
+
+ Fine serie Game Design
+
+
+ Torna all’indice Francesco Antonio Binetti

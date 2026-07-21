@@ -13,7 +13,7 @@ window.COMPLETENESS = {
   "gd05-difficolta.html": 5,
   "gd06-meccaniche.html": 4,
   "gd07-processo.html": 3,
-  "gd08-progettazione.html": 3,
+  "gd08-progettazione.html": 4,
   "hs01-componenti.html": 4,
   "hs02-hard-disk-filesystem.html": 6,
   "hs03-os.html": 5,
