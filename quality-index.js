@@ -78,6 +78,7 @@ window.QUALITY_INDEX = {
   "ia02-esercizio-generazione.html": { coverage: 1, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "ia03-llm.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "ia04-diversi-modelli-ia.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
+  "ia05-strumenti-gratuiti.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 0 },
   "pm01-introduzione.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "pm02-pianificazione.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "pm03-metodologie.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },

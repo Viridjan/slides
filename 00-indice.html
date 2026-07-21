@@ -102,6 +102,13 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
 .stats-badge[aria-expanded="true"] .chev{transform:rotate(180deg);}
 .last-modified{position:absolute;right:24px;top:calc(50% + 8px);width:88px;min-height:29px;box-sizing:border-box;padding:7px 0 0;border:0;background:transparent;color:rgba(244,236,224,.46);font:15px/1 var(--font-mono);letter-spacing:-.8px;text-align:center;white-space:nowrap;z-index:2;}
 .control-rail{position:absolute;right:0;top:0;bottom:0;width:232px;pointer-events:none;z-index:1;}
+/* Inert full-card overlay holding the TXT/exercise/stats/date controls: each
+   child re-enables pointer-events and positions itself absolutely (right:Npx)
+   exactly as before this wrapper existed, so on desktop nothing changes. It
+   exists so the mobile breakpoint has one element to switch from an absolute
+   overlay to a wrapped flex row, instead of four independent card children. */
+.control-row{position:absolute;inset:0;pointer-events:none;}
+.control-row>*{pointer-events:auto;}
 .stats-panel{position:fixed;left:18px;width:248px;padding:7px 11px 11px;border:1px solid rgba(63,126,140,.42);border-radius:9px;background:rgba(22,18,16,.97);box-shadow:0 18px 50px rgba(0,0,0,.45);color:var(--paper);font-family:var(--font-mono);z-index:100;opacity:0;visibility:hidden;transform:translateY(-5px);transition:opacity .16s ease,transform .16s ease,visibility .16s;}
 .stats-panel.open{opacity:1;visibility:visible;transform:none;}
 .stats-row{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;min-height:25px;padding:4px 6px;border-radius:5px;font-size:11px;line-height:1.1;color:rgba(244,236,224,.68);}
@@ -146,6 +153,35 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
 .agenda-tooltip-title{margin-bottom:9px;color:var(--paper);font:700 12px/1 var(--font-mono);letter-spacing:1.3px;text-transform:uppercase;}
 .agenda-tooltip-list{display:grid;gap:7px;}
 .agenda-tooltip-item{padding:8px 10px;border-left:3px solid var(--sky);border-radius:5px;background:rgba(244,236,224,.055);color:rgba(244,236,224,.74);font:13px/1.35 var(--font-body);}
+
+/* Mobile: module-card's four controls (TXT/exercise/stats/date) are absolute
+   right-rail siblings on desktop — below 760px they stack into a wrapped flex
+   row instead, and the card itself goes from a 220px-num + fixed-right-margin
+   grid to a plain flowing column. */
+@media(max-width:760px){
+  .page{padding:32px 18px 60px;}
+  .page-header{margin-bottom:36px;padding-bottom:24px;}
+  .header-left h1,.header-nav h1{font-size:40px;letter-spacing:-1px;}
+  .nav-chev{font-size:28px;}
+  .course-search{font-size:16px;padding:13px 44px 13px 46px;}
+  .search-box::before{font-size:20px;left:14px;}
+
+  .module-card{display:flex;flex-direction:column;gap:6px;padding:14px;min-height:0;background:rgba(244,236,224,.04);border:1px solid rgba(216,201,180,.12);border-radius:10px;}
+  .module-card::after{display:none;}
+  .module-card.pre{border-left:3px solid var(--sky);}
+  .module-card.sec{border-left:3px solid var(--red);}
+  .module-card.inf{border-left:3px solid var(--gold-deep);}
+
+  .card-num{grid-template-columns:none;display:block;text-align:left;font-size:24px;padding-right:0;}
+  .card-num-main,.card-num-dot,.card-num-sub{text-align:left;}
+
+  .card-title{font-size:20px;}
+  .card-desc{font-size:14px;}
+
+  .control-row{position:static;display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+  .card-difficulty,.dl-btn,.exercise-btn,.stats-badge,.last-modified{position:static !important;right:auto !important;top:auto !important;}
+  .card-difficulty,.dl-btn,.exercise-btn,.last-modified{width:auto !important;}
+}
 </style>
 <script src="completeness-index.js"></script>
 <script src="quality-index.js"></script>
@@ -1230,6 +1266,22 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
         <div class="card-arrow">→</div>
       </a>
 
+      <a class="module-card inf" href="ia05-strumenti-gratuiti.html">
+        <div class="card-num">IA05</div>
+        <div class="card-body">
+          <div class="card-tag">INTELLIGENZA ARTIFICIALE · IA05</div>
+          <div class="card-title">Strumenti gratuiti online</div>
+          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
+          <div class="card-desc">Chat, immagini, audio, presentazioni, codice e ricerca: una mappa di strumenti IA gratuiti o freemium, con i loro limiti e come valutarli prima di usarli.</div>
+          <div class="card-topics">
+            <span class="topic">Freemium</span>
+            <span class="topic">Strumenti pratici</span>
+            <span class="topic">Privacy</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
     </div>
   </div>
 
@@ -1964,12 +2016,22 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
   rail.className = 'control-rail';
   rail.setAttribute('aria-hidden', 'true');
   card.appendChild(rail);
-  // Only the central title/description panel navigates. Module code and the
-  // complete four-control rail sit outside that visual link box.
+  // Below the mobile breakpoint the four-control rail is no longer a fixed
+  // pixel-width zone on the right (cards stack vertically instead), so the
+  // TXT/exercise/stats/date controls share one wrapper the mobile CSS can
+  // reflow into a wrapped row, instead of four independent absolutely
+  // positioned siblings of the card.
+  const controlRow = document.createElement('div');
+  controlRow.className = 'control-row';
+  card.appendChild(controlRow);
+  // Only the central title/description panel navigates on desktop, where
+  // module code and the control rail sit outside that visual link box. Below
+  // the breakpoint the card is a single stacked block with no separate zones,
+  // so any tap outside a button/badge opens the deck.
   card.addEventListener('click', e => {
     if (e.defaultPrevented || e.target.closest('button,.stats-badge')) return;
     const rect = card.getBoundingClientRect();
-    if (e.detail !== 0 && (e.clientX < rect.left + 234 || e.clientX >= rect.right - 344)) {
+    if (innerWidth > 760 && e.detail !== 0 && (e.clientX < rect.left + 234 || e.clientX >= rect.right - 344)) {
       e.preventDefault();
       e.stopPropagation();
       return;
@@ -1989,7 +2051,7 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
     a.click();
     document.body.removeChild(a);
   });
-  card.appendChild(btn);
+  controlRow.appendChild(btn);
   const exercises = window.EXERCISE_INDEX?.[href] || [];
   const agenda = window.AGENDA_INDEX?.[href];
   if (agenda?.items?.length) {
@@ -2044,7 +2106,7 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
       exercisePanel.classList.add('open');
       exercisePanel.setAttribute('aria-hidden', 'false');
     });
-    card.appendChild(exerciseButton);
+    controlRow.appendChild(exerciseButton);
   }
   const isoDate = window.LAST_MODIFIED_INDEX?.[href];
   if (isoDate) {
@@ -2054,7 +2116,7 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
     date.setAttribute('aria-label', `Ultima modifica ${isoDate}`);
     const [year, month, day] = isoDate.split('-');
     date.textContent = `${day}/${month}/${year}`;
-    card.appendChild(date);
+    controlRow.appendChild(date);
   }
   // Synthetic index: normalized density + editorial quality collapsed to one value.
   const density = window.COMPLETENESS?.[href];
@@ -2106,7 +2168,7 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
     badge.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') openPanel(e);
     });
-    card.appendChild(badge);
+    controlRow.appendChild(badge);
   }
 });
 

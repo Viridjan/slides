@@ -591,7 +591,7 @@ automation, and `su04-01` presentazioni.
 
 ### Intelligenza Artificiale
 
-Navigation chain: ia01 → ia02 → ia03 → ia04
+Navigation chain: ia01 → ia02 → ia03 → ia04 → ia05
 
 | File | Title |
 | --- | --- |
@@ -599,6 +599,7 @@ Navigation chain: ia01 → ia02 → ia03 → ia04
 | `ia02-esercizio-generazione.html` | Esercizio di generazione |
 | `ia03-llm.html` | LLM — Large Language Models |
 | `ia04-diversi-modelli-ia.html` | Diversi modelli di IA |
+| `ia05-strumenti-gratuiti.html` | Strumenti gratuiti online |
 
 ### Project Management
 

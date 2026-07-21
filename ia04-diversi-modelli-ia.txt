@@ -130,10 +130,8 @@ Il
 
 
 
+
  [Fonte: Catalogo modelli — OpenAI — https://developers.openai.com/api/docs/models] [Fonte: Catalogo modelli — Mistral AI — https://docs.mistral.ai/models/]
-Fonti ufficiali:
-- Catalogo modelli — OpenAI — https://developers.openai.com/api/docs/models
-- Catalogo modelli — Mistral AI — https://docs.mistral.ai/models/
 
 --- Slide 6 ---
 «Reasoning» non significa infallibile
@@ -160,9 +158,8 @@ Fonti ufficiali:
 
 
 
+
  [Fonte: Modelli disponibili — DeepSeek — https://api-docs.deepseek.com/quick_start/pricing]
-Fonti ufficiali:
-- Modelli disponibili — DeepSeek — https://api-docs.deepseek.com/quick_start/pricing
 
 --- Slide 7 ---
 Modelli multimodali
@@ -193,9 +190,8 @@ Modelli multimodali
 
 
 
+
  [Fonte: Catalogo modelli Gemini — Google — https://ai.google.dev/gemini-api/docs/models]
-Fonti ufficiali:
-- Catalogo modelli Gemini — Google — https://ai.google.dev/gemini-api/docs/models
 
 --- Slide 8 ---
 Immagini: generare e modificare
@@ -383,10 +379,8 @@ Sei ecosistemi generalisti
 
 
 
+
  [Fonte: Panoramica modelli Claude — Anthropic — https://platform.claude.com/docs/en/about-claude/models/overview] [Fonte: Modelli Meta Llama — repository verificato — https://huggingface.co/meta-llama/models]
-Fonti ufficiali:
-- Panoramica modelli Claude — Anthropic — https://platform.claude.com/docs/en/about-claude/models/overview
-- Modelli Meta Llama — repository verificato — https://huggingface.co/meta-llama/models
 
 --- Slide 13 ---
 Aperti, chiusi, locali, cloud
@@ -514,35 +508,9 @@ Stesso prompt, test equo
  Non una classifica assoluta, ma una decisione motivata: «per questo compito, con questi vincoli, scegliamo questo modello».
 
 --- Slide 17 ---
-Verifica: sai distinguere?
-
-
- 1 · Playlist personalizzata
- È generazione, raccomandazione o entrambe? Quale output produce davvero il modello?
-
-
- 2 · Assistente che prenota
- Qual è il modello e quali altri componenti trasformano la risposta in azione?
-
-
- 3 · Ricerca nei documenti
- Dove possono intervenire embedding, reranker, LLM e fonti esterne?
-
-
- 4 · Modello sul telefono
- Quali vantaggi e limiti prevedi rispetto a un grande modello cloud?
-
-
-
- In pratica: descrivi sempre compito, input, output, vincoli e sistema completo.
-
-
-
- [Fonte: Transformer — paper originale — https://arxiv.org/abs/1706.03762]
-
---- Slide 18 ---
 Il modello migliore
 non esiste.
  Esiste il modello più adatto a un compito, dentro un sistema progettato e verificato con criteri espliciti.
- Fonti e approfondimenti Catalogo modelli — OpenAI ↗ (https://developers.openai.com/api/docs/models)Catalogo modelli — Mistral AI ↗ (https://docs.mistral.ai/models/)Modelli disponibili — DeepSeek ↗ (https://api-docs.deepseek.com/quick_start/pricing)Catalogo modelli Gemini — Google ↗ (https://ai.google.dev/gemini-api/docs/models)Panoramica modelli Claude — Anthropic ↗ (https://platform.claude.com/docs/en/about-claude/models/overview)Modelli Meta Llama — repository verificato ↗ (https://huggingface.co/meta-llama/models)Transformer — paper originale ↗ (https://arxiv.org/abs/1706.03762)
-Torna all’indice
+
+ Fonti e approfondimenti Catalogo modelli — OpenAI ↗ (https://developers.openai.com/api/docs/models)Catalogo modelli — Mistral AI ↗ (https://docs.mistral.ai/models/)Modelli disponibili — DeepSeek ↗ (https://api-docs.deepseek.com/quick_start/pricing)Catalogo modelli Gemini — Google ↗ (https://ai.google.dev/gemini-api/docs/models)Panoramica modelli Claude — Anthropic ↗ (https://platform.claude.com/docs/en/about-claude/models/overview)Modelli Meta Llama — repository verificato ↗ (https://huggingface.co/meta-llama/models)
+Prossimo → IA05 · Strumenti gratuiti online

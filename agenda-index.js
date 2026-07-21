@@ -753,5 +753,13 @@ globalThis.AGENDA_INDEX = {
       "02 Le attività · Un'attività passo-passo, adatta a ogni livello, e gli errori comuni in aula.",
       "03 Valutare · Badge, valutazione e i quattro criteri."
     ]
+  },
+  "ia05-strumenti-gratuiti.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "01 Cosa vuol dire gratis · Freemium, dati come prezzo, e le categorie di strumenti disponibili.",
+      "02 Gli strumenti · Chat, scrittura, immagini, audio, presentazioni, codice e ricerca.",
+      "03 I limiti · Cosa perde la versione gratuita e come valutare uno strumento prima di usarlo."
+    ]
   }
 };

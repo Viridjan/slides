@@ -23,6 +23,7 @@ window.COMPLETENESS = {
   "ia02-esercizio-generazione.html": 4,
   "ia03-llm.html": 4,
   "ia04-diversi-modelli-ia.html": 3,
+  "ia05-strumenti-gratuiti.html": 4,
   "ms01-tinkercad-introduzione.html": 5,
   "ms02-modellazione-base.html": 6,
   "ms03-esportazione-stampa-3d.html": 5,
