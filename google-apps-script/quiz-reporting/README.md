@@ -33,3 +33,15 @@ deve essere condiviso con gli studenti.
 
 Definisci una durata di conservazione coerente con lo scopo didattico e limita
 l'accesso al foglio al personale autorizzato.
+
+## Accesso e conservazione adottati
+
+- Il Foglio Google resta privato ed è condiviso soltanto con il proprietario e
+  con il personale didattico autorizzato; gli studenti accedono esclusivamente
+  all'applicazione web e non al foglio.
+- I tentativi usano soltanto codici pseudonimi. L'eventuale tabella che associa
+  codici e identità non deve essere conservata nello stesso foglio.
+- I risultati vengono conservati per 90 giorni, salvo una necessità didattica
+  documentata più breve, e poi eliminati dal proprietario del foglio.
+- Al termine dell'attività va riesaminato anche l'accesso degli eventuali
+  collaboratori e revocato quando non è più necessario.

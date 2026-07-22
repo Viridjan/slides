@@ -74,13 +74,13 @@ Se il contenuto educativo cambia dopo la verifica, il relativo hash diventa
 Il codice è già presente nel repository, ma la raccolta resta volutamente
 disattivata finché non viene configurato il deployment Google:
 
-- [ ] creare il Foglio Google destinato ai risultati;
-- [ ] copiare `google-apps-script/quiz-reporting/Code.gs` nel progetto Apps Script collegato;
-- [ ] eseguire `setup()` una volta e autorizzare lo script;
-- [ ] pubblicare Apps Script come applicazione web eseguita dal proprietario;
-- [ ] inserire l'URL `/exec` del deployment in `quiz-reporting-config.js`;
-- [ ] eseguire un tentativo di prova e verificare i fogli `Risultati` e `Ultime 48 ore`;
-- [ ] definire accessi e durata di conservazione dei dati raccolti.
+- [x] creare il Foglio Google destinato ai risultati;
+- [x] copiare `google-apps-script/quiz-reporting/Code.gs` nel progetto Apps Script collegato;
+- [x] eseguire `setup()` una volta e autorizzare lo script;
+- [x] pubblicare Apps Script come applicazione web eseguita dal proprietario;
+- [x] inserire l'URL `/exec` del deployment in `quiz-reporting-config.js`;
+- [x] eseguire un tentativo di prova e verificare i fogli `Risultati` e `Ultime 48 ore`;
+- [x] definire accessi e durata di conservazione dei dati raccolti.
 
 Istruzioni complete: `google-apps-script/quiz-reporting/README.md`.
 
@@ -88,14 +88,14 @@ Istruzioni complete: `google-apps-script/quiz-reporting/README.md`.
 
 | Area vecchia | Blocco attuale | Esito |
 | --- | --- | --- |
-| `web03-*`, `web07-*`, `web08-*` | `rw01`-`rw09` | Contenuti integrati nei blocchi Reti e Web |
+| `web03-*`, `web07-*`, `web08-*` | `rw01-01`-`rw03-05` | Contenuti integrati nei blocchi Reti e Web |
 | `inf01-*` | `hs01`, `su01`-`su04` | Componenti, browser e suite ricollocati |
 | `inf02-*` | `rw03-01`, `rw03-04`, `rw03-05` | Identita, SPID/PEC, reputazione e social integrati |
 | `inf03-*`, `inf04-*`, `inf05-*`, `inf08-*` | `su02-01`-`su04-01` | Documenti, fogli di calcolo, presentazioni e automazione integrati |
 | `inf06-*`, `inf07-*` | `rw03-04`, `rw03-05`, `su03-07` | Branding, social, hashtag e contenuti visuali integrati |
-| `sec02-*`, `sec03-*` | `sd01`-`sd05` | Minacce, privacy, crittografia, normative e assessment integrati |
+| `sec02-*`, `sec03-*` | `sd01`-`sd06` | Minacce, privacy, crittografia, normative, assessment e continuità operativa integrati |
 | `sma04-*`-`sma11-*` | `sm04`-`sm11` | Smartphone, privacy, sicurezza, file, fotocamera e accessibilita integrati |
-| `ia_*` | `ia01`-`ia03` | IA, strumenti generativi, LLM, tokenizzazione e allucinazioni integrati |
+| `ia_*` | `ia01`-`ia05` | IA, strumenti generativi, LLM, modelli e strumenti gratuiti integrati |
 
 ## Screenshot
 
@@ -121,13 +121,13 @@ Le espansioni indicate nel vecchio TODO sono coperte dai deck attuali:
 | SPID, CIE, PEC, identita e reputazione | `rw03-01-identita.html`, `rw03-04-branding.html`, `rw03-05-social.html` |
 | Social, hashtag, calendario editoriale, contenuti | `rw03-05-social.html` |
 | Documenti, fogli, formule, CERCA.VERT, testo, pivot e presentazioni | `su02-01-documenti.html`-`su04-01-presentazioni.html` |
-| Pivot avanzate, grafici, fogli avanzati, query, macro, VBA e Google Apps Script | `su03-09-tabelle-pivot-avanzate.html`-`su03-15-google-apps-script.html` |
+| Pivot avanzate, grafici, query, automazione, segmentazioni e collegamenti | `su03-09-tabelle-pivot-avanzate.html`-`su03-18-oltre-il-foglio.html` |
 | Fotografia, editing, formati, QR, screenshot | `sm08-fotocamera-contenuti.html` |
 | App, permessi, privacy, sicurezza smartphone, file e accessibilita | `sm04-app-permessi.html`-`sm11-manutenzione-scelta.html` |
-| Malware, phishing, privacy, normative e dati personali | `sd01-introduzione.html`-`sd05-assessment.html` |
+| Malware, phishing, privacy, normative, dati personali e piani B digitali | `sd01-introduzione.html`-`sd06-piani-b-digitali.html` |
 | Troubleshooting tecnico | `hs05-troubleshooting.html` |
-| IA generativa, prompt, deepfake, LLM, tokenizzazione | `ia01-concetti-generali.html`-`ia03-llm.html` |
-| Scratch, Micro:bit, CreateAI | `pr02-01-introduzione.html`, `pr02-02-questionario.html`, `pr03-01-microbit.html`, `pr03-02-createai.html` |
+| IA generativa, prompt, deepfake, LLM, modelli e strumenti gratuiti | `ia01-concetti-generali.html`-`ia05-strumenti-gratuiti.html` |
+| Scratch, Micro:bit, CreateAI, strumenti di sviluppo e Python | `pr02-01-introduzione.html`-`pr05-02-python-strumenti.html` |
 | TinkerCAD, modellazione e stampa 3D | `ms01-tinkercad-introduzione.html`-`ms04-classi-attivita.html` |
 
 ## File Di Dettaglio

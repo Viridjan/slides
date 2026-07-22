@@ -30,11 +30,12 @@ xdg-open 00-indice.html
 Inside any deck:
 
 - Arrow keys / Space / PageUp / PageDown — advance or go back
-- Mouse wheel — advance/back
+- Ctrl + mouse wheel — zoom; the wheel pans only while zoomed
 - Touch swipe — left/right
 - `#slide-N` in the URL — open a deck directly at slide N
-- `I` key — jump to the course index
-- `E` key / top-left hotzone — toggle inline editor (saves to `localStorage`, does not modify the HTML file)
+- `F` key — enable the opt-in feedback overlay; `Esc` closes it
+- Eye button — switch between slide view and reader view
+- `↩ Indice` button — return to the course index
 - Bottom bar — progress indicator
 
 ## Course areas
@@ -43,11 +44,12 @@ Inside any deck:
 |--------|------|-------|
 | `hs` | Hardware e Software | hs01–hs05 |
 | `rw` | Reti e Web | rw01-01–rw03-05 |
-| `sd` | Sicurezza Digitale | sd01–sd05 |
+| `cd` | Contenuti Digitali | cd01-01–cd02-01 |
+| `sd` | Sicurezza Digitale | sd01–sd06 |
 | `sm` | Smartphones | sm01–sm11 |
-| `su` | Suite Ufficio | su01-01–su04-01 (codici gerarchici dell’indice) |
-| `ia` | Intelligenza Artificiale | ia01–ia03 |
-| `pr` | Programmare | teoria pr01-01–pr01-04, Scratch pr02-01–pr02-02, Micro:bit pr03-01–pr03-02 |
+| `su` | Suite Ufficio | su01-01–su04-01, con fogli di calcolo fino a su03-18 |
+| `ia` | Intelligenza Artificiale | ia01–ia05 |
+| `pr` | Programmare | teoria PR01, Scratch PR02, Micro:bit PR03, strumenti PR04 e Python PR05 |
 | `pm` | Project Management | pm01–pm04 |
 | `ms` | Modellazione e stampa 3D | ms01–ms04 |
 | `gd` | Game Design | gd01–gd08 |
@@ -67,7 +69,7 @@ Inside any deck:
 
 ## Structure
 
-- All deck files are self-contained (inline CSS + JS). Sole shared file: `theme-corsi.css`.
+- I deck mantengono contenuto e CSS specifico nel file HTML; condividono `theme-corsi.css` e il motore `deck.js`.
 - Every deck has a sibling `.txt` companion — the index injects a `↓ TXT` button automatically.
 - Every index card shows a generated content-last-modified date beneath its
   evaluation badge. It tracks visible text changes in internal slides, not
@@ -159,11 +161,12 @@ the map after adding, removing, renaming or reordering exercise slides:
 node scripts/build-exercise-index.js
 ```
 
-### Chapter overview tooltips
+### Chapter overview panels
 
 The short chapter agenda is stored in `agenda-index.json`, not in a dedicated
-slide 2. Hovering or focusing an index card title or description displays its
-three-part overview. After editing the source data, regenerate the browser map:
+slide 2. The explicit information control on an index card opens its three-part
+overview; it is not activated by hovering over the title. After editing the
+source data, regenerate the browser map:
 
 ```bash
 node scripts/build-agenda-index.js
