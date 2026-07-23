@@ -1,0 +1,56 @@
+Programmare · PR05.02 — Link, immagini e tabelle
+================================================
+
+--- Slide 1 ---
+Link, immagini
+ e tabelle Ciò che rende una pagina «web»: i collegamenti che la uniscono alle altre, le immagini che la illustrano, le tabelle che ordinano i dati. &lt;a href="chi-siamo.html"&gt;
+ Chi siamo
+&lt;/a&gt;
+
+&lt;img src="logo.png"
+ alt="Il nostro logo"&gt; Francesco Antonio Binetti
+
+--- Slide 2 ---
+I collegamenti Il link è l’idea che ha reso il web una rete. Il tag è &lt;a&gt; (da anchor , «ancora») e l’attributo che conta è href : dice dove porta. In pratica: il testo tra i tag è ciò su cui si clicca. &lt;a href="https://www.azienda.it"&gt;
+ Vai al sito
+&lt;/a&gt;
+
+&lt;a href="listino.html"&gt;
+ Il nostro listino
+&lt;/a&gt; [Fonte: HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110]
+
+--- Slide 3 ---
+Dove porta un link L’indirizzo dentro href può essere di due tipi. Sceglierne uno o l’altro cambia cosa succede quando sposti i file. 🌐 Percorso assoluto L’indirizzo completo, che parte da https:// . Punta a un altro sito o a una risorsa precisa, ovunque essa sia. href="https://www.azienda.it/blog" 📁 Percorso relativo Solo il nome del file, letto a partire dalla pagina attuale. Perfetto per collegare le pagine del tuo sito fra loro. href="contatti.html"
+
+--- Slide 4 ---
+Link che fanno di più Con lo stesso tag &lt;a&gt; e qualche attributo in più ottieni comportamenti diversi. Tre casi che incontrerai spesso: ✉️ Scrivere un’email
+ href="mailto:info@azienda.it" apre il programma di posta. 📍 Saltare a una sezione
+ href="#prezzi" porta a un punto della stessa pagina. 🪟 Aprire in una nuova scheda
+ target="_blank" lascia aperta la pagina di partenza.
+
+--- Slide 5 ---
+Le immagini Il tag &lt;img&gt; inserisce un’immagine. Si chiude da solo e ha due attributi che non vanno mai omessi: src (quale file) e alt (la descrizione testuale). alt="capelli mossi" alt descrive l’immagine a chi non la vede src: l’indirizzo del file Assoluto o relativo, come per i link. Se il percorso è sbagliato, appare l’icona dell’immagine rotta. alt: non è un dettaglio Chi usa uno screen reader «sente» l’immagine tramite l’alt, e lo stesso testo compare se il file non carica. CD01.02 · Accessibilità delle immagini ↗
+
+--- Slide 6 ---
+Peso e formato delle immagini Un’immagine troppo pesante rallenta la pagina. Il formato giusto e qualche attributo tengono tutto veloce. Formato Quando Nota JPG Foto Buona resa, file leggero, nessuna trasparenza PNG Loghi, grafica, trasparenze Più pesante sulle foto SVG Icone, disegni netti Scala senza sgranare a ogni dimensione WebP Alternativa moderna Pesa meno a parità di qualità 💡 In pratica Indicare width e height aiuta il browser a non far «saltare» la pagina mentre l’immagine carica.
+
+--- Slide 7 ---
+Le tabelle Servono per i dati organizzati in righe e colonne, non per impaginare la pagina. Tre tag fanno il grosso del lavoro. Riga per riga La tabella è &lt;table&gt;; ogni riga è &lt;tr&gt;; dentro la riga, &lt;th&gt; è una cella di intestazione, &lt;td&gt; una cella di dato. &lt;table&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Servizio&lt;/th&gt;
+ &lt;th&gt;Prezzo&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Piega&lt;/td&gt;
+ &lt;td&gt;20&nbsp;€&lt;/td&gt;
+ &lt;/tr&gt;
+&lt;/table&gt;
+
+--- Slide 8 ---
+Una tabella che si capisce La struttura minima funziona, ma pochi accorgimenti la rendono leggibile anche a chi non la vede con gli occhi. &lt;thead&gt; e &lt;tbody&gt; Separano la riga delle intestazioni dal corpo dei dati: la tabella diventa più chiara e più facile da stilare. &lt;caption&gt; Un titolo interno alla tabella che ne dichiara il contenuto: «Listino trattamenti». scope Su &lt;th&gt; indica se l’intestazione vale per una riga o una colonna: guida chi usa uno screen reader. Regola: le tabelle servono ai dati, non a disporre gli elementi nella pagina.
+
+--- Slide 9 ---
+Verifica: colleghi e mostri? 1 · Link interno Vuoi collegare la home a contatti.html , che sta nella stessa cartella. Assoluto o relativo? Scrivi l’attributo href. 2 · Immagine muta &lt;img src="team.jpg"&gt; carica ma è «invisibile» a uno screen reader. Quale attributo manca e perché conta? 3 · Intestazione o dato? Nella prima riga di una tabella metti i nomi delle colonne. Usi &lt;th&gt; o &lt;td&gt;? Qual è la differenza? 4 · Nuova scheda Un link a un sito esterno deve lasciare aperta la tua pagina. Quale attributo aggiungi al tag &lt;a&gt;?
+
+--- Slide 10 ---
+Una pagina che si connette. Sai collegare le pagine tra loro, inserire immagini con la giusta descrizione e ordinare i dati in tabelle leggibili. Restano i moduli e il senso degli elementi. Fonti e approfondimenti HTTP Semantics — RFC 9110 ↗ (https://www.rfc-editor.org/rfc/rfc9110) Prossimo → PR05.03 · Form, semantica e stile Francesco Antonio Binetti

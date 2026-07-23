@@ -626,7 +626,7 @@ Navigation chain: pm01 → pm02 → pm03 → pm04
 
 ### Programmare
 
-Index numbering uses `PR01.xx` for general programming theory, `PR02.xx` for Scratch, `PR03.xx` for Micro:bit, `PR04.xx` for coding tools and `PR05.xx` for Python.
+Index numbering uses `PR01.xx` for general programming theory, `PR02.xx` for Scratch, `PR03.xx` for Micro:bit, `PR04.xx` for coding tools, `PR05.xx` for HTML and `PR06.xx` for Python.
 
 General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-04 → pr01-05 → pr01-07
 
@@ -658,19 +658,27 @@ Micro:bit navigation chain: pr03-01 → pr03-02
 | `pr03-01-microbit.html` | Fondamenti Micro:bit |
 | `pr03-02-createai.html` | Micro:bit CreateAI |
 
-Coding tools navigation chain: pr04-01 → pr04-02 (pr03-02 closes into pr04-01):
+Coding tools navigation chain: pr04-01 → pr04-02 (pr03-02 closes into pr04-01; pr04-02 closes into pr05-01):
 
 | File | Title |
 | --- | --- |
 | `pr04-01-editor-codice.html` | L'editor e Git |
 | `pr04-02-strumenti-ambiente.html` | Lavorare e scegliere |
 
-Python navigation chain: pr05-01 → pr05-02
+HTML navigation chain: pr05-01 → pr05-02 → pr05-03 (pr05-03 closes into pr06-01)
 
 | File | Title |
 | --- | --- |
-| `pr05-01-python-base.html` | Python di base |
-| `pr05-02-python-strumenti.html` | Python: strumenti e applicazioni |
+| `pr05-01-html-struttura.html` | HTML: struttura e tag |
+| `pr05-02-html-link-immagini.html` | Link, immagini e tabelle |
+| `pr05-03-html-form-semantica.html` | Form, semantica e stile |
+
+Python navigation chain: pr06-01 → pr06-02
+
+| File | Title |
+| --- | --- |
+| `pr06-01-python-base.html` | Python di base |
+| `pr06-02-python-strumenti.html` | Python: strumenti e applicazioni |
 
 ### Modellazione e stampa 3D
 

@@ -626,7 +626,31 @@ globalThis.AGENDA_INDEX = {
       "Funzioni · Isolare una responsabilità in un blocco riusabile, capirne lo scope e verificarlo con esempi."
     ]
   },
-  "pr05-01-python-base.html": {
+  "pr05-01-html-struttura.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "Marcare, non programmare · Cos'è HTML, tag, attributi ed elementi.",
+      "L'impalcatura della pagina · doctype, head e body; titoli, paragrafi e liste.",
+      "Ordine e cura · Annidamento, indentazione ed errori più comuni."
+    ]
+  },
+  "pr05-02-html-link-immagini.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "I collegamenti · Il tag a, percorsi assoluti e relativi, link speciali.",
+      "Le immagini · src e alt, formati e peso, accessibilità.",
+      "Le tabelle · table, tr, th e td; intestazioni e struttura leggibile."
+    ]
+  },
+  "pr05-03-html-form-semantica.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "I moduli · form, campi di input, etichette, pulsanti e controlli.",
+      "HTML semantico · header, nav, main, footer e perché conta.",
+      "Dare stile · Separare contenuto e aspetto con il CSS."
+    ]
+  },
+  "pr06-01-python-base.html": {
     "title": "Cosa vedremo",
     "items": [
       "Costruire il programma · Sintassi, operatori, condizioni, cicli, funzioni, moduli ed errori.",
@@ -634,7 +658,7 @@ globalThis.AGENDA_INDEX = {
       "Conservare i risultati · Percorsi e file TXT, CSV e JSON fino a un programma completo."
     ]
   },
-  "pr05-02-python-strumenti.html": {
+  "pr06-02-python-strumenti.html": {
     "title": "Cosa vedremo",
     "items": [
       "Organizzare il codice · Classi, oggetti, dataclass, moduli, pacchetti e ambienti virtuali.",

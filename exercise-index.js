@@ -205,18 +205,8 @@ globalThis.EXERCISE_INDEX = {
     },
     {
       "file": "su03-14-vba.html",
-      "slide": 7,
-      "title": "Range e Cells"
-    },
-    {
-      "file": "su03-14-vba.html",
       "slide": 12,
       "title": "For Each"
-    },
-    {
-      "file": "su03-14-vba.html",
-      "slide": 17,
-      "title": "Gestione errori"
     },
     {
       "file": "su03-14-vba.html",
@@ -232,18 +222,8 @@ globalThis.EXERCISE_INDEX = {
     },
     {
       "file": "su03-15-google-apps-script.html",
-      "slide": 8,
-      "title": "Range e fogli"
-    },
-    {
-      "file": "su03-15-google-apps-script.html",
       "slide": 13,
       "title": "GmailApp"
-    },
-    {
-      "file": "su03-15-google-apps-script.html",
-      "slide": 18,
-      "title": "Web app"
     },
     {
       "file": "su03-15-google-apps-script.html",
@@ -256,6 +236,27 @@ globalThis.EXERCISE_INDEX = {
       "file": "pr02-01-introduzione.html",
       "slide": 10,
       "title": "Progetto guidato: Abby e il Gatto"
+    }
+  ],
+  "pr05-01-html-struttura.html": [
+    {
+      "file": "pr05-01-html-struttura.html",
+      "slide": 11,
+      "title": "Verifica: sai leggere il markup?"
+    }
+  ],
+  "pr05-02-html-link-immagini.html": [
+    {
+      "file": "pr05-02-html-link-immagini.html",
+      "slide": 9,
+      "title": "Verifica: colleghi e mostri?"
+    }
+  ],
+  "pr05-03-html-form-semantica.html": [
+    {
+      "file": "pr05-03-html-form-semantica.html",
+      "slide": 9,
+      "title": "Verifica: forma e significato"
     }
   ]
 };
