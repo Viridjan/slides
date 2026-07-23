@@ -115,25 +115,53 @@ globalThis.EXERCISE_INDEX = {
       "title": "Esercizio: mappa i tuoi punti unici"
     }
   ],
-  "su03-03-fondamenti-matematici.html": [
+  "su02-01-documenti.html": [
     {
       "file": "esercizi-suite-ufficio.html",
       "slide": 2,
-      "title": "Laboratorio: riconoscere struttura e funzione"
+      "title": "Esercizio 1: prepara i contenuti dei documenti"
+    }
+  ],
+  "su02-02-word-scrivere-formattare.html": [
+    {
+      "file": "esercizi-suite-ufficio.html",
+      "slide": 3,
+      "title": "Esercizio 2: formatta un listino modificabile"
+    }
+  ],
+  "su02-03-word-impaginare-revisionare.html": [
+    {
+      "file": "esercizi-suite-ufficio.html",
+      "slide": 4,
+      "title": "Esercizio 3: revisiona un report di due pagine"
+    }
+  ],
+  "su02-04-word-documenti-professionali.html": [
+    {
+      "file": "esercizi-suite-ufficio.html",
+      "slide": 5,
+      "title": "Esercizio 4: crea un kit professionale"
+    }
+  ],
+  "su03-03-fondamenti-matematici.html": [
+    {
+      "file": "esercizi-suite-ufficio.html",
+      "slide": 6,
+      "title": "Esercizio 5: riconosci struttura e funzione"
     }
   ],
   "su03-09-tabelle-pivot-avanzate.html": [
     {
       "file": "esercizi-suite-ufficio.html",
-      "slide": 3,
-      "title": "Laboratorio: cruscotto vendite"
+      "slide": 7,
+      "title": "Esercizio 6: costruisci un cruscotto vendite"
     }
   ],
   "su03-10-grafici.html": [
     {
       "file": "esercizi-suite-ufficio.html",
-      "slide": 4,
-      "title": "Laboratorio: quattro domande, quattro grafici"
+      "slide": 8,
+      "title": "Esercizio 7: scegli quattro grafici"
     },
     {
       "file": "su03-10-grafici.html",
@@ -144,22 +172,22 @@ globalThis.EXERCISE_INDEX = {
   "su03-16-segmentazioni.html": [
     {
       "file": "esercizi-suite-ufficio.html",
-      "slide": 5,
-      "title": "Esercizio: un cruscotto filtrabile"
+      "slide": 9,
+      "title": "Esercizio 8: crea un cruscotto filtrabile"
     }
   ],
   "su03-17-collegamenti-fogli.html": [
     {
       "file": "esercizi-suite-ufficio.html",
-      "slide": 6,
-      "title": "Esercizio: sorgente e report"
+      "slide": 10,
+      "title": "Esercizio 9: collega sorgente e report"
     }
   ],
   "su03-18-oltre-il-foglio.html": [
     {
       "file": "esercizi-suite-ufficio.html",
-      "slide": 7,
-      "title": "Esercizio: dal foglio alla specifica"
+      "slide": 11,
+      "title": "Esercizio 10: trasforma il foglio in specifica"
     }
   ],
   "sm09-benessere-digitale.html": [

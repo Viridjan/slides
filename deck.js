@@ -633,7 +633,9 @@
     reader.classList.toggle('on', on);
     stage.style.display = on ? 'none' : '';
     if (progress) progress.style.display = on ? 'none' : '';
-    toggle.textContent = on ? '🖼️ Slide' : '📖 Leggi';
+    toggle.textContent = on ? '🖼️' : '👁️';
+    toggle.setAttribute('aria-label', on ? 'Torna alle slide' : 'Apri modalità lettura');
+    toggle.title = on ? 'Torna alle slide' : 'Apri modalità lettura';
     toggle.setAttribute('aria-pressed', String(on));
     if (on && scroll) {
       const n = fromHash();

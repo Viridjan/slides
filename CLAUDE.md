@@ -292,6 +292,17 @@ These design tokens should remain consistent across decks:
 }
 ```
 
+### Palette per macroarea
+
+`theme-corsi.css` is the canonical palette source. Each deck receives its
+macroarea colors from the `course-*` class on `<body>`; do not copy a second
+palette into the deck or pass colors through query strings. Use `course-cd`
+for Contenuti digitali. The programming classes `course-pr`, `course-sc` and
+`course-mb` intentionally resolve to the same Programmazione palette. When a
+new macroarea is added, define its complete semantic token set in
+`theme-corsi.css` and add the matching `palette-*` identity to its group in
+`00-indice.html`.
+
 Avoid changing the visual language casually. If a deck needs a new component,
 prefer the existing `.card`, `.grid2`, `.grid3`, `.split`, `.note`,
 `.chips`, `.closing`, `.reveal`, and `.page-num` patterns.
@@ -689,16 +700,23 @@ Navigation chain: gd01 → gd02 → gd03 → gd04 → gd05 → gd06 → gd07 →
 
 ### Quizzes
 
-| File | Scope |
-| --- | --- |
-| `quiz-reti-web.html` | Reti e Web, 20 questions |
-| `quiz-sicurezza.html` | Sicurezza Digitale, 20 questions |
-| `quiz-informatica.html` | Identità digitale, 20 questions |
-| `quiz-hardware-software.html` | Hardware e Software, 20 questions |
-| `quiz-smartphones.html` | Smartphones, 20 questions |
-| `quiz-suite-ufficio.html` | Suite Ufficio, 20 questions |
-| `quiz-ia.html` | Intelligenza Artificiale, 20 questions |
-| `quiz-project-management.html` | Project Management, 20 questions |
+The published quiz unit is the `XX00` teaching area: for example Reti e Web
+has three quizzes, `RW01`, `RW02` and `RW03`. Flat series such as `HS01` or
+`SM04` each have their own quiz. The current index exposes 49 area quizzes.
+
+- `quiz-area.html?area=XX00` is the shared quiz interface.
+- `quiz-area-banks.js` contains one 50-question bank for every published area.
+- Each attempt shuffles its bank and displays exactly 20 questions without
+  repetition; “Nuove domande” performs a new extraction.
+- Every quiz requires `Nome`, `Cognome` and `Corso`; the course field is shown
+  below the two name fields and is included in the reporting payload and sheet.
+- Quiz cards and quiz pages have no descriptive paragraph. Their accent and
+  background use the palette of the corresponding course section.
+- `scripts/build-area-quiz-banks.js` derives the banks from the actual slide
+  content and must be run after adding, renaming or substantially changing a
+  deck.
+- The older `quiz-*.html` macroarea files are legacy files and are not linked
+  from the published index.
 
 ## Index maintenance
 

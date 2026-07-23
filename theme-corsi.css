@@ -32,39 +32,84 @@ body[class*="course-"]{
 }
 
 /* Hardware e Software */
-body.course-hs{--slide-bg:#eef2f4;--line:rgba(82,101,113,.22);--accent:#4f7182;--accent-2:#c37a2c;--course-dark:#243844;}
+body.course-hs{
+  --paper:#eef2f4;--paper-2:#dfe7ea;--ink:#1e2930;--ink-soft:#3d4d56;--ink-faint:#687982;
+  --red:#b85b3e;--teal:#314d5a;--teal-2:#456978;--gold:#d5b058;--gold-deep:#b7772b;--sky:#4f7182;
+  --slide-bg:var(--paper);--line:rgba(82,101,113,.22);--accent:var(--gold-deep);--accent-2:var(--sky);--course-dark:#243844;
+}
 
 /* Reti e Web */
-body.course-rw{--slide-bg:#eaf4f6;--line:rgba(64,120,137,.22);--accent:#2e7890;--accent-2:#d1842a;--course-dark:#113f50;}
+body.course-rw{
+  --paper:#eaf4f6;--paper-2:#d9e9ed;--ink:#172a31;--ink-soft:#334d57;--ink-faint:#627b84;
+  --red:#ce6046;--teal:#164b5c;--teal-2:#22697c;--gold:#e1bd57;--gold-deep:#c67a24;--sky:#2e7890;
+  --slide-bg:var(--paper);--line:rgba(64,120,137,.22);--accent:var(--sky);--accent-2:var(--gold-deep);--course-dark:#113f50;
+}
+
+/* Contenuti Digitali */
+body.course-cd{
+  --paper:#f3edf2;--paper-2:#e7dce5;--ink:#2d222c;--ink-soft:#55434f;--ink-faint:#7d6a77;
+  --red:#b95759;--teal:#5b4162;--teal-2:#76567c;--gold:#dfbf69;--gold-deep:#ad7135;--sky:#4d7885;
+  --slide-bg:var(--paper);--line:rgba(113,81,108,.21);--accent:#9a516d;--accent-2:var(--sky);--course-dark:#493248;
+}
 
 /* Sicurezza Digitale */
-body.course-sd{--slide-bg:#f7ece8;--line:rgba(154,82,68,.22);--accent:#c94b36;--accent-2:#2e7c82;--course-dark:#592d29;}
-
-/* Informatica */
+body.course-sd{
+  --paper:#f7ece8;--paper-2:#eadbd5;--ink:#301f1c;--ink-soft:#5b403a;--ink-faint:#826a63;
+  --red:#c94b36;--teal:#4f4b49;--teal-2:#68615e;--gold:#e1bd62;--gold-deep:#aa6729;--sky:#2e7c82;
+  --slide-bg:var(--paper);--line:rgba(154,82,68,.22);--accent:var(--red);--accent-2:var(--sky);--course-dark:#592d29;
+}
 
 /* Smartphones */
-body.course-sm{--slide-bg:#edf4ee;--line:rgba(80,128,94,.22);--accent:#4d8761;--accent-2:#c06b34;--course-dark:#254b35;}
+body.course-sm{
+  --paper:#edf4ee;--paper-2:#dce9df;--ink:#1d2b22;--ink-soft:#405348;--ink-faint:#6b7d72;
+  --red:#bc6544;--teal:#315f42;--teal-2:#477857;--gold:#dabb5e;--gold-deep:#aa6b31;--sky:#477b79;
+  --slide-bg:var(--paper);--line:rgba(80,128,94,.22);--accent:#4d8761;--accent-2:var(--gold-deep);--course-dark:#254b35;
+}
 
 /* Suite Ufficio */
-body.course-su{--slide-bg:#f5edda;--line:rgba(137,111,62,.22);--accent:#b47b26;--accent-2:#426f91;--course-dark:#4a3a21;}
+body.course-su{
+  --paper:#f5edda;--paper-2:#e9ddc2;--ink:#2c271d;--ink-soft:#554b38;--ink-faint:#7d715b;
+  --red:#bd6143;--teal:#4d5960;--teal-2:#63727b;--gold:#dfbf5b;--gold-deep:#a96f20;--sky:#426f91;
+  --slide-bg:var(--paper);--line:rgba(137,111,62,.22);--accent:var(--sky);--accent-2:var(--gold-deep);--course-dark:#4a3a21;
+}
 
 /* Intelligenza Artificiale */
-body.course-ia{--slide-bg:#f1eef7;--line:rgba(103,89,142,.22);--accent:#6d5aa6;--accent-2:#2e8790;--course-dark:#322b58;}
+body.course-ia{
+  --paper:#f1eef7;--paper-2:#e3deef;--ink:#28233a;--ink-soft:#4c4565;--ink-faint:#756e8d;
+  --red:#b65b6f;--teal:#4b4679;--teal-2:#625b94;--gold:#dfc568;--gold-deep:#a97532;--sky:#2e8790;
+  --slide-bg:var(--paper);--line:rgba(103,89,142,.22);--accent:#6d5aa6;--accent-2:var(--sky);--course-dark:#322b58;
+}
 
 /* Project Management */
-body.course-pm{--slide-bg:#e8f3ef;--line:rgba(62,126,108,.22);--accent:#367c6b;--accent-2:#b67f24;--course-dark:#214d44;}
+body.course-pm{
+  --paper:#e8f3ef;--paper-2:#d7e7e1;--ink:#1d2d29;--ink-soft:#3d544d;--ink-faint:#687e76;
+  --red:#b65f43;--teal:#2f665a;--teal-2:#438173;--gold:#dcc062;--gold-deep:#a97527;--sky:#527985;
+  --slide-bg:var(--paper);--line:rgba(62,126,108,.22);--accent:#687a32;--accent-2:var(--sky);--course-dark:#214d44;
+}
 
-/* Programmare con Scratch */
-body.course-sc{--slide-bg:#f7eadf;--line:rgba(157,102,63,.22);--accent:#d06f34;--accent-2:#35788c;--course-dark:#56351f;}
-
-/* Programmare con Micro:bit */
-body.course-mb{--slide-bg:#e8f4eb;--line:rgba(63,125,80,.22);--accent:#3f8959;--accent-2:#7661a8;--course-dark:#234b34;}
+/* Programmazione: teoria, Scratch, Micro:bit, strumenti e Python condividono
+   una sola famiglia cromatica; le sottoserie restano riconoscibili dai titoli. */
+body.course-pr,
+body.course-sc,
+body.course-mb{
+  --paper:#f7eadf;--paper-2:#ead9ca;--ink:#30251e;--ink-soft:#59483d;--ink-faint:#816f62;
+  --red:#c55d32;--teal:#344f59;--teal-2:#496b76;--gold:#dfbd58;--gold-deep:#b36827;--sky:#35788c;
+  --slide-bg:var(--paper);--line:rgba(157,102,63,.22);--accent:#c76532;--accent-2:var(--sky);--course-dark:#56351f;
+}
 
 /* Game Design */
-body.course-gd{--slide-bg:#f5e9e0;--line:rgba(145,86,61,.22);--accent:#c25f39;--accent-2:#2f7d95;--course-dark:#4f3026;}
+body.course-gd{
+  --paper:#f5e9e0;--paper-2:#e8d8cd;--ink:#30231f;--ink-soft:#58443c;--ink-faint:#806c63;
+  --red:#c25f39;--teal:#454952;--teal-2:#5e626d;--gold:#dec15e;--gold-deep:#a96b2b;--sky:#2f7d95;
+  --slide-bg:var(--paper);--line:rgba(145,86,61,.22);--accent:var(--red);--accent-2:var(--sky);--course-dark:#4f3026;
+}
 
 /* TinkerCAD e stampa 3D */
-body.course-ms{--slide-bg:#e9f2f5;--line:rgba(58,116,138,.22);--accent:#33768e;--accent-2:#c2762b;--course-dark:#1d4553;}
+body.course-ms{
+  --paper:#e9f2f5;--paper-2:#d8e7ec;--ink:#1c2a30;--ink-soft:#3b515b;--ink-faint:#657983;
+  --red:#bd6041;--teal:#285b6d;--teal-2:#39758a;--gold:#ddbd5e;--gold-deep:#aa6b26;--sky:#33768e;
+  --slide-bg:var(--paper);--line:rgba(58,116,138,.22);--accent:var(--sky);--accent-2:#c2762b;--course-dark:#1d4553;
+}
 
 /* Deck interaction policy: inline editing controls are disabled globally. */
 .edit-hotzone,.edit-toggle,.edit-hint{display:none!important;pointer-events:none!important;}
@@ -671,4 +716,11 @@ body.course-gd .slide.title-slide>.deck-author{
 }
 @media (min-width:821px){
   .deck-reader-toggle{top:14px;bottom:auto;}
+}
+
+/* Keyboard commands belong beside the operation they accelerate. */
+.shortcut-inline{
+  display:inline-block;margin-left:8px;padding:3px 8px;border:1px solid color-mix(in srgb,var(--teal,#163b35) 35%,transparent);
+  border-radius:6px;background:color-mix(in srgb,var(--teal,#163b35) 8%,transparent);
+  color:var(--teal,#163b35);font:700 .72em var(--font-mono,"Space Mono",monospace);white-space:nowrap;
 }

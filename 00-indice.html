@@ -42,7 +42,24 @@ body.search-active .section-group.search-hidden{display:none;}
 body.search-active .module-card.search-hidden{display:none;}
 
 /* Section group */
-.section-group{margin-bottom:22px;}
+.section-group{
+  --section-accent:var(--gold-deep);
+  --section-accent-rgb:217,138,43;
+  --section-dark:#4a3a21;
+  margin-bottom:22px;
+  scroll-margin-top:18px;
+}
+.section-group.palette-hs{--section-accent:#b7772b;--section-accent-rgb:183,119,43;--section-dark:#243844;}
+.section-group.palette-rw{--section-accent:#2e7890;--section-accent-rgb:46,120,144;--section-dark:#113f50;}
+.section-group.palette-cd{--section-accent:#9a516d;--section-accent-rgb:154,81,109;--section-dark:#493248;}
+.section-group.palette-sm{--section-accent:#4d8761;--section-accent-rgb:77,135,97;--section-dark:#254b35;}
+.section-group.palette-su{--section-accent:#426f91;--section-accent-rgb:66,111,145;--section-dark:#4a3a21;}
+.section-group.palette-sd{--section-accent:#c94b36;--section-accent-rgb:201,75,54;--section-dark:#592d29;}
+.section-group.palette-ia{--section-accent:#6d5aa6;--section-accent-rgb:109,90,166;--section-dark:#322b58;}
+.section-group.palette-pr{--section-accent:#c76532;--section-accent-rgb:199,101,50;--section-dark:#56351f;}
+.section-group.palette-pm{--section-accent:#687a32;--section-accent-rgb:104,122,50;--section-dark:#214d44;}
+.section-group.palette-ms{--section-accent:#33768e;--section-accent-rgb:51,118,142;--section-dark:#1d4553;}
+.section-group.palette-quiz{--section-accent:#d98a2b;--section-accent-rgb:217,138,43;--section-dark:#493526;}
 .subseries-group{grid-column:1/-1;display:block;margin:4px 0;}
 .subseries-label{width:100%;display:flex;align-items:center;gap:13px;padding:11px 18px;border:1px solid rgba(216,201,180,.14);border-radius:9px;background:rgba(244,236,224,.035);color:rgba(244,236,224,.66);font:700 14px/1.2 var(--font-mono);letter-spacing:1px;text-align:left;cursor:pointer;transition:background .16s,border-color .16s,color .16s;}
 .subseries-label::before{content:"▾";color:var(--gold-deep);transition:transform .16s;}
@@ -52,14 +69,25 @@ body.search-active .module-card.search-hidden{display:none;}
 .subseries-group.collapsed>.subseries-body{display:none;}
 body.search-active .subseries-group>.subseries-body{display:grid;}
 body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){display:none;}
-.section-label{font-family:var(--font-mono);font-size:18px;letter-spacing:3px;text-transform:uppercase;color:rgba(244,236,224,.72);margin-bottom:16px;display:flex;align-items:center;gap:16px;cursor:pointer;user-select:none;background:rgba(244,236,224,.06);border:1px solid rgba(216,201,180,.16);border-left:4px solid var(--gold-deep);border-radius:12px;padding:16px 18px;box-shadow:0 10px 28px rgba(0,0,0,.16);transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease;}
-.section-label::before{content:"▾";font-size:20px;color:var(--gold);transition:transform .2s ease,color .2s ease;}
+.section-label{font-family:var(--font-mono);font-size:18px;letter-spacing:3px;text-transform:uppercase;color:rgba(244,236,224,.82);margin-bottom:16px;display:flex;align-items:center;gap:16px;cursor:pointer;user-select:none;background:linear-gradient(100deg,rgba(var(--section-accent-rgb),.20),rgba(244,236,224,.04) 54%);border:1px solid rgba(var(--section-accent-rgb),.34);border-left:4px solid var(--section-accent);border-radius:12px;padding:16px 18px;box-shadow:0 10px 28px rgba(0,0,0,.16);transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease;}
+.section-label::before{content:"▾";font-size:20px;color:var(--section-accent);transition:transform .2s ease,color .2s ease;}
 .section-label::after{content:"";flex:1;height:1px;background:rgba(216,201,180,.18);}
-.section-label:hover,.section-label:focus{color:var(--paper);background:rgba(244,236,224,.10);border-color:rgba(216,201,180,.32);outline:none;transform:translateY(-1px);}
-.section-label:hover::before,.section-label:focus::before{color:var(--gold);}
+.section-label:hover,.section-label:focus{color:var(--paper);background:linear-gradient(100deg,rgba(var(--section-accent-rgb),.30),rgba(244,236,224,.08) 58%);border-color:rgba(var(--section-accent-rgb),.58);outline:none;transform:translateY(-1px);}
+.section-label:hover::before,.section-label:focus::before{color:var(--section-accent);}
 .section-group.collapsed .section-label{color:rgba(244,236,224,.48);background:rgba(244,236,224,.035);border-left-color:rgba(216,201,180,.26);box-shadow:none;}
 .section-group.collapsed .section-label::before{transform:rotate(-90deg);color:rgba(244,236,224,.36);}
 .section-group.collapsed .module-grid{display:none;}
+.section-group:not(.collapsed) .module-card::after{
+  border-left-color:var(--section-accent);
+  background-image:linear-gradient(135deg,rgba(var(--section-accent-rgb),.09),transparent 58%);
+}
+.section-group:not(.collapsed) .module-card .card-num{color:var(--section-accent);}
+.section-group:not(.collapsed) .subseries-label::before{color:var(--section-accent);}
+.section-group.palette-quiz:not(.collapsed) .module-card::after{
+  border-left-color:var(--quiz-accent);
+  background-image:linear-gradient(135deg,color-mix(in srgb,var(--quiz-accent) 12%,transparent),transparent 58%);
+}
+.section-group.palette-quiz:not(.collapsed) .module-card .card-num{color:var(--quiz-accent);}
 
 /* Module cards */
 .module-grid{display:grid;grid-template-columns:1fr;gap:8px;}
@@ -209,7 +237,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
   </header>
 
   <!-- HARDWARE E SOFTWARE -->
-  <div class="section-group">
+  <div class="section-group palette-hs">
     <div class="section-label">Hardware e Software</div>
     <div class="module-grid cols2">
 
@@ -295,7 +323,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
   </div>
 
   <!-- RETI E WEB -->
-  <div class="section-group">
+  <div class="section-group palette-rw">
     <div class="section-label">Reti e Web</div>
     <div class="module-grid cols2">
 
@@ -551,7 +579,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
   </div>
 
   <!-- CONTENUTI DIGITALI -->
-  <div class="section-group">
+  <div class="section-group palette-cd">
     <div class="section-label">Contenuti digitali</div>
     <div class="module-grid cols2">
 
@@ -565,7 +593,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
   </div>
 
   <!-- SMARTPHONES -->
-  <div class="section-group">
+  <div class="section-group palette-sm">
     <div class="section-label">Smartphones</div>
     <div class="module-grid cols2">
 
@@ -760,7 +788,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
   </div>
 
   <!-- SUITE UFFICIO -->
-  <div class="section-group">
+  <div class="section-group palette-su">
     <div class="section-label">Suite Ufficio</div>
     <div class="module-grid cols2">
 
@@ -1110,7 +1138,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
   </div>
 
   <!-- SICUREZZA DIGITALE -->
-  <div class="section-group">
+  <div class="section-group palette-sd">
     <div class="section-label">Sicurezza Digitale</div>
     <div class="module-grid cols2">
 
@@ -1205,7 +1233,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
   </div>
 
   <!-- INTELLIGENZA ARTIFICIALE -->
-  <div class="section-group collapsed">
+  <div class="section-group palette-ia collapsed">
     <div class="section-label">Intelligenza Artificiale</div>
     <div class="module-grid cols2">
 
@@ -1297,7 +1325,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
   </div>
 
   <!-- PROGRAMMAZIONE -->
-  <div class="section-group">
+  <div class="section-group palette-pr">
     <div class="section-label">Programmazione</div>
     <div class="module-grid cols2">
 
@@ -1527,7 +1555,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
   </div>
 
   <!-- PROJECT MANAGEMENT -->
-  <div class="section-group">
+  <div class="section-group palette-pm">
     <div class="section-label">Project Management</div>
     <div class="module-grid cols2">
 
@@ -1603,7 +1631,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
   </div>
 
   <!-- MODELLAZIONE 3D -->
-  <div class="section-group">
+  <div class="section-group palette-ms">
     <div class="section-label">Modellazione e Stampa 3D</div>
     <div class="module-grid cols2">
 
@@ -1679,7 +1707,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
   </div>
 
   <!-- QUIZ -->
-  <div class="section-group">
+  <div class="section-group palette-quiz" id="quiz-section">
     <div class="section-label">Quiz</div>
     <div class="module-grid cols3">
 
@@ -1829,7 +1857,22 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
 
 </div>
 <script src="search-index.js"></script>
+<script src="quiz-area-banks.js"></script>
 <script>
+const quizGrid=document.querySelector('.section-group.palette-quiz .module-grid');
+if(quizGrid&&window.AREA_QUIZ_BANKS){
+  const quizAccents={hs:'#b7772b',rw:'#2e7890',cd:'#9a516d',sm:'#4d8761',su:'#426f91',sd:'#c94b36',ia:'#6d5aa6',pr:'#c76532',pm:'#687a32',ms:'#33768e'};
+  quizGrid.innerHTML='';
+  Object.values(window.AREA_QUIZ_BANKS).forEach(bank=>{
+    const card=document.createElement('a');
+    card.className='module-card';
+    card.href=`quiz-area.html?area=${encodeURIComponent(bank.area)}`;
+    card.style.setProperty('--quiz-accent',quizAccents[bank.course]||'#d98a2b');
+    card.innerHTML=`<div class="card-num">${bank.area}</div><div class="card-body"><div class="card-tag">QUIZ · ${bank.area}</div><div class="card-title"></div></div><div class="card-arrow">→</div>`;
+    card.querySelector('.card-title').textContent=bank.title;
+    quizGrid.append(card);
+  });
+}
 const sectionGroups=[...document.querySelectorAll('.section-group')];
 const closeGroup=group=>{
   group.classList.add('collapsed');
@@ -1840,6 +1883,12 @@ const openGroup=group=>{
   group.classList.remove('collapsed');
   group.querySelector('.section-label')?.setAttribute('aria-expanded','true');
 };
+const alignGroupStart=group=>{
+  const behavior=matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    group.scrollIntoView({block:'start',inline:'nearest',behavior});
+  }));
+};
 sectionGroups.forEach(group=>{
   const label=group.querySelector('.section-label');
   if(!label)return;
@@ -1848,7 +1897,10 @@ sectionGroups.forEach(group=>{
   label.setAttribute('tabindex','0');
   label.setAttribute('aria-expanded','false');
   const toggle=()=>{
-    if(group.classList.contains('collapsed'))openGroup(group);
+    if(group.classList.contains('collapsed')){
+      openGroup(group);
+      alignGroupStart(group);
+    }
     else closeGroup(group);
   };
   label.addEventListener('click',toggle);
@@ -1859,6 +1911,13 @@ sectionGroups.forEach(group=>{
     }
   });
 });
+if(location.hash==='#quiz-section'){
+  const quizSection=document.getElementById('quiz-section');
+  if(quizSection){
+    openGroup(quizSection);
+    requestAnimationFrame(()=>quizSection.scrollIntoView({block:'start',behavior:'auto'}));
+  }
+}
 
 const searchInput=document.getElementById('courseSearch');
 const searchClear=document.getElementById('courseSearchClear');

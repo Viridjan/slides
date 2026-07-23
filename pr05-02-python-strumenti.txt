@@ -46,6 +46,8 @@ class Punto:
 
 p = Punto(3, 4)
 print(p) # Punto(x=3, y=4) Quando usarla Record, configurazioni, coordinate e risultati strutturati. Quando non basta Se l'oggetto coordina molte operazioni o deve imporre regole complesse sul proprio stato. [Fonte: Modulo dataclasses — documentazione Python — https://docs.python.org/3/library/dataclasses.html]
+Fonti ufficiali:
+- Modulo dataclasses — documentazione Python — https://docs.python.org/3/library/dataclasses.html
 
 --- Slide 7 ---
 Iterable e iteratori Un iterable può produrre elementi; un iteratore ricorda il punto raggiunto e restituisce il valore successivo. Iterable Liste, stringhe, dizionari, file e molti altri oggetti attraversabili. iter() Chiede all'oggetto un iteratore. next() Ottiene il prossimo elemento; alla fine arriva StopIteration . In pratica: il ciclo for usa questo protocollo automaticamente.
@@ -75,6 +77,8 @@ non_vuote = (riga for riga in righe if riga)
 importi = (float(riga) for riga in non_vuote)
 
 totale = sum(importi) Regola: utile per log, grandi CSV e flussi che non devono stare tutti in memoria. [Fonte: Generatori — Python Functional Programming HOWTO — https://docs.python.org/3/howto/functional.html#generators]
+Fonti ufficiali:
+- Generatori — Python Functional Programming HOWTO — https://docs.python.org/3/howto/functional.html#generators
 
 --- Slide 12 ---
 Moduli e pacchetti organizzano il progetto Un modulo è un file Python. Un pacchetto raggruppa moduli correlati sotto uno stesso nome. 📄 modulo
@@ -86,6 +90,8 @@ Moduli e pacchetti organizzano il progetto Un modulo è un file Python. Un pacch
  __init__.py
  calcoli.py
  modelli.py [Fonte: Tutorial ufficiale Python — https://docs.python.org/3/tutorial/]
+Fonti ufficiali:
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 13 ---
 Un ambiente virtuale per ogni progetto L'ambiente virtuale isola interprete e pacchetti: progetti diversi possono usare versioni diverse senza interferire. python -m venv .venv
@@ -95,6 +101,9 @@ source .venv/bin/activate
 
 # Windows PowerShell
 .venv\Scripts\Activate.ps1 💡 Controllo Dopo l'attivazione, python e pip devono puntare dentro la cartella .venv . [Fonte: Modulo venv — documentazione Python — https://docs.python.org/3/library/venv.html] [Fonte: Interprete — Wikipedia — https://it.wikipedia.org/wiki/Interprete_(informatica)]
+Fonti ufficiali:
+- Modulo venv — documentazione Python — https://docs.python.org/3/library/venv.html
+- Interprete — Wikipedia — https://it.wikipedia.org/wiki/Interprete_(informatica)
 
 --- Slide 14 ---
 Installare pacchetti con pip pip scarica e installa distribuzioni Python. Va eseguito attraverso l'interprete dell'ambiente attivo. python -m pip install requests
@@ -161,6 +170,8 @@ Casi normali, limite ed errore Una funzione non è verificata se il test copre s
 
 --- Slide 22 ---
 Un'API HTTP espone risorse Il client invia una richiesta a un URL; il server risponde con stato, intestazioni e contenuto. Metodo GET legge, POST crea, PUT/PATCH modifica, DELETE rimuove. URL https://api.azienda.it/prodotti/42 identifica una risorsa. Risposta Codice di stato, header e corpo spesso codificato in JSON. [Fonte: HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110]
+Fonti ufficiali:
+- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
 --- Slide 23 ---
 Fare una richiesta con requests Imposta sempre un timeout: senza limite, il programma può restare in attesa indefinitamente. import requests
@@ -182,12 +193,16 @@ except requests.Timeout:
  print("Servizio troppo lento")
 except requests.RequestException as errore:
  print("Richiesta fallita", errore) [Fonte: Domain Name System — ICANN — https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en]
+Fonti ufficiali:
+- Domain Name System — ICANN — https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en
 
 --- Slide 25 ---
 Autenticazione, pagine e limiti Le API reali raramente restituiscono tutto senza regole: richiedono credenziali, dividono i risultati e limitano la frequenza. Token Si invia nell'header previsto. Non va scritto nel codice o pubblicato nel repository. Paginazione La risposta indica pagina successiva, cursore o numero totale di risultati. Rate limit Se arriva 429 , attendi secondo le indicazioni del server invece di riprovare senza pausa.
 
 --- Slide 26 ---
 SQLite: un database dentro un file SQLite conserva tabelle, relazioni e indici in un singolo file, senza richiedere un server separato. Tabella Righe con la stessa struttura di colonne. Chiave primaria Identifica ogni record senza ambiguità. Query SQL Inserisce, cerca, aggiorna e cancella dati. Quando usarlo: dati strutturati, ricerche e aggiornamenti più sicuri di un CSV. [Fonte: Modulo sqlite3 — documentazione Python — https://docs.python.org/3/library/sqlite3.html]
+Fonti ufficiali:
+- Modulo sqlite3 — documentazione Python — https://docs.python.org/3/library/sqlite3.html
 
 --- Slide 27 ---
 Creare tabella e connessione Il blocco with db conferma o annulla la transazione; finally chiude la connessione anche in caso di errore. import sqlite3

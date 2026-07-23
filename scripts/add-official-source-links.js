@@ -2,6 +2,9 @@
 const fs = require('fs');
 
 const SOURCES = [
+  ['DigComp 3.0', 'https://joint-research-centre.ec.europa.eu/projects-and-activities/education-and-training/digital-transformation-education/digital-competence-framework-digcomp/digcomp-30_en', 'DigComp 3.0 — Commissione europea', /^rw01-04/],
+  ['Open Data', 'https://data.europa.eu/en/dataeuropa-academy/what-open-data', 'Open Data — portale europeo dei dati', /^rw01-04/],
+  ['PDF/A', 'https://www.loc.gov/preservation/digital/formats/fdd/fdd000318.shtml', 'PDF/A per la conservazione — Library of Congress', /^rw02-03/],
   ['categorie particolari di dati', 'https://eur-lex.europa.eu/eli/reg/2016/679/art_9/oj', 'GDPR, art. 9 — EUR-Lex'],
   ['diritto alla cancellazione', 'https://eur-lex.europa.eu/eli/reg/2016/679/art_17/oj', 'GDPR, art. 17 — EUR-Lex'],
   ['diritto all’oblio', 'https://eur-lex.europa.eu/eli/reg/2016/679/art_17/oj', 'GDPR, art. 17 — EUR-Lex'],

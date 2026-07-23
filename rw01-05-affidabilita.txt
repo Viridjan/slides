@@ -3,17 +3,26 @@ Informatica · Affidabilità delle Informazioni Online
 
 --- Slide 1 ---
 Navigare con
- Spirito 
- Critico 
+ Spirito
+ Critico
  Valutare l'affidabilità delle informazioni online e navigare in modo sicuro — competenze digitali fondamentali.
 
---- Slide 2 ---
-Cosa vedremo 01 Valutare l'affidabilità 
- Perché farlo, i rischi, riconoscere un sito sicuro e perché HTTPS non basta. 02 Chi, cosa, quando 
- Lo scopo del sito, l'autore, le fonti, la data e il pubblico di riferimento. 03 Navigare sicuri 
- Acquisti online, dati personali, logout, controllo parentale e monitoraggio.
 
---- Slide 3 ---
+
+
+
+
+
+
+ 🔍
+
+
+
+
+
+ Francesco Antonio Binetti
+
+--- Slide 2 ---
 Perché valutare
 le informazioni
  Internet offre una quantità enorme di informazioni — ma chiunque può pubblicare contenuti online senza alcun controllo preventivo.
@@ -31,7 +40,7 @@ le informazioni
  Dopo questo modulo saprai
  Riconoscere siti affidabili · Valutare autori e fonti · Navigare in sicurezza · Proteggere i tuoi dati personali
 
---- Slide 4 ---
+--- Slide 3 ---
 I rischi delle informazioni non verificate
 
 
@@ -60,8 +69,27 @@ I rischi delle informazioni non verificate
  😔
  Danno alla reputazione
  Condividere informazioni false può compromettere la propria credibilità professionale e personale — online e offline.
-Fonti ufficiali:
-- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
+
+--- Slide 4 ---
+Quando leggiamo
+sempre le stesse opinioni
+ Una echo chamber è un ambiente informativo in cui opinioni simili si ripetono e si rafforzano, mentre le posizioni differenti arrivano raramente.
+
+ Echo chamber ≠ filter bubble
+ La camera dell’eco nasce anche dalle persone e dalle comunità che scegliamo; la filter bubble dipende soprattutto dalla selezione automatica degli algoritmi.
+
+
+
+ 🔁 Segnale
+ Tutte le fonti ripetono la stessa conclusione e citano soltanto membri dello stesso gruppo.
+ 🧭 Controllo
+ Cerca fonti indipendenti, parole chiave neutrali e argomentazioni differenti dalla tua posizione iniziale.
+ In pratica: molte conferme provenienti dallo stesso ambiente non equivalgono a molte fonti indipendenti.
+
+
+
+
+ IA01 · Echo chamber, troll e fake news ↗
 
 --- Slide 5 ---
 Come riconoscere un sito web sicuro
@@ -82,8 +110,11 @@ Come riconoscere un sito web sicuro
 
  04 Certificato valido
  Il browser avvisa con un messaggio di errore se il certificato è scaduto o non valido. In quel caso, non procedere con l'inserimento di dati.
-Fonti ufficiali:
-- TLS 1.3 — RFC 8446 — https://www.rfc-editor.org/rfc/rfc8446
+
+
+
+
+ [Fonte: HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110]
 
 --- Slide 6 ---
 Il protocollo
@@ -105,6 +136,11 @@ Il protocollo
 
  🔒
  https:// www.bancaonline.it/accesso
+
+
+
+
+ [Fonte: TLS 1.3 — RFC 8446 — https://www.rfc-editor.org/rfc/rfc8446]
 
 --- Slide 7 ---
 Le informazioni sulla
@@ -319,7 +355,7 @@ Chi è l' autore del contenuto?
 
 
  💡 Regola d'oro
- La presenza di un autore identificabile, con competenze verificabili nell'argomento, aumenta significativamente la credibilità del contenuto.
+ Autorevolezza significa competenza pertinente, identità verificabile e riconoscimento da parte di altre fonti affidabili.
 
 --- Slide 15 ---
 L'importanza
@@ -438,8 +474,6 @@ Proteggere i dati personali
 
  📲 Codici OTP
  I codici monouso ricevuti via SMS o app. Non comunicarli a nessuno: chi li chiede sta quasi certamente tentando una truffa.
-Fonti ufficiali:
-- Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
 
 --- Slide 22 ---
 I moduli
@@ -462,8 +496,11 @@ online
 
  🗑️ Come verranno usati?
  Per quanto tempo saranno conservati? Posso cancellarli in seguito? Il GDPR mi dà questi diritti — verificali.
-Fonti ufficiali:
-- Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi
+
+
+
+
+ [Fonte: Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj]
 
 --- Slide 23 ---
 Disconnessione
@@ -480,6 +517,10 @@ e logout
  2️⃣ Chiudi la sessione — svuota cache e cookie se su dispositivo altrui
  3️⃣ Verifica che non siano rimasti account aperti in altre schede
  4️⃣ Non salvare le password nel browser su dispositivi condivisi
+
+
+
+ [Fonte: Wi-Fi — Wi-Fi Alliance — https://www.wi-fi.org/discover-wi-fi]
 
 --- Slide 24 ---
 Il controllo dell'uso di Internet
@@ -538,23 +579,9 @@ in ambito
  I controlli aziendali devono rispettare il GDPR e lo Statuto dei Lavoratori . I dipendenti devono essere informati preventivamente di cosa viene monitorato e perché.
 
 --- Slide 27 ---
-Riepilogo del modulo
- Per navigare in sicurezza e valutare correttamente le informazioni online:
+Informati! 🔍
+ Fake news, fact-checking, bolla di filtro, bias di conferma e cross-checking: riconoscere e valutare i contenuti online con spirito critico.
 
+ Prossimo → W7 · Gestione Contenuti
 
- 🔒 Controlla la connessione — HTTPS, dominio corretto e assenza di avvisi del browser
- 🎯 Capisci lo scopo — informativo, commerciale, opinione?
- 🧑‍💼 Verifica autore e fonti — chi ha scritto? Cita prove?
-
-
- 🛡️ Proteggi i tuoi dati — no a documenti, IBAN e OTP via rete
- 🛒 Acquisti con attenzione — siti noti, recensioni, HTTPS
- 🔓 Fai sempre logout — su dispositivi condivisi e reti pubbliche
-
---- Slide 28 ---
-Informati! 🔍 
- Fake news, fact-checking, bolla di filtro, bias di conferma e cross-checking: riconoscere e valutare i contenuti online con spirito critico. 
- 
- Prossimo → W7 · Gestione Contenuti 
- 
- Fonti e approfondimenti HTTP Semantics — RFC 9110 ↗ TLS 1.3 — RFC 8446 ↗ Regolamento generale sulla protezione dei dati — EUR-Lex ↗ Wi-Fi — Wi-Fi Alliance ↗
+ Francesco Antonio Binetti Fonti e approfondimenti HTTP Semantics — RFC 9110 ↗ (https://www.rfc-editor.org/rfc/rfc9110)TLS 1.3 — RFC 8446 ↗ (https://www.rfc-editor.org/rfc/rfc8446)Regolamento generale sulla protezione dei dati — EUR-Lex ↗ (https://eur-lex.europa.eu/eli/reg/2016/679/oj)Wi-Fi — Wi-Fi Alliance ↗ (https://www.wi-fi.org/discover-wi-fi)

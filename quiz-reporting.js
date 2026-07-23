@@ -14,28 +14,33 @@
 
   const field = document.createElement('div');
   field.className = 'quiz-student-field';
-  field.innerHTML = '<label for="student-code">Codice studente</label>' +
-    '<input id="student-code" name="student-code" type="text" maxlength="40" autocomplete="off" ' +
-    'placeholder="Es. CLASSE-07" aria-describedby="quiz-report-status">' +
-    '<small>Usa il codice assegnato: evita nome, cognome o email.</small>' +
+  field.innerHTML = '<div class="quiz-student-name">' +
+    '<label for="student-first-name">Nome<input id="student-first-name" name="student-first-name" ' +
+    'type="text" maxlength="60" autocomplete="given-name" required></label>' +
+    '<label for="student-last-name">Cognome<input id="student-last-name" name="student-last-name" ' +
+    'type="text" maxlength="60" autocomplete="family-name" required></label></div>' +
+    '<label class="quiz-student-course" for="student-course">Corso<input id="student-course" name="student-course" ' +
+    'type="text" maxlength="100" autocomplete="organization-title" required></label>' +
+    '<small>Nome, cognome e corso sono obbligatori per registrare il risultato.</small>' +
     '<span id="quiz-report-status" role="status" aria-live="polite"></span>';
   scorePanel.insertBefore(field, scorePanel.lastElementChild);
 
   const style = document.createElement('style');
-  style.textContent = '.quiz-student-field{display:grid;gap:5px;min-width:220px;max-width:300px}' +
-    '.quiz-student-field label{font-weight:700}' +
+  style.textContent = '.quiz-student-field{display:grid;gap:7px;min-width:300px;max-width:520px}' +
+    '.quiz-student-name{display:grid;grid-template-columns:1fr 1fr;gap:12px}' +
+    '.quiz-student-field label{display:grid;gap:5px;font-weight:700}' +
     '.quiz-student-field input{width:100%;border:1px solid rgba(244,236,224,.35);border-radius:8px;' +
     'padding:10px 12px;background:rgba(244,236,224,.08);color:var(--paper);font:inherit}' +
-    '.quiz-student-field input::placeholder{color:rgba(244,236,224,.45)}' +
     '.quiz-student-field input.invalid{border-color:var(--red);outline:2px solid rgba(230,83,59,.25)}' +
     '.quiz-student-field small,.quiz-student-field span{font-size:13px;color:rgba(244,236,224,.65)}' +
-    '.quiz-student-field span.error{color:#ff9a88}.quiz-student-field span.ok{color:#9fd9bf}';
+    '.quiz-student-field span.error{color:#ff9a88}.quiz-student-field span.ok{color:#9fd9bf}' +
+    '@media(max-width:720px){.quiz-student-name{grid-template-columns:1fr}.quiz-student-field{min-width:100%}}';
   document.head.appendChild(style);
 
-  const codeInput = document.getElementById('student-code');
+  const firstNameInput = document.getElementById('student-first-name');
+  const lastNameInput = document.getElementById('student-last-name');
+  const courseInput = document.getElementById('student-course');
   const status = document.getElementById('quiz-report-status');
-  const storageKey = 'educazione-digitale:student-code';
-  codeInput.value = localStorage.getItem(storageKey) || '';
   let lastFingerprint = '';
 
   function setStatus(message, kind) {
@@ -43,15 +48,26 @@
     status.className = kind || '';
   }
 
-  function cleanCode(value) {
-    return value.trim().replace(/\s+/g, '-').replace(/[^A-Za-z0-9._-]/g, '').slice(0, 40);
+  function cleanName(value) {
+    return value.trim().replace(/\s+/g, ' ').slice(0, 60);
+  }
+
+  function validName(value) {
+    return /^[\p{L}][\p{L}\p{M}' -]{0,59}$/u.test(value);
+  }
+  function validCourse(value) {
+    return value.length >= 2 && value.length <= 100;
   }
 
   function collectResult() {
     const questions = Array.from(quiz.querySelectorAll('.question'));
     const answers = questions.map((q, index) => {
       const picked = q.querySelector('input:checked');
-      return { question: index + 1, answer: picked ? picked.value : '' };
+      return {
+        question: index + 1,
+        prompt: q.querySelector('h2')?.textContent.trim() || '',
+        answer: picked ? picked.value : ''
+      };
     });
     const correct = questions.reduce((sum, q) => {
       const picked = q.querySelector('input:checked');
@@ -77,22 +93,26 @@
   }
 
   checkButton.addEventListener('click', function (event) {
-    const studentCode = cleanCode(codeInput.value);
-    codeInput.value = studentCode;
-    if (!studentCode) {
+    const firstName = cleanName(firstNameInput.value);
+    const lastName = cleanName(lastNameInput.value);
+    const course = courseInput.value.trim().replace(/\s+/g, ' ').slice(0, 100);
+    firstNameInput.value = firstName;
+    lastNameInput.value = lastName;
+    courseInput.value = course;
+    firstNameInput.classList.toggle('invalid', !validName(firstName));
+    lastNameInput.classList.toggle('invalid', !validName(lastName));
+    courseInput.classList.toggle('invalid', !validCourse(course));
+    if (!validName(firstName) || !validName(lastName) || !validCourse(course)) {
       event.preventDefault();
       event.stopImmediatePropagation();
-      codeInput.classList.add('invalid');
-      codeInput.focus();
-      setStatus('Inserisci il codice studente prima della correzione.', 'error');
+      (!validName(firstName) ? firstNameInput : !validName(lastName) ? lastNameInput : courseInput).focus();
+      setStatus('Inserisci nome, cognome e corso prima della correzione.', 'error');
       return;
     }
-    codeInput.classList.remove('invalid');
-    localStorage.setItem(storageKey, studentCode);
 
     window.setTimeout(function () {
       const result = collectResult();
-      const fingerprint = studentCode + '|' + JSON.stringify(result.answers);
+      const fingerprint = firstName + '|' + lastName + '|' + course + '|' + JSON.stringify(result.answers);
       if (fingerprint === lastFingerprint) {
         setStatus('Questo tentativo è già stato inviato.', 'ok');
         return;
@@ -100,9 +120,11 @@
       lastFingerprint = fingerprint;
       submitResult({
         attemptId: crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(16).slice(2),
-        quiz: location.pathname.split('/').pop() || document.title,
+        quiz: document.body.dataset.quizArea || location.pathname.split('/').pop() || document.title,
         title: document.querySelector('h1')?.textContent.trim() || document.title,
-        studentCode,
+        firstName,
+        lastName,
+        course,
         score: result.correct,
         total: result.total,
         answers: result.answers,

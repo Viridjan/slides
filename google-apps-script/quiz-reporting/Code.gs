@@ -2,7 +2,7 @@
 const RESULTS_SHEET = 'Risultati';
 const DASHBOARD_SHEET = 'Ultime 48 ore';
 const HEADERS = [
-  'Timestamp server', 'Codice studente', 'Quiz', 'Titolo', 'Punteggio',
+  'Timestamp server', 'Nome', 'Cognome', 'Corso', 'Quiz', 'Titolo', 'Punteggio',
   'Totale', 'Percentuale', 'Risposte', 'ID tentativo', 'Timestamp dispositivo'
 ];
 
@@ -36,7 +36,9 @@ function doPost(e) {
     const total = Number(payload.total);
     sheet.appendRow([
       new Date(),
-      safeText_(payload.studentCode, 40),
+      safeText_(payload.firstName, 60),
+      safeText_(payload.lastName, 60),
+      safeText_(payload.course, 100),
       safeText_(payload.quiz, 100),
       safeText_(payload.title, 160),
       score,
@@ -46,7 +48,7 @@ function doPost(e) {
       attemptId,
       safeText_(payload.clientTime, 40)
     ]);
-    sheet.getRange(sheet.getLastRow(), 7).setNumberFormat('0.0%');
+    sheet.getRange(sheet.getLastRow(), 9).setNumberFormat('0.0%');
     aggiornaDashboardUltime48Ore();
     return json_({ ok: true });
   } catch (error) {
@@ -67,7 +69,7 @@ function aggiornaDashboardUltime48Ore() {
   dashboard.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]).setFontWeight('bold');
   if (recent.length) {
     dashboard.getRange(2, 1, recent.length, HEADERS.length).setValues(recent);
-    dashboard.getRange(2, 7, recent.length, 1).setNumberFormat('0.0%');
+    dashboard.getRange(2, 9, recent.length, 1).setNumberFormat('0.0%');
   }
   dashboard.setFrozenRows(1);
   dashboard.autoResizeColumns(1, HEADERS.length);
@@ -84,19 +86,32 @@ function ensureSheet_(spreadsheet, name, headers) {
   if (sheet.getLastRow() === 0) {
     sheet.getRange(1, 1, 1, headers.length).setValues([headers]).setFontWeight('bold');
     sheet.setFrozenRows(1);
+  } else {
+    const secondHeader = String(sheet.getRange(1, 2).getValue());
+    if (secondHeader === 'Codice studente' && sheet.getLastColumn() < headers.length) {
+      sheet.insertColumnAfter(2);
+    }
+    if (String(sheet.getRange(1, 4).getValue()) !== 'Corso') {
+      sheet.insertColumnAfter(3);
+    }
+    sheet.getRange(1, 1, 1, headers.length).setValues([headers]).setFontWeight('bold');
   }
   return sheet;
 }
 
 function attemptExists_(sheet, attemptId) {
   if (!attemptId || sheet.getLastRow() < 2) return false;
-  return Boolean(sheet.getRange(2, 9, sheet.getLastRow() - 1, 1)
+  return Boolean(sheet.getRange(2, 11, sheet.getLastRow() - 1, 1)
     .createTextFinder(attemptId).matchEntireCell(true).findNext());
 }
 
 function validate_(payload) {
   if (!payload || typeof payload !== 'object') throw new Error('Payload non valido.');
-  if (!/^[A-Za-z0-9._-]{1,40}$/.test(String(payload.studentCode || ''))) throw new Error('Codice studente non valido.');
+  const namePattern = /^[\p{L}][\p{L}\p{M}' -]{0,59}$/u;
+  if (!namePattern.test(String(payload.firstName || '').trim())) throw new Error('Nome non valido.');
+  if (!namePattern.test(String(payload.lastName || '').trim())) throw new Error('Cognome non valido.');
+  const course = String(payload.course || '').trim();
+  if (course.length < 2 || course.length > 100) throw new Error('Corso non valido.');
   const score = Number(payload.score);
   const total = Number(payload.total);
   if (!Number.isInteger(score) || !Number.isInteger(total) || total < 1 || score < 0 || score > total || total > 200) {

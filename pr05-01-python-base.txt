@@ -11,6 +11,8 @@ programma corretto Francesco Antonio Binetti
 
 --- Slide 2 ---
 Dal linguaggio naturale al linguaggio macchina Il linguaggio naturale è flessibile ma ambiguo: «metti in ordine questi file» è chiaro per un collega, ma la macchina non sa se ordinare per nome, per data, crescente o decrescente. Il linguaggio macchina è eseguibile ma illeggibile. I linguaggi di programmazione stanno nel mezzo: formali come la matematica, leggibili quasi come una frase. Naturale Comodo per spiegare, rischioso per eseguire: sottintesi, contesto, ambiguità. Perfetto per raccogliere requisiti, inadatto come istruzione diretta. Macchina Sequenze binarie come 10110000 01100001, eseguite direttamente dal processore. Velocissime, ma illeggibili e diverse per ogni famiglia di CPU. Alto livello Python, JavaScript, C: parole chiave leggibili e regole precise. Un compilatore o interprete le traduce in linguaggio macchina al posto tuo. [Fonte: JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript]
+Fonti ufficiali:
+- JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript
 
 --- Slide 3 ---
 Python: un primo ponte verso il codice Python è adatto per iniziare: sintassi leggibile, poca cerimonia, risultato immediato. Queste otto righe sono già un programma completo: chiedono dati, li convertono, decidono e rispondono. nome = input("Come ti chiami? ")
@@ -21,6 +23,8 @@ if eta >= 18:
  print("Maggiorenne")
 else:
  print("Minorenne") Riga per riga input() mostra la domanda e restituisce ciò che scrivi, sempre come testo. int() lo trasforma in numero. if confronta e sceglie il ramo: con 25 stampa «Maggiorenne», con 15 stampa «Minorenne». Errore comune: dimenticare int(). input() restituisce una stringa, e confrontare "15" &gt;= 18 produce un errore di tipo. [Fonte: Tutorial ufficiale Python — https://docs.python.org/3/tutorial/]
+Fonti ufficiali:
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
 
 --- Slide 4 ---
 Simboli fondamentali nella sintassi Ogni linguaggio usa simboli per separare blocchi, argomenti, liste, stringhe e commenti. Riconoscerli aiuta a leggere codice nuovo. () chiamata o raggruppamento
@@ -38,6 +42,8 @@ print("fine controllo")
 
 --- Slide 6 ---
 Rappresentare i dati prima di elaborarli Un programma non tocca oggetti reali: lavora su dati rappresentati in modo formale. Scegliere il tipo giusto fin dall'inizio rende più semplice scrivere l'algoritmo e previene errori: non puoi moltiplicare un testo, né mettere in maiuscolo un numero. Numeri Per calcoli, misure, contatori e indici: eta = 25, prezzo = 12.50. Si possono sommare, confrontare, dividere e usare per calcolare medie e totali. Stringhe Sequenze di caratteri tra virgolette: nome = "Giulia". Servono per nomi, messaggi, indirizzi. Anche "25" è una stringa: sembra un numero, ma non lo è. Booleani Solo due valori: True o False. attivo = True. Guidano ogni decisione del programma: entrare in un ramo, ripetere un ciclo, filtrare una tabella. Errore comune "23" + "1" produce "231", perché incolla due testi; 23 + 1 produce 24. Stesso simbolo +, tipi diversi, risultati opposti: per questo il tipo va scelto con cura. [Fonte: Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/]
+Fonti ufficiali:
+- Dictionary of Algorithms and Data Structures — NIST — https://xlinux.nist.gov/dads/
 
 --- Slide 7 ---
 Conversione dei tipi: quando un valore deve cambiare Molti input arrivano come testo, anche quando rappresentano numeri. Convertire significa trasformare il valore nel tipo necessario per l'operazione successiva. eta_testo = "18"
@@ -104,6 +110,8 @@ for numero in range(10):
  if numero % 2 == 0:
  continue
  print(numero) [Fonte: Iterazione — Wikipedia — https://it.wikipedia.org/wiki/Iterazione]
+Fonti ufficiali:
+- Iterazione — Wikipedia — https://it.wikipedia.org/wiki/Iterazione
 
 --- Slide 16 ---
 Funzioni: dare un nome a un compito Una funzione raccoglie istruzioni riutilizzabili. I parametri ricevono dati e return restituisce il risultato. def calcola_totale(prezzo, quantita=1):
@@ -204,6 +212,8 @@ File di testo: leggere e scrivere with chiude automaticamente il file anche in c
 
 with open("note.txt", "a", encoding="utf-8") as file:
  file.write("Aggiunta\n") Modalità: r legge · w riscrive · a aggiunge. [Fonte: UTF-8 — Unicode Standard — https://www.unicode.org/versions/latest/core-spec/chapter-2/]
+Fonti ufficiali:
+- UTF-8 — Unicode Standard — https://www.unicode.org/versions/latest/core-spec/chapter-2/
 
 --- Slide 26 ---
 CSV: righe e colonne Il modulo csv gestisce separatori e virgolette. DictReader e DictWriter usano le intestazioni come chiavi. import csv
@@ -218,6 +228,8 @@ with open("prodotti.csv", "w", newline="", encoding="utf-8") as file:
  scrittore = csv.DictWriter(file, fieldnames=campi)
  scrittore.writeheader()
  scrittore.writerows(prodotti) [Fonte: Modulo csv — documentazione Python — https://docs.python.org/3/library/csv.html]
+Fonti ufficiali:
+- Modulo csv — documentazione Python — https://docs.python.org/3/library/csv.html
 
 --- Slide 27 ---
 JSON: strutture annidate JSON rappresenta oggetti, liste, stringhe, numeri, booleani e null: in Python diventano soprattutto dizionari, liste e None. import json
@@ -234,6 +246,8 @@ with open("dati.json", "w", encoding="utf-8") as file:
 
 print(dati["corso"])
 print(dati["voti"][0]) [Fonte: Modulo json — documentazione Python — https://docs.python.org/3/library/json.html]
+Fonti ufficiali:
+- Modulo json — documentazione Python — https://docs.python.org/3/library/json.html
 
 --- Slide 28 ---
 Scegliere il tipo di file Il formato dipende dalla struttura e da chi dovrà leggere i dati. TXT Testo libero e log. Semplice, ma senza colonne o tipi dichiarati. CSV Tabelle piatte: una riga per record, una colonna per campo. JSON Dati gerarchici e annidati: configurazioni, API e scambio tra applicazioni. E XML? È strutturato tramite tag ed è usato in standard e documenti complessi; per iniziare CSV e JSON coprono i casi più comuni.
@@ -249,6 +263,8 @@ if file.exists():
  testo = file.read_text(encoding="utf-8")
 else:
  file.write_text("[]", encoding="utf-8") [Fonte: Modulo pathlib — documentazione Python — https://docs.python.org/3/library/pathlib.html]
+Fonti ufficiali:
+- Modulo pathlib — documentazione Python — https://docs.python.org/3/library/pathlib.html
 
 --- Slide 30 ---
 La struttura di un programma semplice Un’applicazione piccola resta gestibile quando separa ingresso, elaborazione, uscita e salvataggio dei dati. 01 · Carica Leggi dal file i dati già disponibili e prepara lo stato iniziale. 02 · Valida l’input Converti i valori ricevuti e rifiuta quelli mancanti o non validi. 03 · Elabora Affida calcoli e trasformazioni a funzioni con un compito preciso. 04 · Presenta Mostra risultati e messaggi in una forma comprensibile per chi usa il programma. 05 · Salva Scrivi sul file soltanto dati completi, validi e coerenti. 06 · Gestisci gli errori Intercetta i fallimenti previsti e comunica come correggerli. Regola: ogni funzione svolge un compito osservabile e verificabile.
@@ -296,6 +312,8 @@ altrimenti
 
 --- Slide 34 ---
 Debug: osservare il programma mentre lavora Fare debug significa ricostruire cosa succede davvero durante l'esecuzione. Si controllano input, valori intermedi, rami scelti e punto in cui il comportamento diverge dalle attese. Stampe Mostrano valori temporanei. Breakpoint Fermano l'esecuzione in un punto. Traccia Segue il percorso del programma. [Fonte: Debugging — Wikipedia — https://it.wikipedia.org/wiki/Debugging]
+Fonti ufficiali:
+- Debugging — Wikipedia — https://it.wikipedia.org/wiki/Debugging
 
 --- Slide 35 ---
 Sviluppare piccoli passi verificabili Un buon flusso di lavoro alterna progettazione, scrittura, esecuzione e correzione. Meglio costruire programmi piccoli e testabili che scrivere molte istruzioni senza controllarle. Scrivi poco Aggiungi una parte alla volta. Esegui spesso Controlla subito cosa cambia. Testa casi Prova esempi normali, limite e sbagliati.

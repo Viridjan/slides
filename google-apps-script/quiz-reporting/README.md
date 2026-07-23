@@ -2,8 +2,9 @@
 # Rendicontazione quiz con Google Sheets
 
 Il backend registra i tentativi nel foglio `Risultati` e mantiene una vista
-`Ultime 48 ore`. Gli studenti sono identificati da un codice pseudonimo: non
-inserire nome, cognome o email.
+`Ultime 48 ore`. Ogni tentativo registra nome, cognome e corso dello studente. Il
+foglio contiene quindi dati personali e deve restare accessibile soltanto al
+personale didattico autorizzato.
 
 ## Attivazione
 
@@ -25,7 +26,7 @@ deve essere condiviso con gli studenti.
 ## Dati raccolti
 
 - timestamp generato dal server;
-- codice studente pseudonimo;
+- nome, cognome e corso;
 - quiz e titolo;
 - punteggio, totale e percentuale;
 - risposte selezionate;
@@ -39,8 +40,8 @@ l'accesso al foglio al personale autorizzato.
 - Il Foglio Google resta privato ed è condiviso soltanto con il proprietario e
   con il personale didattico autorizzato; gli studenti accedono esclusivamente
   all'applicazione web e non al foglio.
-- I tentativi usano soltanto codici pseudonimi. L'eventuale tabella che associa
-  codici e identità non deve essere conservata nello stesso foglio.
+- Nome, cognome e corso sono raccolti esclusivamente per attribuire il risultato allo
+  studente e non devono essere riutilizzati per finalità diverse.
 - I risultati vengono conservati per 90 giorni, salvo una necessità didattica
   documentata più breve, e poi eliminati dal proprietario del foglio.
 - Al termine dell'attività va riesaminato anche l'accesso degli eventuali
