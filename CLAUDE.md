@@ -707,11 +707,20 @@ has three quizzes, `RW01`, `RW02` and `RW03`. Flat series such as `HS01` or
 - `quiz-area.html?area=XX00` is the shared quiz interface.
 - `quiz-area-banks.js` contains one 50-question bank for every published area.
 - Each attempt shuffles its bank and displays exactly 20 questions without
-  repetition; “Nuove domande” performs a new extraction.
+  repetition. The selected question indexes and option order are stored in
+  `sessionStorage`, so a refresh preserves the exact test; a new browser
+  session creates a new extraction. Do not add a “Nuove domande” button.
 - Every quiz requires `Nome`, `Cognome` and `Corso`; the course field is shown
   below the two name fields and is included in the reporting payload and sheet.
 - Quiz cards and quiz pages have no descriptive paragraph. Their accent and
   background use the palette of the corresponding course section.
+- In the index, area quizzes are collected in compact macroarea groups
+  (Hardware, Reti, Contenuti, and so on). They use the same shared accordion
+  header style as ordinary subseries, with only the semantic accent token
+  changing. The groups start collapsed, allow only one open group at a time,
+  expose `aria-expanded` and `aria-controls`, and expand automatically for
+  search results or when returning from one of their quizzes; do not restore
+  one undifferentiated list of all quiz cards.
 - `scripts/build-area-quiz-banks.js` derives the banks from the actual slide
   content and must be run after adding, renaming or substantially changing a
   deck.

@@ -17,7 +17,7 @@
 <main class="page">
 <header class="top"><div><div class="badge" id="areaCode"></div><h1 id="quizTitle">Quiz di area</h1></div><a class="back" href="00-indice.html">Indice</a></header>
 <form class="questions" id="quiz"></form>
-<section class="panel score" aria-live="polite"><div><strong id="score">0 / 20</strong></div><div><button id="check" type="button">Correggi quiz</button> <button id="reset" class="secondary" type="button">Nuove domande</button></div></section>
+<section class="panel score" aria-live="polite"><div><strong id="score">0 / 20</strong></div><div><button id="check" type="button">Correggi quiz</button></div></section>
 </main>
 <script src="quiz-area-banks.js"></script>
 <script>
@@ -31,10 +31,33 @@ document.getElementById('areaCode').textContent=`${area} · 20 domande casuali s
 document.getElementById('quizTitle').textContent=bank.title;
 const quiz=document.getElementById('quiz'),score=document.getElementById('score');
 const shuffle=list=>{const copy=[...list];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]];}return copy;};
+const stateKey=`area-quiz-state:${area}`;
+const createState=()=>({
+  questions:shuffle(bank.questions.map((_,index)=>index)).slice(0,20).map(questionIndex=>({
+    questionIndex,
+    optionOrder:shuffle([0,1,2])
+  }))
+});
+const validState=state=>{
+  if(!state||!Array.isArray(state.questions)||state.questions.length!==20)return false;
+  const indexes=state.questions.map(item=>item.questionIndex);
+  return new Set(indexes).size===20&&state.questions.every(item=>
+    Number.isInteger(item.questionIndex)&&item.questionIndex>=0&&item.questionIndex<bank.questions.length&&
+    Array.isArray(item.optionOrder)&&item.optionOrder.length===3&&new Set(item.optionOrder).size===3&&
+    item.optionOrder.every(index=>Number.isInteger(index)&&index>=0&&index<3)
+  );
+};
+let quizState;
+try{quizState=JSON.parse(sessionStorage.getItem(stateKey)||'null');}catch{quizState=null;}
+if(!validState(quizState)){
+  quizState=createState();
+  try{sessionStorage.setItem(stateKey,JSON.stringify(quizState));}catch{}
+}
 function render(){
   quiz.innerHTML='';
-  shuffle(bank.questions).slice(0,20).forEach((question,index)=>{
-    const options=shuffle(question.options.map((text,original)=>({text,correct:original===question.correct})));
+  quizState.questions.forEach((saved,index)=>{
+    const question=bank.questions[saved.questionIndex];
+    const options=saved.optionOrder.map(original=>({text:question.options[original],correct:original===question.correct}));
     const article=document.createElement('article');article.className='question';article.dataset.correct=String(options.findIndex(option=>option.correct));
     article.innerHTML=`<div class="q-head"><div class="q-num">${String(index+1).padStart(2,'0')}</div><h2></h2></div><div class="options"></div><p class="feedback"></p>`;
     article.querySelector('h2').textContent=question.text;article.querySelector('.feedback').textContent=question.feedback;
@@ -44,7 +67,6 @@ function render(){
   score.textContent='0 / 20';
 }
 document.getElementById('check').addEventListener('click',()=>{let correct=0;quiz.querySelectorAll('.question').forEach(question=>{question.classList.add('answered');const picked=question.querySelector('input:checked');question.querySelectorAll('input').forEach(input=>{const option=input.closest('.option');option.classList.remove('correct','wrong');if(input.value===question.dataset.correct)option.classList.add('correct');else if(input===picked)option.classList.add('wrong');});if(picked?.value===question.dataset.correct)correct++;});score.textContent=`${correct} / 20`;});
-document.getElementById('reset').addEventListener('click',()=>{render();scrollTo({top:0,behavior:'smooth'});});
 render();
 </script>
 <script src="quiz-reporting-config.js"></script>
