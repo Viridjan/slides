@@ -3,7 +3,7 @@ Suite Ufficio · SU03.04 — Prime formule
 
 --- Slide 1 ---
 Prime formule
- Come funzionano le formule, gli operatori, e le funzioni fondamentali: SOMMA, MEDIA, MIN, MAX, CONTA, CONTA.SE e SE.
+ Come funzionano formule e operatori, quali sono le funzioni fondamentali e come diagnosticare ogni famiglia di errore del foglio.
 
 
 
@@ -12,15 +12,9 @@ Prime formule
  Francesco Antonio Binetti
 
 --- Slide 2 ---
-Cosa vedremo 01 Come funziona una formula 
- Gli operatori aritmetici e logici, e la funzione più usata. 02 Contare 
- Contare le celle presenti, con una condizione, e le decisioni automatiche. 03 Buone abitudini 
- Le otto funzioni del modulo, gli errori tipici e le buone abitudini.
-
---- Slide 3 ---
 Come funziona
 una formula
- Ogni formula inizia con = e può usare valori fissi, riferimenti a celle, operatori e funzioni. Il risultato si aggiorna automaticamente quando cambiano i dati.
+ Ogni formula inizia con = e può usare valori fissi, riferimenti a celle, operatori e funzioni. Il risultato si aggiorna automaticamente quando cambiano i dati. F2 · modifica formula
  Regola: Senza = il foglio tratta ciò che scrivi come testo. Con = lo calcola.
  💡 Niente calcolatrice Imposti la formula una volta — il foglio ricalcola tutto da solo ad ogni modifica dei dati sorgente. Cambia un valore di partenza, e tutti i risultati collegati si aggiornano immediatamente, senza dover aprire una calcolatrice o riscrivere nulla.
 
@@ -32,7 +26,10 @@ una formula
 
  =A1+B1 → 35, aggiornato se A1 o B1 cambia
 
---- Slide 4 ---
+
+ 📍 Dove si trova Dove si scrivono: clicca una cella e digita = seguito dalla funzione; in alternativa usa la barra della formula in alto o il pulsante fx (Inserisci funzione). Uguale in Excel e Google Fogli.
+
+--- Slide 3 ---
 Operatori aritmetici e logici
  Le formule usano operatori per combinare valori e riferimenti. Li conosci già dalla matematica — con qualche variante.
 
@@ -59,7 +56,7 @@ Operatori aritmetici e logici
 
  💡 Precedenza Come in matematica: * e / hanno precedenza su + e −. Usa le parentesi per controllare l'ordine di calcolo: =(A+B)*C anziché =A+B*C .
 
---- Slide 5 ---
+--- Slide 4 ---
 La funzione
 più usata
  SOMMA aggiunge tutti i valori numerici in un intervallo, ignorando automaticamente le celle vuote e quelle con testo. È la funzione più usata nei fogli di calcolo: totali, incassi, spese, quantità e qualsiasi altra somma di numeri.
@@ -91,7 +88,7 @@ più usata
 
  =SOMMA(B2:B5) → 430
 
---- Slide 6 ---
+--- Slide 5 ---
 Tre funzioni, una fotografia dei dati
  Usate insieme danno subito una panoramica della distribuzione dei valori — senza leggere ogni cella.
 
@@ -113,7 +110,7 @@ Tre funzioni, una fotografia dei dati
 
  In pratica: MIN, MEDIA, MAX insieme = in pochi secondi capisci la distribuzione dei dati senza grafici.
 
---- Slide 7 ---
+--- Slide 6 ---
 Contare le celle presenti
  SOMMA risponde "quanto in totale?". Le funzioni CONTA rispondono "quante celle hanno qualcosa dentro?".
 
@@ -141,7 +138,7 @@ Contare le celle presenti
 
  B4 è vuota: CONTA.NUMERI la salta, CONTA.VALORI no
 
---- Slide 8 ---
+--- Slide 7 ---
 Contare con una condizione
  CONTA.SE conta solo le celle che rispettano una regola: uguale a un testo, maggiore di un numero, contenente un valore specifico.
  =CONTA.SE( C:C ;"Pagato")
@@ -172,7 +169,7 @@ Contare con una condizione
 
  Conta solo le righe con stato "Pagato"
 
---- Slide 9 ---
+--- Slide 8 ---
 Decisioni automatiche
  SE valuta una condizione: se è vera restituisce un valore, altrimenti un altro. È la funzione logica base da cui nascono tutte le decisioni nel foglio.
  =SE( condizione ; se_vero; se_falso)
@@ -190,7 +187,12 @@ Decisioni automatiche
 
  SE valuta ogni riga in automatico
 
---- Slide 10 ---
+
+
+ Vai a PR01.05 · Proposizioni e condizioni ↗
+Rimandi interni: Vai a PR01.05 · Proposizioni e condizioni — pr01-05-operatori-funzioni.html#slide-9
+
+--- Slide 9 ---
 Le 8 funzioni di questo modulo
 
 
@@ -233,16 +235,62 @@ Le 8 funzioni di questo modulo
  =SE(cond;vero;falso)
  Valuta una condizione e restituisce un risultato diverso a seconda che sia vera o falsa
 
---- Slide 11 ---
-Errori tipici delle formule
- Quando qualcosa non torna, il foglio mostra un codice di errore. Ogni codice ha una causa precisa e una soluzione. Riconoscere e interpretare questi codici è fondamentale per lavorare in modo autonomo e corretto.
+--- Slide 10 ---
+Un errore è un
+ messaggio
+ Il codice identifica la famiglia del problema. Prima di nasconderlo, individua la cella che lo genera e risali ai dati usati dalla formula.
+ Regola: leggi il codice → controlla la formula → verifica i riferimenti → correggi la causa.
 
- #DIV/0! Divisione per zero o per cella vuota. Usa SE.ERRORE o controlla che il denominatore non sia 0.
- #VALORE! Tipo di dato sbagliato: stai sommando testo. Controlla il formato delle celle — i numeri devono essere allineati a destra.
- #RIF! Riferimento a una cella cancellata o spostata. Ricontrolla da dove proviene la formula.
- #NOME? Nome di funzione scritto male (es. SOMMMA invece di SOMMA) o nome di range inesistente.
+
+ 01 Seleziona la prima cella
+ Gli errori a cascata spesso dipendono da un solo punto iniziale.
+ 02 Leggi la barra della formula
+ Controlla operatori, parentesi, separatori, nomi e intervalli.
+ 03 Correggi, poi gestisci
+ SE.ERRORE è un fallback, non una riparazione automatica.
+
+--- Slide 11 ---
+#DIV/0! La formula divide per zero oppure per una cella vuota. =B2/ C2 Causa C2 vale 0, è vuota oppure una formula la rende temporaneamente vuota. Controllo Verifica il denominatore e chiediti se il calcolo ha senso quando il dato manca. 💡 Correzione =SE(C2=0;"dato mancante";B2/C2). Usa SE.ERRORE solo se ogni errore previsto deve avere lo stesso fallback.
 
 --- Slide 12 ---
+#VALORE! Un operatore o una funzione riceve un tipo di dato incompatibile. = "dieci" *2 Causa Numero salvato come testo, spazio invisibile, data non valida oppure argomento del tipo sbagliato. Controllo Verifica il contenuto reale della cella, non soltanto il suo aspetto o allineamento. 💡 Correzione Converti il dato con VALORE, pulisci il testo o sostituisci l'argomento incompatibile.
+
+--- Slide 13 ---
+#RIF! La formula punta a celle, righe, colonne o fogli che non esistono più. =SOMMA( #RIF! ) Causa Un intervallo è stato eliminato, un riferimento è stato costruito male o un risultato dinamico non può espandersi. Controllo Apri la formula e individua il riferimento spezzato; controlla anche nomi di fogli e permessi esterni. 💡 Correzione Ripristina la struttura eliminata oppure seleziona il nuovo intervallo corretto.
+
+--- Slide 14 ---
+#NOME? Il foglio non riconosce una funzione, un intervallo denominato o un testo non racchiuso tra virgolette. = SOMMMA (A1:A5) Causa Errore di battitura, nome inesistente, funzione nella lingua sbagliata o virgolette mancanti. Controllo Usa i suggerimenti mentre digiti e verifica il gestore degli intervalli denominati. 💡 Correzione Correggi il nome; scrivi il testo come "Nord" e non come Nord.
+
+--- Slide 15 ---
+#N/D Una ricerca non trova il valore richiesto: il risultato non è disponibile. =CERCA.X( A2 ;Listino[Codice];Listino[Prezzo]) Causa Chiave assente, spazio invisibile, differenza tra testo e numero oppure modalità di confronto sbagliata. Controllo Cerca la chiave nella sorgente e confronta tipo, spazi e maiuscole significative. 💡 Correzione Pulisci le chiavi e usa il valore «se non trovato» previsto da CERCA.X; non inventare un prezzo pari a zero.
+
+--- Slide 16 ---
+#NUM! Il calcolo richiede un numero impossibile, fuori dai limiti o non converge. =RADQ( -1 ) Causa Radice reale di un numero negativo, numero troppo grande o piccolo, iterazione finanziaria senza soluzione. Controllo Verifica dominio matematico, unità di misura e ordine di grandezza degli argomenti. 💡 Correzione Correggi l'input oppure usa la funzione adatta al dominio; non trasformare automaticamente il valore in positivo.
+
+--- Slide 17 ---
+#NULLO! Excel non trova l'intersezione tra due intervalli. =SOMMA(A1:A3 B1:B3 ) Causa Uno spazio è stato usato per chiedere un'intersezione inesistente, spesso al posto di «;» o «:». Controllo Individua lo spazio tra i riferimenti e chiarisci se volevi un intervallo o due argomenti. 💡 Correzione Usa A1:B3 per un intervallo oppure A1:A3;B1:B3 per argomenti separati. È un errore tipico di Excel. [Fonte: Supporto Microsoft Excel — https://support.microsoft.com/excel]
+
+--- Slide 18 ---
+#ERROR! Google Sheets non riesce ad analizzare la sintassi della formula. =SE(A1&gt;0 , "sì" , "no") Causa Separatore sbagliato per la lingua, parentesi o virgolette mancanti, operatori disposti male. Controllo Leggi il messaggio «Errore di analisi della formula» e verifica la lingua del file. 💡 Correzione In un file italiano usa normalmente il punto e virgola tra gli argomenti e chiudi ogni parentesi e virgoletta. [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603]
+
+--- Slide 19 ---
+#ESPANSIONE! Una formula a matrice dinamica non trova spazio per distribuire tutti i risultati. =FILTRO(A2:C100; C2:C100="Attivo" ) Causa Celle occupate o unite, limite della griglia, area dentro una tabella oppure intervallo di uscita non libero. Controllo Seleziona l'avviso: Excel evidenzia l'area in cui il risultato dovrebbe espandersi. 💡 Correzione Libera l'area o sposta la formula. In inglese il codice è #SPILL!; Sheets può mostrare #RIF! per un caso simile.
+
+--- Slide 20 ---
+#CALC! Excel incontra un caso di calcolo che la formula dinamica non sa restituire. =FILTRO(A2:A10; B2:B10="assente" ) Causa Risultato vuoto non gestito, matrice annidata o funzione personalizzata che restituisce un oggetto non supportato. Controllo Riduci la formula a parti più piccole e verifica quale passaggio non produce una matrice valida. 💡 Correzione Specifica il risultato «se vuoto» di FILTRO oppure modifica la struttura della matrice.
+
+--- Slide 21 ---
+Errori dei
+ dati collegati I tipi di dati e le sorgenti online introducono codici che dipendono dalla versione e dal servizio. #FIELD! #DATA! #CONNECT! #BLOCKED! Campo o dato #FIELD! indica una proprietà inesistente; #DATA! un valore che il tipo collegato non riesce a recuperare. Connessione o blocco Credenziali, permessi, criteri aziendali, modalità offline o servizio non disponibile impediscono l'aggiornamento. 💡 Correzione Controlla sorgente, accesso e aggiornamento. Questi codici moderni restano spesso in inglese anche nell'interfaccia italiana.
+
+--- Slide 22 ---
+Altri stati
+ moderni Alcuni codici descrivono attesa, compatibilità o servizi di calcolo, non una formula aritmetica sbagliata. #BUSY! #UNKNOWN! #GETTING_DATA #PYTHON! #TIMEOUT! Attesa o compatibilità #BUSY! e #GETTING_DATA indicano un calcolo in corso; #UNKNOWN! una funzione o un tipo non supportato dalla versione. Python in Excel #PYTHON! segnala un errore del codice o dell'ambiente; #TIMEOUT! indica che l'esecuzione ha superato il tempo consentito. 💡 Correzione Attendi o ricalcola; poi verifica connessione, aggiornamenti, diagnostica Python e compatibilità della versione.
+
+--- Slide 23 ---
+Sembrano errori, ma non hanno un codice Non tutti i problemi producono una cella rossa. Questi casi richiedono controlli diversi. ##### La colonna è troppo stretta per mostrare il numero o la data; può anche indicare una data o un'ora negativa. Allarga e verifica il valore. Riferimento circolare La formula dipende da sé stessa, direttamente o tramite altre celle. Segui le frecce e interrompi il ciclo, salvo iterazioni intenzionali. Risultato sbagliato La formula è formalmente valida ma usa dati, unità o intervalli errati. È il caso più pericoloso perché non mostra alcun avviso. Controllo: un foglio senza codici di errore non è automaticamente un foglio corretto.
+
+--- Slide 24 ---
 Buone abitudini
  Una formula corretta non basta: deve essere anche leggibile, robusta e facile da correggere.
 
@@ -267,11 +315,11 @@ Buone abitudini
  Nessuno sa tutto a memoria
  Il programma suggerisce mentre scrivi — usa i suggerimenti, non memorizzare la sintassi
 
---- Slide 13 ---
+--- Slide 25 ---
 I calcoli girano
 da soli.
- SOMMA, MEDIA, MIN, MAX, CONTA, CONTA.SE e SE: i mattoni fondamentali del foglio di calcolo. Ogni dato aggiornato attiva il ricalcolo automatico — la calcolatrice non serve più.
+ Sai costruire le formule fondamentali e leggere i loro segnali: ogni codice indica dove cercare, quale causa verificare e come correggerla.
 
  Prossimo → SU03.05 · Analizzare e cercare
 
- Francesco Antonio Binetti
+ Francesco Antonio Binetti Fonti e approfondimenti Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)

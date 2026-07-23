@@ -59,10 +59,10 @@ window.DECK_DIFFICULTY_INDEX = {
     "percentile": 0.42,
     "blockScore": 3.08,
     "metrics": {
-      "contentSlides": 23,
-      "wordsPerSlide": 99.57,
-      "conceptsPerSlide": 3.91,
-      "technicalDensity": 1.04
+      "contentSlides": 24,
+      "wordsPerSlide": 98.5,
+      "conceptsPerSlide": 3.92,
+      "technicalDensity": 1
     }
   },
   "rw01-01-reti.html": {
@@ -70,12 +70,12 @@ window.DECK_DIFFICULTY_INDEX = {
     "chapter": "RW01",
     "stars": 2,
     "percentile": 0.3,
-    "blockScore": 2.97,
+    "blockScore": 3.05,
     "metrics": {
-      "contentSlides": 9,
-      "wordsPerSlide": 113.11,
-      "conceptsPerSlide": 2.22,
-      "technicalDensity": 1.89
+      "contentSlides": 10,
+      "wordsPerSlide": 108.8,
+      "conceptsPerSlide": 2.4,
+      "technicalDensity": 1.7
     }
   },
   "rw01-02-navigazione.html": {
@@ -83,7 +83,7 @@ window.DECK_DIFFICULTY_INDEX = {
     "chapter": "RW01",
     "stars": 4,
     "percentile": 0.7,
-    "blockScore": 3.63,
+    "blockScore": 3.47,
     "metrics": {
       "contentSlides": 9,
       "wordsPerSlide": 107.56,
@@ -96,12 +96,12 @@ window.DECK_DIFFICULTY_INDEX = {
     "chapter": "RW01",
     "stars": 3,
     "percentile": 0.5,
-    "blockScore": 3,
+    "blockScore": 3.08,
     "metrics": {
-      "contentSlides": 8,
-      "wordsPerSlide": 107.25,
-      "conceptsPerSlide": 3.5,
-      "technicalDensity": 3
+      "contentSlides": 9,
+      "wordsPerSlide": 103.67,
+      "conceptsPerSlide": 3.56,
+      "technicalDensity": 2.72
     }
   },
   "rw01-04-ricerca.html": {
@@ -133,9 +133,9 @@ window.DECK_DIFFICULTY_INDEX = {
   "rw02-01-email.html": {
     "macroarea": "Reti e Web",
     "chapter": "RW02",
-    "stars": 5,
-    "percentile": 0.9,
-    "blockScore": 3.58,
+    "stars": 3,
+    "percentile": 0.5,
+    "blockScore": 3.5,
     "metrics": {
       "contentSlides": 21,
       "wordsPerSlide": 109.67,
@@ -159,14 +159,14 @@ window.DECK_DIFFICULTY_INDEX = {
   "rw02-03-contenuti.html": {
     "macroarea": "Reti e Web",
     "chapter": "RW02",
-    "stars": 3,
-    "percentile": 0.5,
-    "blockScore": 3.45,
+    "stars": 5,
+    "percentile": 0.9,
+    "blockScore": 3.6,
     "metrics": {
-      "contentSlides": 27,
-      "wordsPerSlide": 107.41,
-      "conceptsPerSlide": 3.19,
-      "technicalDensity": 1.76
+      "contentSlides": 28,
+      "wordsPerSlide": 106.25,
+      "conceptsPerSlide": 3.21,
+      "technicalDensity": 1.77
     }
   },
   "rw02-04-collaborazione-digitale.html": {
@@ -174,7 +174,7 @@ window.DECK_DIFFICULTY_INDEX = {
     "chapter": "RW02",
     "stars": 2,
     "percentile": 0.3,
-    "blockScore": 3.43,
+    "blockScore": 3.35,
     "metrics": {
       "contentSlides": 27,
       "wordsPerSlide": 119.89,
@@ -293,10 +293,10 @@ window.DECK_DIFFICULTY_INDEX = {
     "percentile": 0.38,
     "blockScore": 2.6,
     "metrics": {
-      "contentSlides": 8,
-      "wordsPerSlide": 63.63,
-      "conceptsPerSlide": 1,
-      "technicalDensity": 1.63
+      "contentSlides": 9,
+      "wordsPerSlide": 65.56,
+      "conceptsPerSlide": 1.33,
+      "technicalDensity": 1.67
     }
   },
   "cd01-04-sicurezza-contenuti.html": {
@@ -476,9 +476,9 @@ window.DECK_DIFFICULTY_INDEX = {
     "blockScore": 3.47,
     "metrics": {
       "contentSlides": 11,
-      "wordsPerSlide": 108.18,
+      "wordsPerSlide": 109.09,
       "conceptsPerSlide": 3.09,
-      "technicalDensity": 2.18
+      "technicalDensity": 2.23
     }
   },
   "su01-02-google-workspace.html": {
@@ -489,7 +489,7 @@ window.DECK_DIFFICULTY_INDEX = {
     "blockScore": 3.6,
     "metrics": {
       "contentSlides": 17,
-      "wordsPerSlide": 118.06,
+      "wordsPerSlide": 118.53,
       "conceptsPerSlide": 4.47,
       "technicalDensity": 0.88
     }
@@ -502,7 +502,7 @@ window.DECK_DIFFICULTY_INDEX = {
     "blockScore": 1.67,
     "metrics": {
       "contentSlides": 9,
-      "wordsPerSlide": 90.89,
+      "wordsPerSlide": 92.11,
       "conceptsPerSlide": 3,
       "technicalDensity": 1.39
     }
@@ -515,7 +515,7 @@ window.DECK_DIFFICULTY_INDEX = {
     "blockScore": 3.27,
     "metrics": {
       "contentSlides": 8,
-      "wordsPerSlide": 103.13,
+      "wordsPerSlide": 104.5,
       "conceptsPerSlide": 3.25,
       "technicalDensity": 3.56
     }
@@ -523,53 +523,66 @@ window.DECK_DIFFICULTY_INDEX = {
   "su02-01-documenti.html": {
     "macroarea": "Suite Ufficio",
     "chapter": "SU02",
-    "stars": 5,
-    "percentile": 0.88,
-    "blockScore": 4.17,
+    "stars": 4,
+    "percentile": 0.7,
+    "blockScore": 3.35,
     "metrics": {
-      "contentSlides": 13,
-      "wordsPerSlide": 95.08,
-      "conceptsPerSlide": 2.15,
-      "technicalDensity": 0.65
+      "contentSlides": 18,
+      "wordsPerSlide": 82.22,
+      "conceptsPerSlide": 2.06,
+      "technicalDensity": 0.31
     }
   },
   "su02-02-word-scrivere-formattare.html": {
     "macroarea": "Suite Ufficio",
     "chapter": "SU02",
     "stars": 3,
-    "percentile": 0.63,
-    "blockScore": 3,
+    "percentile": 0.5,
+    "blockScore": 3.28,
     "metrics": {
-      "contentSlides": 10,
-      "wordsPerSlide": 73.6,
-      "conceptsPerSlide": 2.4,
-      "technicalDensity": 0.25
+      "contentSlides": 8,
+      "wordsPerSlide": 75.38,
+      "conceptsPerSlide": 2.63,
+      "technicalDensity": 0.38
     }
   },
   "su02-03-word-impaginare-revisionare.html": {
     "macroarea": "Suite Ufficio",
     "chapter": "SU02",
     "stars": 1,
-    "percentile": 0.13,
-    "blockScore": 2.07,
+    "percentile": 0.1,
+    "blockScore": 1.8,
     "metrics": {
-      "contentSlides": 10,
-      "wordsPerSlide": 69.3,
-      "conceptsPerSlide": 2.4,
-      "technicalDensity": 0.2
+      "contentSlides": 7,
+      "wordsPerSlide": 69.43,
+      "conceptsPerSlide": 2.71,
+      "technicalDensity": 0.29
     }
   },
   "su02-04-word-documenti-professionali.html": {
     "macroarea": "Suite Ufficio",
     "chapter": "SU02",
-    "stars": 3,
-    "percentile": 0.38,
-    "blockScore": 2.77,
+    "stars": 2,
+    "percentile": 0.3,
+    "blockScore": 2.78,
+    "metrics": {
+      "contentSlides": 8,
+      "wordsPerSlide": 58.5,
+      "conceptsPerSlide": 2.38,
+      "technicalDensity": 0.81
+    }
+  },
+  "su02-05-word-docs-avanzato.html": {
+    "macroarea": "Suite Ufficio",
+    "chapter": "SU02",
+    "stars": 5,
+    "percentile": 0.9,
+    "blockScore": 3.8,
     "metrics": {
       "contentSlides": 10,
-      "wordsPerSlide": 68.7,
-      "conceptsPerSlide": 2.4,
-      "technicalDensity": 0.65
+      "wordsPerSlide": 74.5,
+      "conceptsPerSlide": 2.8,
+      "technicalDensity": 0.55
     }
   },
   "su03-01-sistema.html": {
@@ -593,7 +606,7 @@ window.DECK_DIFFICULTY_INDEX = {
     "blockScore": 3.52,
     "metrics": {
       "contentSlides": 10,
-      "wordsPerSlide": 90,
+      "wordsPerSlide": 90.4,
       "conceptsPerSlide": 2.9,
       "technicalDensity": 3.5
     }
@@ -619,9 +632,9 @@ window.DECK_DIFFICULTY_INDEX = {
     "blockScore": 3.48,
     "metrics": {
       "contentSlides": 23,
-      "wordsPerSlide": 82.91,
+      "wordsPerSlide": 83.04,
       "conceptsPerSlide": 2.91,
-      "technicalDensity": 3.26
+      "technicalDensity": 3.28
     }
   },
   "su03-05-analisi.html": {
@@ -632,7 +645,7 @@ window.DECK_DIFFICULTY_INDEX = {
     "blockScore": 3.88,
     "metrics": {
       "contentSlides": 12,
-      "wordsPerSlide": 97.5,
+      "wordsPerSlide": 97.67,
       "conceptsPerSlide": 2.42,
       "technicalDensity": 4.29
     }
@@ -671,7 +684,7 @@ window.DECK_DIFFICULTY_INDEX = {
     "blockScore": 2.96,
     "metrics": {
       "contentSlides": 11,
-      "wordsPerSlide": 84.27,
+      "wordsPerSlide": 84.55,
       "conceptsPerSlide": 2.82,
       "technicalDensity": 1.91
     }
@@ -697,9 +710,9 @@ window.DECK_DIFFICULTY_INDEX = {
     "blockScore": 3.49,
     "metrics": {
       "contentSlides": 26,
-      "wordsPerSlide": 97.92,
+      "wordsPerSlide": 98.04,
       "conceptsPerSlide": 3.54,
-      "technicalDensity": 0.65
+      "technicalDensity": 0.67
     }
   },
   "su03-11-fogli-calcolo-avanzati.html": {
@@ -710,7 +723,7 @@ window.DECK_DIFFICULTY_INDEX = {
     "blockScore": 3.68,
     "metrics": {
       "contentSlides": 11,
-      "wordsPerSlide": 103.82,
+      "wordsPerSlide": 104.09,
       "conceptsPerSlide": 4.73,
       "technicalDensity": 1.27
     }
@@ -736,9 +749,9 @@ window.DECK_DIFFICULTY_INDEX = {
     "blockScore": 2.68,
     "metrics": {
       "contentSlides": 12,
-      "wordsPerSlide": 52.42,
+      "wordsPerSlide": 52.67,
       "conceptsPerSlide": 3.83,
-      "technicalDensity": 1.46
+      "technicalDensity": 1.5
     }
   },
   "su03-14-vba.html": {
@@ -749,9 +762,9 @@ window.DECK_DIFFICULTY_INDEX = {
     "blockScore": 3.53,
     "metrics": {
       "contentSlides": 22,
-      "wordsPerSlide": 94.73,
+      "wordsPerSlide": 94.86,
       "conceptsPerSlide": 3.05,
-      "technicalDensity": 1.57
+      "technicalDensity": 1.59
     }
   },
   "su03-15-google-apps-script.html": {
@@ -788,7 +801,7 @@ window.DECK_DIFFICULTY_INDEX = {
     "blockScore": 2.51,
     "metrics": {
       "contentSlides": 6,
-      "wordsPerSlide": 79.17,
+      "wordsPerSlide": 79.67,
       "conceptsPerSlide": 2.5,
       "technicalDensity": 2.92
     }
@@ -814,9 +827,9 @@ window.DECK_DIFFICULTY_INDEX = {
     "blockScore": 3,
     "metrics": {
       "contentSlides": 11,
-      "wordsPerSlide": 115.09,
+      "wordsPerSlide": 115.64,
       "conceptsPerSlide": 3.09,
-      "technicalDensity": 0.82
+      "technicalDensity": 0.86
     }
   },
   "sd01-introduzione.html": {
@@ -1139,9 +1152,9 @@ window.DECK_DIFFICULTY_INDEX = {
     "blockScore": 3,
     "metrics": {
       "contentSlides": 28,
-      "wordsPerSlide": 55.39,
+      "wordsPerSlide": 55.54,
       "conceptsPerSlide": 2.46,
-      "technicalDensity": 4.05
+      "technicalDensity": 4.2
     }
   },
   "pm01-introduzione.html": {

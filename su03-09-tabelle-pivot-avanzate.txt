@@ -6,49 +6,37 @@ Pivot
  avanzate Dai primi riepiloghi a percentuali, raggruppamenti, campi calcolati, segmentazioni e grafici pivot controllabili. 🧭 Francesco Antonio Binetti
 
 --- Slide 2 ---
-Cosa vedremo 01 La domanda giusta 
- La domanda viene prima dei campi, e lo stesso valore raccontato in più modi. 02 Analisi avanzata 
- Percentuali, confronti tra periodi, raggruppare date e campi calcolati. 03 Cruscotti 
- Segmentazioni e timeline, il grafico pivot, più pivot su una sorgente e i controlli.
-
---- Slide 3 ---
 La domanda viene prima dei campi Una pivot avanzata non nasce trascinando campi a caso. Definisci prima indicatore, dimensioni, periodo e confronto. Regola: misura + categoria + tempo + filtro. Misura Incasso Categoria Servizio Tempo Mese Filtro Sede
 
---- Slide 4 ---
+--- Slide 3 ---
 Lo stesso valore può raccontare storie diverse Σ Somma Quanto vale il totale della categoria. # Conteggio Quanti record contribuiscono al risultato. % % del totale Quanto pesa ogni categoria sull’insieme. Δ Differenza Quanto cambia rispetto a un riferimento. 💡 Controllo Aggiungi due volte lo stesso campo nei Valori: una copia come totale, l’altra come percentuale. Il confronto evita letture ingannevoli.
 
---- Slide 5 ---
+--- Slide 4 ---
 Percentuale di riga, colonna o totale? Il denominatore cambia il significato. Scrivilo nel titolo del report e non lasciare che il lettore debba indovinarlo. Calcolo Domanda Esempio % totale generale Quanto pesa sul complesso? Colore = 42% degli incassi % totale riga Come si divide questa categoria? Servizio per sede % totale colonna Come si compone questo periodo? Servizi dentro marzo
-Fonti ufficiali:
-- Supporto Microsoft Excel — https://support.microsoft.com/excel
-- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
+
+--- Slide 5 ---
+Confrontare periodi senza formule esterne ↔ Differenza da Valore corrente meno periodo precedente. % % differenza da Variazione relativa rispetto al riferimento. ∑ Totale progressivo Accumula mese dopo mese per leggere l’andamento. In pratica: mostra valore assoluto e variazione insieme: +20 euro e +40% non raccontano la stessa scala. ⚠️ Solo Excel Queste tre voci sono opzioni «Mostra valori come» delle pivot di Excel. Le pivot di Google Sheets non le hanno in modo nativo: lì servono una colonna d'appoggio o un campo calcolato nei dati sorgente. [Fonte: Supporto Microsoft Excel — https://support.microsoft.com/excel] [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603]
 
 --- Slide 6 ---
-Confrontare periodi senza formule esterne ↔ Differenza da Valore corrente meno periodo precedente. % % differenza da Variazione relativa rispetto al riferimento. ∑ Totale progressivo Accumula mese dopo mese per leggere l’andamento. In pratica: mostra valore assoluto e variazione insieme: +20 euro e +40% non raccontano la stessa scala. ⚠️ Solo Excel Queste tre voci sono opzioni «Mostra valori come» delle pivot di Excel. Le pivot di Google Sheets non le hanno in modo nativo: lì servono una colonna d'appoggio o un campo calcolato nei dati sorgente.
+Raggruppare date e fasce Centinaia di date diventano mesi, trimestri o anni; valori continui diventano fasce leggibili. ⚠️ Attenzione Date vuote, testi che sembrano date e valori misti possono impedire il raggruppamento. 📍 Dove si trova Excel: clic destro su una data nella pivot → Raggruppa (giorni, mesi, anni). · Google Fogli: clic destro → Crea gruppo pivot per data. 📅 Tempo Giorno → mese → trimestre → anno. ▥ Intervalli Età 18–24, 25–34; importi 0–49, 50–99.
 
 --- Slide 7 ---
-Raggruppare date e fasce Centinaia di date diventano mesi, trimestri o anni; valori continui diventano fasce leggibili. ⚠️ Attenzione Date vuote, testi che sembrano date e valori misti possono impedire il raggruppamento. 📅 Tempo Giorno → mese → trimestre → anno. ▥ Intervalli Età 18–24, 25–34; importi 0–49, 50–99.
-
---- Slide 8 ---
 Campi calcolati: una misura derivata Un campo calcolato usa i campi della sorgente per produrre un nuovo indicatore, per esempio margine o commissione. Margine = Ricavo - Costo
 
-Commissione = Vendite * 0,05 Quando usarlo La logica è semplice, stabile e appartiene al report. Quando evitarlo Se servono condizioni complesse, prepara la colonna nella sorgente o nel modello dati. Fonte: Calcoli nelle tabelle pivot — Microsoft ↗ (https://support.microsoft.com/en-us/excel/calculate-values-in-a-pivottable)
+Commissione = Vendite * 0,05 Quando usarlo La logica è semplice, stabile e appartiene al report. 📍 Dove si trova Excel: Analizza pivot → Campi, elementi e set → Campo calcolato. · Google Fogli: riquadro pivot → Valori → Aggiungi → Campo calcolato. Quando evitarlo Se servono condizioni complesse, prepara la colonna nella sorgente o nel modello dati.
 
---- Slide 9 ---
+--- Slide 8 ---
 Dal totale alle righe che lo compongono La pivot mostra i totali ma nasconde le righe che li formano. Il drill-down le riporta a galla: doppio clic su un valore e si apre un nuovo foglio con le righe sorgente esatte che, sommate, danno quel numero — in Excel come in Google Sheets. 1 Individua Trova nella pivot il totale da controllare: per esempio un incasso che sembra troppo alto. 2 Apri il dettaglio Doppio clic sulla cella: si apre un foglio con tutte le righe sorgente che compongono quel valore. 3 Verifica Scorri quelle righe a caccia di duplicati, date sbagliate, categorie errate o importi anomali. Regola: una cifra affidabile deve essere tracciabile fino ai dati sorgente.
 
---- Slide 10 ---
-Il grafico pivot resta collegato al report Filtri, raggruppamenti e aggiornamenti della pivot si riflettono nel grafico associato. In pratica: pivot per controllare i numeri, grafico per comunicare il pattern. Il filtro cambia tabella e grafico insieme
+--- Slide 9 ---
+Il grafico pivot resta collegato al report Filtri, raggruppamenti e aggiornamenti della tabella pivot si riflettono nel grafico associato. In pratica: tabella pivot per controllare i numeri, grafico per comunicare il pattern. 📍 Dove si trova Excel: Analizza pivot → Grafico pivot. · Google Fogli: seleziona la pivot → Inserisci → Grafico. Il filtro cambia tabella e grafico insieme
 
---- Slide 11 ---
+--- Slide 10 ---
 Più pivot, una sola sorgente pulita 🗃 Sorgente unica Evita copie divergenti della stessa tabella. 🔄 Aggiornamento Definisci chi aggiorna, quando e da quale intervallo. 🧠 Cache e modello In Excel pivot collegate possono condividere cache e comportamento. ⚠️ Effetto collegato In Excel, copie della stessa pivot possono condividere cache: raggruppamenti e campi calcolati possono influenzarsi. Verifica prima di progettare report indipendenti.
 
---- Slide 12 ---
+--- Slide 11 ---
 Controlli prima della consegna ✓ Quadratura Totale pivot uguale al totale sorgente. ✓ Aggiornamento Nuove righe comprese nel range. ✓ Formato Percentuali, valute e date coerenti. ✓ Filtri Filtri attivi visibili al lettore. Regola: salva una vista senza filtri nascosti e con la data dell’ultimo aggiornamento.
 
---- Slide 13 ---
-Laboratorio: cruscotto vendite Parti da Data, Sede, Servizio, Operatore, Ricavo e Costo. A Pivot 1 Ricavo e margine per servizio, con % del totale. B Pivot 2 Trend mensile e variazione dal mese precedente. C Controlli Slicer per sede e operatore, periodo visibile. D Verifica Apri il dettaglio di un valore e quadrane il totale.
-
---- Slide 14 ---
+--- Slide 12 ---
 Una pivot avanzata
-è un report verificabile. Percentuali, confronti e filtri servono solo quando la domanda è chiara e il totale resta tracciabile. Prossimo → SU03.10 · GraficiTorna all’indice Francesco Antonio Binetti
+è un report verificabile. Percentuali, confronti e filtri servono solo quando la domanda è chiara e il totale resta tracciabile. Prossimo → SU03.10 · Grafici Francesco Antonio Binetti Fonti e approfondimenti Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)

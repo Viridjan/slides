@@ -553,7 +553,7 @@ Navigation chain: sm01 → … → sm11
 
 ### Suite Ufficio
 
-Navigation chain: su01-01 → su01-02 → su01-03 → su01-04 → su02-01 → su02-02 → su02-03 → su02-04 → su03-01 → su03-02 → su03-03 → su03-04 → su03-05 → su03-06 → su03-07 → su03-08 → su03-09 → su03-10 → su03-11 → su03-12 → su03-13 → su03-14 → su03-15 → su03-16 → su03-17 → su03-18 → su04-01
+Navigation chain: su01-01 → su01-02 → su01-03 → su01-04 → su02-01 → su02-02 → su02-03 → su02-04 → su02-05 → su03-01 → su03-02 → su03-03 → su03-04 → su03-05 → su03-06 → su03-07 → su03-08 → su03-09 → su03-10 → su03-11 → su03-12 → su03-13 → su03-14 → su03-15 → su03-16 → su03-17 → su03-18 → su04-01
 
 The filename prefixes mirror the index sub-series: `su01-01`-`su01-04`
 software, `su02-01`-`su02-04` documenti e Word, `su03-01`-`su03-15` fogli di calcolo and
@@ -569,6 +569,7 @@ automation, and `su04-01` presentazioni.
 | `su02-02-word-scrivere-formattare.html` | Word: scrivere e formattare |
 | `su02-03-word-impaginare-revisionare.html` | Word: impaginare e revisionare |
 | `su02-04-word-documenti-professionali.html` | Word: documenti professionali |
+| `su02-05-word-docs-avanzato.html` | Word e Docs: funzioni avanzate |
 | `su03-01-sistema.html` | Il foglio di calcolo: sistema di lavoro |
 | `su03-02-riferimenti.html` | Riferimenti e range |
 | `su03-03-fondamenti-matematici.html` | Fondamenti matematici |

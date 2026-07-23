@@ -131,10 +131,11 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
 .card-arrow{display:none;}
 .module-card:has(.card-title:hover,.card-desc:hover) .card-arrow{color:rgba(244,236,224,.7);transform:translateX(6px);}
 
-
 /* Footer */
-.page-footer{margin-top:64px;padding-top:32px;border-top:1px solid rgba(216,201,180,.12);display:flex;justify-content:flex-end;align-items:center;}
+.page-footer{margin-top:64px;padding-top:32px;border-top:1px solid rgba(216,201,180,.12);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
 .footer-author{font-family:var(--font-mono);font-size:16px;color:rgba(244,236,224,.38);letter-spacing:1px;}
+.footer-graphlink{font-family:var(--font-mono);font-size:14px;color:rgba(244,236,224,.4);letter-spacing:.5px;text-decoration:none;border-bottom:1px solid rgba(244,236,224,.18);transition:color .18s,border-color .18s;}
+.footer-graphlink:hover{color:var(--gold);border-color:var(--gold);}
 
 /* Download button */
 .dl-btn{position:absolute;right:80px;top:calc(50% + 8px);z-index:2;}
@@ -387,7 +388,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW02.01</div>
           <div class="card-title">La Posta Elettronica</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
+          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Indirizzi email, struttura di un messaggio, piattaforme, A/CC/CCN, oggetto, tono professionale, allegati, risposta, sicurezza e netiquette.</div>
           <div class="card-topics">
             <span class="topic">Email</span>
@@ -421,7 +422,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW02.03</div>
           <div class="card-title">Gestire e Archiviare Contenuti</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
+          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Visualizzare, salvare, stampare e scaricare file dal web. Copiare contenuti da pagine, documenti e immagini. Organizzare l'archivio digitale nel cloud.</div>
           <div class="card-topics">
             <span class="topic">Download</span>
@@ -835,7 +836,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU02.01</div>
           <div class="card-title">Mettere tutto per iscritto</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
+          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">I documenti che servono davvero sul lavoro: la scheda cliente, un curriculum che fa notare e un listino prezzi fatto bene con Word o Writer.</div>
           <div class="card-topics">
             <span class="topic">Curriculum</span>
@@ -871,9 +872,19 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU02.04</div>
           <div class="card-title">Word: documenti professionali</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
+          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Modelli, lettere, report, moduli, stampa unione, documenti lunghi, versioni, privacy e consegna professionale.</div>
           <div class="card-topics"><span class="topic">Modelli</span><span class="topic">Report</span><span class="topic">Stampa unione</span></div>
+        </div><div class="card-arrow">→</div>
+      </a>
+      <a class="module-card inf" href="su02-05-word-docs-avanzato.html">
+        <div class="card-num">SU02.05</div>
+        <div class="card-body">
+          <div class="card-tag">SUITE UFFICIO · SU02.05</div>
+          <div class="card-title">Word e Docs: funzioni avanzate</div>
+          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
+          <div class="card-desc">Dieci strumenti meno noti: note e citazioni, riferimenti incrociati, colonne, filigrana, equazioni, revisione e traduzione, voce, smart chip e assistenti IA.</div>
+          <div class="card-topics"><span class="topic">Citazioni</span><span class="topic">Colonne</span><span class="topic">Smart chip</span><span class="topic">IA</span></div>
         </div><div class="card-arrow">→</div>
       </a>
       <a class="module-card inf" href="su03-01-sistema.html">
@@ -1812,6 +1823,7 @@ body.search-active .subseries-group:not(:has(.module-card:not(.search-hidden))){
   </div>
 
   <footer class="page-footer">
+    <a class="footer-graphlink" href="graphify-out/graph.html">Grafo della conoscenza · Graphify ↗</a>
     <div class="footer-author">Francesco Antonio Binetti</div>
   </footer>
 

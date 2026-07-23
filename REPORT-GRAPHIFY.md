@@ -1,13 +1,19 @@
 <!-- Proprietà intellettuale di Francesco Antonio Binetti -->
 # Report Graphify — grafo della conoscenza del corso
 
-Grafo generato con [graphify](https://github.com/safishamsi/graphify) sui **128 deck
+Grafo generato con [graphify](https://github.com/safishamsi/graphify) sui **122 deck
 HTML** pubblicati (solo i deck: TXT, MD, immagini e codice JS esclusi dallo scope).
 Mappa i concetti insegnati e i collegamenti fra deck (catene `Prossimo →`, rimandi
 nei footer, concetti condivisi).
 
 Gli output binari/rigenerabili vivono in `graphify-out/` (ignorato da git). Questo
 file è la sintesi leggibile e versionata di ciò che il grafo ha rivelato.
+
+> **Nota di stato — 22 luglio 2026.** Rigenerato sui 122 deck pubblicati
+> **correnti**: le bozze HS06–HS11 sono state rimosse e i loro topic unici
+> ridistribuiti nei deck esistenti (hs05, cd01-03, rw02-03, rw01-01, rw01-03).
+> I numeri qui sotto riflettono la libreria attuale. Per nomi, codici e
+> inventario canonico resta comunque riferimento `00-indice.html` e `CLAUDE.md`.
 
 ## Come rigenerare
 
@@ -28,16 +34,16 @@ semantica dei documenti ricade sull'agente ospite (subagent) se non è impostata
 
 | Metrica | Valore |
 | --- | --- |
-| Deck analizzati | 128 (HTML root) |
-| Nodi | 265 (deck + concetti) |
-| Collegamenti | 289 |
-| Iperarchi | 14 (catene/cluster tematici) |
-| Community | 29 |
-| Parole indicizzate | ~207.000 |
+| Deck analizzati | 122 (HTML root) |
+| Nodi | 345 (deck + concetti) |
+| Collegamenti | 371 |
+| Iperarchi | 15 (catene/cluster tematici) |
+| Community | 36 |
+| **Modularità** | **0.871** (struttura a blocchi molto netta) |
 
-Salute del grafo: nessun edge pendente, mancante o self-loop; 4 archi paralleli
-collassati (benigno, coppie di nodi con più relazioni ridotte a una nel grafo
-non orientato).
+La modularità 0.87 conferma che la suddivisione per aree è quasi ottimale:
+qualsiasi ri-clustering automatico produce lo stesso valore. Il grafo è pulito,
+senza più alcun nodo o arco delle bozze HS06–HS11.
 
 ## Community principali
 
@@ -52,7 +58,7 @@ Rilevate per densità di collegamenti (community detection), poi etichettate a m
 | 4 | Fogli di calcolo: analisi e pivot | 20 | — |
 | 5 | Game Design | 18 | — |
 | 6 | Identità digitale e società | 18 | — |
-| 7 | Diagnosi, dati e distribuzione (HS05–11 + MS) | 16 | — |
+| 7 | Troubleshooting, formati e 3D (HS05 + MS) | 16 | — |
 | 8 | Software e documenti Word | 16 | — |
 | 9 | Reti e web: fondamenti | 13 | — |
 | 10 | Hardware, OS e file system | 11 | — |
@@ -62,23 +68,27 @@ Rilevate per densità di collegamenti (community detection), poi etichettate a m
 | 14 | Intelligenza Artificiale | 7 | — |
 | 15 | Algoritmi e codifica | 6 | — |
 
-Le community 16–28 sono cluster minori: intro PM (2 nodi) e i singoli deck di
-esercizi/quiz, isolati perché collegati al resto solo tramite `data-source`.
+Le community 16+ sono cluster minori: intro PM e i singoli deck di esercizi/quiz,
+isolati perché collegati al resto solo tramite `data-source`.
+
+*(Dimensioni e temi indicano la struttura tematica; il conteggio esatto delle
+community varia leggermente a ogni ricostruzione — 36 nell'ultimo build sui 122
+deck. La modularità 0.87 resta stabile.)*
 
 ## God node (i cardini più collegati)
 
 I nodi con più archi: sono gli hub concettuali attorno a cui ruota il corso.
 
-1. **CD01.04 Sicurezza dei contenuti digitali** — 11 archi
-2. CD01.01 Licenze aperte e OER — 9
-3. SD02 Minacce e Vulnerabilità — 8
-4. CD01.03 Metadati e formati — 7
-5. PM03 Metodologie di Project Management — 7
-6. RW02.04 Collaborazione Digitale — 6
-7. PM02 Pianificare un Progetto — 6
-8. Privacy, Anonimato e Pseudonimia — 6
-9. RW01.05 Navigare con Spirito Critico — 5
-10. SD01 Introduzione alla Sicurezza Digitale — 5
+1. **CD01.03 Metadati e formati** — 13 archi *(salito a hub #1: assorbe audio/codec e i rimandi sui formati dopo la rimozione di HS08)*
+2. CD01.04 Sicurezza dei contenuti digitali — 11
+3. RW02.03 Gestire e Archiviare Contenuti — 11
+4. CD01.01 Licenze aperte e OER — 10
+5. SD03 Privacy, Anonimato e Pseudonimia — 10
+6. HS05 Troubleshooting — 10 *(hub dell'area Hardware dopo la rimozione di HS06)*
+7. MS03 Esportazione e stampa 3D — 10
+8. RW01.01 Reti Informatiche e Internet — 10
+9. HS03 Sistemi Operativi — 9
+10. HS04 OS: concetti fondamentali — 9
 
 ## Connessioni sorprendenti (link non ovvi tra aree diverse)
 

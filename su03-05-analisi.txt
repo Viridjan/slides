@@ -13,12 +13,6 @@ e cercare
  Francesco Antonio Binetti
 
 --- Slide 2 ---
-Cosa vedremo 01 Ordinare e riassumere 
- Tabelle strutturate, ordinamento e filtri, tabelle pivot e FILTER. 02 Cercare 
- Ricerca verticale e orizzontale, trovare la posizione ed estrarre per posizione. 03 La ricerca giusta 
- INDICE+CONFRONTA, CERCA.X e quale funzione di ricerca scegliere.
-
---- Slide 3 ---
 Tabelle strutturate
  Converti un range in Tabella: il formato si estende automaticamente, le formule si copiano, i filtri appaiono, i riferimenti strutturati funzionano.
  Inserisci → Tabella (o Ctrl+T). Dai un nome significativo: Vendite , Clienti , Prodotti .
@@ -37,9 +31,9 @@ Tabelle strutturate
  ✓ Riferimento strutturato
  =SOMMA(Vendite[Importo]) si aggiorna quando aggiungi righe.
 
---- Slide 4 ---
+--- Slide 3 ---
 Ordinamento e filtri
- Le frecce di filtro appaiono in automatico sulle intestazioni di una tabella. Cliccale per ordinare o filtrare i dati senza toccare le formule.
+ Le frecce di filtro appaiono in automatico sulle intestazioni di una tabella. Cliccale per ordinare o filtrare i dati senza toccare le formule. Ctrl+Maiusc+L · filtri
 
 
  ↕️
@@ -59,7 +53,9 @@ Ordinamento e filtri
 
  💡 Filtro avanzato Vuoi estrarre i dati filtrati in un'altra area del foglio? Usa la funzione FILTER — i risultati si aggiornano automaticamente.
 
---- Slide 5 ---
+ 📍 Dove si trova Excel: Dati → Ordina / Filtro (o Home → Ordina e filtra). · Google Fogli: Dati → Ordina intervallo / Crea un filtro.
+
+--- Slide 4 ---
 Tabelle pivot
  Una tabella pivot riassume migliaia di righe in pochi secondi, raggruppando e aggregando i dati per dimensioni che scegli tu — senza scrivere una sola formula.
  Inserisci → Tabella pivot. Trascina le colonne nelle aree Righe, Colonne, Valori, Filtri.
@@ -104,11 +100,11 @@ Tabelle pivot
  riepilogo automatico
 
  500 righe → tabella pivot in 3 trascinamenti
-Fonti ufficiali:
-- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
-- Supporto Microsoft Excel — https://support.microsoft.com/excel
 
---- Slide 6 ---
+
+ 📍 Dove si trova Excel: Inserisci → Tabella pivot. · Google Fogli: Inserisci → Tabella pivot.
+
+--- Slide 5 ---
 FILTER, UNICI, ARRAYFORMULA
  Formule "spill" che restituiscono una matrice di risultati: il foglio le espande automaticamente occupando tutte le celle necessarie.
 
@@ -132,10 +128,8 @@ FILTER, UNICI, ARRAYFORMULA
 
 
  [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603] [Fonte: Supporto Microsoft Excel — https://support.microsoft.com/excel]
-Fonti ufficiali:
-- Riferimento VBA per Office — Microsoft Learn — https://learn.microsoft.com/office/vba/api/overview/
 
---- Slide 7 ---
+--- Slide 6 ---
 Condivisione e automazioni
 
 
@@ -164,7 +158,7 @@ Condivisione e automazioni
 
  [Fonte: Riferimento VBA per Office — Microsoft Learn — https://learn.microsoft.com/office/vba/api/overview/]
 
---- Slide 8 ---
+--- Slide 7 ---
 Ricerca verticale
  CERCA.VERT cerca un valore nella prima colonna di una tabella e restituisce il valore in una colonna a destra scelta da te.
  =CERCA.VERT( chiave ; tabella; col_risultato; 0)
@@ -187,7 +181,7 @@ Ricerca verticale
  =CERCA.VERT("Crema X"; A2:B4; 2; 0)
  Trova in colonna A, restituisce colonna B
 
---- Slide 9 ---
+--- Slide 8 ---
 Ricerca orizzontale
  CERCA.ORIZZ funziona come CERCA.VERT ma su righe invece che su colonne. Cerca nella prima riga e restituisce un valore dalla riga specificata più in basso.
  =CERCA.ORIZZ( chiave ; tabella; riga_risultato; 0)
@@ -204,7 +198,7 @@ Ricerca orizzontale
  =CERCA.ORIZZ("Gen"; A1:D3; 2; 0)
  Cerca sulla riga 1, restituisce dalla riga 2
 
---- Slide 10 ---
+--- Slide 9 ---
 Trovare la posizione
  CONFRONTA cerca un valore in un range e restituisce la posizione (numero ordine), non il valore stesso. È il tassello fondamentale per la combinazione INDICE+CONFRONTA.
  =CONFRONTA( chiave ; intervallo; 0)
@@ -222,7 +216,7 @@ Trovare la posizione
  CONFRONTA("Gel Z"; A1:A4; 0) → 3
  "Gel Z" è in posizione 3 nella lista
 
---- Slide 11 ---
+--- Slide 10 ---
 Estrarre per posizione
  INDICE è l'opposto di CONFRONTA: dato un numero di riga (e colonna), restituisce il valore in quella posizione all'interno di un range.
  =INDICE( intervallo ; riga; colonna)
@@ -240,7 +234,7 @@ Estrarre per posizione
  INDICE(B1:B4; 3) → 8
  Riga 3 della colonna B = 8 (prezzo Gel Z)
 
---- Slide 12 ---
+--- Slide 11 ---
 INDICE+CONFRONTA — ricerca flessibile
  CONFRONTA trova la posizione della chiave. INDICE usa quella posizione per estrarre il valore. Insieme formano una ricerca che non dipende dall'ordine delle colonne.
  =INDICE( col_risultato ; CONFRONTA( chiave ; col_chiave ; 0))
@@ -253,7 +247,7 @@ INDICE+CONFRONTA — ricerca flessibile
  INDICE+CONFRONTA
  Chiave e risultato possono essere in qualsiasi colonna — anche a sinistra. Più robusto ai cambiamenti nella tabella.
 
---- Slide 13 ---
+--- Slide 12 ---
 CERCA.X — il futuro
  CERCA.X (XLOOKUP) sostituisce sia CERCA.VERT che INDICE+CONFRONTA. Cerca in qualsiasi direzione, gestisce da sola i valori non trovati e ha una sintassi più leggibile.
  =CERCA.X( chiave ; dove_cercare ; cosa_restituire ; [se_non_trovato])
@@ -271,7 +265,7 @@ CERCA.X — il futuro
  =CERCA.X(E2;A:A;C:C;"N/T")
  Nessun numero di colonna. Se non trovato → mostra "N/T".
 
---- Slide 14 ---
+--- Slide 13 ---
 Quale funzione di ricerca scegliere?
 
  Funzione Usa quando… Limite
@@ -280,11 +274,11 @@ Quale funzione di ricerca scegliere?
  INDICE+CONFRONTA Risultato a sinistra della chiave; vuoi robustezza strutturale Sintassi doppia — più complessa da leggere
  CERCA.X Hai Excel 365 o Google Sheets; vuoi la soluzione più moderna Non funziona su Excel 2019 e precedenti
 
---- Slide 15 ---
+--- Slide 14 ---
 Dati trovati,
 istantaneamente.
  Tabelle strutturate, ordinamento, pivot e FILTER per esplorare migliaia di righe. CERCA.VERT, INDICE+CONFRONTA e CERCA.X per trovare qualsiasi valore in una lista.
 
  Prossimo → SU03.06 · Top 10 funzioni
 
- Fonti e approfondimenti Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)Riferimento VBA per Office — Microsoft Learn ↗ (https://learn.microsoft.com/office/vba/api/overview/) Francesco Antonio Binetti
+ Francesco Antonio Binetti Fonti e approfondimenti Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)Riferimento VBA per Office — Microsoft Learn ↗ (https://learn.microsoft.com/office/vba/api/overview/)

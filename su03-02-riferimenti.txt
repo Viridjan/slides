@@ -3,223 +3,245 @@ Suite Ufficio · SU07 — Riferimenti e range
 
 --- Slide 1 ---
 Riferimenti
-e range 
+e range
  Relativi, assoluti, misti, intervalli, nomi di celle, tabelle strutturate e LET: come scrivere formule che non si rompono quando copi.
 
---- Slide 2 ---
-Cosa vedremo 01 L'indirizzo delle celle 
- Riferimenti relativi, assoluti col simbolo dollaro, e misti. 02 Range e nomi 
- I range, nominare celle e range, e i riferimenti a colonne e altri fogli. 03 Formule solide 
- La funzione LET e cosa rompe le formule, e come evitarlo.
 
---- Slide 3 ---
-Ogni cella ha un indirizzo 
- Le colonne usano lettere (A, B, C…), le righe usano numeri (1, 2, 3…). La cella B3 è l'incrocio tra colonna B e riga 3. 
- Le formule non usano valori fissi: usano indirizzi. Questo permette ai risultati di aggiornarsi automaticamente quando cambiano i dati. 
- Analogia: Come le coordinate su una mappa — col + riga identificano un punto unico su tutta la griglia. 
- 
- 
- 
- A B C 
- 1 
- 2 
- 3 B3 
- 4 
- 
+
+
+
+
+
+
+
+
+
+
+ $B$2
+
+
+ C3
+
+ 🔒
+ ↕
+
+
+ Francesco Antonio Binetti
+
+--- Slide 2 ---
+Ogni cella ha un indirizzo
+ Le colonne usano lettere (A, B, C…), le righe usano numeri (1, 2, 3…). La cella B3 è l'incrocio tra colonna B e riga 3.
+ Le formule non usano valori fissi: usano indirizzi. Questo permette ai risultati di aggiornarsi automaticamente quando cambiano i dati.
+ Analogia: Come le coordinate su una mappa — col + riga identificano un punto unico su tutta la griglia.
+
+
+
+ A B C
+ 1
+ 2
+ 3 B3
+ 4
+
  Colonna B × Riga 3 = cella B3
 
---- Slide 4 ---
-Riferimenti relativi 
- Un riferimento relativo si sposta quando la formula viene copiata. Se copi la formula in basso di una riga, il riferimento scende di una riga. 
- =B2 * 1.22 
- Copiando in basso: diventa =B3 * 1.22 , poi =B4 * 1.22 — si adatta a ogni riga. 
- Regola: Nessun simbolo = si sposta. È il comportamento predefinito di ogni cella senza $. 
- 
- 
- 
- A B (prezzo) C (con IVA) 
- 2 Crema 20 24,40 
- 3 Shampoo 12 =B3*1.22 
- 4 Gel 8 =B4*1.22 
- 
+--- Slide 3 ---
+Riferimenti relativi
+ Un riferimento relativo si sposta quando la formula viene copiata. Se copi la formula in basso di una riga, il riferimento scende di una riga.
+ =B2 * 1.22
+ Copiando in basso: diventa =B3 * 1.22 , poi =B4 * 1.22 — si adatta a ogni riga.
+ Regola: Nessun simbolo = si sposta. È il comportamento predefinito di ogni cella senza $.
+
+
+
+ A B (prezzo) C (con IVA)
+ 2 Crema 20 24,40
+ 3 Shampoo 12 =B3*1.22
+ 4 Gel 8 =B4*1.22
+
  Copia di C2 verso il basso → B si aggiorna
 
---- Slide 5 ---
-Riferimenti assoluti — il $ 
- Il simbolo $ blocca la parte del riferimento che lo precede. $B$1 resta sempre su colonna B, riga 1 — anche se copi la formula ovunque. 
- =B3 * (1 + $B$1 ) 
- 
- 
- Senza $ 
- =B3*(1+B1) copiato in basso → =B4*(1+B2) — sbagliato! 
- 
- 
- Con $ 
- =B3*(1+$B$1) copiato → =B4*(1+$B$1) — corretto! 
- 
- 
- 
- 
- 
- A B 
- 1 Aliquota IVA $B$1 = 22% 
- 2 Crema 20 
- 3 Shampoo 12 
- 4 Gel 8 
- 
+--- Slide 4 ---
+Riferimenti assoluti — il $
+ Il simbolo $ blocca la parte del riferimento che lo precede. $B$1 resta sempre su colonna B, riga 1 — anche se copi la formula ovunque. F4 · alterna i blocchi $
+ =B3 * (1 + $B$1 )
+
+
+ Senza $
+ =B3*(1+B1) copiato in basso → =B4*(1+B2) — sbagliato!
+
+
+ Con $
+ =B3*(1+$B$1) copiato → =B4*(1+$B$1) — corretto!
+
+
+
+
+
+ A B
+ 1 Aliquota IVA $B$1 = 22%
+ 2 Crema 20
+ 3 Shampoo 12
+ 4 Gel 8
+
  $B$1 = sempre la stessa cella, sempre
 
---- Slide 6 ---
-Riferimenti misti — bloccare solo colonna o solo riga 
- 
- Tipo Esempio Cosa succede quando copi 
- Relativo B2 Sia colonna che riga si spostano — comportamento predefinito 
- Assoluto $B$2 Nulla si sposta — cella completamente bloccata 
- Misto (col fissa) $B2 La colonna B resta; la riga si sposta quando copi in alto/basso 
- Misto (riga fissa) B$2 La riga 2 resta; la colonna si sposta quando copi a destra/sinistra 
- 
+
+ 📍 Dove si trova Come si fa: scrivi $ prima di colonna e riga ( $A$1 ). Scorciatoia: seleziona il riferimento e premi F4 per scorrere relativo → assoluto → misto (uguale in Excel e Google Fogli).
+
+--- Slide 5 ---
+Riferimenti misti — bloccare solo colonna o solo riga
+
+ Tipo Esempio Cosa succede quando copi
+ Relativo B2 Sia colonna che riga si spostano — comportamento predefinito
+ Assoluto $B$2 Nulla si sposta — cella completamente bloccata
+ Misto (col fissa) $B2 La colonna B resta; la riga si sposta quando copi in alto/basso
+ Misto (riga fissa) B$2 La riga 2 resta; la colonna si sposta quando copi a destra/sinistra
+
  💡 Idea chiave Il simbolo $ non significa denaro: significa "blocca questa dimensione". Premi F4 per ciclare tra i 4 tipi mentre sei nella barra della formula.
 
---- Slide 7 ---
+--- Slide 6 ---
 Range: più celle
- in una volta 
- Un range è un gruppo di celle. Si scrive con la prima e l'ultima separate dai due punti. Le formule lo usano per lavorare su molte celle contemporaneamente. 
- =SOMMA( B2:B10 ) 
- In pratica: B2:B10 significa "tutte le celle da B2 a B10 incluse" — nove celle in un simbolo solo. 
- 
- 
- 
- B:B 
- Tutta la colonna B — utile per tabelle che crescono 
- 
- 
- 2:2 
- Tutta la riga 2 
- 
- 
- A2:D20 
- Blocco rettangolare 4 colonne × 19 righe 
- 
- 
- B2:B5;D2:D5 
+ in una volta
+ Un range è un gruppo di celle. Si scrive con la prima e l'ultima separate dai due punti. Le formule lo usano per lavorare su molte celle contemporaneamente.
+ =SOMMA( B2:B10 )
+ In pratica: B2:B10 significa "tutte le celle da B2 a B10 incluse" — nove celle in un simbolo solo.
+
+
+
+ B:B
+ Tutta la colonna B — utile per tabelle che crescono
+
+
+ 2:2
+ Tutta la riga 2
+
+
+ A2:D20
+ Blocco rettangolare 4 colonne × 19 righe
+
+
+ B2:B5;D2:D5
  Due intervalli separati (punto e virgola)
 
---- Slide 8 ---
-Nominare celle e range 
- Puoi dare un nome a una cella o a un intervallo. La formula diventa più leggibile e meno fragile — non dipende più da dove si trova fisicamente la cella. 
- =Prezzo * (1 + AliquotaIVA ) 
- Invece di =B3*(1+$B$1) — che richiede di ricordare cosa contiene B1. 
- 💡 Come farlo Seleziona la cella → clicca nella Casella del nome → digita il nome → premi Invio. Il nome deve iniziare con una lettera e non contenere spazi. 
- 
- 
- 
- Nomi buoni 
- AliquotaIVA 
- SogliaSconto 
- Listino2026 
- TotaleVendite 
- 
- 
- Nomi da evitare 
+--- Slide 7 ---
+Nominare celle e range
+ Puoi dare un nome a una cella o a un intervallo. La formula diventa più leggibile e meno fragile — non dipende più da dove si trova fisicamente la cella.
+ =Prezzo * (1 + AliquotaIVA )
+ Invece di =B3*(1+$B$1) — che richiede di ricordare cosa contiene B1.
+ 💡 Come farlo Seleziona la cella → clicca nella Casella del nome → digita il nome → premi Invio. Il nome deve iniziare con una lettera e non contenere spazi.
+
+
+
+ Nomi buoni
+ AliquotaIVA
+ SogliaSconto
+ Listino2026
+ TotaleVendite
+
+
+ Nomi da evitare
  aliquota iva (spazio)
  1dato (inizia con numero)
  x (troppo generico)
 
---- Slide 9 ---
-Riferimenti alle colonne 
- Quando converti un range in Tabella (Inserisci → Tabella), puoi riferirti alle colonne per nome invece che per lettera — e il range si espande automaticamente. 
- =SOMMA( Vendite[Importo] ) 
- Somma la colonna "Importo" della tabella "Vendite". Aggiungendo nuove righe, la formula le include in automatico. 
- Regola: Tabella strutturata = meno formule misteriose come =SOMMA(D2:D487) . 
- 
- 
- 
- A B C 
- 1 Data Cliente Importo 
- 2 12/03 Rossi 25 
- 3 13/03 Bianchi 55 
- 4 14/03 Verdi 80 
- 
+--- Slide 8 ---
+Riferimenti alle colonne
+ Quando converti un range in Tabella (Inserisci → Tabella), puoi riferirti alle colonne per nome invece che per lettera — e il range si espande automaticamente.
+ =SOMMA( Vendite[Importo] )
+ Somma la colonna "Importo" della tabella "Vendite". Aggiungendo nuove righe, la formula le include in automatico.
+ Regola: Tabella strutturata = meno formule misteriose come =SOMMA(D2:D487) .
+
+
+
+ A B C
+ 1 Data Cliente Importo
+ 2 12/03 Rossi 25
+ 3 13/03 Bianchi 55
+ 4 14/03 Verdi 80
+
  Tabella "Vendite" — Vendite[Importo] = colonna C
 
---- Slide 10 ---
-Riferimento ad altro foglio 
- Puoi leggere il valore di una cella che si trova su un altro foglio dello stesso file usando il punto esclamativo come separatore. 
- 
- 
- =Gennaio!B3 
- Legge la cella B3 dal foglio "Gennaio". Utile per sommare dati da fogli mensili in un foglio riassuntivo. 
- 
- 
- =SOMMA(Gennaio!B:B) 
- Somma tutta la colonna B del foglio "Gennaio" — la formula si aggiorna ogni volta che quel foglio cambia. 
- 
- 
- Riferimento 3D 
- =SOMMA(Gen:Dic!B3) 
-Somma la cella B3 da tutti i fogli tra "Gen" e "Dic". 
- 
- 
- ⚠️ Attenzione Se rinomini il foglio sorgente, i riferimenti si aggiornano automaticamente. Se lo elimini, le formule mostrano #RIF!
-Fonti ufficiali:
-- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
+--- Slide 9 ---
+Riferimento ad altro foglio
+ Puoi leggere il valore di una cella che si trova su un altro foglio dello stesso file usando il punto esclamativo come separatore.
 
---- Slide 11 ---
-La funzione LET 
- LET permette di dare un nome temporaneo a parti della formula. La formula rimane compatta e leggibile — il nome scompare dopo il calcolo. 
- Analogia: LET è come scrivere una bozza con appunti ai margini — calcoli intermedi con nome, risultato finale pulito. 
- 💡 Compatibilità LET è disponibile in Excel 365 e in Google Sheets. In file salvati per versioni vecchie di Excel può non funzionare. 
- 
- 
- 
- Senza LET 
- =SE((B2-C2)/B2&gt;0,2;"OK";"BASSO") 
- Difficile capire cosa è il calcolo (B2-C2)/B2. 
- 
- 
- Con LET 
+
+ =Gennaio!B3
+ Legge la cella B3 dal foglio "Gennaio". Utile per sommare dati da fogli mensili in un foglio riassuntivo.
+
+
+ =SOMMA(Gennaio!B:B)
+ Somma tutta la colonna B del foglio "Gennaio" — la formula si aggiorna ogni volta che quel foglio cambia.
+
+
+ Riferimento 3D
+ =SOMMA(Gen:Dic!B3)
+Somma la cella B3 da tutti i fogli tra "Gen" e "Dic".
+
+
+ ⚠️ Attenzione Se rinomini il foglio sorgente, i riferimenti si aggiornano automaticamente. Se lo elimini, le formule mostrano #RIF!
+
+--- Slide 10 ---
+La funzione LET
+ LET permette di dare un nome temporaneo a parti della formula. La formula rimane compatta e leggibile — il nome scompare dopo il calcolo.
+ Analogia: LET è come scrivere una bozza con appunti ai margini — calcoli intermedi con nome, risultato finale pulito.
+ 💡 Compatibilità LET è disponibile in Excel 365 e in Google Sheets. In file salvati per versioni vecchie di Excel può non funzionare.
+
+
+
+ Senza LET
+ =SE((B2-C2)/B2&gt;0,2;"OK";"BASSO")
+ Difficile capire cosa è il calcolo (B2-C2)/B2.
+
+
+ Con LET
  =LET(margine;(B2-C2)/B2;
-&nbsp;&nbsp;SE(margine&gt;0,2;"OK";"BASSO")) 
+&nbsp;&nbsp;SE(margine&gt;0,2;"OK";"BASSO"))
  Il nome margine spiega il calcolo.
 
---- Slide 12 ---
-Cosa rompe le formule — e come evitarlo 
- 
- 
- 🔁 
- Copia sbagliata 
- Un riferimento relativo che doveva restare fermo. Usa F4 per aggiungere $. 
- 
- 
- 🧱 
- Range rigidi 
- A2:A100 ignora dati nuovi alla riga 101. Usa tabelle strutturate. 
- 
- 
- 🔤 
- Intestazioni vaghe 
- Colonne chiamate "dato" o "x" rendono impossibile capire il file — e i riferimenti strutturati inutili. 
- 
- 
- 🧩 
- Formula illeggibile 
- Se non riesci a rileggerla, spezzala con LET, celle di appoggio o colonne intermedie. 
- 
- 
- 🧨 
- Celle unite 
- Le celle unite rompono filtri, ordinamenti e formule su array. Evitale nelle tabelle dati. 
- 
- 
- 📋 
- Dati misti 
+
+
+
+ [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603]
+
+--- Slide 11 ---
+Cosa rompe le formule — e come evitarlo
+
+
+ 🔁
+ Copia sbagliata
+ Un riferimento relativo che doveva restare fermo. Usa F4 per aggiungere $.
+
+
+ 🧱
+ Range rigidi
+ A2:A100 ignora dati nuovi alla riga 101. Usa tabelle strutturate.
+
+
+ 🔤
+ Intestazioni vaghe
+ Colonne chiamate "dato" o "x" rendono impossibile capire il file — e i riferimenti strutturati inutili.
+
+
+ 🧩
+ Formula illeggibile
+ Se non riesci a rileggerla, spezzala con LET, celle di appoggio o colonne intermedie.
+
+
+ 🧨
+ Celle unite
+ Le celle unite rompono filtri, ordinamenti e formule su array. Evitale nelle tabelle dati.
+
+
+ 📋
+ Dati misti
  Numeri salvati come testo (allineati a sinistra) non vengono sommati correttamente.
 
---- Slide 13 ---
+--- Slide 12 ---
 Formula copiata,
-formula corretta. 
- Riferimenti relativi, assoluti ($) e misti, range nominati e LET: costruire formule che si copiano in ogni direzione senza rompersi. 
- 
- Prossimo → SU08 · Prime formule 
- 
- Fonti e approfondimenti Guida ufficiale Google Sheets ↗
+formula corretta.
+ Riferimenti relativi, assoluti ($) e misti, range nominati e LET: costruire formule che si copiano in ogni direzione senza rompersi.
+
+ Prossimo → SU03.03 · Fondamenti matematici
+
+ Francesco Antonio Binetti Fonti e approfondimenti Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)

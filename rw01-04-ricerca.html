@@ -448,7 +448,7 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
         <div class="desc"><b>Ricerca esatta</b> — le virgolette obbligano il motore a trovare esattamente quella frase, non le parole separate.</div>
       </div>
       <div class="op-row">
-        <div class="op">site:gov.it</div>
+        <div class="op">site:azienda.it</div>
         <div class="desc"><b>Ricerca limitata a un dominio</b> — mostra solo risultati dal sito o dominio specificato. Utile per cercare info ufficiali.</div>
       </div>
       <div class="op-row">
@@ -460,13 +460,34 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
         <div class="desc"><b>Esclusione</b> — il trattino esclude una parola dai risultati. <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;">virus -informatico</code> cerca "virus" ma non in contesto informatico.</div>
       </div>
       <div class="op-row" style="border:none;">
-        <div class="op">OR</div>
-        <div class="desc"><b>Operatore OR</b> — <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;">gatto OR cane</code> trova pagine che parlano di gatti o di cani (o entrambi).</div>
+        <div class="op">AND / OR / NOT</div>
+        <div class="desc"><b>Operatori booleani</b> — AND richiede entrambi i termini, OR ne accetta almeno uno, NOT esclude. Nei motori generalisti AND può essere implicito; nei database la sintassi è più rigorosa.</div>
       </div>
     </div>
   </div>
   <div class="page-num"></div>
 </section>
+  <section class="slide">
+    <div class="center">
+      <h2 class="h-sec reveal">Filtri e <em class="gold">strumenti</em> di ricerca</h2>
+      <p class="lead reveal d1">Dopo la prima ricerca, non aggiungere solo parole: restringi i risultati con i filtri offerti dal motore.</p>
+      <div class="grid3 reveal d2" style="margin-top:26px;"><div class="card" style="text-align:center;"><span class="ic">📅</span><h3>Per data</h3><p>Ultime 24 ore, ultimo anno: fondamentale per le notizie e per scartare pagine vecchie e superate.</p></div><div class="card" style="text-align:center;"><span class="ic">🗂️</span><h3>Per tipo</h3><p>Immagini, video, notizie, mappe, libri, shopping: cambia la scheda e cambi il tipo di risultato.</p></div><div class="card" style="text-align:center;"><span class="ic">🌍</span><h3>Lingua e area</h3><p>Limita a una lingua o a una regione per risultati locali, oppure allarga per fonti internazionali.</p></div></div><div class="analogy reveal d3" style="margin-top:24px;"><span class="big">In pratica:</span> un filtro ben scelto vale più di dieci parole chiave in più.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <h2 class="h-big reveal">Ricerca per <em class="gold">immagini</em></h2>
+        <p class="lead reveal d1">Non solo parole: puoi cercare a partire da una foto. La trascini o la incolli e il motore trova dove appare online e immagini simili. Strumenti: Google Immagini, Google Lens, TinEye.</p>
+        <div class="note reveal d2" style="margin-top:22px;"><div class="lbl">A cosa serve</div><p>Capire da dove viene una foto, riconoscere un oggetto o un prodotto, e verificare se un'immagine è autentica o riciclata da un altro contesto.</p></div>
+      </div>
+      <div class="illu reveal d2"><svg viewBox="0 0 280 240" role="img" aria-label="Ricerca per immagini"><rect x="36" y="34" width="168" height="140" rx="10" fill="#fbf5ec" stroke="#1c1714" stroke-width="5"/><circle cx="86" cy="86" r="20" fill="#e6c14a" stroke="#1c1714" stroke-width="4"/><path d="M52 150 l40 -46 l30 30 l34 -40 l48 56 Z" fill="#3f7e8c" stroke="#1c1714" stroke-width="4" stroke-linejoin="round"/><circle cx="176" cy="150" r="42" fill="none" stroke="#e6533b" stroke-width="10"/><line x1="206" y1="180" x2="242" y2="216" stroke="#e6533b" stroke-width="12" stroke-linecap="round"/></svg><div class="illu-cap">Cerca con un'immagine, non con le parole</div></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
 
 <!-- === SLIDE 16: VALUTARE I RISULTATI (slide 35) === -->
 <section class="slide">
@@ -495,6 +516,72 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
   </div>
   <div class="page-num"></div>
 </section>
+  <section class="slide">
+    <div class="center">
+      <h2 class="h-sec reveal">La bolla di <em class="gold">filtraggio</em></h2>
+      <p class="lead reveal d1">I risultati non sono uguali per tutti: cronologia, posizione e account personalizzano ciò che vedi. Comodo, ma può mostrarti solo ciò che già pensi.</p>
+      <div class="grid3 reveal d2" style="margin-top:26px;"><div class="card" style="text-align:center;"><span class="ic">🍪</span><h3>Perché cambia</h3><p>Cronologia, cookie, posizione, lingua e account guidano l'ordine dei risultati e la pubblicità.</p></div><div class="card" style="text-align:center;"><span class="ic">🫧</span><h3>Il rischio</h3><p>La «bolla»: continui a vedere lo stesso punto di vista e credi che sia l'unico esistente.</p></div><div class="card" style="text-align:center;"><span class="ic">🕵️</span><h3>Come uscirne</h3><p>Finestra anonima, confronto tra motori diversi, cronologia pulita: risultati più neutri.</p></div></div><div class="analogy reveal d3" style="margin-top:24px;"><span class="big">Regola:</span> se una ricerca è importante, confrontala da un browser «pulito» o da un altro motore.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+
+<!-- === DIGCOMP 3.0: CERCARE, VALUTARE, GESTIRE === -->
+<section class="slide">
+  <div class="center">
+    <h2 class="h-sec reveal" style="margin-top:16px;">DigComp: <em class="gold">cercare, valutare, gestire</em></h2>
+    <p class="lead reveal d1">DigComp 3.0 riunisce queste azioni nell’area «Ricerca, valutazione e gestione delle informazioni»: non basta trovare, bisogna scegliere e organizzare.</p>
+    <div class="grid3 reveal d2" style="margin-top:24px;">
+      <div class="card">
+        <span class="ic">🔎</span>
+        <h3>Cercare e filtrare</h3>
+        <p>Definire il bisogno informativo, scegliere lo strumento, formulare query efficaci e distinguere i risultati pertinenti dal rumore.</p>
+      </div>
+      <div class="card">
+        <span class="ic">⚖️</span>
+        <h3>Valutare criticamente</h3>
+        <p>Confrontare credibilità, affidabilità, autorevolezza, data e processo con cui una fonte o un contenuto sono stati prodotti.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🗂️</span>
+        <h3>Gestire e recuperare</h3>
+        <p>Organizzare, conservare e ritrovare informazioni e dati in ambienti digitali strutturati, mantenendoli comprensibili nel tempo.</p>
+      </div>
+    </div>
+    <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">In pratica:</span> l’alfabetizzazione informativa è la capacità di gestire criticamente l’informazione lungo tutto il suo ciclo.</div>
+  </div>
+  <div class="page-num"></div>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://joint-research-centre.ec.europa.eu/projects-and-activities/education-and-training/digital-transformation-education/digital-competence-framework-digcomp/digcomp-30_en" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: DigComp 3.0 — Commissione europea" aria-label="Fonte ufficiale: DigComp 3.0 — Commissione europea" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: DigComp 3.0 — Commissione europea ↗</a></div></section>
+  <section class="slide">
+    <div class="center">
+      <h2 class="h-sec reveal" style="margin-top:16px;"><em class="gold">1.1</em> Navigare, ricercare e filtrare</h2>
+      <p class="lead reveal d1">Prima competenza dell'area: sapere cosa cercare e come raggiungerlo. Non è digitare parole a caso, ma costruire una strategia.</p>
+      <div class="grid3 reveal d2" style="margin-top:24px;"><div class="card"><span class="ic">🎯</span><h3>Definire il bisogno</h3><p>Chiarire cosa serve davvero e in che forma — un dato, una guida, una fonte ufficiale — prima ancora di aprire il motore.</p></div><div class="card"><span class="ic">🔑</span><h3>Cercare e filtrare</h3><p>Scegliere lo strumento giusto, formulare parole chiave e operatori, restringere con i filtri per data, tipo e lingua.</p></div><div class="card"><span class="ic">🧭</span><h3>Navigare e ripetere</h3><p>Muoversi tra risultati e link e salvare le strategie che funzionano, per riusarle la volta dopo.</p></div></div>
+      <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">In pratica:</span> una buona ricerca inizia con una buona domanda, non con una buona parola chiave.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <h2 class="h-sec reveal" style="margin-top:16px;"><em class="gold">1.2</em> Valutare informazioni e dati</h2>
+      <p class="lead reveal d1">Seconda competenza: trovato un risultato, decidere se fidarsi. La credibilità non si vede dal primo colpo d'occhio.</p>
+      <div class="grid3 reveal d2" style="margin-top:24px;"><div class="card"><span class="ic">👤</span><h3>Fonte e autore</h3><p>Chi lo dice, con quale competenza e con quale interesse? Nome, data e contatto reali sono buoni segnali.</p></div><div class="card"><span class="ic">🔀</span><h3>Confrontare</h3><p>Corroborare con altre fonti indipendenti: una sola pagina non basta, soprattutto per affermazioni forti.</p></div><div class="card"><span class="ic">🎭</span><h3>Fatto o pubblicità</h3><p>Distinguere i dati verificabili dai pareri e dai contenuti sponsorizzati; riconoscere bias e disinformazione.</p></div></div>
+      <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">Regola:</span> più un'affermazione è straordinaria, più prove indipendenti servono.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <h2 class="h-sec reveal" style="margin-top:16px;"><em class="gold">1.3</em> Gestire informazioni e dati</h2>
+      <p class="lead reveal d1">Terza competenza: trovare e valutare non basta se poi non ritrovi. Gestire significa organizzare per recuperare nel tempo.</p>
+      <div class="grid3 reveal d2" style="margin-top:24px;"><div class="card"><span class="ic">🗂️</span><h3>Organizzare</h3><p>Cartelle, nomi chiari, tag e segnalibri tematici: una struttura semplice ma coerente.</p></div><div class="card"><span class="ic">💾</span><h3>Conservare</h3><p>Salvare nei formati giusti, con backup e copie nel cloud; annotare fonte e data di ciò che tieni.</p></div><div class="card"><span class="ic">🔁</span><h3>Recuperare</h3><p>Ritrovare in fretta anche a distanza di mesi, e capire ancora perché quel dato ti serviva.</p></div></div>
+      <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">In pratica:</span> un archivio che non sai interrogare è come non averlo.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
 
 <!-- === SLIDE 17: COSA SONO I MODULI ONLINE (slide 36) === -->
 <section class="slide">
@@ -630,6 +717,27 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
   </div>
   <div class="page-num"></div>
 <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Regolamento generale sulla protezione dei dati — EUR-Lex" aria-label="Fonte ufficiale: Regolamento generale sulla protezione dei dati — EUR-Lex" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a></div></section>
+
+<!-- === OPEN DATA E PUBBLICA AMMINISTRAZIONE === -->
+<section class="slide">
+  <div class="split even">
+    <div class="col stack">
+      <h2 class="h-big reveal"><em class="gold">Open Data</em>:<br>dati da riutilizzare</h2>
+      <p class="lead reveal d1">Sono dati resi accessibili affinché chiunque possa usarli, riutilizzarli e condividerli secondo una licenza aperta.</p>
+      <div class="note reveal d2">
+        <div class="lbl">Pubblica Amministrazione</div>
+        <p>Enti pubblici producono dati su trasporti, ambiente, bilanci e servizi. Pubblicarli in forma aperta favorisce trasparenza, ricerca e nuovi servizi.</p>
+      </div>
+      <div class="analogy reveal d3"><span class="big">Regola:</span> visibile online non significa automaticamente open data: servono condizioni di riuso chiare.</div>
+    </div>
+    <div class="col stack reveal d1">
+      <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📄</span><div><b style="font-size:27px;">Formato utilizzabile</b><br><span style="font-size:23px;color:var(--ink-faint);">CSV, JSON o altri formati elaborabili, non soltanto una tabella fotografata.</span></div></div>
+      <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🏷️</span><div><b style="font-size:27px;">Metadati</b><br><span style="font-size:23px;color:var(--ink-faint);">Titolo, ente, periodo, aggiornamento e significato dei campi rendono il dataset comprensibile.</span></div></div>
+      <div class="agenda-item" style="border-color:var(--gold-deep);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">⚖️</span><div><b style="font-size:27px;">Licenza aperta</b><br><span style="font-size:23px;color:var(--ink-faint);">Spiega come citare, modificare e ridistribuire i dati senza violare privacy o altri diritti.</span></div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://data.europa.eu/en/dataeuropa-academy/what-open-data" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Open Data — portale europeo dei dati" aria-label="Fonte ufficiale: Open Data — portale europeo dei dati" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Open Data — portale europeo dei dati ↗</a></div></section>
 
 <!-- === SLIDE 21: ENCICLOPEDIE ONLINE (slide 40) === -->
 <section class="slide">
@@ -928,13 +1036,31 @@ body.editing [contenteditable]{outline:2px dashed var(--gold-deep);outline-offse
 
 
 <!-- === SLIDE 30: CLOSING === -->
+
+  <section class="slide">
+    <div class="center">
+      <h2 class="h-sec reveal">Cercare con l'<em class="gold">IA</em></h2>
+      <p class="lead reveal d1">I motori conversazionali e i riepiloghi automatici in cima ai risultati danno una risposta già scritta, invece di una lista di link da esplorare.</p>
+      <div class="grid3 reveal d2" style="margin-top:26px;"><div class="card" style="text-align:center;"><span class="ic">🤖</span><h3>Motori conversazionali</h3><p>Rispondono a domande in frasi complete e sintetizzano più fonti in un testo unico.</p></div><div class="card" style="text-align:center;"><span class="ic">⚡</span><h3>Riepiloghi automatici</h3><p>Le risposte in cima ai risultati fanno risparmiare tempo, ma non sono sempre esatte.</p></div><div class="card" style="text-align:center;"><span class="ic">✅</span><h3>Verifica sempre</h3><p>L'IA può inventare: apri e controlla le fonti citate prima di fidarti della sintesi.</p></div></div><div class="analogy reveal d3" style="margin-top:24px;"><span class="big">Regola:</span> l'IA è un punto di partenza veloce, non l'ultima parola: apri le fonti.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+      <h2 class="h-sec reveal">Organizzare ciò che <em class="gold">trovi</em></h2>
+      <p class="lead reveal d1">Trovare è metà del lavoro: la gestione è ritrovare. Salva i link utili in modo ordinato, non affidarti alla memoria o a venti schede aperte.</p>
+      <div class="grid3 reveal d2" style="margin-top:26px;"><div class="card" style="text-align:center;"><span class="ic">🔖</span><h3>Segnalibri e raccolte</h3><p>Cartelle nel browser e raccolte tematiche: ogni fonte al suo posto, pronta da riaprire.</p></div><div class="card" style="text-align:center;"><span class="ic">📝</span><h3>Appunti con il link</h3><p>Copia sempre URL e data: la pagina può cambiare o sparire; una riga di nota ti dice perché ti serviva.</p></div><div class="card" style="text-align:center;"><span class="ic">☁️</span><h3>Strumenti dedicati</h3><p>App di note o «leggi dopo» per salvare pagine e ritrovarle da qualunque dispositivo.</p></div></div><div class="analogy reveal d3" style="margin-top:24px;"><span class="big">In pratica:</span> un link salvato con una nota di due parole vale più di dieci schede aperte.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
 <section class="slide closing"><div class="closing-inner"><div class="center" style="align-items:center;text-align:center;">
     <h2 class="h-mega reveal" style="margin-top:10px;color:#fff;">Trovato! 🔍</h2>
     <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Motori di ricerca, operatori booleani, credibilità delle fonti, fact-checking e gestione dei segnalibri: trovare le informazioni giuste online.</p>
     <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
       <a class="chip" href="rw02-01-email.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → M5 · Posta Elettronica</a>
     </div>
-  </div></div><div class="deck-author">Francesco Antonio Binetti</div><div class="page-num"></div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">HTTP Semantics — RFC 9110 ↗</a><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a></div></div></section>
+  </div></div><div class="deck-author">Francesco Antonio Binetti</div><div class="page-num"></div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://www.rfc-editor.org/rfc/rfc9110" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">HTTP Semantics — RFC 9110 ↗</a><a href="https://joint-research-centre.ec.europa.eu/projects-and-activities/education-and-training/digital-transformation-education/digital-competence-framework-digcomp/digcomp-30_en" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">DigComp 3.0 — Commissione europea ↗</a><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a><a href="https://data.europa.eu/en/dataeuropa-academy/what-open-data" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Open Data — portale europeo dei dati ↗</a></div></div></section>
 
 </main>
 </div>

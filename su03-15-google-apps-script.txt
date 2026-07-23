@@ -10,22 +10,29 @@ Drive / Gmail / API
 workflow cloud Francesco Antonio Binetti
 
 --- Slide 2 ---
-Cosa vedremo 01 Fondamenti 
- Cos'è Apps Script, l'editor, JavaScript essenziale e SpreadsheetApp. 02 Automazione 
- getValues e setValues, menu, trigger, autorizzazioni e i servizi Gmail, Drive e UrlFetch. 03 In produzione 
- JSON, HTML Service e web app, proprietà e lock, debug, quote e deployment.
-Fonti ufficiali:
-- JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript
+Che cos’è Apps Script Google Apps Script è JavaScript nel cloud Google: automatizza Sheets, Docs, Drive, Gmail, Calendar e servizi esterni. Caso concreto Un foglio con gli appuntamenti del salone genera ogni sera i promemoria, archivia un PDF su Drive e registra l’esito senza lasciare acceso un computer. Punto di forza Il codice gira nell’infrastruttura Google e usa direttamente i servizi Workspace dell’account, con autorizzazioni esplicite. Errore da evitare Trattarlo come JavaScript nel browser: non esistono DOM e window; si lavora con servizi come SpreadsheetApp e GmailApp. Esercizio Scegli un’attività in Workspace e descrivi origine dei dati, azione automatica, destinazione e frequenza di esecuzione. [Fonte: JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript]
 
 --- Slide 3 ---
-Fondamenti Che cos’è Apps Script Google Apps Script è JavaScript nel cloud Google: automatizza Sheets, Docs, Drive, Gmail, Calendar e servizi esterni. Caso concreto Un foglio con gli appuntamenti del salone genera ogni sera i promemoria, archivia un PDF su Drive e registra l’esito senza lasciare acceso un computer. Punto di forza Il codice gira nell’infrastruttura Google e usa direttamente i servizi Workspace dell’account, con autorizzazioni esplicite. Errore da evitare Trattarlo come JavaScript nel browser: non esistono DOM e window; si lavora con servizi come SpreadsheetApp e GmailApp. Esercizio Scegli un’attività in Workspace e descrivi origine dei dati, azione automatica, destinazione e frequenza di esecuzione. [Fonte: JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript]
-Fonti ufficiali:
-- Riferimento VBA per Office — Microsoft Learn — https://learn.microsoft.com/office/vba/api/overview/
-- Macro — Wikipedia — https://it.wikipedia.org/wiki/Macro_(informatica)
-- Supporto Microsoft Excel — https://support.microsoft.com/excel
+Apps Script e VBA a confronto Stesso mestiere del VBA di SU03.14, altro mondo: la stessa macro — IVA sulla colonna C — scritta nei due linguaggi. ' VBA (Excel)
+Sub ApplicaIva()
+ Dim ur As Long
+ ur = Cells(Rows.Count, 3).End(xlUp).Row
+ Dim r As Long
+ For r = 2 To ur
+ Cells(r, 3) = Cells(r, 3) * 1.22
+ Next r
+End Sub // Apps Script (Sheets)
+function applicaIva() {
+ const sh = SpreadsheetApp.getActive()
+ .getSheetByName('Incassi');
+ const rng = sh.getRange(2, 3, sh.getLastRow() - 1, 1);
+ const v = rng.getValues()
+ .map(r => [r[0] * 1.22]);
+ rng.setValues(v);
+} Dove girano VBA vive dentro il file .xlsm, sul tuo PC, anche offline. Apps Script vive nel cloud Google, legato all'account: gira anche a computer spento, ma solo online. Cosa cambia davvero Linguaggio (Basic contro JavaScript), trigger (eventi del workbook contro trigger a tempo e da modulo), distribuzione (file da inviare contro condivisione del foglio). La logica — dati, regole, risultato — è identica. [Fonte: Riferimento VBA per Office — Microsoft Learn — https://learn.microsoft.com/office/vba/api/overview/] [Fonte: Macro — Wikipedia — https://it.wikipedia.org/wiki/Macro_(informatica)] [Fonte: Supporto Microsoft Excel — https://support.microsoft.com/excel]
 
 --- Slide 4 ---
-Fondamenti Editor e progetto Ogni progetto ha file .gs, manifest, trigger e autorizzazioni. Il codice vive online ed è legato a un account Google. function mostraContesto() {
+Editor e progetto Ogni progetto ha file .gs, manifest, trigger e autorizzazioni. Il codice vive online ed è legato a un account Google. function mostraContesto() {
  const file = SpreadsheetApp
  .getActiveSpreadsheet();
  console.log({
@@ -36,15 +43,17 @@ Fondamenti Editor e progetto Ogni progetto ha file .gs, manifest, trigger e auto
 }
 
 --- Slide 5 ---
-Fondamenti JavaScript essenziale Variabili let/const, funzioni, array, oggetti e template string sono la base per scrivere script leggibili. Dati del foglio getValues restituisce un array di righe; map, filter e for...of permettono di trasformarlo in memoria prima di riscriverlo. Scelte leggibili Usa const quando il riferimento non cambia, let per i contatori e piccoli oggetti per rappresentare record con proprietà nominate. Errore da evitare Confondere indice dell’array e numero di riga: gli array partono da 0, i range di Sheets da 1. In pratica: Apps Script è JavaScript che vive nel foglio: stesso mestiere, altro linguaggio. [Fonte: Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel]
+JavaScript essenziale Variabili let/const, funzioni, array, oggetti e template string sono la base per scrivere script leggibili. Dati del foglio getValues restituisce un array di righe; map, filter e for...of permettono di trasformarlo in memoria prima di riscriverlo. Scelte leggibili Usa const quando il riferimento non cambia, let per i contatori e piccoli oggetti per rappresentare record con proprietà nominate. Errore da evitare Confondere indice dell’array e numero di riga: gli array partono da 0, i range di Sheets da 1. In pratica: Apps Script è JavaScript che vive nel foglio: stesso mestiere, altro linguaggio. function saluta(nome) {
+ const msg = "Ciao " + nome;
+ return msg;
+}
 
 --- Slide 6 ---
-Costrutti SpreadsheetApp SpreadsheetApp apre file, fogli, range e valori. È l’API centrale per lavorare con Google Sheets. Accesso esplicito getActiveSpreadsheet è comodo nei menu; openById è più affidabile nei trigger, perché indica esattamente quale file deve essere elaborato. Catena degli oggetti Spreadsheet → Sheet → Range → valori: ogni passaggio restringe l’oggetto su cui lavorano le istruzioni successive. Errore da evitare Affidarsi al foglio attivo in un’esecuzione automatica: un trigger non ha necessariamente la stessa selezione dell’utente. [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603]
-Fonti ufficiali:
-- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
+SpreadsheetApp SpreadsheetApp apre file, fogli, range e valori. È l’API centrale per lavorare con Google Sheets. Accesso esplicito getActiveSpreadsheet è comodo nei menu; openById è più affidabile nei trigger, perché indica esattamente quale file deve essere elaborato. Catena degli oggetti Spreadsheet → Sheet → Range → valori: ogni passaggio restringe l’oggetto su cui lavorano le istruzioni successive. Errore da evitare Affidarsi al foglio attivo in un’esecuzione automatica: un trigger non ha necessariamente la stessa selezione dell’utente. const ss = SpreadsheetApp.getActiveSpreadsheet();
+const foglio = ss.getSheetByName("Incassi"); [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603]
 
 --- Slide 7 ---
-Costrutti getValues e setValues Leggere e scrivere in blocco è molto più veloce che cella per cella: usa array bidimensionali. function applicaIva() {
+getValues e setValues Leggere e scrivere in blocco è molto più veloce che cella per cella: usa array bidimensionali. function applicaIva() {
  const sh = SpreadsheetApp.getActive()
  .getSheetByName('Incassi');
  const range = sh.getRange(2, 1, sh.getLastRow()-1, 3);
@@ -54,15 +63,19 @@ Costrutti getValues e setValues Leggere e scrivere in blocco è molto più veloc
 }
 
 --- Slide 8 ---
-Costrutti Range e fogli getSheetByName, getRange, appendRow, clearContent e setBackground sono operazioni quotidiane. Caso concreto getSheetByName("Incassi").getRange(2,1,numRighe,5) seleziona solo la tabella dati, senza intestazione né colonne estranee. Operazioni diverse clearContent elimina i valori ma conserva formato e convalida; clear rimuove anche altre proprietà. Scegli in base al risultato atteso. Errore da evitare Chiamare appendRow migliaia di volte: accumula le righe in un array e usa una sola setValues. Esercizio Leggi A2:C6 con getValues, modifica in memoria la terza colonna e riscrivila con una sola setValues.
+Range e fogli getSheetByName, getRange, appendRow, clearContent e setBackground sono operazioni quotidiane. Caso concreto getSheetByName("Incassi").getRange(2,1,numRighe,5) seleziona solo la tabella dati, senza intestazione né colonne estranee. Operazioni diverse clearContent elimina i valori ma conserva formato e convalida; clear rimuove anche altre proprietà. Scegli in base al risultato atteso. Errore da evitare Chiamare appendRow migliaia di volte: accumula le righe in un array e usa una sola setValues. const range = foglio.getRange("A2:C10");
+foglio.getRange(2, 1).setValue("Totale");
 
 --- Slide 9 ---
-Costrutti Menu personalizzati onOpen può aggiungere un menu al foglio: Aggiorna report, Importa dati, Invia email. Interfaccia semplice onOpen crea il menu «Automazioni» con voci come Aggiorna report e Genera PDF: l’utente avvia funzioni nominate senza aprire l’editor. Separare UI e logica La voce di menu chiama una funzione breve, che valida il contesto e poi delega il lavoro a funzioni riutilizzabili e testabili. Errore da evitare Cambiare il nome della funzione senza aggiornare addItem: il menu resta visibile ma il clic genera «funzione non trovata». [Fonte: Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322]
-Fonti ufficiali:
-- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
+Menu personalizzati onOpen può aggiungere un menu al foglio: Aggiorna report, Importa dati, Invia email. Interfaccia semplice onOpen crea il menu «Automazioni» con voci come Aggiorna report e Genera PDF: l’utente avvia funzioni nominate senza aprire l’editor. Separare UI e logica La voce di menu chiama una funzione breve, che valida il contesto e poi delega il lavoro a funzioni riutilizzabili e testabili. Errore da evitare Cambiare il nome della funzione senza aggiornare addItem: il menu resta visibile ma il clic genera «funzione non trovata». function onOpen() {
+ SpreadsheetApp.getUi()
+ .createMenu("Salone")
+ .addItem("Report", "creaReport")
+ .addToUi();
+} [Fonte: Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322]
 
 --- Slide 10 ---
-Costrutti Trigger semplici onOpen e onEdit reagiscono ad apertura e modifica. Sono comodi ma hanno limiti di autorizzazione. function onEdit(e) {
+Trigger semplici onOpen e onEdit reagiscono ad apertura e modifica. Sono comodi ma hanno limiti di autorizzazione. function onEdit(e) {
  const cella = e.range;
  if (cella.getSheet().getName() !== 'Incassi') return;
  if (cella.getColumn() === 4 && e.value === 'Pagato') {
@@ -71,13 +84,16 @@ Costrutti Trigger semplici onOpen e onEdit reagiscono ad apertura e modifica. So
 }
 
 --- Slide 11 ---
-Costrutti Trigger installabili Trigger a tempo o su evento eseguono script con autorizzazioni più forti: report giornalieri, pulizia notturna, invii programmati. Caso concreto Un trigger giornaliero alle 18 prepara il riepilogo; un trigger on form submit registra subito una nuova prenotazione. Identità di esecuzione Il trigger gira con l’account che lo ha creato e con le sue autorizzazioni: proprietà e responsabilità vanno documentate. Errore da evitare Creare più volte lo stesso trigger durante i test: ogni copia esegue la funzione e può inviare email duplicate.
+Trigger installabili Trigger a tempo o su evento eseguono script con autorizzazioni più forti: report giornalieri, pulizia notturna, invii programmati. Caso concreto Un trigger giornaliero alle 18 prepara il riepilogo; un trigger on form submit registra subito una nuova prenotazione. Identità di esecuzione Il trigger gira con l’account che lo ha creato e con le sue autorizzazioni: proprietà e responsabilità vanno documentate. Errore da evitare Creare più volte lo stesso trigger durante i test: ogni copia esegue la funzione e può inviare email duplicate. ScriptApp.newTrigger("inviaReport")
+ .timeBased()
+ .everyDays(1)
+ .create();
 
 --- Slide 12 ---
-Costrutti Autorizzazioni La prima esecuzione chiede permessi. Spiega sempre perché uno script vuole accedere a Gmail, Drive o Sheets. Consenso informato Gli scope descrivono l’accesso richiesto. Un progetto che legge Sheets e invia Gmail deve motivare entrambe le autorizzazioni. Ridurre gli scope Usa il servizio meno invasivo e rimuovi funzioni inutilizzate: meno privilegi riducono rischio e diffidenza degli utenti. Errore da evitare Condividere uno script che invia dati esterni senza spiegare destinatari e finalità: è un problema tecnico, organizzativo e di privacy.
+Autorizzazioni La prima esecuzione chiede permessi. Spiega sempre perché uno script vuole accedere a Gmail, Drive o Sheets. Consenso informato Gli scope descrivono l’accesso richiesto. Un progetto che legge Sheets e invia Gmail deve motivare entrambe le autorizzazioni. Ridurre gli scope Usa il servizio meno invasivo e rimuovi funzioni inutilizzate: meno privilegi riducono rischio e diffidenza degli utenti. Errore da evitare Condividere uno script che invia dati esterni senza spiegare destinatari e finalità: è un problema tecnico, organizzativo e di privacy.
 
 --- Slide 13 ---
-Automazione GmailApp Puoi inviare email automatiche, reminder e report. Attenzione a quote, privacy e destinatari. Esercizio Progetta un’email di prova inviata solo al tuo indirizzo: oggetto, corpo, allegato previsto e controllo che evita doppi invii. function inviaPromemoria(email, data) {
+GmailApp Puoi inviare email automatiche, reminder e report. Attenzione a quote, privacy e destinatari. Esercizio Progetta un’email di prova inviata solo al tuo indirizzo: oggetto, corpo, allegato previsto e controllo che evita doppi invii. function inviaPromemoria(email, data) {
  if (!email) throw new Error('Email mancante');
  const oggetto = 'Promemoria appuntamento';
  const corpo = `Ti aspettiamo il ${data}`;
@@ -85,13 +101,15 @@ Automazione GmailApp Puoi inviare email automatiche, reminder e report. Attenzio
 }
 
 --- Slide 14 ---
-Automazione DriveApp DriveApp crea cartelle, cerca file, copia template e salva PDF o CSV generati dallo script. Caso concreto Lo script copia un modello di report, lo rinomina con anno e settimana, lo sposta nella cartella corretta e conserva nel log il suo ID. ID invece del nome Due file possono avere lo stesso nome; l’ID identifica in modo univoco file e cartelle ed è più sicuro nelle automazioni. Errore da evitare Prendere il primo risultato di getFilesByName: se esistono duplicati potresti modificare o inviare il documento sbagliato.
+DriveApp DriveApp crea cartelle, cerca file, copia template e salva PDF o CSV generati dallo script. Caso concreto Lo script copia un modello di report, lo rinomina con anno e settimana, lo sposta nella cartella corretta e conserva nel log il suo ID. ID invece del nome Due file possono avere lo stesso nome; l’ID identifica in modo univoco file e cartelle ed è più sicuro nelle automazioni. Errore da evitare Prendere il primo risultato di getFilesByName: se esistono duplicati potresti modificare o inviare il documento sbagliato. const cartella = DriveApp.getFoldersByName("Report").next();
+cartella.createFile("nota.txt", "Incassi ok");
 
 --- Slide 15 ---
-Automazione UrlFetchApp Permette di chiamare API esterne: CRM, gestionali, servizi web, endpoint JSON. Richiesta completa Specifica URL, metodo, header, payload e muteHttpExceptions quando vuoi ispezionare anche le risposte di errore dell’API. Controllare la risposta Verifica il codice HTTP prima di fare JSON.parse; registra un messaggio utile se il servizio risponde 401, 404 o 429. Errore da evitare Scrivere chiavi API nel codice condiviso: conservale nelle proprietà dello script e limita chi può modificare il progetto.
+UrlFetchApp Permette di chiamare API esterne: CRM, gestionali, servizi web, endpoint JSON. Richiesta completa Specifica URL, metodo, header, payload e muteHttpExceptions quando vuoi ispezionare anche le risposte di errore dell’API. Controllare la risposta Verifica il codice HTTP prima di fare JSON.parse; registra un messaggio utile se il servizio risponde 401, 404 o 429. Errore da evitare Scrivere chiavi API nel codice condiviso: conservale nelle proprietà dello script e limita chi può modificare il progetto. const risposta = UrlFetchApp.fetch("https://api.azienda.it/dati");
+const dati = JSON.parse(risposta.getContentText());
 
 --- Slide 16 ---
-Automazione JSON e oggetti Le API parlano spesso JSON. Devi saper leggere proprietà, array e oggetti annidati. function leggiRisposta(testo) {
+JSON e oggetti Le API parlano spesso JSON. Devi saper leggere proprietà, array e oggetti annidati. function leggiRisposta(testo) {
  const risposta = JSON.parse(testo);
  const clienti = risposta.data ?? [];
  return clienti.map(cliente => ({
@@ -101,15 +119,17 @@ Automazione JSON e oggetti Le API parlano spesso JSON. Devi saper leggere propri
 }
 
 --- Slide 17 ---
-Automazione HTML Service Apps Script può mostrare sidebar, dialoghi e piccole web app con HTML, CSS e JavaScript client. Architettura La sidebar mostra HTML e JavaScript client; google.script.run chiama in modo asincrono le funzioni server che leggono Sheets o Drive. Esperienza utente Disabilita il pulsante durante l’elaborazione e gestisci success e failure handler, così l’utente sa se l’operazione è riuscita. Errore da evitare Aspettarsi un valore di ritorno sincrono da google.script.run: la risposta arriva dopo e deve essere gestita con una callback. [Fonte: HTML — Wikipedia — https://it.wikipedia.org/wiki/HTML]
-Fonti ufficiali:
-- HTML — Wikipedia — https://it.wikipedia.org/wiki/HTML
+HTML Service Apps Script può mostrare sidebar, dialoghi e piccole web app con HTML, CSS e JavaScript client. Architettura La sidebar mostra HTML e JavaScript client; google.script.run chiama in modo asincrono le funzioni server che leggono Sheets o Drive. Esperienza utente Disabilita il pulsante durante l’elaborazione e gestisci success e failure handler, così l’utente sa se l’operazione è riuscita. Errore da evitare Aspettarsi un valore di ritorno sincrono da google.script.run: la risposta arriva dopo e deve essere gestita con una callback. const html = HtmlService
+ .createHtmlOutputFromFile("Pagina");
+SpreadsheetApp.getUi().showSidebar(html); [Fonte: HTML — Wikipedia — https://it.wikipedia.org/wiki/HTML]
 
 --- Slide 18 ---
-Automazione Web app Pubblicare come web app consente moduli personalizzati, dashboard e endpoint semplici. Endpoint doGet restituisce una pagina o un output; doPost riceve dati da moduli e servizi esterni. Ogni deployment ha un URL e una versione. Chi esegue La scelta «esegui come proprietario» o «come utente» cambia accesso ai dati e autorizzazioni: va decisa prima della pubblicazione. Errore da evitare Pubblicare accesso anonimo a dati riservati: valida input, identità e permessi anche se l’interfaccia sembra interna. Esercizio Definisci quali dati accetta doPost, come li valida e quale risposta JSON restituisce in caso di successo o errore.
+Web app Pubblicare come web app consente moduli personalizzati, dashboard e endpoint semplici. Endpoint doGet restituisce una pagina o un output; doPost riceve dati da moduli e servizi esterni. Ogni deployment ha un URL e una versione. Chi esegue La scelta «esegui come proprietario» o «come utente» cambia accesso ai dati e autorizzazioni: va decisa prima della pubblicazione. Errore da evitare Pubblicare accesso anonimo a dati riservati: valida input, identità e permessi anche se l’interfaccia sembra interna. function doGet(e) {
+ return HtmlService.createHtmlOutput("&lt;h1&gt;Ciao&lt;/h1&gt;");
+}
 
 --- Slide 19 ---
-Automazione PropertiesService Salva configurazioni persistenti: ID cartelle, email responsabili, ultimo aggiornamento, token. function configura() {
+PropertiesService Salva configurazioni persistenti: ID cartelle, email responsabili, ultimo aggiornamento, token. function configura() {
  PropertiesService.getScriptProperties()
  .setProperties({
  CARTELLA_REPORT: 'ID_CARTELLA',
@@ -118,13 +138,17 @@ Automazione PropertiesService Salva configurazioni persistenti: ID cartelle, ema
 }
 
 --- Slide 20 ---
-Produzione LockService Evita che due esecuzioni simultanee modifichino gli stessi dati nello stesso momento. Problema risolto Due moduli inviati nello stesso istante possono leggere la stessa ultima riga e sovrascriversi. Un lock serializza la sezione critica. Uso corretto Attendi il lock con un timeout, esegui solo il minimo indispensabile e rilascialo in finally, anche quando avviene un errore. Errore da evitare Tenere il lock mentre chiami API lente o invii email: blocchi inutilmente tutte le altre esecuzioni.
+LockService Evita che due esecuzioni simultanee modifichino gli stessi dati nello stesso momento. Problema risolto Due moduli inviati nello stesso istante possono leggere la stessa ultima riga e sovrascriversi. Un lock serializza la sezione critica. Uso corretto Attendi il lock con un timeout, esegui solo il minimo indispensabile e rilascialo in finally, anche quando avviene un errore. Errore da evitare Tenere il lock mentre chiami API lente o invii email: blocchi inutilmente tutte le altre esecuzioni. const lock = LockService.getScriptLock();
+lock.waitLock(10000);
+// sezione critica
+lock.releaseLock();
 
 --- Slide 21 ---
-Produzione Logger e debug Logger.log, console e Execution transcript aiutano a capire cosa succede durante l’esecuzione. Osservabilità Registra fase, ID del record e conteggi: «importati 42, scartati 3» è più utile di «funzione avviata». Diagnosi La pagina Esecuzioni mostra durata, account, trigger ed errore; console.error conserva stack e dettagli per il debug. Errore da evitare Scrivere nei log dati personali o token: i log servono a diagnosticare, non a duplicare informazioni sensibili.
+Logger e debug Logger.log, console e Execution transcript aiutano a capire cosa succede durante l’esecuzione. Osservabilità Registra fase, ID del record e conteggi: «importati 42, scartati 3» è più utile di «funzione avviata». Diagnosi La pagina Esecuzioni mostra durata, account, trigger ed errore; console.error conserva stack e dettagli per il debug. Errore da evitare Scrivere nei log dati personali o token: i log servono a diagnosticare, non a duplicare informazioni sensibili. Logger.log("Totale: " + totale);
+console.log("Debug:", dati);
 
 --- Slide 22 ---
-Produzione Quote e limiti Apps Script ha limiti giornalieri e temporali. Gli script professionali devono rispettarli. function elaboraABlocchi() {
+Quote e limiti Apps Script ha limiti giornalieri e temporali. Gli script professionali devono rispettarli. function elaboraABlocchi() {
  const props = PropertiesService.getScriptProperties();
  const inizio = Number(props.getProperty('RIGA') || 2);
  const fine = Math.min(inizio + 499, ultimoDato());
@@ -133,10 +157,10 @@ Produzione Quote e limiti Apps Script ha limiti giornalieri e temporali. Gli scr
 }
 
 --- Slide 23 ---
-Produzione Deployment e versioni Distribuzioni, versioni e autorizzazioni determinano chi può usare lo script e quale codice gira. Versione stabile Una web app distribuita continua a usare la versione scelta finché non aggiorni il deployment: salvare il codice non modifica automaticamente ciò che usano gli utenti. Procedura Testa in una copia, crea una nuova versione, annota le modifiche e aggiorna il deployment; conserva una strada di rollback. Errore da evitare Modificare direttamente il progetto di produzione senza sapere quale versione è pubblicata e chi dipende dal suo URL. Esercizio Annota versione corrente, modifica introdotta, utenti coinvolti e procedura di rollback prima di aggiornare un deployment.
+Deployment e versioni Distribuzioni, versioni e autorizzazioni determinano chi può usare lo script e quale codice gira. Versione stabile Una web app distribuita continua a usare la versione scelta finché non aggiorni il deployment: salvare il codice non modifica automaticamente ciò che usano gli utenti. Procedura Testa in una copia, crea una nuova versione, annota le modifiche e aggiorna il deployment; conserva una strada di rollback. Errore da evitare Modificare direttamente il progetto di produzione senza sapere quale versione è pubblicata e chi dipende dal suo URL. Esercizio Annota versione corrente, modifica introdotta, utenti coinvolti e procedura di rollback prima di aggiornare un deployment.
 
 --- Slide 24 ---
-Produzione Progetto finale Apps Script Un progetto completo legge un foglio, filtra righe, genera PDF, invia email e scrive un log. Pipeline Legge le righe «da inviare», valida email e importi, crea il PDF dal modello, lo archivia in Drive, invia il messaggio e marca la riga completata. Affidabilità Lock contro doppie esecuzioni, PropertiesService per configurazione, log degli esiti e retry controllato per errori temporanei. Criterio di successo Una riga non valida viene segnalata senza bloccare le altre; una seconda esecuzione non reinvia i documenti già completati.
+Progetto finale Apps Script Un progetto completo legge un foglio, filtra righe, genera PDF, invia email e scrive un log. Pipeline Legge le righe «da inviare», valida email e importi, crea il PDF dal modello, lo archivia in Drive, invia il messaggio e marca la riga completata. Affidabilità Lock contro doppie esecuzioni, PropertiesService per configurazione, log degli esiti e retry controllato per errori temporanei. Criterio di successo Una riga non valida viene segnalata senza bloccare le altre; una seconda esecuzione non reinvia i documenti già completati.
 
 --- Slide 25 ---
-Apps Script collega i fogli agli strumenti Google. È ideale quando il lavoro parte da Sheets ma deve produrre email, file, report e azioni programmate. Prossimo → SU04.01 · Presentazioni Torna all’indice Fonti e approfondimenti JavaScript — Wikipedia ↗ (https://it.wikipedia.org/wiki/JavaScript)Formule e funzioni — Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)Internet Message Format — RFC 5322 ↗ (https://www.rfc-editor.org/rfc/rfc5322)HTML — Wikipedia ↗ (https://it.wikipedia.org/wiki/HTML) Francesco Antonio Binetti
+Apps Script collega i fogli agli strumenti Google. È ideale quando il lavoro parte da Sheets ma deve produrre email, file, report e azioni programmate. Prossimo → SU03.16 · Segmentazioni e slicer Francesco Antonio Binetti Fonti e approfondimenti JavaScript — Wikipedia ↗ (https://it.wikipedia.org/wiki/JavaScript)Riferimento VBA per Office — Microsoft Learn ↗ (https://learn.microsoft.com/office/vba/api/overview/)Macro — Wikipedia ↗ (https://it.wikipedia.org/wiki/Macro_(informatica))Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)Internet Message Format — RFC 5322 ↗ (https://www.rfc-editor.org/rfc/rfc5322)HTML — Wikipedia ↗ (https://it.wikipedia.org/wiki/HTML)

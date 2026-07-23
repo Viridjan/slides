@@ -2,11 +2,10 @@ Informatica · Ricerca e Gestione delle Informazioni Online
 ==========================================================
 
 --- Slide 1 ---
-Modulo 4 — Ricerca Online
 Ricerca e
 Gestione
 delle Informazioni
-Link, motori di ricerca, tecniche di ricerca efficace, moduli online, enciclopedie e strumenti di traduzione.
+ Link, motori di ricerca, tecniche di ricerca efficace, moduli online, enciclopedie e strumenti di traduzione.
 
 
 
@@ -20,12 +19,13 @@ Link, motori di ricerca, tecniche di ricerca efficace, moduli online, encicloped
 
 
 
-🔍
+ 🔍
+
+
+
+ Francesco Antonio Binetti
 
 --- Slide 2 ---
-Percorso Cosa vedremo 01 Cosa sono i collegamenti ipertestuali 02 Come riconoscere un link 03 Tipologie di link 04 Sicurezza dei link 05 Cos'è un motore di ricerca 06 I principali motori di ricerca 07 Le parole chiave 08 Utilizzare frasi complete 09 Operatori di ricerca avanzata 10 Valutare i risultati ottenuti 11 Cosa sono i moduli online 12 Campi più comuni 13 Invio di un modulo 14 Gestione e modifica dei dati
-
---- Slide 3 ---
 Cosa sono i
  collegamenti
 ipertestuali
@@ -66,7 +66,7 @@ ipertestuali
 
  Da pagine a immagini, video, file
 
---- Slide 4 ---
+--- Slide 3 ---
 Come riconoscere un link
  Nella maggior parte dei siti web i link si distinguono visivamente da testo normale.
 
@@ -95,7 +95,7 @@ Come riconoscere un link
  Dispositivi mobili
  Nei dispositivi mobili i link possono apparire come pulsanti o testi cliccabili senza sottolineatura. Il cambio di cursore non esiste — il feedback è al tocco (colore attivo, animazione).
 
---- Slide 5 ---
+--- Slide 4 ---
 Tipologie
 di link
 
@@ -136,10 +136,8 @@ di link
  Un altro sito web
 
  Interno = stesso dominio · esterno = altro dominio
-Fonti ufficiali:
-- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
---- Slide 6 ---
+--- Slide 5 ---
 Sicurezza dei link
  Prima di cliccare un collegamento è importante verificare alcune caratteristiche. Molti attacchi di phishing utilizzano link falsificati.
 
@@ -158,7 +156,13 @@ Sicurezza dei link
  💡 Tecnica pratica
  Passa il mouse sopra il link senza cliccare — in basso a sinistra del browser appare l'URL reale di destinazione. Se è diverso da quello mostrato, non cliccare.
 
---- Slide 7 ---
+
+
+
+
+ [Fonte: HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110]
+
+--- Slide 6 ---
 Cos'è un motore di ricerca
  Un servizio che permette di trovare informazioni presenti sul Web : esplora e indicizza enormi quantità di pagine, poi ordina i risultati in base alla query. Il processo si basa su tre fasi.
 
@@ -180,7 +184,7 @@ Cos'è un motore di ricerca
 
  Analogia: come una biblioteca che aggiorna continuamente il catalogo e ti dice dove trovare ogni libro.
 
---- Slide 8 ---
+--- Slide 7 ---
 I principali motori di ricerca
  Ognuno presenta caratteristiche differenti — non esiste un unico strumento giusto per tutti i contesti.
 
@@ -209,7 +213,7 @@ I principali motori di ricerca
  💡 La scelta dipende dalle esigenze
  Non esiste il motore "migliore" in assoluto. Privacy → DuckDuckGo. Impatto ambientale → Ecosia. Massima copertura → Google. Integrazione Windows → Bing. Puoi usarli tutti e cambiare in base al contesto e ai tuoi valori.
 
---- Slide 9 ---
+--- Slide 8 ---
 Le parole
 chiave
  Le parole chiave ( keyword ) sono i concetti principali che descrivono il tuo bisogno. Il motore non "capisce" la tua intenzione — confronta le tue parole con i testi indicizzati: parole vaghe → risultati vaghi, parole precise → risultati precisi.
@@ -244,7 +248,7 @@ chiave
 
  Più è specifica, più è utile
 
---- Slide 10 ---
+--- Slide 9 ---
 Utilizzare frasi complete
  I motori di ricerca moderni comprendono domande formulate in linguaggio naturale. Puoi cercare come se stessi facendo una domanda a una persona.
 
@@ -267,7 +271,7 @@ Utilizzare frasi complete
  Esempio pratico
  Cercare perché il cielo è blu produce una risposta diretta in cima ai risultati. I motori moderni preferiscono domande chiare al linguaggio "telegrafico".
 
---- Slide 11 ---
+--- Slide 10 ---
 Operatori di ricerca avanzata
  Caratteri e parole speciali che istruiscono il motore su come cercare. Permettono risultati molto più precisi.
 
@@ -276,7 +280,7 @@ Operatori di ricerca avanzata
  Ricerca esatta — le virgolette obbligano il motore a trovare esattamente quella frase, non le parole separate.
 
 
- site:gov.it
+ site:azienda.it
  Ricerca limitata a un dominio — mostra solo risultati dal sito o dominio specificato. Utile per cercare info ufficiali.
 
 
@@ -288,10 +292,22 @@ Operatori di ricerca avanzata
  Esclusione — il trattino esclude una parola dai risultati. virus -informatico cerca "virus" ma non in contesto informatico.
 
 
- OR
- Alternativa — gatto OR cane trova pagine che parlano di gatti o di cani (o entrambi).
+ AND / OR / NOT
+ Operatori booleani — AND richiede entrambi i termini, OR ne accetta almeno uno, NOT esclude. Nei motori generalisti AND può essere implicito; nei database la sintassi è più rigorosa.
+
+--- Slide 11 ---
+Filtri e strumenti di ricerca
+ Dopo la prima ricerca, non aggiungere solo parole: restringi i risultati con i filtri offerti dal motore.
+ 📅 Per data Ultime 24 ore, ultimo anno: fondamentale per le notizie e per scartare pagine vecchie e superate. 🗂️ Per tipo Immagini, video, notizie, mappe, libri, shopping: cambia la scheda e cambi il tipo di risultato. 🌍 Lingua e area Limita a una lingua o a una regione per risultati locali, oppure allarga per fonti internazionali. In pratica: un filtro ben scelto vale più di dieci parole chiave in più.
 
 --- Slide 12 ---
+Ricerca per immagini
+ Non solo parole: puoi cercare a partire da una foto. La trascini o la incolli e il motore trova dove appare online e immagini simili. Strumenti: Google Immagini, Google Lens, TinEye.
+ A cosa serve Capire da dove viene una foto, riconoscere un oggetto o un prodotto, e verificare se un'immagine è autentica o riciclata da un altro contesto.
+
+ Cerca con un'immagine, non con le parole
+
+--- Slide 13 ---
 Valutare i risultati ottenuti
  Non tutti i risultati sono ugualmente affidabili. La posizione in classifica non indica la veridicità — indica solo la rilevanza secondo l'algoritmo.
 
@@ -310,7 +326,55 @@ Valutare i risultati ottenuti
  Regola pratica
  Per qualsiasi informazione importante, verifica su almeno tre fonti indipendenti . Se le fonti autorevoli concordano, l'informazione è probabilmente affidabile.
 
---- Slide 13 ---
+--- Slide 14 ---
+La bolla di filtraggio
+ I risultati non sono uguali per tutti: cronologia, posizione e account personalizzano ciò che vedi. Comodo, ma può mostrarti solo ciò che già pensi.
+ 🍪 Perché cambia Cronologia, cookie, posizione, lingua e account guidano l'ordine dei risultati e la pubblicità. 🫧 Il rischio La «bolla»: continui a vedere lo stesso punto di vista e credi che sia l'unico esistente. 🕵️ Come uscirne Finestra anonima, confronto tra motori diversi, cronologia pulita: risultati più neutri. Regola: se una ricerca è importante, confrontala da un browser «pulito» o da un altro motore.
+
+--- Slide 15 ---
+DigComp: cercare, valutare, gestire
+ DigComp 3.0 riunisce queste azioni nell’area «Ricerca, valutazione e gestione delle informazioni»: non basta trovare, bisogna scegliere e organizzare.
+
+
+ 🔎
+ Cercare e filtrare
+ Definire il bisogno informativo, scegliere lo strumento, formulare query efficaci e distinguere i risultati pertinenti dal rumore.
+
+
+ ⚖️
+ Valutare criticamente
+ Confrontare credibilità, affidabilità, autorevolezza, data e processo con cui una fonte o un contenuto sono stati prodotti.
+
+
+ 🗂️
+ Gestire e recuperare
+ Organizzare, conservare e ritrovare informazioni e dati in ambienti digitali strutturati, mantenendoli comprensibili nel tempo.
+
+
+ In pratica: l’alfabetizzazione informativa è la capacità di gestire criticamente l’informazione lungo tutto il suo ciclo.
+
+
+ [Fonte: DigComp 3.0 — Commissione europea — https://joint-research-centre.ec.europa.eu/projects-and-activities/education-and-training/digital-transformation-education/digital-competence-framework-digcomp/digcomp-30_en]
+
+--- Slide 16 ---
+1.1 Navigare, ricercare e filtrare
+ Prima competenza dell'area: sapere cosa cercare e come raggiungerlo. Non è digitare parole a caso, ma costruire una strategia.
+ 🎯 Definire il bisogno Chiarire cosa serve davvero e in che forma — un dato, una guida, una fonte ufficiale — prima ancora di aprire il motore. 🔑 Cercare e filtrare Scegliere lo strumento giusto, formulare parole chiave e operatori, restringere con i filtri per data, tipo e lingua. 🧭 Navigare e ripetere Muoversi tra risultati e link e salvare le strategie che funzionano, per riusarle la volta dopo.
+ In pratica: una buona ricerca inizia con una buona domanda, non con una buona parola chiave.
+
+--- Slide 17 ---
+1.2 Valutare informazioni e dati
+ Seconda competenza: trovato un risultato, decidere se fidarsi. La credibilità non si vede dal primo colpo d'occhio.
+ 👤 Fonte e autore Chi lo dice, con quale competenza e con quale interesse? Nome, data e contatto reali sono buoni segnali. 🔀 Confrontare Corroborare con altre fonti indipendenti: una sola pagina non basta, soprattutto per affermazioni forti. 🎭 Fatto o pubblicità Distinguere i dati verificabili dai pareri e dai contenuti sponsorizzati; riconoscere bias e disinformazione.
+ Regola: più un'affermazione è straordinaria, più prove indipendenti servono.
+
+--- Slide 18 ---
+1.3 Gestire informazioni e dati
+ Terza competenza: trovare e valutare non basta se poi non ritrovi. Gestire significa organizzare per recuperare nel tempo.
+ 🗂️ Organizzare Cartelle, nomi chiari, tag e segnalibri tematici: una struttura semplice ma coerente. 💾 Conservare Salvare nei formati giusti, con backup e copie nel cloud; annotare fonte e data di ciò che tieni. 🔁 Recuperare Ritrovare in fretta anche a distanza di mesi, e capire ancora perché quel dato ti serviva.
+ In pratica: un archivio che non sai interrogare è come non averlo.
+
+--- Slide 19 ---
 Cosa sono
 i moduli
 online
@@ -345,7 +409,7 @@ online
 
  Campi, validazione, pulsante invio
 
---- Slide 14 ---
+--- Slide 20 ---
 Campi più comuni
  I moduli possono contenere diversi tipi di campi. Alcuni sono obbligatori (contrassegnati con * ), altri facoltativi.
 
@@ -372,7 +436,7 @@ Il browser segnala errori di formato prima dell'invio.
  Campi obbligatori
  I campi contrassegnati con * (asterisco) sono obbligatori — il modulo non può essere inviato senza compilarli. I campi facoltativi si possono lasciare vuoti. Prima di compilare, verifica sempre quali informazioni sono strettamente necessarie.
 
---- Slide 15 ---
+--- Slide 21 ---
 Invio di un modulo
  Prima dell'invio è necessario verificare alcuni elementi fondamentali. Errori nella compilazione possono invalidare la richiesta o causare problemi.
 
@@ -395,10 +459,8 @@ Invio di un modulo
 
  💡 Dopo l'invio
  Dopo aver inviato un modulo ricevi solitamente un messaggio di conferma nella pagina o via email. Conservalo — è la prova dell'invio. Se non arriva, controlla la cartella spam o riprova.
-Fonti ufficiali:
-- Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
 
---- Slide 16 ---
+--- Slide 22 ---
 Gestione e modifica dei dati
  Molti servizi consentono di tornare e modificare le informazioni inserite. È importante conoscere i propri diritti sui dati personali.
 
@@ -422,7 +484,34 @@ Gestione e modifica dei dati
  I tuoi diritti (GDPR)
  Il GDPR riconosce diritti di accesso , rettifica , cancellazione , limitazione e, nei casi previsti, portabilità . Ogni diritto ha condizioni ed eccezioni definite dal regolamento.
 
---- Slide 17 ---
+
+
+
+ [Fonte: Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj]
+
+--- Slide 23 ---
+Open Data :
+dati da riutilizzare
+ Sono dati resi accessibili affinché chiunque possa usarli, riutilizzarli e condividerli secondo una licenza aperta.
+
+ Pubblica Amministrazione
+ Enti pubblici producono dati su trasporti, ambiente, bilanci e servizi. Pubblicarli in forma aperta favorisce trasparenza, ricerca e nuovi servizi.
+
+ Regola: visibile online non significa automaticamente open data: servono condizioni di riuso chiare.
+
+
+ 📄 Formato utilizzabile
+ CSV, JSON o altri formati elaborabili, non soltanto una tabella fotografata.
+ 🏷️ Metadati
+ Titolo, ente, periodo, aggiornamento e significato dei campi rendono il dataset comprensibile.
+ ⚖️ Licenza aperta
+ Spiega come citare, modificare e ridistribuire i dati senza violare privacy o altri diritti.
+
+
+
+ [Fonte: Open Data — portale europeo dei dati — https://data.europa.eu/en/dataeuropa-academy/what-open-data]
+
+--- Slide 24 ---
 Enciclopedie
 online
  Le enciclopedie forniscono informazioni organizzate e approfondite su argomenti specifici. Sono diverse dai risultati di ricerca — strutturate, curate e validate.
@@ -456,7 +545,7 @@ online
 
  Voci organizzate, curate da esperti
 
---- Slide 18 ---
+--- Slide 25 ---
 Come utilizzare un' enciclopedia
  Non tutte le voci sono uguali. Le fonti autorevoli citano le fonti primarie, indicano gli autori, hanno un comitato editoriale e aggiornano le voci — se manca uno di questi elementi, verifica altrove.
 
@@ -480,7 +569,7 @@ Come utilizzare un' enciclopedia
  💡 Wikipedia: punto di partenza, non fonte definitiva
  Wikipedia è utile per capire un argomento velocemente e trovare le fonti primarie. In ambito accademico o professionale, cita sempre le fonti originali riportate nelle note di Wikipedia, non Wikipedia stessa.
 
---- Slide 19 ---
+--- Slide 26 ---
 Dizionari online
  I dizionari online permettono di consultare significati, sinonimi, contrari ed etimologie in pochi secondi — sono strumenti fondamentali per la ricerca e la scrittura.
 
@@ -509,7 +598,7 @@ Dizionari online
  Strumenti consigliati
  Treccani.it — vocabolario italiano autorevole · Accademia della Crusca — consulenza linguistica · Wordreference — multilingua, sinonimi, forum di discussione · Etimo.it — etimologie italiane
 
---- Slide 20 ---
+--- Slide 27 ---
 Traduzione
  automatica
  La traduzione automatica consente di convertire testi tra lingue differenti. Gli strumenti moderni utilizzano sistemi di intelligenza artificiale — risultati molto migliorati rispetto al passato.
@@ -542,7 +631,7 @@ Traduzione
 
  Le reti neurali capiscono il significato
 
---- Slide 21 ---
+--- Slide 28 ---
 Principali strumenti di traduzione
  Ogni strumento presenta vantaggi e limiti — la scelta dipende dal contesto e dall'accuratezza richiesta.
 
@@ -570,7 +659,7 @@ Principali strumenti di traduzione
  ⚠️ Attenzione alla privacy
  Il testo tradotto viene inviato ai server del traduttore (Google, Microsoft…). Non tradurre documenti riservati (contratti, dati medici, password) con traduttori online gratuiti.
 
---- Slide 22 ---
+--- Slide 29 ---
 Limiti della traduzione automatica
  Le traduzioni automatiche possono essere molto utili, ma presentano limiti importanti. È sempre consigliata una verifica umana per testi importanti.
 
@@ -594,7 +683,7 @@ Limiti della traduzione automatica
  Quando affidarsi alla traduzione automatica
  Va bene per: capire il senso generale di un testo, navigare siti stranieri, bozze informali. Non va bene per: documenti legali o medici, comunicazioni ufficiali, testi da pubblicare, contratti. In questi casi serve sempre un traduttore umano professionista.
 
---- Slide 23 ---
+--- Slide 30 ---
 Non tutte le ricerche sono uguali
  La strategia di ricerca cambia in base all'obiettivo e al rischio: cercare una definizione è diverso da inserire i propri dati di pagamento.
 
@@ -630,7 +719,7 @@ Non tutte le ricerche sono uguali
  Intrattenimento
  Distinguere contenuti ufficiali da fan page, imitazioni e truffe. Le piattaforme ufficiali non chiedono dati di pagamento fuori dal loro sito.
 
---- Slide 24 ---
+--- Slide 31 ---
 Leggere una SERP
  SERP = Search Engine Results Page . La pagina che vedi dopo aver cercato qualcosa. Non tutti i risultati hanno lo stesso peso.
 
@@ -664,46 +753,20 @@ Leggere una SERP
 
  Il primo risultato non è sempre il migliore
 
---- Slide 25 ---
-In questo modulo
-abbiamo studiato
+--- Slide 32 ---
+Cercare con l' IA
+ I motori conversazionali e i riepiloghi automatici in cima ai risultati danno una risposta già scritta, invece di una lista di link da esplorare.
+ 🤖 Motori conversazionali Rispondono a domande in frasi complete e sintetizzano più fonti in un testo unico. ⚡ Riepiloghi automatici Le risposte in cima ai risultati fanno risparmiare tempo, ma non sono sempre esatte. ✅ Verifica sempre L'IA può inventare: apri e controlla le fonti citate prima di fidarti della sintesi. Regola: l'IA è un punto di partenza veloce, non l'ultima parola: apri le fonti.
 
+--- Slide 33 ---
+Organizzare ciò che trovi
+ Trovare è metà del lavoro: la gestione è ritrovare. Salva i link utili in modo ordinato, non affidarti alla memoria o a venti schede aperte.
+ 🔖 Segnalibri e raccolte Cartelle nel browser e raccolte tematiche: ogni fonte al suo posto, pronta da riaprire. 📝 Appunti con il link Copia sempre URL e data: la pagina può cambiare o sparire; una riga di nota ti dice perché ti serviva. ☁️ Strumenti dedicati App di note o «leggi dopo» per salvare pagine e ritrovarle da qualunque dispositivo. In pratica: un link salvato con una nota di due parole vale più di dieci schede aperte.
 
- 🔗
- Collegamenti ipertestuali
- Cosa sono, come riconoscerli, tipologie (interni/esterni/download/email) e come verificarne la sicurezza prima di cliccare.
+--- Slide 34 ---
+Trovato! 🔍
+ Motori di ricerca, operatori booleani, credibilità delle fonti, fact-checking e gestione dei segnalibri: trovare le informazioni giuste online.
 
+ Prossimo → M5 · Posta Elettronica
 
- 🔍
- Motori di ricerca
- Come funzionano (crawling, indexing, ranking), i principali (Google, DuckDuckGo, Ecosia) e come scegliere quello giusto.
-
-
- 🎯
- Tecniche di ricerca
- Parole chiave generiche vs specifiche, domande in linguaggio naturale, operatori avanzati e come valutare l'affidabilità dei risultati.
-
-
-
-
- 📋
- Moduli online
- Campi comuni, compilazione corretta, verifica prima dell'invio e gestione dei propri dati (diritti GDPR).
-
-
- 📚
- Enciclopedie e dizionari
- Wikipedia come punto di partenza, Treccani e Britannica come fonti autorevoli, uso critico e verifica delle informazioni.
-
-
- 🌍
- Traduzione automatica
- Google Translate, DeepL, Microsoft Translator — strumenti potenti con limiti precisi. Verifica umana sempre consigliata.
-
---- Slide 26 ---
-Trovato! 🔍 
- Motori di ricerca, operatori booleani, credibilità delle fonti, fact-checking e gestione dei segnalibri: trovare le informazioni giuste online. 
- 
- Prossimo → M5 · Posta Elettronica 
- 
- Fonti e approfondimenti Internet Message Format — RFC 5322 ↗ Riconoscere il phishing — CISA ↗ HTTP Semantics — RFC 9110 ↗ Motore di ricerca — Wikipedia ↗ Dictionary of Algorithms and Data Structures — NIST ↗ AI Risk Management Framework — NIST ↗ Algoritmo — Wikipedia ↗ GDPR, art. 17 — EUR-Lex ↗ Regolamento generale sulla protezione dei dati — EUR-Lex ↗ Password e MFA — NIST ↗
+ Francesco Antonio Binetti Fonti e approfondimenti HTTP Semantics — RFC 9110 ↗ (https://www.rfc-editor.org/rfc/rfc9110)DigComp 3.0 — Commissione europea ↗ (https://joint-research-centre.ec.europa.eu/projects-and-activities/education-and-training/digital-transformation-education/digital-competence-framework-digcomp/digcomp-30_en)Regolamento generale sulla protezione dei dati — EUR-Lex ↗ (https://eur-lex.europa.eu/eli/reg/2016/679/oj)Open Data — portale europeo dei dati ↗ (https://data.europa.eu/en/dataeuropa-academy/what-open-data)

@@ -49,6 +49,7 @@ window.QUALITY_INDEX = {
   "su02-02-word-scrivere-formattare.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "su02-03-word-impaginare-revisionare.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "su02-04-word-documenti-professionali.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
+  "su02-05-word-docs-avanzato.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "su03-01-sistema.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "su03-02-riferimenti.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "su03-03-fondamenti-matematici.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },

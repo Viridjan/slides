@@ -6,31 +6,19 @@ Slicer
  e timeline I filtri a pulsante che rendono un report esplorabile: clicchi una sede, un mese, un servizio, e tabelle e grafici rispondono insieme. 🎛️ Francesco Antonio Binetti
 
 --- Slide 2 ---
-Cosa vedremo 01 Cosa sono gli slicer
- Filtri a pulsante che si aggiungono e si leggono con un clic, in Excel e in Google Sheets. 02 Filtri interattivi
- La timeline temporale e collegare un solo controllo a più tabelle e grafici. 03 Progettare i controlli
- Scegliere i filtri che contano davvero ed evitare cruscotti confusi.
+Cos'è uno slicer Uno slicer è un filtro fatto di pulsanti. Invece di aprire un menù a tendina e spuntare voci, chi legge il report clicca «Milano» o «Taglio» e la tabella si aggiorna subito. Il filtro attivo è sempre visibile: si vede a colpo d'occhio cosa stai guardando. 🎛️ Visivo I valori disponibili sono pulsanti in chiaro: niente menù nascosti da aprire. 👆 Immediato Un clic filtra; un altro clic toglie il filtro. Nessuna formula da toccare. 👀 Trasparente Il filtro attivo resta in evidenza: chi guarda sa sempre cosa mostra il report.
 
 --- Slide 3 ---
-Cos'è uno slicer Uno slicer è un filtro fatto di pulsanti. Invece di aprire un menù a tendina e spuntare voci, chi legge il report clicca «Milano» o «Taglio» e la tabella si aggiorna subito. Il filtro attivo è sempre visibile: si vede a colpo d'occhio cosa stai guardando. 🎛️ Visivo I valori disponibili sono pulsanti in chiaro: niente menù nascosti da aprire. 👆 Immediato Un clic filtra; un altro clic toglie il filtro. Nessuna formula da toccare. 👀 Trasparente Il filtro attivo resta in evidenza: chi guarda sa sempre cosa mostra il report.
-Fonti ufficiali:
-- Supporto Microsoft Excel — https://support.microsoft.com/excel
-- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
+Aggiungere uno slicer Si parte da una tabella o da una tabella pivot, e si sceglie la colonna su cui filtrare. 🪟 In Excel Seleziona la tabella o la pivot, poi scheda Inserisci → Filtro dei dati (slicer). Spunta i campi da filtrare, per esempio Sede e Servizio. 🟢 In Google Sheets Menù Dati → Aggiungi filtro a intervalli (slicer), poi scegli la colonna. Compare come pulsante sopra il foglio. 💡 Consiglio Aggiungi uno slicer per ciascuna domanda ricorrente — sede, periodo, responsabile — non uno per ogni colonna. 📍 Dove si trova Excel: seleziona tabella/pivot → Inserisci → Filtro dati (slicer); per il tempo, Inserisci → Sequenza temporale. · Google Fogli: Dati → Aggiungi filtro controllo (slicer). [Fonte: Supporto Microsoft Excel — https://support.microsoft.com/excel] [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603]
 
 --- Slide 4 ---
-Aggiungere uno slicer Si parte da una tabella o da una tabella pivot, e si sceglie la colonna su cui filtrare. 🪟 In Excel Seleziona la tabella o la pivot, poi scheda Inserisci → Filtro dei dati (slicer). Spunta i campi da filtrare, per esempio Sede e Servizio. 🟢 In Google Sheets Menù Dati → Aggiungi filtro a intervalli (slicer), poi scegli la colonna. Compare come pulsante sopra il foglio. 💡 Consiglio Aggiungi uno slicer per ciascuna domanda ricorrente — sede, periodo, responsabile — non uno per ogni colonna.
-
---- Slide 5 ---
 La timeline: il filtro del tempo Per le date esiste un controllo dedicato con un cursore, che filtra per giorni, mesi, trimestri o anni scorrendo una barra. ↔️ Timeline (solo Excel) Excel ha la Sequenza temporale : un cursore per selezionare un intervallo di date senza spuntare mesi a uno a uno. 🟢 In Google Sheets Non esiste una timeline dedicata: si usa uno slicer sulla colonna data , oppure il raggruppamento delle date nella pivot. In pratica: la timeline è comoda ma è una feature di Excel; lo slicer sulle date la sostituisce ovunque.
 
---- Slide 6 ---
+--- Slide 5 ---
 Un controllo, più tabelle Un cruscotto ha spesso più tabelle e grafici sulla stessa sorgente. Uno slicer può pilotarli tutti insieme, così un solo clic aggiorna l'intera pagina in modo coerente. ⚠️ In Excel Le connessioni funzionano tra pivot che condividono la stessa cache dei dati: collega lo slicer con «Connessioni report». SEDE Pivot 1 Grafico Pivot 2 Un clic sullo slicer aggiorna tutto
 
---- Slide 7 ---
+--- Slide 6 ---
 Progettare i controlli Troppi filtri confondono più di quanto aiutino. Un buon cruscotto ne ha pochi, scelti bene. 🎯 Solo quelli che contano Tieni i filtri che cambiano davvero una decisione: sede, periodo, responsabile. Togli il resto. 🏷️ Etichette chiare Un titolo sopra ogni slicer dice su cosa filtra. «Sede», non una colonna senza nome. 📌 Posizione fissa Metti i controlli sempre nello stesso posto, in alto o a sinistra, così si trovano al volo. Regola: se uno slicer non cambia mai la decisione di chi legge, è rumore: toglilo.
 
---- Slide 8 ---
-Esercizio: un cruscotto filtrabile Parti dalla tabella incassi del salone, con Data, Sede, Servizio, Operatore e Ricavo. 1 Costruisci Una pivot con il ricavo per servizio e un grafico a barre accanto. 2 Aggiungi i controlli Uno slicer per Sede e uno per Operatore; se usi Excel, prova anche la timeline sulle date. 3 Collauda Clicca una sede: pivot e grafico devono cambiare insieme. Togli il filtro e verifica che il totale torni.
-
---- Slide 9 ---
-Un report che si esplora . Con gli slicer chi legge trova le risposte da solo, senza chiederti di rifare la tabella per ogni domanda. Prossimo → SU03.17 · Collegare fogli e file Francesco Antonio Binetti
+--- Slide 7 ---
+Un report che si esplora . Con gli slicer chi legge trova le risposte da solo, senza chiederti di rifare la tabella per ogni domanda. Prossimo → SU03.17 · Collegare fogli e file Francesco Antonio Binetti Fonti e approfondimenti Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)
