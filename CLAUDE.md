@@ -107,6 +107,14 @@ opening and searching for it themselves.
 
   `build-completeness.js` deliberately ignores source-list lines, so citations do
   not inflate content-density scores.
+- Teaching content must not be repeated across slides or decks. Give each topic
+  one canonical treatment; elsewhere, add only the context needed locally and
+  link to the canonical teaching slide. Links between slides are the preferred
+  way to connect related material and extend a learning path without duplicating
+  explanations. This is an editorial workflow rule, not a subject to explain in
+  learner-facing slides. `Rimandi interni` is only the repository's technical
+  label for the cross-reference footer; do not turn that label or this rule into
+  lesson content.
 - Cross-references to another teaching slide must not remain inline in the
   authored content. Put them in the dedicated lower-right `Rimandi interni`
   footer (`data-cross-reference-footer="true"`), visually separate from the
@@ -499,7 +507,7 @@ Navigation chain: hs01 → hs02 → hs03 → hs04 → hs05
 
 ### Reti e Web
 
-Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw02-01 → rw02-02 → rw02-03 → rw02-04 → rw02-05 → rw03-01 → rw03-02 → rw03-03 → rw03-04 → rw03-05
+Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw01-06 → rw02-01 → rw02-02 → rw02-03 → rw02-04 → rw02-05 → rw02-06 → rw03-01 → rw03-02 → rw03-03 → rw03-04 → rw03-05
 
 | File | Title |
 | --- | --- |
@@ -507,12 +515,14 @@ Navigation chain: rw01-01 → rw01-02 → rw01-03 → rw01-04 → rw01-05 → rw
 | `rw01-02-navigazione.html` | Navigazione e Indirizzi Web |
 | `rw01-03-domini.html` | Domini e Indirizzi Internet |
 | `rw01-04-ricerca.html` | Ricerca e Gestione delle Informazioni |
-| `rw02-01-email.html` | La Posta Elettronica |
-| `rw02-02-firma.html` | La Firma Email |
 | `rw01-05-affidabilita.html` | Navigare con Spirito Critico |
-| `rw02-03-contenuti.html` | Gestire e Archiviare Contenuti |
+| `rw01-06-internet-morto.html` | La teoria di Internet morto |
+| `rw02-01-email.html` | La Posta Elettronica |
+| `rw02-02-contenuti.html` | Gestire e Archiviare Contenuti |
+| `rw02-03-link-simbolici.html` | Link simbolici |
 | `rw02-04-collaborazione-digitale.html` | Collaborazione Digitale |
 | `rw02-05-account-email.html` | Il tuo account email |
+| `rw02-06-accesso-remoto.html` | Usare un PC da remoto |
 | `rw03-01-identita.html` | La tua identità online |
 | `rw03-02-societa.html` | Tecnologia e Società |
 | `rw03-03-vr-ar.html` | VR, AR e Metaverso |
@@ -564,7 +574,7 @@ Navigation chain: sm01 → … → sm11
 
 ### Suite Ufficio
 
-Navigation chain: su01-01 → su01-02 → su01-03 → su01-04 → su02-01 → su02-02 → su02-03 → su02-04 → su02-05 → su03-01 → su03-02 → su03-03 → su03-04 → su03-05 → su03-06 → su03-07 → su03-08 → su03-09 → su03-10 → su03-11 → su03-12 → su03-13 → su03-14 → su03-15 → su03-16 → su03-17 → su03-18 → su04-01
+Navigation chain: su01-01 → su01-02 → su01-03 → su01-04 → su02-01 → su02-02 → su02-03 → su02-04 → su02-05 → su03-01 → su03-02 → su03-03 → su03-04 → su03-05 → su03-06 → su03-07 → su03-08 → su03-09 → su03-10 → su03-11 → su03-12 → su03-13 → su03-14 → su03-15 → su03-16 → su03-17 → su04-01
 
 The filename prefixes mirror the index sub-series: `su01-01`-`su01-04`
 software, `su02-01`-`su02-04` documenti e Word, `su03-01`-`su03-15` fogli di calcolo and
@@ -596,9 +606,8 @@ automation, and `su04-01` presentazioni.
 | `su03-13-macro-fogli-calcolo.html` | Macro nei fogli di calcolo |
 | `su03-14-vba.html` | VBA per Excel |
 | `su03-15-google-apps-script.html` | Google Apps Script |
-| `su03-16-segmentazioni.html` | Segmentazioni e slicer |
-| `su03-17-collegamenti-fogli.html` | Collegare fogli e file |
-| `su03-18-oltre-il-foglio.html` | Oltre il foglio: software con l'IA |
+| `su03-16-collegamenti-fogli.html` | Collegare fogli e file |
+| `su03-17-oltre-il-foglio.html` | Oltre il foglio: software con l'IA |
 | `su04-01-presentazioni.html` | Dillo con una slide |
 
 ### Intelligenza Artificiale
@@ -628,7 +637,7 @@ Navigation chain: pm01 → pm02 → pm03 → pm04
 
 Index numbering uses `PR01.xx` for general programming theory, `PR02.xx` for Scratch, `PR03.xx` for Micro:bit, `PR04.xx` for coding tools, `PR05.xx` for HTML and `PR06.xx` for Python.
 
-General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-04 → pr01-05 → pr01-07
+General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-04 → pr01-05 → pr01-06 → pr01-07
 
 | File | Title |
 | --- | --- |
@@ -637,12 +646,16 @@ General programming navigation chain: pr01-01 → pr01-02 → pr01-03 → pr01-0
 | `pr01-03-algoritmi.html` | Algoritmi e diagrammi di flusso |
 | `pr01-04-costrutti-verifica.html` | Costrutti e verifica |
 | `pr01-05-operatori-funzioni.html` | Operatori e funzioni |
+| `pr01-06-misure-calcoli-unita.html` | Misure, calcoli e unità |
 | `pr01-07-iterazione-cicli.html` | Iterazione e cicli |
 
 The `PR01.02`-`PR01.05` and `PR01.07` theory blocks are paraphrased and reorganized from the
 public PDF "Fondamenti di Informatica e Programmazione" by Edizioni Manna. Keep
 them in the Programmare group before Scratch; do not split them into
 Hardware/Software or other sections.
+
+`PR01.06` is an original bridge module about measurement, units and numerical
+representation in programming; it is not derived from the Manna source.
 
 Scratch navigation chain: pr02-01 → pr02-02
 
@@ -658,12 +671,15 @@ Micro:bit navigation chain: pr03-01 → pr03-02
 | `pr03-01-microbit.html` | Fondamenti Micro:bit |
 | `pr03-02-createai.html` | Micro:bit CreateAI |
 
-Coding tools navigation chain: pr04-01 → pr04-02 (pr03-02 closes into pr04-01; pr04-02 closes into pr05-01):
+Coding tools navigation chain: pr04-01 → pr04-02 → pr04-03 → pr04-04 → pr04-05 (pr03-02 closes into pr04-01; pr04-05 closes into pr05-01):
 
 | File | Title |
 | --- | --- |
-| `pr04-01-editor-codice.html` | L'editor e Git |
-| `pr04-02-strumenti-ambiente.html` | Lavorare e scegliere |
+| `pr04-01-strumenti-ambiente.html` | Lavorare e scegliere |
+| `pr04-02-notepad-plus-plus.html` | Notepad++ |
+| `pr04-03-sublime-text.html` | Sublime Text |
+| `pr04-04-vscode.html` | Visual Studio Code |
+| `pr04-05-git.html` | Git |
 
 HTML navigation chain: pr05-01 → pr05-02 → pr05-03 (pr05-03 closes into pr06-01)
 
@@ -1018,7 +1034,7 @@ RW04/RW05 → Contenuti digitali renumbering — as `cd01-01-licenze-oer.html`,
 `cd01-02-accessibilita-immagini.html`, `cd01-03-metadati-formati.html`,
 `cd02-01-podcast-storytelling.html` and `pr01-07-iterazione-cicli.html`.
 The generator (and the report) still reference the pre-renumbering
-`RW02.05`-`RW02.08` codes and filenames: do not re-run it — it would emit
+older `RW02` codes and filenames: do not re-run it — it would emit
 orphan duplicates under filenames that clash with the current numbering
 (`rw02-05` is now account-email). The published decks have also been edited
 by hand since generation; the script is kept as historical record only.

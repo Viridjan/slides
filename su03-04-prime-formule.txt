@@ -28,6 +28,8 @@ una formula
 
 
  📍 Dove si trova Dove si scrivono: clicca una cella e digita = seguito dalla funzione; in alternativa usa la barra della formula in alto o il pulsante fx (Inserisci funzione). Uguale in Excel e Google Fogli.
+Fonti ufficiali:
+- Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 3 ---
 Operatori aritmetici e logici
@@ -272,6 +274,8 @@ Un errore è un
 
 --- Slide 18 ---
 #ERROR! Google Sheets non riesce ad analizzare la sintassi della formula. =SE(A1&gt;0 , "sì" , "no") Causa Separatore sbagliato per la lingua, parentesi o virgolette mancanti, operatori disposti male. Controllo Leggi il messaggio «Errore di analisi della formula» e verifica la lingua del file. 💡 Correzione In un file italiano usa normalmente il punto e virgola tra gli argomenti e chiudi ogni parentesi e virgoletta. [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603]
+Fonti ufficiali:
+- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 19 ---
 #ESPANSIONE! Una formula a matrice dinamica non trova spazio per distribuire tutti i risultati. =FILTRO(A2:C100; C2:C100="Attivo" ) Causa Celle occupate o unite, limite della griglia, area dentro una tabella oppure intervallo di uscita non libero. Controllo Seleziona l'avviso: Excel evidenzia l'area in cui il risultato dovrebbe espandersi. 💡 Correzione Libera l'area o sposta la formula. In inglese il codice è #SPILL!; Sheets può mostrare #RIF! per un caso simile.

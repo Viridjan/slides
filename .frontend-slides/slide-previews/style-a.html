@@ -1,0 +1,27 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Educazione digitale — reskin editoriale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Hanken+Grotesk:wght@400;600&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap" rel="stylesheet">
+<style>
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#101cc0}.deck-viewport{position:fixed;inset:0;overflow:hidden}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:#f0ebde}.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:#f0ebde}.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}img,video,canvas,svg{max-width:100%;max-height:100%}.deck-controls{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000}@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible}.deck-stage{position:static;width:auto;height:auto;transform:none!important}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page}.deck-controls{display:none!important}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+:root{--paper:#f0ebde;--ink:#1f2be0;--soft:#5963df}
+*{box-sizing:border-box}.slide{font-family:"Hanken Grotesk",sans-serif;color:var(--ink);padding:58px 76px;background-color:var(--paper);background-image:linear-gradient(rgba(31,43,224,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(31,43,224,.09) 1px,transparent 1px);background-size:48px 48px;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.top{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:18px;font:500 20px "DM Mono";letter-spacing:.08em;text-transform:uppercase}.code{border:1px solid var(--ink);padding:9px 15px}
+.main{display:grid;grid-template-columns:1.35fr .65fr;gap:84px;height:790px;align-items:center}.kicker{font:500 22px "DM Mono";text-transform:uppercase;letter-spacing:.12em}.title{font:700 142px/0.88 "Newsreader",serif;letter-spacing:-.055em;margin:30px 0}.title em{font-weight:500}.lead{font-size:34px;line-height:1.35;max-width:880px}
+.index{align-self:end;margin-bottom:72px}.row{display:grid;grid-template-columns:72px 1fr;border-top:1.5px solid var(--ink);padding:20px 0;font:500 22px "DM Mono"}.row:last-child{border-bottom:1.5px solid var(--ink)}.pixel{height:260px;background:repeating-linear-gradient(90deg,var(--ink) 0 8px,transparent 8px 18px);clip-path:polygon(45% 0,100% 0,100% 22%,78% 22%,78% 44%,58% 44%,58% 66%,34% 66%,34% 82%,0 82%,0 100%,45% 100%);opacity:.9;margin-bottom:66px}
+.foot{position:absolute;left:76px;right:76px;bottom:28px;display:flex;justify-content:space-between;font:500 18px "DM Mono";text-transform:uppercase}
+</style>
+</head>
+<body><div class="deck-viewport"><div class="deck-stage"><section class="slide active visible">
+<div class="top"><span>Educazione digitale / Programmare</span><span class="code">PR04.01</span></div>
+<div class="main"><div><div class="kicker">Strumenti e ambiente</div><h1 class="title">Lavorare<br><em>e scegliere</em></h1><p class="lead">Editor, IDE e ambienti di sviluppo: capire il metodo prima di scegliere il software.</p></div>
+<aside><div class="pixel"></div><div class="index"><div class="row"><b>01</b><span>Capire gli strumenti</span></div><div class="row"><b>02</b><span>Scegliere l’ambiente</span></div><div class="row"><b>03</b><span>Preparare il setup</span></div></div></aside></div>
+<div class="foot"><span>Francesco Antonio Binetti</span><span>01 / 12</span></div>
+</section></div></div>
+<script>const s=document.querySelector('.deck-stage');function fit(){const k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform=`translate(${(innerWidth-1920*k)/2}px,${(innerHeight-1080*k)/2}px) scale(${k})`}addEventListener('resize',fit);fit();</script>
+</body></html>

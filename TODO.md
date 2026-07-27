@@ -218,11 +218,11 @@ Le espansioni indicate nel vecchio TODO sono coperte dai deck attuali:
 | --- | --- |
 | DNS, domini, sottodomini, URL sospetti | `rw01-02-navigazione.html`, `rw01-03-domini.html` |
 | Ricerca, SERP, operatori, affidabilita | `rw01-04-ricerca.html`, `rw01-05-affidabilita.html` |
-| Salvataggio, download, screenshot, OCR, Creative Commons | `rw02-03-contenuti.html` |
+| Salvataggio, download, screenshot, OCR, Creative Commons | `rw02-02-contenuti.html` |
 | SPID, CIE, PEC, identita e reputazione | `rw03-01-identita.html`, `rw03-04-branding.html`, `rw03-05-social.html` |
 | Social, hashtag, calendario editoriale, contenuti | `rw03-05-social.html` |
 | Documenti, fogli, formule, CERCA.VERT, testo, pivot e presentazioni | `su02-01-documenti.html`-`su04-01-presentazioni.html` |
-| Pivot avanzate, grafici, query, automazione, segmentazioni e collegamenti | `su03-09-tabelle-pivot-avanzate.html`-`su03-18-oltre-il-foglio.html` |
+| Pivot avanzate, grafici, query, automazione, segmentazioni e collegamenti | `su03-09-tabelle-pivot-avanzate.html`-`su03-17-oltre-il-foglio.html` |
 | Fotografia, editing, formati, QR, screenshot | `sm08-fotocamera-contenuti.html` |
 | App, permessi, privacy, sicurezza smartphone, file e accessibilita | `sm04-app-permessi.html`-`sm11-manutenzione-scelta.html` |
 | Malware, phishing, privacy, normative, dati personali e piani B digitali | `sd01-introduzione.html`-`sd06-piani-b-digitali.html` |

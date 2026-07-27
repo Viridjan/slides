@@ -1,0 +1,77 @@
+Programmare · PR04.05 — Git
+========================================
+
+--- Slide 1 ---
+Git
+senza misteri Registrare modifiche, lavorare per rami, sincronizzare repository e correggere errori senza perdere il controllo. git log --oneline --graph * a81fd2c Unifica validazione
+ |\
+ | * 71cc3ab Aggiunge test
+ * | 49e104a Corregge form
+ |/
+ * 2c109df Primo commit Francesco Antonio Binetti
+
+--- Slide 2 ---
+Git è un sistema di controllo versione Git registra l’evoluzione di file e cartelle come una storia interrogabile. È uno strumento distribuito: ogni copia completa del repository può contenere cronologia, rami e tag. Regola: Git non è un editor e non è un sito web: lavora sul progetto qualunque sia lo strumento con cui modifichi i file. Repository Cartella di progetto più database Git nascosto nella directory .git . Storia locale Commit, rami e confronti funzionano anche senza connessione. Servizio remoto GitHub, GitLab e simili possono ospitare repository, ma non sono Git. [Fonte: Documentazione ufficiale Git — https://git-scm.com/docs]
+Fonti ufficiali:
+- Documentazione ufficiale Git — https://git-scm.com/docs
+
+--- Slide 3 ---
+Preparare Git prima del primo progetto Installa Git dalla fonte adatta al sistema, verifica il comando e configura l’identità che accompagnerà i nuovi commit. ① Verifica l’installazione
+ git --version conferma che il comando sia raggiungibile. ② Dichiara l’identità
+ git config --global user.name e user.email attribuiscono i commit futuri. ③ Crea oppure copia
+ git init avvia una storia; git clone copia un repository esistente. ⚠️ Identità non significa accesso Nome ed email nei commit non autenticano verso un server: credenziali, token e chiavi SSH sono un livello separato.
+
+--- Slide 4 ---
+Git registra stati, non “file finali” Ogni commit descrive uno stato coerente del progetto e il collegamento al commit precedente. La storia permette di capire che cosa è cambiato, quando e perché. Analogia: una sequenza di fotografie collegate, non una pila di copie senza relazione. commit A commit B commit C Ogni nodo ha identità e genitore
+
+--- Slide 5 ---
+Le quattro zone di lavoro Capire dove si trova una modifica evita quasi tutti i comandi “a tentativi”. Working tree I file come sono ora sul disco. Stage Le modifiche scelte per il prossimo commit. Repository locale Commit, rami e tag salvati sul computer. Remote Un altro repository con cui scambiare commit.
+
+--- Slide 6 ---
+Osservare prima di agire Dopo init o clone, interroga spesso il repository: sapere dove si trova una modifica evita comandi “a tentativi”. ① git status
+ Riassume ramo, file modificati, staged e non tracciati. ② git diff
+ Mostra le modifiche non ancora inserite nello stage. ③ git diff --staged
+ Fa rileggere esattamente ciò che entrerà nel prossimo commit.
+
+--- Slide 7 ---
+Stage e commit: scegli, poi registra Modifica Lavori sui file. → Controlla git diff → Seleziona git add → Registra git commit → Rileggi git show 💡 Commit utile Una modifica coerente, verificata e descritta con un messaggio che spiega l’intenzione.
+
+--- Slide 8 ---
+Leggere la storia La cronologia serve a ricostruire decisioni, non soltanto a trovare “la versione vecchia”. git log Commit, autori, date e messaggi; con --graph rende visibili i rami. git show Mostra metadati e diff di un commit specifico. git blame Attribuisce ogni riga a un commit: punto di partenza per capire il contesto, non classifica delle colpe.
+
+--- Slide 9 ---
+Git lavora prima in locale Git registra i commit sul computer. Un server remoto entra in gioco soltanto con operazioni esplicite come push, pull e fetch. Lo stage seleziona le modifiche da inserire nel prossimo commit. Flusso: modifica → diff → stage → commit → push. Diff Confronta prima e dopo, riga per riga. Commit Registra un insieme coerente di modifiche locali. Branch Permette di lavorare su una linea separata. Remote È il repository su un server. Push invia commit; fetch e pull ricevono aggiornamenti.
+
+--- Slide 10 ---
+Decidere cosa non versionare Non tutto quello che sta nella cartella va versionato. Il file .gitignore elenca ciò che Git deve ignorare, e ignorare le cose giuste è una questione di sicurezza, non di ordine. Le password, mai Chiavi, token e password non entrano nel codice: stanno in un file di configurazione locale (per esempio .env ), che il .gitignore esclude. Una chiave finita in un repository pubblico va considerata compromessa — anche se la cancelli dopo, resta nella storia. Dipendenze e build Cartelle scaricate e output di compilazione si rigenerano normalmente: si ignorano seguendo le regole del progetto. I file di configurazione e lock, invece, spesso si versionano. Le impostazioni personali Il tuo tema e la tua dimensione del carattere non riguardano gli altri. Le impostazioni del progetto , invece, sì — e quelle si condividono apposta. ⚠️ Attenzione Conviene preparare il .gitignore prima del primo commit. Se un file è già tracciato, aggiungerlo al .gitignore non basta: va rimosso dall’indice e, se contiene segreti, la credenziale va revocata.
+
+--- Slide 11 ---
+I branch separano linee di lavoro Un branch è un nome mobile che indica un commit. Crearlo costa poco; ciò che conta è mantenerne chiaro lo scopo. git switch -c Crea un ramo e sposta lì il lavoro corrente. Commit piccoli Rendono il ramo leggibile e più facile da integrare. Eliminazione Dopo l’integrazione il nome del ramo può sparire: i commit restano raggiungibili dalla storia.
+
+--- Slide 12 ---
+Merge e rebase riscrivono relazioni diverse Merge Unisce due storie e può creare un commit di merge. Conserva la forma con cui il lavoro è avvenuto. Rebase Riapplica commit sopra una nuova base. Produce nuovi identificatori e va evitato sui commit pubblici condivisi. Regola: integra con una strategia concordata; non scegliere per ottenere un grafico “più bello”.
+
+--- Slide 13 ---
+Quando Git non può scegliere da solo Se due rami modificano la stessa riga in modi incompatibili, Git interrompe l’unione e conserva entrambe le versioni: una persona deve decidere il risultato corretto. RAMO CORRENTE &nbsp; · &nbsp; &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+sconto = 0.10
+SEPARATORE &nbsp; · &nbsp; =======
+sconto = 0.15
+RAMO IN ARRIVO &nbsp; · &nbsp; &gt;&gt;&gt;&gt;&gt;&gt;&gt; main 1 · Leggi I marcatori delimitano le due alternative. Non fanno parte del programma finale. 2 · Risolvi Scegli una versione oppure combinale, poi elimina tutti i marcatori del conflitto. 3 · Verifica Esegui il programma e i test, aggiungi il file risolto e completa il commit. Aggiornarsi spesso riduce conflitti grandi.
+
+--- Slide 14 ---
+Remote, fetch, pull e push Il remote è un altro repository: non è “Git nel cloud” e non sostituisce la storia locale. remote Nome e indirizzo dell’altro repository. fetch Scarica riferimenti e commit senza integrare il tuo ramo. pull Esegue fetch e poi integra secondo la configurazione. push Invia commit e aggiorna un riferimento remoto se consentito.
+
+--- Slide 15 ---
+Correggere senza cancellare alla cieca Il comando dipende da dove si trova la modifica e dal fatto che sia già stata condivisa. Situazione Strumento Effetto Modifica locale non staged git restore Ripristina dal contenuto noto: operazione distruttiva da confermare. File nello stage git restore --staged Lo toglie dal prossimo commit senza cancellare il lavoro. Commit locale da riorganizzare reset / commit --amend Sposta riferimenti o sostituisce il commit; non sui commit già condivisi. Commit già pubblico git revert Crea un nuovo commit che annulla gli effetti, preservando la storia.
+
+--- Slide 16 ---
+Tag e stash hanno scopi precisi Tag Nome stabile associato a un commit importante, per esempio una release. Un tag annotato può contenere autore, data e messaggio. Stash Parcheggio temporaneo di modifiche non pronte. Non è un archivio permanente né un sostituto di un commit comprensibile. ⚠️ Non perdere il contesto Nomina e descrivi ciò che deve durare; uno stash dimenticato è lavoro invisibile.
+
+--- Slide 17 ---
+Controllare la diff prima di condividere La diff confronta prima e dopo: mostra righe rimosse, aggiunte e contesto. Va letta prima del commit, del push o dell’unione di un ramo. Revisione personale Prima di consegnare, guarda la tua diff. È lì che trovi il file di prova dimenticato, la password lasciata per errore, la riga di debug che non doveva restare. Revisione tra pari Su un progetto condiviso, il codice si legge prima di unirlo. Non è un esame: è il modo più economico di trovare un errore, molto prima che lo trovi un utente. Modifiche piccole Una diff di trenta righe si legge davvero; una di tremila si approva senza guardarla. La dimensione del commit decide se la revisione sarà reale o finta.
+
+--- Slide 18 ---
+Laboratorio: una storia leggibile Crea un repository di prova e simula un ciclo completo senza servizi esterni. 1 · Costruisci init, due file, status, diff, stage e due commit coerenti. 2 · Devia Crea un branch, modifica una riga e integra il ramo. 3 · Correggi Produci un errore, scegli restore o revert e spiega perché.
+
+--- Slide 19 ---
+Una buona storia rende il cambiamento reversibile. Sai distinguere working tree, stage, commit e remote; usare rami, integrare, risolvere conflitti e scegliere una correzione proporzionata. Fonti e approfondimenti Documentazione ufficiale Git ↗ (https://git-scm.com/docs) Prossimo → PR05.01 · HTML: struttura e tag Francesco Antonio Binetti

@@ -34,7 +34,8 @@ Inside any deck:
 - Touch swipe — left/right
 - `#slide-N` in the URL — open a deck directly at slide N
 - `F` key — enable the opt-in feedback overlay; `Esc` closes it
-- Eye button — switch between slide view and reader view
+- `📖 Leggi` / `🖼️ Slide` button on narrow screens — switch between the
+  scrollable reader and the original slide view
 - `↩ Indice` button — return to the course index
 - Bottom bar — progress indicator
 
@@ -47,9 +48,9 @@ Inside any deck:
 | `cd` | Contenuti Digitali | cd01-01–cd02-01 |
 | `sd` | Sicurezza Digitale | sd01–sd06 |
 | `sm` | Smartphones | sm01–sm11 |
-| `su` | Suite Ufficio | su01-01–su04-01, con fogli di calcolo fino a su03-18 |
+| `su` | Suite Ufficio | su01-01–su04-01, con fogli di calcolo fino a su03-17 |
 | `ia` | Intelligenza Artificiale | ia01–ia05 |
-| `pr` | Programmare | teoria PR01, Scratch PR02, Micro:bit PR03, strumenti PR04 e Python PR05 |
+| `pr` | Programmare | teoria PR01, Scratch PR02, Micro:bit PR03, strumenti PR04 (Notepad++, Sublime Text, VS Code, Git e ambienti), HTML PR05 e Python PR06 |
 | `pm` | Project Management | pm01–pm04 |
 | `ms` | Modellazione e stampa 3D | ms01–ms04 |
 | `gd` | Game Design | gd01–gd08 |
@@ -58,6 +59,7 @@ Inside any deck:
 
 | File | Scope |
 |------|-------|
+| `quiz-area.html` | Template/configurable area quiz |
 | `quiz-reti-web.html` | Reti e Web |
 | `quiz-sicurezza.html` | Sicurezza Digitale |
 | `quiz-informatica.html` | Identità digitale |
@@ -69,8 +71,14 @@ Inside any deck:
 
 ## Structure
 
-- I deck mantengono contenuto e CSS specifico nel file HTML; condividono `theme-corsi.css` e il motore `deck.js`.
+- Decks keep their content and deck-specific CSS in each HTML file; all decks
+  share `theme-corsi.css` and the `deck.js` slide engine.
 - Every deck has a sibling `.txt` companion — the index injects a `↓ TXT` button automatically.
+- `agenda-index.json` contains the three-item chapter overviews;
+  `agenda-index.js` is its generated browser-ready version.
+- `exercise-index.js`, `last-modified-index.js`, `search-index.js` and
+  `inventario-argomenti-slide.csv` are generated artifacts; edit their source
+  content rather than editing these files by hand.
 - Every index card shows a generated content-last-modified date beneath its
   evaluation badge. It tracks visible text changes in internal slides, not
   cover/closing, CSS or technical edits. Rebuild it with
@@ -141,6 +149,7 @@ boundary tags with `node scripts/manage-slide-review-tags.js prune-boundaries`.
 5. Rebuild the full-text search index:
 
 ```bash
+node scripts/build-agenda-index.js
 node scripts/build-last-modified.js
 node scripts/build-exercise-index.js
 node scripts/build-slide-topic-inventory.js
@@ -170,4 +179,20 @@ source data, regenerate the browser map:
 
 ```bash
 node scripts/build-agenda-index.js
+```
+
+## Before committing
+
+Every repository file whose format supports comments must retain the
+`Proprietà intellettuale di Francesco Antonio Binetti` notice. Check it before
+committing:
+
+```bash
+node scripts/manage-ip-notice.js check
+```
+
+If the check reports missing notices, restore them with:
+
+```bash
+node scripts/manage-ip-notice.js add
 ```

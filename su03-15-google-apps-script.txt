@@ -11,6 +11,8 @@ workflow cloud Francesco Antonio Binetti
 
 --- Slide 2 ---
 Che cos’è Apps Script Google Apps Script è JavaScript nel cloud Google: automatizza Sheets, Docs, Drive, Gmail, Calendar e servizi esterni. Caso concreto Un foglio con gli appuntamenti del salone genera ogni sera i promemoria, archivia un PDF su Drive e registra l’esito senza lasciare acceso un computer. Punto di forza Il codice gira nell’infrastruttura Google e usa direttamente i servizi Workspace dell’account, con autorizzazioni esplicite. Errore da evitare Trattarlo come JavaScript nel browser: non esistono DOM e window; si lavora con servizi come SpreadsheetApp e GmailApp. Esercizio Scegli un’attività in Workspace e descrivi origine dei dati, azione automatica, destinazione e frequenza di esecuzione. [Fonte: JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript]
+Fonti ufficiali:
+- JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript
 
 --- Slide 3 ---
 Apps Script e VBA a confronto Stesso mestiere del VBA di SU03.14, altro mondo: la stessa macro — IVA sulla colonna C — scritta nei due linguaggi. ' VBA (Excel)
@@ -30,6 +32,10 @@ function applicaIva() {
  .map(r => [r[0] * 1.22]);
  rng.setValues(v);
 } Dove girano VBA vive dentro il file .xlsm, sul tuo PC, anche offline. Apps Script vive nel cloud Google, legato all'account: gira anche a computer spento, ma solo online. Cosa cambia davvero Linguaggio (Basic contro JavaScript), trigger (eventi del workbook contro trigger a tempo e da modulo), distribuzione (file da inviare contro condivisione del foglio). La logica — dati, regole, risultato — è identica. [Fonte: Riferimento VBA per Office — Microsoft Learn — https://learn.microsoft.com/office/vba/api/overview/] [Fonte: Macro — Wikipedia — https://it.wikipedia.org/wiki/Macro_(informatica)] [Fonte: Supporto Microsoft Excel — https://support.microsoft.com/excel]
+Fonti ufficiali:
+- Riferimento VBA per Office — Microsoft Learn — https://learn.microsoft.com/office/vba/api/overview/
+- Macro — Wikipedia — https://it.wikipedia.org/wiki/Macro_(informatica)
+- Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 4 ---
 Editor e progetto Ogni progetto ha file .gs, manifest, trigger e autorizzazioni. Il codice vive online ed è legato a un account Google. function mostraContesto() {
@@ -51,6 +57,8 @@ JavaScript essenziale Variabili let/const, funzioni, array, oggetti e template s
 --- Slide 6 ---
 SpreadsheetApp SpreadsheetApp apre file, fogli, range e valori. È l’API centrale per lavorare con Google Sheets. Accesso esplicito getActiveSpreadsheet è comodo nei menu; openById è più affidabile nei trigger, perché indica esattamente quale file deve essere elaborato. Catena degli oggetti Spreadsheet → Sheet → Range → valori: ogni passaggio restringe l’oggetto su cui lavorano le istruzioni successive. Errore da evitare Affidarsi al foglio attivo in un’esecuzione automatica: un trigger non ha necessariamente la stessa selezione dell’utente. const ss = SpreadsheetApp.getActiveSpreadsheet();
 const foglio = ss.getSheetByName("Incassi"); [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603]
+Fonti ufficiali:
+- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 7 ---
 getValues e setValues Leggere e scrivere in blocco è molto più veloce che cella per cella: usa array bidimensionali. function applicaIva() {
@@ -73,6 +81,8 @@ Menu personalizzati onOpen può aggiungere un menu al foglio: Aggiorna report, I
  .addItem("Report", "creaReport")
  .addToUi();
 } [Fonte: Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322]
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 10 ---
 Trigger semplici onOpen e onEdit reagiscono ad apertura e modifica. Sono comodi ma hanno limiti di autorizzazione. function onEdit(e) {
@@ -106,7 +116,9 @@ cartella.createFile("nota.txt", "Incassi ok");
 
 --- Slide 15 ---
 UrlFetchApp Permette di chiamare API esterne: CRM, gestionali, servizi web, endpoint JSON. Richiesta completa Specifica URL, metodo, header, payload e muteHttpExceptions quando vuoi ispezionare anche le risposte di errore dell’API. Controllare la risposta Verifica il codice HTTP prima di fare JSON.parse; registra un messaggio utile se il servizio risponde 401, 404 o 429. Errore da evitare Scrivere chiavi API nel codice condiviso: conservale nelle proprietà dello script e limita chi può modificare il progetto. const risposta = UrlFetchApp.fetch("https://api.azienda.it/dati");
-const dati = JSON.parse(risposta.getContentText());
+const dati = JSON.parse(risposta.getContentText()); [Fonte: HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110]
+Fonti ufficiali:
+- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
 --- Slide 16 ---
 JSON e oggetti Le API parlano spesso JSON. Devi saper leggere proprietà, array e oggetti annidati. function leggiRisposta(testo) {
@@ -122,6 +134,8 @@ JSON e oggetti Le API parlano spesso JSON. Devi saper leggere proprietà, array 
 HTML Service Apps Script può mostrare sidebar, dialoghi e piccole web app con HTML, CSS e JavaScript client. Architettura La sidebar mostra HTML e JavaScript client; google.script.run chiama in modo asincrono le funzioni server che leggono Sheets o Drive. Esperienza utente Disabilita il pulsante durante l’elaborazione e gestisci success e failure handler, così l’utente sa se l’operazione è riuscita. Errore da evitare Aspettarsi un valore di ritorno sincrono da google.script.run: la risposta arriva dopo e deve essere gestita con una callback. const html = HtmlService
  .createHtmlOutputFromFile("Pagina");
 SpreadsheetApp.getUi().showSidebar(html); [Fonte: HTML — Wikipedia — https://it.wikipedia.org/wiki/HTML]
+Fonti ufficiali:
+- HTML — Wikipedia — https://it.wikipedia.org/wiki/HTML
 
 --- Slide 18 ---
 Web app Pubblicare come web app consente moduli personalizzati, dashboard e endpoint semplici. Endpoint doGet restituisce una pagina o un output; doPost riceve dati da moduli e servizi esterni. Ogni deployment ha un URL e una versione. Chi esegue La scelta «esegui come proprietario» o «come utente» cambia accesso ai dati e autorizzazioni: va decisa prima della pubblicazione. Errore da evitare Pubblicare accesso anonimo a dati riservati: valida input, identità e permessi anche se l’interfaccia sembra interna. function doGet(e) {
@@ -163,4 +177,4 @@ Deployment e versioni Distribuzioni, versioni e autorizzazioni determinano chi p
 Progetto finale Apps Script Un progetto completo legge un foglio, filtra righe, genera PDF, invia email e scrive un log. Pipeline Legge le righe «da inviare», valida email e importi, crea il PDF dal modello, lo archivia in Drive, invia il messaggio e marca la riga completata. Affidabilità Lock contro doppie esecuzioni, PropertiesService per configurazione, log degli esiti e retry controllato per errori temporanei. Criterio di successo Una riga non valida viene segnalata senza bloccare le altre; una seconda esecuzione non reinvia i documenti già completati.
 
 --- Slide 25 ---
-Apps Script collega i fogli agli strumenti Google. È ideale quando il lavoro parte da Sheets ma deve produrre email, file, report e azioni programmate. Prossimo → SU03.16 · Segmentazioni e slicer Francesco Antonio Binetti Fonti e approfondimenti JavaScript — Wikipedia ↗ (https://it.wikipedia.org/wiki/JavaScript)Riferimento VBA per Office — Microsoft Learn ↗ (https://learn.microsoft.com/office/vba/api/overview/)Macro — Wikipedia ↗ (https://it.wikipedia.org/wiki/Macro_(informatica))Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)Internet Message Format — RFC 5322 ↗ (https://www.rfc-editor.org/rfc/rfc5322)HTML — Wikipedia ↗ (https://it.wikipedia.org/wiki/HTML)
+Apps Script collega i fogli agli strumenti Google. È ideale quando il lavoro parte da Sheets ma deve produrre email, file, report e azioni programmate. Prossimo → SU03.16 · Collegare fogli e file Francesco Antonio Binetti Fonti e approfondimenti JavaScript — Wikipedia ↗ (https://it.wikipedia.org/wiki/JavaScript)Riferimento VBA per Office — Microsoft Learn ↗ (https://learn.microsoft.com/office/vba/api/overview/)Macro — Wikipedia ↗ (https://it.wikipedia.org/wiki/Macro_(informatica))Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)Internet Message Format — RFC 5322 ↗ (https://www.rfc-editor.org/rfc/rfc5322)HTTP Semantics — RFC 9110 ↗ (https://www.rfc-editor.org/rfc/rfc9110)HTML — Wikipedia ↗ (https://it.wikipedia.org/wiki/HTML)

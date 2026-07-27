@@ -1,4 +1,4 @@
-Suite Ufficio · SU03.17 — Collegare fogli e file
+Suite Ufficio · SU03.16 — Collegare fogli e file
 ================================================
 
 --- Slide 1 ---
@@ -13,7 +13,10 @@ Riferimento a un'altra scheda Nello stesso file, per leggere una cella di un'alt
 
 = 'Incassi 2026'!B3
 
-= SOMMA(Dati!C2:C40) [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603]
+= SOMMA(Dati!C2:C40) [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603] [Fonte: Supporto Microsoft Excel — https://support.microsoft.com/excel]
+Fonti ufficiali:
+- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
+- Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 4 ---
 IMPORTRANGE: collegare file diversi Per leggere dati da un altro file di Google Sheets si usa IMPORTRANGE: gli dai l'indirizzo del foglio sorgente e l'intervallo da importare. 🟢 Solo Google Sheets IMPORTRANGE è una funzione di Google Sheets. In Excel il collegamento tra file si fa in altro modo — lo vediamo dopo. 📍 Dove si trova Google Fogli: =IMPORTRANGE("url"; "Foglio1!A1:C") ; la prima volta autorizza l'accesso. · Excel: Dati → Recupera dati, oppure copia e Incolla collegamento. =IMPORTRANGE(
@@ -35,4 +38,4 @@ Filtrare senza copiare Spesso non ti serve tutto il file sorgente, ma solo alcun
 Non spezzare la catena Un collegamento è comodo finché regge. Tre cose lo rompono, e danno #REF!. ✂️ Spostare o rinominare Se rinomini la scheda sorgente o sposti le colonne, i riferimenti puntano nel vuoto. 🔑 Togliere i permessi Se revochi a qualcuno l'accesso al file sorgente, il suo report smette di vedere i dati. 🗑️ Cancellare righe Cancellare righe nella sorgente cambia ciò che il report mostra: verifica dopo ogni pulizia. ⚠️ In Excel In Excel il collegamento tra cartelle di lavoro si scrive con [NomeFile.xlsx]Foglio!A1, e i link esterni vanno aggiornati all'apertura del file.
 
 --- Slide 8 ---
-Un dato solo, letto ovunque . Collegare invece di copiare: la sorgente resta una, i report la leggono, e non passi più le giornate a riallineare file diversi. Prossimo → SU03.18 · Oltre il foglio Francesco Antonio Binetti Fonti e approfondimenti Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)
+Un dato solo, letto ovunque . Collegare invece di copiare: la sorgente resta una, i report la leggono, e non passi più le giornate a riallineare file diversi. Prossimo → SU03.17 · Oltre il foglio Francesco Antonio Binetti Fonti e approfondimenti Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)

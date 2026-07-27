@@ -1,0 +1,54 @@
+Programmare · PR04.04 — Visual Studio Code
+==========================================
+
+--- Slide 1 ---
+Visual Studio
+ Code Orientarsi in VS Code, estenderlo con criterio ed eseguire, diagnosticare e verificare il codice.
+ saluto.py PROGETTO
+⌄ src
+&nbsp;&nbsp;◇ saluto.py
+&nbsp;&nbsp;◇ dati.json
+⌄ tests
+&nbsp;&nbsp;◇ test_saluto.py 1 def saluta (nome):
+ 2 &nbsp;&nbsp; return f"Ciao {nome}!"
+ 3
+ 4 print (saluta( "Ada" ))
+
+ # Output: Ciao Ada!
+ Francesco Antonio Binetti
+
+--- Slide 2 ---
+In VS Code si apre una cartella, non soltanto un file Un programma reale è un progetto : codice, configurazioni, risorse, dipendenze, test e documentazione lavorano insieme. Regola: usa File → Apri cartella : Explorer, ricerca, terminale ed estensioni ricevono lo stesso contesto. src/ codice tests/ controlli README istruzioni Il progetto dà contesto ai singoli file
+
+--- Slide 3 ---
+VS Code: una scrivania modulare Visual Studio Code è un editor multipiattaforma: alcune funzioni sono integrate, altre arrivano tramite estensioni del linguaggio o del servizio usato. 🗂️ Explorer File, cartelle, ricerca e struttura del progetto. ✍️ Editor Schede, più pannelli, selezioni multiple e navigazione. ⌘ Command Palette Un punto unico per cercare azioni senza ricordare i menu. 💡 Distinzione utile VS Code e Visual Studio sono prodotti diversi: il primo è un editor estendibile; il secondo è un IDE completo, soprattutto per .NET e C++ su Windows. [Fonte: Documentazione ufficiale Visual Studio Code — https://code.visualstudio.com/docs]
+Fonti ufficiali:
+- Documentazione ufficiale Visual Studio Code — https://code.visualstudio.com/docs
+
+--- Slide 4 ---
+Cinque pannelli, cinque compiti distinti L’area inferiore di VS Code ospita viste separate: puoi aprirle, chiuderle e passare dall’una all’altra secondo il lavoro da svolgere. ⌨️ Terminale Esegue comandi nella shell: avvio del programma, installazione di dipendenze e script. ≡ Output Raccoglie i log prodotti da VS Code, estensioni, compilatori e altri servizi. △ Problemi Elenca errori e avvisi rilevati nei file, con collegamenti alle righe interessate. ◎ Console di debug Mostra messaggi e permette di osservare o valutare valori durante un’esecuzione controllata. ✓ Test Organizza i test disponibili, li esegue e distingue controlli superati, falliti o ignorati.
+
+--- Slide 5 ---
+IntelliSense legge il contesto del progetto 🎨 Evidenziazione sintattica Colora parole chiave, stringhe e commenti. Aiuta a leggere, ma non dimostra che il codice sia corretto. 💬 Completamento Suggerisce nomi, parametri e membri disponibili. La qualità dipende dal linguaggio e dal servizio installato. ﹏ Diagnostica Sottolinea errori e avvisi trovati dal parser, dal compilatore o da strumenti di analisi. ↗ Navigazione Vai alla definizione, trova riferimenti e rinomina simboli nel progetto, quando il linguaggio lo supporta. In pratica: un suggerimento accelera il lavoro; compilatore e test stabiliscono se funziona. [Fonte: IntelliSense — Visual Studio Code — https://code.visualstudio.com/docs/editing/intellisense]
+Fonti ufficiali:
+- IntelliSense — Visual Studio Code — https://code.visualstudio.com/docs/editing/intellisense
+
+--- Slide 6 ---
+Le estensioni aggiungono capacità Un'estensione può supportare un linguaggio, collegare un servizio, aggiungere un tema oppure integrare test e strumenti di qualità. ⚠️ Prima di installare Controlla editore, permessi, manutenzione, documentazione e necessità reale. Più estensioni significano anche più aggiornamenti e possibili conflitti.
+ 🧩 Linguaggio di programmazione
+ Supporto del linguaggio richiesto dal progetto.
+ 🧹 Qualità
+ Formatter, linter, test runner. 🔗 Servizio
+ Database, container, cloud e servizi di sviluppo.
+
+--- Slide 7 ---
+Il terminale integrato di VS Code Il pannello Terminale esegue la shell reale nella cartella del progetto. VS Code la rende accessibile, ma i comandi restano quelli dell’ambiente installato. ✍️ Scrivi Modifichi i file. → 💾 Salva Il disco riceve le modifiche. → ⚙️ Build Compila o prepara il progetto. → ▶ Esegui Il programma parte. → ▤ Osserva Leggi output ed errori. Regola: usa il terminale integrato, ma impara anche il comando essenziale: rende il processo comprensibile e ripetibile.
+
+--- Slide 8 ---
+Il debugger integrato di VS Code Con una configurazione di debug adatta al linguaggio, VS Code sospende l’esecuzione in un punto scelto e permette di controllare, passo dopo passo, come cambiano dati e chiamate. ● Breakpoint Una riga in cui sospendere l'esecuzione. ↧ Avanzamento Step over esegue la riga; step into entra nella funzione chiamata. ◉ Variabili Mostra valori e strutture nello stato corrente. ⌁ Call stack Ricostruisce la sequenza di chiamate che ti ha portato lì. 💡 Metodo Formula un'ipotesi, posiziona il breakpoint prima del punto sospetto e confronta il valore atteso con quello reale.
+
+--- Slide 9 ---
+Tre controlli dentro il flusso di VS Code 🧹 Formatter Uniforma spazi, rientri e stile. Riduce discussioni estetiche, ma non verifica la logica. 🔎 Linter / analisi Segnala pattern rischiosi, errori probabili e violazioni delle regole configurate. ✓ Test Esegue casi controllati e confronta risultato ottenuto e risultato atteso. In pratica In VS Code formatter, linter e test possono partire da estensioni, task o comandi del progetto, ma devono usare configurazioni condivise e produrre risultati visibili al team.
+
+--- Slide 10 ---
+VS Code è un ambiente, non una scorciatoia. Sai aprire il progetto, usare pannelli, IntelliSense, estensioni, terminale, debugger e controlli di qualità senza confonderli con gli strumenti sottostanti. Fonti e approfondimenti Documentazione ufficiale Visual Studio Code ↗ (https://code.visualstudio.com/docs)IntelliSense — Visual Studio Code ↗ (https://code.visualstudio.com/docs/editing/intellisense) Prossimo → PR04.05 · Git Francesco Antonio Binetti

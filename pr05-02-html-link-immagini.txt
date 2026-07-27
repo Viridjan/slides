@@ -18,6 +18,8 @@ I collegamenti Il link è l’idea che ha reso il web una rete. Il tag è &lt;a&
 &lt;a href="listino.html"&gt;
  Il nostro listino
 &lt;/a&gt; [Fonte: HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110]
+Fonti ufficiali:
+- HTTP Semantics — RFC 9110 — https://www.rfc-editor.org/rfc/rfc9110
 
 --- Slide 3 ---
 Dove porta un link L’indirizzo dentro href può essere di due tipi. Sceglierne uno o l’altro cambia cosa succede quando sposti i file. 🌐 Percorso assoluto L’indirizzo completo, che parte da https:// . Punta a un altro sito o a una risorsa precisa, ovunque essa sia. href="https://www.azienda.it/blog" 📁 Percorso relativo Solo il nome del file, letto a partire dalla pagina attuale. Perfetto per collegare le pagine del tuo sito fra loro. href="contatti.html"
@@ -30,6 +32,7 @@ Link che fanno di più Con lo stesso tag &lt;a&gt; e qualche attributo in più o
 
 --- Slide 5 ---
 Le immagini Il tag &lt;img&gt; inserisce un’immagine. Si chiude da solo e ha due attributi che non vanno mai omessi: src (quale file) e alt (la descrizione testuale). alt="capelli mossi" alt descrive l’immagine a chi non la vede src: l’indirizzo del file Assoluto o relativo, come per i link. Se il percorso è sbagliato, appare l’icona dell’immagine rotta. alt: non è un dettaglio Chi usa uno screen reader «sente» l’immagine tramite l’alt, e lo stesso testo compare se il file non carica. CD01.02 · Accessibilità delle immagini ↗
+Rimandi interni: CD01.02 · Accessibilità delle immagini — cd01-02-accessibilita-immagini.html#slide-2
 
 --- Slide 6 ---
 Peso e formato delle immagini Un’immagine troppo pesante rallenta la pagina. Il formato giusto e qualche attributo tengono tutto veloce. Formato Quando Nota JPG Foto Buona resa, file leggero, nessuna trasparenza PNG Loghi, grafica, trasparenze Più pesante sulle foto SVG Icone, disegni netti Scala senza sgranare a ogni dimensione WebP Alternativa moderna Pesa meno a parità di qualità 💡 In pratica Indicare width e height aiuta il browser a non far «saltare» la pagina mentre l’immagine carica.

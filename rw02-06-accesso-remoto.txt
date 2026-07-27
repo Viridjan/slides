@@ -1,0 +1,155 @@
+RW02.06 · Usare un PC da remoto
+========================================
+
+--- Slide 1 ---
+RW02.06 Usare un PC da remoto Dall’assistenza occasionale all’amministrazione sicura: protocolli, servizi, reti private e criteri di scelta. 🖥️ Francesco Antonio Binetti
+
+--- Slide 2 ---
+Due famiglie: assistenza e accesso permanente Nell’assistenza una persona presente autorizza la sessione; nell’accesso non presidiato il computer è preparato per connessioni future. 🤝 Assistenza
+ Codice monouso, consenso visibile, sessione limitata. 🔑 Non presidiato
+ Host installato, account o chiave, policy e aggiornamenti continui. 🛠️ Amministrazione
+ Gestione di molti dispositivi con inventario, ruoli e audit.
+
+--- Slide 3 ---
+Che cosa attraversa la rete Il computer remoto cattura lo schermo, comprime immagini e audio, riceve tastiera e mouse e può trasferire appunti o file. In pratica: non “teletrasporti” il PC: trasmetti interazione e risultati. Input in una direzione, schermo e audio nell’altra.
+
+--- Slide 4 ---
+Prima scelta: il caso d’uso La soluzione corretta dipende da chi aiuta chi, per quanto tempo e con quali dati. Una volta Supporto a un familiare o collega presente. Ogni giorno Accedere al proprio PC da casa, viaggio o aula. Professionale Help desk, server, laboratori e parco macchine. Grafica/gioco Bassa latenza, video fluido, GPU e controller.
+
+--- Slide 5 ---
+Prerequisiti del computer remoto Il PC deve essere acceso, connesso e configurato per non sospendersi nel momento sbagliato. Energia Sospensione, ibernazione e Wake-on-LAN vanno progettati. Rete Upload dell’host, latenza e stabilità contano più del download nominale. Account Credenziali forti, MFA quando disponibile, utente non amministratore per il lavoro ordinario. [Fonte: Riattivazione di sistema via rete — Microsoft Learn — https://learn.microsoft.com/windows-hardware/drivers/network/system-wake-up-events]
+Fonti ufficiali:
+- Riattivazione di sistema via rete — Microsoft Learn — https://learn.microsoft.com/windows-hardware/drivers/network/system-wake-up-events
+
+--- Slide 6 ---
+Schermo condiviso o sessione separata Due modi molto diversi di “entrare” in un computer: vedere lo stesso schermo di chi è seduto davanti, oppure aprire una sessione tutta propria mentre il monitor fisico resta bloccato. 💡 Perché conta Per insegnare, mostrare un passaggio o assistere qualcuno serve lo schermo condiviso: se la persona non vede quello che fai, l’aiuto non ha valore didattico. 👀 Schermo condiviso
+ Assistenza, VNC e condivisione di macOS: entrambi vedono e muovono lo stesso desktop. 🔒 Sessione separata
+ Con RDP su Windows desktop il monitor locale si blocca: nessuno vede ciò che stai facendo. 👥 Più sessioni insieme
+ Server e desktop virtuali servono più utenti contemporaneamente, ciascuno con il proprio ambiente. [Fonte: Client Desktop remoto — Microsoft Learn — https://learn.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients]
+Fonti ufficiali:
+- Client Desktop remoto — Microsoft Learn — https://learn.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients
+
+--- Slide 7 ---
+Quick Assist di Windows Assistenza Rapida è adatta al supporto interattivo: chi riceve aiuto apre l’app, inserisce un codice e approva visualizzazione o controllo. Pro Integrata nell’ecosistema Microsoft, consenso esplicito. Contro Non è la scelta per un server o accesso permanente. Attenzione Accetta soltanto se hai avviato tu il contatto con una persona fidata. [Fonte: Assistenza Rapida — Supporto Microsoft — https://support.microsoft.com/windows/solve-pc-problems-remotely-using-quick-assist-b077e31a-16f4-2529-1a47-21f6a9040bf3]
+Fonti ufficiali:
+- Assistenza Rapida — Supporto Microsoft — https://support.microsoft.com/windows/solve-pc-problems-remotely-using-quick-assist-b077e31a-16f4-2529-1a47-21f6a9040bf3
+
+--- Slide 8 ---
+Desktop remoto Microsoft e i suoi client RDP è il protocollo di casa Windows: sessione efficiente, funzioni aziendali mature e client ufficiali per quasi ogni dispositivo. Sul lato host, un PC desktop richiede normalmente un’edizione professionale. 🖥️ Il computer che riceve PC Windows professionali, server e infrastrutture gestite. Secondo edizione e configurazione la connessione apre una sessione separata oppure blocca quella locale. La porta non va mai pubblicata direttamente su Internet: davanti serve una VPN o un gateway autenticato. 📱 Il dispositivo da cui ti colleghi Microsoft distribuisce client per Windows, macOS, iOS e iPadOS e per i servizi Windows 365 e Azure Virtual Desktop. Il client decide anche che cosa viene reindirizzato: desktop intero o singole applicazioni, appunti, dischi e stampanti, entro i limiti delle policy. 💡 Credenziali e spazi di lavoro Gli account aziendali collegano il client a interi cataloghi di risorse: conviene sapere quale identità si sta usando e su quale dispositivo resta memorizzata. [Fonte: Rete privata virtuale — Wikipedia — https://it.wikipedia.org/wiki/Rete_privata_virtuale] [Fonte: Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios]
+Fonti ufficiali:
+- Rete privata virtuale — Wikipedia — https://it.wikipedia.org/wiki/Rete_privata_virtuale
+- Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
+
+--- Slide 9 ---
+Condivisione schermo su macOS macOS include Screen Sharing e Remote Management, basati su tecnologie VNC con integrazioni Apple. Screen Sharing Accesso tra Mac per uso personale e collaborazione. Remote Management Controlli amministrativi e permessi più granulari. Internet Preferisci VPN o rete privata; limita utenti autorizzati.
+
+--- Slide 10 ---
+Latenza, banda e qualità dell’immagine La sensazione di “fluidità” non dipende dalla velocità della linea in sé: dipende soprattutto dal ritardo fra il clic e la reazione visibile sullo schermo. ⏱️ Latenza È il tempo di andata e ritorno del comando. Oltre un certo ritardo scrivere diventa faticoso anche con banda abbondante: la connessione via cavo e un server geograficamente vicino contano più dei megabit. 🖼️ Banda e compressione Il desktop remoto invia immagini compresse: testo fermo costa pochissimo, video e animazioni moltissimo. Ridurre risoluzione, colori, sfondi ed effetti libera banda immediatamente. In pratica: se la rete è povera, un terminale di testo fa in un secondo ciò che il desktop remoto fatica a mostrare in dieci.
+
+--- Slide 11 ---
+SSH e Mosh: il remoto senza desktop Per amministrare un server la grafica è spesso un peso inutile: un terminale cifrato consuma pochissima banda, sopravvive a connessioni mediocri e si automatizza. 💡 Regola pratica Se il compito si scrive in una riga di comando, il terminale batte qualunque desktop remoto: parte in un istante anche su una rete che non reggerebbe un’immagine. 🔐 SSH
+ Terminale cifrato, comandi e trasferimenti con SFTP o SCP sullo stesso canale. 🔑 Chiavi, non password
+ Coppia crittografica protetta da passphrase; i tunnel espongono in locale un servizio remoto senza pubblicarlo. 📶 Mosh
+ Regge cambi di indirizzo e cadute brevi, con digitazione fluida; niente desktop grafico e serve il suo server con porte UDP consentite. [Fonte: Secure Shell Protocol Architecture — RFC 4251 — https://www.rfc-editor.org/rfc/rfc4251]
+Fonti ufficiali:
+- Secure Shell Protocol Architecture — RFC 4251 — https://www.rfc-editor.org/rfc/rfc4251
+
+--- Slide 12 ---
+Chrome Remote Desktop Accesso via account Google e client web/mobile, con host per Windows, macOS e Linux. Accesso personale Registra il computer e usa un PIN per le connessioni. Supporto Codice monouso e approvazione della persona assistita. Trade-off Semplice, ma dipende dall’account e dall’infrastruttura Google. [Fonte: Chrome Remote Desktop — Guida Google — https://support.google.com/chrome/answer/1649523]
+Fonti ufficiali:
+- Chrome Remote Desktop — Guida Google — https://support.google.com/chrome/answer/1649523
+
+--- Slide 13 ---
+Assistenza commerciale: TeamViewer e AnyDesk Due piattaforme molto diffuse per il supporto e l’accesso non presidiato. Le differenze stanno nei dettagli e nei piani, non nell’impianto: agente sul computer remoto, servizio di collegamento gestito dal fornitore, console di amministrazione. 🛟 TeamViewer Attraversa NAT e firewall senza configurare il router, ha client per quasi ogni sistema e funzioni pensate per l’help desk: code di assistenza, rubrica dei dispositivi, report delle sessioni. Uso personale e uso commerciale hanno condizioni diverse. ⚡ AnyDesk Client compatto e avvio rapido su molte piattaforme, con opzioni gestite per le organizzazioni. L’accesso non presidiato si regge su password dedicata, permessi granulari e alias dei dispositivi: vanno amministrati, non lasciati ai valori iniziali. ⚠️ Controlli minimi comuni Elenco dei dispositivi autorizzati, autenticazione a più fattori sull’account, registro delle sessioni e aggiornamenti attivi. Sono strumenti legittimi e proprio per questo i truffatori li usano: la difesa non è evitarli, è governarli.
+
+--- Slide 14 ---
+Uso personale e uso professionale Molti strumenti sono gratuiti solo fuori dal lavoro. La distinzione non è formale: incide su costi, continuità del servizio e regole aziendali. 🏠 Gratuito per uso personale
+ Aiutare un familiare rientra quasi sempre nella licenza gratuita. 🏢 Rilevamento di uso commerciale
+ Sessioni interrotte o account limitati quando il servizio riconosce un contesto di lavoro. 🧾 Canone o gestione propria
+ La licenza si paga in denaro; l’alternativa self-hosted si paga in tempo di amministrazione.
+
+--- Slide 15 ---
+Soluzioni autogestite Quando il collegamento non deve passare dall’infrastruttura di un fornitore, si può ospitare il servizio in proprio: cambia chi vede i metadati delle connessioni e chi risponde dei guasti. 🧑‍💻 RustDesk Open source, client multipiattaforma. Con il servizio pubblico si parte in pochi minuti; con server propri di rendezvous e relay controlli percorso e metadati, ma diventano tuoi anche aggiornamenti e chiavi. 🌐 DWService Un agente resta attivo sul computer remoto e il collegamento avviene dal browser, senza installare un viewer: pratico per interventi amministrativi e per lo scambio di file. 🛰️ MeshCentral Piattaforma self-hosted per gestire molti dispositivi: gruppi, utenti e permessi, terminale, file, desktop remoto e registro degli eventi amministrativi. 💡 Il costo si sposta Chi ospita il server eredita backup, aggiornamenti, certificati e verifica degli accessi. Il canone risparmiato ricompare come tempo di amministrazione: è una scelta sensata solo se qualcuno se ne occupa davvero. [Fonte: Documentazione ufficiale RustDesk — https://rustdesk.com/docs/en/] [Fonte: Documentazione MeshCentral — https://ylianst.github.io/MeshCentral/]
+Fonti ufficiali:
+- Documentazione ufficiale RustDesk — https://rustdesk.com/docs/en/
+- Documentazione MeshCentral — https://ylianst.github.io/MeshCentral/
+
+--- Slide 16 ---
+NoMachine Desktop remoto multipiattaforma basato sulla tecnologia NX, orientato a prestazioni e accesso a risorse locali o remote. LAN Buona esperienza per workstation nella stessa rete. Internet Serve pianificare raggiungibilità, gateway o VPN. Edizioni Funzioni personali, enterprise e server variano.
+
+--- Slide 17 ---
+Più monitor, risoluzione e scala Il computer remoto ha uno schermo suo; il tuo ne ha un altro. Quando le due geometrie non coincidono, la sessione diventa scomoda anche se la connessione è perfetta. 🖥️ Quanti schermi Alcuni client mostrano tutti i monitor remoti affiancati, altri uno solo con la possibilità di cambiarlo. Con un solo schermo locale conviene limitare la sessione a un monitor. 🔍 Risoluzione e scala La sessione può adattare la risoluzione remota alla finestra oppure riscalare l’immagine, con testo più sfocato. Sui portatili ad alta densità va regolata anche la scala. 💡 Se il PC è senza monitor Un computer acceso senza schermo collegato può presentare una risoluzione minima. Esistono adattatori fittizi e impostazioni del client che forzano una risoluzione utilizzabile.
+
+--- Slide 18 ---
+VNC: un protocollo, molte implementazioni VNC non è un prodotto: è il protocollo RFB, che trasmette il contenuto dello schermo e gli eventi di tastiera e mouse. Server e viewer di produttori diversi si parlano, ma con capacità e livelli di sicurezza molto differenti. RealVNC Connect Offerta commerciale con account e connessioni mediate: niente configurazione del router, ruoli, team e tracciamento nelle versioni superiori. Il costo si valuta su utenti e dispositivi. TigerVNC Diffuso nel mondo Linux e Unix, apre sessioni desktop dedicate e mantiene buona compatibilità con gli altri client RFB. TightVNC Implementazione leggera, usata soprattutto in ambienti Windows, orientata alla semplicità e alla compressione del flusso. ⚠️ Non dare per scontata la cifratura Alcune implementazioni proteggono poco o nulla il traffico: verifica che cosa offre la tua o incapsula la sessione in SSH o in una rete privata. Ricorda inoltre che VNC condivide di norma lo schermo locale, invece di aprire una sessione separata.
+
+--- Slide 19 ---
+Apache Guacamole Gateway “clientless”: il browser parla con Guacamole, che a sua volta collega RDP, VNC o SSH. Vantaggio Un URL centralizza accessi senza client nativo. Architettura Web app, guacd, database/identity provider e protocolli backend. Responsabilità È un portale privilegiato: patch, MFA, reverse proxy e log sono essenziali. [Fonte: Manuale Apache Guacamole — https://guacamole.apache.org/doc/gug/]
+Fonti ufficiali:
+- Manuale Apache Guacamole — https://guacamole.apache.org/doc/gug/
+
+--- Slide 20 ---
+Assistere una persona a distanza La parte tecnica è la più breve: quasi tutto il risultato dipende da come prepari, spieghi e chiudi la sessione. 📞 Prima
+ Restate in contatto su un canale separato: se cade la sessione, la voce resta. ✅ Consenso
+ Spiega che vedrai lo schermo e chiedi di chiudere finestre riservate. 🧑‍🏫 Durante
+ Commenta ogni passaggio e lascia ripetere l’operazione a chi ricevi aiuto. 🚪 Dopo
+ Chiudi la sessione, verifica che l’app non resti in ascolto e riassumi cosa è cambiato.
+
+--- Slide 21 ---
+Reti overlay: Tailscale e ZeroTier Invece di esporre un servizio su Internet, si costruisce una rete privata fra i dispositivi autorizzati. Poi RDP, VNC, SSH o un pannello web funzionano come se tutto fosse nella stessa rete locale. 🕸️ Tailscale Rete mesh costruita su WireGuard: assegna indirizzi privati stabili, attraversa NAT e lega gli accessi ad account, dispositivi e regole di autorizzazione. 🧭 ZeroTier Reti virtuali definite via software, con un controller che decide chi appartiene alla rete: usato per collegare sedi, computer e server dietro NAT. ⚠️ Che cosa cambia davvero Spariscono le porte aperte sul router, non il problema dell’accesso: il control plane diventa infrastruttura critica e il protocollo di desktop remoto resta comunque da scegliere e proteggere. [Fonte: Documentazione Tailscale — https://tailscale.com/kb] [Fonte: WireGuard — sito ufficiale — https://www.wireguard.com/]
+Fonti ufficiali:
+- Documentazione Tailscale — https://tailscale.com/kb
+- WireGuard — sito ufficiale — https://www.wireguard.com/
+
+--- Slide 22 ---
+WireGuard e VPN tradizionale Una VPN porta il client nella rete privata. WireGuard è minimale; OpenVPN e IPsec offrono ecosistemi maturi e scenari enterprise. WireGuard Configurazione compatta e primitive moderne. OpenVPN/IPsec Compatibilità, appliance, autenticazione e policy consolidate. Errore VPN non significa accesso illimitato: applica firewall e minimo privilegio.
+
+--- Slide 23 ---
+Toccare il router: due casi diversi Quasi tutto si risolve senza modificare la rete di casa. Restano due situazioni in cui il router entra in gioco, con rischi molto diversi fra loro. 🚪 Aprire una porta Pubblicare RDP, VNC o un pannello di amministrazione espone il servizio a scansioni continue e tentativi automatici. Meglio una VPN, una rete overlay o un gateway autenticato. Se proprio è obbligatorio: indirizzi consentiti, aggiornamenti, secondo fattore, limiti sui tentativi e monitoraggio. ⏰ Accendere il computer Un pacchetto speciale può svegliare un PC compatibile, se scheda di rete, firmware e stato di risparmio lo permettono. È molto più semplice inviarlo da un dispositivo già dentro la rete. Una presa intelligente non è un’alternativa: toglie corrente, non spegne in modo pulito. ⚠️ Mai Credenziali deboli o servizi non aggiornati raggiungibili da Internet: è la combinazione che compare in quasi tutti gli incidenti di accesso remoto.
+
+--- Slide 24 ---
+Quando la connessione non parte Prima di cambiare programma conviene isolare il punto in cui la comunicazione si interrompe: rete, nome, porta o servizio. ping 192.168.1.40 # il dispositivo risponde nella rete locale?
+Test-NetConnection 192.168.1.40 -Port 3389 # la porta è raggiungibile?
+ssh -v utente@server # dove si ferma la negoziazione?
+nslookup pc-ufficio.azienda.it # il nome punta all’indirizzo giusto? ⚠️ Cause frequenti Computer sospeso, servizio remoto disattivato dopo un aggiornamento, firewall che blocca la porta, indirizzo cambiato dal router, oppure client e host su reti diverse senza rete privata comune.
+
+--- Slide 25 ---
+Oltre lo schermo: file e periferiche Una sessione remota può trasportare molto più dell’immagine. Ogni canale in più è comodo e, insieme, una via d’uscita per i dati: si abilita quello che serve, non quello che è disponibile. ⚠️ Appunti condivisi Password e token copiati negli appunti passano dall’altra parte della sessione. In azienda valgono policy sui documenti, cartelle consentite e registro dei trasferimenti. 📁 File e appunti
+ Trascinamento, cartelle condivise e copia-incolla fra i due computer. 🔊 Audio e webcam
+ Riproduzione quasi sempre, microfono e telecamera solo con alcuni protocolli. 🔌 USB e grafica
+ Chiavette, lettori e acceleratori richiedono soluzioni specializzate o edizioni avanzate. 🖨️ Stampa
+ Comodissima: stampa sulla tua stampante un documento che vive sull’altro computer.
+
+--- Slide 26 ---
+Streaming a bassa latenza Alcune soluzioni non trasmettono “un desktop” ma un flusso video compresso dall’hardware grafico: nascono per gioco e grafica e servono quando la reattività conta più della gestione. 🎮 Parsec Prodotto commerciale con immagine fluida, input reattivo e uso dell’acceleratore grafico: postazioni creative, revisioni visive a distanza, gioco personale. Non offre le funzioni di gestione di uno strumento di assistenza. 📡 Sunshine + Moonlight Coppia open source: Sunshine fa da host, Moonlight da client. Codifica hardware e ritardo minimo su una rete adeguata, ma configurazione e sicurezza restano a carico di chi installa. In pratica: fuori casa raggiungili attraverso una VPN o una rete overlay, invece di aprire porte sul router.
+
+--- Slide 27 ---
+Splashtop e BeyondTrust Due prodotti commerciali che rispondono a esigenze diverse: lavorare su una postazione lontana oppure far entrare qualcuno in un sistema critico lasciando una prova di tutto ciò che ha fatto. 💼 Splashtop Accesso a postazioni di lavoro, supporto agli utenti e gestione dei dispositivi secondo il piano scelto: l’obiettivo è la continuità operativa di chi lavora a distanza. 🛡️ BeyondTrust Accesso privilegiato: sessioni approvate prima di iniziare, credenziali custodite dal sistema, registrazione di ciò che accade e integrazione con gli strumenti di sicurezza aziendali. 💡 Quando si giustificano Il costo ha senso quando conformità e verifica pesano quanto il controllo dello schermo: senza obblighi di audit, strumenti più semplici fanno lo stesso lavoro.
+
+--- Slide 28 ---
+Cloud PC e desktop virtuali Windows 365, Azure Virtual Desktop, Amazon WorkSpaces e altri DaaS spostano il “PC remoto” nel cloud. Pro Disponibilità, gestione centralizzata, nessun PC domestico acceso. Contro Costo ricorrente, dipendenza dalla rete e dal fornitore. Dati Regione, backup, identità e conformità vanno progettati.
+
+--- Slide 29 ---
+Sicurezza della sessione Il controllo remoto equivale quasi sempre a essere seduti davanti al computer: proteggilo come un accesso privilegiato. Autenticazione MFA, chiavi o certificati; niente password riutilizzate. Autorizzazione Utenti, gruppi, orari e dispositivi consentiti. Audit Log di accesso, avvisi, registrazione sessione dove appropriato. Patch Host, client, gateway e router aggiornati.
+
+--- Slide 30 ---
+Tracce, consenso e trasparenza Un accesso non presidiato permette di entrare in un computer quando nessuno lo sta usando: proprio per questo deve lasciare traccia di chi è entrato, quando e perché. ⚠️ Sul posto di lavoro Il controllo remoto di una postazione tocca dati personali di chi la usa: va dichiarato nelle informative, limitato allo scopo dichiarato e concordato con le regole aziendali, non attivato di nascosto. 📓 Registro delle sessioni
+ Data, durata, account che ha effettuato l’accesso e dispositivo di origine. 🔔 Segnale visibile
+ Notifica o indicatore che avverte che la sessione remota è in corso. 📄 Regole scritte
+ Chi può accedere, per quali attività e come si revoca l’autorizzazione.
+
+--- Slide 31 ---
+Truffe di assistenza tecnica Il software remoto è legittimo; la truffa nasce quando qualcuno crea urgenza e convince la vittima a concedere accesso o denaro. Segnale Chiamata o popup non richiesto, minaccia di conto bloccato. Difesa Interrompi, verifica con un canale ufficiale, non installare nulla. Se è successo Disconnetti, cambia credenziali da un dispositivo pulito, contatta banca e assistenza.
+
+--- Slide 32 ---
+Checklist di configurazione Prima della prima connessione non presidiata, verifica l’intero ciclo di vita. Preparare Aggiorna, cifra il disco, crea utente dedicato, configura energia. Limitare MFA, ACL, rete privata, niente porte pubbliche inutili. Provare Connessione esterna, riavvio, recovery e revoca accesso. Documentare Responsabile, scopo, strumenti, log e procedura di emergenza.
+
+--- Slide 33 ---
+Come scegliere in 60 secondi Parti dal bisogno reale, poi elimina ciò che non regge su sicurezza, piattaforme coinvolte e gestione nel tempo. Quasi sempre restano due candidati, non venti. 🙋 Aiuto occasionale
+ Assistenza con consenso e codice monouso: nulla resta attivo dopo la sessione. 🏠 Il tuo PC di casa
+ Rete privata o overlay più il protocollo nativo, oppure un servizio con account solido. 🖧 Un server
+ SSH come prima scelta; RDP soltanto dietro VPN o gateway autenticato. 🏢 Un’organizzazione
+ Strumento gestito con ruoli, secondo fattore, registro, inventario e supporto contrattuale.
+
+--- Slide 34 ---
+Usare un PC da remoto: ora sai scegliere. Dall’assistenza occasionale all’amministrazione sicura: protocolli, servizi, reti private e criteri di scelta. Fonti e approfondimenti Riattivazione di sistema via rete — Microsoft Learn ↗ (https://learn.microsoft.com/windows-hardware/drivers/network/system-wake-up-events)Client Desktop remoto — Microsoft Learn ↗ (https://learn.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients)Assistenza Rapida — Supporto Microsoft ↗ (https://support.microsoft.com/windows/solve-pc-problems-remotely-using-quick-assist-b077e31a-16f4-2529-1a47-21f6a9040bf3)Rete privata virtuale — Wikipedia ↗ (https://it.wikipedia.org/wiki/Rete_privata_virtuale)Manuale utente iPhone — Apple ↗ (https://support.apple.com/guide/iphone/welcome/ios)Secure Shell Protocol Architecture — RFC 4251 ↗ (https://www.rfc-editor.org/rfc/rfc4251)Chrome Remote Desktop — Guida Google ↗ (https://support.google.com/chrome/answer/1649523)Documentazione ufficiale RustDesk ↗ (https://rustdesk.com/docs/en/)Documentazione MeshCentral ↗ (https://ylianst.github.io/MeshCentral/)Manuale Apache Guacamole ↗ (https://guacamole.apache.org/doc/gug/)Documentazione Tailscale ↗ (https://tailscale.com/kb)WireGuard — sito ufficiale ↗ (https://www.wireguard.com/) Prossimo → RW03.01 · Identità online Francesco Antonio Binetti

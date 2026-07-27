@@ -59,3 +59,27 @@ Laboratorio pratico
 ✓ Gerarchia visiva chiara (nome → ruolo → contatti)
 ✓ Nessun elemento non pertinente
 ✓ Max 8 righe
+
+--- Slide 4 ---
+Esercizio 3: costruisci un archivio senza duplicati
+ Prepara una cartella dati con un file di prova, un collegamento relativo chiamato corrente , un secondo collegamento destinato a rompersi e una copia reale di backup.
+
+ Osserva Confronta dimensione, percorso e comportamento quando modifichi il file puntato.
+ Rompi e ripara Rinomina il bersaglio, diagnostica il collegamento spezzato e ricrealo con il percorso corretto.
+ Ripristina Cancella la copia di lavoro e recuperala dal backup reale, non dal collegamento.
+
+
+ Consegna
+ Consegna l'elenco dei comandi usati e una schermata dell'elenco lungo della cartella in cui si vedano il collegamento valido, quello spezzato e la copia di backup.
+
+--- Slide 5 ---
+Esercizio 4: collega due computer senza esporli a Internet
+ Usando due dispositivi della stessa rete, confronta una sessione di assistenza con consenso esplicito e una connessione stabilita dietro una rete privata, senza aprire nessuna porta sul router.
+
+ Scenario A Sessione di assistenza con codice monouso: osserva come si concede e come si revoca il consenso.
+ Scenario B Rete privata o overlay, poi desktop remoto o terminale: nessun port forwarding sul router.
+ Misura Ritardo percepito, qualità dell'immagine, permessi richiesti, trasferimenti consentiti e tracce lasciate.
+
+
+ Consegna
+ Consegna una tabella con i due scenari a confronto sulle quattro voci misurate e una riga di motivazione: quale useresti per assistere un familiare e quale per lavorare sul tuo computer.

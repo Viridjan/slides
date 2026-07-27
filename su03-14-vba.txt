@@ -11,6 +11,9 @@ report e procedure Francesco Antonio Binetti
 
 --- Slide 2 ---
 Introduzione a VBA VBA (Visual Basic for Applications) è il linguaggio già incluso in Excel: non serve installare nulla. Con poche righe di codice ripeti in un secondo, sempre nello stesso modo, operazioni che a mano richiedono minuti e attenzione continua. Perché impararlo Il salone Belli e Brillanti prepara ogni lunedì il report incassi: copiare le righe, ordinarle, formattare i totali. Una macro esegue gli stessi passaggi senza saltarne nessuno e libera tempo per le clienti. Quando serve Quando un'operazione si ripete identica ogni settimana, tocca centinaia di righe o è rischiosa da fare a mano: importare gli incassi dalla cassa, pulire l'elenco clienti, generare i listini stampabili. Errore comune Scrivere codice prima di chiarire input, output e casi limite: cosa deve succedere se una cella è vuota, se manca il foglio o se le righe sono più del solito? Esercizio Scegli un'attività ripetitiva del salone (per esempio il report del lunedì) e descrivila in tre passaggi precisi: input, trasformazione, output. È la bozza della tua prima macro. [Fonte: Riferimento VBA per Office — Microsoft Learn — https://learn.microsoft.com/office/vba/api/overview/] [Fonte: Supporto Microsoft Excel — https://support.microsoft.com/excel]
+Fonti ufficiali:
+- Riferimento VBA per Office — Microsoft Learn — https://learn.microsoft.com/office/vba/api/overview/
+- Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 3 ---
 Editor VBA e moduli Il codice non vive nelle celle ma nell'editor VBA, che apri con Alt+F11. I moduli standard contengono le macro generali, gli oggetti foglio il codice legato a un singolo foglio, ThisWorkbook quello che riguarda l'intero file. Anche le macro registrate finiscono in un modulo: aprile e leggile per imparare. 💡 Consiglio La finestra Immediata (Ctrl+G) mostra i risultati di Debug.Print: usala per controllare i valori mentre provi il codice, prima di far scrivere la macro sulle celle vere. ' Modulo1 del file incassi.xlsm
@@ -22,6 +25,8 @@ Sub PrimaProva()
  ' e ne stampa il contenuto
  Debug.Print Range("A1").Value
 End Sub [Fonte: Macro — Wikipedia — https://it.wikipedia.org/wiki/Macro_(informatica)]
+Fonti ufficiali:
+- Macro — Wikipedia — https://it.wikipedia.org/wiki/Macro_(informatica)
 
 --- Slide 4 ---
 Sub e Function Una Sub esegue azioni: formatta, copia, salva, mostra messaggi. Una Function riceve valori e ne restituisce uno: puoi richiamarla da altre macro o direttamente in una cella, come le funzioni di Excel. Sub in azione Sub PreparaReport() ordina gli incassi della settimana, inserisce i totali e imposta l'area di stampa. La colleghi a un pulsante sul foglio: un clic, report pronto. Function su misura Function PrezzoScontato(prezzo, sconto) restituisce prezzo * (1 - sconto). Scritta una volta nel modulo, in cella diventa =PrezzoScontato(B2;C2) per tutto il listino del salone. Errore comune Mettere dentro una Function azioni sul foglio (scrivere celle, aprire file): una funzione usata in cella deve solo calcolare e restituire un valore, mai modificare altro. Sub PreparaReport()

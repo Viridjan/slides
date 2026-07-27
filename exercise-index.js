@@ -73,25 +73,46 @@ globalThis.EXERCISE_INDEX = {
       "title": "Esercizio: tre diagrammi con un ciclo"
     }
   ],
-  "pr01-07-iterazione-cicli.html": [
+  "pr01-06-misure-calcoli-unita.html": [
     {
       "file": "esercizi-programmare.html",
       "slide": 4,
+      "title": "Laboratorio: salva una velocità senza ambiguità"
+    }
+  ],
+  "pr01-07-iterazione-cicli.html": [
+    {
+      "file": "esercizi-programmare.html",
+      "slide": 5,
       "title": "Verifica: progetta il ciclo"
     }
   ],
   "pr02-02-questionario.html": [
     {
       "file": "esercizi-programmare.html",
-      "slide": 5,
+      "slide": 6,
       "title": "Collaudare il quiz"
     }
   ],
-  "pr04-02-strumenti-ambiente.html": [
+  "pr04-01-strumenti-ambiente.html": [
     {
       "file": "esercizi-programmare.html",
-      "slide": 6,
+      "slide": 7,
       "title": "Esercizio: esplora senza installare tutto"
+    }
+  ],
+  "pr04-02-notepad-plus-plus.html": [
+    {
+      "file": "esercizi-programmare.html",
+      "slide": 8,
+      "title": "Esercizio 6: pulisci un file di log"
+    }
+  ],
+  "pr04-03-sublime-text.html": [
+    {
+      "file": "esercizi-programmare.html",
+      "slide": 9,
+      "title": "Esercizio 7: modifica una piccola codebase"
     }
   ],
   "rw02-01-email.html": [
@@ -99,13 +120,25 @@ globalThis.EXERCISE_INDEX = {
       "file": "esercizi-reti-web.html",
       "slide": 2,
       "title": "Esercitazione pratica"
-    }
-  ],
-  "rw02-02-firma.html": [
+    },
     {
       "file": "esercizi-reti-web.html",
       "slide": 3,
       "title": "Laboratorio pratico"
+    }
+  ],
+  "rw02-03-link-simbolici.html": [
+    {
+      "file": "esercizi-reti-web.html",
+      "slide": 4,
+      "title": "Esercizio 3: costruisci un archivio senza duplicati"
+    }
+  ],
+  "rw02-06-accesso-remoto.html": [
+    {
+      "file": "esercizi-reti-web.html",
+      "slide": 5,
+      "title": "Esercizio 4: collega due computer senza esporli a Internet"
     }
   ],
   "sd06-piani-b-digitali.html": [
@@ -155,6 +188,11 @@ globalThis.EXERCISE_INDEX = {
       "file": "esercizi-suite-ufficio.html",
       "slide": 7,
       "title": "Esercizio 6: costruisci un cruscotto vendite"
+    },
+    {
+      "file": "esercizi-suite-ufficio.html",
+      "slide": 9,
+      "title": "Esercizio 8: crea un cruscotto filtrabile"
     }
   ],
   "su03-10-grafici.html": [
@@ -169,21 +207,14 @@ globalThis.EXERCISE_INDEX = {
       "title": "Revisione finale: ricostruire un grafico debole"
     }
   ],
-  "su03-16-segmentazioni.html": [
-    {
-      "file": "esercizi-suite-ufficio.html",
-      "slide": 9,
-      "title": "Esercizio 8: crea un cruscotto filtrabile"
-    }
-  ],
-  "su03-17-collegamenti-fogli.html": [
+  "su03-16-collegamenti-fogli.html": [
     {
       "file": "esercizi-suite-ufficio.html",
       "slide": 10,
       "title": "Esercizio 9: collega sorgente e report"
     }
   ],
-  "su03-18-oltre-il-foglio.html": [
+  "su03-17-oltre-il-foglio.html": [
     {
       "file": "esercizi-suite-ufficio.html",
       "slide": 11,
@@ -236,6 +267,13 @@ globalThis.EXERCISE_INDEX = {
       "file": "pr02-01-introduzione.html",
       "slide": 10,
       "title": "Progetto guidato: Abby e il Gatto"
+    }
+  ],
+  "pr04-05-git.html": [
+    {
+      "file": "pr04-05-git.html",
+      "slide": 18,
+      "title": "Laboratorio: una storia leggibile"
     }
   ],
   "pr05-01-html-struttura.html": [

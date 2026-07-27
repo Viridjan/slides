@@ -14,6 +14,9 @@ HTML:
 
 --- Slide 2 ---
 Marcare, non programmare HTML sta per HyperText Markup Language . È un linguaggio di marcatura : aggiunge etichette attorno al testo per descriverne il ruolo, non per eseguire calcoli o decisioni. Descrive Ogni etichetta dice «questo è un titolo», «questo è un paragrafo», «questa è un’immagine». Il contenuto resta, l’etichetta gli dà un significato. Non decide Niente «se… allora», niente cicli: quella è programmazione. HTML si limita a strutturare. La logica arriva dopo, con altri linguaggi. Lo legge il browser Chrome, Firefox o Safari leggono le etichette e disegnano la pagina. Lo stesso file appare uguale ovunque perché tutti seguono le stesse regole. [Fonte: HTML — MDN Web Docs — https://developer.mozilla.org/it/docs/Web/HTML] [Fonte: HTML — Wikipedia — https://it.wikipedia.org/wiki/HTML]
+Fonti ufficiali:
+- HTML — MDN Web Docs — https://developer.mozilla.org/it/docs/Web/HTML
+- HTML — Wikipedia — https://it.wikipedia.org/wiki/HTML
 
 --- Slide 3 ---
 L’impalcatura di ogni pagina Quattro elementi ci sono sempre, anche nella pagina più semplice. Sono le fondamenta su cui appoggi tutto il resto. 💡 In pratica head è quello che il browser deve sapere (titolo, lingua, codifica); body è quello che l’utente vede. &lt;!DOCTYPE html&gt; &larr; è una pagina moderna
@@ -28,6 +31,8 @@ L’impalcatura di ogni pagina Quattro elementi ci sono sempre, anche nella pagi
 
 --- Slide 4 ---
 Che cos’è un tag Un tag è un’etichetta racchiusa tra parentesi angolari. Quasi sempre vanno in coppia: uno apre, uno chiude. Il contenuto sta in mezzo, e l’insieme si chiama elemento . &lt;p&gt; Ciao &lt;/p&gt; apertura contenuto chiusura &lt;p&gt;Ciao&lt;/p&gt; — un paragrafo La chiusura ha lo slash Il tag di chiusura ripete il nome con una barra: &lt;/p&gt; . Dimenticarla è l’errore più comune quando si inizia. Qualcuno si chiude da solo Pochi elementi non hanno contenuto e non si chiudono, come &lt;br&gt; (a capo) o &lt;img&gt; (immagine). [Fonte: Elementi HTML — MDN — https://developer.mozilla.org/it/docs/Web/HTML/Element]
+Fonti ufficiali:
+- Elementi HTML — MDN — https://developer.mozilla.org/it/docs/Web/HTML/Element
 
 --- Slide 5 ---
 Gli attributi: informazioni in più Dentro il tag di apertura puoi aggiungere attributi , scritti come nome="valore" . Aggiungono dettagli senza cambiare il tipo di elemento. Come si scrivono Sempre nel tag di apertura, separati da uno spazio, con il valore tra virgolette: &lt;html lang="it"&gt;
@@ -36,6 +41,8 @@ Gli attributi: informazioni in più Dentro il tag di apertura puoi aggiungere at
 
 --- Slide 6 ---
 Titoli e paragrafi Il testo di una pagina vive quasi sempre dentro due famiglie di tag: i titoli, da &lt;h1&gt; a &lt;h6&gt; , e i paragrafi &lt;p&gt; . Tag Che cos’è Quando usarlo &lt;h1&gt; Titolo principale Uno solo per pagina: il tema di tutto &lt;h2&gt; &lt;h3&gt; Sottotitoli Sezioni e sotto-sezioni, in ordine &lt;p&gt; Paragrafo Ogni blocco di testo discorsivo ⚠️ Attenzione I livelli dei titoli seguono il significato , non la dimensione. Non scegliere &lt;h3&gt; perché «è più piccolo»: per la dimensione c’è il CSS. [Fonte: CSS — Wikipedia — https://it.wikipedia.org/wiki/CSS]
+Fonti ufficiali:
+- CSS — Wikipedia — https://it.wikipedia.org/wiki/CSS
 
 --- Slide 7 ---
 Dare enfasi al testo Alcuni tag cambiano il senso di una parola o spezzano il flusso. Sono piccoli, ma li userai continuamente. 🅱️ &lt;strong&gt; Segna qualcosa di importante . Il browser di solito lo mostra in grassetto. ✏️ &lt;em&gt; Dà enfasi , un’inflessione della voce. Di solito appare in corsivo. ↵ &lt;br&gt; e &lt;hr&gt; &lt;br&gt; manda a capo dentro un paragrafo; &lt;hr&gt; traccia una linea di separazione. Regola: scegli il tag per quello che significa , non per come appare.

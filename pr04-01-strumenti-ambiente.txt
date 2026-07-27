@@ -1,0 +1,61 @@
+Programmare · PR04.01 — Lavorare e scegliere
+============================================
+
+--- Slide 1 ---
+Scegliere
+ gli strumenti Editor, IDE, ambienti locali e remoti: criteri per costruire un flusso di lavoro comprensibile e riproducibile.
+ saluto.py PROGETTO
+⌄ src
+&nbsp;&nbsp;◇ saluto.py
+&nbsp;&nbsp;◇ dati.json
+⌄ tests
+&nbsp;&nbsp;◇ test_saluto.py 1 def saluta (nome):
+ 2 &nbsp;&nbsp; return f"Ciao {nome}!"
+ 3
+ 4 print (saluta( "Ada" ))
+
+ # Output: Ciao Ada!
+ Francesco Antonio Binetti
+
+--- Slide 2 ---
+Editor di testo, editor di codice e IDE Gli strumenti differiscono per quanta assistenza offrono e per quanto conoscono il progetto. 📄 Editor di testo
+ Modifica testo semplice con poche funzioni dedicate al codice. ⌨️ Editor di codice
+ Aggiunge sintassi, progetto, estensioni e strumenti di esecuzione. 🧰 IDE
+ Integra analisi, build, debug, test e funzioni specifiche di una piattaforma. Analogia: quaderno, banco attrezzato, laboratorio completo.
+
+--- Slide 3 ---
+Un progetto è più di un file Un programma reale è un progetto : codice, configurazioni, risorse, dipendenze, test e documentazione lavorano insieme. Regola: mantieni una radice riconoscibile: codice, test, risorse e documentazione devono viaggiare insieme. src/ codice tests/ controlli README istruzioni Il progetto dà contesto ai singoli file
+
+--- Slide 4 ---
+IDE completi: quando il progetto ha una piattaforma Strumento Contesto tipico Punti di forza Da sapere Visual Studio .NET, C++, Windows, game development Debugger, profiler, designer, test e strumenti di build integrati Più pesante di un editor; edizioni e licenze differiscono JetBrains IDE Java/Kotlin, Python, web, PHP, database Analisi profonda, navigazione e refactoring specifici Prodotti distinti; funzioni e licenze cambiano per edizione Android Studio App Android Gradle, emulatori, profiler, layout e lint Android Ottimizzato per il flusso Android Xcode App per piattaforme Apple Simulator, debugger, Instruments, test e distribuzione Disponibile su macOS e legato agli SDK Apple [Fonte: Tutorial ufficiale Python — https://docs.python.org/3/tutorial/] [Fonte: Guida ufficiale Android — https://support.google.com/android/]
+Fonti ufficiali:
+- Tutorial ufficiale Python — https://docs.python.org/3/tutorial/
+- Guida ufficiale Android — https://support.google.com/android/
+
+--- Slide 5 ---
+Locale, remoto o nel browser? 💻 Ambiente locale File e strumenti girano sul tuo computer. Hai controllo e puoi lavorare offline, ma devi configurare l'ambiente. ↗ Remoto L'interfaccia è locale, mentre codice, terminale e processi vivono su server, container, WSL o SSH. ☁️ Browser / cloud L'ambiente è accessibile via web. Riduce il setup iniziale, ma dipende da account, rete, limiti e costi del servizio. ⚠️ Dati e segreti Prima di usare ambienti remoti, verifica dove vengono conservati codice, credenziali, log e output del progetto. RW02.02 · Assistenza e accesso remoto ↗
+Rimandi interni: RW02.06 · Assistenza e accesso remoto — rw02-06-accesso-remoto.html#slide-2
+
+--- Slide 6 ---
+Assistenti IA: proposta, non autorità Completamento predittivo, chat e agenti possono spiegare codice, proporre modifiche e automatizzare attività. Il risultato va trattato come una modifica di terzi. Regola: leggi il diff, esegui i test, controlla dipendenze e licenze, non condividere segreti. Contesto Decidi quali file, dati e istruzioni può leggere lo strumento. Verifica Compilazione, analisi e test restano necessari anche se la proposta “sembra giusta”. Responsabilità Chi accetta la modifica resta responsabile di sicurezza, correttezza e manutenzione.
+
+--- Slide 7 ---
+Ambienti di sviluppo: «sul mio computer funziona» La frase più famosa dell'informatica nasce quasi sempre dallo stesso motivo: il tuo computer ha qualcosa installato che l'altro non ha, e nessuno dei due lo sa. Le dipendenze si dichiarano Le librerie che il progetto usa vanno elencate in un file ( requirements.txt , package.json ). Chi scarica il progetto installa esattamente quelle: la lista è parte del codice, non un dettaglio del tuo PC. Ambienti isolati Un ambiente virtuale tiene le librerie dentro il progetto , non nel sistema. Due progetti possono così usare due versioni diverse della stessa libreria senza litigare. Anche la versione conta «Funziona con Python» non basta: funziona con quella versione. Scrivere la versione richiesta evita mezz'ora di errori incomprensibili al primo collega che ci prova.
+
+--- Slide 8 ---
+I caratteri che non si vedono Tre dettagli invisibili rompono i file più spesso di qualunque bug: la codifica, il fine riga e l'indentazione mista. Non si vedono guardando lo schermo — si vedono solo quando è tardi. Codifica: UTF-8 Se il file non è salvato in UTF-8, gli accenti diventano simboli assurdi sul computer di qualcun altro. L'editor mostra la codifica nella barra in basso: guardala, e tienila su UTF-8 sempre. Fine riga: LF o CRLF Windows e gli altri sistemi chiudono le righe in modo diverso. Se non lo governi, una diff mostra «tutte le righe cambiate» quando non hai cambiato nulla. Tab o spazi, non entrambi Mescolarli produce codice che sembra allineato ma non lo è, e in linguaggi come Python questo è un errore vero. Un file .editorconfig impone la stessa regola a tutti gli editor del progetto. [Fonte: UTF-8 — Unicode Standard — https://www.unicode.org/versions/latest/core-spec/chapter-2/]
+Fonti ufficiali:
+- UTF-8 — Unicode Standard — https://www.unicode.org/versions/latest/core-spec/chapter-2/
+
+--- Slide 9 ---
+L'editor si adatta a te Passerai molte ore davanti a questa finestra. Configurarla non è vezzo estetico: è la differenza tra leggere il codice e sforzarsi di vederlo. Contrasto e dimensione Tema chiaro o scuro è una preferenza; la dimensione del carattere no. Se ti avvicini allo schermo per leggere, il carattere è troppo piccolo — e la fatica si accumula senza che tu te ne accorga. Caratteri leggibili Esistono font pensati per il codice, che distinguono lo zero dalla O maiuscola e l'uno dalla elle minuscola. È esattamente l'ambiguità che genera gli errori più difficili da vedere. Meno distrazioni Pannelli chiusi, notifiche spente, una cosa sola a schermo. Le funzioni «zen» esistono perché l'attenzione è la risorsa scarsa, non lo spazio sul monitor. 💡 Consiglio L'ingrandimento dell'editor e il lettore di schermo non sono opzioni marginali: sono ciò che rende il mestiere praticabile a chi vede poco. Ogni editor serio li supporta, e vanno provati prima di averne bisogno.
+
+--- Slide 10 ---
+Quale scegliere? Se devi… Partenza ragionevole Perché Imparare Python, web o più linguaggi VS Code oppure un IDE didattico indicato dal corso È trasversale e cresce tramite estensioni Lavorare soprattutto con Java/Kotlin o grandi codebase IntelliJ IDEA / IDE JetBrains pertinente Analisi, navigazione e refactoring profondi Sviluppare app Android Android Studio SDK, emulatori, build e profiler sono integrati Sviluppare per Apple Xcode SDK, simulatori, test e distribuzione Apple .NET o C++ su Windows Visual Studio Toolchain e diagnostica integrate Fare modifiche rapide a testo e configurazioni Sublime Text, Notepad++ o editor già disponibile Avvio rapido e poche distrazioni PR04.02 · Notepad++ ↗PR04.03 · Sublime Text ↗PR04.04 · Visual Studio Code ↗
+Rimandi interni: PR04.02 · Notepad++ — pr04-02-notepad-plus-plus.html#slide-2 · PR04.03 · Sublime Text — pr04-03-sublime-text.html#slide-2 · PR04.04 · Visual Studio Code — pr04-04-vscode.html#slide-2
+
+--- Slide 11 ---
+Il primo ambiente: configurazione minima 1 · Installa Editor e runtime da fonti ufficiali. → 2 · Cartella Crea e apri un progetto dedicato. → 3 · Linguaggio Aggiungi soltanto il supporto necessario. → 4 · Esegui Prova un file dal terminale. → 5 · Git Inizializza e crea il primo commit. 💡 Buon segnale Se sai spiegare da dove arriva il comando che esegue il programma, il tuo ambiente non è più una scatola nera.
+
+--- Slide 12 ---
+Lo strumento giusto rende visibile il metodo. Sai distinguere editor e IDE, organizzare un progetto, scegliere dove eseguirlo e preparare un ambiente riproducibile e accessibile. Fonti e approfondimenti Tutorial ufficiale Python ↗ (https://docs.python.org/3/tutorial/)Guida ufficiale Android ↗ (https://support.google.com/android/)UTF-8 — Unicode Standard ↗ (https://www.unicode.org/versions/latest/core-spec/chapter-2/) Prossimo → PR04.02 · Notepad++ Francesco Antonio Binetti

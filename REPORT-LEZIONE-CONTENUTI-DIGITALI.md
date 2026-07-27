@@ -7,9 +7,9 @@ Data: 16 luglio 2026. Obiettivo: trasformare le 10 domande fornite in una lezion
 
 | Blocco | Slide | Domande | Contenuti principali |
 | --- | ---: | --- | --- |
-| `RW02.05` — Licenze aperte e OER | 22 | 1, 3, 7, 8 | diritto d’autore, CC BY-SA, attribuzione, remix, compatibilità, 5R |
-| `RW02.06` — Accessibilità delle immagini | 14 | 2 | WCAG 2.1, immagini informative, funzionali, decorative e `alt=""` |
-| `RW02.07` — Metadati e formati | 16 | 4, 6 | indicizzazione, privacy EXIF, raster, JPEG, PNG e SVG |
+| `RW02.02` — Licenze aperte e OER | 22 | 1, 3, 7, 8 | diritto d’autore, CC BY-SA, attribuzione, remix, compatibilità, 5R |
+| `RW02.02` — Accessibilità delle immagini | 14 | 2 | WCAG 2.1, immagini informative, funzionali, decorative e `alt=""` |
+| `RW02.02` — Metadati e formati | 16 | 4, 6 | indicizzazione, privacy EXIF, raster, JPEG, PNG e SVG |
 | `RW02.08` — Podcast e storytelling digitale | 18 | 9, 10 | strutture narrative, registrazione, picco, true peak e loudness |
 | `PR01.07` — Iterazione e cicli | 10 | 5 | ripetizione, cicli, traccia, loop infiniti e accumulatori |
 | **Totale** | **80** | **1–10** | cinque blocchi espandibili indipendentemente |

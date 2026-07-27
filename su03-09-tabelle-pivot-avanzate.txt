@@ -16,6 +16,9 @@ Percentuale di riga, colonna o totale? Il denominatore cambia il significato. Sc
 
 --- Slide 5 ---
 Confrontare periodi senza formule esterne ↔ Differenza da Valore corrente meno periodo precedente. % % differenza da Variazione relativa rispetto al riferimento. ∑ Totale progressivo Accumula mese dopo mese per leggere l’andamento. In pratica: mostra valore assoluto e variazione insieme: +20 euro e +40% non raccontano la stessa scala. ⚠️ Solo Excel Queste tre voci sono opzioni «Mostra valori come» delle pivot di Excel. Le pivot di Google Sheets non le hanno in modo nativo: lì servono una colonna d'appoggio o un campo calcolato nei dati sorgente. [Fonte: Supporto Microsoft Excel — https://support.microsoft.com/excel] [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603]
+Fonti ufficiali:
+- Supporto Microsoft Excel — https://support.microsoft.com/excel
+- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 6 ---
 Raggruppare date e fasce Centinaia di date diventano mesi, trimestri o anni; valori continui diventano fasce leggibili. ⚠️ Attenzione Date vuote, testi che sembrano date e valori misti possono impedire il raggruppamento. 📍 Dove si trova Excel: clic destro su una data nella pivot → Raggruppa (giorni, mesi, anni). · Google Fogli: clic destro → Crea gruppo pivot per data. 📅 Tempo Giorno → mese → trimestre → anno. ▥ Intervalli Età 18–24, 25–34; importi 0–49, 50–99.
@@ -38,5 +41,20 @@ Più pivot, una sola sorgente pulita 🗃 Sorgente unica Evita copie divergenti 
 Controlli prima della consegna ✓ Quadratura Totale pivot uguale al totale sorgente. ✓ Aggiornamento Nuove righe comprese nel range. ✓ Formato Percentuali, valute e date coerenti. ✓ Filtri Filtri attivi visibili al lettore. Regola: salva una vista senza filtri nascosti e con la data dell’ultimo aggiornamento.
 
 --- Slide 12 ---
+Cos'è uno slicer Uno slicer è un filtro fatto di pulsanti. Invece di aprire un menù a tendina e spuntare voci, chi legge il report clicca «Milano» o «Taglio» e la tabella si aggiorna subito. Il filtro attivo è sempre visibile: si vede a colpo d'occhio cosa stai guardando. 🎛️ Visivo I valori disponibili sono pulsanti in chiaro: niente menù nascosti da aprire. 👆 Immediato Un clic filtra; un altro clic toglie il filtro. Nessuna formula da toccare. 👀 Trasparente Il filtro attivo resta in evidenza: chi guarda sa sempre cosa mostra il report.
+
+--- Slide 13 ---
+Aggiungere uno slicer Si parte da una tabella o da una tabella pivot, e si sceglie la colonna su cui filtrare. 🪟 In Excel Seleziona la tabella o la pivot, poi scheda Inserisci → Filtro dei dati (slicer). Spunta i campi da filtrare, per esempio Sede e Servizio. 🟢 In Google Sheets Menù Dati → Aggiungi filtro a intervalli (slicer), poi scegli la colonna. Compare come pulsante sopra il foglio. 💡 Consiglio Aggiungi uno slicer per ciascuna domanda ricorrente — sede, periodo, responsabile — non uno per ogni colonna. 📍 Dove si trova Excel: seleziona tabella/pivot → Inserisci → Filtro dati (slicer); per il tempo, Inserisci → Sequenza temporale. · Google Fogli: Dati → Aggiungi filtro controllo (slicer). [Fonte: Supporto Microsoft Excel — https://support.microsoft.com/excel] [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603]
+
+--- Slide 14 ---
+La timeline: il filtro del tempo Per le date esiste un controllo dedicato con un cursore, che filtra per giorni, mesi, trimestri o anni scorrendo una barra. ↔️ Timeline (solo Excel) Excel ha la Sequenza temporale : un cursore per selezionare un intervallo di date senza spuntare mesi a uno a uno. 🟢 In Google Sheets Non esiste una timeline dedicata: si usa uno slicer sulla colonna data , oppure il raggruppamento delle date nella pivot. In pratica: la timeline è comoda ma è una feature di Excel; lo slicer sulle date la sostituisce ovunque.
+
+--- Slide 15 ---
+Un controllo, più tabelle Un cruscotto ha spesso più tabelle e grafici sulla stessa sorgente. Uno slicer può pilotarli tutti insieme, così un solo clic aggiorna l'intera pagina in modo coerente. ⚠️ In Excel Le connessioni funzionano tra pivot che condividono la stessa cache dei dati: collega lo slicer con «Connessioni report». SEDE Pivot 1 Grafico Pivot 2 Un clic sullo slicer aggiorna tutto
+
+--- Slide 16 ---
+Progettare i controlli Troppi filtri confondono più di quanto aiutino. Un buon cruscotto ne ha pochi, scelti bene. 🎯 Solo quelli che contano Tieni i filtri che cambiano davvero una decisione: sede, periodo, responsabile. Togli il resto. 🏷️ Etichette chiare Un titolo sopra ogni slicer dice su cosa filtra. «Sede», non una colonna senza nome. 📌 Posizione fissa Metti i controlli sempre nello stesso posto, in alto o a sinistra, così si trovano al volo. Regola: se uno slicer non cambia mai la decisione di chi legge, è rumore: toglilo.
+
+--- Slide 17 ---
 Una pivot avanzata
 è un report verificabile. Percentuali, confronti e filtri servono solo quando la domanda è chiara e il totale resta tracciabile. Prossimo → SU03.10 · Grafici Francesco Antonio Binetti Fonti e approfondimenti Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)

@@ -54,55 +54,22 @@ Ordinamento e filtri
  💡 Filtro avanzato Vuoi estrarre i dati filtrati in un'altra area del foglio? Usa la funzione FILTER — i risultati si aggiornano automaticamente.
 
  📍 Dove si trova Excel: Dati → Ordina / Filtro (o Home → Ordina e filtra). · Google Fogli: Dati → Ordina intervallo / Crea un filtro.
+ [Fonte: Supporto Microsoft Excel — https://support.microsoft.com/excel]
+Fonti ufficiali:
+- Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 4 ---
-Tabelle pivot
- Una tabella pivot riassume migliaia di righe in pochi secondi, raggruppando e aggregando i dati per dimensioni che scegli tu — senza scrivere una sola formula.
- Inserisci → Tabella pivot. Trascina le colonne nelle aree Righe, Colonne, Valori, Filtri.
- In pratica: Con 500 fatture sparse, la pivot mostra "totale per cliente" o "media per mese" in 3 trascinamenti.
+Le tabelle pivot hanno un modulo dedicato
+ Qui basta riconoscere quando servono: riassumono molte righe per categoria senza costruire a mano decine di formule.
+
+ Domanda Quale totale, media o conteggio vuoi confrontare?
+ Campi Righe, colonne, valori e filtri trasformano la stessa sorgente in report diversi.
+ Percorso Costruzione, aggiornamento e controlli sono sviluppati nel modulo SU03.08.
 
 
 
-
-
-
-
- 500 righe dati
- Date, Clienti, Importi…
- righe e righe e righe…
- …difficili da leggere
-
-
-
-
-
-
-
- PIVOT
-
-
-
-
-
- Cliente
- Totale €
-
- Rossi
- 1.240
- Bianchi
- 880
- Verdi
- 2.100
- Totale
- 4.220
-
- dati grezzi
- riepilogo automatico
-
- 500 righe → tabella pivot in 3 trascinamenti
-
-
- 📍 Dove si trova Excel: Inserisci → Tabella pivot. · Google Fogli: Inserisci → Tabella pivot.
+ SU03.08 · Tabelle pivot ↗
+Rimandi interni: SU03.08 · Tabelle pivot — su03-08-tabelle-pivot.html#slide-2
 
 --- Slide 5 ---
 FILTER, UNICI, ARRAYFORMULA
@@ -127,7 +94,9 @@ FILTER, UNICI, ARRAYFORMULA
  💡 Nomi e disponibilità In Google Sheets si chiamano FILTER e UNIQUE ; in Excel 365 italiano FILTRO e UNICI . Nelle versioni più vecchie di Excel usare le pivot o tabelle manuali.
 
 
- [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603] [Fonte: Supporto Microsoft Excel — https://support.microsoft.com/excel]
+ [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603]
+Fonti ufficiali:
+- Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 6 ---
 Condivisione e automazioni
@@ -157,6 +126,8 @@ Condivisione e automazioni
 
 
  [Fonte: Riferimento VBA per Office — Microsoft Learn — https://learn.microsoft.com/office/vba/api/overview/]
+Fonti ufficiali:
+- Riferimento VBA per Office — Microsoft Learn — https://learn.microsoft.com/office/vba/api/overview/
 
 --- Slide 7 ---
 Ricerca verticale
@@ -281,4 +252,4 @@ istantaneamente.
 
  Prossimo → SU03.06 · Top 10 funzioni
 
- Francesco Antonio Binetti Fonti e approfondimenti Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)Riferimento VBA per Office — Microsoft Learn ↗ (https://learn.microsoft.com/office/vba/api/overview/)
+ Francesco Antonio Binetti Fonti e approfondimenti Supporto Microsoft Excel ↗ (https://support.microsoft.com/excel)Guida ufficiale Google Sheets ↗ (https://support.google.com/docs/topic/9054603)Riferimento VBA per Office — Microsoft Learn ↗ (https://learn.microsoft.com/office/vba/api/overview/)

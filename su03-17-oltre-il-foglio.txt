@@ -1,4 +1,4 @@
-Suite Ufficio · SU03.18 — Oltre il foglio: software con l'IA
+Suite Ufficio · SU03.17 — Oltre il foglio: software con l'IA
 ============================================================
 
 --- Slide 1 ---
@@ -6,12 +6,6 @@ Oltre
  il foglio Quando il foglio di calcolo non basta più, l'IA può costruire un piccolo software su misura — con le tue regole, non con le tue formule. Come chiederlo, verificarlo e quando invece restare sul foglio. 🏗️ Francesco Antonio Binetti
 
 --- Slide 2 ---
-Cosa vedremo 01 Quando il foglio non basta
- I segnali che hai superato il limite dello strumento. 02 Farsi costruire il software
- Descrivere il problema all'IA, iterare e verificare: le formule diventano regole. 03 Rischi e criterio
- Codice non capito, manutenzione, dati — e quando il foglio resta la scelta giusta.
-
---- Slide 3 ---
 I segnali che il foglio non basta più
  Il foglio di calcolo è lo strumento giusto finché non compaiono questi sintomi.
  — Più persone, stessi dati, insieme
@@ -20,7 +14,7 @@ I segnali che il foglio non basta più
  Import, pulizia, copia, report: se il lavoro è sempre uguale, dovrebbe farlo un programma, non una persona. — Dati che devono restare corretti
  Il foglio accetta qualunque cosa in qualunque cella; un software può rifiutare i dati sbagliati sul nascere.
 
---- Slide 4 ---
+--- Slide 3 ---
 L'IA cambia il costo del software
  Un piccolo gestionale su misura richiedeva uno sviluppatore e un budget. Oggi un'IA lo scrive in dialogo con te — se tu sai descrivere il problema.
  — Cosa è diventato facile
@@ -29,7 +23,7 @@ L'IA cambia il costo del software
  Chi conosce formule, riferimenti e QUERY sa già pensare per regole: sta solo cambiando chi le esegue.
  In pratica: l'IA sostituisce la scrittura del codice, non la comprensione del problema.
 
---- Slide 5 ---
+--- Slide 4 ---
 Descrivere il problema all'IA
  La qualità del software dipende dalla qualità della descrizione. Tre ingredienti, come per una macro.
  1 I dati
@@ -38,7 +32,7 @@ Descrivere il problema all'IA
  «Voglio una lista stampabile dei clienti da richiamare, ordinata per data.» Cosa esce, per chi, in che forma.
  💡 Consiglio Parti dal foglio che già usi: descrivi le colonne e le formule all'IA. Il foglio è la specifica del tuo software.
 
---- Slide 6 ---
+--- Slide 5 ---
 Iterare: il software cresce a passi
  Il primo risultato non sarà quello giusto — e va bene così. Si lavora come col registratore di macro: prova, osserva, correggi.
  1 Chiedi il minimo che funziona
@@ -46,17 +40,15 @@ Iterare: il software cresce a passi
  Inserisci casi reali, inclusi quelli strani: il cliente senza telefono, la data mancante, l'accento nel nome. 3 Correggi descrivendo, non programmando
  «Il promemoria parte anche per i clienti nuovi: non deve» — l'IA corregge; tu verifichi di nuovo.
 
---- Slide 7 ---
+--- Slide 6 ---
 Verificare: fidarsi non basta
  L'IA produce codice che sembra giusto anche quando non lo è. La verifica è tua, ed è la stessa dei fogli.
  — Il totale a mano
  Come per le pivot: prendi un campione piccolo, calcola a mano il risultato atteso, confrontalo con quello del software. — I casi limite
  Zero clienti, mille clienti, un nome vuoto: se regge questi, reggerà il mercoledì normale. — Cosa succede quando sbaglia
  Inserisci apposta un dato sbagliato: il software deve dirtelo, non ingoiarlo in silenzio.
-Fonti ufficiali:
-- Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
 
---- Slide 8 ---
+--- Slide 7 ---
 I rischi da mettere in conto
  Un software che non capisci è un debito: prima o poi presenta il conto. Quattro rischi concreti.
  — Il codice non capito
@@ -65,7 +57,11 @@ I rischi da mettere in conto
  Dove vengono salvati? Chi può leggerli? Un gestionale clienti contiene dati personali: valgono le regole del GDPR. — La dipendenza
  Se il software vive su un servizio esterno che chiude, i dati devono poter uscire: pretendi sempre l'esportazione.
 
---- Slide 9 ---
+ [Fonte: Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj]
+Fonti ufficiali:
+- Regolamento generale sulla protezione dei dati — EUR-Lex — https://eur-lex.europa.eu/eli/reg/2016/679/oj
+
+--- Slide 8 ---
 Quando restare sul foglio
  Il software su misura non è un upgrade automatico. Per molti lavori il foglio resta lo strumento migliore.
  — Analisi una tantum
@@ -74,13 +70,5 @@ Quando restare sul foglio
  Nel foglio ogni numero si ispeziona con un clic; nel software serve fiducia o competenza.
  Regola: passa al software quando il foglio ti costa più tempo in manutenzione di quanto te ne faccia risparmiare.
 
---- Slide 10 ---
-Esercizio: dal foglio alla specifica
- Prendi il foglio più stanco che usi davvero e trasformalo in una richiesta per l'IA.
- 1 Descrivi
- Elenca colonne, formule e il rito settimanale che fai a mano, in un testo di dieci righe. 2 Chiedi
- Fatti proporre dall'IA un piccolo software: solo la prima funzione, quella che fa più male. 3 Valuta
- Confronta il risultato col foglio su dati veri, e decidi con la regola: manutenzione contro tempo risparmiato.
-
---- Slide 11 ---
-Le formule diventano regole . Il percorso dei fogli ti ha insegnato a pensare per dati e regole: con l'IA quelle regole possono diventare software. Il criterio resta tuo. Prossimo → SU04.01 · Presentazioni Francesco Antonio Binetti
+--- Slide 9 ---
+Le formule diventano regole . Il percorso dei fogli ti ha insegnato a pensare per dati e regole: con l'IA quelle regole possono diventare software. Il criterio resta tuo. Prossimo → SU04.01 · Presentazioni Francesco Antonio Binetti Fonti e approfondimenti Regolamento generale sulla protezione dei dati — EUR-Lex ↗ (https://eur-lex.europa.eu/eli/reg/2016/679/oj)

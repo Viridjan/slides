@@ -1,0 +1,84 @@
+PR04.03 · Sublime Text
+========================================
+
+--- Slide 1 ---
+PR04.03 Sublime Text Un editor multipiattaforma rapido, centrato su tastiera, ricerca e selezioni multiple. ⌨️ Francesco Antonio Binetti
+
+--- Slide 2 ---
+Velocità e tastiera al centro Sublime Text è un editor multipiattaforma progettato per aprire rapidamente progetti e file, con comandi ricercabili e selezioni multiple. ⚡ Reattivo Indicizzazione e rendering puntano a mantenere fluido il lavoro. ⌨️ Command-first Quasi ogni azione è raggiungibile senza lasciare la tastiera. 🪟 Multipiattaforma Windows, macOS e Linux con una grammatica coerente. Analogia: una scrivania minimale con cassetti profondi, richiamabili quando servono. [Fonte: Documentazione ufficiale Sublime Text — https://www.sublimetext.com/docs/]
+Fonti ufficiali:
+- Documentazione ufficiale Sublime Text — https://www.sublimetext.com/docs/
+
+--- Slide 3 ---
+Licenza: valutazione e acquisto Il programma può essere provato prima dell’acquisto. La licenza sostiene lo sviluppo e va verificata per persone, dispositivi e versione secondo le condizioni correnti. 🧪 Valuta
+ Prova il flusso reale, non soltanto l’aspetto. 🧾 Licenza
+ Controlla condizioni e aggiornamenti sul sito ufficiale. 🏢 Organizzazione
+ Acquisti e distribuzione seguono le policy aziendali.
+
+--- Slide 4 ---
+Goto Anything Ctrl/Cmd+P apre un accesso rapido a file, simboli e righe: pochi caratteri restringono immediatamente il progetto. File Digita parte del nome, anche senza ricordare la cartella. @ simbolo Salta a funzione, classe o intestazione del file. : riga Vai direttamente a una riga; le forme si possono combinare.
+
+--- Slide 5 ---
+Command Palette Ctrl/Cmd+Shift+P cerca azioni per nome. È il ponte fra una funzione sconosciuta e il comando che la esegue. Scoprire Scrivi ciò che vuoi fare, non il menu in cui si trova. Ripetere Il comando recente resta a portata di mano. Imparare Osserva la scorciatoia associata e memorizza soltanto le azioni frequenti.
+
+--- Slide 6 ---
+Selezioni multiple come linguaggio di modifica Più cursori permettono di esprimere “fai questa trasformazione in tutti questi punti” direttamente sul testo. Regola: se le occorrenze non sono davvero equivalenti, selezionale una per una. Una modifica, molti punti coerenti.
+
+--- Slide 7 ---
+Trova e seleziona la prossima occorrenza La selezione progressiva dà controllo: aggiungi un’occorrenza, salta quella diversa, poi modifica tutte le selezionate. Espandi Aggiungi la prossima corrispondenza. Salta Ignora un caso semanticamente diverso. Trasforma Scrivi, avvolgi o cancella su tutti i cursori.
+
+--- Slide 8 ---
+Cercare in tutti i file La ricerca nel documento aperto risponde a “dov’è in questo file”. La ricerca su cartella risponde alla domanda che conta davvero in un progetto: dove viene usata questa cosa . 💡 Filtra prima di leggere Limitare la ricerca a una cartella e a un’estensione elimina quasi sempre il rumore delle librerie e dei file generati, che altrimenti sommergono i risultati utili. Trova: calcolaTotale
+Dove: /progetto/src, *.py, -*/build/*
+
+3 risultati in 2 file
+src/ordini.py:42
+src/report.py:17
+
+--- Slide 9 ---
+Progetti e cartelle Un progetto salva cartelle, esclusioni e impostazioni del contesto di lavoro senza spostare i file. Sidebar Mostra la struttura e consente ricerche nel progetto. Esclusioni Nascondi build, dipendenze o archivi pesanti dalla vista e dall’indice. Workspace Conserva lo stato locale della sessione, separato dalle scelte condivise.
+
+--- Slide 10 ---
+Mini-map, split e distraction free Tre modi diversi di gestire lo spazio: orientarsi, confrontare e concentrarsi. Mini-map Panoramica verticale di un file lungo. Split view Due o più gruppi per confrontare file o parti dello stesso file. Distraction Free Nasconde l’interfaccia non necessaria per una fase di scrittura.
+
+--- Slide 11 ---
+Completamento e frammenti Scrivere meno caratteri riduce gli errori di battitura, ma solo se resta chiaro che cosa l’editor sta inserendo al posto tuo. ⌨️ Completamento I suggerimenti nascono dalle parole già presenti nei file aperti e dalla sintassi del linguaggio: sono memoria del testo, non comprensione del programma. 🧱 Frammenti Una sigla breve diventa una struttura completa con i punti da riempire già segnati: utile per ciò che riscrivi ogni giorno nello stesso modo. ⚠️ Accettare senza leggere Il suggerimento sbagliato accettato per riflesso produce codice plausibile e sbagliato. Guarda che cosa viene inserito prima di premere invio: è la stessa disciplina che serve con i completamenti generati dall’IA.
+
+--- Slide 12 ---
+Impostazioni in JSON Le preferenze sono dati testuali. Una configurazione locale può sovrascrivere il valore predefinito senza modificarlo. {
+ "font_size": 15,
+ "translate_tabs_to_spaces": true,
+ "tab_size": 2,
+ "trim_trailing_white_space_on_save": true
+} 💡 Metodo Cambia una proprietà alla volta e mantieni valida la sintassi JSON.
+
+--- Slide 13 ---
+Build Systems Un build system collega un comando all’editor e cattura l’output. Non sostituisce il compilatore o il runtime. Comando Definisce programma, argomenti e cartella di lavoro. Output Errori e risultati appaiono in un pannello consultabile. Riproducibilità Il comando deve funzionare anche fuori dall’editor.
+
+--- Slide 14 ---
+Package Control e pacchetti I pacchetti aggiungono sintassi, completamenti, comandi e integrazioni. Prima Verifica se la funzione è già integrata. Durante Controlla autore, repository, aggiornamenti e permessi impliciti. Dopo Rimuovi ciò che non usi e conserva un elenco essenziale.
+
+--- Slide 15 ---
+Le scorciatoie sono configurabili Le combinazioni di tasti sono dati come le impostazioni: un file associa una sequenza a un comando, e la configurazione personale ha la precedenza su quella predefinita. [
+ { "keys": ["ctrl+alt+d"], "command": "duplicate_line" },
+ { "keys": ["ctrl+alt+j"], "command": "join_lines" }
+] 💡 Prima di reinventare Cerca il comando nella palette: mostra la scorciatoia già assegnata. Ridefinire una combinazione esistente crea conflitti difficili da diagnosticare, e cambiare macchina significa ritrovarsi senza le proprie abitudini.
+
+--- Slide 16 ---
+Indicizzazione e simboli Sublime indicizza il progetto per trovare definizioni e riferimenti. Escludere cartelle generate migliora rumore e prestazioni. Indice Crea una mappa interna dei simboli. Goto Definition Segue una definizione quando il linguaggio è riconosciuto. Limite L’analisi semantica non è profonda come in molti IDE o language server dedicati.
+
+--- Slide 17 ---
+Sublime rende visibili le modifiche L’editor può mostrare segnali provenienti dal controllo versione senza sostituirne il metodo. Indicatori marginali Evidenziano righe aggiunte, modificate o rimosse rispetto allo stato registrato. Sublime Merge È un’applicazione separata per esplorare e gestire repository con un’interfaccia grafica. Confine chiaro L’editor modifica i file; il sistema di controllo versione conserva e confronta la storia. PR04.05 · Git: controllo versione ↗
+Rimandi interni: PR04.05 · Git: controllo versione — pr04-05-git.html#slide-2
+
+--- Slide 18 ---
+Dove finisce l’editor Sublime resta volutamente un editor: non è un ambiente di sviluppo completo. Le funzioni pesanti stanno in programmi separati, e questa è una scelta di progetto, non una mancanza. ✂️ Modifica del testo
+ Apertura immediata, ricerca, selezioni multiple: è il compito che l’editor svolge da solo. 🌿 Storia del progetto
+ Confronti, cronologia e operazioni Git approfondite vivono in un client dedicato o nel terminale. 🐞 Esecuzione e debug
+ Interpreti, test e debugger restano strumenti esterni: l’editor al massimo ne lancia il comando e ne mostra l’output.
+
+--- Slide 19 ---
+Sublime, Notepad++ o VS Code? La scelta dipende dal sistema operativo, dalla profondità del progetto e dal livello di integrazione necessario. Notepad++ Windows, file e trasformazioni testuali rapide. Sublime Text Velocità multipiattaforma, tastiera e progetto leggero. VS Code Ecosistema estensioni, terminale, debug e servizi integrati.
+
+--- Slide 20 ---
+Sublime Text: ora sai scegliere. Un editor multipiattaforma rapido, centrato su tastiera, ricerca e selezioni multiple. Fonti e approfondimenti Documentazione ufficiale Sublime Text ↗ (https://www.sublimetext.com/docs/) Prossimo → PR04.04 · Visual Studio Code Francesco Antonio Binetti

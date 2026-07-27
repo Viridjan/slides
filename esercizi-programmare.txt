@@ -12,6 +12,16 @@ Esercizio: tre diagrammi da far girare Per ognuno: scrivi prima che cosa entra e
 Esercizio: tre diagrammi con un ciclo Questi richiedono una freccia che torna indietro. Prima di eseguirli compila a mano la tabella di traccia dei primi due giri: se poi il computer ti smentisce, l'errore è nel diagramma. 4 · Somma dei primi N Entra un numero N, esce la somma di tutti gli interi da 1 a N. Servono un contatore e un accumulatore, azzerati prima del ciclo. Verifica con N=5: deve uscire 15. 5 · Il voto più alto Entrano cinque voti, uno alla volta, ed esce il più alto. Il trucco è tenere una variabile «massimo finora» e aggiornarla solo quando il voto letto la supera. Con quale valore la fai partire? 6 · Indovina il numero Il programma tiene un numero fisso, per esempio 7. Legge tentativi finché non lo indovini e a ogni tentativo risponde «troppo alto» o «troppo basso». Il ciclo si ferma solo alla risposta esatta. ⚠️ Attenzione Nell'esercizio 6, se dimentichi di rileggere il tentativo dentro il ciclo, la condizione non cambia mai e il diagramma gira all'infinito. Flowgorithm continua finché non lo fermi: è il modo migliore per vedere dal vivo che cos'è un ciclo infinito.
 
 --- Slide 4 ---
+Laboratorio: salva una velocità senza ambiguità
+ Un sensore comunica distanza in millimetri e durata in millisecondi. Progetta una funzione che restituisca metri al secondo.
+
+ 1 · Contratto Definisci nomi, tipi, unità e intervalli validi dei due input. Decidi che cosa accade se la durata è zero.
+ 2 · Conversione Converti 7500 mm e 2500 ms nelle unità necessarie, poi calcola la velocità. Il risultato atteso è 3 m/s.
+ 3 · Test Verifica un caso equivalente espresso in metri e secondi, un valore limite e un confronto decimale con tolleranza.
+
+ Consegna Pseudocodice della funzione, esempio di dato strutturato con valore e unità, e tabella con almeno quattro test.
+
+--- Slide 5 ---
 Verifica: progetta il ciclo
  Descrivi un ciclo che legge cinque prezzi e calcola il totale. Indica inizializzazione, condizione, corpo e aggiornamento.
 
@@ -31,8 +41,14 @@ Verifica: progetta il ciclo
  04
  incrementa il contatore
 
---- Slide 5 ---
+--- Slide 6 ---
 Collaudare il quiz Un quiz che "sembra funzionare" non è ancora finito: va provato come farebbe un utente distratto, non come l'autore che conosce già tutte le risposte. Esegui questi test uno alla volta e correggi ogni problema prima di passare al successivo. Risposta corretta — punti aumenta di 1, compare "Corretto!" e arriva la domanda successiva. Risposta sbagliata — nessun punto, compare il feedback di errore e il quiz prosegue comunque senza bloccarsi. Varianti di testo — prova "Si", "sì" e " si" con lo spazio: verifica quali forme accetta davvero il tuo oppure . Tempo a zero — lascia scadere il timer mentre una domanda è aperta: il quiz mostra il punteggio e si chiude in modo ordinato? Secondo avvio — riclicca la bandierina verde: punti torna a 0, tempo a 60 e gli sprite allo stato iniziale. 💡 Trucco Per testare il timer senza aspettare un minuto intero, porta temporaneamente tempo a 5 nello script di avvio. Ricordati di rimetterlo a 60 prima della consegna.
 
---- Slide 6 ---
+--- Slide 7 ---
 Esercizio: esplora senza installare tutto Parte A · Orientamento Apri una cartella-progetto e individua Explorer, editor, ricerca, terminale e pannello dei problemi. Parte B · Scrittura Crea un file breve, osserva colori e suggerimenti, poi introduci volontariamente un errore di sintassi. Parte C · Esecuzione Salva, esegui dal terminale e collega l'eventuale messaggio di errore alla riga corretta. Parte D · Controllo Apri il diff Git, descrivi la modifica e crea un commit con un messaggio significativo. Obiettivo: comprendere il flusso, non memorizzare ogni pulsante.
+
+--- Slide 8 ---
+Esercizio 6: pulisci un file di log Parti da una copia di un file di log: rendi visibili i caratteri nascosti, uniforma il formato di fine riga, elimina le righe vuote ripetute e isola i messaggi di errore. 1 · Osserva Annota codifica, formato di fine riga e schemi che si ripetono nelle righe. 2 · Trasforma Una sostituzione alla volta, salvando il risultato con un nome nuovo a ogni passaggio importante. 3 · Verifica Confronta originale e risultato riga per riga prima di considerare finita la pulizia. Consegna Consegna il file ripulito insieme all'elenco ordinato delle sostituzioni applicate, ognuna con la regola usata e il motivo.
+
+--- Slide 9 ---
+Esercizio 7: modifica una piccola codebase Apri una cartella di progetto e lavorala usando soltanto ricerca rapida, cursori multipli, impostazioni di progetto e un comando di esecuzione. Orientati Raggiungi un file, un simbolo e una riga precisa senza usare l'elenco laterale delle cartelle. Modifica Applica una trasformazione su più punti insieme e controlla la differenza prodotta. Esegui Avvia il comando previsto dal progetto e interpreta l'output, errori compresi. Consegna Consegna la differenza generata dalla modifica e tre righe che spiegano quali scorciatoie hai usato per ciascuna delle tre fasi.

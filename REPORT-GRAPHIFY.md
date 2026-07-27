@@ -81,7 +81,7 @@ I nodi con più archi: sono gli hub concettuali attorno a cui ruota il corso.
 
 1. **CD01.03 Metadati e formati** — 13 archi *(salito a hub #1: assorbe audio/codec e i rimandi sui formati dopo la rimozione di HS08)*
 2. CD01.04 Sicurezza dei contenuti digitali — 11
-3. RW02.03 Gestire e Archiviare Contenuti — 11
+3. RW02.02 Gestire e Archiviare Contenuti — 11
 4. CD01.01 Licenze aperte e OER — 10
 5. SD03 Privacy, Anonimato e Pseudonimia — 10
 6. HS05 Troubleshooting — 10 *(hub dell'area Hardware dopo la rimozione di HS06)*
@@ -112,7 +112,7 @@ due mondi altrimenti separati: il **contenuto/licenze** (community 2) e la
 I suoi 11 archi, tutti EXTRACTED (rimandi reali nel deck), si dividono così:
 
 - **Lato contenuti (community 2):** → CD01.01 (Licenze/OER), ← CD01.03 (Metadati),
-  → CD02.01 (Podcast), → RW02.03 (Archiviare contenuti), → RW02.04 (Collaborazione),
+  → CD02.01 (Podcast), → RW02.02 (Archiviare contenuti), → RW02.02 (Collaborazione),
   e i concetti → DRM, → Provenienza, → Watermarking.
 - **Lato sicurezza (community 1):** → RW01.05 (Navigare con Spirito Critico),
   → SD01 (Introduzione alla Sicurezza), → SD02 (Minacce e Vulnerabilità).

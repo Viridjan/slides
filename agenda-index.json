@@ -82,25 +82,25 @@
   "rw02-01-email.html": {
     "title": "Cosa vedremo",
     "items": [
-      "L'email e l'indirizzo · Cos'è la posta elettronica, l'indirizzo e le piattaforme principali.",
-      "Scrivere un'email · Destinatari, CC e CCN, oggetto, corpo, tono e allegati.",
-      "Buone pratiche · Rispondere, riconoscere email sospette, sicurezza, netiquette e ordine."
+      "Struttura · Indirizzi, destinatari, oggetto, corpo e allegati.",
+      "Scrittura professionale · Tono, chiarezza, risposta, firma ed errori da evitare.",
+      "Gestione sicura · Messaggi sospetti, netiquette, ordine e configurazione della firma."
     ]
   },
-  "rw02-02-firma.html": {
-    "title": "Cosa vedremo",
-    "items": [
-      "Perché una firma · Cos'è una firma email, a cosa serve e le informazioni essenziali.",
-      "Cosa mettere · Nome, ruolo, azienda, recapiti, sito e profili social.",
-      "Formato e pratica · La formattazione, un esempio, gli errori comuni, i disclaimer e la firma automatica."
-    ]
-  },
-  "rw02-03-contenuti.html": {
+  "rw02-02-contenuti.html": {
     "title": "Cosa vedremo",
     "items": [
       "Visualizzare e salvare · Formati, pagine, segnalibri, stampa, PDF e PDF/A per la conservazione.",
       "Copiare e scaricare · Scaricare file, copiare testo e immagini, multimedia, screenshot e OCR.",
       "Cloud e diritti · Il cloud, organizzare l'archivio, il copyright e le Creative Commons."
+    ]
+  },
+  "rw02-03-link-simbolici.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "Modello e differenze · Symlink, hard link, shortcut e junction nei diversi file system.",
+      "Uso pratico · Comandi, percorsi relativi, link spezzati, Git, container e distribuzioni.",
+      "Sicurezza e conservazione · Permessi, attacchi, archivi, cloud e policy di backup."
     ]
   },
   "rw02-04-collaborazione-digitale.html": {
@@ -117,6 +117,14 @@
       "Creare l'account · La procedura passo per passo, e come farlo anche senza numero di telefono.",
       "Proteggerlo · L'email di riserva per il recupero e dove custodire le credenziali.",
       "Tenerlo pulito · Archiviare, filtrare, disiscriversi e la manutenzione periodica."
+    ]
+  },
+  "rw02-06-accesso-remoto.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "Modelli e protocolli · Assistenza, accesso permanente, RDP, SSH, VNC e gateway web.",
+      "Soluzioni · Strumenti integrati, commerciali, open source, VPN, overlay e desktop cloud.",
+      "Scelta sicura · Rete, identità, periferiche, audit, truffe e checklist di configurazione."
     ]
   },
   "rw03-01-identita.html": {
@@ -157,6 +165,14 @@
       "Scegliere i social · I passi della promozione, i social più usati e quale scegliere per chi.",
       "Creare contenuti · Pianificare in anticipo, contenuti che funzionano, insights e gestione dei commenti.",
       "Crescere · La pubblicità di base, il blog per farsi trovare e cosa non pubblicare."
+    ]
+  },
+  "rw01-06-internet-morto.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "La teoria · Origini, affermazioni e la parte complottista non dimostrata.",
+      "Perché sembra plausibile · Bot, IA generativa, search spam, slop e incentivi delle piattaforme.",
+      "Valutare le prove · Percentuali, detector, fonti, provenienza e dieta informativa."
     ]
   },
   "cd01-01-licenze-oer.html": {
@@ -418,9 +434,9 @@
   "su03-09-tabelle-pivot-avanzate.html": {
     "title": "Cosa vedremo",
     "items": [
-      "La domanda giusta · La domanda viene prima dei campi, e lo stesso valore raccontato in più modi.",
-      "Analisi avanzata · Percentuali, confronti tra periodi, raggruppare date e campi calcolati.",
-      "Cruscotti · Segmentazioni e timeline, il grafico pivot, più pivot su una sorgente e i controlli."
+      "Analisi avanzata · Percentuali, periodi, raggruppamenti e campi calcolati.",
+      "Report verificabili · Drill-down, grafici pivot e sorgenti condivise.",
+      "Controlli interattivi · Slicer e timeline collegati a una o più tabelle."
     ]
   },
   "su03-10-grafici.html": {
@@ -471,15 +487,7 @@
       "In produzione · JSON, HTML Service e web app, proprietà e lock, debug, quote e deployment."
     ]
   },
-  "su03-16-segmentazioni.html": {
-    "title": "Cosa vedremo",
-    "items": [
-      "Cosa sono gli slicer · Filtri a pulsante che si aggiungono e si leggono con un clic, in Excel e in Google Sheets.",
-      "Filtri interattivi · La timeline temporale e collegare un solo controllo a più tabelle e grafici.",
-      "Progettare i controlli · Scegliere i filtri che contano davvero ed evitare cruscotti confusi."
-    ]
-  },
-  "su03-17-collegamenti-fogli.html": {
+  "su03-16-collegamenti-fogli.html": {
     "title": "Cosa vedremo",
     "items": [
       "Riferimenti tra schede · Richiamare una cella di un'altra scheda dello stesso file di calcolo.",
@@ -487,7 +495,7 @@
       "Tenere i collegamenti sani · Filtrare i dati importati, aggiornamenti e permessi, e non spezzare le catene."
     ]
   },
-  "su03-18-oltre-il-foglio.html": {
+  "su03-17-oltre-il-foglio.html": {
     "title": "Cosa vedremo",
     "items": [
       "Quando il foglio non basta · I segnali che hai superato il limite dello strumento.",
@@ -623,6 +631,14 @@
       "Funzioni · Isolare una responsabilità in un blocco riusabile, capirne lo scope e verificarlo con esempi."
     ]
   },
+  "pr01-06-misure-calcoli-unita.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "Misurare e calcolare · La misura osserva una grandezza; il calcolo trasforma valori già rappresentati.",
+      "Unità e conversioni · Sistema Internazionale, dimensioni, prefissi, scale e contratti dei dati.",
+      "Programmare con precisione · Tipi, decimali, sensori, tolleranze e test che verificano anche le unità."
+    ]
+  },
   "pr05-01-html-struttura.html": {
     "title": "Cosa vedremo",
     "items": [
@@ -703,19 +719,43 @@
       "Usare il modello · Testarlo, correggerlo quando sbaglia, portarlo in MakeCode e documentarlo."
     ]
   },
-  "pr04-01-editor-codice.html": {
+  "pr04-02-notepad-plus-plus.html": {
     "title": "Cosa vedremo",
     "items": [
-      "Conoscere l'editor · Perché gli strumenti differiscono, la cartella-progetto, VS Code e le estensioni.",
-      "Eseguire e correggere · Il terminale, il debugger, e i tre controlli automatici: formatter, linter e test.",
-      "Git · Registrare le modifiche, cosa non versionare, i conflitti e come si legge una diff."
+      "Orientarsi · Installazione, interfaccia, sintassi, schede e barra di stato.",
+      "Trasformare il testo · Ricerca, regex, colonne, macro, codifiche e fine riga.",
+      "Scegliere bene · Plugin, confronto, casi d'uso e limiti rispetto a editor e IDE."
     ]
   },
-  "pr04-02-strumenti-ambiente.html": {
+  "pr04-03-sublime-text.html": {
     "title": "Cosa vedremo",
     "items": [
-      "Muoversi e modificare · Saltare alla definizione, rinominare senza rompere, cercare nel progetto e gli snippet.",
-      "Scegliere lo strumento · IDE completi, altri editor, locale o nel browser, gli assistenti IA e quale scegliere.",
+      "Navigare · Goto Anything, Command Palette, progetti, simboli e split view.",
+      "Modificare · Selezioni multiple, impostazioni JSON e organizzazione del workspace.",
+      "Estendere e scegliere · Build systems, pacchetti, segnali del controllo versione e confronto tra editor."
+    ]
+  },
+  "pr04-04-vscode.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "Orientarsi · Aprire la cartella-progetto, usare Explorer, pannelli e Command Palette.",
+      "Comprendere il codice · IntelliSense, diagnostica, navigazione ed estensioni selezionate con criterio.",
+      "Eseguire e verificare · Terminale, debugger, formatter, linter e test nel flusso di VS Code."
+    ]
+  },
+  "pr04-05-git.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "Fondamenti · Controllo versione distribuito, installazione, identità, init e clone.",
+      "Rami e integrazione · Branch, merge, rebase e risoluzione dei conflitti.",
+      "Condivisione e recupero · Remote, fetch, pull, push, restore, revert, tag e stash."
+    ]
+  },
+  "pr04-01-strumenti-ambiente.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "Capire gli strumenti · Editor di testo, editor di codice, IDE e struttura di un progetto.",
+      "Scegliere l'ambiente · IDE completi, locale o remoto, browser e assistenti IA.",
       "Preparare l'ambiente · Dipendenze e «sul mio computer funziona», i caratteri invisibili, l'ergonomia e il primo setup."
     ]
   },
