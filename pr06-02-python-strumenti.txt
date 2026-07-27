@@ -67,6 +67,8 @@ Generatori: produrre valori con yield Una funzione generatrice sospende il lavor
 for valore in quadrati(4):
  print(valore)
 # 0, 1, 4, 9 Perché serve Non costruisce subito l'intera collezione: produce un valore alla volta. Questo riduce la memoria e permette di lavorare con sequenze molto grandi.
+Fonti ufficiali:
+- Generatori — Python Functional Programming HOWTO — https://docs.python.org/3/howto/functional.html#generators
 
 --- Slide 10 ---
 Espressioni generatrici Assomigliano alle list comprehension, ma usano parentesi tonde e calcolano i valori soltanto quando servono. Lista immediata quadrati = [n*n for n in range(1_000_000)] Occupa memoria per tutti i risultati. Generatore pigro quadrati = (n*n for n in range(1_000_000)) Conserva soltanto lo stato necessario per continuare.
@@ -77,8 +79,6 @@ non_vuote = (riga for riga in righe if riga)
 importi = (float(riga) for riga in non_vuote)
 
 totale = sum(importi) Regola: utile per log, grandi CSV e flussi che non devono stare tutti in memoria. [Fonte: Generatori — Python Functional Programming HOWTO — https://docs.python.org/3/howto/functional.html#generators]
-Fonti ufficiali:
-- Generatori — Python Functional Programming HOWTO — https://docs.python.org/3/howto/functional.html#generators
 
 --- Slide 12 ---
 Moduli e pacchetti organizzano il progetto Un modulo è un file Python. Un pacchetto raggruppa moduli correlati sotto uno stesso nome. 📄 modulo
@@ -154,6 +154,8 @@ class TestMedia(unittest.TestCase):
 
 if __name__ == "__main__":
  unittest.main()
+Fonti ufficiali:
+- Modulo unittest — documentazione Python — https://docs.python.org/3/library/unittest.html
 
 --- Slide 20 ---
 Preparare e isolare il contesto setUp() ricrea le condizioni prima di ogni test. File temporanei e oggetti nuovi impediscono che un test sporchi il successivo. class TestCarrello(unittest.TestCase):
@@ -184,6 +186,8 @@ risposta = requests.get(
 
 risposta.raise_for_status()
 prodotti = risposta.json()
+Fonti ufficiali:
+- Requests Quickstart — documentazione ufficiale — https://requests.readthedocs.io/en/latest/user/quickstart/
 
 --- Slide 24 ---
 Stato HTTP ed errori di rete Una risposta ricevuta può comunque indicare un errore. Inoltre DNS, connessione, TLS o timeout possono fallire prima della risposta. Codici frequenti 200 riuscita · 201 creata · 400 richiesta errata · 401/403 accesso negato · 404 assente · 500 errore server. try:

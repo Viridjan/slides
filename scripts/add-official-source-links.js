@@ -25,7 +25,7 @@ const SOURCES = [
   ['Model collapse', 'https://www.nature.com/articles/s41586-024-07566-y', 'Model collapse con dati ricorsivi — Nature', /^rw01-06/],
   ['Sistema Internazionale', 'https://www.bipm.org/en/measurement-units', 'Sistema Internazionale delle unità — BIPM', /^pr01-06/],
   ['unità SI', 'https://www.bipm.org/en/measurement-units', 'Sistema Internazionale delle unità — BIPM', /^pr01-06/],
-  ['numeri decimali', 'https://docs.python.org/3/tutorial/floatingpoint.html', 'Aritmetica in virgola mobile — Python', /^pr01-06/],
+  ['approssimazioni', 'https://docs.python.org/3/tutorial/floatingpoint.html', 'Aritmetica in virgola mobile — Python', /^pr01-06/],
   ['DigComp 3.0', 'https://joint-research-centre.ec.europa.eu/projects-and-activities/education-and-training/digital-transformation-education/digital-competence-framework-digcomp/digcomp-30_en', 'DigComp 3.0 — Commissione europea', /^rw01-04/],
   ['Open Data', 'https://data.europa.eu/en/dataeuropa-academy/what-open-data', 'Open Data — portale europeo dei dati', /^rw01-04/],
   ['PDF/A', 'https://www.loc.gov/preservation/digital/formats/fdd/fdd000318.shtml', 'PDF/A per la conservazione — Library of Congress', /^rw02-02/],
@@ -277,7 +277,7 @@ const visibleText = section => section
 // How central is this term to this slide? A term in the heading is what the
 // slide is about; one buried in a card is a passing mention.
 function relevance(section, term) {
-  const re = new RegExp(`\\b${escapeRe(term)}\\b`, 'gi');
+  const re = new RegExp(`\\b${escapeRe(term)}\\b`, 'i');
   const body = visibleText(section);
   if (!re.test(body)) return 0;
   const heading = (section.match(/<h2\b[^>]*>([\s\S]*?)<\/h2>/i) || [, ''])[1];

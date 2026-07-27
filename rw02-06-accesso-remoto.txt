@@ -37,7 +37,6 @@ Fonti ufficiali:
 --- Slide 8 ---
 Desktop remoto Microsoft e i suoi client RDP è il protocollo di casa Windows: sessione efficiente, funzioni aziendali mature e client ufficiali per quasi ogni dispositivo. Sul lato host, un PC desktop richiede normalmente un’edizione professionale. 🖥️ Il computer che riceve PC Windows professionali, server e infrastrutture gestite. Secondo edizione e configurazione la connessione apre una sessione separata oppure blocca quella locale. La porta non va mai pubblicata direttamente su Internet: davanti serve una VPN o un gateway autenticato. 📱 Il dispositivo da cui ti colleghi Microsoft distribuisce client per Windows, macOS, iOS e iPadOS e per i servizi Windows 365 e Azure Virtual Desktop. Il client decide anche che cosa viene reindirizzato: desktop intero o singole applicazioni, appunti, dischi e stampanti, entro i limiti delle policy. 💡 Credenziali e spazi di lavoro Gli account aziendali collegano il client a interi cataloghi di risorse: conviene sapere quale identità si sta usando e su quale dispositivo resta memorizzata. [Fonte: Rete privata virtuale — Wikipedia — https://it.wikipedia.org/wiki/Rete_privata_virtuale] [Fonte: Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios]
 Fonti ufficiali:
-- Rete privata virtuale — Wikipedia — https://it.wikipedia.org/wiki/Rete_privata_virtuale
 - Manuale utente iPhone — Apple — https://support.apple.com/guide/iphone/welcome/ios
 
 --- Slide 9 ---
@@ -99,10 +98,12 @@ Assistere una persona a distanza La parte tecnica è la più breve: quasi tutto 
 Reti overlay: Tailscale e ZeroTier Invece di esporre un servizio su Internet, si costruisce una rete privata fra i dispositivi autorizzati. Poi RDP, VNC, SSH o un pannello web funzionano come se tutto fosse nella stessa rete locale. 🕸️ Tailscale Rete mesh costruita su WireGuard: assegna indirizzi privati stabili, attraversa NAT e lega gli accessi ad account, dispositivi e regole di autorizzazione. 🧭 ZeroTier Reti virtuali definite via software, con un controller che decide chi appartiene alla rete: usato per collegare sedi, computer e server dietro NAT. ⚠️ Che cosa cambia davvero Spariscono le porte aperte sul router, non il problema dell’accesso: il control plane diventa infrastruttura critica e il protocollo di desktop remoto resta comunque da scegliere e proteggere. [Fonte: Documentazione Tailscale — https://tailscale.com/kb] [Fonte: WireGuard — sito ufficiale — https://www.wireguard.com/]
 Fonti ufficiali:
 - Documentazione Tailscale — https://tailscale.com/kb
-- WireGuard — sito ufficiale — https://www.wireguard.com/
 
 --- Slide 22 ---
 WireGuard e VPN tradizionale Una VPN porta il client nella rete privata. WireGuard è minimale; OpenVPN e IPsec offrono ecosistemi maturi e scenari enterprise. WireGuard Configurazione compatta e primitive moderne. OpenVPN/IPsec Compatibilità, appliance, autenticazione e policy consolidate. Errore VPN non significa accesso illimitato: applica firewall e minimo privilegio.
+Fonti ufficiali:
+- WireGuard — sito ufficiale — https://www.wireguard.com/
+- Rete privata virtuale — Wikipedia — https://it.wikipedia.org/wiki/Rete_privata_virtuale
 
 --- Slide 23 ---
 Toccare il router: due casi diversi Quasi tutto si risolve senza modificare la rete di casa. Restano due situazioni in cui il router entra in gioco, con rischi molto diversi fra loro. 🚪 Aprire una porta Pubblicare RDP, VNC o un pannello di amministrazione espone il servizio a scansioni continue e tentativi automatici. Meglio una VPN, una rete overlay o un gateway autenticato. Se proprio è obbligatorio: indirizzi consentiti, aggiornamenti, secondo fattore, limiti sui tentativi e monitoraggio. ⏰ Accendere il computer Un pacchetto speciale può svegliare un PC compatibile, se scheda di rete, firmware e stato di risparmio lo permettono. È molto più semplice inviarlo da un dispositivo già dentro la rete. Una presa intelligente non è un’alternativa: toglie corrente, non spegne in modo pulito. ⚠️ Mai Credenziali deboli o servizi non aggiornati raggiungibili da Internet: è la combinazione che compare in quasi tutti gli incidenti di accesso remoto.
@@ -128,6 +129,8 @@ Splashtop e BeyondTrust Due prodotti commerciali che rispondono a esigenze diver
 
 --- Slide 28 ---
 Cloud PC e desktop virtuali Windows 365, Azure Virtual Desktop, Amazon WorkSpaces e altri DaaS spostano il “PC remoto” nel cloud. Pro Disponibilità, gestione centralizzata, nessun PC domestico acceso. Contro Costo ricorrente, dipendenza dalla rete e dal fornitore. Dati Regione, backup, identità e conformità vanno progettati.
+Fonti ufficiali:
+- Cloud computing — Wikipedia — https://it.wikipedia.org/wiki/Cloud_computing
 
 --- Slide 29 ---
 Sicurezza della sessione Il controllo remoto equivale quasi sempre a essere seduti davanti al computer: proteggilo come un accesso privilegiato. Autenticazione MFA, chiavi o certificati; niente password riutilizzate. Autorizzazione Utenti, gruppi, orari e dispositivi consentiti. Audit Log di accesso, avvisi, registrazione sessione dove appropriato. Patch Host, client, gateway e router aggiornati.

@@ -24,11 +24,11 @@ Tour della scheda Conoscere i componenti fisici aiuta a progettare: ogni sensore
 
 --- Slide 6 ---
 Fronte e retro della scheda Sul fronte quello che si tocca e si guarda; sul retro i componenti che lavorano invisibili. Output: i 25 LED e lo speaker. Input: pulsanti, logo touch, microfono, accelerometro e bussola. Lungo il bordo inferiore corre il connettore: i cinque fori grandi si usano con le dita o con clip a coccodrillo, le piste sottili tra un foro e l'altro richiedono una basetta di espansione.
+Fonti ufficiali:
+- MakeCode per micro:bit — https://makecode.microbit.org/tutorials/getting-started
 
 --- Slide 7 ---
 Entrare in MakeCode Si lavora online su makecode.microbit.org senza installare nulla: basta aprire il browser, creare un nuovo progetto, dargli un nome e iniziare a trascinare blocchi nel workspace. Il simulatore si aggiorna in tempo reale mentre si costruisce il programma. 🌐 Browser MakeCode funziona interamente nel browser: nessuna installazione, nessun account obbligatorio. Questo lo rende accessibile su qualsiasi computer della classe, anche quelli con limitazioni di installazione software. ➕ New Project Il pulsante "New Project" crea uno spazio di lavoro vuoto e chiede un nome. Dare un nome significativo fin dall'inizio aiuta a ritrovare i progetti e a condividerli con i compagni. 🧰 Toolbox La toolbox è divisa in categorie colorate (Basic, Input, Music, Logic, Loops, Variables…). Ogni categoria raggruppa blocchi dello stesso tipo, rendendo più rapido trovare ciò che serve. 🗂 Workspace Il workspace è l'area di disegno dove si incastrano i blocchi per formare l'algoritmo. I blocchi si collegano solo se compatibili, riducendo gli errori di sintassi tipici del codice testuale.
-Fonti ufficiali:
-- MakeCode per micro:bit — https://makecode.microbit.org/tutorials/getting-started
 
 --- Slide 8 ---
 La home di MakeCode Aprendo makecode.microbit.org si arriva alla pagina iniziale. In alto un banner mostra progetti in evidenza; al centro l'area "My Projects" raccoglie i lavori salvati nella memoria del browser, con il pulsante viola "New Project" per crearne uno nuovo. Più in basso la galleria "Tutorials" propone progetti guidati passo passo — Flashing Heart, Name Tag, Smiley Buttons, Dice — utili per iniziare senza partire dalla pagina bianca. 💡 Consiglio Su un computer condiviso la memoria del browser può essere svuotata da altri: esporta i progetti importanti con "Salva su disco", così potrai reimportarli in qualsiasi momento con il pulsante "Import". La home di MakeCode: banner dei progetti in evidenza, "My Projects" con "New Project" e la galleria dei tutorial guidati.
@@ -73,6 +73,8 @@ Variabili su Micro:bit Clap, Bussola e Contapassi funzionano solo perché il pro
 
 --- Slide 21 ---
 Download e caricamento Il pulsante Download trasforma i blocchi in un file .hex: il programma tradotto nel formato binario che il processore della scheda sa eseguire. Non serve installare nulla: il Micro:bit collegato via USB appare sul computer come una normale chiavetta chiamata MICROBIT, e caricare il programma significa semplicemente copiarci dentro il file. ⬇️ Scarica Il pulsante Download genera il file .hex e lo salva nella cartella dei download del computer. Ogni file contiene l'intero programma: non esistono aggiornamenti parziali. 🔌 Collega La scheda si collega con un cavo USB, che fornisce anche l'alimentazione. Con il porta-batterie funziona da sola: il programma resta in memoria anche senza corrente. 📁 Copia Trascina il file .hex nel drive MICROBIT. Durante la copia il LED giallo sul retro lampeggia: è la scheda che sta scrivendo il programma nella sua memoria flash. 🧪 Prova Finita la copia, la scheda si riavvia da sola ed esegue subito il nuovo programma al posto del precedente. Se il comportamento non è quello atteso, si modifica in MakeCode e si ripete.
+Fonti ufficiali:
+- Debugging — Wikipedia — https://it.wikipedia.org/wiki/Debugging
 
 --- Slide 22 ---
 Debug fisico Con Micro:bit il debug non è solo guardare lo schermo: bisogna osservare insieme il codice, il dispositivo e il gesto. Se il programma non risponde, il problema può stare nei blocchi, nel sensore o nel modo in cui il gesto viene eseguito — e ogni ipotesi va verificata separatamente. Testa nel simulatore

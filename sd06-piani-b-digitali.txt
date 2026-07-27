@@ -66,6 +66,8 @@ Scenario: perdo l'accesso all'email
  Il modulo di recupero manda il link al secondo indirizzo: la strada maestra. 2 Rispondi da un dispositivo conosciuto
  I provider si fidano di più di un accesso dal solito PC o telefono: tenta il recupero da lì. 3 Poi rafforza
  Riottenuto l'accesso: cambia password, verifica i dati di recupero, controlla gli accessi recenti e gli inoltri impostati da altri.
+Fonti ufficiali:
+- Internet Message Format — RFC 5322 — https://www.rfc-editor.org/rfc/rfc5322
 
 --- Slide 9 ---
 Scenario: muore il computer

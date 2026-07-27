@@ -12,7 +12,7 @@ workflow cloud Francesco Antonio Binetti
 --- Slide 2 ---
 Che cos’è Apps Script Google Apps Script è JavaScript nel cloud Google: automatizza Sheets, Docs, Drive, Gmail, Calendar e servizi esterni. Caso concreto Un foglio con gli appuntamenti del salone genera ogni sera i promemoria, archivia un PDF su Drive e registra l’esito senza lasciare acceso un computer. Punto di forza Il codice gira nell’infrastruttura Google e usa direttamente i servizi Workspace dell’account, con autorizzazioni esplicite. Errore da evitare Trattarlo come JavaScript nel browser: non esistono DOM e window; si lavora con servizi come SpreadsheetApp e GmailApp. Esercizio Scegli un’attività in Workspace e descrivi origine dei dati, azione automatica, destinazione e frequenza di esecuzione. [Fonte: JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript]
 Fonti ufficiali:
-- JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript
+- Cloud computing — Wikipedia — https://it.wikipedia.org/wiki/Cloud_computing
 
 --- Slide 3 ---
 Apps Script e VBA a confronto Stesso mestiere del VBA di SU03.14, altro mondo: la stessa macro — IVA sulla colonna C — scritta nei due linguaggi. ' VBA (Excel)
@@ -53,6 +53,8 @@ JavaScript essenziale Variabili let/const, funzioni, array, oggetti e template s
  const msg = "Ciao " + nome;
  return msg;
 }
+Fonti ufficiali:
+- JavaScript — Wikipedia — https://it.wikipedia.org/wiki/JavaScript
 
 --- Slide 6 ---
 SpreadsheetApp SpreadsheetApp apre file, fogli, range e valori. È l’API centrale per lavorare con Google Sheets. Accesso esplicito getActiveSpreadsheet è comodo nei menu; openById è più affidabile nei trigger, perché indica esattamente quale file deve essere elaborato. Catena degli oggetti Spreadsheet → Sheet → Range → valori: ogni passaggio restringe l’oggetto su cui lavorano le istruzioni successive. Errore da evitare Affidarsi al foglio attivo in un’esecuzione automatica: un trigger non ha necessariamente la stessa selezione dell’utente. const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -160,6 +162,8 @@ lock.releaseLock();
 --- Slide 21 ---
 Logger e debug Logger.log, console e Execution transcript aiutano a capire cosa succede durante l’esecuzione. Osservabilità Registra fase, ID del record e conteggi: «importati 42, scartati 3» è più utile di «funzione avviata». Diagnosi La pagina Esecuzioni mostra durata, account, trigger ed errore; console.error conserva stack e dettagli per il debug. Errore da evitare Scrivere nei log dati personali o token: i log servono a diagnosticare, non a duplicare informazioni sensibili. Logger.log("Totale: " + totale);
 console.log("Debug:", dati);
+Fonti ufficiali:
+- Debugging — Wikipedia — https://it.wikipedia.org/wiki/Debugging
 
 --- Slide 22 ---
 Quote e limiti Apps Script ha limiti giornalieri e temporali. Gli script professionali devono rispettarli. function elaboraABlocchi() {

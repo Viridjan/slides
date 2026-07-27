@@ -15,6 +15,8 @@ I moduli (form) Un &lt;form&gt; è il contenitore in cui l’utente inserisce da
  … campi …
  &lt;button&gt;Invia&lt;/button&gt;
 &lt;/form&gt;
+Fonti ufficiali:
+- Form HTML — MDN — https://developer.mozilla.org/it/docs/Learn/Forms
 
 --- Slide 3 ---
 I campi di input Il tag &lt;input&gt; cambia comportamento in base al suo attributo type : lo stesso tag diventa casella di testo, password o casella da spuntare. type Cosa mostra Uso tipico text Riga di testo libero Nome, città email Testo con controllo formato Indirizzo email password Testo mascherato Parola d’accesso checkbox Casella da spuntare Accetto le condizioni radio Scelta unica in un gruppo Taglia S / M / L [Fonte: Password e MFA — NIST — https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password]
@@ -29,10 +31,11 @@ Rimandi interni: CD01.02 · Accessibilità delle immagini — cd01-02-accessibil
 HTML che ha un significato Si potrebbe costruire tutto con &lt;div&gt; anonimi. La semantica usa invece tag che dicono a cosa serve ogni zona: intestazione, menù, contenuto, piè di pagina. &lt;header&gt; &lt;nav&gt; &lt;main&gt; &lt;aside&gt; &lt;footer&gt; ogni zona è un elemento con un nome parlante [Fonte: HTML — MDN Web Docs — https://developer.mozilla.org/it/docs/Web/HTML] [Fonte: Semantica HTML — MDN — https://developer.mozilla.org/it/docs/Glossary/Semantics]
 Fonti ufficiali:
 - HTML — MDN Web Docs — https://developer.mozilla.org/it/docs/Web/HTML
-- Semantica HTML — MDN — https://developer.mozilla.org/it/docs/Glossary/Semantics
 
 --- Slide 6 ---
 Perché la semantica conta Non è pignoleria: tag con un significato aiutano macchine e persone a capire la pagina. 🧑‍🦽 Accessibilità Gli screen reader saltano al &lt;main&gt; o scorrono il &lt;nav&gt;: chi non vede naviga per zone, non a tentoni. 🔍 Motori di ricerca Google capisce meglio la pagina quando le sue parti sono etichettate, e la indicizza meglio. 🧩 Manutenzione Un &lt;footer&gt; si trova a colpo d’occhio; mille &lt;div&gt; uguali no. Il codice resta leggibile nel tempo. Regola: usa &lt;div&gt; solo quando nessun tag con un significato adatto esiste già.
+Fonti ufficiali:
+- Semantica HTML — MDN — https://developer.mozilla.org/it/docs/Glossary/Semantics
 
 --- Slide 7 ---
 Separare contenuto e aspetto HTML dice cosa è una cosa; il CSS dice come appare: colori, dimensioni, spazi, posizioni. Sono due mestieri distinti, ed è giusto tenerli separati. Analogia: l’HTML è lo scheletro, il CSS è il vestito. /* CSS */
@@ -43,12 +46,12 @@ h1 {
 p {
  line-height: 1.5;
 } [Fonte: CSS — MDN Web Docs — https://developer.mozilla.org/it/docs/Web/CSS] [Fonte: CSS — Wikipedia — https://it.wikipedia.org/wiki/CSS]
-Fonti ufficiali:
-- CSS — MDN Web Docs — https://developer.mozilla.org/it/docs/Web/CSS
-- CSS — Wikipedia — https://it.wikipedia.org/wiki/CSS
 
 --- Slide 8 ---
 Collegare il CSS Le regole di stile possono stare in tre posti. Per un vero sito, uno solo è la scelta giusta. Nell’attributo style="…" dentro il singolo tag. Rapido per una prova, ingestibile su tante pagine. Nel &lt;head&gt; Un blocco &lt;style&gt; vale per l’intera pagina. Utile per un file solo. File esterno ✓ Un file .css collegato con &lt;link&gt; veste tutte le pagine insieme: cambi una riga, cambia il sito. 💡 Selettori Nel CSS scrivi il nome dell’elemento ( p , h1 ) e poi, tra graffe, le regole. Così lo stile trova gli elementi da vestire.
+Fonti ufficiali:
+- CSS — MDN Web Docs — https://developer.mozilla.org/it/docs/Web/CSS
+- CSS — Wikipedia — https://it.wikipedia.org/wiki/CSS
 
 --- Slide 9 ---
 Verifica: forma e significato 1 · Campo giusto Devi far scegliere una sola taglia tra S, M e L. Quale type di &lt;input&gt; usi, e perché non checkbox? 2 · Etichetta smarrita Un modulo ha solo caselle senza testo accanto. Quale tag aggiungi e che vantaggio dà a chi usa uno screen reader? 3 · div o main? Devi racchiudere il contenuto principale della pagina. Meglio &lt;div&gt; o &lt;main&gt;? Motiva la scelta. 4 · Un colore per tutto il sito Vuoi lo stesso stile su dieci pagine, modificabile in un punto solo. Dove metti il CSS?

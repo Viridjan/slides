@@ -32,6 +32,8 @@ Link che fanno di più Con lo stesso tag &lt;a&gt; e qualche attributo in più o
 
 --- Slide 5 ---
 Le immagini Il tag &lt;img&gt; inserisce un’immagine. Si chiude da solo e ha due attributi che non vanno mai omessi: src (quale file) e alt (la descrizione testuale). alt="capelli mossi" alt descrive l’immagine a chi non la vede src: l’indirizzo del file Assoluto o relativo, come per i link. Se il percorso è sbagliato, appare l’icona dell’immagine rotta. alt: non è un dettaglio Chi usa uno screen reader «sente» l’immagine tramite l’alt, e lo stesso testo compare se il file non carica. CD01.02 · Accessibilità delle immagini ↗
+Fonti ufficiali:
+- Elemento img — MDN — https://developer.mozilla.org/it/docs/Web/HTML/Element/img
 Rimandi interni: CD01.02 · Accessibilità delle immagini — cd01-02-accessibilita-immagini.html#slide-2
 
 --- Slide 6 ---
@@ -48,6 +50,8 @@ Le tabelle Servono per i dati organizzati in righe e colonne, non per impaginare
  &lt;td&gt;20&nbsp;€&lt;/td&gt;
  &lt;/tr&gt;
 &lt;/table&gt;
+Fonti ufficiali:
+- Elemento table — MDN — https://developer.mozilla.org/it/docs/Web/HTML/Element/table
 
 --- Slide 8 ---
 Una tabella che si capisce La struttura minima funziona, ma pochi accorgimenti la rendono leggibile anche a chi non la vede con gli occhi. &lt;thead&gt; e &lt;tbody&gt; Separano la riga delle intestazioni dal corpo dei dati: la tabella diventa più chiara e più facile da stilare. &lt;caption&gt; Un titolo interno alla tabella che ne dichiara il contenuto: «Listino trattamenti». scope Su &lt;th&gt; indica se l’intestazione vale per una riga o una colonna: guida chi usa uno screen reader. Regola: le tabelle servono ai dati, non a disporre gli elementi nella pagina.

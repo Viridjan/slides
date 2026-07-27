@@ -15,8 +15,6 @@ Cosa vedremo 01 Cos'è un LLM
  La definizione, cosa sono NLP e reti neurali profonde, e riconoscere un testo generato. 02 Come comprende 
  Se comprende davvero, come «impara» il linguaggio umano e perché verificare l'output. 03 Come funziona 
  La tokenizzazione, le reti di nodi, come interpreta il prompt e cosa non fa.
-Fonti ufficiali:
-- Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 3 ---
 Large Language Models
@@ -41,6 +39,8 @@ Large Language Models
  ⚙️
  Parametri
  GPT-4 ha ~1.8 trilioni di parametri. Ogni parametro è un numero che codifica una relazione tra concetti.
+Fonti ufficiali:
+- Transformer — paper originale — https://arxiv.org/abs/1706.03762
 
 --- Slide 4 ---
 Perplexity: definizione di LLM

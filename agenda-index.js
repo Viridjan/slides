@@ -757,7 +757,7 @@ globalThis.AGENDA_INDEX = {
   "pr04-01-strumenti-ambiente.html": {
     "title": "Cosa vedremo",
     "items": [
-      "Capire gli strumenti · Editor di testo, editor di codice, IDE e struttura di un progetto.",
+      "Capire gli strumenti · Editor di testo, editor di codice, IDE, WYSIWYG e struttura di un progetto.",
       "Scegliere l'ambiente · IDE completi, locale o remoto, browser e assistenti IA.",
       "Preparare l'ambiente · Dipendenze e «sul mio computer funziona», i caratteri invisibili, l'ergonomia e il primo setup."
     ]

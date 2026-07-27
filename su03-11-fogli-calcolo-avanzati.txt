@@ -16,6 +16,8 @@ Fonti ufficiali:
 
 --- Slide 3 ---
 Una tabella pulita batte cento formule La qualità del risultato dipende prima dalla forma dei dati. Ogni colonna deve rappresentare una sola informazione e ogni riga un solo evento. Una riga = record Una vendita, un cliente, un appuntamento: nel registro del salone ogni riga è un servizio svolto, con data, cliente, servizio e importo. Una colonna = campo Data, categoria, quantità, prezzo, stato. Se in una cella scrivi «taglio + piega» stai mettendo due informazioni in un campo solo. Niente celle unite Sono comode da vedere ma rompono ordinamenti, filtri, pivot e importazioni: il filtro non sa più a quale riga appartiene il valore. Niente totali in mezzo I totali stanno nei report, non nella sorgente: una riga «TOTALE marzo» in mezzo ai dati finirebbe sommata due volte. Regola: dati puliti in ingresso, formule semplici in uscita.
+Fonti ufficiali:
+- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 4 ---
 Tipi di dato: numero, testo, data, booleano Molti errori nascono da valori che sembrano corretti ma sono del tipo sbagliato: numeri salvati come testo, date ambigue, spazi invisibili. Numeri Servono per calcoli: 35 euro deve essere il numero 35 con formato valuta, non il testo «35 €» digitato a mano, che SOMMA ignorerebbe in silenzio. Testo Nomi, codici, categorie. «Piega», «piega » con spazio finale e «PIEGA» per il computer sono tre valori diversi: i conteggi si spezzano. Date Devono essere date vere, non testo: solo così puoi filtrare gli appuntamenti di marzo o calcolare i giorni dall’ultima visita di una cliente. Booleani Vero/falso, sì/no: la colonna «Pagato» con solo VERO o FALSO si filtra e si conta senza ambiguità.
@@ -28,8 +30,6 @@ Formattazione condizionale come controllo visivo Colori e icone devono aiutare a
 
 --- Slide 7 ---
 Intervalli nominati e tabelle strutturate Dare un nome ai dati riduce errori e rende le formule leggibili. Una formula che usa Prezzi[Listino] è più chiara di una formula piena di coordinate. Ctrl+T · crea tabella Nomi IVA, Listino, SogliaMinima: =E2*IVA si legge da sola, mentre =E2*$H$1 obbliga ad andare a vedere cosa c’è in H1. Tabelle Le tabelle strutturate si espandono da sole: aggiungi la vendita di oggi e =SOMMA(Incassi[Importo]) la include senza toccare la formula. Manutenzione Quando il listino cresce aggiorni solo il nome o la tabella, non le cento formule che li usano nel resto del file. 💡 In pratica In Sheets: Dati → Intervalli denominati; in Excel: Formule → Gestione nomi. Un nome definito vale in tutto il file. [Fonte: Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel]
-Fonti ufficiali:
-- Formule e funzioni — Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 8 ---
 Importare CSV senza distruggere i dati I CSV sembrano semplici ma possono cambiare separatori, accenti, date e zeri iniziali. Un import controllato evita problemi invisibili. Separatore Virgola, punto e virgola o tabulazione: l’export del gestionale cassa usa il punto e virgola, quello della banca la virgola. Controlla sempre l’anteprima. Codifica UTF-8 evita caratteri strani: con la codifica sbagliata «Perù» diventa «PerÃ¹» e i nomi delle clienti si corrompono. Date 01/02/2026 può essere 1 febbraio o 2 gennaio secondo il formato: imposta il tipo colonna durante l’import, non dopo. Codici CAP e SKU devono restare testo: il CAP 00184 di una cliente romana diventa 184 se importato come numero. 📍 Dove si trova Excel: Dati → Da testo/CSV. · Google Fogli: File → Importa → Carica.
@@ -40,6 +40,7 @@ Proteggere formule e celle sensibili Un foglio condiviso deve distinguere tra ce
 --- Slide 10 ---
 Lavorare in cloud senza perdere controllo Excel online e Google Sheets permettono modifiche simultanee, commenti, cronologia e condivisione. Serve però una regola di lavoro. Una fonte ufficiale Evita copie “finale2_definitivo”. Link condiviso, versione unica. Commenti Le domande stanno nei commenti, non in celle sparse. Cronologia Recupera versioni precedenti e capisci chi ha modificato cosa. Proprietario Un responsabile decide struttura e cambiamenti importanti. [Fonte: Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603]
 Fonti ufficiali:
+- Cloud computing — Wikipedia — https://it.wikipedia.org/wiki/Cloud_computing
 - Guida ufficiale Google Sheets — https://support.google.com/docs/topic/9054603
 
 --- Slide 11 ---

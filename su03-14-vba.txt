@@ -13,7 +13,6 @@ report e procedure Francesco Antonio Binetti
 Introduzione a VBA VBA (Visual Basic for Applications) è il linguaggio già incluso in Excel: non serve installare nulla. Con poche righe di codice ripeti in un secondo, sempre nello stesso modo, operazioni che a mano richiedono minuti e attenzione continua. Perché impararlo Il salone Belli e Brillanti prepara ogni lunedì il report incassi: copiare le righe, ordinarle, formattare i totali. Una macro esegue gli stessi passaggi senza saltarne nessuno e libera tempo per le clienti. Quando serve Quando un'operazione si ripete identica ogni settimana, tocca centinaia di righe o è rischiosa da fare a mano: importare gli incassi dalla cassa, pulire l'elenco clienti, generare i listini stampabili. Errore comune Scrivere codice prima di chiarire input, output e casi limite: cosa deve succedere se una cella è vuota, se manca il foglio o se le righe sono più del solito? Esercizio Scegli un'attività ripetitiva del salone (per esempio il report del lunedì) e descrivila in tre passaggi precisi: input, trasformazione, output. È la bozza della tua prima macro. [Fonte: Riferimento VBA per Office — Microsoft Learn — https://learn.microsoft.com/office/vba/api/overview/] [Fonte: Supporto Microsoft Excel — https://support.microsoft.com/excel]
 Fonti ufficiali:
 - Riferimento VBA per Office — Microsoft Learn — https://learn.microsoft.com/office/vba/api/overview/
-- Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 3 ---
 Editor VBA e moduli Il codice non vive nelle celle ma nell'editor VBA, che apri con Alt+F11. I moduli standard contengono le macro generali, gli oggetti foglio il codice legato a un singolo foglio, ThisWorkbook quello che riguarda l'intero file. Anche le macro registrate finiscono in un modulo: aprile e leggile per imparare. 💡 Consiglio La finestra Immediata (Ctrl+G) mostra i risultati di Debug.Print: usala per controllare i valori mentre provi il codice, prima di far scrivere la macro sulle celle vere. ' Modulo1 del file incassi.xlsm
@@ -111,6 +110,8 @@ Tabelle Excel ListObject Le tabelle strutturate sono più affidabili dei range f
  nuovaRiga.Range(1, 1).Value = Date
  nuovaRiga.Range(1, 2).Value = "Piega"
 End Sub
+Fonti ufficiali:
+- Supporto Microsoft Excel — https://support.microsoft.com/excel
 
 --- Slide 16 ---
 Messaggi e input MsgBox comunica con l’utente; InputBox raccoglie un valore rapido. Non abusarne nei processi automatici. Uso utile Una MsgBox finale conferma «Report creato: 128 righe»; una InputBox può chiedere il mese da elaborare prima di avviare la macro. Validare la risposta InputBox restituisce testo: controlla Annulla, stringa vuota e tipo prima di usare il valore in un calcolo o in un nome file. Errore da evitare Mostrare una finestra per ogni riga: cento conferme bloccano l’automazione. Raccogli gli errori e mostra un solo riepilogo. MsgBox "Report pronto", vbInformation
