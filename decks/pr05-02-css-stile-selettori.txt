@@ -1,4 +1,4 @@
-Programmare · PR05.04 — CSS: stile e selettori
+Programmare · PR05.02 — CSS: stile e selettori
 ==============================================
 
 --- Slide 1 ---
@@ -87,11 +87,11 @@ Quando due regole competono Il browser deve decidere quale valore applicare quan
 }
 
 --- Slide 12 ---
-Il modello a scatola Ogni elemento occupa una scatola. Capire i suoi quattro strati evita spaziature casuali e dimensioni difficili da prevedere. contenuto padding bordo margine Dall’interno verso l’esterno Contenuto Testo o immagine, con larghezza e altezza proprie. Padding e bordo Il padding crea spazio interno; il bordo delimita la scatola. Margine Crea spazio esterno e separa la scatola dagli elementi vicini.
+Il modello a scatola Ogni elemento occupa una scatola. Capire i suoi quattro strati evita spaziature casuali e dimensioni difficili da prevedere. contenuto padding bordo margine Contenuto Testo o immagine, con larghezza e altezza proprie. Padding e bordo Il padding crea spazio interno; il bordo delimita la scatola. Margine Crea spazio esterno e separa la scatola dagli elementi vicini.
 
 --- Slide 13 ---
 Commenti: sintassi diverse Un commento documenta il codice o esclude temporaneamente istruzioni. La sintassi dipende dal linguaggio in cui stai scrivendo. HTML &lt;!-- Nota per chi legge il sorgente --&gt; Può occupare una o più righe. Non appare nella pagina, ma resta visibile nel codice sorgente: non inserirci password o dati riservati. CSS /* Colore del titolo */ La coppia /* … */ commenta una parte di riga o più righe. In CSS la forma // non è un commento valido. JavaScript: una riga // Controlla il valore // ignora tutto ciò che segue fino alla fine della riga. È utile per note brevi accanto a un’istruzione. JavaScript: più righe /* Controllo
  su più righe */ /* … */ racchiude un commento esteso. I commenti non si annidano: una seconda apertura interna non crea un nuovo livello.
 
 --- Slide 14 ---
-Lo stile diventa un sistema. Sai collegare il CSS, costruire regole, scegliere i selettori e controllare testo, colore, spazi e priorità senza confondere struttura e presentazione. Fonti e approfondimenti CSS — MDN Web Docs ↗ (https://developer.mozilla.org/it/docs/Web/CSS)CSS — Wikipedia ↗ (https://it.wikipedia.org/wiki/CSS) Prossimo → PR06.01 · Python di base Francesco Antonio Binetti
+Lo stile diventa un sistema. Sai collegare il CSS, costruire regole, scegliere i selettori e controllare testo, colore, spazi e priorità senza confondere struttura e presentazione. Fonti e approfondimenti CSS — MDN Web Docs ↗ (https://developer.mozilla.org/it/docs/Web/CSS)CSS — Wikipedia ↗ (https://it.wikipedia.org/wiki/CSS) Prossimo → PR05.03 · Link, immagini e tabelle Francesco Antonio Binetti

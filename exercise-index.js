@@ -204,21 +204,21 @@ globalThis.EXERCISE_INDEX = {
       "title": "Verifica: sai leggere il markup?"
     }
   ],
-  "decks/pr05-02-html-link-immagini.html": [
+  "decks/pr05-03-html-link-immagini.html": [
     {
       "file": "decks/esercizi-programmare.html",
       "slide": 14,
       "title": "Verifica: colleghi e mostri?"
     }
   ],
-  "decks/pr05-03-html-form-semantica.html": [
+  "decks/pr05-04-html-form-semantica.html": [
     {
       "file": "decks/esercizi-programmare.html",
       "slide": 15,
       "title": "Verifica: forma e significato"
     }
   ],
-  "decks/pr05-04-css-stile-selettori.html": [
+  "decks/pr05-02-css-stile-selettori.html": [
     {
       "file": "decks/esercizi-programmare.html",
       "slide": 16,

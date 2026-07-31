@@ -658,7 +658,7 @@ globalThis.AGENDA_INDEX = {
       "Ordine e cura · Annidamento, indentazione ed errori più comuni."
     ]
   },
-  "decks/pr05-02-html-link-immagini.html": {
+  "decks/pr05-03-html-link-immagini.html": {
     "title": "Cosa vedremo",
     "items": [
       "I collegamenti · Il tag a, percorsi assoluti e relativi, link speciali.",
@@ -666,7 +666,7 @@ globalThis.AGENDA_INDEX = {
       "Le tabelle · table, tr, th e td; intestazioni e struttura leggibile."
     ]
   },
-  "decks/pr05-03-html-form-semantica.html": {
+  "decks/pr05-04-html-form-semantica.html": {
     "title": "Cosa vedremo",
     "items": [
       "I moduli · form, campi di input, etichette, pulsanti e controlli.",
@@ -674,7 +674,7 @@ globalThis.AGENDA_INDEX = {
       "Struttura significativa · Scegliere elementi che aiutano persone, tecnologie assistive e manutenzione."
     ]
   },
-  "decks/pr05-04-css-stile-selettori.html": {
+  "decks/pr05-02-css-stile-selettori.html": {
     "title": "Cosa vedremo",
     "items": [
       "Regole e proprietà · Selettore, dichiarazioni, valori e punto e virgola.",

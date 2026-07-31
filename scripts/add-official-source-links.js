@@ -106,11 +106,11 @@ const SOURCES = [
   // Serie HTML (PR05): fonti ufficiali MDN/W3C, ognuna sul deck piu' pertinente.
   ['HTML', 'https://developer.mozilla.org/it/docs/Web/HTML', 'HTML — MDN Web Docs', /^pr05-/],
   ['tag', 'https://developer.mozilla.org/it/docs/Web/HTML/Element', 'Elementi HTML — MDN', /^pr05-01/],
-  ['immagini', 'https://developer.mozilla.org/it/docs/Web/HTML/Element/img', 'Elemento img — MDN', /^pr05-02/],
-  ['tabelle', 'https://developer.mozilla.org/it/docs/Web/HTML/Element/table', 'Elemento table — MDN', /^pr05-02/],
-  ['form', 'https://developer.mozilla.org/it/docs/Learn/Forms', 'Form HTML — MDN', /^pr05-03/],
-  ['semantica', 'https://developer.mozilla.org/it/docs/Glossary/Semantics', 'Semantica HTML — MDN', /^pr05-03/],
-  ['CSS', 'https://developer.mozilla.org/it/docs/Web/CSS', 'CSS — MDN Web Docs', /^pr05-04/],
+  ['immagini', 'https://developer.mozilla.org/it/docs/Web/HTML/Element/img', 'Elemento img — MDN', /^pr05-03/],
+  ['tabelle', 'https://developer.mozilla.org/it/docs/Web/HTML/Element/table', 'Elemento table — MDN', /^pr05-03/],
+  ['form', 'https://developer.mozilla.org/it/docs/Learn/Forms', 'Form HTML — MDN', /^pr05-04/],
+  ['semantica', 'https://developer.mozilla.org/it/docs/Glossary/Semantics', 'Semantica HTML — MDN', /^pr05-04/],
+  ['CSS', 'https://developer.mozilla.org/it/docs/Web/CSS', 'CSS — MDN Web Docs', /^pr05-02/],
   ['algoritmo', 'https://xlinux.nist.gov/dads/', 'Dictionary of Algorithms and Data Structures — NIST', /^pr/],
   ['algoritmi', 'https://xlinux.nist.gov/dads/', 'Dictionary of Algorithms and Data Structures — NIST', /^pr/],
   ['Flowgorithm', 'https://www.flowgorithm.org/', 'Flowgorithm — sito ufficiale', /^pr/],
@@ -142,6 +142,100 @@ const SOURCES = [
   ['Meta', 'https://huggingface.co/meta-llama/models', 'Modelli Meta Llama — repository verificato', /^ia04/],
   ['Mistral AI', 'https://docs.mistral.ai/models/', 'Catalogo modelli — Mistral AI', /^ia04/],
   ['DeepSeek', 'https://api-docs.deepseek.com/quick_start/pricing', 'Modelli disponibili — DeepSeek', /^ia04/],
+].sort((a, b) => b[0].length - a[0].length);
+
+// Functions are different from ordinary topics: their reference belongs where
+// the learner meets the callable for the first time, even when that occurrence
+// is inside a code example. The final field is the deck scope. Query fragments
+// keep catalogue-backed spreadsheet references distinct in the generated
+// source list while still opening the authoritative catalogue.
+const EXCEL_FUNCTIONS = 'https://support.microsoft.com/it-it/office/funzioni-di-excel-in-ordine-alfabetico-b3944572-255d-4efb-bb96-c6d90033e188';
+const SHEETS_FUNCTIONS = 'https://support.google.com/docs/table/25273?hl=it';
+const FUNCTION_SOURCES = [
+  ['input', 'https://docs.python.org/3/library/functions.html#input', 'input() — documentazione Python', /^pr06-/],
+  ['print', 'https://docs.python.org/3/library/functions.html#print', 'print() — documentazione Python', /^pr06-/],
+  ['int', 'https://docs.python.org/3/library/functions.html#int', 'int() — documentazione Python', /^pr06-/],
+  ['float', 'https://docs.python.org/3/library/functions.html#float', 'float() — documentazione Python', /^pr06-/],
+  ['len', 'https://docs.python.org/3/library/functions.html#len', 'len() — documentazione Python', /^pr06-/],
+  ['sum', 'https://docs.python.org/3/library/functions.html#sum', 'sum() — documentazione Python', /^pr06-/],
+  ['sorted', 'https://docs.python.org/3/library/functions.html#sorted', 'sorted() — documentazione Python', /^pr06-/],
+  ['range', 'https://docs.python.org/3/library/functions.html#func-range', 'range() — documentazione Python', /^pr06-/],
+  ['enumerate', 'https://docs.python.org/3/library/functions.html#enumerate', 'enumerate() — documentazione Python', /^pr06-/],
+  ['open', 'https://docs.python.org/3/library/functions.html#open', 'open() — documentazione Python', /^pr06-/],
+  ['next', 'https://docs.python.org/3/library/functions.html#next', 'next() — documentazione Python', /^pr06-/],
+  ['iter', 'https://docs.python.org/3/library/functions.html#iter', 'iter() — documentazione Python', /^pr06-/],
+  ['list', 'https://docs.python.org/3/library/functions.html#func-list', 'list() — documentazione Python', /^pr06-/],
+  ['max', 'https://docs.python.org/3/library/functions.html#max', 'max() — documentazione Python', /^pr06-/],
+  ['min', 'https://docs.python.org/3/library/functions.html#min', 'min() — documentazione Python', /^pr06-/],
+  ['round', 'https://docs.python.org/3/library/functions.html#round', 'round() — documentazione Python', /^pr06-/],
+  ['lower', 'https://docs.python.org/3/library/stdtypes.html#str.lower', 'str.lower() — documentazione Python', /^pr06-/],
+  ['upper', 'https://docs.python.org/3/library/stdtypes.html#str.upper', 'str.upper() — documentazione Python', /^pr06-/],
+  ['replace', 'https://docs.python.org/3/library/stdtypes.html#str.replace', 'str.replace() — documentazione Python', /^pr06-/],
+  ['split', 'https://docs.python.org/3/library/stdtypes.html#str.split', 'str.split() — documentazione Python', /^pr06-/],
+  ['join', 'https://docs.python.org/3/library/stdtypes.html#str.join', 'str.join() — documentazione Python', /^pr06-/],
+  ['strip', 'https://docs.python.org/3/library/stdtypes.html#str.strip', 'str.strip() — documentazione Python', /^pr06-/],
+  ['append', 'https://docs.python.org/3/tutorial/datastructures.html#more-on-lists', 'list.append() — documentazione Python', /^pr06-/],
+  ['insert', 'https://docs.python.org/3/tutorial/datastructures.html#more-on-lists', 'list.insert() — documentazione Python', /^pr06-/],
+  ['remove', 'https://docs.python.org/3/tutorial/datastructures.html#more-on-lists', 'list.remove() — documentazione Python', /^pr06-/],
+  ['pop', 'https://docs.python.org/3/tutorial/datastructures.html#more-on-lists', 'list.pop() — documentazione Python', /^pr06-/],
+  ['sort', 'https://docs.python.org/3/library/stdtypes.html#list.sort', 'list.sort() — documentazione Python', /^pr06-/],
+  ['index', 'https://docs.python.org/3/library/stdtypes.html#common-sequence-operations', 'sequence.index() — documentazione Python', /^pr06-/],
+  ['math.sqrt', 'https://docs.python.org/3/library/math.html#math.sqrt', 'math.sqrt() — documentazione Python', /^pr06-/],
+  ['randint', 'https://docs.python.org/3/library/random.html#random.randint', 'random.randint() — documentazione Python', /^pr06-/],
+  ['stats.mean', 'https://docs.python.org/3/library/statistics.html#statistics.mean', 'statistics.mean() — documentazione Python', /^pr06-/],
+  ['json.dump', 'https://docs.python.org/3/library/json.html#json.dump', 'json.dump() — documentazione Python', /^pr06-/],
+  ['json.load', 'https://docs.python.org/3/library/json.html#json.load', 'json.load() — documentazione Python', /^pr06-/],
+  ['csv.DictReader', 'https://docs.python.org/3/library/csv.html#csv.DictReader', 'csv.DictReader() — documentazione Python', /^pr06-/],
+  ['csv.DictWriter', 'https://docs.python.org/3/library/csv.html#csv.DictWriter', 'csv.DictWriter() — documentazione Python', /^pr06-/],
+  ['Path', 'https://docs.python.org/3/library/pathlib.html#pathlib.Path', 'Path() — documentazione Python', /^pr06-/],
+  ['read_text', 'https://docs.python.org/3/library/pathlib.html#pathlib.Path.read_text', 'Path.read_text() — documentazione Python', /^pr06-/],
+  ['write_text', 'https://docs.python.org/3/library/pathlib.html#pathlib.Path.write_text', 'Path.write_text() — documentazione Python', /^pr06-/],
+  ['mkdir', 'https://docs.python.org/3/library/pathlib.html#pathlib.Path.mkdir', 'Path.mkdir() — documentazione Python', /^pr06-/],
+  ['exists', 'https://docs.python.org/3/library/pathlib.html#pathlib.Path.exists', 'Path.exists() — documentazione Python', /^pr06-/],
+  ['requests.get', 'https://requests.readthedocs.io/en/latest/api/#requests.get', 'requests.get() — documentazione Requests', /^pr06-/],
+  ['raise_for_status', 'https://requests.readthedocs.io/en/latest/api/#requests.Response.raise_for_status', 'Response.raise_for_status() — documentazione Requests', /^pr06-/],
+  ['sqlite3.connect', 'https://docs.python.org/3/library/sqlite3.html#sqlite3.connect', 'sqlite3.connect() — documentazione Python', /^pr06-/],
+  ...[
+    'SOMMA', 'SE', 'E', 'O', 'NON', 'MEDIA', 'MIN', 'MAX', 'ARROTONDA',
+    'ARROTONDA.ECCESSO', 'CONTA.NUMERI', 'CONTA.VALORI', 'CONTA.SE',
+    'CONTA.PIÙ.SE', 'SOMMA.SE', 'SOMMA.PIÙ.SE', 'MEDIA.SE', 'CERCA.VERT',
+    'CERCA.ORIZZ', 'CERCA.X', 'INDICE', 'CONFRONTA', 'SE.ERRORE', 'FILTRO',
+    'UNICI', 'LET', 'TESTO', 'VALORE', 'DATA', 'ANNO', 'MESE', 'GIORNI',
+    'GIORNO.SETTIMANA', 'OGGI', 'ADESSO', 'RADQ', 'SINISTRA', 'LUNGHEZZA', 'TROVA',
+    'RICERCA', 'SOSTITUISCI', 'RIMPIAZZA', 'ANNULLA.SPAZI', 'PULISCI',
+    'MAIUSC', 'MINUSC', 'MAIUSC.INIZ', 'TESTO.UNISCI', 'SUBTOTALE'
+  ].map(term => [
+    term,
+    `${EXCEL_FUNCTIONS}#funzione-${encodeURIComponent(term)}`,
+    `${term}() — catalogo ufficiale delle funzioni Excel`,
+    /^su03-/
+  ]),
+  ...['QUERY', 'IMPORTRANGE', 'ARRAYFORMULA', 'FILTER', 'SPLIT', 'SPARKLINE']
+    .map(term => [
+      term,
+      `${SHEETS_FUNCTIONS}#funzione-${encodeURIComponent(term)}`,
+      `${term}() — elenco ufficiale delle funzioni Google Sheets`,
+      /^su03-/
+    ]),
+  ['SpreadsheetApp.getActive', 'https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getActive()', 'SpreadsheetApp.getActive() — Apps Script', /^su03-15/],
+  ['SpreadsheetApp.getActiveSpreadsheet', 'https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getActiveSpreadsheet()', 'SpreadsheetApp.getActiveSpreadsheet() — Apps Script', /^su03-15/],
+  ['SpreadsheetApp.getUi', 'https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app#getUi()', 'SpreadsheetApp.getUi() — Apps Script', /^su03-15/],
+  ['getRange', 'https://developers.google.com/apps-script/reference/spreadsheet/sheet#getRange(String)', 'getRange() — Apps Script', /^su03-15/],
+  ['getValues', 'https://developers.google.com/apps-script/reference/spreadsheet/range#getValues()', 'getValues() — Apps Script', /^su03-15/],
+  ['setValues', 'https://developers.google.com/apps-script/reference/spreadsheet/range#setValues(Object)', 'setValues() — Apps Script', /^su03-15/],
+  ['GmailApp.sendEmail', 'https://developers.google.com/apps-script/reference/gmail/gmail-app#sendEmail(String,String,String)', 'GmailApp.sendEmail() — Apps Script', /^su03-15/],
+  ['UrlFetchApp.fetch', 'https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app#fetch(String)', 'UrlFetchApp.fetch() — Apps Script', /^su03-15/],
+  ['Logger.log', 'https://developers.google.com/apps-script/reference/base/logger#log(Object)', 'Logger.log() — Apps Script', /^su03-15/],
+  ['Number', 'https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/Number', 'Number() — riferimento JavaScript MDN', /^su03-15/],
+  ['String', 'https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String/String', 'String() — riferimento JavaScript MDN', /^su03-15/],
+  ['JSON.parse', 'https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse', 'JSON.parse() — riferimento JavaScript MDN', /^su03-15/],
+  ['forEach', 'https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach', 'Array.forEach() — riferimento JavaScript MDN', /^su03-15/],
+  ['map', 'https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map', 'Array.map() — riferimento JavaScript MDN', /^su03-15/],
+  ['Math.min', 'https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Math/min', 'Math.min() — riferimento JavaScript MDN', /^su03-15/],
+  ['InputBox', 'https://learn.microsoft.com/office/vba/language/reference/user-interface-help/inputbox-function', 'InputBox() — riferimento VBA', /^su03-14/],
+  ['Dir', 'https://learn.microsoft.com/office/vba/language/reference/user-interface-help/dir-function', 'Dir() — riferimento VBA', /^su03-14/],
+  ['Trim', 'https://learn.microsoft.com/office/vba/language/reference/user-interface-help/ltrim-rtrim-and-trim-functions', 'Trim() — riferimento VBA', /^su03-14/],
+  ['Date', 'https://learn.microsoft.com/office/vba/language/reference/user-interface-help/date-function', 'Date() — riferimento VBA', /^su03-14/]
 ].sort((a, b) => b[0].length - a[0].length);
 
 // Wikipedia is a secondary source: it never displaces an official one. At most
@@ -237,7 +331,7 @@ function sourceFooter(section, savedFooter = '') {
     const safeLabel = escapeHtml(label);
     return `<a data-source-origin="${origin}" href="${href}" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: ${safeLabel}" aria-label="Fonte ufficiale: ${safeLabel}" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: ${safeLabel} ↗</a>`;
   }).join('');
-  const footer = `<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;">${links}</div>`;
+  const footer = `<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;">${links}</div>`;
   return cleaned.replace(/<\/section>\s*$/i, `${footer}</section>`);
 }
 
@@ -297,8 +391,17 @@ function relevance(section, term) {
 // Give every source its single best slide, without overcrowding any one slide.
 function planDeck(sections, file) {
   const candidates = [];
+  const functionCandidates = [];
   sections.forEach((section, index) => {
     if (isStructural(section) || isAgenda(section)) return;
+    const callableText = visibleText(section);
+    for (const [term, url, label, scope] of FUNCTION_SOURCES) {
+      if (scope && !scope.test(file)) continue;
+      const call = new RegExp(`(?:^|[^\\wÀ-ÿ])(?:[\\wÀ-ÿ]+\\.)?${escapeRe(term)}\\s*\\(`, 'i');
+      if (call.test(callableText)) {
+        functionCandidates.push({ index, term, url, label, score: 4, wiki: false, callable: true });
+      }
+    }
     for (const [term, url, label, scope] of SOURCES) {
       if (scope && !scope.test(file)) continue;
       const score = relevance(section, term);
@@ -320,11 +423,26 @@ function planDeck(sections, file) {
     b.score - a.score || a.index - b.index || (a.wiki === b.wiki ? 0 : a.wiki ? 1 : -1));
 
   const plan = new Map();          // slide index -> assigned sources
-  const placed = new Set();        // url -> already somewhere in this deck
+  const placed = new Set();        // ordinary source URL or callable identity
+
+  // First occurrence wins for callable references. They do not consume the two
+  // editorial-source slots: a first program can legitimately introduce
+  // input(), int() and print() together.
+  functionCandidates
+    .sort((a, b) => a.index - b.index || b.term.length - a.term.length)
+    .forEach(c => {
+      const identity = `callable:${c.term.toLocaleLowerCase('it')}`;
+      if (placed.has(identity)) return;
+      const slot = plan.get(c.index) || [];
+      slot.push(c);
+      plan.set(c.index, slot);
+      placed.add(identity);
+    });
+
   for (const c of candidates) {
     if (placed.has(c.url)) continue;
     const slot = plan.get(c.index) || [];
-    const official = slot.filter(x => !x.wiki).length;
+    const official = slot.filter(x => !x.wiki && !x.callable).length;
     const wiki = slot.filter(x => x.wiki).length;
     if (c.wiki ? wiki >= WIKI_PER_SLIDE : official >= OFFICIAL_PER_SLIDE) continue;
     slot.push(c);
@@ -354,15 +472,26 @@ function annotateSection(section, assigned = [], used = null) {
     }
     if (blockedDepth || !token.trim()) continue;
 
+    const matches = [];
     for (let k = 0; k < pending.length; k++) {
-      const { term, url, label } = pending[k];
-      const re = new RegExp(`\\b(${escapeRe(term)})\\b`, 'i');
-      if (!re.test(tokens[i])) continue;
-      tokens[i] = tokens[i].replace(re, `$1${sourceLink(url, escapeHtml(label))}`);
-      if (used) used.set(url, label);
-      pending.splice(k, 1);
-      break;
+      const { term, url, label, callable } = pending[k];
+      const re = new RegExp(`\\b(${escapeRe(term)})\\b${callable ? '(?=\\s*\\()' : ''}`, 'i');
+      const match = re.exec(token);
+      if (match) matches.push({ k, at: match.index, length: match[0].length, term, url, label });
     }
+    // One code block is commonly a single text token and can introduce several
+    // functions. Insert from right to left so earlier character offsets remain
+    // valid, then remove the fulfilled entries from the pending list.
+    matches.sort((a, b) => b.at - a.at || b.length - a.length);
+    let rendered = token;
+    for (const match of matches) {
+      rendered = rendered.slice(0, match.at + match.length)
+        + sourceLink(match.url, escapeHtml(match.label))
+        + rendered.slice(match.at + match.length);
+      if (used) used.set(match.url, match.label);
+    }
+    tokens[i] = rendered;
+    matches.sort((a, b) => b.k - a.k).forEach(match => pending.splice(match.k, 1));
   }
   return sourceFooter(tokens.join(''));
 }
@@ -376,17 +505,22 @@ function closingList(section, used) {
   // an inherited colour would print dark text on a dark background. State the
   // light colour explicitly, and left-align: the closing centres its text, which
   // leaves a ragged list.
+  const sourceCount = used.size;
   const items = [...used.entries()].map(([href, label]) =>
     `<a href="${href}" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">${escapeHtml(label)} ↗</a>`
   ).join('');
-  const list = `<div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);">${items}</div></div>`;
+  const columns = sourceCount > 12 ? 3 : 2;
+  const fontSize = sourceCount > 12 ? 14 : sourceCount > 8 ? 16 : 18;
+  const list = `<div data-source-list="true" style="margin-top:${sourceCount > 12 ? 20 : 36}px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:${sourceCount > 12 ? 16 : 19}px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:10px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:repeat(${columns},1fr);gap:7px 30px;font-family:var(--font-mono,monospace);font-size:${fontSize}px;line-height:1.25;color:rgba(255,255,255,.92);">${items}</div></div>`;
   const closingAction = /<div\b[^>]*class="[^"]*\bclosing-actions\b[^"]*"[^>]*>/i;
   if (closingAction.test(stripped)) return stripped.replace(closingAction, `${list}$&`);
   return stripped.replace(/<\/section>\s*$/i, `${list}</section>`);
 }
 
+const requestedPrefixes = process.argv.slice(2);
 const files = fs.readdirSync(decksDir)
   .filter(name => /^[a-z]{2}\d{2}.*\.html$/.test(name))
+  .filter(name => !requestedPrefixes.length || requestedPrefixes.some(prefix => name.startsWith(prefix)))
   .sort();
 
 let filesChanged = 0;
