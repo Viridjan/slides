@@ -89,7 +89,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
     </div>
     <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">Analogia:</span> la RAM è il tavolo su cui lavori; il disco è l'armadio in cui riponi tutto.</div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: RAM — Wikipedia" aria-label="Fonte ufficiale: RAM — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: RAM — Wikipedia ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: RAM — Wikipedia" aria-label="Fonte ufficiale: RAM — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: RAM — Wikipedia ↗</a></div></section>
 
   <section class="slide tight-slide">
     <h2 class="h-sec reveal">Prima domanda: dove sto salvando?</h2>
@@ -101,7 +101,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
     </div>
     <div class="note reveal d3" style="margin-top:20px;"><div class="lbl">💡 Controllo rapido</div><p>Guarda sempre il percorso o il nome della cartella prima di confermare il salvataggio.</p></div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Documenti e specifiche USB — USB-IF" aria-label="Fonte ufficiale: Documenti e specifiche USB — USB-IF" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Documenti e specifiche USB — USB-IF ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Documenti e specifiche USB — USB-IF" aria-label="Fonte ufficiale: Documenti e specifiche USB — USB-IF" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Documenti e specifiche USB — USB-IF ↗</a></div></section>
 
   <section class="slide">
     <div class="split">
@@ -152,6 +152,24 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
+    <div class="col stack" style="justify-content:center;height:100%;">
+
+      <h2 class="h-big reveal">Più dischi, <em class="hot">scopi diversi</em></h2>
+      <p class="lead reveal d1" style="margin-bottom:6px;">Il <b>RAID</b> (Redundant Array of Independent Disks) combina più dischi in un unico insieme logico. A seconda del livello privilegia velocità, continuità di servizio oppure entrambe: non tutti i RAID tollerano un guasto.</p>
+      <div class="grid3 reveal d2">
+        <div class="card"><span class="ic">🏎️</span><h3>RAID 0</h3><p>Divide i dati su più dischi per velocità massima. Zero ridondanza: un solo disco guasto perde tutto.</p></div>
+        <div class="card gold"><span class="ic">🪞</span><h3>RAID 1</h3><p>Duplica gli stessi dati su due dischi in tempo reale (mirroring). Se uno si rompe, l'altro ha già tutto.</p></div>
+        <div class="card teal"><span class="ic">🧩</span><h3>RAID 5</h3><p>Distribuisce dati e parità su almeno 3 dischi: resta accessibile dopo il guasto di un disco, ma va ricostruito appena possibile.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:8px;">
+        <div class="lbl">⚠️ Non è un backup</div>
+        <p>Il RAID protegge dal guasto hardware di un disco, non da errori umani, virus o incendi: cancelli un file per sbaglio e sparisce da tutti i dischi del RAID insieme.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.ibm.com/docs/en/power6?topic=arrays-raid-level-summary" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Livelli RAID — documentazione IBM" aria-label="Fonte ufficiale: Livelli RAID — documentazione IBM" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Livelli RAID — documentazione IBM ↗</a></div></section>
+
+  <section class="slide">
     <div class="center">
 
       <h2 class="h-sec reveal">Bit, byte, KB, MB, GB, TB</h2>
@@ -166,7 +184,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <p class="body reveal d2" style="margin-top:16px;"><b>Attenzione:</b> i produttori dichiarano capacità in multipli decimali (1 TB = 1.000.000.000.000 byte). Il sistema operativo, che usa potenze di 2, mostra un valore leggermente inferiore (es. circa 931 GiB invece di 1 TB).</p>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.unicode.org/versions/latest/core-spec/chapter-2/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: UTF-8 — Unicode Standard" aria-label="Fonte ufficiale: UTF-8 — Unicode Standard" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: UTF-8 — Unicode Standard ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: ASCII — Wikipedia" aria-label="Fonte ufficiale: ASCII — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: ASCII — Wikipedia ↗</a><a data-source-origin="auto" href="https://www.unicode.org/versions/latest/core-spec/chapter-2/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: UTF-8 — Unicode Standard" aria-label="Fonte ufficiale: UTF-8 — Unicode Standard" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: UTF-8 — Unicode Standard ↗</a></div></section>
 
   <section class="slide">
     <div class="split">
@@ -198,7 +216,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/File_system" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: File system — Wikipedia" aria-label="Fonte ufficiale: File system — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: File system — Wikipedia ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/File_system" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: File system — Wikipedia" aria-label="Fonte ufficiale: File system — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: File system — Wikipedia ↗</a></div></section>
 
   <section class="slide">
     <div class="split even">
@@ -285,7 +303,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <div class="note reveal d2" style="margin-top:10px;"><div class="lbl">💡 Nota sul nome</div><p>Si scrive <b>Btrfs</b> (B-Tree FS), spesso pronunciato "butter FS". Non è "BRTFS" e non si legge lettera per lettera. Il nome deriva dalla struttura dati B-tree che usa internamente per indicizzare file e metadati.</p></div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Manuale utente iPhone — Apple" aria-label="Fonte ufficiale: Manuale utente iPhone — Apple" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Manuale utente iPhone — Apple ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Manuale utente iPhone — Apple" aria-label="Fonte ufficiale: Manuale utente iPhone — Apple" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Manuale utente iPhone — Apple ↗</a></div></section>
 
   <section class="slide">
     <div class="split">
@@ -380,7 +398,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a href="hs03-os.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → M12 · Sistemi Operativi</a>
       </div>
-    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">RAM — Wikipedia ↗</a><a href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Documenti e specifiche USB — USB-IF ↗</a><a href="https://www.unicode.org/versions/latest/core-spec/chapter-2/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">UTF-8 — Unicode Standard ↗</a><a href="https://it.wikipedia.org/wiki/File_system" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">File system — Wikipedia ↗</a><a href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Manuale utente iPhone — Apple ↗</a></div></div><div class="page-num"></div></section>
+    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div class="page-num"></div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:10px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:7px 30px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.25;color:rgba(255,255,255,.92);"><a href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">RAM — Wikipedia ↗</a><a href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Documenti e specifiche USB — USB-IF ↗</a><a href="https://www.ibm.com/docs/en/power6?topic=arrays-raid-level-summary" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Livelli RAID — documentazione IBM ↗</a><a href="https://www.unicode.org/versions/latest/core-spec/chapter-2/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">UTF-8 — Unicode Standard ↗</a><a href="https://it.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">ASCII — Wikipedia ↗</a><a href="https://it.wikipedia.org/wiki/File_system" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">File system — Wikipedia ↗</a><a href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Manuale utente iPhone — Apple ↗</a></div></div></section>
 
 </main>
 </div>

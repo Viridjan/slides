@@ -63,6 +63,14 @@ em.hot{font-style:italic;color:var(--red);}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:24px;}
+.cmp th{font-family:var(--font-display);font-weight:900;font-size:32px;text-align:left;padding:16px 24px;color:var(--paper);}
+.cmp th.lan{background:var(--sky);border-radius:12px 0 0 0;}
+.cmp th.wan{background:var(--gold-deep);border-radius:0 12px 0 0;}
+.cmp th:first-child{background:var(--ink);}
+.cmp td{padding:13px 24px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.32;}
+.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2);}
+.cmp tr:last-child td{border-bottom:none;}
 .stack>*+*{margin-top:22px;}
 .tight-slide .h-big{font-size:78px;}
 .tight-slide .h-sec{font-size:64px;}
@@ -251,7 +259,38 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" aria-label="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Wi-Fi — Wi-Fi Alliance ↗</a></div></section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" aria-label="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Wi-Fi — Wi-Fi Alliance ↗</a></div></section>
+
+<!-- === SLIDE: TOPOLOGIE DI RETE === -->
+<section class="slide tight-slide">
+  <div class="center">
+
+    <h2 class="h-sec reveal" style="margin-top:20px;">Come sono <em class="hot">disposti</em> i nodi</h2>
+    <p class="lead reveal d1">Oltre a quanto è estesa, una rete si distingue per la <b>topologia</b>: come i nodi e i collegamenti sono organizzati fisicamente o logicamente.</p>
+    <div class="grid3 reveal d2" style="margin-top:22px;">
+      <div class="card" style="border-color:var(--sky);">
+        <span class="ic">➖</span>
+        <h3>Bus</h3>
+        <p>Tutti i dispositivi condividono un unico cavo centrale. Economica, ma se il cavo si rompe cade l'intera rete.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold-deep);">
+        <span class="ic">⭕</span>
+        <h3>Anello</h3>
+        <p>Ogni nodo è collegato ai due vicini, formando un percorso chiuso. In un anello semplice, un guasto può interrompere la comunicazione.</p>
+      </div>
+      <div class="card" style="border-color:#7a4db5;">
+        <span class="ic">⭐</span>
+        <h3>Stella</h3>
+        <p>Tutti i nodi si collegano a un centro (router o switch). Se un cavo si rompe, solo quel nodo si scollega: è la topologia più usata oggi.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:20px;">
+      <div class="lbl">💡 A casa e in ufficio</div>
+      <p>Una LAN Ethernet con uno switch centrale è una stella fisica. In una WLAN in modalità infrastruttura i dispositivi comunicano tramite un access point: il comportamento è simile a una stella, anche se il mezzo radio è condiviso.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
 
 <!-- === SLIDE 5: COME SI CONNETTONO I DISPOSITIVI === -->
 <section class="slide tight-slide">
@@ -383,7 +422,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Domain Name System — ICANN" aria-label="Fonte ufficiale: Domain Name System — ICANN" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Domain Name System — ICANN ↗</a></div></section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Domain Name System — ICANN" aria-label="Fonte ufficiale: Domain Name System — ICANN" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Domain Name System — ICANN ↗</a></div></section>
 
 <!-- === SLIDE 8: COME FUNZIONA UNA RICHIESTA WEB === -->
 <section class="slide tight-slide">
@@ -428,7 +467,28 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     </div>
   </div>
   <div class="page-num"></div>
-<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Indirizzo_IP" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Indirizzo IP — Wikipedia" aria-label="Fonte ufficiale: Indirizzo IP — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Indirizzo IP — Wikipedia ↗</a></div></section>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Indirizzo_IP" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Indirizzo IP — Wikipedia" aria-label="Fonte ufficiale: Indirizzo IP — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Indirizzo IP — Wikipedia ↗</a></div></section>
+
+<!-- === SLIDE: A LIVELLI === -->
+<section class="slide tight-slide">
+  <div class="center">
+
+    <h2 class="h-sec reveal" style="margin-top:20px;">Una richiesta Web, <em class="hot">a livelli</em></h2>
+    <p class="lead reveal d1">Le comunicazioni vengono descritte a <b>livelli</b>, ciascuno con responsabilità proprie. OSI è un modello concettuale a sette livelli; la suite Internet segue un'architettura distinta, normalmente riassunta nel modello TCP/IP a quattro livelli.</p>
+    <table class="cmp reveal d2" style="margin-top:20px;">
+      <tr><th>Livello TCP/IP</th><th class="lan">Esempi</th><th class="wan">Responsabilità</th></tr>
+      <tr><td>Applicazione</td><td>HTTP, DNS, SMTP</td><td>Servizi usati dai programmi: Web, nomi di dominio, posta</td></tr>
+      <tr><td>Trasporto</td><td>TCP, UDP</td><td>Comunicazione tra applicazioni; TCP offre un flusso affidabile e ordinato, UDP datagrammi senza connessione</td></tr>
+      <tr><td>Internet</td><td>IP</td><td>Indirizzamento e inoltro dei datagrammi tra reti, senza garanzia di consegna</td></tr>
+      <tr><td>Accesso alla rete</td><td>Ethernet, Wi-Fi</td><td>Consegna sul collegamento locale e trasmissione sul mezzo fisico o radio</td></tr>
+    </table>
+    <div class="note reveal d3" style="margin-top:16px;">
+      <div class="lbl">💡 Perché a strati</div>
+      <p>Ogni livello offre servizi a quello superiore e nasconde molti dettagli interni. Per questo un'applicazione può continuare a usare HTTP passando da Ethernet a Wi-Fi, senza riscrivere il protocollo Web.</p>
+    </div>
+  </div>
+  <div class="page-num"></div>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc1122.html" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Internet Protocol Suite — RFC 1122" aria-label="Fonte ufficiale: Internet Protocol Suite — RFC 1122" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Internet Protocol Suite — RFC 1122 ↗</a></div></section>
 
 <!-- === SLIDE 9: CLIENT E SERVER === -->
 <section class="slide">
@@ -549,7 +609,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
       <a class="chip" href="rw01-02-navigazione.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → M2 · Navigazione e URL</a>
     </div>
-  </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Wi-Fi — Wi-Fi Alliance ↗</a><a href="https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Domain Name System — ICANN ↗</a><a href="https://it.wikipedia.org/wiki/Indirizzo_IP" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Indirizzo IP — Wikipedia ↗</a></div></div><div class="page-num"></div></section>
+  </div></div><div class="deck-author">Francesco Antonio Binetti</div><div class="page-num"></div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:10px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:7px 30px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.25;color:rgba(255,255,255,.92);"><a href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Wi-Fi — Wi-Fi Alliance ↗</a><a href="https://www.icann.org/resources/pages/about-domain-names-2018-08-30-en" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Domain Name System — ICANN ↗</a><a href="https://it.wikipedia.org/wiki/Indirizzo_IP" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Indirizzo IP — Wikipedia ↗</a><a href="https://www.rfc-editor.org/rfc/rfc1122.html" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Internet Protocol Suite — RFC 1122 ↗</a></div></div></section>
 
 </main>
 </div>
