@@ -1,0 +1,319 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smartphones · SM03 — Android e iOS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg)}.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg)}.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);font-family:var(--font-body);color:var(--ink);padding:96px 110px}.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30}@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px}.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint)}.page-num b{color:var(--red);font-size:30px}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}.slide.visible .reveal{opacity:1;transform:none}.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase}.tape.teal{background:var(--teal)}.tape.gold{background:var(--gold-deep)}.tape.sky{background:var(--sky)}.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red)}.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px}.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px}.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px}em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var(--sky)}.lead{font-size:32px;line-height:1.42;color:var(--ink-soft);max-width:1120px}.body{font-size:27px;line-height:1.46;color:var(--ink-soft)}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.title-right>div,.title-right>svg{position:relative;z-index:2;}.phone-art{width:330px;height:620px;border:8px solid var(--ink);border-radius:48px;background:#fbf5ec;box-shadow:16px 18px 0 rgba(0,0,0,.18);display:grid;place-items:center;position:relative}.phone-art::before{content:"";position:absolute;top:18px;width:88px;height:10px;border-radius:99px;background:var(--ink)}.phone-art::after{content:"";position:absolute;bottom:22px;width:72px;height:72px;border:5px solid var(--ink);border-radius:50%;opacity:.18}
+.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative}.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .card{padding:20px 24px}.tight-slide .card h3{font-size:30px}.tight-slide .card p,.tight-slide .card li{font-size:21px;line-height:1.28}
+.title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+</style>
+<link rel="stylesheet" href="../theme-corsi.css">
+</head>
+<body class="course-sm">
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <h1 class="h-mega reveal">Android e iOS</h1>
+      <p class="lead reveal" style="margin-top:30px;">Due sistemi che si dividono il mondo degli smartphone: come funzionano, come si aggiornano e come scegliere quello giusto.</p>
+
+    </div>
+    <div class="title-right"><div class="phone-art reveal"></div></div>
+  <div class="deck-author">Francesco Antonio Binetti</div></section>
+
+
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Il sistema operativo mobile</h2>
+        <p class="lead reveal d1">È il software che fa da ponte tra l'hardware del telefono e le app che usi ogni giorno: tu vedi icone e schermate, sotto lavora un sistema complesso.</p>
+        <div class="note reveal d2"><div class="lbl">Un computer in tasca</div><p>Come Windows su un PC, anche qui ci sono kernel, driver e servizi in esecuzione. Ma tutto è ripensato per il touch, per una batteria limitata e per una connessione sempre attiva.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">⚙️</span>
+        <h3>Che cosa gestisce per te</h3>
+        <ul><li>I <b>permessi</b>: decide quali app possono usare fotocamera, microfono e posizione.</li><li>Le <b>notifiche</b>: raccoglie e mostra gli avvisi di tutte le app in un unico posto.</li><li>Le <b>risorse</b>: distribuisce memoria e batteria, mettendo in pausa le app in background.</li><li>La <b>sicurezza</b>: isola le app tra loro, così una non può leggere i dati dell'altra.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Sistema_operativo" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Sistema operativo — Wikipedia" aria-label="Fonte ufficiale: Sistema operativo — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Sistema operativo — Wikipedia ↗</a></div></section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Architettura e varianti Android</h2>
+        <p class="lead reveal d1">Android usa il kernel Linux e una base open source, AOSP; produttori diversi distribuiscono versioni adattate ai propri dispositivi.</p>
+        <div class="note reveal d2"><div class="lbl">Le versioni personalizzate</div><p>Android "stock" è la versione pura di Google (sui Pixel). Samsung, Xiaomi e Motorola aggiungono layer propri come One UI e MIUI: cambiano menu e app preinstallate, e possono ritardare gli aggiornamenti.</p></div>
+      </div>
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 280 280" style="max-width:260px;margin:0 auto;" role="img" aria-label="Tre smartphone di marche diverse, quello centrale con il robot di Android sullo schermo">
+          <ellipse cx="140" cy="240" rx="104" ry="12" fill="#163b35" opacity=".14"/>
+          <!-- telefoni laterali: marche e fasce di prezzo diverse -->
+          <rect x="26" y="92" width="60" height="140" rx="10" fill="#3f7e8c" stroke="#1c1714" stroke-width="4"/>
+          <rect x="34" y="104" width="44" height="104" rx="5" fill="#f4ece0"/>
+          <circle cx="56" cy="220" r="4" fill="#f4ece0"/>
+          <rect x="194" y="78" width="60" height="154" rx="10" fill="#e6c14a" stroke="#1c1714" stroke-width="4"/>
+          <rect x="202" y="90" width="44" height="118" rx="5" fill="#f4ece0"/>
+          <circle cx="224" cy="220" r="4" fill="#1c1714"/>
+          <!-- telefono centrale -->
+          <rect x="102" y="48" width="76" height="184" rx="12" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
+          <rect x="112" y="64" width="56" height="140" rx="6" fill="#f4ece0"/>
+          <!-- robot stilizzato -->
+          <line x1="126" y1="114" x2="119" y2="101" stroke="#e6533b" stroke-width="4" stroke-linecap="round"/>
+          <line x1="154" y1="114" x2="161" y2="101" stroke="#e6533b" stroke-width="4" stroke-linecap="round"/>
+          <path d="M118 132 a22 22 0 0 1 44 0 Z" fill="#e6533b"/>
+          <circle cx="131" cy="124" r="3.5" fill="#f4ece0"/>
+          <circle cx="149" cy="124" r="3.5" fill="#f4ece0"/>
+          <rect x="121" y="138" width="38" height="30" rx="7" fill="#e6533b"/>
+          <circle cx="140" cy="218" r="6" fill="#f4ece0"/>
+        </svg>
+        <div class="illu-cap">Un sistema, tanti produttori e prezzi</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a></div></section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">iOS</h2>
+        <p class="lead reveal d1">Esiste solo sugli iPhone: una sola azienda, Apple, decide hardware, software e regole dello store.</p>
+        <div class="note reveal d2"><div class="lbl">Ciclo di supporto</div><p>Apple aggiorna gli iPhone per 5–7 anni: iOS 18 gira ancora su iPhone XS del 2018. Un vantaggio concreto per chi vuole sicurezza a lungo termine senza cambiare telefono spesso.</p></div>
+      </div>
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 280 280" style="max-width:260px;margin:0 auto;" role="img" aria-label="Un solo smartphone con la mela sullo schermo, protetto da uno scudo con spunta e racchiuso in un anello chiuso">
+          <!-- anello: l'ecosistema chiuso -->
+          <circle cx="140" cy="140" r="122" fill="none" stroke="#3f7e8c" stroke-width="3" stroke-dasharray="11 10"/>
+          <ellipse cx="140" cy="236" rx="78" ry="10" fill="#163b35" opacity=".14"/>
+          <!-- un unico telefono -->
+          <rect x="98" y="44" width="84" height="188" rx="14" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
+          <rect x="108" y="60" width="64" height="146" rx="7" fill="#f4ece0"/>
+          <!-- mela stilizzata -->
+          <path d="M140 108 q2 -15 15 -19 q0 15 -15 19" fill="#163b35"/>
+          <circle cx="140" cy="134" r="26" fill="#e6533b"/>
+          <circle cx="164" cy="124" r="10" fill="#f4ece0"/>
+          <circle cx="140" cy="220" r="6" fill="#f4ece0"/>
+          <!-- scudo: aggiornamenti garantiti -->
+          <path d="M196 166 l30 10 v26 q0 20 -30 30 q-30 -10 -30 -30 v-26 Z" fill="#e6c14a" stroke="#1c1714" stroke-width="4"/>
+          <path d="M184 200 l9 9 l18 -20" fill="none" stroke="#1c1714" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="illu-cap">Un solo produttore, aggiornamenti per anni</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Manuale utente iPhone — Apple" aria-label="Fonte ufficiale: Manuale utente iPhone — Apple" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Manuale utente iPhone — Apple ↗</a></div></section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:20px;">Confronto operativo tra Android e iOS</h2>
+      <div class="grid2 reveal d1" style="margin-top:30px;">
+        <div class="card">
+          <h3>Android: distribuzione e controllo</h3>
+          <ul><li>Tanti produttori, prezzi per ogni tasca</li><li>Massima personalizzazione dell'interfaccia</li><li>Aggiornamenti variabili: dipendono da marca e modello</li><li>Play Store aperto + possibilità di sideloading</li><li>Legato all'account e ai servizi Google</li></ul>
+        </div>
+        <div class="card">
+          <span class="ic">🍎</span>
+          <h3>iOS</h3>
+          <ul><li>Solo iPhone, fascia di prezzo medio-alta</li><li>Esperienza uniforme, poca personalizzazione</li><li>Aggiornamenti immediati per 5–7 anni su tutti i modelli</li><li>App Store come unico canale, controlli più severi</li><li>Legato all'Apple ID e all'ecosistema Apple</li></ul>
+        </div>
+      </div>
+      <div class="note reveal d2" style="margin-top:26px;"><div class="lbl">Nessun vincitore assoluto</div><p>Sono due filosofie: libertà e varietà contro coerenza e controllo. La scelta giusta dipende da budget, abitudini e dispositivi che hai già.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:20px;">Account Google e Apple ID</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Tutto il telefono ruota attorno a un account: senza, niente store, niente backup, niente sincronizzazione.</p>
+      <div class="grid2 reveal d2" style="margin-top:26px;gap:58px;">
+        <div>
+          <h3 style="font-family:var(--font-display);font-weight:900;font-size:33px;margin-bottom:4px;">Account Google su Android</h3>
+          <div class="stack" style="margin-top:0;">
+            <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🛍️</span><div><b style="font-size:27px;">Store e servizi</b><br><span style="font-size:23px;color:var(--ink-faint);">Apre le porte a Play Store, Gmail, Drive e Google Foto</span></div></div>
+            <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🔄</span><div><b style="font-size:27px;">Sincronizzazione</b><br><span style="font-size:23px;color:var(--ink-faint);">Sincronizza contatti, calendario e password tra dispositivi</span></div></div>
+            <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">💾</span><div><b style="font-size:27px;">Backup</b><br><span style="font-size:23px;color:var(--ink-faint);">Attiva il backup automatico del telefono</span></div></div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family:var(--font-display);font-weight:900;font-size:33px;margin-bottom:4px;">🔑 Apple ID (iOS)</h3>
+          <div class="stack" style="margin-top:0;">
+            <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🛒</span><div><b style="font-size:27px;">Store e acquisti</b><br><span style="font-size:23px;color:var(--ink-faint);">Collega App Store, iCloud e i tuoi acquisti</span></div></div>
+            <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📍</span><div><b style="font-size:27px;">Dov'è</b><br><span style="font-size:23px;color:var(--ink-faint);">Attiva "Dov'è" per ritrovare un telefono perso o rubato</span></div></div>
+            <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🔗</span><div><b style="font-size:27px;">Un'unica identità</b><br><span style="font-size:23px;color:var(--ink-faint);">Unisce iPhone, iPad e Mac sotto la stessa identità</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="note reveal d3" style="margin-top:26px;"><div class="lbl">Proteggilo come una cassaforte</div><p>Password unica e verifica in due passaggi, sempre. Perdere l'accesso all'account significa perdere backup, acquisti e in certi casi l'uso stesso del telefono.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Gli store ufficiali</h2>
+        <p class="lead reveal d1">Play Store su Android, App Store su iPhone: i canali sicuri per scaricare app, gestiti direttamente da Google e Apple.</p>
+        <div class="note reveal d2"><div class="lbl">Controlli, non garanzie</div><p>Ogni app pubblicata viene revisionata e i malware evidenti vengono rimossi, ma il rischio zero non esiste. L'App Store ha controlli più severi e uniformi; il Play Store è più aperto, ma anche più vasto.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🛍️</span>
+        <h3>Prima di installare, controlla</h3>
+        <ul><li>Lo <b>sviluppatore</b>: è quello ufficiale del servizio, o un nome sconosciuto?</li><li>I <b>numeri</b>: quanti download ha, e cosa dicono le recensioni recenti?</li><li>I <b>permessi</b> richiesti: una torcia che vuole i tuoi contatti è un segnale d'allarme.</li><li>Diffida di cloni, app "miracolose" e versioni gratis di servizi normalmente a pagamento.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Il sideloading</h2>
+        <p class="lead reveal d1">Installare app saltando lo store ufficiale: su Android si può, su iOS quasi mai. Utile in casi rari, pericoloso se fatto alla leggera.</p>
+        <div class="note reveal d2"><div class="lbl">Se proprio devi</div><p>Scarica solo dal sito ufficiale del progetto o da store alternativi affidabili come F-Droid (app open source), e verifica l'hash SHA256 del file quando è pubblicato. Mai da siti trovati cercando "app gratis".</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">⚠️</span>
+        <h3>Come funziona, e perché è rischioso</h3>
+        <ul><li>Su Android si abilitano le "Fonti sconosciute" per installare file APK esterni al Play Store.</li><li>Su iOS è riservato a sviluppatori e programmi aziendali: l'utente comune non lo incontra.</li><li>Un APK scaricato da un sito qualsiasi può essere malware travestito da app legittima: nessuno lo ha controllato prima di te.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:20px;">Aggiornamenti: sistema e app</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Ogni aggiornamento chiude falle di sicurezza già note ai criminali: rimandarlo per settimane significa restare esposti a rischi documentati.</p>
+      <div class="grid3 reveal d2" style="margin-top:30px;">
+        <div class="card">
+          <span class="ic">🛡️</span>
+          <h3>Di sistema</h3>
+          <p>Correggono vulnerabilità sfruttate attivamente. Su iPhone arrivano diretti da Apple; su Android passano prima dal produttore, a volte anche dall'operatore.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🔄</span>
+          <h3>Delle app</h3>
+          <p>Viaggiano separatamente da quelli di sistema, tramite lo store. Attiva gli aggiornamenti automatici su Wi-Fi e non dovrai più pensarci.</p>
+        </div>
+        <div class="card">
+          <span class="ic">⏳</span>
+          <h3>Fine del supporto</h3>
+          <p>Un telefono che non riceve più patch accumula falle aperte. Vale anche per le app abbandonate da anni: meglio sostituirle con alternative attive.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" aria-label="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Wi-Fi — Wi-Fi Alliance ↗</a></div></section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:20px;">I due ecosistemi</h2>
+      <div class="grid2 reveal d1" style="margin-top:30px;">
+        <div class="card">
+          <span class="ic">🔗</span>
+          <h3>Il mondo Apple</h3>
+          <ul><li>iPhone + Mac + iPad + Watch + AirPods</li><li>AirDrop, Continuity e iCloud fanno dialogare tutto senza sforzo</li><li>Comodissimo, ma costoso e poco aperto verso dispositivi di altre marche</li></ul>
+        </div>
+        <div class="card">
+          <span class="ic">🌐</span>
+          <h3>Il mondo Google</h3>
+          <ul><li>Android + Gmail + Drive + Foto + Calendar + Chrome</li><li>Funziona ovunque: PC Windows, Chromebook, perfino dal browser</li><li>Più aperto e meno costoso, ma condividi più dati con Google</li></ul>
+        </div>
+      </div>
+      <div class="note reveal d2" style="margin-top:26px;"><div class="lbl">Il vero criterio</div><p>Entrambi i telefoni funzionano benissimo da soli: la differenza emerge se possiedi già altri dispositivi dello stesso marchio. E la comodità dell'ecosistema va sempre bilanciata con la gestione dei tuoi dati personali.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:20px;">Il launcher si può cambiare</h2>
+      <div class="grid2 reveal d1" style="margin-top:30px;">
+        <div class="card"><span class="ic">🏠</span><h3>Cos'è il launcher</h3><ul><li>È la schermata principale: icone, griglia, cassetto delle app</li><li>Su Android è un'app come le altre: si sostituisce dallo store</li><li>Su iOS non si cambia: si personalizzano widget e schermate</li></ul></div>
+        <div class="card"><span class="ic">🔄</span><h3>Perché cambiarlo</h3><ul><li>Il telefono si adatta a te, non il contrario</li><li>Un launcher semplificato: icone grandi e poche voci per chi è alle prime armi</li><li>Un launcher minimale: niente distrazioni per chi vuole concentrarsi</li></ul></div>
+      </div>
+      <div class="analogy reveal d2" style="margin-top:24px;"><span class="big">Analogia:</span> il launcher è l'arredamento di casa: le stanze restano quelle, ma decidi tu dove stanno le cose.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:20px;">Personalizzare l'esperienza</h2>
+      <div class="grid3 reveal d1" style="margin-top:30px;">
+        <div class="card"><span class="ic">👵</span><h3>Per chi inizia</h3><ul><li>Launcher semplificati con icone enormi e contatti in vista</li><li>Meno scelte sullo schermo, meno modi di perdersi</li></ul></div>
+        <div class="card"><span class="ic">🧘</span><h3>Per il focus</h3><ul><li>Launcher minimali: solo testo, niente icone colorate che chiamano</li><li>Aiutano a ridurre il tempo di schermo (ne parla SM09)</li></ul></div>
+        <div class="card"><span class="ic">⚙️</span><h3>Per tutti</h3><ul><li>Griglia, dimensione icone e gesti si regolano anche nel launcher di serie</li><li>Prova le impostazioni della schermata Home prima di installare altro</li></ul></div>
+      </div>
+      <div class="note reveal d2" style="margin-top:24px;"><div class="lbl">💡 Consiglio</div><p>Cambiare launcher non tocca app e dati: se non ti trovi, lo disinstalli e torna tutto come prima.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Backup e quale scegliere</h2>
+        <p class="lead reveal d1">Il backup salva ciò che conta prima di un cambio telefono o di un ripristino. E per il prossimo acquisto c'è una domanda che vale più di tutte le altre.</p>
+        <div class="note reveal d2"><div class="lbl">La domanda chiave</div><p>Quanti anni di aggiornamenti di sicurezza garantisce quel modello? Conta più della fotocamera o dello schermo: decide per quanto tempo il telefono resterà sicuro da usare.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">💾</span>
+        <h3>Che cosa viene salvato</h3>
+        <ul><li><b>Backup su Android</b>: il servizio Google copre impostazioni, SMS e dati delle app compatibili; le foto richiedono la sincronizzazione di Google Foto.</li><li><b>Backup su iOS</b>: iCloud salva app, impostazioni, messaggi e foto, entro lo spazio disponibile.</li><li>Su entrambi: controlla la data dell'ultimo backup <em class="hot">prima</em> di ogni cambio o reset, non dopo.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+
+
+  <section class="slide closing"><div class="closing-inner"><div class="center" style="align-items:center;text-align:center;">
+      <h2 class="h-mega reveal" style="margin-top:10px;">Android e iOS<br>in pratica.</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Android e iOS: differenze di ecosistema, aggiornamenti, personalizzazione, sicurezza e come scegliere il sistema operativo giusto.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="sm04-app-permessi.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → SM04 · App e permessi</a>
+      </div>
+    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://it.wikipedia.org/wiki/Sistema_operativo" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Sistema operativo — Wikipedia ↗</a><a href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Android ↗</a><a href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Manuale utente iPhone — Apple ↗</a><a href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Wi-Fi — Wi-Fi Alliance ↗</a></div></div><div class="page-num"></div></section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
+
+<script src="../deck.js"></script>
+</body>
+</html>

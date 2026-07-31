@@ -128,9 +128,9 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
 .module-grid.cols2,.module-grid.cols3{grid-template-columns:1fr;}
 
 .module-card{
-  display:grid;grid-template-columns:220px 1fr;grid-template-areas:"num title" "num desc";align-items:center;gap:2px 28px;
-  min-height:100px;background:transparent;border:0;border-radius:10px;
-  padding:14px 420px 14px 0;text-decoration:none;color:var(--paper);
+  display:grid;grid-template-columns:220px 1fr;grid-template-areas:"num title";align-items:center;gap:2px 28px;
+  min-height:72px;background:transparent;border:0;border-radius:10px;
+  padding:8px 420px 8px 0;text-decoration:none;color:var(--paper);
   transition:background .2s ease, border-color .2s ease;
   cursor:default;position:relative;overflow:visible;
 }
@@ -155,20 +155,16 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
 .module-card.pre .card-tag{color:rgba(63,126,140,.8);}
 .module-card.sec .card-tag{color:rgba(230,83,59,.7);}
 .card-title{grid-area:title;position:relative;z-index:2;font-family:var(--font-display);font-weight:900;font-size:24px;line-height:1.1;margin-bottom:2px;align-self:end;cursor:pointer;}
-.card-difficulty{position:absolute;right:224px;top:13px;height:24px;width:auto;min-height:0;display:inline-flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;font-family:var(--font-mono);font-size:12px;line-height:1;padding:0 10px;border:1px solid rgba(216,201,180,.22);border-radius:999px;color:var(--gold);background:rgba(230,193,74,.08);letter-spacing:1px;white-space:nowrap;z-index:2;}
 .index-control-box{width:88px;min-height:29px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:8px 7px;border:1px solid rgba(63,126,140,.32);border-radius:7px;background:linear-gradient(135deg,rgba(63,126,140,.10),rgba(230,83,59,.08));color:rgba(244,236,224,.78);font-family:var(--font-mono);font-size:12px;line-height:1;letter-spacing:.3px;text-align:center;white-space:nowrap;cursor:pointer;transition:background .15s,color .15s,border-color .15s;}
 .index-control-box:hover,.index-control-box:focus-visible,.index-control-box[aria-expanded="true"]{color:var(--paper);border-color:rgba(63,126,140,.62);background:linear-gradient(135deg,rgba(63,126,140,.20),rgba(230,83,59,.14));outline:none;}
-.stats-badge{position:absolute;right:24px;top:calc(50% - 30px);width:44px;height:68px;min-height:0;flex-direction:column;gap:4px;padding:8px 4px;z-index:3;}
+.stats-badge{position:absolute;right:112px;top:calc(50% - 30px);width:44px;height:68px;min-height:0;flex-direction:column;gap:4px;padding:8px 4px;z-index:3;}
 .stats-badge .summary{color:rgba(244,236,224,.9);font-size:16px;font-weight:700;}
 .stats-badge .chev{display:inline-block;color:var(--sky);transition:transform .16s ease;transform:rotate(90deg);}
 .stats-badge[aria-expanded="true"] .chev{transform:rotate(-90deg);}
-.last-modified{position:absolute;right:80px;top:calc(50% - 30px);width:88px;min-height:29px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:0;border:0;background:transparent;color:rgba(244,236,224,.46);font:15px/1 var(--font-mono);letter-spacing:-.8px;text-align:center;white-space:nowrap;z-index:2;}
+.last-modified{position:absolute;left:auto;right:188px;top:auto;bottom:7px;width:auto;min-height:16px;box-sizing:border-box;display:flex;align-items:center;justify-content:flex-end;padding:0;border:0;background:transparent;color:rgba(244,236,224,.46);font:13px/1 var(--font-mono);letter-spacing:-.4px;text-align:right;white-space:nowrap;z-index:2;pointer-events:none!important;}
 .control-rail{position:absolute;right:0;top:0;bottom:0;width:232px;pointer-events:none;z-index:1;}
-/* Inert full-card overlay holding the TXT/exercise/stats/date controls: each
-   child re-enables pointer-events and positions itself absolutely (right:Npx)
-   exactly as before this wrapper existed, so on desktop nothing changes. It
-   exists so the mobile breakpoint has one element to switch from an absolute
-   overlay to a wrapped flex row, instead of four independent card children. */
+/* Inert full-card overlay for utility controls and the date. Interactive
+   children re-enable pointer events; the date remains inert in the card panel. */
 .control-row{position:absolute;inset:0;pointer-events:none;}
 .control-row>*{pointer-events:auto;}
 .stats-panel{position:fixed;left:18px;width:248px;padding:7px 11px 11px;border:1px solid rgba(63,126,140,.42);border-radius:9px;background:rgba(22,18,16,.97);box-shadow:0 18px 50px rgba(0,0,0,.45);color:var(--paper);font-family:var(--font-mono);z-index:100;opacity:0;visibility:hidden;transform:translateY(-5px);transition:opacity .16s ease,transform .16s ease,visibility .16s;}
@@ -185,7 +181,7 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
 .stats-row::after{content:attr(data-tip);position:absolute;right:calc(100% + 11px);top:50%;width:285px;padding:9px 11px;border:1px solid rgba(216,201,180,.28);border-radius:7px;background:#0e0c0b;color:rgba(244,236,224,.9);font:12px/1.4 var(--font-body);letter-spacing:0;box-shadow:0 12px 34px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:translate(5px,-50%);transition:opacity .12s ease,transform .12s ease;pointer-events:none;white-space:pre-line;}
 .stats-row:hover::after,.stats-row:focus-visible::after{opacity:1;visibility:visible;transform:translate(0,-50%);}
 @media(max-width:760px){.stats-panel{width:230px}.stats-row::after{position:fixed;left:8px;right:8px;top:auto;bottom:8px;width:auto;transform:translateY(5px)}.stats-row:hover::after,.stats-row:focus-visible::after{transform:none}}
-.card-desc{grid-area:desc;position:relative;z-index:2;font-size:15px;color:rgba(244,236,224,.5);line-height:1.3;align-self:start;cursor:pointer;}
+.card-desc{display:none;}
 /* Topics inline */
 .card-topics{display:none;}
 .topic{display:none;}
@@ -199,12 +195,9 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
 .footer-graphlink{font-family:var(--font-mono);font-size:14px;color:rgba(244,236,224,.4);letter-spacing:.5px;text-decoration:none;border-bottom:1px solid rgba(244,236,224,.18);transition:color .18s,border-color .18s;}
 .footer-graphlink:hover{color:var(--gold);border-color:var(--gold);}
 
-/* Download button */
-.dl-btn{position:absolute;right:80px;top:calc(50% + 8px);z-index:2;}
-.dl-btn:hover{background:rgba(244,236,224,.18);color:var(--paper);border-color:rgba(216,201,180,.5);}
-.exercise-btn{position:absolute;right:318px;top:13px;height:24px;min-height:0;width:88px;padding:0 7px;z-index:3;color:var(--gold);border-color:rgba(230,193,74,.38);background:rgba(230,193,74,.08);}
+.exercise-btn{position:absolute;right:220px;top:8px;height:24px;min-height:0;width:88px;padding:0 7px;z-index:3;color:var(--gold);border-color:rgba(230,193,74,.38);background:rgba(230,193,74,.08);}
 .exercise-btn:hover,.exercise-btn:focus-visible,.exercise-btn[aria-expanded="true"]{color:var(--paper);border-color:rgba(230,193,74,.68);background:rgba(230,193,74,.18);}
-.agenda-btn{position:absolute;right:188px;top:13px;width:24px;height:24px;min-height:0;padding:0;z-index:3;color:var(--sky);border-color:rgba(63,126,140,.38);background:rgba(63,126,140,.08);}
+.agenda-btn{position:absolute;right:188px;top:8px;width:24px;height:24px;min-height:0;padding:0;z-index:3;color:var(--sky);border-color:rgba(63,126,140,.38);background:rgba(63,126,140,.08);}
 .agenda-btn:hover,.agenda-btn:focus-visible,.agenda-btn[aria-expanded="true"]{color:var(--paper);border-color:rgba(63,126,140,.68);background:rgba(63,126,140,.18);}
 .exercise-panel{position:fixed;width:340px;max-height:360px;overflow:auto;padding:11px;border:1px solid rgba(230,193,74,.42);border-radius:9px;background:rgba(22,18,16,.98);box-shadow:0 18px 50px rgba(0,0,0,.48);z-index:110;opacity:0;visibility:hidden;transform:translateY(-5px);transition:opacity .16s ease,transform .16s ease,visibility .16s;}
 .exercise-panel.open{opacity:1;visibility:visible;transform:none;}
@@ -219,8 +212,8 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
 .agenda-tooltip-list{display:grid;gap:7px;}
 .agenda-tooltip-item{padding:8px 10px;border-left:3px solid var(--sky);border-radius:5px;background:rgba(244,236,224,.055);color:rgba(244,236,224,.74);font:13px/1.35 var(--font-body);}
 
-/* Mobile: each card has three reading rows only — code + difficulty, title,
-   description. Desktop-only utility controls stay out of the compact view. */
+/* Mobile: each card has three reading rows only — code, title and description.
+   Desktop-only utility controls stay out of the compact view. */
 @media(max-width:760px){
   .page{padding:32px 18px 60px;}
   .page-header{margin-bottom:36px;padding-bottom:24px;}
@@ -229,7 +222,7 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
   .course-search{font-size:16px;padding:13px 44px 13px 46px;}
   .search-box::before{font-size:20px;left:14px;}
 
-  .module-card{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"num difficulty" "title title" "desc desc";align-items:start;gap:7px 12px;padding:14px;min-height:0;background:rgba(244,236,224,.04);border:1px solid rgba(216,201,180,.12);border-radius:10px;}
+  .module-card{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"num" "title" "desc";align-items:start;gap:7px;padding:14px;min-height:0;background:rgba(244,236,224,.04);border:1px solid rgba(216,201,180,.12);border-radius:10px;}
   .module-card::after{display:none;}
   .module-card.pre{border-left:3px solid var(--sky);}
   .module-card.sec{border-left:3px solid var(--red);}
@@ -246,13 +239,10 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
 
   .card-title{grid-area:title;font-size:20px;text-align:left;margin:0;align-self:start;}
   .card-desc{grid-area:desc;font-size:14px;text-align:left;align-self:start;}
-  .card-difficulty{grid-area:difficulty;position:static;justify-self:end;align-self:center;width:auto;min-height:0;padding:6px 8px;font-size:11px;}
-
   .control-rail,.control-row{display:none;}
 }
 </style>
 <script src="completeness-index.js"></script>
-<script src="difficulty-index.js"></script>
 <script src="quality-index.js"></script>
 <script src="last-modified-index.js"></script>
 <script src="exercise-index.js"></script>
@@ -281,12 +271,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
     <div class="section-label">Hardware e Software</div>
     <div class="module-grid cols2">
 
-      <a class="module-card inf" href="hs01-componenti.html">
+      <a class="module-card inf" href="decks/hs01-componenti.html">
         <div class="card-num">HS01</div>
         <div class="card-body">
           <div class="card-tag">HARDWARE E SOFTWARE · HS01</div>
           <div class="card-title">Dentro il computer</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Come è fatto un computer dentro e come i dispositivi si parlano.</div>
           <div class="card-topics">
             <span class="topic">CPU / RAM</span>
@@ -298,12 +287,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="hs02-hard-disk-filesystem.html">
+      <a class="module-card inf" href="decks/hs02-hard-disk-filesystem.html">
         <div class="card-num">HS02</div>
         <div class="card-body">
           <div class="card-tag">HARDWARE E SOFTWARE · HS02</div>
           <div class="card-title">Hard disk e file system</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Dove finiscono i tuoi file e come sono organizzati sul disco.</div>
           <div class="card-topics">
             <span class="topic">File system</span>
@@ -315,12 +303,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="hs03-os.html">
+      <a class="module-card inf" href="decks/hs03-os.html">
         <div class="card-num">HS03</div>
         <div class="card-body">
           <div class="card-tag">HARDWARE E SOFTWARE · HS03</div>
           <div class="card-title">Sistemi Operativi</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Cos’è un sistema operativo e come scegliere tra Windows, macOS e Linux.</div>
           <div class="card-topics">
             <span class="topic">Windows</span>
@@ -332,12 +319,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="hs04-os-concetti.html">
+      <a class="module-card inf" href="decks/hs04-os-concetti.html">
         <div class="card-num">HS04</div>
         <div class="card-body">
           <div class="card-tag">HARDWARE E SOFTWARE · HS04</div>
           <div class="card-title">OS: concetti fondamentali</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Driver, aggiornamenti, licenze e permessi: gestire il sistema ogni giorno.</div>
           <div class="card-topics">
             <span class="topic">Driver</span>
@@ -348,13 +334,21 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         </div>
         <div class="card-arrow">→</div>
       </a>
-      <a class="module-card inf" href="hs05-troubleshooting.html">
+      <a class="module-card inf" href="decks/hs05-troubleshooting.html">
         <div class="card-num">HS05</div>
         <div class="card-body">
           <div class="card-tag">HS05</div>
           <div class="card-title">Troubleshooting</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Un metodo per capire e risolvere i problemi tecnici più comuni.</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+      <a class="module-card inf" href="decks/hs06-tecnologia-obsoleta.html">
+        <div class="card-num">HS06</div>
+        <div class="card-body">
+          <div class="card-tag">HS06</div>
+          <div class="card-title">Tecnologia obsoleta</div>
+          <div class="card-desc">Floppy disk, porte scomparse, mainframe: cosa c'era prima e perché conoscerlo aiuta.</div>
         </div>
         <div class="card-arrow">→</div>
       </a>
@@ -367,12 +361,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
     <div class="section-label">Reti e Web</div>
     <div class="module-grid cols2">
 
-      <a class="module-card pre" href="rw01-01-reti.html">
+      <a class="module-card pre" href="decks/rw01-01-reti.html">
         <div class="card-num">RW01.01</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW01.01</div>
           <div class="card-title">Reti Informatiche e Internet</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Cos’è una rete, cos’è Internet e come i dispositivi si collegano.</div>
           <div class="card-topics">
             <span class="topic">LAN / WAN</span>
@@ -384,12 +377,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="rw01-02-navigazione.html">
+      <a class="module-card pre" href="decks/rw01-02-navigazione.html">
         <div class="card-num">RW01.02</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW01.02</div>
           <div class="card-title">Navigazione e Indirizzi Web</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Come funziona un indirizzo web e cosa succede quando apri una pagina.</div>
           <div class="card-topics">
             <span class="topic">HTTP / HTTPS</span>
@@ -401,12 +393,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="rw01-03-domini.html">
+      <a class="module-card pre" href="decks/rw01-03-domini.html">
         <div class="card-num">RW01.03</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW01.03</div>
           <div class="card-title">Domini e Indirizzi Internet</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Come sono fatti i nomi dei siti e chi li governa.</div>
           <div class="card-topics">
             <span class="topic">TLD / SLD</span>
@@ -418,12 +409,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="rw01-04-ricerca.html">
+      <a class="module-card pre" href="decks/rw01-04-ricerca.html">
         <div class="card-num">RW01.04</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW01.04</div>
           <div class="card-title">Ricerca e Gestione delle Informazioni</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Cercare online e giudicare quello che trovi con spirito critico.</div>
           <div class="card-topics">
             <span class="topic">Motori di ricerca</span>
@@ -435,12 +425,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="rw01-05-affidabilita.html">
+      <a class="module-card pre" href="decks/rw01-05-affidabilita.html">
         <div class="card-num">RW01.05</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW01.05</div>
           <div class="card-title">Navigare con Spirito Critico</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Riconoscere fonti attendibili e difendersi da bufale e trappole.</div>
           <div class="card-topics">
             <span class="topic">Fake news</span>
@@ -452,12 +441,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="rw01-06-internet-morto.html">
+      <a class="module-card pre" href="decks/rw01-06-internet-morto.html">
         <div class="card-num">RW01.06</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW01.06</div>
           <div class="card-title">La teoria di Internet morto</div>
-          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Separare la cospirazione dai fenomeni reali.</div>
           <div class="card-topics">
             <span class="topic">Bot</span>
@@ -468,12 +456,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         </div>
         <div class="card-arrow">→</div>
       </a>
-      <a class="module-card pre" href="rw02-01-email.html">
+      <a class="module-card pre" href="decks/rw02-01-email.html">
         <div class="card-num">RW02.01</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW02.01</div>
           <div class="card-title">La Posta Elettronica</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Come funziona la posta elettronica e come usarla bene.</div>
           <div class="card-topics">
             <span class="topic">Email</span>
@@ -485,12 +472,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="rw02-02-contenuti.html">
+      <a class="module-card pre" href="decks/rw02-02-contenuti.html">
         <div class="card-num">RW02.02</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW02.02</div>
           <div class="card-title">Gestire e Archiviare Contenuti</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Salvare, ordinare e ritrovare i tuoi file e documenti.</div>
           <div class="card-topics">
             <span class="topic">Download</span>
@@ -502,12 +488,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="rw02-03-link-simbolici.html">
+      <a class="module-card pre" href="decks/rw02-03-link-simbolici.html">
         <div class="card-num">RW02.03</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW02.03</div>
           <div class="card-title">Link simbolici</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Collegare percorsi senza duplicare i dati.</div>
           <div class="card-topics">
             <span class="topic">Symlink</span>
@@ -519,12 +504,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="rw02-04-collaborazione-digitale.html">
+      <a class="module-card pre" href="decks/rw02-04-collaborazione-digitale.html">
         <div class="card-num">RW02.04</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW02.04</div>
           <div class="card-title">Collaborazione Digitale</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Lavorare insieme sugli stessi documenti online.</div>
           <div class="card-topics">
             <span class="topic">Netiquette</span>
@@ -536,19 +520,18 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="rw02-05-account-email.html"><div class="card-num">RW02.05</div><div class="card-body"><div class="card-tag">RETI E WEB · RW02.05</div><div class="card-title">Il tuo account email</div><div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div><div class="card-desc">Creare e proteggere il tuo account di posta.</div><div class="card-topics"><span class="topic">Account</span><span class="topic">Recupero</span><span class="topic">Filtri</span></div></div><div class="card-arrow">→</div></a>
+      <a class="module-card pre" href="decks/rw02-05-account-email.html"><div class="card-num">RW02.05</div><div class="card-body"><div class="card-tag">RETI E WEB · RW02.05</div><div class="card-title">Il tuo account email</div><div class="card-desc">Creare e proteggere il tuo account di posta.</div><div class="card-topics"><span class="topic">Account</span><span class="topic">Recupero</span><span class="topic">Filtri</span></div></div><div class="card-arrow">→</div></a>
 
-      <a class="module-card pre" href="rw02-06-accesso-remoto.html"><div class="card-num">RW02.06</div><div class="card-body"><div class="card-tag">RETI E WEB · RW02.06</div><div class="card-title">Usare un PC da remoto</div><div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div><div class="card-desc">Controllare un computer a distanza in modo sicuro.</div><div class="card-topics"><span class="topic">RDP</span><span class="topic">SSH</span><span class="topic">VNC</span><span class="topic">VPN</span></div></div><div class="card-arrow">→</div></a>
+      <a class="module-card pre" href="decks/rw02-06-accesso-remoto.html"><div class="card-num">RW02.06</div><div class="card-body"><div class="card-tag">RETI E WEB · RW02.06</div><div class="card-title">Usare un PC da remoto</div><div class="card-desc">Controllare un computer a distanza in modo sicuro.</div><div class="card-topics"><span class="topic">RDP</span><span class="topic">SSH</span><span class="topic">VNC</span><span class="topic">VPN</span></div></div><div class="card-arrow">→</div></a>
       
       
       
 
-      <a class="module-card pre" href="rw03-01-identita.html">
+      <a class="module-card pre" href="decks/rw03-01-identita.html">
         <div class="card-num">RW03.01</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW03.01</div>
           <div class="card-title">La tua identità online</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Cosa dici di te in rete e come tenerlo sotto controllo.</div>
           <div class="card-topics">
             <span class="topic">PEC</span>
@@ -560,12 +543,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="rw03-02-societa.html">
+      <a class="module-card pre" href="decks/rw03-02-societa.html">
         <div class="card-num">RW03.02</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW03.02</div>
           <div class="card-title">Tecnologia e Società</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Come il digitale cambia lavoro, relazioni e vita quotidiana.</div>
           <div class="card-topics">
             <span class="topic">Benessere digitale</span>
@@ -577,12 +559,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="rw03-03-vr-ar.html">
+      <a class="module-card pre" href="decks/rw03-03-vr-ar.html">
         <div class="card-num">RW03.03</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW03.03</div>
           <div class="card-title">VR, AR e Metaverso</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Realtà virtuale e aumentata: cosa sono e a cosa servono.</div>
           <div class="card-topics">
             <span class="topic">Realtà virtuale</span>
@@ -594,12 +575,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="rw03-04-branding.html">
+      <a class="module-card pre" href="decks/rw03-04-branding.html">
         <div class="card-num">RW03.04</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW03.04</div>
           <div class="card-title">Farsi riconoscere</div>
-          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Costruire un’immagine riconoscibile online.</div>
           <div class="card-topics">
             <span class="topic">Brand identity</span>
@@ -611,12 +591,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="rw03-05-social.html">
+      <a class="module-card pre" href="decks/rw03-05-social.html">
         <div class="card-num">RW03.05</div>
         <div class="card-body">
           <div class="card-tag">RETI E WEB · RW03.05</div>
           <div class="card-title">I social giusti</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Scegliere i social giusti per i tuoi obiettivi.</div>
           <div class="card-topics">
             <span class="topic">Social media</span>
@@ -640,11 +619,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
     <div class="section-label">Contenuti digitali</div>
     <div class="module-grid cols2">
 
-      <a class="module-card pre" href="cd01-01-licenze-oer.html"><div class="card-num">CD01.01</div><div class="card-body"><div class="card-tag">CONTENUTI DIGITALI · CD01.01</div><div class="card-title">Licenze aperte e OER</div><div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div><div class="card-desc">Licenze aperte e risorse educative: cosa puoi usare e come.</div><div class="card-topics"><span class="topic">Creative Commons</span><span class="topic">OER</span><span class="topic">Remix</span></div></div><div class="card-arrow">→</div></a>
-      <a class="module-card pre" href="cd01-02-accessibilita-immagini.html"><div class="card-num">CD01.02</div><div class="card-body"><div class="card-tag">CONTENUTI DIGITALI · CD01.02</div><div class="card-title">Accessibilità delle immagini</div><div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div><div class="card-desc">Rendere le immagini leggibili e accessibili a tutti.</div><div class="card-topics"><span class="topic">WCAG</span><span class="topic">Testo alternativo</span></div></div><div class="card-arrow">→</div></a>
-      <a class="module-card pre" href="cd01-03-metadati-formati.html"><div class="card-num">CD01.03</div><div class="card-body"><div class="card-tag">CONTENUTI DIGITALI · CD01.03</div><div class="card-title">Metadati e formati</div><div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div><div class="card-desc">Cosa c’è dentro un file e quale formato scegliere.</div><div class="card-topics"><span class="topic">Metadati</span><span class="topic">SVG</span></div></div><div class="card-arrow">→</div></a>
-      <a class="module-card pre" href="cd01-04-sicurezza-contenuti.html"><div class="card-num">CD01.04</div><div class="card-body"><div class="card-tag">CONTENUTI DIGITALI · CD01.04</div><div class="card-title">Sicurezza dei contenuti digitali</div><div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div><div class="card-desc">Proteggere i tuoi contenuti da furti e manomissioni.</div><div class="card-topics"><span class="topic">DRM</span><span class="topic">Watermarking</span></div></div><div class="card-arrow">→</div></a>
-      <a class="module-card pre" href="cd02-01-podcast-storytelling.html"><div class="card-num">CD02.01</div><div class="card-body"><div class="card-tag">CONTENUTI DIGITALI · CD02.01</div><div class="card-title">Podcast e storytelling digitale</div><div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div><div class="card-desc">Raccontare storie in audio: dalle idee alla pubblicazione.</div><div class="card-topics"><span class="topic">Podcast</span><span class="topic">Storytelling</span></div></div><div class="card-arrow">→</div></a>
+      <a class="module-card pre" href="decks/cd01-01-licenze-oer.html"><div class="card-num">CD01.01</div><div class="card-body"><div class="card-tag">CONTENUTI DIGITALI · CD01.01</div><div class="card-title">Licenze aperte e OER</div><div class="card-desc">Licenze aperte e risorse educative: cosa puoi usare e come.</div><div class="card-topics"><span class="topic">Creative Commons</span><span class="topic">OER</span><span class="topic">Remix</span></div></div><div class="card-arrow">→</div></a>
+      <a class="module-card pre" href="decks/cd01-02-accessibilita-immagini.html"><div class="card-num">CD01.02</div><div class="card-body"><div class="card-tag">CONTENUTI DIGITALI · CD01.02</div><div class="card-title">Accessibilità delle immagini</div><div class="card-desc">Rendere le immagini leggibili e accessibili a tutti.</div><div class="card-topics"><span class="topic">WCAG</span><span class="topic">Testo alternativo</span></div></div><div class="card-arrow">→</div></a>
+      <a class="module-card pre" href="decks/cd01-03-metadati-formati.html"><div class="card-num">CD01.03</div><div class="card-body"><div class="card-tag">CONTENUTI DIGITALI · CD01.03</div><div class="card-title">Metadati e formati</div><div class="card-desc">Cosa c’è dentro un file e quale formato scegliere.</div><div class="card-topics"><span class="topic">Metadati</span><span class="topic">SVG</span></div></div><div class="card-arrow">→</div></a>
+      <a class="module-card pre" href="decks/cd01-04-sicurezza-contenuti.html"><div class="card-num">CD01.04</div><div class="card-body"><div class="card-tag">CONTENUTI DIGITALI · CD01.04</div><div class="card-title">Sicurezza dei contenuti digitali</div><div class="card-desc">Proteggere i tuoi contenuti da furti e manomissioni.</div><div class="card-topics"><span class="topic">DRM</span><span class="topic">Watermarking</span></div></div><div class="card-arrow">→</div></a>
+      <a class="module-card pre" href="decks/cd02-01-podcast-storytelling.html"><div class="card-num">CD02.01</div><div class="card-body"><div class="card-tag">CONTENUTI DIGITALI · CD02.01</div><div class="card-title">Podcast e storytelling digitale</div><div class="card-desc">Raccontare storie in audio: dalle idee alla pubblicazione.</div><div class="card-topics"><span class="topic">Podcast</span><span class="topic">Storytelling</span></div></div><div class="card-arrow">→</div></a>
 
     </div>
   </div>
@@ -654,12 +633,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
     <div class="section-label">Smartphones</div>
     <div class="module-grid cols2">
 
-      <a class="module-card inf" href="sm01-smartphone-computer.html">
+      <a class="module-card inf" href="decks/sm01-smartphone-computer.html">
         <div class="card-num">SM01</div>
         <div class="card-body">
           <div class="card-tag">SMARTPHONES · SM01</div>
           <div class="card-title">Lo smartphone è un computer</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Perché il telefono è un vero computer in tasca.</div>
           <div class="card-topics">
             <span class="topic">Hardware</span>
@@ -671,12 +649,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="sm02-connessioni-reti-mobili.html">
+      <a class="module-card inf" href="decks/sm02-connessioni-reti-mobili.html">
         <div class="card-num">SM02</div>
         <div class="card-body">
           <div class="card-tag">SMARTPHONES · SM02</div>
           <div class="card-title">Connessioni e reti mobili</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">WiFi, dati mobili e reti: come e quando ti connetti.</div>
           <div class="card-topics">
             <span class="topic">WiFi</span>
@@ -688,12 +665,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="sm03-android-ios.html">
+      <a class="module-card inf" href="decks/sm03-android-ios.html">
         <div class="card-num">SM03</div>
         <div class="card-body">
           <div class="card-tag">SMARTPHONES · SM03</div>
           <div class="card-title">Android e iOS</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Le differenze tra i due sistemi e come orientarsi.</div>
           <div class="card-topics">
             <span class="topic">Android</span>
@@ -705,12 +681,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="sm04-app-permessi.html">
+      <a class="module-card inf" href="decks/sm04-app-permessi.html">
         <div class="card-num">SM04</div>
         <div class="card-body">
           <div class="card-tag">SMARTPHONES · SM04</div>
           <div class="card-title">App e permessi</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Installare app e capire cosa possono davvero fare.</div>
           <div class="card-topics">
             <span class="topic">App</span>
@@ -722,12 +697,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="sm05-privacy-telefono.html">
+      <a class="module-card inf" href="decks/sm05-privacy-telefono.html">
         <div class="card-num">SM05</div>
         <div class="card-body">
           <div class="card-tag">SMARTPHONES · SM05</div>
           <div class="card-title">Privacy sul telefono</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Cosa sa di te il telefono e come limitarlo.</div>
           <div class="card-topics">
             <span class="topic">Privacy</span>
@@ -739,12 +713,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="sm06-sicurezza-smartphone.html">
+      <a class="module-card inf" href="decks/sm06-sicurezza-smartphone.html">
         <div class="card-num">SM06</div>
         <div class="card-body">
           <div class="card-tag">SMARTPHONES · SM06</div>
           <div class="card-title">Sicurezza dello smartphone</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Proteggere telefono e dati da furti e truffe.</div>
           <div class="card-topics">
             <span class="topic">PIN / Face ID</span>
@@ -756,12 +729,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="sm07-file-telefono.html">
+      <a class="module-card inf" href="decks/sm07-file-telefono.html">
         <div class="card-num">SM07</div>
         <div class="card-body">
           <div class="card-tag">SMARTPHONES · SM07</div>
           <div class="card-title">Gestione dei file sul telefono</div>
-          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Trovare, spostare e salvare i file sul telefono.</div>
           <div class="card-topics">
             <span class="topic">File</span>
@@ -773,12 +745,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="sm08-fotocamera-contenuti.html">
+      <a class="module-card inf" href="decks/sm08-fotocamera-contenuti.html">
         <div class="card-num">SM08</div>
         <div class="card-body">
           <div class="card-tag">SMARTPHONES · SM08</div>
           <div class="card-title">Fotocamera e contenuti</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Scattare, girare e gestire foto e video.</div>
           <div class="card-topics">
             <span class="topic">Foto / Video</span>
@@ -790,12 +761,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="sm09-benessere-digitale.html">
+      <a class="module-card inf" href="decks/sm09-benessere-digitale.html">
         <div class="card-num">SM09</div>
         <div class="card-body">
           <div class="card-tag">SMARTPHONES · SM09</div>
           <div class="card-title">Benessere digitale</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Usare il telefono senza farsi usare.</div>
           <div class="card-topics">
             <span class="topic">Screen time</span>
@@ -807,12 +777,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="sm10-accessibilita-uso-pratico.html">
+      <a class="module-card inf" href="decks/sm10-accessibilita-uso-pratico.html">
         <div class="card-num">SM10</div>
         <div class="card-body">
           <div class="card-tag">SMARTPHONES · SM10</div>
           <div class="card-title">Accessibilità e uso pratico</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Impostazioni per rendere il telefono più facile da usare.</div>
           <div class="card-topics">
             <span class="topic">Accessibilità</span>
@@ -824,12 +793,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="sm11-manutenzione-scelta.html">
+      <a class="module-card inf" href="decks/sm11-manutenzione-scelta.html">
         <div class="card-num">SM11</div>
         <div class="card-body">
           <div class="card-tag">SMARTPHONES · SM11</div>
           <div class="card-title">Manutenzione e scelta</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Tenere in forma il telefono e scegliere quello giusto.</div>
           <div class="card-topics">
             <span class="topic">Aggiornamenti</span>
@@ -849,12 +817,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
     <div class="section-label">Suite Ufficio</div>
     <div class="module-grid cols2">
 
-      <a class="module-card inf" href="su01-01-microsoft.html">
+      <a class="module-card inf" href="decks/su01-01-microsoft.html">
         <div class="card-num">SU01.01</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU01.01</div>
           <div class="card-title">Software Microsoft</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Panoramica dei programmi Microsoft per l’ufficio.</div>
           <div class="card-topics">
             <span class="topic">Word</span>
@@ -866,12 +833,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su01-02-google-workspace.html">
+      <a class="module-card inf" href="decks/su01-02-google-workspace.html">
         <div class="card-num">SU01.02</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU01.02</div>
           <div class="card-title">Software Google</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Gli strumenti Google per lavorare nel cloud.</div>
           <div class="card-topics">
             <span class="topic">Google Drive</span>
@@ -883,12 +849,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su01-03-adobe.html">
+      <a class="module-card inf" href="decks/su01-03-adobe.html">
         <div class="card-num">SU01.03</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU01.03</div>
           <div class="card-title">Software Adobe</div>
-          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">I software Adobe per creatività e documenti.</div>
           <div class="card-topics">
             <span class="topic">Photoshop</span>
@@ -900,12 +865,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su01-04-alternativi.html">
+      <a class="module-card inf" href="decks/su01-04-alternativi.html">
         <div class="card-num">SU01.04</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU01.04</div>
           <div class="card-title">Software Alternativi</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Alternative gratuite e open source ai programmi a pagamento.</div>
           <div class="card-topics">
             <span class="topic">LibreOffice</span>
@@ -916,12 +880,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         </div>
         <div class="card-arrow">→</div>
       </a>
-      <a class="module-card inf" href="su02-01-documenti.html">
+      <a class="module-card inf" href="decks/su02-01-documenti.html">
         <div class="card-num">SU02.01</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU02.01</div>
           <div class="card-title">Mettere tutto per iscritto</div>
-          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Perché e come mettere le cose per iscritto.</div>
           <div class="card-topics">
             <span class="topic">Curriculum</span>
@@ -932,52 +895,47 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         </div>
         <div class="card-arrow">→</div>
       </a>
-      <a class="module-card inf" href="su02-02-word-scrivere-formattare.html">
+      <a class="module-card inf" href="decks/su02-02-word-scrivere-formattare.html">
         <div class="card-num">SU02.02</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU02.02</div>
           <div class="card-title">Word: scrivere e formattare</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Scrivere e formattare un documento in Word.</div>
           <div class="card-topics"><span class="topic">Word</span><span class="topic">Formattazione</span><span class="topic">Stili</span></div>
         </div><div class="card-arrow">→</div>
       </a>
-      <a class="module-card inf" href="su02-03-word-impaginare-revisionare.html">
+      <a class="module-card inf" href="decks/su02-03-word-impaginare-revisionare.html">
         <div class="card-num">SU02.03</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU02.03</div>
           <div class="card-title">Word: impaginare e revisionare</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Impaginare e revisionare documenti più curati.</div>
           <div class="card-topics"><span class="topic">Layout</span><span class="topic">Revisioni</span><span class="topic">PDF</span></div>
         </div><div class="card-arrow">→</div>
       </a>
-      <a class="module-card inf" href="su02-04-word-documenti-professionali.html">
+      <a class="module-card inf" href="decks/su02-04-word-documenti-professionali.html">
         <div class="card-num">SU02.04</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU02.04</div>
           <div class="card-title">Word: documenti professionali</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Creare documenti professionali e riutilizzabili.</div>
           <div class="card-topics"><span class="topic">Modelli</span><span class="topic">Report</span><span class="topic">Stampa unione</span></div>
         </div><div class="card-arrow">→</div>
       </a>
-      <a class="module-card inf" href="su02-05-word-docs-avanzato.html">
+      <a class="module-card inf" href="decks/su02-05-word-docs-avanzato.html">
         <div class="card-num">SU02.05</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU02.05</div>
           <div class="card-title">Word e Docs: funzioni avanzate</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Funzioni avanzate di Word e Google Docs, equazioni comprese.</div>
           <div class="card-topics"><span class="topic">Citazioni</span><span class="topic">Colonne</span><span class="topic">Smart chip</span><span class="topic">IA</span></div>
         </div><div class="card-arrow">→</div>
       </a>
-      <a class="module-card inf" href="su03-01-sistema.html">
+      <a class="module-card inf" href="decks/su03-01-sistema.html">
         <div class="card-num">SU03.01</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU03.01</div>
           <div class="card-title">Il foglio di calcolo: sistema di lavoro</div>
-          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Capire il foglio di calcolo come sistema di lavoro.</div>
           <div class="card-topics">
             <span class="topic">Excel</span>
@@ -989,12 +947,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su03-02-riferimenti.html">
+      <a class="module-card inf" href="decks/su03-02-riferimenti.html">
         <div class="card-num">SU03.02</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU03.02</div>
           <div class="card-title">Riferimenti e range</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Celle, range e riferimenti: le basi per le formule.</div>
           <div class="card-topics">
             <span class="topic">Riferimenti</span>
@@ -1006,24 +963,22 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su03-03-fondamenti-matematici.html">
+      <a class="module-card inf" href="decks/su03-03-fondamenti-matematici.html">
         <div class="card-num">SU03.03</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU03.03</div>
           <div class="card-title">Fondamenti matematici</div>
-          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">La matematica che serve davvero nei fogli di calcolo.</div>
           <div class="card-topics"><span class="topic">Insiemi</span><span class="topic">Logica</span><span class="topic">Funzioni</span><span class="topic">Grafici</span></div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su03-04-prime-formule.html">
+      <a class="module-card inf" href="decks/su03-04-prime-formule.html">
         <div class="card-num">SU03.04</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU03.04</div>
           <div class="card-title">Prime formule</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Le tue prime formule per fare calcoli automatici.</div>
           <div class="card-topics">
             <span class="topic">SOMMA</span>
@@ -1035,12 +990,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su03-05-analisi.html">
+      <a class="module-card inf" href="decks/su03-05-analisi.html">
         <div class="card-num">SU03.05</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU03.05</div>
           <div class="card-title">Analizzare e cercare</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Cercare, filtrare e analizzare i dati.</div>
           <div class="card-topics">
             <span class="topic">Pivot</span>
@@ -1052,12 +1006,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su03-06-funzioni-top.html">
+      <a class="module-card inf" href="decks/su03-06-funzioni-top.html">
         <div class="card-num">SU03.06</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU03.06</div>
           <div class="card-title">Le 10 funzioni più usate</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Le funzioni che userai più spesso, spiegate una a una.</div>
           <div class="card-topics">
             <span class="topic">SOMMA.SE</span>
@@ -1069,12 +1022,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su03-07-testo.html">
+      <a class="module-card inf" href="decks/su03-07-testo.html">
         <div class="card-num">SU03.07</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU03.07</div>
           <div class="card-title">Manipolare il testo</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Pulire e trasformare il testo con le formule.</div>
           <div class="card-topics">
             <span class="topic">TESTO.UNISCI</span>
@@ -1085,12 +1037,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         </div>
         <div class="card-arrow">→</div>
       </a>
-      <a class="module-card inf" href="su03-08-tabelle-pivot.html">
+      <a class="module-card inf" href="decks/su03-08-tabelle-pivot.html">
         <div class="card-num">SU03.08</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU03.08</div>
           <div class="card-title">Tabelle pivot</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Riassumere grandi tabelle con le tabelle pivot.</div>
           <div class="card-topics">
             <span class="topic">Pivot</span>
@@ -1101,81 +1052,75 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         </div>
         <div class="card-arrow">→</div>
       </a>
-      <a class="module-card inf" href="su03-09-tabelle-pivot-avanzate.html">
+      <a class="module-card inf" href="decks/su03-09-tabelle-pivot-avanzate.html">
         <div class="card-num">SU03.09</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU03.09</div>
           <div class="card-title">Tabelle pivot avanzate</div>
-          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Tabelle pivot più potenti per analisi complesse.</div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su03-10-grafici.html">
+      <a class="module-card inf" href="decks/su03-10-grafici.html">
         <div class="card-num">SU03.10</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU03.10</div>
           <div class="card-title">Grafici nei fogli di calcolo</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Trasformare i dati in grafici chiari.</div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su03-11-fogli-calcolo-avanzati.html">
+      <a class="module-card inf" href="decks/su03-11-fogli-calcolo-avanzati.html">
         <div class="card-num">SU03.11</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU03.11</div>
           <div class="card-title">Fogli di calcolo avanzati</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Tecniche avanzate per fogli di calcolo più solidi.</div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su03-12-query-fogli-calcolo.html">
+      <a class="module-card inf" href="decks/su03-12-query-fogli-calcolo.html">
         <div class="card-num">SU03.12</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU03.12</div>
           <div class="card-title">Query nei fogli di calcolo</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Interrogare i dati con le query.</div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su03-13-macro-fogli-calcolo.html">
+      <a class="module-card inf" href="decks/su03-13-macro-fogli-calcolo.html">
         <div class="card-num">SU03.13</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU03.13</div>
           <div class="card-title">Macro nei fogli di calcolo</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Automatizzare compiti ripetitivi con le macro.</div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su03-14-vba.html">
-        <div class="card-num">SU03.14</div><div class="card-body"><div class="card-tag">SUITE UFFICIO · SU03.14</div><div class="card-title">VBA per Excel</div><div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div><div class="card-desc">Programmare Excel con il linguaggio VBA.</div></div><div class="card-arrow">→</div>
+      <a class="module-card inf" href="decks/su03-14-vba.html">
+        <div class="card-num">SU03.14</div><div class="card-body"><div class="card-tag">SUITE UFFICIO · SU03.14</div><div class="card-title">VBA per Excel</div><div class="card-desc">Programmare Excel con il linguaggio VBA.</div></div><div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su03-15-google-apps-script.html">
-        <div class="card-num">SU03.15</div><div class="card-body"><div class="card-tag">SUITE UFFICIO · SU03.15</div><div class="card-title">Google Apps Script</div><div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div><div class="card-desc">Automatizzare i fogli Google con Apps Script.</div></div><div class="card-arrow">→</div>
+      <a class="module-card inf" href="decks/su03-15-google-apps-script.html">
+        <div class="card-num">SU03.15</div><div class="card-body"><div class="card-tag">SUITE UFFICIO · SU03.15</div><div class="card-title">Google Apps Script</div><div class="card-desc">Automatizzare i fogli Google con Apps Script.</div></div><div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su03-16-collegamenti-fogli.html">
-        <div class="card-num">SU03.16</div><div class="card-body"><div class="card-tag">SUITE UFFICIO · SU03.16</div><div class="card-title">Collegare fogli e file</div><div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div><div class="card-desc">Collegare fogli e file diversi fra loro.</div></div><div class="card-arrow">→</div>
+      <a class="module-card inf" href="decks/su03-16-collegamenti-fogli.html">
+        <div class="card-num">SU03.16</div><div class="card-body"><div class="card-tag">SUITE UFFICIO · SU03.16</div><div class="card-title">Collegare fogli e file</div><div class="card-desc">Collegare fogli e file diversi fra loro.</div></div><div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="su03-17-oltre-il-foglio.html"><div class="card-num">SU03.17</div><div class="card-body"><div class="card-tag">SUITE UFFICIO · SU03.17</div><div class="card-title">Oltre il foglio: software con l'IA</div><div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div><div class="card-desc">Andare oltre il foglio con l’aiuto dell’IA.</div><div class="card-topics"><span class="topic">IA</span><span class="topic">Software</span><span class="topic">Verifica</span></div></div><div class="card-arrow">→</div></a>
+      <a class="module-card inf" href="decks/su03-17-oltre-il-foglio.html"><div class="card-num">SU03.17</div><div class="card-body"><div class="card-tag">SUITE UFFICIO · SU03.17</div><div class="card-title">Oltre il foglio: software con l'IA</div><div class="card-desc">Andare oltre il foglio con l’aiuto dell’IA.</div><div class="card-topics"><span class="topic">IA</span><span class="topic">Software</span><span class="topic">Verifica</span></div></div><div class="card-arrow">→</div></a>
 
-      <a class="module-card inf" href="su04-01-presentazioni.html">
+      <a class="module-card inf" href="decks/su04-01-presentazioni.html">
         <div class="card-num">SU04.01</div>
         <div class="card-body">
           <div class="card-tag">SUITE UFFICIO · SU04.01</div>
           <div class="card-title">Dillo con una slide</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Costruire una presentazione efficace, slide dopo slide.</div>
           <div class="card-topics">
             <span class="topic">PowerPoint</span>
@@ -1195,12 +1140,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
     <div class="section-label">Sicurezza Digitale</div>
     <div class="module-grid cols2">
 
-      <a class="module-card sec" href="sd01-introduzione.html">
+      <a class="module-card sec" href="decks/sd01-introduzione.html">
         <div class="card-num">SD01</div>
         <div class="card-body">
           <div class="card-tag">SICUREZZA DIGITALE · SD01</div>
           <div class="card-title">Introduzione alla Sicurezza Digitale</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Le basi della sicurezza digitale e perché ti riguarda.</div>
           <div class="card-topics">
             <span class="topic">Modello CID</span>
@@ -1212,12 +1156,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card sec" href="sd02-minacce.html">
+      <a class="module-card sec" href="decks/sd02-minacce.html">
         <div class="card-num">SD02</div>
         <div class="card-body">
           <div class="card-tag">SICUREZZA DIGITALE · SD02</div>
           <div class="card-title">Minacce e Vulnerabilità</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Riconoscere le minacce e le vulnerabilità più comuni.</div>
           <div class="card-topics">
             <span class="topic">Malware</span>
@@ -1229,12 +1172,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card sec" href="sd03-privacy.html">
+      <a class="module-card sec" href="decks/sd03-privacy.html">
         <div class="card-num">SD03</div>
         <div class="card-body">
           <div class="card-tag">SICUREZZA DIGITALE · SD03</div>
           <div class="card-title">Privacy, Anonimato e Pseudonimia</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Privacy, anonimato e pseudonimia: proteggere chi sei.</div>
           <div class="card-topics">
             <span class="topic">Privacy</span>
@@ -1246,12 +1188,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card sec" href="sd04-professioni.html">
+      <a class="module-card sec" href="decks/sd04-professioni.html">
         <div class="card-num">SD04</div>
         <div class="card-body">
           <div class="card-tag">SICUREZZA DIGITALE · SD04</div>
           <div class="card-title">Professioni nella Sicurezza Informatica</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">I mestieri della sicurezza informatica.</div>
           <div class="card-topics">
             <span class="topic">Penetration testing</span>
@@ -1263,12 +1204,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card sec" href="sd05-assessment.html">
+      <a class="module-card sec" href="decks/sd05-assessment.html">
         <div class="card-num">SD05</div>
         <div class="card-body">
           <div class="card-tag">SICUREZZA DIGITALE · SD05</div>
           <div class="card-title">Assessment, Compliance e Dati Personali</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Regole, compliance e trattamento dei dati personali.</div>
           <div class="card-topics">
             <span class="topic">Vulnerability Assessment</span>
@@ -1280,7 +1220,7 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card sec" href="sd06-piani-b-digitali.html"><div class="card-num">SD06</div><div class="card-body"><div class="card-tag">SICUREZZA DIGITALE · SD06</div><div class="card-title">Piani B digitali</div><div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div><div class="card-desc">Backup e piani di emergenza per quando qualcosa va storto.</div><div class="card-topics"><span class="topic">Backup</span><span class="topic">Recupero</span><span class="topic">Ridondanza</span></div></div><div class="card-arrow">→</div></a>
+      <a class="module-card sec" href="decks/sd06-piani-b-digitali.html"><div class="card-num">SD06</div><div class="card-body"><div class="card-tag">SICUREZZA DIGITALE · SD06</div><div class="card-title">Piani B digitali</div><div class="card-desc">Backup e piani di emergenza per quando qualcosa va storto.</div><div class="card-topics"><span class="topic">Backup</span><span class="topic">Recupero</span><span class="topic">Ridondanza</span></div></div><div class="card-arrow">→</div></a>
 
     </div>
   </div>
@@ -1290,12 +1230,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
     <div class="section-label">Intelligenza Artificiale</div>
     <div class="module-grid cols2">
 
-      <a class="module-card inf" href="ia01-concetti-generali.html">
+      <a class="module-card inf" href="decks/ia01-concetti-generali.html">
         <div class="card-num">IA01</div>
         <div class="card-body">
           <div class="card-tag">INTELLIGENZA ARTIFICIALE · IA01</div>
           <div class="card-title">Concetti generali</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Cos’è l’intelligenza artificiale e come funziona a grandi linee.</div>
           <div class="card-topics">
             <span class="topic">Machine Learning</span>
@@ -1307,12 +1246,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="ia02-esercizio-generazione.html">
+      <a class="module-card inf" href="decks/ia02-esercizio-generazione.html">
         <div class="card-num">IA02</div>
         <div class="card-body">
           <div class="card-tag">INTELLIGENZA ARTIFICIALE · IA02</div>
           <div class="card-title">Esercizio di generazione</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Provare in pratica a generare contenuti con l’IA.</div>
           <div class="card-topics">
             <span class="topic">ChatGPT</span>
@@ -1324,12 +1262,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="ia03-llm.html">
+      <a class="module-card inf" href="decks/ia03-llm.html">
         <div class="card-num">IA03</div>
         <div class="card-body">
           <div class="card-tag">INTELLIGENZA ARTIFICIALE · IA03</div>
           <div class="card-title">LLM — Large Language Models</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Come funzionano i modelli linguistici come ChatGPT.</div>
           <div class="card-topics">
             <span class="topic">Transformer</span>
@@ -1341,12 +1278,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="ia04-diversi-modelli-ia.html">
+      <a class="module-card inf" href="decks/ia04-diversi-modelli-ia.html">
         <div class="card-num">IA04</div>
         <div class="card-body">
           <div class="card-tag">INTELLIGENZA ARTIFICIALE · IA04</div>
           <div class="card-title">Diversi modelli di IA</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">I diversi tipi di IA e a cosa servono.</div>
           <div class="card-topics">
             <span class="topic">Multimodale</span>
@@ -1358,12 +1294,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="ia05-strumenti-gratuiti.html">
+      <a class="module-card inf" href="decks/ia05-strumenti-gratuiti.html">
         <div class="card-num">IA05</div>
         <div class="card-body">
           <div class="card-tag">INTELLIGENZA ARTIFICIALE · IA05</div>
           <div class="card-title">Strumenti gratuiti online</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Strumenti di IA gratuiti da provare subito.</div>
           <div class="card-topics">
             <span class="topic">Freemium</span>
@@ -1382,12 +1317,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
     <div class="section-label">Programmazione</div>
     <div class="module-grid cols2">
 
-      <a class="module-card inf" href="pr01-01-introduzione-programmazione.html">
+      <a class="module-card inf" href="decks/pr01-01-introduzione-programmazione.html">
         <div class="card-num">PR01.01</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR01.01</div>
           <div class="card-title">Introduzione alla programmazione</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Cosa vuol dire programmare e da dove si parte.</div>
           <div class="card-topics">
             <span class="topic">Linguaggi</span>
@@ -1399,12 +1333,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr01-02-dati-codifica.html">
+      <a class="module-card inf" href="decks/pr01-02-dati-codifica.html">
         <div class="card-num">PR01.02</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR01.02</div>
           <div class="card-title">Dati e codifica</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Come i computer rappresentano numeri, testo e dati.</div>
           <div class="card-topics">
             <span class="topic">Binario</span>
@@ -1416,12 +1349,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr01-03-algoritmi.html">
+      <a class="module-card inf" href="decks/pr01-03-algoritmi.html">
         <div class="card-num">PR01.03</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR01.03</div>
           <div class="card-title">Algoritmi e diagrammi di flusso</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Algoritmi e diagrammi di flusso per risolvere problemi.</div>
           <div class="card-topics">
             <span class="topic">Algoritmi</span>
@@ -1433,12 +1365,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr01-04-costrutti-verifica.html">
+      <a class="module-card inf" href="decks/pr01-04-costrutti-verifica.html">
         <div class="card-num">PR01.04</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR01.04</div>
           <div class="card-title">Costrutti e verifica</div>
-          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">I costrutti base del codice e come verificarli.</div>
           <div class="card-topics">
             <span class="topic">Cicli</span>
@@ -1450,12 +1381,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr01-05-operatori-funzioni.html">
+      <a class="module-card inf" href="decks/pr01-05-operatori-funzioni.html">
         <div class="card-num">PR01.05</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR01.05</div>
           <div class="card-title">Operatori e funzioni</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Operatori e funzioni per costruire la logica.</div>
           <div class="card-topics">
             <span class="topic">Operatori</span>
@@ -1467,12 +1397,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr01-06-misure-calcoli-unita.html">
+      <a class="module-card inf" href="decks/pr01-06-misure-calcoli-unita.html">
         <div class="card-num">PR01.06</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR01.06</div>
           <div class="card-title">Misure, calcoli e unità</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Dare significato ai numeri usati nei programmi.</div>
           <div class="card-topics">
             <span class="topic">Misure</span>
@@ -1484,14 +1413,13 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr01-07-iterazione-cicli.html"><div class="card-num">PR01.07</div><div class="card-body"><div class="card-tag">PROGRAMMAZIONE · PR01.07</div><div class="card-title">Iterazione e cicli</div><div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div><div class="card-desc">Ripetere le azioni con i cicli.</div><div class="card-topics"><span class="topic">Iterazione</span><span class="topic">Cicli</span></div></div><div class="card-arrow">→</div></a>
+      <a class="module-card inf" href="decks/pr01-07-iterazione-cicli.html"><div class="card-num">PR01.07</div><div class="card-body"><div class="card-tag">PROGRAMMAZIONE · PR01.07</div><div class="card-title">Iterazione e cicli</div><div class="card-desc">Ripetere le azioni con i cicli.</div><div class="card-topics"><span class="topic">Iterazione</span><span class="topic">Cicli</span></div></div><div class="card-arrow">→</div></a>
 
-      <a class="module-card inf" href="pr02-01-introduzione.html">
+      <a class="module-card inf" href="decks/pr02-01-introduzione.html">
         <div class="card-num">PR02.01</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR02.01</div>
           <div class="card-title">Introduzione a Scratch</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Programmare a blocchi con Scratch.</div>
           <div class="card-topics">
             <span class="topic">Blocchi</span>
@@ -1503,12 +1431,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr02-02-questionario.html">
+      <a class="module-card inf" href="decks/pr02-02-questionario.html">
         <div class="card-num">PR02.02</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR02.02</div>
           <div class="card-title">Questionari con Scratch</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Costruire un questionario interattivo in Scratch.</div>
           <div class="card-topics">
             <span class="topic">Variabili</span>
@@ -1519,12 +1446,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         </div>
         <div class="card-arrow">→</div>
       </a>
-      <a class="module-card inf" href="pr03-01-microbit.html">
+      <a class="module-card inf" href="decks/pr03-01-microbit.html">
         <div class="card-num">PR03.01</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR03.01</div>
           <div class="card-title">Fondamenti Micro:bit</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Primi passi con la scheda Micro:bit.</div>
           <div class="card-topics">
             <span class="topic">MakeCode</span>
@@ -1536,12 +1462,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr03-02-createai.html">
+      <a class="module-card inf" href="decks/pr03-02-createai.html">
         <div class="card-num">PR03.02</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR03.02</div>
           <div class="card-title">Micro:bit CreateAI</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Aggiungere l’IA ai progetti Micro:bit.</div>
           <div class="card-topics">
             <span class="topic">CreateAI</span>
@@ -1553,12 +1478,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr04-01-strumenti-ambiente.html">
+      <a class="module-card inf" href="decks/pr04-01-strumenti-ambiente.html">
         <div class="card-num">PR04.01</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR04.01</div>
           <div class="card-title">Lavorare e scegliere</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Scegliere gli strumenti e l’ambiente di lavoro giusti.</div>
           <div class="card-topics">
             <span class="topic">Navigazione</span>
@@ -1570,12 +1494,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr04-02-notepad-plus-plus.html">
+      <a class="module-card inf" href="decks/pr04-02-notepad-plus-plus.html">
         <div class="card-num">PR04.02</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR04.02</div>
           <div class="card-title">Notepad++</div>
-          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Modificare testo e codice con precisione su Windows.</div>
           <div class="card-topics">
             <span class="topic">Regex</span>
@@ -1587,12 +1510,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr04-03-sublime-text.html">
+      <a class="module-card inf" href="decks/pr04-03-sublime-text.html">
         <div class="card-num">PR04.03</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR04.03</div>
           <div class="card-title">Sublime Text</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Navigare e modificare progetti con velocità.</div>
           <div class="card-topics">
             <span class="topic">Goto Anything</span>
@@ -1604,12 +1526,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr04-04-vscode.html">
+      <a class="module-card inf" href="decks/pr04-04-vscode.html">
         <div class="card-num">PR04.04</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR04.04</div>
           <div class="card-title">Visual Studio Code</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Orientarsi, eseguire e diagnosticare codice in VS Code.</div>
           <div class="card-topics">
             <span class="topic">VS Code</span>
@@ -1621,12 +1542,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr04-05-git.html">
+      <a class="module-card inf" href="decks/pr04-05-git.html">
         <div class="card-num">PR04.05</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR04.05</div>
           <div class="card-title">Git</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Registrare, integrare e correggere modifiche in sicurezza.</div>
           <div class="card-topics">
             <span class="topic">Commit</span>
@@ -1638,12 +1558,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr05-01-html-struttura.html">
+      <a class="module-card inf" href="decks/pr05-01-html-struttura.html">
         <div class="card-num">PR05.01</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR05.01</div>
           <div class="card-title">HTML: struttura e tag</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Com’è fatta una pagina web: tag, attributi ed elementi.</div>
           <div class="card-topics">
             <span class="topic">HTML</span>
@@ -1655,12 +1574,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr05-02-html-link-immagini.html">
+      <a class="module-card inf" href="decks/pr05-02-html-link-immagini.html">
         <div class="card-num">PR05.02</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR05.02</div>
           <div class="card-title">Link, immagini e tabelle</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Collegare pagine, inserire immagini e ordinare dati in tabelle.</div>
           <div class="card-topics">
             <span class="topic">Link</span>
@@ -1671,51 +1589,94 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr05-03-html-form-semantica.html">
+      <a class="module-card inf" href="decks/pr05-03-html-form-semantica.html">
         <div class="card-num">PR05.03</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR05.03</div>
-          <div class="card-title">Form, semantica e stile</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
-          <div class="card-desc">Moduli, tag con un significato e primi passi col CSS.</div>
+          <div class="card-title">Form e semantica</div>
+          <div class="card-desc">Moduli e tag che descrivono il significato delle parti.</div>
           <div class="card-topics">
             <span class="topic">Form</span>
             <span class="topic">Semantica</span>
-            <span class="topic">CSS</span>
           </div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr06-01-python-base.html">
+      <a class="module-card inf" href="decks/pr05-04-css-stile-selettori.html">
+        <div class="card-num">PR05.04</div>
+        <div class="card-body">
+          <div class="card-tag">PROGRAMMAZIONE · PR05.04</div>
+          <div class="card-title">CSS: stile e selettori</div>
+          <div class="card-desc">Regole, proprietà, selettori, priorità e modello a scatola.</div>
+          <div class="card-topics">
+            <span class="topic">CSS</span>
+            <span class="topic">Selettori</span>
+            <span class="topic">Proprietà</span>
+            <span class="topic">Box model</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="module-card inf" href="decks/pr06-01-python-base.html">
         <div class="card-num">PR06.01</div>
         <div class="card-body">
           <div class="card-tag">PROGRAMMAZIONE · PR06.01</div>
           <div class="card-title">Python di base</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
-          <div class="card-desc">Le basi di Python spiegate da zero.</div>
+          <div class="card-desc">Sintassi, tipi, controllo di flusso, funzioni e moduli.</div>
           <div class="card-topics">
             <span class="topic">Python</span>
             <span class="topic">Sintassi</span>
+            <span class="topic">Funzioni</span>
+            <span class="topic">Moduli</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="module-card inf" href="decks/pr06-02-strutture-dati-file.html">
+        <div class="card-num">PR06.02</div>
+        <div class="card-body">
+          <div class="card-tag">PROGRAMMAZIONE · PR06.02</div>
+          <div class="card-title">Strutture dati e file</div>
+          <div class="card-desc">Liste, matrici, dizionari e file TXT, CSV, JSON.</div>
+          <div class="card-topics">
             <span class="topic">Vettori e matrici</span>
+            <span class="topic">Dizionari</span>
+            <span class="topic">Errori</span>
             <span class="topic">CSV / JSON</span>
           </div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pr06-02-python-strumenti.html">
-        <div class="card-num">PR06.02</div>
+      <a class="module-card inf" href="decks/pr06-03-oggetti-pacchetti.html">
+        <div class="card-num">PR06.03</div>
         <div class="card-body">
-          <div class="card-tag">PROGRAMMAZIONE · PR06.02</div>
-          <div class="card-title">Python: strumenti e applicazioni</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
-          <div class="card-desc">Strumenti e usi pratici di Python.</div>
+          <div class="card-tag">PROGRAMMAZIONE · PR06.03</div>
+          <div class="card-title">Oggetti e pacchetti</div>
+          <div class="card-desc">Classi, generatori, moduli e ambienti virtuali.</div>
           <div class="card-topics">
             <span class="topic">OOP</span>
             <span class="topic">Generatori</span>
+            <span class="topic">Pacchetti</span>
+            <span class="topic">venv / pip</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="module-card inf" href="decks/pr06-04-test-api-database.html">
+        <div class="card-num">PR06.04</div>
+        <div class="card-body">
+          <div class="card-tag">PROGRAMMAZIONE · PR06.04</div>
+          <div class="card-title">Test, API e database</div>
+          <div class="card-desc">Test automatici, richieste HTTP e SQLite.</div>
+          <div class="card-topics">
             <span class="topic">Test</span>
-            <span class="topic">API / SQLite</span>
+            <span class="topic">API</span>
+            <span class="topic">SQLite</span>
           </div>
         </div>
         <div class="card-arrow">→</div>
@@ -1729,12 +1690,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
     <div class="section-label">Project Management</div>
     <div class="module-grid cols2">
 
-      <a class="module-card inf" href="pm01-introduzione.html">
+      <a class="module-card inf" href="decks/pm01-introduzione.html">
         <div class="card-num">PM01</div>
         <div class="card-body">
           <div class="card-tag">PROJECT MANAGEMENT · PM01</div>
           <div class="card-title">Introduzione al Project Management</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Cos’è il project management e a cosa serve.</div>
           <div class="card-topics">
             <span class="topic">Progetti</span>
@@ -1746,12 +1706,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pm02-pianificazione.html">
+      <a class="module-card inf" href="decks/pm02-pianificazione.html">
         <div class="card-num">PM02</div>
         <div class="card-body">
           <div class="card-tag">PROJECT MANAGEMENT · PM02</div>
           <div class="card-title">Pianificare un Progetto</div>
-          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Pianificare obiettivi, tempi e attività di un progetto.</div>
           <div class="card-topics">
             <span class="topic">SMART</span>
@@ -1763,12 +1722,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pm03-metodologie.html">
+      <a class="module-card inf" href="decks/pm03-metodologie.html">
         <div class="card-num">PM03</div>
         <div class="card-body">
           <div class="card-tag">PROJECT MANAGEMENT · PM03</div>
           <div class="card-title">Metodologie</div>
-          <div class="card-difficulty" aria-label="Difficoltà 4 su 5">★★★★☆</div>
           <div class="card-desc">Le principali metodologie per gestire un progetto.</div>
           <div class="card-topics">
             <span class="topic">Waterfall</span>
@@ -1780,12 +1738,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="pm04-strumenti.html">
+      <a class="module-card inf" href="decks/pm04-strumenti.html">
         <div class="card-num">PM04</div>
         <div class="card-body">
           <div class="card-tag">PROJECT MANAGEMENT · PM04</div>
           <div class="card-title">Strumenti Digitali</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Gli strumenti digitali per seguire un progetto.</div>
           <div class="card-topics">
             <span class="topic">Board</span>
@@ -1805,12 +1762,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
     <div class="section-label">Modellazione e Stampa 3D</div>
     <div class="module-grid cols2">
 
-      <a class="module-card pre" href="ms01-tinkercad-introduzione.html">
+      <a class="module-card pre" href="decks/ms01-tinkercad-introduzione.html">
         <div class="card-num">MS01</div>
         <div class="card-body">
           <div class="card-tag">MODELLAZIONE 3D · MS01</div>
           <div class="card-title">TinkerCAD 3D</div>
-          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Primi passi con la modellazione 3D in TinkerCAD.</div>
           <div class="card-topics">
             <span class="topic">TinkerCAD</span>
@@ -1822,12 +1778,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="ms02-modellazione-base.html">
+      <a class="module-card pre" href="decks/ms02-modellazione-base.html">
         <div class="card-num">MS02</div>
         <div class="card-body">
           <div class="card-tag">MODELLAZIONE 3D · MS02</div>
           <div class="card-title">Modellazione base</div>
-          <div class="card-difficulty" aria-label="Difficoltà 5 su 5">★★★★★</div>
           <div class="card-desc">Costruire i tuoi primi modelli 3D.</div>
           <div class="card-topics">
             <span class="topic">Workplane</span>
@@ -1839,12 +1794,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="ms03-esportazione-stampa-3d.html">
+      <a class="module-card pre" href="decks/ms03-esportazione-stampa-3d.html">
         <div class="card-num">MS03</div>
         <div class="card-body">
           <div class="card-tag">MODELLAZIONE 3D · MS03</div>
           <div class="card-title">Esportazione e stampa 3D</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Esportare un modello e prepararlo per la stampa 3D.</div>
           <div class="card-topics">
             <span class="topic">SVG</span>
@@ -1856,12 +1810,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card pre" href="ms04-classi-attivita.html">
+      <a class="module-card pre" href="decks/ms04-classi-attivita.html">
         <div class="card-num">MS04</div>
         <div class="card-body">
           <div class="card-tag">MODELLAZIONE 3D · MS04</div>
           <div class="card-title">TinkerCAD in classe</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Usare TinkerCAD con una classe.</div>
           <div class="card-topics">
             <span class="topic">Lezioni</span>
@@ -1881,12 +1834,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
     <div class="section-label">Quiz</div>
     <div class="module-grid cols3">
 
-      <a class="module-card pre" href="quiz-reti-web.html">
+      <a class="module-card pre" href="decks/quiz-reti-web.html">
         <div class="card-num">Q01</div>
         <div class="card-body">
           <div class="card-tag">QUIZ · Q01 · 20 DOMANDE</div>
           <div class="card-title">Reti e Web</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Metti alla prova quello che sai su reti e web.</div>
           <div class="card-topics">
             <span class="topic">Internet</span>
@@ -1898,12 +1850,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card sec" href="quiz-sicurezza.html">
+      <a class="module-card sec" href="decks/quiz-sicurezza.html">
         <div class="card-num">Q02</div>
         <div class="card-body">
           <div class="card-tag">QUIZ · Q02 · 20 DOMANDE</div>
           <div class="card-title">Sicurezza Digitale</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Metti alla prova le tue basi di sicurezza digitale.</div>
           <div class="card-topics">
             <span class="topic">CID</span>
@@ -1915,12 +1866,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="quiz-informatica.html">
+      <a class="module-card inf" href="decks/quiz-informatica.html">
         <div class="card-num">Q03</div>
         <div class="card-body">
           <div class="card-tag">QUIZ · Q03 · 20 DOMANDE</div>
           <div class="card-title">Identità digitale</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Metti alla prova quello che sai sull’identità digitale.</div>
           <div class="card-topics">
             <span class="topic">Hardware</span>
@@ -1932,12 +1882,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="quiz-hardware-software.html">
+      <a class="module-card inf" href="decks/quiz-hardware-software.html">
         <div class="card-num">Q04</div>
         <div class="card-body">
           <div class="card-tag">QUIZ · Q04 · 20 DOMANDE</div>
           <div class="card-title">Hardware e Software</div>
-          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Metti alla prova le tue basi di hardware e software.</div>
           <div class="card-topics">
             <span class="topic">CPU</span>
@@ -1949,12 +1898,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="quiz-smartphones.html">
+      <a class="module-card inf" href="decks/quiz-smartphones.html">
         <div class="card-num">Q05</div>
         <div class="card-body">
           <div class="card-tag">QUIZ · Q05 · 20 DOMANDE</div>
           <div class="card-title">Smartphones</div>
-          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Metti alla prova quello che sai sugli smartphone.</div>
           <div class="card-topics">
             <span class="topic">WiFi</span>
@@ -1966,12 +1914,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="quiz-suite-ufficio.html">
+      <a class="module-card inf" href="decks/quiz-suite-ufficio.html">
         <div class="card-num">Q06</div>
         <div class="card-body">
           <div class="card-tag">QUIZ · Q06 · 20 DOMANDE</div>
           <div class="card-title">Suite Ufficio</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Metti alla prova le tue competenze con la suite ufficio.</div>
           <div class="card-topics">
             <span class="topic">Word</span>
@@ -1983,12 +1930,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="quiz-ia.html">
+      <a class="module-card inf" href="decks/quiz-ia.html">
         <div class="card-num">Q07</div>
         <div class="card-body">
           <div class="card-tag">QUIZ · Q07 · 20 DOMANDE</div>
           <div class="card-title">Intelligenza Artificiale</div>
-          <div class="card-difficulty" aria-label="Difficoltà 1 su 5">★☆☆☆☆</div>
           <div class="card-desc">Metti alla prova quello che sai sull’intelligenza artificiale.</div>
           <div class="card-topics">
             <span class="topic">ML</span>
@@ -2000,12 +1946,11 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="quiz-project-management.html">
+      <a class="module-card inf" href="decks/quiz-project-management.html">
         <div class="card-num">Q08</div>
         <div class="card-body">
           <div class="card-tag">QUIZ · Q08 · 20 DOMANDE</div>
           <div class="card-title">Project Management</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Metti alla prova le tue basi di project management.</div>
           <div class="card-topics">
             <span class="topic">Triplo vincolo</span>
@@ -2022,6 +1967,7 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
 
   <footer class="page-footer">
     <a class="footer-graphlink" href="graphify-out/graph.html">Grafo della conoscenza · Graphify ↗</a>
+    <a class="footer-graphlink" href="strumenti-docente.html">Strumenti docente ↗</a>
     <div class="footer-author">Francesco Antonio Binetti</div>
   </footer>
 
@@ -2064,7 +2010,7 @@ if(quizGrid&&window.AREA_QUIZ_BANKS){
     }
     const card=document.createElement('a');
     card.className='module-card';
-    card.href=`quiz-area.html?area=${encodeURIComponent(bank.area)}`;
+    card.href=`decks/quiz-area.html?area=${encodeURIComponent(bank.area)}`;
     card.style.setProperty('--quiz-accent',quizAccents[bank.course]||'#d98a2b');
     card.innerHTML=`<div class="card-num">${bank.area}</div><div class="card-body"><div class="card-tag">QUIZ · ${bank.area}</div><div class="card-title"></div></div><div class="card-arrow">→</div>`;
     card.querySelector('.card-title').textContent=bank.title;
@@ -2128,39 +2074,56 @@ const normalizeSearch=text=>(text||'')
   .replace(/\s+/g,' ')
   .trim();
 const searchTokens=text=>normalizeSearch(text).match(/[a-z0-9]+/g)||[];
-const hasPartialMatch=(text,terms)=>terms.every(term=>normalizeSearch(text).includes(term));
-const hasWholeMatch=(tokens,terms)=>terms.every(term=>tokens.includes(term));
-const matchingSlideScore=(slide,terms,preferWhole)=>{
-  const text=slide.text||'';
+const searchRoot=token=>{
+  if(token.length<5)return token;
+  if(/zioni?$/.test(token))return token.replace(/zioni?$/,'zion');
+  if(/ment[io]$/.test(token))return token.replace(/ment[io]$/,'ment');
+  return /[aeio]$/.test(token)?token.slice(0,-1):token;
+};
+const tokenVariantMatch=(token,term)=>{
+  if(token===term)return true;
+  if(token.length<4||term.length<4)return false;
+  return searchRoot(token)===searchRoot(term)
+    || token.startsWith(term)
+    || term.startsWith(token);
+};
+const textMatchRank=(text,query,terms)=>{
+  if(!terms.length)return 0;
   const normalized=normalizeSearch(text);
   const tokens=searchTokens(text);
-  const found=preferWhole
-    ? hasWholeMatch(tokens,terms)
-    : hasPartialMatch(text,terms);
-  if(!found)return -Infinity;
-  let score=0;
+  if(terms.length>1&&normalized.includes(query))return 4;
+  if(terms.every(term=>tokens.includes(term)))return 3;
+  if(terms.every(term=>tokens.some(token=>tokenVariantMatch(token,term))))return 2;
+  return 0;
+};
+const matchingSlideScore=(slide,query,terms)=>{
+  const text=slide.text||'';
+  const tokens=searchTokens(text);
+  const rank=textMatchRank(text,query,terms);
+  if(!rank)return -Infinity;
+  let score=rank*100;
   terms.forEach(term=>{
     score += tokens.filter(token=>token===term).length * 8;
-    score += Math.max(0,(normalized.match(new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'))||[]).length - 1);
+    score += tokens.filter(token=>token!==term&&tokenVariantMatch(token,term)).length * 2;
   });
   if(slide.number===1)score-=30;
   if(/\b(cosa vedremo|in questo modulo|percorso|fine|risolto)\b/i.test(text))score-=18;
   if(/\b(cos.e|definizione|metodo|interfaccia|strumenti|periferiche|applicazioni|formati|rete|driver|browser|file)\b/i.test(text))score+=4;
   return score;
 };
-const firstMatchingSlide=(slides,terms,preferWhole)=>{
+const bestMatchingSlide=(slides,query,terms)=>{
   if(!slides?.length)return null;
   return slides
-    .map(slide=>({slide,score:matchingSlideScore(slide,terms,preferWhole)}))
+    .map(slide=>({slide,score:matchingSlideScore(slide,query,terms)}))
     .filter(item=>Number.isFinite(item.score))
-    .sort((a,b)=>b.score-a.score || a.slide.number-b.slide.number)[0]?.slide||null;
+    .sort((a,b)=>b.score-a.score || a.slide.number-b.slide.number)[0]||null;
 };
 const cards=[...document.querySelectorAll('.module-card[href]')].map(card=>{
   const group=card.closest('.section-group');
   const href=card.getAttribute('href')||'';
   const indexed=deckSearchIndex.get(href)||{};
   const section=group?.querySelector('.section-label')?.textContent||'';
-  const text=[
+  const metadata=[
     section,
     href,
     card.querySelector('.card-num')?.textContent,
@@ -2172,21 +2135,57 @@ const cards=[...document.querySelectorAll('.module-card[href]')].map(card=>{
     indexed.code,
     indexed.title,
     indexed.description,
-    indexed.topics,
-    indexed.text
+    indexed.topics
   ].join(' ');
   card.dataset.baseHref=href;
   return {
     card,
     group,
     indexed,
-    haystack:normalizeSearch(text),
-    tokens:searchTokens(text)
+    metadata:normalizeSearch(metadata),
+    title:normalizeSearch(card.querySelector('.card-title')?.textContent||indexed.title||'')
   };
 });
+const originalSectionOrder=[...sectionGroups];
+const sectionParent=sectionGroups[0]?.parentElement||null;
+const sectionTail=sectionGroups.at(-1)?.nextSibling||null;
+const restoreSearchOrder=()=>{
+  document.querySelectorAll('.module-card,.subseries-group,.quiz-macro-group').forEach(element=>{
+    element.style.removeProperty('order');
+  });
+  if(sectionParent){
+    originalSectionOrder.forEach(group=>sectionParent.insertBefore(group,sectionTail));
+  }
+};
+const applyRelevanceOrder=matches=>{
+  const scoreByCard=new Map(matches.map(match=>[match.card,match.score]));
+  matches.forEach(match=>{
+    match.card.style.order=String(-match.score);
+  });
+  document.querySelectorAll('.subseries-group,.quiz-macro-group').forEach(container=>{
+    const scores=[...container.querySelectorAll('.module-card')]
+      .map(card=>scoreByCard.get(card))
+      .filter(Number.isFinite);
+    if(scores.length)container.style.order=String(-Math.max(...scores));
+  });
+  if(sectionParent){
+    const scoreByGroup=new Map(originalSectionOrder.map((group,index)=>{
+      const scores=[...group.querySelectorAll('.module-card')]
+        .map(card=>scoreByCard.get(card))
+        .filter(Number.isFinite);
+      return [group,{score:scores.length?Math.max(...scores):-Infinity,index}];
+    }));
+    [...originalSectionOrder]
+      .sort((a,b)=>scoreByGroup.get(b).score-scoreByGroup.get(a).score
+        || scoreByGroup.get(a).index-scoreByGroup.get(b).index)
+      .forEach(group=>sectionParent.insertBefore(group,sectionTail));
+  }
+};
 const applySearch=()=>{
   const query=normalizeSearch(searchInput?.value||'');
-  const active=query.length>0;
+  const terms=searchTokens(query);
+  const normalizedQuery=terms.join(' ');
+  const active=terms.length>0;
   document.body.classList.toggle('search-active',active);
   searchClear.style.display=active?'block':'none';
   sectionGroups.forEach(group=>{
@@ -2197,6 +2196,7 @@ const applySearch=()=>{
     card.setAttribute('href',card.dataset.baseHref||card.getAttribute('href'));
   });
   if(!active){
+    restoreSearchOrder();
     sectionGroups.forEach(group=>{
       group.querySelector('.section-label')?.setAttribute('aria-expanded',group.classList.contains('collapsed')?'false':'true');
     });
@@ -2206,14 +2206,23 @@ const applySearch=()=>{
     searchMeta.textContent='';
     return;
   }
-  const terms=query.split(' ').filter(Boolean);
   const foundCards=cards.map(item=>{
-    const partial=terms.every(term=>item.haystack.includes(term));
-    const whole=partial&&terms.every(term=>item.tokens.includes(term));
-    return {...item,partial,whole};
-  }).filter(item=>item.partial);
-  const preferWhole=foundCards.some(item=>item.whole);
-  const visibleCards=foundCards.filter(item=>preferWhole?item.whole:item.partial);
+    const metadataRank=textMatchRank(item.metadata,normalizedQuery,terms);
+    const titleRank=textMatchRank(item.title,normalizedQuery,terms);
+    const slideMatch=bestMatchingSlide(item.indexed.slides,normalizedQuery,terms);
+    const slideRank=slideMatch?textMatchRank(slideMatch.slide.text,normalizedQuery,terms):0;
+    const metadataScore=metadataRank*100+(titleRank?80:0);
+    const slideScore=slideMatch?.score||0;
+    return {
+      ...item,
+      metadataRank,
+      slideRank,
+      slide:slideMatch?.slide||null,
+      score:Math.max(metadataScore,slideScore)
+    };
+  }).filter(item=>item.metadataRank||item.slideRank);
+  const visibleCards=foundCards;
+  applyRelevanceOrder(visibleCards);
   const visibleCardElements=new Set(visibleCards.map(item=>item.card));
   const groupsWithMatches=new Set();
   cards.forEach(item=>{
@@ -2221,9 +2230,9 @@ const applySearch=()=>{
     item.card.classList.toggle('search-hidden',!found);
     if(found){
       if(item.group)groupsWithMatches.add(item.group);
-      const slide=firstMatchingSlide(item.indexed.slides,terms,preferWhole);
-      if(slide?.number){
-        item.card.setAttribute('href',`${item.card.dataset.baseHref}#slide-${slide.number}`);
+      const match=visibleCards.find(entry=>entry.card===item.card);
+      if(match?.slide?.number){
+        item.card.setAttribute('href',`${item.card.dataset.baseHref}#slide-${match.slide.number}`);
       }
     }
   });
@@ -2298,7 +2307,6 @@ const statRow = (label, value, tip, className = '') =>
 document.querySelectorAll('.module-card[href]').forEach(card => {
   const href = card.getAttribute('href');
   if (!href || !href.endsWith('.html')) return;
-  const txtUrl = href.replace('.html', '.txt');
   const title = card.querySelector('.card-title');
   if (!title) return;
   const cardNum = card.querySelector('.card-num');
@@ -2333,21 +2341,6 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
       return;
     }
   });
-  const btn = document.createElement('button');
-  btn.className = 'dl-btn index-control-box';
-  btn.title = 'Scarica versione testuale';
-  btn.textContent = '↓ TXT';
-  btn.addEventListener('click', e => {
-    e.preventDefault();
-    e.stopPropagation();
-    const a = document.createElement('a');
-    a.href = txtUrl;
-    a.download = txtUrl;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  });
-  controlRow.appendChild(btn);
   const exercises = window.EXERCISE_INDEX?.[href] || [];
   const agenda = window.AGENDA_INDEX?.[href];
   if (agenda?.items?.length) {
@@ -2546,7 +2539,7 @@ document.querySelectorAll('.module-grid').forEach(grid => {
 const returnHref = new URLSearchParams(location.search).get('from');
 if (returnHref) {
   const targetCard = [...document.querySelectorAll('.module-card')]
-    .find(card => (card.dataset.baseHref || card.getAttribute('href')) === returnHref);
+    .find(card => (card.dataset.baseHref || card.getAttribute('href')).split('/').pop() === returnHref);
   const mainGroup = targetCard?.closest('.section-group');
   if (targetCard && mainGroup) {
     openGroup(mainGroup);

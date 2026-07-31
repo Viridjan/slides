@@ -1,0 +1,492 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suite Ufficio · SU03.04 — Prime formule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.slide.visible .reveal:nth-child(5){transition-delay:.37s}
+.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}.d4{transition-delay:.56s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep)}.tape.teal{background:var(--teal)}.tape.sky{background:var(--sky)}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
+.lead{font-size:32px;line-height:1.45;color:var(--ink-soft);max-width:1120px;}
+.body{font-size:27px;line-height:1.46;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1.05;}
+.card p{font-size:24px;line-height:1.36;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa}.note.sky{background:#d9edf2}.note.teal{background:var(--teal)}.note.teal *{color:var(--paper)!important}.note.teal .lbl{color:var(--gold)!important}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.36;color:var(--ink);}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}
+.col{display:flex;flex-direction:column}.center{height:100%;display:flex;flex-direction:column;justify-content:center}
+.split{display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;height:100%}
+.split.even{grid-template-columns:1fr 1fr}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stack>*+*{margin-top:20px}
+.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .grid2{gap:18px}.tight-slide .grid3{gap:16px}.tight-slide .card{padding:18px 22px}.tight-slide .card h3{font-size:30px}.tight-slide .card p{font-size:21px;line-height:1.28}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}
+.title-right>div,.title-right>svg{position:relative;z-index:2}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04)}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}
+.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}
+.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:28px;display:grid;place-items:center;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.sheet{width:100%;border-collapse:collapse;font-family:var(--font-mono);}
+.sheet td,.sheet th{border:1px solid var(--line);height:52px;text-align:center;font-size:21px;color:var(--ink-soft);background:#fff;}
+.sheet th{background:var(--paper-2);color:var(--ink);font-weight:700;}
+.sheet .rowh{background:var(--paper-2);color:var(--ink);font-weight:700;width:50px;}
+.sheet .sel{background:var(--gold);color:var(--ink);font-weight:700;outline:3px solid var(--red);outline-offset:-3px;}
+.sheet .head{background:#d9edf2;color:var(--ink);font-weight:700;}
+.fbar{display:flex;align-items:center;gap:12px;font-family:var(--font-mono);font-size:24px;background:#fff;border:2px solid var(--ink);border-radius:10px;padding:14px 20px;width:100%;}
+.fbar .ref{background:var(--paper-2);padding:6px 14px;border-radius:6px;font-weight:700;}
+.fbar .eq{color:var(--red);font-weight:700;}
+.formula{font-family:var(--font-mono);font-size:28px;background:#fff;border:2px solid var(--ink);border-radius:12px;padding:18px 24px;box-shadow:5px 6px 0 rgba(28,23,20,.12);color:var(--ink);}
+.formula b{color:var(--red)}
+.fn-card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:22px 26px;box-shadow:7px 8px 0 rgba(28,23,20,.12);}
+.fn-card h3{font-family:var(--font-mono);font-weight:700;font-size:32px;color:var(--teal);margin-bottom:6px;}
+.fn-card .syntax{font-family:var(--font-mono);font-size:20px;color:var(--ink-faint);margin-bottom:8px;}
+.fn-card p{font-size:22px;color:var(--ink-soft);}
+.err-card{background:#f3b6aa;border:2px solid var(--red);border-radius:14px;padding:18px 22px;box-shadow:5px 6px 0 rgba(228,83,59,.18);}
+.err-card h3{font-family:var(--font-mono);font-weight:700;font-size:28px;color:var(--red);margin-bottom:6px;}
+.err-card p{font-size:22px;color:var(--ink-soft);}
+.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.title-slide .lead,.title-slide .chips{display:none;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+</style>
+<link rel="stylesheet" href="../theme-corsi.css">
+</head>
+<body class="course-su">
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+  <!-- 1. TITLE -->
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <h1 class="h-mega reveal">Prime <em class="hot">formule</em></h1>
+      <p class="lead reveal" style="margin-top:30px;">Come funzionano formule e operatori, quali sono le funzioni fondamentali e come diagnosticare ogni famiglia di errore del foglio.</p>
+
+    </div>
+    <div class="title-right">
+      <div class="reveal" style="font-size:210px;line-height:1;">🧮</div>
+    </div>
+  <div class="deck-author">Francesco Antonio Binetti</div></section>
+
+  <!-- 2. AGENDA -->
+
+
+  <!-- 3. COME FUNZIONA -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Come funziona<br>una <em class="hot">formula</em></h2>
+        <p class="lead reveal d1">Ogni formula inizia con <b style="font-family:var(--font-mono);color:var(--red);">=</b> e può usare valori fissi, riferimenti a celle, operatori e funzioni. Il risultato si aggiorna automaticamente quando cambiano i dati. <span class="shortcut-inline">F2 · modifica formula</span></p>
+        <div class="analogy reveal d2"><span class="big">Regola:</span> Senza = il foglio tratta ciò che scrivi come testo. Con = lo calcola.</div>
+        <div class="note reveal d3"><div class="lbl">💡 Niente calcolatrice</div><p>Imposti la formula una volta — il foglio ricalcola tutto da solo ad ogni modifica dei dati sorgente. Cambia un valore di partenza, e tutti i risultati collegati si aggiornano immediatamente, senza dover aprire una calcolatrice o riscrivere nulla.</p></div>
+      </div>
+      <div class="illu reveal d1">
+        <div class="fbar" style="margin-bottom:16px;"><span class="ref">C1</span><span class="eq">=</span><span>A1 + B1</span></div>
+        <table class="sheet" style="width:280px;">
+          <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+          <tr><td class="rowh">1</td><td>20</td><td>15</td><td class="sel">35</td></tr>
+        </table>
+        <div class="illu-cap">=A1+B1 → 35, aggiornato se A1 o B1 cambia</div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:20px"><div class="lbl">📍 Dove si trova</div><p><b>Dove si scrivono:</b> clicca una cella e digita <b>=</b> seguito dalla funzione; in alternativa usa la barra della formula in alto o il pulsante <b>fx</b> (Inserisci funzione). Uguale in Excel e Google Fogli.</p></div><div class="page-num"></div>
+  </section>
+
+  <!-- 4. OPERATORI -->
+  <section class="slide">
+    <div class="col stack">
+
+      <h2 class="h-sec reveal">Operatori <em class="hot">aritmetici e logici</em></h2>
+      <p class="lead reveal d1">Le formule usano operatori per combinare valori e riferimenti. Li conosci già dalla matematica — con qualche variante.</p>
+      <div class="grid4 reveal d2">
+        <div class="fn-card">
+          <h3>+ − * /</h3>
+          <div class="syntax">Aritmetici</div>
+          <p>Somma, sottrai, moltiplica, dividi. <span style="font-family:var(--font-mono);">=A2*B2</span> moltiplica due celle.</p>
+        </div>
+        <div class="fn-card">
+          <h3>^</h3>
+          <div class="syntax">Potenza</div>
+          <p><span style="font-family:var(--font-mono);">=A2^2</span> calcola il quadrato di A2. Equivale a A2×A2.</p>
+        </div>
+        <div class="fn-card">
+          <h3>&gt; &lt; = &lt;&gt;</h3>
+          <div class="syntax">Confronto</div>
+          <p>Maggiore, minore, uguale, diverso. Restituiscono VERO o FALSO — usati nelle condizioni.</p>
+        </div>
+        <div class="fn-card">
+          <h3>&amp;</h3>
+          <div class="syntax">Testo</div>
+          <p>Unisce testo: <span style="font-family:var(--font-mono);">=A2&" "&B2</span> → "Mario Rossi". Utile per nomi completi.</p>
+        </div>
+      </div>
+      <div class="note reveal d3" style="margin-top:16px;"><div class="lbl">💡 Precedenza</div><p>Come in matematica: * e / hanno precedenza su + e −. Usa le parentesi per controllare l'ordine di calcolo: <span style="font-family:var(--font-mono);">=(A+B)*C</span> anziché <span style="font-family:var(--font-mono);">=A+B*C</span>.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 5. SOMMA -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">La funzione<br>più <em class="hot">usata</em></h2>
+        <p class="lead reveal d1">SOMMA aggiunge tutti i valori numerici in un intervallo, ignorando automaticamente le celle vuote e quelle con testo. È la funzione più usata nei fogli di calcolo: totali, incassi, spese, quantità e qualsiasi altra somma di numeri.</p>
+        <div class="formula reveal d2" style="font-size:26px;">=SOMMA(<b>B2:B6</b>)</div>
+        <div class="stack reveal d3">
+          <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;">
+            <span style="font-size:28px;min-width:40px;">✓</span>
+            <div><span style="font-size:24px;font-family:var(--font-mono);color:var(--teal);">=SOMMA(B2:B6)</span> — somma tutte le celle da B2 a B6 in sequenza continuativa</div>
+          </div>
+          <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;">
+            <span style="font-size:28px;min-width:40px;">✓</span>
+            <div><span style="font-size:24px;font-family:var(--font-mono);color:var(--teal);">=SOMMA(B2;B4;B6)</span> — somma solo le celle indicate, saltando quelle in mezzo</div>
+          </div>
+          <div class="agenda-item" style="border-color:var(--teal);padding:10px 4px;">
+            <span style="font-size:28px;min-width:40px;">✓</span>
+            <div><span style="font-size:24px;font-family:var(--font-mono);color:var(--teal);">=SOMMA(B:B)</span> — somma tutti i valori della colonna, incluse le righe aggiunte in seguito</div>
+          </div>
+        </div>
+      </div>
+      <div class="illu reveal d1">
+        <table class="sheet" style="width:240px;">
+          <tr><th></th><th>A</th><th>B</th></tr>
+          <tr><td class="rowh">1</td><td class="head" style="font-size:18px;">Voce</td><td class="head" style="font-size:18px;">€</td></tr>
+          <tr><td class="rowh">2</td><td style="font-size:18px;">Creme</td><td>120</td></tr>
+          <tr><td class="rowh">3</td><td style="font-size:18px;">Shampoo</td><td>80</td></tr>
+          <tr><td class="rowh">4</td><td style="font-size:18px;">Colori</td><td>150</td></tr>
+          <tr><td class="rowh">5</td><td style="font-size:18px;">Gel</td><td>45</td></tr>
+          <tr><td class="rowh">6</td><td style="font-size:18px;font-weight:700;">Totale</td><td class="sel">430</td></tr>
+        </table>
+        <div class="illu-cap">=SOMMA(B2:B5) → 430</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 6. MEDIA MIN MAX -->
+  <section class="slide">
+    <div class="col stack">
+
+      <h2 class="h-sec reveal">Tre funzioni, una fotografia dei <em class="hot">dati</em></h2>
+      <p class="lead reveal d1">Usate insieme danno subito una panoramica della distribuzione dei valori — senza leggere ogni cella.</p>
+      <div class="grid3 reveal d2">
+        <div class="fn-card">
+          <h3>MEDIA</h3>
+          <div class="syntax">=MEDIA(B2:B10)</div>
+          <p>Somma i valori e divide per quanti ce ne sono. Le celle vuote non vengono contate — attenzione agli zeri non voluti.</p>
+        </div>
+        <div class="fn-card">
+          <h3>MIN</h3>
+          <div class="syntax">=MIN(B2:B10)</div>
+          <p>Trova il valore più piccolo nell'intervallo. Utile per controllare anomalie e prezzi minimi.</p>
+        </div>
+        <div class="fn-card">
+          <h3>MAX</h3>
+          <div class="syntax">=MAX(B2:B10)</div>
+          <p>Trova il valore più grande. Se MAX è molto superiore alla MEDIA, potrebbe essere un outlier o un errore.</p>
+        </div>
+      </div>
+      <div class="analogy reveal d3"><span class="big">In pratica:</span> MIN, MEDIA, MAX insieme = in pochi secondi capisci la distribuzione dei dati senza grafici.</div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" aria-label="Fonte ufficiale: Formule e funzioni — Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Formule e funzioni — Supporto Microsoft Excel ↗</a></div></section>
+
+  <!-- 7. CONTA.NUMERI e CONTA.VALORI -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal"><em class="hot">Contare</em> le celle presenti</h2>
+        <p class="lead reveal d1">SOMMA risponde "quanto in totale?". Le funzioni CONTA rispondono "quante celle hanno qualcosa dentro?".</p>
+        <div class="stack reveal d2">
+          <div class="fn-card">
+            <h3>CONTA.NUMERI</h3>
+            <div class="syntax">=CONTA.NUMERI(B:B)</div>
+            <p>Conta solo le celle che contengono <b>numeri</b> interi o decimali. Testo, date, celle vuote e formule che producono testo vengono tutti ignorati.</p>
+          </div>
+          <div class="fn-card">
+            <h3>CONTA.VALORI</h3>
+            <div class="syntax">=CONTA.VALORI(A:A)</div>
+            <p>Conta le celle <b>non vuote</b> — qualsiasi contenuto: testo, numero, formula o riferimento. Utile per sapere quante righe sono state compilate in un elenco o tabella.</p>
+          </div>
+        </div>
+      </div>
+      <div class="illu reveal d1">
+        <table class="sheet" style="width:240px;">
+          <tr><th></th><th>A (nome)</th><th>B (€)</th></tr>
+          <tr><td class="rowh">1</td><td class="head" style="font-size:17px;">Cliente</td><td class="head" style="font-size:17px;">Spesa</td></tr>
+          <tr><td class="rowh">2</td><td style="font-size:17px;">Sofia</td><td>145</td></tr>
+          <tr><td class="rowh">3</td><td style="font-size:17px;">Laura</td><td>62</td></tr>
+          <tr><td class="rowh">4</td><td style="font-size:17px;">Giulia</td><td></td></tr>
+          <tr><td class="rowh">5</td><td style="font-size:17px;">Marco</td><td>88</td></tr>
+          <tr><td class="rowh">6</td><td class="sel" style="font-size:15px;">CONTA.VALORI=4</td><td class="sel" style="font-size:15px;">CONTA.NUMERI=3</td></tr>
+        </table>
+        <div class="illu-cap">B4 è vuota: CONTA.NUMERI la salta, CONTA.VALORI no</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 8. CONTA.SE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Contare con una <em class="hot">condizione</em></h2>
+        <p class="lead reveal d1">CONTA.SE conta solo le celle che rispettano una regola: uguale a un testo, maggiore di un numero, contenente un valore specifico.</p>
+        <div class="formula reveal d2" style="font-size:24px;">=CONTA.SE(<b>C:C</b>;"Pagato")</div>
+        <div class="stack reveal d3" style="margin-top:16px;">
+          <div class="agenda-item" style="border-color:var(--sky);padding:10px 4px;">
+            <span style="font-size:26px;min-width:40px;">→</span>
+            <div><span style="font-family:var(--font-mono);font-size:22px;color:var(--sky);">=CONTA.SE(B:B;"&gt;100")</span> — spese sopra 100€</div>
+          </div>
+          <div class="agenda-item" style="border-color:var(--sky);padding:10px 4px;">
+            <span style="font-size:26px;min-width:40px;">→</span>
+            <div><span style="font-family:var(--font-mono);font-size:22px;color:var(--sky);">=CONTA.SE(A:A;"Roma")</span> — clienti di Roma</div>
+          </div>
+          <div class="agenda-item" style="border-color:var(--sky);padding:10px 4px;">
+            <span style="font-size:26px;min-width:40px;">→</span>
+            <div><span style="font-family:var(--font-mono);font-size:22px;color:var(--sky);">=CONTA.SE(C:C;E1)</span> — criterio in E1</div>
+          </div>
+        </div>
+        <div class="note red reveal d4"><div class="lbl">⚠️ Più condizioni</div><p>CONTA.SE gestisce una sola condizione per volta. Per verificare più condizioni contemporaneamente sulla stessa riga, usa <span style="font-family:var(--font-mono);">CONTA.PIÙ.SE</span> — trattato in SU10.</p></div>
+      </div>
+      <div class="illu reveal d1">
+        <table class="sheet" style="width:280px;">
+          <tr><th></th><th>A</th><th>B (€)</th><th>C</th></tr>
+          <tr><td class="rowh">1</td><td class="head" style="font-size:16px;">Cliente</td><td class="head" style="font-size:16px;">Spesa</td><td class="head" style="font-size:16px;">Stato</td></tr>
+          <tr><td class="rowh">2</td><td style="font-size:16px;">Sofia</td><td>145</td><td style="font-size:16px;color:var(--teal);font-weight:700;">Pagato</td></tr>
+          <tr><td class="rowh">3</td><td style="font-size:16px;">Laura</td><td>62</td><td style="font-size:16px;color:var(--red);">Aperto</td></tr>
+          <tr><td class="rowh">4</td><td style="font-size:16px;">Giulia</td><td>88</td><td style="font-size:16px;color:var(--teal);font-weight:700;">Pagato</td></tr>
+          <tr><td class="rowh">5</td><td class="sel" colspan="3" style="font-size:15px;">CONTA.SE(C:C;"Pagato") = 2</td></tr>
+        </table>
+        <div class="illu-cap">Conta solo le righe con stato "Pagato"</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 9. SE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Decisioni <em class="hot">automatiche</em></h2>
+        <p class="lead reveal d1">SE valuta una condizione: se è vera restituisce un valore, altrimenti un altro. È la funzione logica base da cui nascono tutte le decisioni nel foglio.</p>
+        <div class="formula reveal d2" style="font-size:22px;">=SE(<b>condizione</b>; se_vero; se_falso)</div>
+        <div class="formula reveal d3" style="font-size:20px;margin-top:12px;">=SE(B2&gt;100; "Ottimo"; "Da migliorare")</div>
+        <p class="body reveal d4" style="margin-top:12px;">Se la spesa in B2 supera 100€ → scrive "Ottimo", altrimenti "Da migliorare". La formula si copia verso il basso sulle righe successive, valutando ogni riga in modo indipendente senza dover riscrivere nulla.</p>
+      </div>
+      <div class="illu reveal d1">
+        <div class="fbar" style="font-size:18px;margin-bottom:16px;"><span class="ref">C2</span><span class="eq">=</span><span style="font-size:16px;">SE(B2&gt;100;"Ottimo";"Basso")</span></div>
+        <table class="sheet" style="width:280px;">
+          <tr><th></th><th>A</th><th>B (€)</th><th>C</th></tr>
+          <tr><td class="rowh">1</td><td class="head" style="font-size:16px;">Cliente</td><td class="head" style="font-size:16px;">Spesa</td><td class="head" style="font-size:16px;">Valut.</td></tr>
+          <tr><td class="rowh">2</td><td style="font-size:16px;">Sofia</td><td>145</td><td class="sel" style="font-size:15px;color:var(--teal);font-weight:700;">Ottimo</td></tr>
+          <tr><td class="rowh">3</td><td style="font-size:16px;">Laura</td><td>65</td><td style="font-size:15px;color:var(--red);">Basso</td></tr>
+          <tr><td class="rowh">4</td><td style="font-size:16px;">Giulia</td><td>120</td><td style="font-size:15px;color:var(--teal);font-weight:700;">Ottimo</td></tr>
+        </table>
+        <div class="illu-cap">SE valuta ogni riga in automatico</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="cross-reference-footer" data-cross-reference-footer="true"><a href="pr01-05-operatori-funzioni.html#slide-9">Vai a PR01.05 · Proposizioni e condizioni ↗</a></div></section>
+
+  <!-- 10. RIEPILOGO FUNZIONI -->
+  <section class="slide tight-slide">
+    <div class="col stack">
+
+      <h2 class="h-sec reveal">Le 8 funzioni di questo modulo</h2>
+      <div class="grid4 reveal d1" style="margin-top:18px;">
+        <div class="fn-card">
+          <h3>SOMMA</h3>
+          <div class="syntax">=SOMMA(A1:A10)</div>
+          <p>Somma tutti i numeri nell'intervallo, saltando automaticamente celle vuote e testo</p>
+        </div>
+        <div class="fn-card">
+          <h3>MEDIA</h3>
+          <div class="syntax">=MEDIA(A1:A10)</div>
+          <p>Media aritmetica: somma totale divisa per il numero di celle numeriche presenti</p>
+        </div>
+        <div class="fn-card">
+          <h3>MIN</h3>
+          <div class="syntax">=MIN(A1:A10)</div>
+          <p>Restituisce il valore numerico più piccolo nell'intervallo dato</p>
+        </div>
+        <div class="fn-card">
+          <h3>MAX</h3>
+          <div class="syntax">=MAX(A1:A10)</div>
+          <p>Restituisce il valore numerico più grande nell'intervallo dato</p>
+        </div>
+        <div class="fn-card">
+          <h3>CONTA.NUMERI</h3>
+          <div class="syntax">=CONTA.NUMERI(A:A)</div>
+          <p>Conta quante celle contengono un numero, ignorando testo e celle vuote</p>
+        </div>
+        <div class="fn-card">
+          <h3>CONTA.VALORI</h3>
+          <div class="syntax">=CONTA.VALORI(A:A)</div>
+          <p>Conta quante celle non sono vuote, indipendentemente dal tipo di contenuto</p>
+        </div>
+        <div class="fn-card">
+          <h3>CONTA.SE</h3>
+          <div class="syntax">=CONTA.SE(A:A;"x")</div>
+          <p>Conta le celle che soddisfano la condizione specificata come criterio</p>
+        </div>
+        <div class="fn-card">
+          <h3>SE</h3>
+          <div class="syntax">=SE(cond;vero;falso)</div>
+          <p>Valuta una condizione e restituisce un risultato diverso a seconda che sia vera o falsa</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 11. METODO DI DIAGNOSI -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+        <h2 class="h-big reveal">Un errore è un<br><em class="hot">messaggio</em></h2>
+        <p class="lead reveal d1">Il codice identifica la famiglia del problema. Prima di nasconderlo, individua la cella che lo genera e risali ai dati usati dalla formula.</p>
+        <div class="analogy reveal d2"><span class="big">Regola:</span> leggi il codice → controlla la formula → verifica i riferimenti → correggi la causa.</div>
+      </div>
+      <div class="col stack reveal d1">
+        <div class="agenda-item" style="border-color:var(--red);"><span style="font-family:var(--font-mono);font-size:32px;min-width:72px;">01</span><div><b style="font-size:27px;">Seleziona la prima cella</b><br><span style="font-size:22px;color:var(--ink-faint);">Gli errori a cascata spesso dipendono da un solo punto iniziale.</span></div></div>
+        <div class="agenda-item" style="border-color:var(--gold-deep);"><span style="font-family:var(--font-mono);font-size:32px;min-width:72px;">02</span><div><b style="font-size:27px;">Leggi la barra della formula</b><br><span style="font-size:22px;color:var(--ink-faint);">Controlla operatori, parentesi, separatori, nomi e intervalli.</span></div></div>
+        <div class="agenda-item" style="border-color:var(--sky);"><span style="font-family:var(--font-mono);font-size:32px;min-width:72px;">03</span><div><b style="font-size:27px;">Correggi, poi gestisci</b><br><span style="font-size:22px;color:var(--ink-faint);">SE.ERRORE è un fallback, non una riparazione automatica.</span></div></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 12. DIV/0 -->
+  <section class="slide" data-content-review-hash="226569fc18d0abcc" data-content-review-date="2026-07-18"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:105px;color:var(--red);">#DIV/0!</h2><p class="lead reveal d1">La formula divide per zero oppure per una cella vuota.</p><div class="formula reveal d2">=B2/<b>C2</b></div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>C2 vale 0, è vuota oppure una formula la rende temporaneamente vuota.</p></div><div class="card"><h3>Controllo</h3><p>Verifica il denominatore e chiediti se il calcolo ha senso quando il dato manca.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>=SE(C2=0;"dato mancante";B2/C2). Usa SE.ERRORE solo se ogni errore previsto deve avere lo stesso fallback.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 13. VALORE -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:92px;color:var(--red);">#VALORE!</h2><p class="lead reveal d1">Un operatore o una funzione riceve un tipo di dato incompatibile.</p><div class="formula reveal d2">=<b>"dieci"</b>*2</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Numero salvato come testo, spazio invisibile, data non valida oppure argomento del tipo sbagliato.</p></div><div class="card"><h3>Controllo</h3><p>Verifica il contenuto reale della cella, non soltanto il suo aspetto o allineamento.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Converti il dato con VALORE, pulisci il testo o sostituisci l'argomento incompatibile.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 14. RIF -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:105px;color:var(--red);">#RIF!</h2><p class="lead reveal d1">La formula punta a celle, righe, colonne o fogli che non esistono più.</p><div class="formula reveal d2">=SOMMA(<b>#RIF!</b>)</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Un intervallo è stato eliminato, un riferimento è stato costruito male o un risultato dinamico non può espandersi.</p></div><div class="card"><h3>Controllo</h3><p>Apri la formula e individua il riferimento spezzato; controlla anche nomi di fogli e permessi esterni.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Ripristina la struttura eliminata oppure seleziona il nuovo intervallo corretto.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 15. NOME -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:105px;color:var(--red);">#NOME?</h2><p class="lead reveal d1">Il foglio non riconosce una funzione, un intervallo denominato o un testo non racchiuso tra virgolette.</p><div class="formula reveal d2">=<b>SOMMMA</b>(A1:A5)</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Errore di battitura, nome inesistente, funzione nella lingua sbagliata o virgolette mancanti.</p></div><div class="card"><h3>Controllo</h3><p>Usa i suggerimenti mentre digiti e verifica il gestore degli intervalli denominati.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Correggi il nome; scrivi il testo come "Nord" e non come Nord.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 16. N/D -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:118px;color:var(--red);">#N/D</h2><p class="lead reveal d1">Una ricerca non trova il valore richiesto: il risultato non è disponibile.</p><div class="formula reveal d2">=CERCA.X(<b>A2</b>;Listino[Codice];Listino[Prezzo])</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Chiave assente, spazio invisibile, differenza tra testo e numero oppure modalità di confronto sbagliata.</p></div><div class="card"><h3>Controllo</h3><p>Cerca la chiave nella sorgente e confronta tipo, spazi e maiuscole significative.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Pulisci le chiavi e usa il valore «se non trovato» previsto da CERCA.X; non inventare un prezzo pari a zero.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 17. NUM -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:110px;color:var(--red);">#NUM!</h2><p class="lead reveal d1">Il calcolo richiede un numero impossibile, fuori dai limiti o non converge.</p><div class="formula reveal d2">=RADQ(<b>-1</b>)</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Radice reale di un numero negativo, numero troppo grande o piccolo, iterazione finanziaria senza soluzione.</p></div><div class="card"><h3>Controllo</h3><p>Verifica dominio matematico, unità di misura e ordine di grandezza degli argomenti.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Correggi l'input oppure usa la funzione adatta al dominio; non trasformare automaticamente il valore in positivo.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 18. NULLO -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:95px;color:var(--red);">#NULLO!</h2><p class="lead reveal d1">Excel non trova l'intersezione tra due intervalli.</p><div class="formula reveal d2">=SOMMA(A1:A3 <b>B1:B3</b>)</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Uno spazio è stato usato per chiedere un'intersezione inesistente, spesso al posto di «;» o «:».</p></div><div class="card"><h3>Controllo</h3><p>Individua lo spazio tra i riferimenti e chiarisci se volevi un intervallo o due argomenti.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Usa A1:B3 per un intervallo oppure A1:A3;B1:B3 per argomenti separati. È un errore tipico di Excel.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 19. ERRORE DI ANALISI -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:82px;color:var(--red);">#ERROR!</h2><p class="lead reveal d1">Google Sheets non riesce ad analizzare la sintassi della formula.</p><div class="formula reveal d2">=SE(A1&gt;0<b>,</b>"sì"<b>,</b>"no")</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Separatore sbagliato per la lingua, parentesi o virgolette mancanti, operatori disposti male.</p></div><div class="card"><h3>Controllo</h3><p>Leggi il messaggio «Errore di analisi della formula» e verifica la lingua del file.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>In un file italiano usa normalmente il punto e virgola tra gli argomenti e chiudi ogni parentesi e virgoletta.</p></div></div></div><div class="page-num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Google Sheets" aria-label="Fonte ufficiale: Guida ufficiale Google Sheets" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Google Sheets ↗</a></div></section>
+
+  <!-- 20. ESPANSIONE -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:74px;color:var(--red);">#ESPANSIONE!</h2><p class="lead reveal d1">Una formula a matrice dinamica non trova spazio per distribuire tutti i risultati.</p><div class="formula reveal d2">=FILTRO(A2:C100;<b>C2:C100="Attivo"</b>)</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Celle occupate o unite, limite della griglia, area dentro una tabella oppure intervallo di uscita non libero.</p></div><div class="card"><h3>Controllo</h3><p>Seleziona l'avviso: Excel evidenzia l'area in cui il risultato dovrebbe espandersi.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Libera l'area o sposta la formula. In inglese il codice è #SPILL!; Sheets può mostrare #RIF! per un caso simile.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 21. CALC -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-mega reveal" style="font-family:var(--font-mono);font-size:105px;color:var(--red);">#CALC!</h2><p class="lead reveal d1">Excel incontra un caso di calcolo che la formula dinamica non sa restituire.</p><div class="formula reveal d2">=FILTRO(A2:A10;<b>B2:B10="assente"</b>)</div></div><div class="col stack reveal d1"><div class="card"><h3>Causa</h3><p>Risultato vuoto non gestito, matrice annidata o funzione personalizzata che restituisce un oggetto non supportato.</p></div><div class="card"><h3>Controllo</h3><p>Riduci la formula a parti più piccole e verifica quale passaggio non produce una matrice valida.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Specifica il risultato «se vuoto» di FILTRO oppure modifica la struttura della matrice.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 22. DATI COLLEGATI -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-big reveal">Errori dei<br><em class="hot">dati collegati</em></h2><p class="lead reveal d1">I tipi di dati e le sorgenti online introducono codici che dipendono dalla versione e dal servizio.</p><div class="chips reveal d2"><span class="chip">#FIELD!</span><span class="chip">#DATA!</span><span class="chip">#CONNECT!</span><span class="chip">#BLOCKED!</span></div></div><div class="col stack reveal d1"><div class="card"><h3>Campo o dato</h3><p>#FIELD! indica una proprietà inesistente; #DATA! un valore che il tipo collegato non riesce a recuperare.</p></div><div class="card"><h3>Connessione o blocco</h3><p>Credenziali, permessi, criteri aziendali, modalità offline o servizio non disponibile impediscono l'aggiornamento.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Controlla sorgente, accesso e aggiornamento. Questi codici moderni restano spesso in inglese anche nell'interfaccia italiana.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 23. ALTRI STATI MODERNI -->
+  <section class="slide"><div class="split even"><div class="col stack"><h2 class="h-big reveal">Altri stati<br><em class="hot">moderni</em></h2><p class="lead reveal d1">Alcuni codici descrivono attesa, compatibilità o servizi di calcolo, non una formula aritmetica sbagliata.</p><div class="chips reveal d2"><span class="chip">#BUSY!</span><span class="chip">#UNKNOWN!</span><span class="chip">#GETTING_DATA</span><span class="chip">#PYTHON!</span><span class="chip">#TIMEOUT!</span></div></div><div class="col stack reveal d1"><div class="card"><h3>Attesa o compatibilità</h3><p>#BUSY! e #GETTING_DATA indicano un calcolo in corso; #UNKNOWN! una funzione o un tipo non supportato dalla versione.</p></div><div class="card"><h3>Python in Excel</h3><p>#PYTHON! segnala un errore del codice o dell'ambiente; #TIMEOUT! indica che l'esecuzione ha superato il tempo consentito.</p></div><div class="note"><div class="lbl">💡 Correzione</div><p>Attendi o ricalcola; poi verifica connessione, aggiornamenti, diagnostica Python e compatibilità della versione.</p></div></div></div><div class="page-num"></div></section>
+
+  <!-- 24. NON SONO CODICI -->
+  <section class="slide"><div class="col stack"><h2 class="h-sec reveal">Sembrano errori, ma <em class="hot">non hanno un codice</em></h2><p class="lead reveal d1">Non tutti i problemi producono una cella rossa. Questi casi richiedono controlli diversi.</p><div class="grid3 reveal d2"><div class="card"><h3>#####</h3><p>La colonna è troppo stretta per mostrare il numero o la data; può anche indicare una data o un'ora negativa. Allarga e verifica il valore.</p></div><div class="card"><h3>Riferimento circolare</h3><p>La formula dipende da sé stessa, direttamente o tramite altre celle. Segui le frecce e interrompi il ciclo, salvo iterazioni intenzionali.</p></div><div class="card"><h3>Risultato sbagliato</h3><p>La formula è formalmente valida ma usa dati, unità o intervalli errati. È il caso più pericoloso perché non mostra alcun avviso.</p></div></div><div class="analogy reveal d3"><span class="big">Controllo:</span> un foglio senza codici di errore non è automaticamente un foglio corretto.</div></div><div class="page-num"></div></section>
+
+  <!-- 12. BUONE ABITUDINI -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Buone <em class="hot">abitudini</em></h2>
+        <p class="lead reveal d1">Una formula corretta non basta: deve essere anche leggibile, robusta e facile da correggere.</p>
+      </div>
+      <div class="col stack reveal d1" style="justify-content:center;gap:18px;">
+        <div class="agenda-item" style="border-color:var(--gold-deep);padding:14px 8px;">
+          <span style="font-size:32px;min-width:48px;">1.</span>
+          <div><b style="font-size:26px;">Mai calcoli magici</b><br><span style="font-size:22px;color:var(--ink-faint);">Usa riferimenti a celle, non valori fissi come 0.22 sparsi nelle formule</span></div>
+        </div>
+        <div class="agenda-item" style="border-color:var(--gold-deep);padding:14px 8px;">
+          <span style="font-size:32px;min-width:48px;">2.</span>
+          <div><b style="font-size:26px;">Una formula, poi copia</b><br><span style="font-size:22px;color:var(--ink-faint);">Scrivi la formula corretta in una cella, poi trascinala sulle righe successive — non riscrivere ogni volta: risparmi tempo ed eviti errori di battitura</span></div>
+        </div>
+        <div class="agenda-item" style="border-color:var(--gold-deep);padding:14px 8px;">
+          <span style="font-size:32px;min-width:48px;">3.</span>
+          <div><b style="font-size:26px;">Controlla il risultato</b><br><span style="font-size:22px;color:var(--ink-faint);">Verifica sempre che il risultato sia plausibile — le formule non avvisano se sei in un range sbagliato</span></div>
+        </div>
+        <div class="agenda-item" style="border-color:var(--gold-deep);padding:14px 8px;">
+          <span style="font-size:32px;min-width:48px;">4.</span>
+          <div><b style="font-size:26px;">Nessuno sa tutto a memoria</b><br><span style="font-size:22px;color:var(--ink-faint);">Il programma suggerisce mentre scrivi — usa i suggerimenti, non memorizzare la sintassi</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 13. VERIFICA -->
+
+
+  <!-- 14. CLOSING -->
+  <section class="slide closing"><div class="closing-inner"><div class="center" style="text-align:center;">
+      <h2 class="h-mega reveal" style="margin-top:10px;">I calcoli girano<br>da soli.</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Sai costruire le formule fondamentali e leggere i loro segnali: ogni codice indica dove cercare, quale causa verificare e come correggerla.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a class="chip" href="su03-05-analisi.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → SU03.05 · Analizzare e cercare</a>
+      </div>
+    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Formule e funzioni — Supporto Microsoft Excel ↗</a><a href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Google Sheets ↗</a></div></div><div class="page-num"></div></section>
+
+</div>
+</div>
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
+
+<script src="../deck.js"></script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Design · GD_07 — Processo di Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;background:#fff;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}.slide:last-child{break-after:auto;page-break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+code{font-family:var(--font-mono);}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}.d5{transition-delay:.68s !important;}.d6{transition-delay:.80s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}.tape.sky{background:var(--sky);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--sky);}
+.lead{font-size:32px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:27px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1;}
+.card p{font-size:24px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.card.red{border-color:var(--red);}.card.red h3{color:var(--red);}
+.card.teal{border-color:var(--teal);}.card.teal h3{color:var(--teal);}
+.card.sky{border-color:var(--sky);}.card.sky h3{color:var(--sky);}
+.card.gold{border-color:var(--gold-deep);}.card.gold h3{color:var(--gold-deep);}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.chip.red{background:var(--red);color:#fff;}.chip.sky{background:var(--sky);color:#fff;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa;border-color:var(--red);}
+.note.sky{background:#d4eaee;border-color:var(--sky);}
+.note.teal{background:#c0d4d1;border-color:var(--teal);}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.4;color:var(--ink);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.stack>*+*{margin-top:22px;}
+.tight-slide .h-sec{font-size:64px;}
+.tight-slide .lead{font-size:28px;line-height:1.34;}
+.tight-slide .body{font-size:24px;line-height:1.35;}
+.tight-slide .split{height:auto;}
+.tight-slide .grid2{gap:18px;}
+.tight-slide .grid3{gap:16px;}
+.tight-slide .stack>*+*{margin-top:12px;}
+.tight-slide .card{padding:18px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12);}
+.tight-slide .card h3{font-size:30px;margin-bottom:6px;}
+.tight-slide .card p{font-size:21px;line-height:1.28;}
+.tight-slide .card .ic{font-size:34px;margin-bottom:5px;}
+.tight-slide .note{padding:18px 22px;}
+.tight-slide .note .lbl{font-size:19px;margin-bottom:6px;}
+.tight-slide .note p{font-size:22px;line-height:1.3;}
+.steps{counter-reset:st;display:flex;flex-direction:column;gap:14px;}
+.step{display:flex;align-items:flex-start;gap:20px;background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:16px 24px;box-shadow:4px 5px 0 rgba(28,23,20,.12);}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:42px;line-height:1;}
+.step .t{font-size:26px;line-height:1.35;color:var(--ink-soft);padding-top:3px;}
+.step .t b{color:var(--ink);}
+.blockquote{border-left:6px solid var(--red);padding:20px 30px;background:#fbf5ec;border-radius:0 12px 12px 0;font-size:26px;line-height:1.5;color:var(--ink-soft);font-style:italic;}
+.blockquote b{color:var(--red);font-style:normal;}
+.err-label{display:inline-block;background:var(--red);color:#fff;font-family:var(--font-mono);font-weight:700;font-size:20px;padding:6px 16px;border-radius:20px;letter-spacing:1px;margin-bottom:10px;}
+.ok-label{display:inline-block;background:var(--teal);color:#fff;font-family:var(--font-mono);font-weight:700;font-size:20px;padding:6px 16px;border-radius:20px;letter-spacing:1px;margin-bottom:10px;}
+.flow-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.flow-box{background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 24px;font-size:26px;font-weight:600;text-align:center;min-width:180px;box-shadow:4px 4px 0 rgba(28,23,20,.12);}
+.flow-arrow{font-size:34px;color:var(--ink-faint);}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal-2);position:relative;overflow:hidden;display:grid;place-items:center;}.title-right>div,.title-right>svg{position:relative;z-index:2;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .gold{color:var(--gold);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;bottom:0;left:0;height:4px;background:var(--red);transition:width .4s var(--ease);z-index:9999;}
+.title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display),Georgia,serif;font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}</style>
+<link rel="stylesheet" href="../theme-corsi.css">
+</head>
+<body class="course-gd">
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+  <!-- SLIDE 1 · TITLE -->
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <h1 class="h-mega reveal" style="margin-top:10px;">Processo<br><em style="font-style:italic;color:var(--sky);">di Design</em></h1>
+      <p class="lead reveal d1" style="margin-top:28px;">Come si progetta un gioco davvero: validare l'idea, prototipare in fretta, testare coi giocatori e iterare senza innamorarsi della prima versione.</p>
+
+    </div>
+    <div class="title-right">
+      <div style="font-size:200px;line-height:1;text-align:center;" class="reveal">🔁</div>
+    </div>
+  <div class="deck-author">Francesco Antonio Binetti</div></section>
+
+  <!-- SLIDE 2 · AGENDA -->
+
+
+  <!-- SLIDE 3 · DA DOVE NASCE UN GIOCO -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;">Da dove nasce <em class="hot">un gioco</em></h2>
+        <p class="lead reveal d1" style="margin-top:14px;">Ogni gioco parte da un impulso: un'idea, un'emozione, una meccanica curiosa vista altrove. Ma non tutte le idee reggono. Prima di costruire, si <b>valida</b>.</p>
+        <div class="note reveal d2" style="margin-top:20px;">
+          <div class="lbl">L'idea non basta</div>
+          <p>Tutti hanno idee per giochi. Il design è il mestiere di trasformarle in qualcosa che <em>funziona davvero</em> in mano ai giocatori.</p>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="card sky reveal d1"><span class="ic">💡</span><h3>L'impulso iniziale</h3><p>Una scintilla: "e se un gioco facesse questo?". È il punto di partenza, non il progetto.</p></div>
+        <div class="illu reveal d2">
+          <svg viewBox="0 0 280 200" style="max-width:280px;margin:0 auto;" role="img" aria-label="Imbuto delle idee: molte idee entrano, un solo gioco valido esce">
+            <!-- idee in ingresso -->
+            <circle cx="70" cy="22" r="11" fill="#e6533b"/>
+            <circle cx="112" cy="14" r="9" fill="#e6c14a"/>
+            <circle cx="150" cy="24" r="12" fill="#3f7e8c"/>
+            <circle cx="192" cy="15" r="8" fill="#d98a2b"/>
+            <circle cx="222" cy="26" r="10" fill="#163b35"/>
+            <!-- imbuto -->
+            <path d="M42 48 H238 L162 126 H118 Z" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+            <rect x="118" y="126" width="44" height="22" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+            <text x="140" y="90" text-anchor="middle" font-family="Space Mono,monospace" font-size="17" font-weight="bold" fill="#f4ece0">7 CRITERI</text>
+            <!-- dado in uscita -->
+            <rect x="122" y="158" width="36" height="36" rx="7" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+            <circle cx="132" cy="168" r="3" fill="#1c1714"/>
+            <circle cx="148" cy="168" r="3" fill="#1c1714"/>
+            <circle cx="140" cy="176" r="3" fill="#1c1714"/>
+            <circle cx="132" cy="184" r="3" fill="#1c1714"/>
+            <circle cx="148" cy="184" r="3" fill="#1c1714"/>
+          </svg>
+          <div class="illu-cap">La validazione: tante idee entrano, un gioco esce</div>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 4 · I 7 CRITERI DI VALIDAZIONE -->
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:24px;">I <em class="hot">7 criteri</em> di validazione</h2>
+    <p class="lead reveal d1" style="margin-top:12px;max-width:1300px;">Sette lenti per guardare la stessa idea: se una lente rivela un punto debole, meglio saperlo subito.</p>
+    <div class="grid2 reveal d2" style="margin-top:18px;">
+      <div class="steps" style="counter-reset:st;">
+        <div class="step"><div class="t">🎨 <b>Artistic impulse</b> — cosa vuoi esprimere con questo gioco?</div></div>
+        <div class="step"><div class="t">👥 <b>Demographics</b> — per chi è? Età, gusti, esperienza di gioco.</div></div>
+        <div class="step"><div class="t">🎢 <b>Experience</b> — che esperienza offre a chi gioca?</div></div>
+        <div class="step"><div class="t">✨ <b>Innovation</b> — cosa porta di nuovo rispetto all'esistente?</div></div>
+      </div>
+      <div class="steps" style="counter-reset:st 4;">
+        <div class="step"><div class="t">💰 <b>Business</b> — è sostenibile? C'è un mercato?</div></div>
+        <div class="step"><div class="t">🔧 <b>Engineering</b> — è realizzabile con i mezzi che hai?</div></div>
+        <div class="step"><div class="t">🌍 <b>Social</b> — che impatto o valore sociale genera?</div></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 5 · OCTALYSIS -->
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:24px;">Octalysis: gli <em class="hot">8 core drives</em></h2>
+    <p class="lead reveal d1" style="margin-top:12px;max-width:1340px;">Il framework di gamification di <b>Yu-kai Chou</b>: otto "motori" che spingono le persone a giocare — dal senso di progresso (🏆 Accomplishment) alla creatività (💪 Empowerment), dal possesso (🎁 Ownership) al legame sociale (👥 Social influence).</p>
+    <div class="grid2 reveal d2" style="margin-top:18px;">
+      <div class="card sky"><span class="ic">🔮</span><h3>Unpredictability</h3><p>La curiosità di scoprire cosa succede dopo: sorpresa, casualità, mistero.</p></div>
+      <div class="card gold"><span class="ic">⏳</span><h3>Scarcity</h3><p>Ciò che è raro o richiede attesa diventa desiderabile: risorse limitate, tempi di ricarica.</p></div>
+      <div class="card red"><span class="ic">⚠️</span><h3>Avoidance</h3><p>La paura di perdere qualcosa: progressi, serie di vittorie, occasioni irripetibili.</p></div>
+      <div class="card teal"><span class="ic">⭐</span><h3>Epic meaning</h3><p>Sentirsi parte di qualcosa più grande di sé: una missione, una causa, una storia.</p></div>
+    </div>
+    <div class="note sky reveal d3" style="margin-top:18px;">
+      <div class="lbl">Perché serve al designer</div>
+      <p>Capire <em>cosa muove</em> il tuo giocatore ti permette di progettare la motivazione, non solo le regole.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 6 · FAIL FAST -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;">Fail <em class="hot">fast</em></h2>
+        <p class="lead reveal d1" style="margin-top:14px;">Sbagliare presto, a basso costo. Meglio scoprire che un'idea non funziona con un prototipo di carta in un'ora, che dopo mesi di sviluppo.</p>
+        <div class="note red reveal d2" style="margin-top:20px;">
+          <div class="lbl">Fail fast</div>
+          <p>Prototipa grezzo, testa subito, butta via senza rimpianti. Ogni fallimento economico è una lezione a buon mercato.</p>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="card red reveal d1"><span class="ic">⚡</span><h3>Prototipo rapido</h3><p>Cartoncino, segnalini improvvisati, regole scritte a mano. Brutto va benissimo: deve solo essere giocabile.</p></div>
+        <div class="card reveal d2"><span class="ic">🗑️</span><h3>Butta e rifai</h3><p>L'attaccamento è il nemico. Se il test dice che non funziona, si riparte — senza difendere la versione precedente.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 7 · REQUIREMENTS -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Requirements</em></h2>
+        <p class="lead reveal d1" style="margin-top:14px;">Definire i vincoli prima di costruire: quanti giocatori, quanto dura una partita, che età ha il pubblico, che budget e componenti hai. I vincoli <b>guidano</b> il design, non lo limitano.</p>
+        <div class="note reveal d2" style="margin-top:20px;">
+          <div class="lbl">La cornice serve</div>
+          <p>Un design senza vincoli è un design senza direzione: la pagina bianca paralizza, la cornice fa partire.</p>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="card teal reveal d1"><span class="ic">👥</span><h3>Giocatori &amp; durata</h3><p>In quanti si gioca? Quanto dura una partita? 15 minuti e 2 ore sono giochi diversi.</p></div>
+        <div class="card sky reveal d2"><span class="ic">🎯</span><h3>Target</h3><p>Bambini, famiglie, appassionati? Il pubblico decide complessità, tema e tono.</p></div>
+        <div class="card gold reveal d3"><span class="ic">📦</span><h3>Componenti &amp; budget</h3><p>Cosa puoi permetterti di produrre? Dadi, carte, tabellone: ogni pezzo ha un costo.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 8 · BOZZA → ANALISI → CORREZIONE -->
+  <section class="slide">
+
+    <h2 class="h-sec reveal" style="margin-top:24px;">Bozza → analisi → <em class="hot">correzione</em></h2>
+    <div class="steps reveal d1" style="margin-top:26px;">
+      <div class="step"><div class="t"><b>Prima bozza</b> — una versione grezza ma giocabile: regole minime, materiali improvvisati.</div></div>
+      <div class="step"><div class="t"><b>Analisi</b> — cosa funziona, cosa no, dove i giocatori si bloccano o si annoiano.</div></div>
+      <div class="step"><div class="t"><b>Bozza corretta</b> — applica le lezioni del test: taglia, semplifica, aggiusta.</div></div>
+      <div class="step"><div class="t"><b>Ripeti</b> — la nuova bozza torna al test. Ogni giro il gioco migliora un po'.</div></div>
+    </div>
+    <div class="note reveal d2" style="margin-top:22px;">
+      <div class="lbl">Non è una linea</div>
+      <p>Il design non è lineare — è un <em>loop</em>. Non si passa da idea a gioco finito: si gira il ciclo finché funziona.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 9 · PLAYTESTING -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Playtesting</em></h2>
+        <p class="lead reveal d1" style="margin-top:14px;">Testare con giocatori reali è insostituibile. Osserva senza intervenire, non spiegare — se serve spiegare, le regole non sono chiare — e guarda dove si annoiano o si confondono.</p>
+        <div class="analogy reveal d2" style="margin-top:20px;font-size:25px;"><span class="big">Regola:</span> testi il gioco, non i giocatori. Se sbagliano, è colpa del design.</div>
+      </div>
+      <div class="col stack">
+        <div class="card red reveal d1"><span class="ic">👀</span><h3>Osserva</h3><p>In silenzio: dove esitano? Cosa rileggono? Quando guardano il telefono? Ogni gesto è un dato.</p></div>
+        <div class="card reveal d2"><span class="ic">🤐</span><h3>Non difendere</h3><p>Niente "sì ma volevo dire che...". Le critiche al gioco non sono critiche a te: sono materiale di lavoro.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 9B · LA RUBRICA DEL PLAYTEST -->
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:20px;">La rubrica del <em class="hot">playtest</em></h2>
+    <p class="lead reveal d1" style="margin-top:10px;max-width:1500px;">Sei assi per guardare lo stesso playtest senza farsi ingannare dall'entusiasmo del momento: per ognuno, cosa vuol dire il minimo e cosa il massimo.</p>
+    <div class="grid3 reveal d2" style="margin-top:16px;">
+      <div class="card"><h3>Chiarezza</h3><p><b>Min:</b> design non lineare, regole ambigue.<br><b>Max:</b> design lineare, regole chiare e univoche.</p></div>
+      <div class="card sky"><h3>Fluidità</h3><p><b>Min:</b> elementi superflui, troppe eccezioni.<br><b>Max:</b> nessuna azione inutile, poche o nessuna eccezione.</p></div>
+      <div class="card gold"><h3>Bilanciamento</h3><p><b>Min:</b> un leader scappa via, la fortuna domina.<br><b>Max:</b> nessuna combo infinita, la fortuna pesa il giusto.</p></div>
+      <div class="card red"><h3>Ambientazione</h3><p><b>Min:</b> meccaniche e tema non correlati.<br><b>Max:</b> gli elementi si incastrano in un'esperienza solida.</p></div>
+      <div class="card teal"><h3>Durata</h3><p><b>Min:</b> troppo corta o troppo lunga per ciò che offre.<br><b>Max:</b> durata appropriata a ciò che offre.</p></div>
+      <div class="card"><h3>Divertimento</h3><p><b>Min:</b> zero componente emotiva, molto downtime.<br><b>Max:</b> tensione costante, downtime minimo.</p></div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://igda.org/about-us/core-values-and-code-of-ethics/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Valori e codice etico — IGDA" aria-label="Fonte ufficiale: Valori e codice etico — IGDA" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Valori e codice etico — IGDA ↗</a></div></section>
+
+  <!-- SLIDE 10 · ITERAZIONE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Iterazione</em></h2>
+        <p class="lead reveal d1" style="margin-top:14px;">Il design è ciclico: ogni playtest genera correzioni, ogni correzione un nuovo test. Si itera finché il gioco "gira" da solo — i giocatori capiscono, si divertono, vogliono rigiocare.</p>
+        <div class="analogy reveal d2" style="margin-top:20px;font-size:25px;"><span class="big">In pratica:</span> un gioco non si finisce — si abbandona quando funziona.</div>
+      </div>
+      <div class="col stack">
+        <div class="card sky reveal d1"><span class="ic">🔄</span><h3>Test → correzione</h3><p>Ogni giro del ciclo produce una versione un po' migliore. Dieci iterazioni piccole battono un grande piano perfetto.</p></div>
+        <div class="card gold reveal d2"><span class="ic">⚙️</span><h3>Il gioco "gira"</h3><p>Il segnale d'arrivo: la partita fila senza il designer al tavolo a spiegare, correggere, giustificare.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 11 · ATTIVITA -->
+
+
+  <!-- SLIDE 12 · CLOSING -->
+  <section class="slide closing"><div class="closing-inner"><div class="center" style="align-items:center;text-align:center;">
+      <h2 class="h-mega reveal" style="margin-top:10px;">Sbaglia presto.<br>Itera sempre.</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">
+        Il gioco non nasce finito dalla testa del designer: emerge da un ciclo di prototipi, test e correzioni. Il processo è il vero mestiere.
+      </p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="gd08-progettazione.html" class="chip" style="background:var(--paper);color:var(--ink);text-decoration:none;">→ GD_08 · Progettare un Gioco Fisico</a>
+      </div>
+    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://igda.org/about-us/core-values-and-code-of-ethics/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Valori e codice etico — IGDA ↗</a></div></div><div class="page-num"></div></section>
+
+</div>
+</div>
+
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="../00-indice-gd.html" title="Torna all'indice">↩ Indice</a>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalita modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+
+<script src="../deck.js"></script>
+</body>
+</html>

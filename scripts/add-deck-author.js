@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const root = path.resolve(__dirname, '..');
+const root = path.join(path.resolve(__dirname, '..'), 'decks');
 const author = '<div class="deck-author">Francesco Antonio Binetti</div>';
 const files = fs.readdirSync(root)
   .filter((name) => name.endsWith('.html'))

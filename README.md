@@ -73,7 +73,6 @@ Inside any deck:
 
 - Decks keep their content and deck-specific CSS in each HTML file; all decks
   share `theme-corsi.css` and the `deck.js` slide engine.
-- Every deck has a sibling `.txt` companion — the index injects a `↓ TXT` button automatically.
 - `agenda-index.json` contains the three-item chapter overviews;
   `agenda-index.js` is its generated browser-ready version.
 - `exercise-index.js`, `last-modified-index.js`, `search-index.js` and
@@ -142,11 +141,10 @@ boundary tags with `node scripts/manage-slide-review-tags.js prune-boundaries`.
 
 ## Adding a deck
 
-1. Create the HTML file in repo root following the `XX##-slug.html` naming scheme.
-2. Generate the `.txt` companion (see `CLAUDE.md` → TXT companion files).
-3. Add a card to `00-indice.html`.
-4. Update the previous deck's "Prossimo" closing chip.
-5. Rebuild the full-text search index:
+1. Create the HTML file in `decks/` following the `XX##-slug.html` naming scheme.
+2. Add a card to `00-indice.html`, with an `href="decks/XX##-slug.html"`.
+3. Update the previous deck's "Prossimo" closing chip.
+4. Rebuild the full-text search index:
 
 ```bash
 node scripts/build-agenda-index.js

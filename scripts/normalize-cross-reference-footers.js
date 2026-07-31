@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.resolve(__dirname, '..');
-const files = fs.readdirSync(root)
+const decksDir = path.join(root, 'decks');
+const files = fs.readdirSync(decksDir)
   .filter(file => /^[a-z]{2}\d{2}.*\.html$/i.test(file))
   .sort();
 
@@ -39,7 +40,7 @@ let slideCount = 0;
 let linkCount = 0;
 
 for (const file of files) {
-  const htmlPath = path.join(root, file);
+  const htmlPath = path.join(decksDir, file);
   const original = fs.readFileSync(htmlPath, 'utf8');
   const originalSlideCount = (original.match(/<section\b[^>]*class=["'][^"']*\bslide\b/gi) || []).length;
   const referencesBySlide = new Map();
@@ -103,19 +104,6 @@ for (const file of files) {
     fs.writeFileSync(htmlPath, updated);
     deckCount += 1;
   }
-
-  const txtPath = htmlPath.replace(/\.html$/i, '.txt');
-  if (!referencesBySlide.size || !fs.existsSync(txtPath)) continue;
-  const originalTxt = fs.readFileSync(txtPath, 'utf8');
-  const updatedTxt = originalTxt.replace(/(^--- Slide (\d+) ---\n)([\s\S]*?)(?=^--- Slide \d+ ---\n|(?![\s\S]))/gm,
-    (block, heading, numberText, content) => {
-      const references = referencesBySlide.get(Number(numberText));
-      if (!references) return block;
-      const cleaned = content.replace(/^Rimandi interni:.*(?:\n|$)/gm, '').trimEnd();
-      const line = references.map(([target, label]) => `${label || target} — ${target}`).join(' · ');
-      return `${heading}${cleaned}\nRimandi interni: ${line}\n\n`;
-    });
-  if (updatedTxt !== originalTxt) fs.writeFileSync(txtPath, updatedTxt);
 }
 
 console.log(`Normalized ${linkCount} internal references on ${slideCount} slides across ${deckCount} decks.`);

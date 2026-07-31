@@ -90,24 +90,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .card-body{display:contents;}
 .card-tag{display:none;}
 .card-title{grid-area:title;font-family:var(--font-arcade);font-size:12px;line-height:1.5;margin-bottom:2px;align-self:end;color:var(--gold);}
-.card-difficulty{
-  position:absolute;right:24px;top:calc(50% - 22px);width:80px;text-align:center;
-  font-family:var(--font-mono);font-size:11px;padding:4px 0;border:1px solid rgba(255,224,102,.22);
-  color:var(--gold);background:rgba(255,224,102,.05);letter-spacing:1px;
-}
 .card-desc{grid-area:desc;font-size:19px;color:var(--ink-faint);line-height:1.3;align-self:start;}
 .card-topics{display:none;}
 .card-arrow{display:none;}
-
-/* Download button */
-.dl-btn{
-  position:absolute;right:24px;top:calc(50% + 4px);width:80px;box-sizing:border-box;
-  display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:4px 0;
-  background:rgba(255,224,102,.05);border:1px solid rgba(255,224,102,.2);
-  color:rgba(255,224,102,.38);font-family:var(--font-mono);font-size:11px;letter-spacing:.5px;
-  cursor:pointer;transition:background .15s,color .15s,border-color .15s;z-index:2;
-}
-.dl-btn:hover{background:rgba(255,224,102,.16);color:var(--gold);border-color:rgba(255,224,102,.5);}
 
 /* Footer */
 .page-footer{margin-top:60px;padding-top:28px;border-top:1px solid rgba(255,224,102,.1);display:flex;justify-content:flex-end;}
@@ -129,96 +114,88 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
     <div class="section-label">Moduli</div>
     <div class="module-grid">
 
-      <a class="module-card inf" href="gd01-introduzione.html">
+      <a class="module-card inf" href="decks/gd01-introduzione.html">
         <div class="card-num">GD01</div>
         <div class="card-body">
           <div class="card-tag">GAME DESIGN · GD01</div>
           <div class="card-title">Introduzione al Game Design</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Design applicato alle attività ludiche: tipologie di giochi (board, card, party, eurogame, cooperativi), il paradigma MDA (Meccaniche, Dinamiche, Estetiche), giochi agonistici e non.</div>
           <div class="card-topics"><span class="topic">MDA</span><span class="topic">Meccaniche</span><span class="topic">Tipologie</span><span class="topic">Cooperativi</span></div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="gd02-ost.html">
+      <a class="module-card inf" href="decks/gd02-ost.html">
         <div class="card-num">GD02</div>
         <div class="card-body">
           <div class="card-tag">GAME DESIGN · GD02</div>
           <div class="card-title">La Colonna Sonora</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">La musica nei videogiochi: OST statica e limiti hardware, OST procedurale a strati (STEMS), OST a feedback (DOOM), musica come meccanica (Beat Saber), suono diegetico e non-diegetico.</div>
           <div class="card-topics"><span class="topic">OST</span><span class="topic">STEMS</span><span class="topic">Diegetico</span><span class="topic">Ritmo</span></div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="gd03-sfx-audio.html">
+      <a class="module-card inf" href="decks/gd03-sfx-audio.html">
         <div class="card-num">GD03</div>
         <div class="card-body">
           <div class="card-tag">GAME DESIGN · GD03</div>
           <div class="card-title">Effetti Sonori e Audio</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Cosa sono gli SFX e come si progettano: categorie (foley, impatti, UI), voice SFX e lingue inventate (Simlish, Animalese), il silenzio come scelta, produzione audio (DAW, sampling), effetti e mixing.</div>
           <div class="card-topics"><span class="topic">SFX</span><span class="topic">Foley</span><span class="topic">DAW</span><span class="topic">Mixing</span></div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="gd04-feedback-sensoriale.html">
+      <a class="module-card inf" href="decks/gd04-feedback-sensoriale.html">
         <div class="card-num">GD04</div>
         <div class="card-body">
           <div class="card-tag">GAME DESIGN · GD04</div>
           <div class="card-title">Feedback Sensoriale e Giocatori</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Come il gioco parla ai sensi: feedback aptico, evoluzione della vibrazione, DualSense e grilletti adattivi, Arduino e sensori, e la tassonomia di Bartle (Killer, Achiever, Explorer, Socializer).</div>
           <div class="card-topics"><span class="topic">Aptica</span><span class="topic">DualSense</span><span class="topic">Arduino</span><span class="topic">Bartle</span></div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="gd05-difficolta.html">
+      <a class="module-card inf" href="decks/gd05-difficolta.html">
         <div class="card-num">GD05</div>
         <div class="card-body">
           <div class="card-tag">GAME DESIGN · GD05</div>
           <div class="card-title">Difficoltà e Progressione</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Dosare la sfida: curva di apprendimento e flow, sistemi di progressione (XP, sblocchi), livelli di difficoltà, upgrade e skin, difficoltà dinamica, New Game Plus, tutorial e design dei puzzle.</div>
           <div class="card-topics"><span class="topic">Flow</span><span class="topic">Progressione</span><span class="topic">Tutorial</span><span class="topic">Puzzle</span></div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="gd06-meccaniche.html">
+      <a class="module-card inf" href="decks/gd06-meccaniche.html">
         <div class="card-num">GD06</div>
         <div class="card-body">
           <div class="card-tag">GAME DESIGN · GD06</div>
           <div class="card-title">Meccaniche e Interazione</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">I mattoni del gioco: meccaniche comuni (draft, worker placement, deck building), interazione competitiva/cooperativa/coopetitiva, game vs play, sincronizzazione e i 4 criteri del bilanciamento.</div>
           <div class="card-topics"><span class="topic">Meccaniche</span><span class="topic">Coopetitivo</span><span class="topic">Bilanciamento</span><span class="topic">Interazione</span></div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="gd07-processo.html">
+      <a class="module-card inf" href="decks/gd07-processo.html">
         <div class="card-num">GD07</div>
         <div class="card-body">
           <div class="card-tag">GAME DESIGN · GD07</div>
           <div class="card-title">Processo di Design</div>
-          <div class="card-difficulty" aria-label="Difficoltà 3 su 5">★★★☆☆</div>
           <div class="card-desc">Come si progetta davvero un gioco: i 7 criteri di validazione dell'idea, il framework Octalysis, fail fast e prototipazione rapida, requirements, il ciclo bozza→analisi→correzione e il playtesting.</div>
           <div class="card-topics"><span class="topic">Validazione</span><span class="topic">Octalysis</span><span class="topic">Fail fast</span><span class="topic">Playtesting</span></div>
         </div>
         <div class="card-arrow">→</div>
       </a>
 
-      <a class="module-card inf" href="gd08-progettazione.html">
+      <a class="module-card inf" href="decks/gd08-progettazione.html">
         <div class="card-num">GD08</div>
         <div class="card-body">
           <div class="card-tag">GAME DESIGN · GD08</div>
           <div class="card-title">Progettare un Gioco Fisico</div>
-          <div class="card-difficulty" aria-label="Difficoltà 2 su 5">★★☆☆☆</div>
           <div class="card-desc">Dalla teoria al tavolo: anatomia e dimensioni delle carte, testo e keyword, icone gratuite (Flaticon, Game-icons), calcolo dei materiali, il regolamento in 4 sezioni ed esercizi di modifica di giochi noti.</div>
           <div class="card-topics"><span class="topic">Carte</span><span class="topic">Regolamento</span><span class="topic">Materiali</span><span class="topic">Prototipo</span></div>
         </div>
@@ -243,30 +220,6 @@ if (label && group) {
   label.addEventListener('click', toggle);
   label.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' '){e.preventDefault();toggle();} });
 }
-</script>
-<script>
-document.querySelectorAll('.module-card[href]').forEach(card => {
-  const href = card.getAttribute('href');
-  if (!href || !href.endsWith('.html')) return;
-  const txtUrl = href.replace('.html', '.txt');
-  const title = card.querySelector('.card-title');
-  if (!title) return;
-  const btn = document.createElement('button');
-  btn.className = 'dl-btn';
-  btn.title = 'Scarica versione testuale';
-  btn.textContent = '↓ TXT';
-  btn.addEventListener('click', e => {
-    e.preventDefault();
-    e.stopPropagation();
-    const a = document.createElement('a');
-    a.href = txtUrl;
-    a.download = txtUrl;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  });
-  card.appendChild(btn);
-});
 </script>
 </body>
 </html>

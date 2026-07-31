@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.resolve(__dirname, '..');
+const decksDir = path.join(root, 'decks');
 const indexHtml = fs.readFileSync(path.join(root, '00-indice.html'), 'utf8');
 const files = [...indexHtml.matchAll(/<a\s+class="module-card[^"]*"\s+href="([^"]+\.html)"/gi)]
   .map(match => match[1])
@@ -25,11 +26,12 @@ const addExercise = (source, entry) => {
 // carries data-source="<origin deck>" so the index card of the origin module
 // can link to it. Exercises embedded inside content slides (a .lbl "Esercizio"
 // box on a teaching slide) stay in their module deck and are detected below.
-fs.readdirSync(root)
+fs.readdirSync(decksDir)
   .filter(name => /^esercizi-.*\.html$/.test(name))
   .sort()
-  .forEach(file => {
-    const html = fs.readFileSync(path.join(root, file), 'utf8');
+  .forEach(name => {
+    const file = `decks/${name}`;
+    const html = fs.readFileSync(path.join(decksDir, name), 'utf8');
     const pattern = /<section\b([^>]*)>([\s\S]*?)<\/section>/gi;
     let match;
     let index = 0;
@@ -40,7 +42,7 @@ fs.readdirSync(root)
       const source = match[1].match(/\bdata-source\s*=\s*["']([^"']*)["']/i)?.[1];
       if (!source) continue;
       const title = clean(match[2].match(/<h[1-3]\b[^>]*>([\s\S]*?)<\/h[1-3]>/i)?.[1] || '');
-      addExercise(source, {file, slide: index, title: title || `Esercizio ${index}`});
+      addExercise(`decks/${source}`, {file, slide: index, title: title || `Esercizio ${index}`});
     }
   });
 

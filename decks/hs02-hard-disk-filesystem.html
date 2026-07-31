@@ -1,0 +1,397 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatica · Modulo 11 — Hard Disk e File System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.slide.visible .reveal:nth-child(5){transition-delay:.37s}.slide.visible .reveal:nth-child(6){transition-delay:.45s}
+.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}.d4{transition-delay:.56s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep)}.tape.teal{background:var(--teal)}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var(--sky)}
+.lead{font-size:32px;line-height:1.45;color:var(--ink-soft);max-width:1120px;}
+.body{font-size:27px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:10px;line-height:1.05;}
+.card p{font-size:24px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:50px;line-height:1;display:block;margin-bottom:8px;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.4;color:var(--ink);}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.chip.red{background:var(--red);color:#fff}
+.col{display:flex;flex-direction:column}.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.stack>*+*{margin-top:24px}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:25px}.cmp th{font-family:var(--font-display);font-weight:900;font-size:32px;text-align:left;padding:15px 22px;color:var(--paper);background:var(--teal)}.cmp th:first-child{background:var(--ink);border-radius:12px 0 0 0}.cmp th:last-child{border-radius:0 12px 0 0}.cmp td{padding:13px 22px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.32}.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2)}.cmp tr:last-child td{border-bottom:none}
+.title-slide{padding:0;display:grid;grid-template-columns:1.3fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.title-right>div,.title-right>svg{position:relative;z-index:2;}.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate}@keyframes float{to{transform:translate(-34px,46px) scale(1.04)}}
+.disk{width:360px;height:360px;border-radius:50%;background:radial-gradient(circle at 50% 50%,#fbf5ec 0 12%,#d8c9b4 13% 20%,#3f7e8c 21% 34%,#f4ece0 35% 50%,#e6533b 51% 62%,#1c1714 63% 66%,#f4ece0 67%);border:8px solid var(--ink);box-shadow:12px 14px 0 rgba(0,0,0,.18);position:relative}.disk::after{content:"";position:absolute;width:170px;height:12px;background:var(--ink);right:-24px;top:160px;transform:rotate(-18deg);border-radius:10px}
+.tree{font-family:var(--font-mono);font-size:28px;line-height:1.55;background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 34px;box-shadow:7px 8px 0 rgba(28,23,20,.13);color:var(--ink-soft)}.tree b{color:var(--red)}
+.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer}.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease}.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto}.edit-toggle.active{background:var(--red)}body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px}.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px}.edit-hint.show{display:block}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.title-slide .lead,.title-slide .chips{display:none;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+/* analogy strip */
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+</style>
+<link rel="stylesheet" href="../theme-corsi.css">
+</head>
+<body class="course-hs">
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <h1 class="h-mega reveal">Hard disk<br>e <em class="hot">file</em></h1>
+      <p class="lead reveal" style="margin-top:30px;">Come sono organizzati i dati: dischi, partizioni, file system, formati, file compressi e collegamenti simbolici.</p>
+
+    </div>
+    <div class="title-right"><div class="disk reveal" aria-label="Illustrazione di un hard disk"></div></div>
+  <div class="deck-author">Francesco Antonio Binetti</div></section>
+
+
+
+  <section class="slide tight-slide">
+    <h2 class="h-sec reveal">RAM e spazio disco non sono la stessa cosa</h2>
+    <p class="lead reveal d1">Nel linguaggio quotidiano diciamo “memoria” per entrambe, ma rispondono a due domande diverse: <b>quanto posso fare adesso?</b> e <b>quanto posso conservare?</b></p>
+    <div class="grid2 reveal d2" style="margin-top:24px;">
+      <div class="card sky"><span class="ic">⚡</span><h3>RAM · lavoro temporaneo</h3><p>Contiene app e dati mentre li usi. È molto veloce e si svuota quando spegni il dispositivo. Più RAM aiuta a tenere aperte più attività.</p></div>
+      <div class="card gold"><span class="ic">💾</span><h3>Archiviazione · conservazione</h3><p>HDD, SSD e memoria flash mantengono file e programmi anche da spenti. Se lo spazio finisce, non puoi salvare nuovi dati.</p></div>
+    </div>
+    <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">Analogia:</span> la RAM è il tavolo su cui lavori; il disco è l'armadio in cui riponi tutto.</div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: RAM — Wikipedia" aria-label="Fonte ufficiale: RAM — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: RAM — Wikipedia ↗</a></div></section>
+
+  <section class="slide tight-slide">
+    <h2 class="h-sec reveal">Prima domanda: dove sto salvando?</h2>
+    <p class="lead reveal d1">Lo stesso pulsante “Salva” può destinare il file a luoghi differenti. Riconoscere il luogo evita il classico “il file è sparito”.</p>
+    <div class="grid3 reveal d2" style="margin-top:24px;">
+      <div class="card teal"><span class="ic">💻</span><h3>Nel dispositivo</h3><p>Il file è sul disco interno. Funziona anche offline, ma non appare automaticamente sugli altri dispositivi.</p></div>
+      <div class="card red"><span class="ic">🔌</span><h3>Su unità esterna</h3><p>Chiavetta USB o disco esterno. Va espulso correttamente prima di scollegarlo per evitare scritture incomplete.</p></div>
+      <div class="card sky"><span class="ic">☁️</span><h3>Nel cloud</h3><p>Il file è gestito da un servizio online. Sincronizzazione, disponibilità offline e permessi dipendono dalle impostazioni.</p></div>
+    </div>
+    <div class="note reveal d3" style="margin-top:20px;"><div class="lbl">💡 Controllo rapido</div><p>Guarda sempre il percorso o il nome della cartella prima di confermare il salvataggio.</p></div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Documenti e specifiche USB — USB-IF" aria-label="Fonte ufficiale: Documenti e specifiche USB — USB-IF" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Documenti e specifiche USB — USB-IF ↗</a></div></section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Salvare non vuol dire <em class="hot">capire</em></h2>
+        <p class="lead reveal d1">Quando premi "Salva", il computer deve decidere <b>dove</b> mettere i dati, <b>come</b> ritrovarli e <b>chi</b> può leggerli. Questo non avviene per magia: è un processo a più strati.</p>
+        <p class="body reveal d2">Il disco è il magazzino fisico. Il file system è l'inventario che mappa nomi e posizioni. Le cartelle sono scaffali logici. I file sono gli oggetti conservati, identificati da un percorso univoco.</p>
+        <div class="analogy reveal d3"><span class="big">Analogia:</span> Un archivio cartaceo senza indice è inutile quanto un disco pieno senza file system.</div>
+      </div>
+      <div class="grid2">
+        <div class="card reveal d1"><span class="ic">📦</span><h3>File</h3><p>Un contenitore di dati con contenuto e nome: testo, immagine, video, programma o archivio compresso.</p></div>
+        <div class="card reveal d2"><span class="ic">🗂️</span><h3>Cartella</h3><p>Un nodo logico che raggruppa nomi e percorsi. Non è una scatola fisica, ma un riferimento nel catalogo del file system.</p></div>
+        <div class="card reveal d3"><span class="ic">🧭</span><h3>Percorso</h3><p>La sequenza di cartelle che porta a un file, dalla radice del volume fino al nome del file stesso.</p></div>
+        <div class="card reveal d4"><span class="ic">🧾</span><h3>Metadati</h3><p>Informazioni associate al file: dimensione, data di creazione e modifica, permessi di accesso, proprietario.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split even">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Hard Disk <em class="hot">HDD</em></h2>
+        <p class="lead reveal d1">Un HDD usa uno o più piatti di metallo rivestiti di materiale magnetico che ruotano a 5400 o 7200 giri al minuto. Una testina galleggia a pochi nanometri dalla superficie e magnetizza o rileva piccole aree per scrivere e leggere bit.</p>
+        <p class="body reveal d2">I dati sono organizzati in tracce circolari, suddivise in settori. Il controller traduce indirizzi logici in posizioni fisiche sul piatto. Il tempo necessario a posizionare la testina si chiama <em class="hot">latenza di ricerca</em>.</p>
+        <div class="note reveal d3"><div class="lbl">💡 Idea chiave</div><p>Ottimo per grandi archivi: foto, video, backup a basso costo per gigabyte. Più lento e più delicato negli urti rispetto a un SSD proprio perché ha parti meccaniche in movimento.</p></div>
+      </div>
+      <div class="illu reveal d1"><div class="disk"></div><div class="illu-cap">Piatti, tracce, settori e testina</div></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="col stack" style="justify-content:center;height:100%;">
+
+      <h2 class="h-big reveal">SSD: veloce, silenzioso, <em class="hot">senza parti mobili</em></h2>
+      <p class="lead reveal" style="margin-bottom:4px;">Un SSD memorizza dati in celle di memoria flash NAND. Non ha piatti né testine: i dati vengono letti e scritti elettronicamente in microsecondi, rendendo l'accesso casuale molto più rapido di qualsiasi HDD.</p>
+      <div class="grid3 reveal d1">
+        <div class="card"><span class="ic">⚡</span><h3>Veloce</h3><p>Tempi di accesso nell'ordine dei microsecondi. Sistema operativo e programmi si avviano in pochi secondi.</p></div>
+        <div class="card"><span class="ic">🔇</span><h3>Silenzioso</h3><p>Nessun piatto in rotazione, nessuna testina meccanica. Perfetto per laptop e ambienti silenziosi.</p></div>
+        <div class="card"><span class="ic">🧮</span><h3>Usura gestita</h3><p>Le celle flash supportano un numero limitato di cicli di scrittura. Il controller distribuisce le scritture uniformemente tramite <em>wear leveling</em>.</p></div>
+      </div>
+      <div class="note reveal d2" style="margin-top:8px;"><div class="lbl">TRIM</div><p>Il comando TRIM informa l'SSD quali blocchi non sono più usati dal file system, permettendogli di prepararli per la prossima scrittura e mantenere velocità e durata nel tempo.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal">Bit, byte, KB, MB, GB, TB</h2>
+      <p class="body reveal" style="margin-top:10px;max-width:1100px;">Tutto ciò che un computer archivia è composto da bit. Conoscere le unità di misura aiuta a capire quanto spazio occupa un file e quanta capacità ha un disco.</p>
+      <table class="cmp reveal d1" style="margin-top:16px;">
+        <tr><th>Unità</th><th>Cosa significa</th><th>Esempio pratico</th></tr>
+        <tr><td>bit</td><td>La più piccola unità di informazione digitale: 0 oppure 1.</td><td>La base di tutta la logica digitale e delle trasmissioni.</td></tr>
+        <tr><td>byte</td><td>8 bit raggruppati insieme. È l'unità base per i file.</td><td>Un carattere ASCII occupa 1 byte; un carattere UTF-8 può occuparne fino a 4.</td></tr>
+        <tr><td>KB / MB / GB</td><td>Kilo, Mega, Gigabyte: mille, un milione, un miliardo di byte circa (potenze di 10 dei produttori).</td><td>Foto JPG ≈ 3–8 MB; film HD ≈ 4–15 GB; sistema operativo ≈ 20–50 GB.</td></tr>
+        <tr><td>TB</td><td>Terabyte: mille gigabyte circa. I dischi moderni arrivano a 20 TB e oltre.</td><td>Archivi fotografici, backup aziendali, server NAS domestici.</td></tr>
+      </table>
+      <p class="body reveal d2" style="margin-top:16px;"><b>Attenzione:</b> i produttori dichiarano capacità in multipli decimali (1 TB = 1.000.000.000.000 byte). Il sistema operativo, che usa potenze di 2, mostra un valore leggermente inferiore (es. circa 931 GiB invece di 1 TB).</p>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.unicode.org/versions/latest/core-spec/chapter-2/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: UTF-8 — Unicode Standard" aria-label="Fonte ufficiale: UTF-8 — Unicode Standard" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: UTF-8 — Unicode Standard ↗</a></div></section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Partizioni e <em class="hot">formattazione</em></h2>
+        <p class="lead reveal d1">Un disco fisico può essere diviso in partizioni: aree logicamente separate che il sistema operativo riconosce come volumi indipendenti, ognuno con il proprio file system e lettera di unità (su Windows) o punto di mount (su Linux/macOS).</p>
+        <p class="body reveal d2">Un uso tipico è avere una partizione per il sistema operativo e un'altra per i dati personali: così si può reinstallare l'OS senza toccare i file utente. Un disco può ospitare anche più sistemi operativi su partizioni separate.</p>
+        <p class="body reveal d3">Formattare significa inizializzare una partizione con un file system specifico, creando le strutture dati necessarie per gestire file e cartelle. Di norma cancella l'indice e rende lo spazio riutilizzabile, anche se i dati fisici restano finché non vengono sovrascritti.</p>
+      </div>
+      <div class="card reveal d1">
+        <h3>Schema mentale</h3>
+        <p style="font-family:var(--font-mono);font-size:28px;line-height:1.6;">Disco fisico<br>├─ Partizione 1 (sistema)<br>│&nbsp;&nbsp;└─ File system (NTFS)<br>│&nbsp;&nbsp;&nbsp;&nbsp;└─ Windows, programmi<br>└─ Partizione 2 (dati)<br>&nbsp;&nbsp;&nbsp;└─ File system (NTFS)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ Documenti, foto</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="col stack" style="justify-content:center;height:100%;">
+
+      <h2 class="h-big reveal">Cos'è un <em class="hot">file system</em></h2>
+      <p class="lead reveal d1">È il metodo con cui il sistema operativo organizza nomi, cartelle, posizione dei blocchi dati, permessi e spazio libero su una partizione. Senza file system, il disco sarebbe solo una sequenza anonima di bit inaccessibili.</p>
+      <p class="body reveal d2" style="max-width:1100px;">Il file system mantiene un indice: sa dove inizia ogni file, quanto è grande, chi può leggerlo e quando è stato modificato l'ultima volta. Quando elimini un file, di solito viene rimosso solo dall'indice; i dati fisici restano sul disco finché nuove scritture li sovrascrivono.</p>
+      <div class="grid3 reveal d3">
+        <div class="card"><span class="ic">🏷️</span><h3>Nomi e struttura</h3><p>Associa nomi leggibili a blocchi fisici sul disco, organizzandoli in una gerarchia di cartelle navigabile.</p></div>
+        <div class="card"><span class="ic">🧱</span><h3>Blocchi e cluster</h3><p>Divide la partizione in unità di allocazione (cluster). Un file occupa uno o più cluster contigui o sparsi.</p></div>
+        <div class="card"><span class="ic">🔐</span><h3>Funzioni avanzate</h3><p>I file system moderni aggiungono journaling per la resilienza, permessi per la sicurezza, snapshot e cifratura.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/File_system" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: File system — Wikipedia" aria-label="Fonte ufficiale: File system — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: File system — Wikipedia ↗</a></div></section>
+
+  <section class="slide">
+    <div class="split even">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Percorsi: dove si trova un file</h2>
+        <p class="lead reveal d1">Un file non è solo "sul computer": ha un percorso preciso. Il percorso descrive la strada dalla radice del volume fino al nome del file, cartella per cartella. È l'indirizzo univoco che il sistema usa per trovarlo.</p>
+        <p class="body reveal d2">Esistono due tipi di percorso: <b>assoluto</b>, che parte dalla radice e identifica il file senza ambiguità, e <b>relativo</b>, che parte dalla cartella corrente ed è più corto ma dipende dal contesto.</p>
+        <div class="chips reveal d3"><span class="chip red">Windows: C:\Utenti\Sara\cv.pdf</span><span class="chip alt">Linux/macOS: /home/sara/cv.pdf</span></div>
+        <p class="body reveal d4">Su Windows la radice è la lettera dell'unità (es. <b>C:\</b>). Su Linux e macOS esiste una sola radice (<b>/</b>) e i dischi aggiuntivi vengono montati come sottocartelle.</p>
+      </div>
+      <div class="tree reveal d1">
+        <b>/</b><br>
+        ├─ home<br>
+        │&nbsp;&nbsp;└─ sara<br>
+        │&nbsp;&nbsp;&nbsp;&nbsp;├─ Documenti<br>
+        │&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;└─ curriculum.pdf<br>
+        │&nbsp;&nbsp;&nbsp;&nbsp;└─ Foto<br>
+        │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ vacanze_2025.jpg<br>
+        └─ programmi
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal">Metadati e permessi</h2>
+      <p class="body reveal" style="margin-top:10px;max-width:1100px;">Ogni file porta con sé informazioni che vanno oltre il contenuto. I metadati sono gestiti dal file system e sono invisibili nella navigazione quotidiana, ma fondamentali per sicurezza, backup e ricerca.</p>
+      <div class="grid3 reveal d1" style="margin-top:18px;">
+        <div class="card"><span class="ic">📏</span><h3>Dimensione</h3><p>Quanti byte occupa il contenuto del file e quanti blocchi reali usa sul disco. Possono differire per via della granularità dei cluster.</p></div>
+        <div class="card"><span class="ic">🕒</span><h3>Date</h3><p>Data di creazione, ultima modifica e ultimo accesso. Utili per ordinare file, pianificare backup incrementali e risolvere conflitti di versione.</p></div>
+        <div class="card"><span class="ic">🔑</span><h3>Permessi</h3><p>Chi può leggere, modificare o eseguire il file. Su sistemi multiutente determinano la sicurezza e la privacy dei dati personali.</p></div>
+      </div>
+      <div class="note reveal d2" style="margin-top:12px;"><div class="lbl">⚠️ Attenzione</div><p>Copiare un file tra file system diversi può far perdere metadati: permessi NTFS su FAT32, tag estesi, date di creazione o attributi speciali. Usare strumenti di backup che preservano i metadati quando necessario.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal">FAT32 ed exFAT</h2>
+      <p class="body reveal" style="margin-top:10px;max-width:1100px;">FAT32 è uno dei file system più antichi ancora in uso, nato negli anni Novanta con Windows 95. La sua longevità è dovuta alla compatibilità quasi universale: lo riconoscono PC, Mac, TV, fotocamere, console di gioco e lettori multimediali di ogni generazione.</p>
+      <table class="cmp reveal d1" style="margin-top:16px;">
+        <tr><th>Formato</th><th>Punti forti</th><th>Limiti principali</th></tr>
+        <tr><td>FAT32</td><td>Compatibilità massima: supportato da quasi tutti i dispositivi prodotti negli ultimi 30 anni, incluse TV, console e fotocamere.</td><td>Un singolo file non può superare i 4 GB (limite storico a 32 bit). Nessun journaling, nessun permesso utente, nessuna cifratura nativa.</td></tr>
+        <tr><td>exFAT</td><td>Supera il limite dei 4 GB di FAT32. Buona compatibilità tra Windows, macOS e Linux moderni. Ideale per schede SD e chiavette USB ad alta capacità.</td><td>Non ha journaling integrato: uno spegnimento improvviso durante la scrittura può corrompere l'indice. Non adatto come file system di sistema.</td></tr>
+      </table>
+      <p class="body reveal d2" style="margin-top:16px;"><b>Regola pratica:</b> usa FAT32 per dispositivi e lettori vecchi dove la compatibilità è prioritaria; usa exFAT per trasferire file grandi (video, ISO) su dischi e chiavette condivisi tra sistemi diversi.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">NTFS</h2>
+        <p class="lead reveal d1">NTFS (New Technology File System) è il file system di default per i dischi di sistema Windows dalla versione NT in poi. Progettato per ambienti professionali, offre robustezza, sicurezza e funzioni avanzate che FAT32 non può garantire.</p>
+        <p class="body reveal d2">Su Linux e macOS è possibile leggere partizioni NTFS quasi sempre, ma scrivere richiede driver aggiuntivi (es. NTFS-3G su Linux). Per chiavette da condividere con sistemi non Windows, exFAT resta una scelta più universale.</p>
+      </div>
+      <div class="grid2">
+        <div class="card reveal d1"><span class="ic">🧾</span><h3>Journaling</h3><p>Registra le operazioni in un log prima di eseguirle. Se il sistema si spegne improvvisamente, il disco può recuperare uno stato coerente all'avvio successivo.</p></div>
+        <div class="card reveal d2"><span class="ic">🔐</span><h3>ACL e cifratura</h3><p>Permessi granulari per utenti e gruppi tramite Access Control List. Supporta anche la cifratura EFS (Encrypted File System) a livello di cartella o file.</p></div>
+        <div class="card reveal d3"><span class="ic">📦</span><h3>File grandi</h3><p>Nessun limite pratico da 4 GB. Un singolo file video può occupare decine di GB senza problemi su NTFS.</p></div>
+        <div class="card reveal d4"><span class="ic">🪟</span><h3>Scelta naturale</h3><p>È la scelta standard per il disco principale e le partizioni dati di un PC Windows moderno. Ottimizzato per prestazioni su sistemi Windows.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal">Btrfs, ext4, APFS</h2>
+      <p class="body reveal" style="margin-top:10px;max-width:1100px;">Il mondo Linux e Apple ha sviluppato file system propri, ottimizzati per i rispettivi sistemi operativi e carichi di lavoro. Ogni formato risolve priorità diverse: stabilità consolidata, funzioni avanzate o integrazione con l'hardware Apple.</p>
+      <div class="grid3 reveal d1" style="margin-top:16px;">
+        <div class="card"><h3>Btrfs</h3><p>File system moderno per Linux con snapshot istantanei, checksum dei dati per rilevare corruzione silenziosa, compressione trasparente e gestione flessibile di volumi e sottovolumi. Usato di default su Fedora e openSUSE.</p></div>
+        <div class="card"><h3>ext4</h3><p>Il cavallo di battaglia di Linux: stabile, ben testato, supportato ovunque. Journaling affidabile, buone prestazioni generali. È ancora la scelta di default su Debian, Ubuntu e molte distribuzioni server.</p></div>
+        <div class="card"><h3>APFS</h3><p>Apple File System, introdotto con macOS High Sierra e iOS 10.3. Ottimizzato per SSD, con snapshot, cifratura nativa, clonazione efficiente dei file e timestamp ad alta precisione. Sostituisce il vecchio HFS+.</p></div>
+      </div>
+      <div class="note reveal d2" style="margin-top:10px;"><div class="lbl">💡 Nota sul nome</div><p>Si scrive <b>Btrfs</b> (B-Tree FS), spesso pronunciato "butter FS". Non è "BRTFS" e non si legge lettera per lettera. Il nome deriva dalla struttura dati B-tree che usa internamente per indicizzare file e metadati.</p></div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Manuale utente iPhone — Apple" aria-label="Fonte ufficiale: Manuale utente iPhone — Apple" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Manuale utente iPhone — Apple ↗</a></div></section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Organizzare i file</h2>
+        <p class="lead reveal d1">Un buon archivio digitale non dipende solo dal disco o dal file system: dipende da nomi chiari, strutture di cartelle coerenti e abitudini mantenute nel tempo. Il file system sa dove sono i tuoi file; solo tu sai cosa contengono.</p>
+        <p class="body reveal d2">Se non riesci a ritrovare un file in meno di trenta secondi, per te è quasi come se fosse perso. Investire cinque secondi in un buon nome al momento del salvataggio fa risparmiare ore di ricerca in futuro.</p>
+        <div class="analogy reveal d3"><span class="big">Regola:</span> Nomina i file come se dovessi ritrovarli tra cinque anni, senza ricordare nulla del contesto.</div>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><h3>1. Nomi chiari e ordinabili</h3><p><b>2026-06-25_preventivo_rossi.pdf</b> è meglio di <b>nuovo2_finale_OK.pdf</b>. La data ISO all'inizio ordina i file cronologicamente in qualsiasi strumento.</p></div>
+        <div class="card reveal d2"><h3>2. Cartelle per progetto</h3><p>Raggruppa tutto ciò che serve insieme: documenti, immagini, fatture, versioni bozza. Una cartella per progetto, sottocartelle per tipo di file.</p></div>
+        <div class="card reveal d3"><h3>3. Versioni esplicite</h3><p>Usa date o numeri di versione nel nome. Evita dieci file chiamati "finale" — usa <b>v1</b>, <b>v2</b>, o la data come suffisso.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal">Frammentazione, spazio libero e salute</h2>
+      <p class="body reveal" style="margin-top:10px;max-width:1100px;">Con il tempo i dischi si riempiono e le prestazioni possono degradare. Capire la frammentazione e la gestione dello spazio aiuta a mantenere il sistema veloce e i dati al sicuro.</p>
+      <div class="grid3 reveal d1" style="margin-top:16px;">
+        <div class="card"><span class="ic">🧩</span><h3>Frammentazione HDD</h3><p>Sugli HDD i blocchi di un file possono finire in aree fisicamente distanti del piatto. La testina deve spostarsi tra posizioni diverse, rallentando la lettura. La deframmentazione riordina i blocchi per renderli contigui.</p></div>
+        <div class="card"><span class="ic">🚫</span><h3>Non deframmentare gli SSD</h3><p>Gli SSD accedono a qualsiasi blocco alla stessa velocità: la frammentazione non li rallenta. Deframmentarli aggiunge scritture inutili che consumano i cicli delle celle flash, riducendo la vita del disco.</p></div>
+        <div class="card"><span class="ic">📉</span><h3>Spazio libero</h3><p>Un disco quasi pieno rallenta sia HDD che SSD. Gli SSD hanno bisogno di spazio libero per il wear leveling e le operazioni TRIM. Lasciare almeno il 10–15% libero è una buona pratica generale.</p></div>
+      </div>
+      <p class="body reveal d2" style="margin-top:18px;"><b>Salute del disco:</b> monitora i segnali SMART (Self-Monitoring, Analysis and Reporting Technology) con strumenti come CrystalDiskInfo o smartmontools. Rumori di clic ripetuti su un HDD sono un segnale di guasto imminente: fai subito un backup.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split even">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">File compressi</h2>
+        <p class="lead reveal d1">La compressione analizza i dati alla ricerca di sequenze ripetute e schemi prevedibili, poi li rappresenta in forma più compatta. Un file di testo con molte parole ripetute può ridursi del 70–80%; un video già codificato quasi per niente.</p>
+        <div class="note reveal d2"><div class="lbl">Due famiglie</div><p><b>Senza perdita (lossless):</b> ZIP, PNG, FLAC. Puoi ricostruire esattamente l'originale, bit per bit.<br><b>Con perdita (lossy):</b> JPEG, MP3, video H.264/H.265. Si eliminano dettagli meno percepibili per risparmiare spazio. Non si può tornare all'originale.</p></div>
+      </div>
+      <div class="grid2 reveal d1">
+        <div class="card"><span class="ic">📝</span><h3>Testo e codice</h3><p>Si comprime molto bene perché contiene molte parole e sequenze ripetute. Un file di testo di 1 MB può diventare 100–200 KB in ZIP.</p></div>
+        <div class="card"><span class="ic">📷</span><h3>Foto JPEG</h3><p>È già compressa con perdita: aggiungere un archivio ZIP attorno porta pochissimo beneficio e solo confusione.</p></div>
+        <div class="card"><span class="ic">🎬</span><h3>Video</h3><p>Già compresso con codec come H.264 o H.265. Comprimerlo ulteriormente spesso aumenta le dimensioni o degrada la qualità.</p></div>
+        <div class="card"><span class="ic">📁</span><h3>Cartelle intere</h3><p>Un archivio compresso raccoglie molti file in un solo contenitore: pratico per allegati email e condivisione.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal">ZIP, 7z, RAR, TAR.GZ</h2>
+      <p class="body reveal" style="margin-top:10px;max-width:1100px;">Ogni formato di archivio ha una storia e un caso d'uso specifico. Conoscerli aiuta a scegliere lo strumento giusto e a non restare bloccati davanti a un file sconosciuto.</p>
+      <table class="cmp reveal d1" style="margin-top:16px;">
+        <tr><th>Formato</th><th>Uso tipico</th><th>Nota tecnica</th></tr>
+        <tr><td>ZIP</td><td>Inviare cartelle via email, distribuire materiale scolastico e lavorativo, condividere software su Windows e macOS.</td><td>Compatibile nativamente con Windows, macOS e Linux senza software aggiuntivo. Ogni file è compresso separatamente.</td></tr>
+        <tr><td>7z</td><td>Archivi personali e backup dove la dimensione finale è importante. Compressione generalmente migliore di ZIP a parità di tempo.</td><td>Formato aperto, richiede 7-Zip o software compatibile. Supporta cifratura AES-256 con password.</td></tr>
+        <tr><td>RAR</td><td>Archivi multi-volume scaricati online, dove i file sono stati divisi in parti da 100–500 MB per facilitare il download.</td><td>Formato proprietario di WinRAR. La decompressione è gratuita; la creazione di nuovi archivi RAR richiede la licenza.</td></tr>
+        <tr><td>TAR.GZ</td><td>Distribuire codice sorgente, pacchetti software e backup su sistemi Linux e server Unix. Standard de facto nel mondo open source.</td><td>TAR raccoglie i file in un unico contenitore senza comprimerli; GZ comprime il risultato. Separazione netta tra packaging e compressione.</td></tr>
+      </table>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Link simbolici e hard link</h2>
+        <p class="lead reveal d1">Un collegamento può far apparire un file in una cartella diversa senza duplicarne il contenuto fisico sul disco. I due tipi principali, link simbolico e hard link, funzionano in modo molto diverso a livello di file system.</p>
+        <p class="body reveal d2">Questi meccanismi sono usati dal sistema operativo per tenere strutture pulite: cartelle di configurazione che puntano a versioni aggiornate, librerie condivise tra programmi, backup efficienti senza copia dei dati.</p>
+        <div class="analogy reveal d3"><span class="big">Analogia:</span> Un hard link è come avere due targhe sulla stessa porta; un link simbolico è un cartello che indica dove si trova la porta.</div>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><h3>Link simbolico (symlink)</h3><p>È un file speciale che contiene il percorso della destinazione. Se la destinazione viene spostata o cancellata, il link risulta "rotto" e non punta più a nulla di valido. Funziona tra partizioni diverse.</p></div>
+        <div class="card reveal d2"><h3>Hard link</h3><p>È un secondo nome nello stesso file system che punta allo stesso inode (blocco dati) del file originale. Il dato resta sul disco finché esiste almeno un nome che vi fa riferimento. Non può attraversare partizioni diverse.</p></div>
+        <div class="card reveal d3"><h3>Collegamento Windows (.lnk)</h3><p>I classici file <b>.lnk</b> sono scorciatoie gestite da Esplora risorse: simili concettualmente ai symlink, ma non equivalenti a livello di sistema. Windows supporta anche symlink nativi tramite <b>mklink</b>.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+
+
+  <section class="slide closing"><div class="closing-inner"><div class="center" style="align-items:center;text-align:center;">
+      <h2 class="h-mega reveal" style="margin-top:10px;">Archiviato,<br>ma con ordine.</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">HDD e SSD, settori, file system NTFS e FAT, percorsi e backup: come il disco organizza e conserva ogni tuo file.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="hs03-os.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → M12 · Sistemi Operativi</a>
+      </div>
+    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">RAM — Wikipedia ↗</a><a href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Documenti e specifiche USB — USB-IF ↗</a><a href="https://www.unicode.org/versions/latest/core-spec/chapter-2/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">UTF-8 — Unicode Standard ↗</a><a href="https://it.wikipedia.org/wiki/File_system" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">File system — Wikipedia ↗</a><a href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Manuale utente iPhone — Apple ↗</a></div></div><div class="page-num"></div></section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+
+<script src="../deck.js"></script>
+</body>
+</html>

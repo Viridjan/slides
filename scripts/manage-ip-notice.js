@@ -22,13 +22,23 @@ const wrappers = new Map([
   ['.gitignore', (s) => `# ${s}`],
 ]);
 
-const excluded = new Set(['.git', '.venv', 'node_modules']);
+const excludedDirectories = new Set([
+  '.git',
+  '.venv',
+  'node_modules',
+  'experiments',
+  'graphify-out',
+]);
+const excludedPaths = new Set([
+  path.join('.claude', 'skills', 'power-design'),
+  path.join('corsi', 'images'),
+]);
 function walk(directory, prefix = '') {
   const names = [];
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
     const relative = path.join(prefix, entry.name);
     if (entry.isDirectory()) {
-      if (excluded.has(entry.name) || relative === path.join('corsi', 'images')) continue;
+      if (excludedDirectories.has(entry.name) || excludedPaths.has(relative)) continue;
       names.push(...walk(path.join(directory, entry.name), relative));
     } else {
       names.push(relative);

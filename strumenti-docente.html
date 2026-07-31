@@ -1,0 +1,191 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strumenti docente</title>
+<style>
+:root{--paper:#f4ece0;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--gold:#e6c14a;--line:#d8c9b4;}
+*{box-sizing:border-box;}
+body{margin:0;background:#241d17;color:var(--ink);font-family:-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;}
+.wrap{max-width:920px;margin:0 auto;padding:40px 24px 100px;}
+h1{color:var(--paper);font-size:32px;margin:0 0 6px;}
+.sub{color:#cdbfa8;font-size:15px;margin:0 0 32px;}
+.progress-line{color:var(--paper);font-size:15px;margin-bottom:24px;font-family:monospace;}
+.section{background:var(--paper);border-radius:14px;padding:22px 26px;margin-bottom:20px;}
+.section h2{font-size:20px;margin:0 0 14px;color:var(--teal);border-bottom:2px solid var(--line);padding-bottom:8px;}
+.col-heads{display:flex;align-items:center;padding:0 4px 6px;gap:6px;}
+.col-heads .title-sp{flex:1;}
+.col-heads span{width:34px;text-align:center;font-family:monospace;font-size:11px;color:var(--ink-faint);}
+.row{display:flex;align-items:center;gap:6px;padding:7px 4px;border-radius:6px;border-bottom:1px solid var(--line);}
+.row:last-child{border-bottom:none;}
+.row:hover{background:#00000008;}
+.row .label{flex:1;font-size:14px;line-height:1.3;}
+.row .code{color:var(--ink-faint);font-family:monospace;font-size:12px;}
+.row .chk{width:34px;display:flex;justify-content:center;}
+.row .chk input{width:17px;height:17px;accent-color:var(--teal);cursor:pointer;}
+.row.done .label{color:var(--ink-faint);}
+.actions{display:flex;justify-content:center;gap:14px;margin-top:36px;flex-wrap:wrap;}
+.reset-btn,.io-btn{border:none;padding:14px 28px;border-radius:999px;font-size:15px;font-weight:700;cursor:pointer;}
+.reset-btn{background:var(--red);color:#fff;}
+.io-btn{background:var(--teal);color:var(--paper);}
+.reset-btn:hover,.io-btn:hover{opacity:.88;}
+.file-note{text-align:center;color:#cdbfa8;font-size:13px;margin-top:14px;font-family:monospace;}
+.gate{min-height:100vh;display:flex;align-items:center;justify-content:center;color:var(--paper);font-family:monospace;}
+</style>
+</head>
+<body>
+
+<div id="gate" class="gate">Verifica accesso…</div>
+
+<div id="app" class="wrap" style="display:none;">
+  <h1>Strumenti docente</h1>
+  <p class="sub">Registro interno — segna, per ciascuna classe, se il deck è stato trattato a lezione. Non collegato dall'indice pubblico.</p>
+  <p class="progress-line" id="progressLine"></p>
+  <div id="sections"></div>
+  <div class="actions">
+    <button class="io-btn" id="exportBtn">Esporta registro (.json)</button>
+    <button class="io-btn" id="importBtn">Importa registro (.json)</button>
+    <button class="reset-btn" id="resetBtn">Reset registro</button>
+  </div>
+  <p class="file-note">Il salvataggio automatico resta nel browser (si perde svuotando la cache). Esporta il file per conservarlo davvero, o per portarlo su un altro computer.</p>
+  <input type="file" id="importInput" accept="application/json" style="display:none;">
+</div>
+
+<script src="search-index.js"></script>
+<script>
+(function(){
+  var ACCESS_CODE = 'lupoverde';
+  var STORAGE_KEY = 'docente-registro-lezioni-v2';
+  var CLASSES = ['1ª', '2ª', '3ª', '4ª'];
+
+  var gate = document.getElementById('gate');
+  var app = document.getElementById('app');
+
+  var input = prompt('Codice di accesso:');
+  if (input !== ACCESS_CODE) {
+    gate.textContent = 'Accesso negato.';
+    return;
+  }
+  gate.style.display = 'none';
+  app.style.display = 'block';
+
+  var entries = (globalThis.COURSE_SEARCH_INDEX || []).filter(function(e){ return e.href && e.href.indexOf('decks/') === 0; });
+
+  var bySection = {};
+  entries.forEach(function(e){
+    var s = e.section || 'Altro';
+    (bySection[s] = bySection[s] || []).push(e);
+  });
+
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch (e) { state = {}; }
+
+  function rowState(href){
+    var v = state[href];
+    if (!Array.isArray(v)) v = state[href] = [false, false, false, false];
+    return v;
+  }
+
+  function save(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+
+  function updateProgress(){
+    var totalCells = entries.length * CLASSES.length;
+    var doneCells = 0;
+    entries.forEach(function(e){ rowState(e.href).forEach(function(v){ if (v) doneCells++; }); });
+    document.getElementById('progressLine').textContent = doneCells + ' / ' + totalCells + ' spunte segnate';
+  }
+
+  var sectionsEl = document.getElementById('sections');
+  Object.keys(bySection).sort().forEach(function(sectionName){
+    var section = document.createElement('div');
+    section.className = 'section';
+    var h2 = document.createElement('h2');
+    h2.textContent = sectionName;
+    section.appendChild(h2);
+
+    var heads = document.createElement('div');
+    heads.className = 'col-heads';
+    heads.innerHTML = '<span class="title-sp"></span>' + CLASSES.map(function(c){ return '<span>' + c + '</span>'; }).join('');
+    section.appendChild(heads);
+
+    bySection[sectionName].forEach(function(entry){
+      var vals = rowState(entry.href);
+      var row = document.createElement('div');
+      row.className = 'row' + (vals.every(Boolean) ? ' done' : '');
+
+      var label = document.createElement('div');
+      label.className = 'label';
+      label.innerHTML = (entry.code ? '<span class="code">' + entry.code + '</span> ' : '') + entry.title;
+      row.appendChild(label);
+
+      CLASSES.forEach(function(_, i){
+        var cell = document.createElement('div');
+        cell.className = 'chk';
+        var checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = !!vals[i];
+        checkbox.title = CLASSES[i] + ' classe';
+        checkbox.addEventListener('change', function(){
+          vals[i] = checkbox.checked;
+          row.classList.toggle('done', vals.every(Boolean));
+          save();
+          updateProgress();
+        });
+        cell.appendChild(checkbox);
+        row.appendChild(cell);
+      });
+
+      section.appendChild(row);
+    });
+
+    sectionsEl.appendChild(section);
+  });
+
+  updateProgress();
+
+  document.getElementById('resetBtn').addEventListener('click', function(){
+    if (!confirm('Azzerare tutto il registro? L\'operazione non è reversibile.')) return;
+    state = {};
+    save();
+    location.reload();
+  });
+
+  document.getElementById('exportBtn').addEventListener('click', function(){
+    var blob = new Blob([JSON.stringify(state, null, 2)], {type: 'application/json'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    var stamp = new Date().toISOString().slice(0, 10);
+    a.download = 'registro-lezioni-docente-' + stamp + '.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  var importInput = document.getElementById('importInput');
+  document.getElementById('importBtn').addEventListener('click', function(){
+    importInput.value = '';
+    importInput.click();
+  });
+  importInput.addEventListener('change', function(){
+    var file = importInput.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function(){
+      var parsed;
+      try { parsed = JSON.parse(reader.result); } catch (e) {
+        alert('File non valido: non è un JSON leggibile.');
+        return;
+      }
+      if (!confirm('Importare questo file? Le spunte del file si aggiungono a quelle già presenti (in caso di conflitto vince il file importato).')) return;
+      if (parsed && typeof parsed === 'object') Object.assign(state, parsed);
+      save();
+      location.reload();
+    };
+    reader.readAsText(file);
+  });
+})();
+</script>
+</body>
+</html>

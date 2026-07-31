@@ -1,0 +1,995 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intelligenza Artificiale · IA_01 — Concetti Generali</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;background:#fff;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}.slide:last-child{break-after:auto;page-break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+code{font-family:var(--font-mono);}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}.d5{transition-delay:.68s !important;}.d6{transition-delay:.80s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}.tape.sky{background:var(--sky);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--sky);}
+.lead{font-size:32px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:27px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1;}
+.card p{font-size:24px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.card.red{border-color:var(--red);}.card.red h3{color:var(--red);}
+.card.teal{border-color:var(--teal);}.card.teal h3{color:var(--teal);}
+.card.sky{border-color:var(--sky);}.card.sky h3{color:var(--sky);}
+.card.gold{border-color:var(--gold-deep);}.card.gold h3{color:var(--gold-deep);}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.chip.red{background:var(--red);color:#fff;}.chip.sky{background:var(--sky);color:#fff;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa;border-color:var(--red);}
+.note.sky{background:#d4eaee;border-color:var(--sky);}
+.note.teal{background:#c0d4d1;border-color:var(--teal);}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.4;color:var(--ink);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:22px;}
+.tight-slide .h-sec{font-size:64px;}
+.tight-slide .lead{font-size:28px;line-height:1.34;}
+.tight-slide .body{font-size:24px;line-height:1.35;}
+.tight-slide .split{height:auto;}
+.tight-slide .grid2{gap:18px;}
+.tight-slide .grid3{gap:16px;}
+.tight-slide .stack>*+*{margin-top:12px;}
+.tight-slide .card{padding:18px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12);}
+.tight-slide .card h3{font-size:30px;margin-bottom:6px;}
+.tight-slide .card p{font-size:21px;line-height:1.28;}
+.tight-slide .card .ic{font-size:34px;margin-bottom:5px;}
+.tight-slide .note{padding:18px 22px;}
+.tight-slide .note .lbl{font-size:19px;margin-bottom:6px;}
+.tight-slide .note p{font-size:22px;line-height:1.3;}
+.steps{counter-reset:st;display:flex;flex-direction:column;gap:14px;}
+.step{display:flex;align-items:flex-start;gap:20px;background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:16px 24px;box-shadow:4px 5px 0 rgba(28,23,20,.12);}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:42px;line-height:1;}
+.step .t{font-size:26px;line-height:1.35;color:var(--ink-soft);padding-top:3px;}
+.step .t b{color:var(--ink);}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(4,auto);grid-template-columns:1fr 1fr;gap:18px 60px;margin-top:16px;}
+.agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:15px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:72px;}
+.agenda-item .t{font-size:28px;font-weight:600;color:var(--ink);}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal-2);position:relative;overflow:hidden;display:grid;place-items:center;}.title-right>div,.title-right>svg{position:relative;z-index:2;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--sky),var(--teal));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .gold{color:var(--gold);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;bottom:0;left:0;height:4px;background:var(--red);transition:width .4s var(--ease);z-index:9999;}
+.title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+</style>
+<link rel="stylesheet" href="../theme-corsi.css">
+</head>
+<body class="course-ia">
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+  <!-- ============ SLIDE 1 · TITLE ============ -->
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <h1 class="h-mega reveal" style="margin-top:10px;">Concetti<br><em style="font-style:italic;color:var(--sky);">generali</em></h1>
+      <p class="lead reveal d1" style="margin-top:28px;">Cos'è l'IA, come si definisce, le sue applicazioni quotidiane e i concetti chiave: ML, deep learning, deepfake, filter bubble.</p>
+
+    </div>
+    <div class="title-right">
+      <div style="font-size:200px;line-height:1;text-align:center;" class="reveal">🤖</div>
+    </div>
+  <div class="deck-author">Francesco Antonio Binetti</div></section>
+
+  <!-- ============ SLIDE 2 · AGENDA ============ -->
+
+
+  <!-- ============ SLIDE 3 · COS'È L'IA ============ -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;">Cos'è l'<em class="hot">Intelligenza Artificiale</em>?</h2>
+        <p class="lead reveal d1" style="margin-top:14px;">La capacità o il tentativo di un sistema artificiale di <b>simulare una forma di intelligenza</b> — Wikipedia.</p>
+        <div class="note sky reveal d2" style="margin-top:20px;">
+          <div class="lbl">⚠️ Campo in evoluzione</div>
+          <p>La definizione cambia continuamente. Ciò che oggi chiamiamo "IA" domani potrebbe essere semplicemente "informatica".</p>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="card teal reveal d1">
+          <span class="ic">🧭</span>
+          <h3>Autonomia</h3>
+          <p>Eseguire compiti in ambienti complessi <b>senza guida costante</b> da parte dell'utente.</p>
+        </div>
+        <div class="card sky reveal d2">
+          <span class="ic">📈</span>
+          <h3>Adattabilità</h3>
+          <p>Migliorare le prestazioni <b>imparando dall'esperienza</b> e dai dati.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: AI Risk Management Framework — NIST" aria-label="Fonte ufficiale: AI Risk Management Framework — NIST" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: AI Risk Management Framework — NIST ↗</a></div></section>
+
+  <!-- ============ SLIDE 4 · COME DEFINIAMO ============ -->
+
+  <!-- ============ SLIDE NEW · STORIA DELL'IA ============ -->
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:16px;">Breve storia dell'<em class="hot">IA</em></h2>
+    <div class="grid2 reveal d1" style="margin-top:22px;">
+      <div class="card sky">
+        <span class="ic">🧪</span>
+        <h3>1950 — Le origini</h3>
+        <p>Alan Turing propone il "Gioco dell'imitazione" (Test di Turing). Nasce la domanda: <em>una macchina può pensare?</em></p>
+      </div>
+      <div class="card">
+        <span class="ic">🏔️</span>
+        <h3>1956 — Conferenza Dartmouth</h3>
+        <p>Nasce ufficialmente il termine "Intelligenza Artificiale". I ricercatori credono di poter replicare l'intelligenza in pochi decenni.</p>
+      </div>
+      <div class="card gold">
+        <span class="ic">❄️</span>
+        <h3>1970–1980 — "AI Winter"</h3>
+        <p>I fondi si esauriscono. Le promesse non vengono mantenute. La ricerca subisce due lunghe pause.</p>
+      </div>
+      <div class="card teal">
+        <span class="ic">🚀</span>
+        <h3>2010–oggi — Rinascita</h3>
+        <p>Big data, GPU potenti e deep learning trasformano tutto. IA batte i campioni umani a Go, scacchi, Jeopardy! e ora genera testo e immagini.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-big reveal" style="margin-top:20px;">La battuta dei <em class="hot">ricercatori</em></h2>
+      <p class="lead reveal d1" style="margin-top:18px;max-width:1300px;">L'IA è <b>"tutto ciò che i computer non sanno ancora fare"</b>. Non appena troviamo un modo per farlo, smette di chiamarsi IA.</p>
+      <div class="grid2 reveal d2" style="margin-top:32px;max-width:1300px;">
+        <div class="card">
+          <span class="ic">📅</span>
+          <h3>50 anni fa</h3>
+          <p>Ricerca e pianificazione automatica restano temi dell'IA e sono anche contenuti consolidati in molti corsi di informatica.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🔮</span>
+          <h3>Domani</h3>
+          <p>Alcuni metodi per gestire l'incertezza si avviano a diventare semplice statistica — non più "IA".</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 5 · TERMINOLOGIA ============ -->
+
+  <!-- ============ SLIDE NEW · IA DEBOLE vs FORTE ============ -->
+  <section class="slide">
+    <div class="split even">
+      <div class="card sky" style="align-self:stretch;display:flex;flex-direction:column;gap:16px;padding:40px;">
+        <span class="ic" style="font-size:64px;">🎯</span>
+        <h3 style="font-size:52px;line-height:1;">IA Debole<br><em style="font-size:32px;font-style:normal;color:var(--sky);">Narrow AI</em></h3>
+        <p style="font-size:27px;line-height:1.4;color:var(--ink-soft);">È progettata per un <b>ambito delimitato</b>. Alcuni sistemi svolgono più compiti correlati, ma non possiedono la competenza generale e autonoma di una persona.</p>
+        <div class="note sky" style="margin-top:auto;">
+          <div class="lbl">Oggi</div>
+          <p style="font-size:22px;">Tutta l'IA esistente oggi — compreso ChatGPT — è IA debole, per quanto impressionante sembri.</p>
+        </div>
+      </div>
+      <div class="card" style="align-self:stretch;display:flex;flex-direction:column;gap:16px;padding:40px;border-color:var(--gold-deep);">
+        <span class="ic" style="font-size:64px;">🌐</span>
+        <h3 style="font-size:52px;line-height:1;color:var(--gold-deep);">IA Forte<br><em style="font-size:32px;font-style:normal;color:var(--gold-deep);">AGI</em></h3>
+        <p style="font-size:27px;line-height:1.4;color:var(--ink-soft);">Un sistema capace di <b>qualsiasi compito cognitivo</b> che un essere umano può svolgere — ragionamento, creatività, apprendimento autonomo in nuovi contesti.</p>
+        <div class="note" style="margin-top:auto;">
+          <div class="lbl">Futuro</div>
+          <p style="font-size:22px;">Non esiste ancora. I ricercatori non concordano su quando — o se — arriverà.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:18px;">I concetti <em class="hot">correlati</em></h2>
+    <div class="grid2 reveal d1" style="margin-top:24px;">
+      <div class="card sky">
+        <span class="ic">🤖</span>
+        <h3>Machine Learning</h3>
+        <p>Sistemi che migliorano le prestazioni con l'aumentare dell'esperienza o dei dati. Sottoinsieme dell'IA.</p>
+      </div>
+      <div class="card teal">
+        <span class="ic">🧠</span>
+        <h3>Deep Learning</h3>
+        <p>Sottoinsieme del ML. Usa reti neurali profonde e complesse. Ha reso possibile il salto qualitativo degli ultimi anni.</p>
+      </div>
+      <div class="card gold">
+        <span class="ic">📊</span>
+        <h3>Data Science</h3>
+        <p>Include ML, statistica, algoritmi e sviluppo applicazioni. Richiede comprensione del settore applicato (business, medicina…).</p>
+      </div>
+      <div class="card">
+        <span class="ic">🦾</span>
+        <h3>Robotica</h3>
+        <p>Costruzione e programmazione di robot per scenari complessi. La sfida definitiva dell'IA: richiede quasi tutte le sue aree.</p>
+      </div>
+    </div>
+    <div class="illu reveal d2" style="margin-top:20px;padding:18px 30px;">
+      <svg viewBox="0 0 620 192" style="max-width:620px;margin:0 auto;" role="img" aria-label="Cerchi concentrici: il Deep Learning è un sottoinsieme del Machine Learning, che è un sottoinsieme dell'Intelligenza Artificiale">
+        <circle cx="105" cy="96" r="88" fill="#163b35"/>
+        <circle cx="105" cy="126" r="57" fill="#3f7e8c"/>
+        <circle cx="105" cy="154" r="29" fill="#e6c14a"/>
+        <text x="105" y="40" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="24" fill="#f4ece0">IA</text>
+        <text x="105" y="94" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="22" fill="#f4ece0">ML</text>
+        <text x="105" y="161" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="19" fill="#1c1714">DL</text>
+        <circle cx="258" cy="48" r="11" fill="#163b35"/>
+        <text x="284" y="56" font-family="Space Grotesk,sans-serif" font-size="23" fill="#1c1714"><tspan font-weight="700">Intelligenza Artificiale</tspan> — il campo intero</text>
+        <circle cx="258" cy="96" r="11" fill="#3f7e8c"/>
+        <text x="284" y="104" font-family="Space Grotesk,sans-serif" font-size="23" fill="#1c1714"><tspan font-weight="700">Machine Learning</tspan> — impara dai dati</text>
+        <circle cx="258" cy="144" r="11" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+        <text x="284" y="152" font-family="Space Grotesk,sans-serif" font-size="23" fill="#1c1714"><tspan font-weight="700">Deep Learning</tspan> — reti neurali profonde</text>
+      </svg>
+      <div class="illu-cap">Ogni cerchio è un sottoinsieme del precedente: IA ⊃ ML ⊃ DL</div>
+    </div>
+    <div class="page-num"></div>
+  <div class="cross-reference-footer" data-cross-reference-footer="true"><a href="ia03-llm.html#slide-2">IA03 · LLM ↗</a><a href="ia04-diversi-modelli-ia.html#slide-2">IA04 · Famiglie di modelli ↗</a></div></section>
+
+  <!-- ============ SLIDE NEW · RETI NEURALI ============ -->
+
+
+
+  <!-- ============ SLIDE NEW · NLP ============ -->
+
+
+
+
+  <!-- ============ SLIDE 6 · AUTO A GUIDA ============ -->
+
+  <!-- ============ SLIDE NEW · COME FUNZIONA IL ML ============ -->
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-big reveal" style="margin-top:18px;">Come <em class="hot">impara</em> una macchina?</h2>
+      <div class="steps reveal d1" style="margin-top:28px;max-width:1300px;">
+        <div class="step"><div class="t"><b>Dati di addestramento</b> — migliaia (o miliardi) di esempi etichettati: foto di gatti e non-gatti, email spam e non-spam, traduzioni corrette.</div></div>
+        <div class="step"><div class="t"><b>Modello</b> — un algoritmo che trova pattern nei dati. Commette errori, li misura, si corregge — milioni di volte.</div></div>
+        <div class="step"><div class="t"><b>Previsione</b> — dato un input nuovo, il modello applica i pattern appresi e produce un output: "questa è una foto di gatto" con 94% di confidenza.</div></div>
+      </div>
+      <div class="analogy reveal d2" style="margin-top:24px;"><span class="big">Analogia:</span> il ML impara dagli esempi come un bambino, non dalle regole come un impiegato.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;">Auto a guida <em class="hot">autonoma</em></h2>
+        <p class="lead reveal d1" style="margin-top:14px;">Un caso che combina <b>quasi tutte</b> le tecniche di IA in un unico sistema.</p>
+        <div class="steps reveal d2" style="margin-top:18px;">
+          <div class="step"><div class="t"><b>Ricerca e pianificazione</b> — trovare il percorso ottimale da A a B</div></div>
+          <div class="step"><div class="t"><b>Visione artificiale</b> — identificare ostacoli, pedoni, segnali</div></div>
+          <div class="step"><div class="t"><b>Decisione in incertezza</b> — reagire a situazioni imprevedibili</div></div>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="card sky reveal d1">
+          <span class="ic">✅</span>
+          <h3>Vantaggi attesi</h3>
+          <p>Sicurezza stradale migliorata, catene logistiche più efficienti, meno incidenti causati da errore umano.</p>
+        </div>
+        <div class="card gold reveal d2">
+          <span class="ic">🚗</span>
+          <h3>Non solo auto</h3>
+          <p>Robot per consegne, droni autonomi, navi senza equipaggio: le stesse tecnologie si estendono ovunque.</p>
+        </div>
+        <div class="note reveal d3">
+          <div class="lbl">Ruolo umano</div>
+          <p>Gli umani assumeranno sempre più un ruolo di <b>supervisione</b> mentre le macchine gestiscono l'esecuzione.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 7 · LEGGI ============ -->
+
+  <!-- ============ SLIDE NEW · AUTO AUTONOMA — SFIDE ============ -->
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:16px;">Auto autonoma — sfide <em class="hot">reali</em></h2>
+    <div class="grid2 reveal d1" style="margin-top:22px;">
+      <div class="card red">
+        <span class="ic">⚠️</span>
+        <h3>Il problema etico</h3>
+        <p>Se l'incidente è inevitabile, chi colpisce l'auto? Chi decide? Il programmatore, l'azienda o la legge?</p>
+      </div>
+      <div class="card">
+        <span class="ic">🌧️</span>
+        <h3>Condizioni avverse</h3>
+        <p>Pioggia forte, neve, cantieri improvvisati, gesti non standard di un vigile — l'IA fatica con tutto ciò che esula dai dati di addestramento.</p>
+      </div>
+      <div class="card gold">
+        <span class="ic">💼</span>
+        <h3>Impatto sul lavoro</h3>
+        <p>Autisti, corrieri, piloti di droni: intere categorie professionali potrebbero essere ridisegnate. Stima: decine di milioni di posti globali a rischio.</p>
+      </div>
+      <div class="card sky">
+        <span class="ic">📜</span>
+        <h3>Quadro normativo</h3>
+        <p>Chi è responsabile in caso di incidente? L'utente, il produttore o il software? Le leggi in Europa stanno ancora evolvendo.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-big reveal" style="margin-top:18px;">Le tre leggi della <em class="hot">robotica</em></h2>
+      <div class="steps reveal d1" style="margin-top:28px;max-width:1300px;">
+        <div class="step"><div class="t">Un robot <b>non può recare danno a un essere umano</b> né permettere che, per mancato intervento, un essere umano riceva danno.</div></div>
+        <div class="step"><div class="t">Un robot <b>deve obbedire agli ordini degli esseri umani</b>, purché non contrastino la Prima Legge.</div></div>
+        <div class="step"><div class="t">Un robot <b>deve proteggere la propria esistenza</b>, purché non contrasti con la Prima o la Seconda Legge.</div></div>
+      </div>
+      <div class="note reveal d2" style="margin-top:28px;max-width:1300px;">
+        <div class="lbl">💡 Perché conta ancora</div>
+        <p>Scritte per la fantascienza, queste leggi anticipano le domande etiche sull'IA che affrontiamo oggi nella realtà.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 8 · CONTENUTI PERSONALIZZATI ============ -->
+  <section class="slide" data-content-review-hash="2e1acd406cabf9c3" data-content-review-date="2026-07-19">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;">Contenuti <em class="hot">personalizzati</em></h2>
+        <p class="lead reveal d1" style="margin-top:14px;">Gran parte delle informazioni che riceviamo ogni giorno sono <b>scelte da un algoritmo</b> su misura per noi.</p>
+        <p class="body reveal d2" style="margin-top:12px;">Molti social, servizi di streaming, motori di ricerca e siti di notizie personalizzano usando interazioni, contesto e impostazioni; non tutti lo fanno allo stesso modo.</p>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1">
+          <span class="ic">📱</span>
+          <h3>Social</h3>
+          <p>Facebook, Instagram, TikTok, X — il feed non è cronologico: è scelto dall'algoritmo. Per scelta dei canali e uso consapevole: RW03.05 · I social giusti</p>
+        </div>
+        <div class="card sky reveal d2">
+          <span class="ic">🎵</span>
+          <h3>Streaming</h3>
+          <p>Spotify, Netflix, Max — i suggerimenti si basano su ciò che hai già ascoltato o visto.</p>
+        </div>
+        <div class="card gold reveal d3">
+          <span class="ic">🔍</span>
+          <h3>Ricerca</h3>
+          <p>Google personalizza i risultati: due utenti che cercano la stessa cosa vedono risultati diversi.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="cross-reference-footer" data-cross-reference-footer="true"><a href="rw03-05-social.html#slide-5">RW03.05 · I social giusti ↗</a></div></section>
+
+  <!-- ============ SLIDE 9 · FILTER BUBBLE ============ -->
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Filter bubble</em><br><span style="font-size:60px;color:var(--ink-faint);">— la bolla di filtraggio</span></h2>
+      <p class="lead reveal d1" style="margin-top:18px;max-width:1350px;">Quando un algoritmo registra il comportamento dell'utente e sceglie selettivamente <b>solo ciò che vuole vedere</b>, isolandolo da informazioni in contrasto con il suo punto di vista.</p>
+      <div class="grid2 reveal d2" style="margin-top:28px;max-width:1350px;">
+        <div class="note red">
+          <div class="lbl">Effetto</div>
+          <p>L'utente viene escluso da notizie, opinioni e dati che contraddicono la propria visione del mondo — senza rendersene conto.</p>
+        </div>
+        <div class="note">
+          <div class="lbl">Esempi</div>
+          <p>Google Search personalizzata e Facebook News Feed sono i casi più studiati e documentati di filter bubble.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 10 · ECHO CHAMBER E TROLL ============ -->
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:16px;">Echo chamber, troll e <em class="hot">fake news</em></h2>
+    <div class="grid3 reveal d1" style="margin-top:22px;">
+      <div class="card red">
+        <span class="ic">🔊</span>
+        <h3>Echo chamber</h3>
+        <p>Le idee vengono amplificate e rafforzate dalla ripetizione all'interno di un gruppo chiuso. Le fonti alternative sono censurate o ignorate.</p>
+      </div>
+      <div class="card">
+        <span class="ic">😈</span>
+        <h3>Troll</h3>
+        <p>Utenti che interagiscono con messaggi provocatori, fuori tema o falsi con l'unico scopo di disturbare la comunicazione e creare nervosismo.</p>
+      </div>
+      <div class="card gold">
+        <span class="ic">📰</span>
+        <h3>Fake news</h3>
+        <p>Informazioni false o fuorvianti diffuse intenzionalmente per produrre <b>misinformazione</b> (errore) o <b>disinformazione</b> (inganno deliberato).</p>
+      </div>
+    </div>
+    <div class="note red reveal d2" style="margin-top:20px;">
+      <div class="lbl">Connessione con l'IA</div>
+      <p>Molti sistemi di raccomandazione ottimizzano segnali come tempo, clic o soddisfazione; gli obiettivi scelti possono favorire effetti indesiderati e vanno valutati con dati della piattaforma.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE NEW · USCIRE DALLA FILTER BUBBLE ============ -->
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-big reveal" style="margin-top:18px;">Come <em class="hot">uscire</em> dalla bolla</h2>
+      <div class="steps reveal d1" style="margin-top:28px;max-width:1300px;">
+        <div class="step"><div class="t"><b>Diversifica le fonti</b> — leggi almeno un organo di informazione che sai di non preferire. Il discomfort è un buon segnale.</div></div>
+        <div class="step"><div class="t"><b>Naviga in incognito</b> — riduce (non elimina) la profilazione. Usa motori che non tracciano: DuckDuckGo, Startpage.</div></div>
+        <div class="step"><div class="t"><b>Segui persone con visioni diverse</b> — sui social, seguire voci che non conosci già rompe il loop dell'algoritmo.</div></div>
+        <div class="step"><div class="t"><b>Verifica prima di condividere</b> — cerca la fonte primaria, non restare nella versione già filtrata della notizia.</div></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 11 · ELABORAZIONE ============ -->
+
+  <!-- ============ SLIDE NEW · BOT E FABBRICHE DI TROLL ============ -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Bot</em> e troll farm</h2>
+        <p class="lead reveal d1" style="margin-top:14px;">Account automatizzati e reti coordinate di persone reali usati per <b>amplificare messaggi, creare falsa consenso e polarizzare l'opinione pubblica</b>.</p>
+        <div class="note red reveal d2" style="margin-top:18px;">
+          <div class="lbl">Come si riconosce un bot</div>
+          <p>Account creato di recente, nessuna foto personale, pubblica decine di volte al giorno, commenta sempre lo stesso tema, spesso senza profilo completo.</p>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1">
+          <span class="ic">⚙️</span>
+          <h3>Bot semplici</h3>
+          <p>Script automatici che ripubblicano contenuti, mettono like o seguono account in massa per gonfiare le metriche.</p>
+        </div>
+        <div class="card red reveal d2">
+          <span class="ic">🏭</span>
+          <h3>Troll farm</h3>
+          <p>Fabbriche di disinformazione: team di persone reali (spesso in paesi diversi) pagate per diffondere narrativi coordinati.</p>
+        </div>
+        <div class="card sky reveal d3">
+          <span class="ic">🤖</span>
+          <h3>IA generativa</h3>
+          <p>I modelli linguistici rendono facile produrre testo persuasivo su scala. La propaganda automatizzata è un rischio concreto.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;">Elaborazione <em class="hot">immagini</em></h2>
+        <p class="lead reveal d1" style="margin-top:14px;">L'IA può <b>riconoscere</b> ciò che vede e <b>generare</b> immagini nuove, sempre più indistinguibili dalla realtà.</p>
+      </div>
+      <div class="col stack">
+        <div class="card sky reveal d1">
+          <span class="ic">👤</span>
+          <h3>Riconoscimento facciale</h3>
+          <p>Organizzazione foto, tag automatico sui social, controllo passaporti, stima popolazioni animali.</p>
+        </div>
+        <div class="card teal reveal d2">
+          <span class="ic">🚗</span>
+          <h3>Guida autonoma</h3>
+          <p>Riconoscere auto, pedoni, segnali stradali in tempo reale con precisione quasi perfetta.</p>
+        </div>
+        <div class="card gold reveal d3">
+          <span class="ic">🎨</span>
+          <h3>Style transfer</h3>
+          <p>Adattare una foto per farla sembrare dipinta da Van Gogh. Personaggi CGI nei film (Avatar, Pixar).</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 12 · DEEPFAKE ============ -->
+
+  <!-- ============ SLIDE NEW · COMPUTER VISION ============ -->
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:16px;"><em class="hot">Computer vision</em> — come vede una macchina</h2>
+    <p class="lead reveal d1" style="margin-top:12px;max-width:1250px;">Un'immagine è solo una griglia di numeri (pixel). Il modello impara a riconoscere pattern di numeri associati a oggetti — da esempi etichettati, dati non etichettati o entrambi, secondo il metodo di addestramento.</p>
+    <div class="grid3 reveal d2" style="margin-top:20px;">
+      <div class="card sky">
+        <span class="ic">🏷️</span>
+        <h3>Classificazione</h3>
+        <p>"Questa immagine contiene un gatto" — identifica la categoria principale dell'immagine.</p>
+      </div>
+      <div class="card teal">
+        <span class="ic">📦</span>
+        <h3>Object detection</h3>
+        <p>"Qui c'è un gatto (coord. 120,80), qui un cane (coord. 340,200)" — localizza oggetti multipli.</p>
+      </div>
+      <div class="card gold">
+        <span class="ic">🧍</span>
+        <h3>Segmentazione</h3>
+        <p>Identifica ogni pixel come parte di un oggetto — usato in medicina (radiografie) e guida autonoma.</p>
+      </div>
+    </div>
+    <div class="note sky reveal d3" style="margin-top:18px;">
+      <div class="lbl">Ogni giorno</div>
+      <p>Face ID dello smartphone, filtri AR di Instagram, traduzione live di testo con la fotocamera, riconoscimento della scrittura — tutte computer vision.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Deepfake</em> — "vedere non è credere"</h2>
+      <p class="lead reveal d1" style="margin-top:20px;max-width:1300px;">Con l'aumento della potenza di calcolo, creare <b>video falsi dall'aspetto autentico</b> — indistinguibili da filmati reali — è diventato accessibile a chiunque.</p>
+      <div class="grid2 reveal d2" style="margin-top:30px;max-width:1300px;">
+        <div class="note red">
+          <div class="lbl">Come funziona</div>
+          <p>Il modello apprende il volto e la voce di una persona da molte immagini/video e li sovrappone su un altro soggetto con precisione crescente.</p>
+        </div>
+        <div class="note">
+          <div class="lbl">Cosa fare</div>
+          <p>Verificare la fonte originale. Cercare incongruenze (occhi, denti, bordi). Non condividere video sensazionali senza verifica.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 13 · CHATGPT ============ -->
+
+  <!-- ============ SLIDE NEW · RICONOSCERE DEEPFAKE ============ -->
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:16px;">Come <em class="hot">riconoscere</em> un deepfake</h2>
+    <div class="grid2 reveal d1" style="margin-top:22px;">
+      <div class="col stack">
+        <div class="card red">
+          <span class="ic">👁️</span>
+          <h3>Segnali visivi</h3>
+          <p>Bordi sfumati intorno a capelli/orecchie, occhiali con riflessi strani, denti irregolari, pelle troppo liscia o che "galleggia".</p>
+        </div>
+        <div class="card">
+          <span class="ic">👄</span>
+          <h3>Labbra e voce</h3>
+          <p>Sincronia labiale imperfetta, tono della voce piatto o metallico, emozioni facciali che non corrispondono al parlato.</p>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="card sky">
+          <span class="ic">🔍</span>
+          <h3>Verifica la fonte</h3>
+          <p>Chi ha pubblicato il video originale? Su quale canale ufficiale? Cerca la notizia su più fonti indipendenti.</p>
+        </div>
+        <div class="card gold">
+          <span class="ic">🛠️</span>
+          <h3>Strumenti digitali</h3>
+          <p>FotoForensics, Deepware Scanner, Sensity AI — strumenti online gratuiti che analizzano immagini e video per segni di manipolazione.</p>
+        </div>
+      </div>
+    </div>
+    <div class="note red reveal d2" style="margin-top:16px;">
+      <div class="lbl">⚠️ Regola d'oro</div>
+      <p>Se un video ti fa arrabbiare molto o ti sembra incredibile, fermati. È esattamente ciò che chi ha creato il deepfake voleva provocare.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+
+
+  <!-- ============ SLIDE NEW · IA NEL QUOTIDIANO ============ -->
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:16px;">L'IA che usi <em class="hot">senza saperlo</em></h2>
+    <div class="grid4 reveal d1" style="margin-top:24px;">
+      <div class="card sky">
+        <span class="ic">🗣️</span>
+        <h3>Assistenti vocali</h3>
+        <p>Siri, Alexa, Google Assistant riconoscono la voce e interpretano richieste in linguaggio naturale.</p>
+      </div>
+      <div class="card">
+        <span class="ic">🗺️</span>
+        <h3>GPS e traffico</h3>
+        <p>Google Maps prevede il traffico in tempo reale e suggerisce il percorso ottimale su milioni di utenti.</p>
+      </div>
+      <div class="card teal">
+        <span class="ic">📧</span>
+        <h3>Filtro spam</h3>
+        <p>Il client email usa ML per classificare automaticamente spam, promozioni e messaggi importanti.</p>
+      </div>
+      <div class="card gold">
+        <span class="ic">💳</span>
+        <h3>Antifrode</h3>
+        <p>La banca blocca la carta in 50 ms se un acquisto è anomalo rispetto alle tue abitudini — tutto IA.</p>
+      </div>
+    </div>
+    <div class="note reveal d2" style="margin-top:20px;">
+      <div class="lbl">💡 Conclusione</div>
+      <p>L'IA non è fantascienza: è già parte invisibile della tua giornata. Conoscerla significa poterne usare i vantaggi e riconoscerne i limiti.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+
+
+  <!-- ============ SLIDE 14 · RICONOSCERE ============ -->
+
+  <!-- ============ SLIDE NEW · PROMPT ENGINEERING ============ -->
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Prompt engineering</em> — chiedi meglio</h2>
+      <p class="lead reveal d1" style="margin-top:16px;max-width:1200px;">Il risultato di un modello IA dipende enormemente da <b>come poni la domanda</b>. Un prompt vago dà risposte vaghe.</p>
+      <div class="grid3 reveal d2" style="margin-top:24px;max-width:1350px;">
+        <div class="card">
+          <span class="ic">🎭</span>
+          <h3>Dai un ruolo</h3>
+          <p>"Sei un esperto di marketing per saloni di bellezza. Aiutami a…" — il contesto migliora drasticamente la risposta.</p>
+        </div>
+        <div class="card sky">
+          <span class="ic">📋</span>
+          <h3>Sii specifico</h3>
+          <p>Specifica lunghezza, tono, pubblico, formato. "Scrivi 3 caption Instagram per un salone, tono amichevole, max 100 caratteri".</p>
+        </div>
+        <div class="card gold">
+          <span class="ic">🔄</span>
+          <h3>Itera</h3>
+          <p>Se la risposta non è quella giusta, correggila: "Riscrivi il terzo punto in modo più diretto" — il modello ricorda il contesto della conversazione.</p>
+        </div>
+      </div>
+      <div class="note reveal d3" style="margin-top:20px;max-width:1350px;">
+        <div class="lbl">Non fidarti ciecamente</div>
+        <p>ChatGPT può <b>"allucinare"</b>: inventare fatti, citare fonti inesistenti, sbagliare calcoli. Verifica sempre le informazioni critiche.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-big reveal" style="margin-top:18px;">Riconoscere gli <em class="hot">elaborati IA</em></h2>
+      <div class="grid2 reveal d1" style="margin-top:28px;max-width:1300px;">
+        <div class="card">
+          <span class="ic">🔍</span>
+          <h3>Pattern linguistici</h3>
+          <p>Alcuni output mostrano schemi ripetitivi, ma stile e tono non permettono di attribuire con certezza un testo all'IA. Servono provenienza, contesto e verifiche ulteriori.</p>
+        </div>
+        <div class="card teal">
+          <span class="ic">📐</span>
+          <h3>Valutare la conoscenza</h3>
+          <p>Verificare se il livello dell'elaborato è coerente con le competenze dimostrate dallo studente in altri contesti.</p>
+        </div>
+      </div>
+      <div class="note sky reveal d2" style="margin-top:28px;max-width:1300px;">
+        <div class="lbl">💡 Due approcci</div>
+        <p>Vietare l'uso (aggirabile) <b>vs</b> trasformare l'IA in strumento didattico: usarla come punto di partenza critico, non come risposta finale.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE 15 · GENERAZIONE ============ -->
+
+  <!-- ============ SLIDE NEW · BIAS NELL'IA ============ -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;"><em class="hot">Bias</em> nell'IA</h2>
+        <p class="lead reveal d1" style="margin-top:14px;">Un modello impara dai dati. Se i dati riflettono pregiudizi umani, il modello li <b>amplifica e automatizza</b>.</p>
+        <div class="note red reveal d2" style="margin-top:20px;">
+          <div class="lbl">Impatto reale</div>
+          <p>Algoritmi usati in tribunali USA per prevedere la recidiva hanno mostrato bias razziali. Sistemi di riconoscimento facciale falliscono di più con pelli scure.</p>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1">
+          <span class="ic">📊</span>
+          <h3>Bias nei dati</h3>
+          <p>Se addestri un modello su CV storici dove i manager erano quasi tutti uomini, il modello può apprendere correlazioni discriminatorie e penalizzare alcuni gruppi, se dati, obiettivi e controlli non correggono il problema.</p>
+        </div>
+        <div class="card sky reveal d2">
+          <span class="ic">🔬</span>
+          <h3>Bias di conferma</h3>
+          <p>Il modello può rinforzare le aspettative dei suoi creatori se i test sono fatti solo su certi tipi di dati.</p>
+        </div>
+        <div class="card gold reveal d3">
+          <span class="ic">🛡️</span>
+          <h3>Cosa si fa</h3>
+          <p>Dati più diversificati, audit regolari, team di sviluppo eterogenei — e normative come l'AI Act europeo.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Regolamento europeo sull’IA — EUR-Lex" aria-label="Fonte ufficiale: Regolamento europeo sull’IA — EUR-Lex" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Regolamento europeo sull’IA — EUR-Lex ↗</a></div></section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-big reveal" style="margin-top:18px;">Generazione di <em class="hot">immagini</em></h2>
+      <p class="lead reveal d1" style="margin-top:18px;max-width:1300px;">Strumenti come <b>Midjourney</b>, <b>DALL-E</b> e <b>Stable Diffusion</b> creano immagini a partire da una descrizione testuale (prompt).</p>
+      <div class="grid3 reveal d2" style="margin-top:28px;max-width:1350px;">
+        <div class="card sky">
+          <span class="ic">✍️</span>
+          <h3>Il prompt</h3>
+          <p>Una descrizione dettagliata guida il modello: stile, soggetto, illuminazione, composizione.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🎨</span>
+          <h3>Stili possibili</h3>
+          <p>Fotorealistico, acquerello, fumetto, concept art, rinascimentale — il modello li mescola su richiesta.</p>
+        </div>
+        <div class="card gold">
+          <span class="ic">🧐</span>
+          <h3>Trovare i difetti</h3>
+          <p>Mani con dita extra, testo illeggibile, riflessi incoerenti: l'IA commette ancora errori caratteristici.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+
+  <!-- ============ SLIDE NEW · ETICA DELL'IA ============ -->
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:16px;"><em class="hot">Etica</em> dell'IA</h2>
+    <div class="grid2 reveal d1" style="margin-top:20px;">
+      <div class="card red">
+        <span class="ic">⚖️</span>
+        <h3>Responsabilità</h3>
+        <p>Se un'IA medica sbaglia diagnosi, chi risponde? Il medico, il produttore, l'ospedale? La legge non ha ancora risposte chiare.</p>
+      </div>
+      <div class="card sky">
+        <span class="ic">👁️</span>
+        <h3>Trasparenza</h3>
+        <p>"Black box" — molti modelli non spiegano perché hanno deciso. Il GDPR prevede tutele sulle decisioni automatizzate e informazioni significative sulla logica in determinati casi; non esiste un diritto generale e illimitato alla spiegazione di ogni modello.</p>
+      </div>
+      <div class="card gold">
+        <span class="ic">🏛️</span>
+        <h3>Governance</h3>
+        <p>Chi regola l'IA? Aziende private, governi, organizzazioni internazionali? Ognuno ha interessi diversi.</p>
+      </div>
+      <div class="card teal">
+        <span class="ic">🎨</span>
+        <h3>Creatività e diritti</h3>
+        <p>Le immagini generate da IA usano opere di artisti reali. Chi possiede il copyright del risultato?</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Regolamento generale sulla protezione dei dati — EUR-Lex" aria-label="Fonte ufficiale: Regolamento generale sulla protezione dei dati — EUR-Lex" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a></div></section>
+
+
+
+  <!-- ============ SLIDE NEW · AUTO AUTONOME ED ETICA PPTX ============ -->
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:16px;">Auto autonome: il caso <em class="hot">difficile</em></h2>
+    <div class="grid2 reveal d1" style="margin-top:20px;">
+      <div class="card sky"><span class="ic">✅</span><h3>Perché promettono sicurezza</h3><p>Non dormono, non si distraggono, usano sensori più precisi dell'occhio umano e migliorano con aggiornamenti software.</p></div>
+      <div class="card red"><span class="ic">⚠️</span><h3>Perché restano rischiose</h3><p>Gli errori sono difficili da prevedere. Se succede un incidente, la responsabilità può ricadere su produttore, software, proprietario o passeggero.</p></div>
+      <div class="card gold"><span class="ic">⚖️</span><h3>Scelte morali</h3><p>Nel problema del carrello non basta frenare: qualcuno deve decidere quali criteri usare quando ogni scelta produce danni.</p></div>
+      <div class="card teal"><span class="ic">🔐</span><h3>Regole e hacking</h3><p>Chi possiede la patente di un'auto senza guidatore? E cosa succede se il sistema viene compromesso?</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE NEW · DEEPFAKE SICUREZZA PPTX ============ -->
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:16px;">Deepfake, voce e <em class="hot">truffe</em></h2>
+    <div class="grid3 reveal d1" style="margin-top:22px;">
+      <div class="card red"><span class="ic">🎭</span><h3>Clonazione</h3><p>Immagini e video falsi sono sempre più comuni; la voce può essere clonata anche in tempo reale.</p></div>
+      <div class="card gold"><span class="ic">📞</span><h3>Verifica fuori canale</h3><p>Se una voce chiede soldi o dati, interrompi e ricontatta la persona su un canale diverso.</p></div>
+      <div class="card sky"><span class="ic">🔑</span><h3>Protezione account</h3><p>Password robuste aiutano, ma 2FA, passkey e chiavi fisiche FIDO2 riducono molto il rischio.</p></div>
+    </div>
+    <div class="note reveal d2" style="margin-top:22px;"><div class="lbl">Idea chiave</div><p>Il problema non è solo riconoscere il falso: è costruire procedure che funzionino anche quando non riusciamo a riconoscerlo subito.</p></div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE NEW · RICONOSCERE IA PPTX ============ -->
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:16px;">Segnali tipici dei contenuti <em class="hot">IA</em></h2>
+    <div class="grid3 reveal d1" style="margin-top:20px;">
+      <div class="card"><span class="ic">🖼️</span><h3>Immagini</h3><p>Fermati e chiediti se ha senso. Controlla mani, occhi, proporzioni, testi inventati, lettere e numeri deformati.</p></div>
+      <div class="card sky"><span class="ic">🎬</span><h3>Video</h3><p>Qualità bassa, watermark nascosti dal blur, timestamp strani, testi incoerenti e dettagli che cambiano nel tempo.</p></div>
+      <div class="card gold"><span class="ic">📝</span><h3>Testi</h3><p>Strutture ripetitive, coppie o triadi di aggettivi, tono positivo grandioso, liste puntate, emoji e formule troppo ordinate.</p></div>
+    </div>
+    <div class="note red reveal d2" style="margin-top:22px;"><div class="lbl">Attenzione</div><p>Nessun segnale basta da solo. Serve una valutazione complessiva: contenuto, fonte, contesto e coerenza con ciò che già sappiamo.</p></div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE NEW · CREATIVITA DIRITTI PPTX ============ -->
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:16px;">IA come <em class="hot">strumento</em>, non scorciatoia</h2>
+    <div class="grid2 reveal d1" style="margin-top:22px;">
+      <div class="card red"><span class="ic">❌</span><h3>Falsi miti</h3><p>"L'arte è morta", "tutti possono copiare un esperto", "la creatività non serve più": sono semplificazioni sbagliate.</p></div>
+      <div class="card teal"><span class="ic">✅</span><h3>Uso sensato</h3><p>L'IA può accorciare tempi, produrre bozze, proporre varianti e aiutare chi ha già intenzione, gusto e capacità critica.</p></div>
+      <div class="card sky"><span class="ic">🎨</span><h3>Lavoro creativo</h3><p>Il miglior artista non è sempre il più tecnico: conta l'idea, la scelta, la direzione e la capacità di valutare il risultato.</p></div>
+      <div class="card gold"><span class="ic">📚</span><h3>Diritti</h3><p>La discussione su copyright, dataset e opere derivate resta aperta: usare IA richiede trasparenza e responsabilità.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE NEW · FUTURO E AGI ============ -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;">Il futuro dell'<em class="hot">IA</em></h2>
+        <p class="lead reveal d1" style="margin-top:14px;">I ricercatori non concordano su cosa succederà — ma concordano che <b>il cambiamento sarà profondo</b>.</p>
+        <div class="note reveal d2" style="margin-top:20px;">
+          <div class="lbl">AGI — Artificial General Intelligence</div>
+          <p>Un sistema capace di imparare qualsiasi compito come un umano. Non esiste una previsione scientifica condivisa su tempi o fattibilità: definizioni e stime divergono molto.</p>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="card sky reveal d1">
+          <span class="ic">🏥</span>
+          <h3>Medicina</h3>
+          <p>Diagnosi precoce di tumori, scoperta di farmaci, chirurgia robotica — l'IA potrebbe salvare milioni di vite.</p>
+        </div>
+        <div class="card gold reveal d2">
+          <span class="ic">🌍</span>
+          <h3>Clima</h3>
+          <p>Ottimizzazione energetica, modelli climatici più precisi, nuovi materiali per batterie e pannelli solari.</p>
+        </div>
+        <div class="card red reveal d3">
+          <span class="ic">💼</span>
+          <h3>Mercato del lavoro</h3>
+          <p>Le stime sull'impatto occupazionale misurano concetti diversi — attività esposte, ore automatizzabili o posti equivalenti — e non sono previsioni certe di licenziamenti.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+
+  <!-- ============ SLIDE NEW · IA E CREATIVITA ============ -->
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-big reveal" style="margin-top:18px;">L'IA è <em class="hot">creativa</em>?</h2>
+      <p class="lead reveal d1" style="margin-top:18px;max-width:1300px;">L'IA genera testo, musica, immagini, codice — ma <b>non ha intenzioni, emozioni o esperienze vissute</b>. Combina pattern visti nei dati.</p>
+      <div class="grid2 reveal d2" style="margin-top:28px;max-width:1300px;">
+        <div class="note sky">
+          <div class="lbl">Cosa riesce bene</div>
+          <p>Variazioni su temi esistenti, combinazioni inaspettate, produzione rapida di bozze, sperimentazione di stili. Ottimo assistente creativo.</p>
+        </div>
+        <div class="note red">
+          <div class="lbl">Cosa non riesce</div>
+          <p>Originalità vera, rottura consapevole delle regole, vissuto personale, intenzione artistica autentica, comprensione del contesto culturale profondo.</p>
+        </div>
+      </div>
+      <div class="note teal reveal d3" style="margin-top:24px;max-width:1300px;">
+        <div class="lbl">💡 Posizione equilibrata</div>
+        <p>L'IA è uno <b>strumento straordinariamente potente</b> nelle mani di chi sa cosa vuole creare — non un sostituto della creatività umana.</p>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+
+  <!-- ============ SLIDE 16 · QUIZ ============ -->
+
+  <!-- ============ SLIDE NEW · PRIVACY E DATI ============ -->
+  <section class="slide tight-slide">
+
+    <h2 class="h-sec reveal" style="margin-top:16px;">Privacy e <em class="hot">dati personali</em> nell'era IA</h2>
+    <p class="lead reveal d1" style="margin-top:12px;max-width:1250px;">I modelli IA sono addestrati su enormi quantità di dati. Quando usi uno strumento IA, spesso <b>stai anche fornendo dati</b>.</p>
+    <div class="grid3 reveal d2" style="margin-top:20px;">
+      <div class="card red">
+        <span class="ic">📤</span>
+        <h3>Cosa condividi</h3>
+        <p>Testo che scrivi, immagini che carichi, conversazioni — potenzialmente usati per migliorare il modello.</p>
+      </div>
+      <div class="card">
+        <span class="ic">📄</span>
+        <h3>Leggi i termini</h3>
+        <p>Ogni servizio IA ha una privacy policy diversa. OpenAI, Google, Meta hanno politiche di data retention diverse.</p>
+      </div>
+      <div class="card sky">
+        <span class="ic">🔒</span>
+        <h3>Buone pratiche</h3>
+        <p>Non inserire dati sensibili (nome clienti, informazioni mediche, codici fiscali) in strumenti IA pubblici.</p>
+      </div>
+    </div>
+    <div class="note reveal d3" style="margin-top:18px;">
+      <div class="lbl">🇺 AI Act</div>
+      <p>Il regolamento europeo sull'IA (2024) classifica i sistemi per livello di rischio e introduce obblighi graduati per rischio e regole specifiche per alcuni sistemi e modelli; l'applicazione avviene per fasi.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+
+
+  <!-- ============ SLIDE 17 · CLOSING ============ -->
+  <section class="slide closing"><div class="closing-inner"><div class="center" style="align-items:center;text-align:center;">
+      <h2 class="h-mega reveal" style="margin-top:10px;">L'IA sei<br>anche tu.</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Intelligenza artificiale, machine learning, deep learning, reti neurali, tipi di IA (ANI/AGI) e bias nei modelli: i concetti di base.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="ia02-esercizio-generazione.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → IA_02 · Esercizio</a>
+      </div>
+    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">AI Risk Management Framework — NIST ↗</a><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Regolamento europeo sull’IA — EUR-Lex ↗</a><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a></div></div><div class="page-num"></div></section>
+
+</div>
+</div>
+
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+
+<script src="../deck.js"></script>
+</body>
+</html>

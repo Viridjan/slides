@@ -1,0 +1,623 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intelligenza Artificiale · IA04 — Diversi modelli di IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s}
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg)}.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg)}.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);font-family:var(--font-body);color:var(--ink);padding:96px 110px}.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}img,video,canvas,svg{max-width:100%;max-height:100%}@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.28}.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint)}.page-num b{color:var(--red);font-size:30px}.reveal{opacity:0;transform:translateY(30px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}.slide.visible .reveal{opacity:1;transform:none}.d1{transition-delay:.16s}.d2{transition-delay:.28s}.d3{transition-delay:.40s}.d4{transition-delay:.52s}
+.h-mega,.h-big,.h-sec{font-family:var(--font-display);font-weight:900;letter-spacing:-2px}.h-mega{font-size:126px;line-height:.88}.h-big{font-size:84px;line-height:.94}.h-sec{font-size:68px;line-height:.98}.lead{font-size:30px;line-height:1.42;color:var(--ink-soft);max-width:1370px}.body{font-size:25px;line-height:1.45;color:var(--ink-soft)}em.hot{font-style:italic;color:var(--red)}.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.06fr .94fr;gap:64px;align-items:center;height:100%}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.stack>*+*{margin-top:20px}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:24px 28px;box-shadow:7px 8px 0 rgba(28,23,20,.12);position:relative}.card h3{font-family:var(--font-display);font-size:34px;line-height:1.05;margin-bottom:9px}.card p,.card li{font-size:22px;line-height:1.34;color:var(--ink-soft)}.card ul{padding-left:22px}.card.red{border-color:var(--red)}.card.sky{border-color:var(--sky)}.card.teal{border-color:var(--teal)}.card.gold{border-color:var(--gold-deep)}.ic{font-size:42px;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:20px 26px;box-shadow:6px 7px 0 rgba(28,23,20,.14)}.note .lbl{font-family:var(--font-mono);font-size:19px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}.note p{font-size:23px;line-height:1.36}.analogy{display:inline-flex;align-items:center;gap:18px;align-self:flex-start;background:var(--teal);color:var(--paper);border-radius:50px;padding:15px 28px;font-size:25px;font-weight:600}.analogy .big{font-family:var(--font-display);font-size:31px;font-weight:900;color:var(--gold)}
+.title-slide{padding:0;display:grid;grid-template-columns:1.3fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-right{background:var(--teal-2);position:relative;overflow:hidden;display:grid;place-items:center}.title-right>div,.title-right>svg{position:relative;z-index:2}.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--sky),var(--teal));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate}@keyframes float{to{transform:translate(-34px,46px) scale(1.04)}}.model-orbit{width:590px;height:590px;position:relative}.model-core{position:absolute;inset:165px;border-radius:50%;display:grid;place-items:center;background:var(--paper);color:var(--teal);font:900 92px/1 var(--font-display);box-shadow:0 0 0 18px rgba(244,236,224,.12)}.orb{position:absolute;width:132px;height:132px;border-radius:50%;display:grid;place-items:center;background:var(--gold);border:4px solid var(--ink);font-size:54px;box-shadow:6px 7px 0 rgba(0,0,0,.18)}.o1{left:16px;top:64px}.o2{right:12px;top:52px}.o3{left:4px;bottom:70px}.o4{right:10px;bottom:60px}
+.flow{display:grid;grid-template-columns:1fr 70px 1fr 70px 1fr;align-items:center;gap:8px}.flow-arrow{text-align:center;font-size:50px;color:var(--red)}.compare-table{width:100%;border-collapse:separate;border-spacing:0 10px;font-size:20px}.compare-table th{text-align:left;font:700 16px/1 var(--font-mono);letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding:0 14px 4px}.compare-table td{background:#fbf5ec;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:13px 14px;line-height:1.25}.compare-table td:first-child{border-left:4px solid var(--sky);border-radius:8px 0 0 8px;font-weight:700}.compare-table td:last-child{border-right:1px solid var(--line);border-radius:0 8px 8px 0}.axis{display:grid;grid-template-columns:210px 1fr 210px;align-items:center;gap:18px;margin:14px 0}.axis-line{height:18px;border-radius:20px;background:linear-gradient(90deg,var(--sky),var(--gold),var(--red));position:relative}.axis-line::after{content:"";position:absolute;left:58%;top:-9px;width:34px;height:34px;border-radius:50%;background:var(--ink);border:5px solid var(--paper)}.axis b:last-child{text-align:right}.pill{display:inline-block;padding:7px 13px;border-radius:99px;background:var(--paper-2);font:700 15px/1 var(--font-mono);margin:3px}.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:28px;display:grid;place-items:center}.illu-cap{font:19px/1.3 var(--font-mono);color:var(--ink-faint);text-align:center;margin-top:12px}.agenda-item{display:flex;align-items:flex-start;gap:18px;border-bottom:2px dashed var(--line);padding:13px 4px}.agenda-item b{font-size:27px}.agenda-item span:last-child{font-size:22px;color:var(--ink-faint)}
+.closing{background:var(--teal)}.closing::before{opacity:.1}.progress{position:fixed;bottom:0;left:0;height:4px;background:var(--red);z-index:9999}.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font:15px var(--font-mono);color:var(--paper);background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.6}.deck-author{position:absolute;left:110px;bottom:42px;font:16px var(--font-mono);color:var(--ink-faint)}
+.closing.ia04-closing h2{font-size:98px!important}.closing.ia04-closing .lead{margin-top:18px!important}.closing.ia04-closing [data-source-list="true"]{margin-top:18px!important}.closing.ia04-closing [data-source-list="true"]>div:first-child{margin-bottom:9px!important}.closing.ia04-closing [data-source-list="true"] a{font-size:14px!important}.closing.ia04-closing a.chip{margin-top:20px!important}
+</style>
+<link rel="stylesheet" href="../theme-corsi.css">
+</head>
+<body class="course-ia">
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+<section class="slide title-slide active visible">
+<div class="title-left">
+<h1 class="h-mega reveal">Diversi<br>
+<em class="hot">modelli</em>
+<br>di IA</h1>
+<p class="lead reveal d1" style="margin-top:28px">Non esiste «l'IA» come strumento unico: modelli diversi vedono dati diversi, svolgono compiti diversi e fanno compromessi diversi.</p>
+</div>
+<div class="title-right">
+<div class="model-orbit reveal">
+<div class="model-core">IA</div>
+<div class="orb o1">💬</div>
+<div class="orb o2">🖼️</div>
+<div class="orb o3">🔊</div>
+<div class="orb o4">⚙️</div>
+</div>
+</div>
+<div class="deck-author">Francesco Antonio Binetti</div>
+</section>
+
+<section class="slide">
+<div class="center">
+<h2 class="h-big reveal">Prima distinzione: <em class="hot">modello, app, sistema</em>
+</h2>
+<div class="flow reveal d1" style="margin-top:38px">
+<div class="card sky">
+<span class="ic">🧠</span>
+<h3>Modello</h3>
+<p>La componente matematica addestrata sui dati: riceve input e produce una previsione o un output.</p>
+</div>
+<div class="flow-arrow">→</div>
+<div class="card gold">
+<span class="ic">📱</span>
+<h3>Applicazione</h3>
+<p>L'interfaccia che usa uno o più modelli: chat, editor, motore di ricerca, assistente.</p>
+</div>
+<div class="flow-arrow">→</div>
+<div class="card teal">
+<span class="ic">🧰</span>
+<h3>Sistema</h3>
+<p>Modello, istruzioni, strumenti, memoria, dati esterni, controlli e persone.</p>
+</div>
+</div>
+<div class="analogy reveal d2" style="margin-top:34px">
+<span class="big">Analogia:</span> il modello è il motore; l'app è il veicolo; il sistema comprende anche strada, regole e conducente.</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+
+<section class="slide">
+<div class="split">
+<div class="stack">
+<h2 class="h-big reveal">Una mappa per <em class="hot">orientarsi</em>
+</h2>
+<p class="lead reveal d1">Non si confrontano i modelli soltanto per marca. Prima si osservano input, output e compito.</p>
+<div class="note reveal d2">
+<div class="lbl">💡 Domanda guida</div>
+<p>Che cosa entra? Che cosa deve uscire? Con quali vincoli di tempo, costo, privacy e accuratezza?</p>
+</div>
+</div>
+<div class="grid2 reveal d2">
+<div class="card">
+<h3>Comprendere</h3>
+<p>Classificare, riconoscere, estrarre, prevedere.</p>
+</div>
+<div class="card red">
+<h3>Generare</h3>
+<p>Creare testo, codice, immagini, audio o video.</p>
+</div>
+<div class="card sky">
+<h3>Rappresentare</h3>
+<p>Trasformare contenuti in vettori confrontabili.</p>
+</div>
+<div class="card teal">
+<h3>Agire</h3>
+<p>Usare strumenti e completare sequenze di operazioni.</p>
+</div>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+
+<section class="slide">
+<h2 class="h-sec reveal">Modelli <em class="hot">predittivi e discriminativi</em>
+</h2>
+<p class="lead reveal d1" style="margin-top:14px">Non inventano necessariamente un nuovo contenuto: assegnano una classe, stimano un valore o scelgono tra alternative.</p>
+<div class="grid4 reveal d2" style="margin-top:30px">
+<div class="card">
+<span class="ic">🏷️</span>
+<h3>Classificazione</h3>
+<p>Spam/non spam, frode/non frode, specie in una fotografia.</p>
+</div>
+<div class="card sky">
+<span class="ic">📈</span>
+<h3>Regressione</h3>
+<p>Stima un numero: domanda, consumo, durata o probabilità.</p>
+</div>
+<div class="card gold">
+<span class="ic">🎯</span>
+<h3>Raccomandazione</h3>
+<p>Ordina prodotti, video o brani in base a segnali e preferenze.</p>
+</div>
+<div class="card teal">
+<span class="ic">👁️</span>
+<h3>Rilevamento</h3>
+<p>Localizza oggetti, difetti, volti o eventi in immagini e sensori.</p>
+</div>
+</div>
+<div class="analogy reveal d3" style="margin-top:30px">
+<span class="big">Regola:</span> generare è solo una parte dell'IA; molte IA decidono, stimano o ordinano.</div>
+<div class="page-num">
+</div>
+</section>
+
+<section class="slide">
+<div class="split">
+<div class="illu reveal">
+<svg viewBox="0 0 620 430" role="img" aria-label="Sequenza di token trasformata in testo">
+<rect x="30" y="45" width="560" height="330" rx="28" fill="#f4ece0" stroke="#1c1714" stroke-width="6"/>
+<g font-family="Space Mono" font-size="30" text-anchor="middle">
+<rect x="72" y="105" width="112" height="62" rx="15" fill="#3f7e8c"/>
+<text x="128" y="146" fill="#fff">Il</text>
+<rect x="204" y="105" width="150" height="62" rx="15" fill="#e6c14a"/>
+<text x="279" y="146" fill="#1c1714">modello</text>
+<rect x="374" y="105" width="156" height="62" rx="15" fill="#e6533b"/>
+<text x="452" y="146" fill="#fff">predice</text>
+</g>
+<path d="M105 230 H515" stroke="#163b35" stroke-width="8" stroke-linecap="round"/>
+<path d="M490 208 L522 230 L490 252" fill="none" stroke="#163b35" stroke-width="8"/>
+<text x="310" y="320" text-anchor="middle" font-family="Fraunces" font-size="48" fill="#163b35">il token successivo</text>
+</svg>
+<div class="illu-cap">testo e codice vengono costruiti una scelta alla volta</div>
+</div>
+<div class="stack">
+<h2 class="h-big reveal">Modelli di <em class="hot">linguaggio</em>
+</h2>
+<p class="lead reveal d1">Gli LLM lavorano su token e possono produrre testo, codice o dati strutturati.</p>
+<div class="card sky reveal d2">
+<h3>Generalisti</h3>
+<p>Conversazione, sintesi, traduzione, scrittura, analisi e domande su documenti. Le famiglie GPT di OpenAI sono un esempio.</p>
+</div>
+<div class="card gold reveal d3">
+<h3>Specializzati</h3>
+<p>Ottimizzati per codice, matematica, un dominio, una lingua o un formato di output. Mistral AI offre famiglie generaliste e specialistiche.</p>
+</div>
+</div>
+</div>
+<div class="page-num">
+</div>
+
+
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://developers.openai.com/api/docs/models" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Catalogo modelli — OpenAI" aria-label="Fonte ufficiale: Catalogo modelli — OpenAI" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Catalogo modelli — OpenAI ↗</a><a data-source-origin="auto" href="https://docs.mistral.ai/models/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Catalogo modelli — Mistral AI" aria-label="Fonte ufficiale: Catalogo modelli — Mistral AI" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Catalogo modelli — Mistral AI ↗</a></div></section>
+
+<section class="slide">
+<div class="center">
+<h2 class="h-big reveal">«Reasoning» non significa <em class="hot">infallibile</em>
+</h2>
+<p class="lead reveal d1" style="margin-top:16px">Alcuni modelli, inclusi quelli con modalità thinking di DeepSeek, spendono più calcolo per scomporre problemi complessi, verificare passaggi o scegliere strumenti.</p>
+<div class="grid3 reveal d2" style="margin-top:30px">
+<div class="card teal">
+<h3>Più profondità</h3>
+<p>Utili per matematica, programmazione, pianificazione e problemi a più vincoli.</p>
+</div>
+<div class="card gold">
+<h3>Più attesa e costo</h3>
+<p>Il tempo di risposta e il consumo di risorse possono aumentare.</p>
+</div>
+<div class="card red">
+<h3>Stessi rischi di fondo</h3>
+<p>Possono comunque fraintendere, allucinare o ragionare da premesse sbagliate.</p>
+</div>
+</div>
+<div class="note reveal d3" style="margin-top:28px;max-width:1420px">
+<div class="lbl">⚠️ Attenzione</div>
+<p>Un testo lungo che mostra molti passaggi non prova che la conclusione sia corretta: verifica dati, fonti e risultato.</p>
+</div>
+</div>
+<div class="page-num">
+</div>
+
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://api-docs.deepseek.com/quick_start/pricing" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Modelli disponibili — DeepSeek" aria-label="Fonte ufficiale: Modelli disponibili — DeepSeek" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Modelli disponibili — DeepSeek ↗</a></div></section>
+
+<section class="slide">
+<h2 class="h-sec reveal">Modelli <em class="hot">multimodali</em>
+</h2>
+<p class="lead reveal d1" style="margin-top:14px">Combinano più modalità nello stesso scambio: testo, immagini, documenti, audio o video. Gemini di Google è un esempio di ecosistema multimodale.</p>
+<div class="grid3 reveal d2" style="margin-top:28px">
+<div class="card sky">
+<span class="ic">🖼️</span>
+<h3>Vision-language</h3>
+<p>Descrivono immagini, leggono grafici, confrontano schermate e rispondono su documenti visuali.</p>
+</div>
+<div class="card gold">
+<span class="ic">🎙️</span>
+<h3>Audio nativo</h3>
+<p>Ricevono e producono voce con ritmo, interruzioni e latenza adatti al dialogo.</p>
+</div>
+<div class="card teal">
+<span class="ic">🎥</span>
+<h3>Video e spazio</h3>
+<p>Analizzano sequenze, movimenti e relazioni spaziali; alcuni si collegano alla robotica.</p>
+</div>
+</div>
+<div class="axis reveal d3" style="margin-top:38px">
+<b>una modalità</b>
+<div class="axis-line">
+</div>
+<b>modalità integrate</b>
+</div>
+<div class="page-num">
+</div>
+
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://ai.google.dev/gemini-api/docs/models" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Catalogo modelli Gemini — Google" aria-label="Fonte ufficiale: Catalogo modelli Gemini — Google" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Catalogo modelli Gemini — Google ↗</a></div></section>
+
+<section class="slide">
+<div class="split">
+<div class="stack">
+<h2 class="h-big reveal">Immagini: <em class="hot">generare e modificare</em>
+</h2>
+<p class="lead reveal d1">I modelli visuali trasformano istruzioni e riferimenti in pixel. Molte famiglie usano processi di diffusione; altre integrano la generazione in architetture multimodali.</p>
+<div class="analogy reveal d2">
+<span class="big">In pratica:</span> testo→immagine, immagine→immagine, riempimento, espansione e modifica guidata.</div>
+</div>
+<div class="grid2 reveal d2">
+<div class="card red">
+<h3>Punti forti</h3>
+<p>Stile, composizione, variazioni rapide, prototipi e ritocco.</p>
+</div>
+<div class="card gold">
+<h3>Limiti tipici</h3>
+<p>Coerenza tra scene, dettagli esatti, testo nell'immagine, provenienza e diritti.</p>
+</div>
+<div class="card sky">
+<h3>Controllo</h3>
+<p>Prompt, immagini di riferimento, maschere, rapporto d'aspetto e parametri.</p>
+</div>
+<div class="card teal">
+<h3>Verifica</h3>
+<p>Controllare artefatti, stereotipi, autenticità e condizioni d'uso.</p>
+</div>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+
+<section class="slide">
+<h2 class="h-sec reveal">Audio, musica e video: <em class="hot">modelli diversi</em>
+</h2>
+<div class="grid3 reveal d1" style="margin-top:28px">
+<div class="card sky">
+<span class="ic">📝</span>
+<h3>Speech-to-text</h3>
+<p>Trascrive voce in testo. Conta la precisione con accenti, rumore, più parlanti e lessico tecnico.</p>
+</div>
+<div class="card teal">
+<span class="ic">🗣️</span>
+<h3>Text-to-speech</h3>
+<p>Genera voce. Conta naturalezza, controllo, latenza, consenso e rischio di impersonificazione.</p>
+</div>
+<div class="card gold">
+<span class="ic">🎵</span>
+<h3>Musica</h3>
+<p>Crea clip o brani da descrizioni, struttura e riferimenti stilistici.</p>
+</div>
+</div>
+<div class="grid2 reveal d2" style="margin-top:24px">
+<div class="card red">
+<span class="ic">🎬</span>
+<h3>Video generativo</h3>
+<p>Produce o modifica sequenze: deve mantenere identità, movimento, fisica e continuità temporale.</p>
+</div>
+<div class="card">
+<span class="ic">📡</span>
+<h3>Tempo reale</h3>
+<p>I modelli live privilegiano latenza e interazione; quelli offline possono spendere più calcolo per la qualità.</p>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+
+<section class="slide">
+<div class="split">
+<div class="stack">
+<h2 class="h-big reveal">Modelli che <em class="hot">non conversano</em>
+</h2>
+<p class="lead reveal d1">Molti componenti essenziali lavorano dietro le quinte e restituiscono numeri, etichette o ordinamenti.</p>
+<div class="note reveal d2">
+<div class="lbl">💡 Idea chiave</div>
+<p>Il modello più visibile non è sempre quello che svolge il lavoro più importante.</p>
+</div>
+</div>
+<div>
+<div class="agenda-item reveal d1" style="border-color:var(--red)">
+<span style="font-size:34px;min-width:50px">🧭</span>
+<div>
+<b>Embedding</b>
+<br>
+<span>Colloca contenuti simili vicino nello spazio vettoriale: ricerca semantica, clustering, RAG.</span>
+</div>
+</div>
+<div class="agenda-item reveal d2" style="border-color:var(--sky)">
+<span style="font-size:34px;min-width:50px">↕️</span>
+<div>
+<b>Reranker</b>
+<br>
+<span>Riordina risultati già trovati per aumentare la pertinenza.</span>
+</div>
+</div>
+<div class="agenda-item reveal d3" style="border-color:var(--gold)">
+<span style="font-size:34px;min-width:50px">🛡️</span>
+<div>
+<b>Classificatore e moderazione</b>
+<br>
+<span>Rileva categorie, rischi, intenti o contenuti indesiderati.</span>
+</div>
+</div>
+<div class="agenda-item reveal d4" style="border-color:var(--teal)">
+<span style="font-size:34px;min-width:50px">👓</span>
+<div>
+<b>OCR e document AI</b>
+<br>
+<span>Estrae testo, struttura e campi da immagini e documenti.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+
+<section class="slide">
+<div class="center">
+<h2 class="h-big reveal">Un agente è un <em class="hot">sistema</em>, non una specie di modello</h2>
+<div class="flow reveal d1" style="margin-top:34px">
+<div class="card sky">
+<h3>Obiettivo</h3>
+<p>«Confronta tre offerte e prepara una tabella.»</p>
+</div>
+<div class="flow-arrow">→</div>
+<div class="card gold">
+<h3>Ciclo</h3>
+<p>Pianifica, usa strumenti, osserva il risultato, corregge.</p>
+</div>
+<div class="flow-arrow">→</div>
+<div class="card teal">
+<h3>Esito</h3>
+<p>Consegna un artefatto e registra ciò che è stato fatto.</p>
+</div>
+</div>
+<div class="grid3 reveal d2" style="margin-top:30px">
+<div class="card">
+<h3>Modello</h3>
+<p>Interpreta e decide il passo successivo.</p>
+</div>
+<div class="card">
+<h3>Strumenti</h3>
+<p>Ricerca, file, codice, browser, database o API.</p>
+</div>
+<div class="card red">
+<h3>Controlli</h3>
+<p>Permessi, limiti, log, verifiche e approvazione umana.</p>
+</div>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+
+<section class="slide">
+<h2 class="h-sec reveal">Sei ecosistemi <em class="hot">generalisti</em>
+</h2>
+<p class="lead reveal d1" style="margin-top:12px">Esempi aggiornati al 20 luglio 2026. Le versioni cambiano rapidamente: confronta capacità e vincoli, non soltanto il numero nel nome.</p>
+<table class="compare-table reveal d2" style="margin-top:18px">
+<thead>
+<tr>
+<th>Ecosistema</th>
+<th>Famiglie rappresentative</th>
+<th>Profilo distintivo</th>
+<th>Accesso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenAI</td>
+<td>GPT, reasoning, image, realtime, embedding</td>
+<td>Famiglia ampia per testo, codice, strumenti e media</td>
+<td>Servizi gestiti</td>
+</tr>
+<tr>
+<td>Google</td>
+<td>Gemini, Gemma, Nano Banana, Veo, Lyria</td>
+<td>Multimodalità nativa e modelli media/specializzati</td>
+<td>Gestiti + pesi aperti Gemma</td>
+</tr>
+<tr>
+<td>Anthropic</td>
+<td>Claude Fable, Opus, Sonnet, Haiku</td>
+<td>Fasce capacità/velocità per testo, visione e agenti</td>
+<td>Servizi gestiti</td>
+</tr>
+<tr>
+<td>Meta</td>
+<td>Llama</td>
+<td>Modelli generalisti e multimodali distribuibili</td>
+<td>Pesi disponibili con licenza</td>
+</tr>
+<tr>
+<td>Mistral AI</td>
+<td>Mistral, Magistral, Devstral, Codestral, Voxtral</td>
+<td>Generalisti e specialisti; varie opzioni open-weight</td>
+<td>Gestiti + open-weight</td>
+</tr>
+<tr>
+<td>DeepSeek</td>
+<td>V4 Flash, V4 Pro</td>
+<td>Modalità thinking/non-thinking e API compatibili</td>
+<td>Servizi gestiti</td>
+</tr>
+</tbody>
+</table>
+<div class="page-num">
+</div>
+
+
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://platform.claude.com/docs/en/about-claude/models/overview" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Panoramica modelli Claude — Anthropic" aria-label="Fonte ufficiale: Panoramica modelli Claude — Anthropic" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Panoramica modelli Claude — Anthropic ↗</a><a data-source-origin="auto" href="https://huggingface.co/meta-llama/models" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Modelli Meta Llama — repository verificato" aria-label="Fonte ufficiale: Modelli Meta Llama — repository verificato" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Modelli Meta Llama — repository verificato ↗</a></div></section>
+
+<section class="slide">
+<div class="split">
+<div class="stack">
+<h2 class="h-big reveal">Aperti, chiusi, <em class="hot">locali, cloud</em>
+</h2>
+<p class="lead reveal d1">Sono assi diversi. «Open» può riferirsi a pesi, codice, dati o licenza: va sempre precisato. Llama di Meta è un esempio di famiglia con pesi disponibili secondo licenza.</p>
+<div class="axis reveal d2">
+<b>pesi disponibili</b>
+<div class="axis-line">
+</div>
+<b>solo servizio</b>
+</div>
+<div class="axis reveal d3">
+<b>sul dispositivo</b>
+<div class="axis-line">
+</div>
+<b>nel cloud</b>
+</div>
+</div>
+<div class="grid2 reveal d2">
+<div class="card teal">
+<h3>Locale</h3>
+<p>Più controllo e funzionamento offline; richiede hardware, gestione e competenze.</p>
+</div>
+<div class="card sky">
+<h3>Cloud</h3>
+<p>Accesso semplice a modelli potenti; dati e costi dipendono dal fornitore e dal contratto.</p>
+</div>
+<div class="card gold">
+<h3>Open-weight</h3>
+<p>I pesi sono scaricabili secondo una licenza; non implica necessariamente dati o codice completamente aperti.</p>
+</div>
+<div class="card red">
+<h3>Proprietario</h3>
+<p>Il modello è offerto come prodotto o API; dettagli e modifiche dipendono dal gestore.</p>
+</div>
+</div>
+</div>
+
+<div class="page-num">
+</div>
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="hs04-os-concetti.html#slide-8">HS04 · Proprietario, open source, libero ↗</a></div></section>
+
+<section class="slide">
+<h2 class="h-sec reveal">Grande, piccolo o <em class="hot">mixture of experts</em>?</h2>
+<div class="grid3 reveal d1" style="margin-top:28px">
+<div class="card red">
+<span class="ic">🏗️</span>
+<h3>Modello grande</h3>
+<p>Più capacità potenziale e compiti complessi; in genere più memoria, energia, costo e latenza.</p>
+</div>
+<div class="card sky">
+<span class="ic">📱</span>
+<h3>Small language model</h3>
+<p>Più economico e distribuibile anche vicino all'utente; adatto a compiti circoscritti e grandi volumi.</p>
+</div>
+<div class="card gold">
+<span class="ic">🚦</span>
+<h3>Mixture of experts</h3>
+<p>Contiene più «esperti», ma ne attiva soltanto una parte per ogni token: capacità totale e costo attivo non coincidono.</p>
+</div>
+</div>
+<div class="note reveal d2" style="margin-top:30px">
+<div class="lbl">⚠️ Numeri non confrontabili da soli</div>
+<p>Più parametri non garantiscono automaticamente un risultato migliore: contano dati, addestramento, architettura, strumenti, valutazione e compito reale.</p>
+</div>
+<div class="page-num">
+</div>
+</section>
+
+<section class="slide">
+<div class="split">
+<div class="stack">
+<h2 class="h-big reveal">Come scegliere un modello</h2>
+<p class="lead reveal d1">La scelta corretta è un compromesso misurato sul proprio caso d'uso.</p>
+<div class="analogy reveal d2">
+<span class="big">Regola:</span> prova con esempi reali e criteri dichiarati prima di scegliere.</div>
+</div>
+<div>
+<div class="agenda-item reveal d1" style="border-color:var(--red)">
+<span style="font-size:34px;min-width:50px">1</span>
+<div>
+<b>Qualità sul compito</b>
+<br>
+<span>Accuratezza, aderenza, robustezza, lingua e formato.</span>
+</div>
+</div>
+<div class="agenda-item reveal d2" style="border-color:var(--sky)">
+<span style="font-size:34px;min-width:50px">2</span>
+<div>
+<b>Tempo e costo</b>
+<br>
+<span>Latenza, volume, token, hardware e consumo.</span>
+</div>
+</div>
+<div class="agenda-item reveal d3" style="border-color:var(--gold)">
+<span style="font-size:34px;min-width:50px">3</span>
+<div>
+<b>Dati e controllo</b>
+<br>
+<span>Privacy, residenza, log, licenza e possibilità di esecuzione locale.</span>
+</div>
+</div>
+<div class="agenda-item reveal d4" style="border-color:var(--teal)">
+<span style="font-size:34px;min-width:50px">4</span>
+<div>
+<b>Operatività</b>
+<br>
+<span>Contesto, strumenti, stabilità della versione, sicurezza e manutenzione.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="page-num">
+</div>
+</section>
+
+<section class="slide">
+<h2 class="h-sec reveal">Stesso prompt, <em class="hot">test equo</em>
+</h2>
+<p class="lead reveal d1" style="margin-top:14px">Confrontare due chatbot «a sensazione» non basta. Prepara una piccola valutazione ripetibile.</p>
+<div class="grid4 reveal d2" style="margin-top:28px">
+<div class="card">
+<h3>1 · Casi</h3>
+<p>10–20 richieste realistiche, incluse eccezioni e casi difficili.</p>
+</div>
+<div class="card sky">
+<h3>2 · Criteri</h3>
+<p>Correttezza, completezza, fonti, formato, tono, tempo e costo.</p>
+</div>
+<div class="card gold">
+<h3>3 · Condizioni</h3>
+<p>Stesso input, strumenti dichiarati, versione annotata, più esecuzioni.</p>
+</div>
+<div class="card teal">
+<h3>4 · Revisione</h3>
+<p>Valutazione cieca quando possibile e controllo umano degli errori importanti.</p>
+</div>
+</div>
+<div class="note reveal d3" style="margin-top:30px">
+<div class="lbl">💡 Risultato utile</div>
+<p>Non una classifica assoluta, ma una decisione motivata: «per questo compito, con questi vincoli, scegliamo questo modello».</p>
+</div>
+<div class="page-num">
+</div>
+</section>
+
+<section class="slide closing ia04-closing"><div class="closing-inner"><div class="closing-inner">
+<h2 class="h-mega reveal">Il modello migliore<br>non esiste.</h2>
+<p class="lead reveal d1">Esiste il modello più adatto a un compito, dentro un sistema progettato e verificato con criteri espliciti.</p>
+
+<div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://developers.openai.com/api/docs/models" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Catalogo modelli — OpenAI ↗</a><a href="https://docs.mistral.ai/models/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Catalogo modelli — Mistral AI ↗</a><a href="https://api-docs.deepseek.com/quick_start/pricing" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Modelli disponibili — DeepSeek ↗</a><a href="https://ai.google.dev/gemini-api/docs/models" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Catalogo modelli Gemini — Google ↗</a><a href="https://platform.claude.com/docs/en/about-claude/models/overview" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Panoramica modelli Claude — Anthropic ↗</a><a href="https://huggingface.co/meta-llama/models" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Modelli Meta Llama — repository verificato ↗</a></div></div><div class="closing-actions">
+<a class="chip closing-primary" href="ia05-strumenti-gratuiti.html">Prossimo → IA05 · Strumenti gratuiti online</a>
+</div>
+</div>
+</div><div class="page-num">
+</div></section>
+
+</div>
+</div>
+<div class="progress" id="progress">
+</div>
+<a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
+<script src="../deck.js">
+</script>
+</body>
+</html>

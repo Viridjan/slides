@@ -24,24 +24,30 @@ entry: git already records what changed and when.
 
 This repository is a **static course slide library** for the Italian
 **Educazione digitale** course. The main content is a set of standalone HTML
-slide decks in the repo root, plus source materials in `corsi/`.
+slide decks in `decks/`, plus source materials in `corsi/`.
 
 There is no build system, package manager, lint step, or app framework. Most
 work is direct editing of self-contained `.html` files.
 
 Entry points:
 
-- `index.html` redirects to `00-indice.html`.
-- `00-indice.html` is the course index and links to the published decks.
-- `quiz-*.html` files are standalone macroarea quizzes.
+- `index.html` (repo root) redirects to `00-indice.html`.
+- `00-indice.html` (repo root) is the course index and links to the published
+  decks in `decks/`.
+- `decks/quiz-*.html` files are standalone macroarea quizzes.
 - `mappa-concettuale.mmd` is a Mermaid concept map.
+
+All published decks live in `decks/`; only the two index pages
+(`00-indice.html`, `00-indice-gd.html`), `index.html`, the shared engine
+(`theme-corsi.css`, `deck.js`), the generated `*-index.js` data files and the
+`scripts/` tooling stay at the repo root.
 
 ## Opening decks
 
 Open files directly via `file://` protocol — double-click or:
 
 ```bash
-xdg-open gd01-introduzione.html
+xdg-open decks/gd01-introduzione.html
 ```
 
 **Never start an HTTP server.** The user's browser is in HTTPS-Only mode and
@@ -50,7 +56,7 @@ on any plain HTTP server.
 
 **When referencing a specific slide in chat, link it.** Any time a response
 mentions a particular slide in a deck, give it as a clickable
-`file:///home/viridjan/Projects/slides/<deck>.html#slide-N` link (absolute
+`file:///home/viridjan/Projects/slides/decks/<deck>.html#slide-N` link (absolute
 path, `file://` scheme, `#slide-N` deep link) instead of just naming the deck
 and slide number — the user should be able to click straight to it instead of
 opening and searching for it themselves.
@@ -58,8 +64,8 @@ opening and searching for it themselves.
 ## Editing rules
 
 - All learner-facing slide content must be written in Italian, including titles,
-  explanations, examples, exercises, navigation labels, index cards and TXT
-  companions. The language used by the user in the conversation does not change
+  explanations, examples, exercises, navigation labels and index cards. The
+  language used by the user in the conversation does not change
   the course language. Switch a deck to another language only when the user
   explicitly requests that content change; preserve technical identifiers,
   code, product names and official source titles where translation would be
@@ -68,12 +74,17 @@ opening and searching for it themselves.
   deck links: `theme-corsi.css` sets per-section background tints via
   `body.course-XX` classes (e.g. `<body class="course-rw">`), and `deck.js` is
   the shared slide engine (stage scaling, keyboard/wheel/touch navigation,
-  `#slide-N` deep links, Ctrl+wheel zoom). New decks must include both, the
-  matching course class, and `<script src="deck.js"></script>` before `</body>`;
-  do not re-add an inline copy of the engine.
-- Keep links between decks as bare filenames, for example
-  `href="hs04-os-concetti.html"`.
-- Do not add folder prefixes to root-level deck links.
+  `#slide-N` deep links, Ctrl+wheel zoom). Since decks live one level below
+  the repo root, these are `<link rel="stylesheet" href="../theme-corsi.css">`
+  and `<script src="../deck.js"></script>` (before `</body>`); do not re-add an
+  inline copy of the engine.
+- All published decks are siblings inside `decks/`, so links between decks
+  stay bare filenames, for example `href="hs04-os-concetti.html"` — never
+  prefix a deck-to-deck link with `decks/`. Only links that cross the
+  `decks/` boundary need a path segment: a deck linking to a root file
+  (`../00-indice.html`, `../theme-corsi.css`, `../deck.js`,
+  `../assets/legacy-slides/...`) uses `../`; `00-indice.html` and
+  `00-indice-gd.html` linking to a deck use `decks/<file>.html`.
 - Do not edit `corsi/` unless the user explicitly asks for source material work.
 - Use fictional domains in examples, for example `www.azienda.it`; avoid real
   Italian domains in teaching examples.
@@ -94,15 +105,14 @@ opening and searching for it themselves.
   - Each source appears at most once per deck, on its most relevant slide
     (heading > lead > body, earliest slide wins ties). Agenda slides are
     skipped. The closing slide lists every source the deck cites.
-  After changing the maps, run the source-link script, merge the references into
-  the existing TXT companions without discarding their extra notes, then rebuild
-  the generated indexes:
+  After changing the maps, run the source-link script, then rebuild the
+  generated indexes:
 
   ```bash
   node scripts/add-official-source-links.js
-  node scripts/merge-source-links-into-txt.js
   node scripts/build-completeness.js
   node scripts/build-search-index.js
+  node scripts/build-slide-topic-inventory.js
   ```
 
   `build-completeness.js` deliberately ignores source-list lines, so citations do
@@ -119,14 +129,7 @@ opening and searching for it themselves.
   authored content. Put them in the dedicated lower-right `Rimandi interni`
   footer (`data-cross-reference-footer="true"`), visually separate from the
   lower-left official sources. Run `node scripts/normalize-cross-reference-footers.js`
-  after adding or changing a bare-filename `deck.html#slide-N` reference; the
-  script also records the same category in the TXT companion.
-- Cross-references to another teaching slide must not remain inline in the
-  authored content. Put them in the dedicated lower-right `Rimandi interni`
-  footer (`data-cross-reference-footer="true"`), visually separate from the
-  lower-left official sources. Run `node scripts/normalize-cross-reference-footers.js`
-  after adding or changing a bare-filename `deck.html#slide-N` reference; the
-  script also records the same category in the TXT companion.
+  after adding or changing a bare-filename `deck.html#slide-N` reference.
 - Preserve user changes in the working tree. This repo often has uncommitted
   generated decks and quizzes.
 
@@ -330,6 +333,45 @@ should use each at least once:
 - Dashed icon list — for parallel item lists, reusing `.agenda-item`:
   `<div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📍</span><div><b style="font-size:27px;">Title</b><br><span style="font-size:23px;color:var(--ink-faint);">description</span></div></div>`
 
+### Reusable authoring styles
+
+Use the shared authoring classes before adding deck-local or inline CSS.
+Properties already controlled by a shared class must not be repeated inline.
+When a new treatment is useful in more than one deck, define it in
+`theme-corsi.css`, document it here and apply it explicitly only after checking
+the affected slides visually. Shared classes define geometry, typography and
+spacing; they must take colors from semantic tokens such as `--course-dark`,
+`--accent`, `--accent-2`, `--paper`, `--card-bg`, `--gold` and `--line`.
+Never hard-code one macroarea's palette into a reusable component.
+
+Available shared styles:
+
+- Typography: `.h1`, `.h2`, `.h-mega`, `.h-big`, `.h-sec`, `.lead`, `.body`
+  and `.eyebrow`.
+- Layout: `.grid2`, `.grid3`, `.grid4`, `.split`, `.stack` and `.tight`.
+- Content panels: `.card` with optional `.red`, `.teal`, `.sky` or `.gold`;
+  `.note`; `.analogy`; `.illu` with `.illu-cap`.
+- Lists and data: `.agenda-list`, `.agenda-item` and `.table`.
+- Code: use `.code code-example` on every teaching code block. It provides the
+  standard 22px mono scale, shared padding and visible indentation through
+  `white-space: pre-wrap`; its background comes from the current macroarea's
+  `--course-dark`. Do not override its font size, line height, padding,
+  whitespace or colors inline. Use `.codebox` only for pseudocode, Scratch-like
+  scripts and textual flow diagrams, which use the larger 24px variant.
+- Motion: `.reveal` with `.d1`, `.d2` and `.d3` for staggered entrance.
+- Closing and navigation: `.closing`, `.closing-inner`, `.closing-actions`,
+  `.closing-primary`, `.page-num` and legacy `.num`.
+
+After adding a deck or changing shared component markup, run:
+
+```bash
+node scripts/check-shared-styles.js
+```
+
+The check requires a known `course-*` palette, the shared theme, and
+`.code-example` on every `.code` block; it also rejects inline overrides of
+properties owned by the shared code style.
+
 ### Emoji policy
 
 - Allowed: icons in `.ic` slots and icon-list slots, title-slide identity emoji
@@ -354,6 +396,74 @@ content treatment between adjacent slides. A repeated format is acceptable
 only when the continuity is intentional and educationally useful, such as a
 short step-by-step sequence, a controlled before/after comparison or parallel
 examples whose sameness is itself part of the explanation.
+
+### Layout differentiation strategy
+
+Layout selection follows the teaching function of the slide, not a decorative
+rotation. Before authoring or reskinning a deck, classify each slide by the job
+it must do and choose the corresponding composition below. Preserve the
+macroarea palette from `theme-corsi.css`: the reference layouts define
+hierarchy, geometry and contrast, not one mandatory yellow-and-black palette.
+
+- **Opening / title:** use a bold editorial title block on the left and one
+  topic-specific illustration or visual scene on the right. This replaces the
+  generic title-card feeling with a recognisable cover. The right-hand image
+  must be checked every time for relevance, legibility, rights and visual fit;
+  never reuse a merely decorative stock scene because its colors happen to
+  match.
+- **Direct comparison:** use a clearly divided two-sided field for two options,
+  states or viewpoints. Keep the same visual weight and information structure
+  on both sides so that layout does not imply a winner unless the content does.
+- **Table:** prefer a real table when learners must compare the same attributes
+  across three or more items, inspect exact values or scan repeated fields.
+  Introduce tables more often where several cards currently repeat the same
+  labels. Keep headers explicit, cells concise and reading direction obvious;
+  do not turn unrelated prose into a table merely to vary the page.
+  Keep informational text sizes close to the rest of the slide: table body text
+  is `24px` and table headings are `22px`, defined centrally in
+  `theme-corsi.css`. Do not shrink or override these values inside individual
+  decks; redesign or split a dense table instead.
+- **Single-image statement:** use one dominant, high-quality image with a short
+  statement or annotation when the visual itself carries the explanation.
+  **This layout requires a pause:** ask the user to find or provide the image
+  before authoring the final slide. State what the image needs to show,
+  orientation, desired empty space for text and any resolution or licensing
+  constraints. Do not silently substitute an image search result, generated
+  image or placeholder.
+- **Section divider:** introduce a genuine change of topic with a low-density
+  divider: section number, short title and a strong geometric field. Do not use
+  it as an agenda, do not insert it between every pair of slides and do not let
+  it repeat content from the next heading.
+- **Chart plus legend:** use a chart when position or shape reveals a comparison,
+  distribution, trend or relationship better than prose. Pair it with a compact
+  legend or a small set of callouts that explains how to read it. Labels,
+  units, scale and data source must be visible; never use a chart as decoration.
+- **Full-screen number:** reserve an oversized number for one important,
+  evidenced quantity. Include its unit, timeframe and a concise interpretation
+  on the same slide; add the official source in the source footer. Do not enlarge
+  a weak or context-free number simply to create visual impact.
+- **Two values with descriptions:** use two horizontally or vertically balanced
+  value blocks when the lesson depends on comparing exactly two measures,
+  outcomes or cases. Each value gets the same metadata and a short explanation;
+  use the direct-comparison layout instead when the content is primarily
+  qualitative.
+- **Step progression:** show an ascending staircase, path or numbered sequence
+  only when order, maturity or accumulation is meaningful. Steps must be
+  parallel in grammar, visibly ordered and connected to an end state. Do not
+  imply that categories are progressive when they are merely different.
+- **Two-column explanation:** use a quiet editorial two-column layout for two
+  complementary text blocks, such as definition plus objectives, principle plus
+  application, or explanation plus procedure. Give each column a distinct role
+  and balance their density; it must not become two unrelated walls of text.
+
+Plan the visual rhythm across the whole deck. A practical default is to avoid
+using the same family on adjacent slides and to include a structural change
+after two or three information-dense slides. Choose the simplest layout that
+makes the relationship visible: two items suggest comparison or two values,
+three or more repeated attributes suggest a table, ordered change suggests
+steps, and one decisive metric suggests a full-screen number. Content must not
+be duplicated to fill a layout; connect to the owning slide through the
+`Rimandi interni` footer instead.
 
 ## Title slide invariants
 
@@ -418,8 +528,8 @@ Use one of these fixes:
 **Priority rule:** `00-indice.html` is the canonical source for every published
 deck code and filename. The filename prefix must reproduce the visible
 `.card-num`, lowercased and with dots converted to hyphens (for example
-`SU03.14` → `su03-14-vba.html`). When an index code changes, rename both the
-HTML and TXT files and update every reference before doing any other deck work.
+`SU03.14` → `su03-14-vba.html`). When an index code changes, rename the
+HTML file and update every reference before doing any other deck work.
 Never keep a legacy flat number that disagrees with the index.
 
 Published decks use a two-letter area prefix. Flat index codes use `xx##`;
@@ -449,53 +559,11 @@ For new published decks, use the next available number in the relevant series
 and update `00-indice.html`. If the previous deck has a closing "Prossimo" chip,
 update that chip too.
 
-## TXT companion files
-
-Every deck has a sibling `.txt` file (e.g. `gd01-introduzione.txt`) containing
-the plain-text slide content. `00-indice.html` auto-injects a `↓ TXT` download
-button on every index card via inline JS. When adding a new deck, generate the
-`.txt` companion with:
-
-```bash
-node scripts/build-txt.js new-deck.html
-```
-
-The generator preserves official-source URLs in the TXT output. It intentionally
-requires explicit filenames: do not bulk-regenerate existing companions because
-some contain teaching notes that are not present in the HTML. The older equivalent
-Python recipe follows for reference:
-
-```bash
-python3 - << 'EOF'
-import re
-from pathlib import Path
-
-fpath = Path('new-deck.html')
-content = fpath.read_text()
-slides = re.findall(r'<section[^>]*class="slide[^"]*"[^>]*>(.*?)</section>', content, re.DOTALL)
-title_m = re.search(r'<title>([^<]+)</title>', content)
-deck_title = title_m.group(1) if title_m else fpath.stem
-
-def strip(html):
-    html = re.sub(r'<(script|style)[^>]*>.*?</(script|style)>', '', html, flags=re.DOTALL|re.IGNORECASE)
-    html = re.sub(r'<br\s*/?>', '\n', html, flags=re.IGNORECASE)
-    html = re.sub(r'<[^>]+>', ' ', html)
-    return re.sub(r'[ \t]+', ' ', html).strip()
-
-lines = [deck_title, '=' * max(len(deck_title), 40), '']
-for i, s in enumerate(slides, 1):
-    t = strip(s).strip()
-    if len(t) > 2:
-        lines += [f'--- Slide {i} ---', t, '']
-fpath.with_suffix('.txt').write_text('\n'.join(lines))
-EOF
-```
-
 ## Current published inventory
 
 ### Hardware e Software
 
-Navigation chain: hs01 → hs02 → hs03 → hs04 → hs05
+Navigation chain: hs01 → hs02 → hs03 → hs04 → hs05 → hs06
 
 | File | Title |
 | --- | --- |
@@ -504,6 +572,7 @@ Navigation chain: hs01 → hs02 → hs03 → hs04 → hs05
 | `hs03-os.html` | Sistemi Operativi |
 | `hs04-os-concetti.html` | OS: concetti fondamentali |
 | `hs05-troubleshooting.html` | Troubleshooting |
+| `hs06-tecnologia-obsoleta.html` | Tecnologia obsoleta |
 
 ### Reti e Web
 
@@ -681,20 +750,23 @@ Coding tools navigation chain: pr04-01 → pr04-02 → pr04-03 → pr04-04 → p
 | `pr04-04-vscode.html` | Visual Studio Code |
 | `pr04-05-git.html` | Git |
 
-HTML navigation chain: pr05-01 → pr05-02 → pr05-03 (pr05-03 closes into pr06-01)
+HTML and CSS navigation chain: pr05-01 → pr05-02 → pr05-03 → pr05-04 (pr05-04 closes into pr06-01)
 
 | File | Title |
 | --- | --- |
 | `pr05-01-html-struttura.html` | HTML: struttura e tag |
 | `pr05-02-html-link-immagini.html` | Link, immagini e tabelle |
-| `pr05-03-html-form-semantica.html` | Form, semantica e stile |
+| `pr05-03-html-form-semantica.html` | Form e semantica |
+| `pr05-04-css-stile-selettori.html` | CSS: stile e selettori |
 
-Python navigation chain: pr06-01 → pr06-02
+Python navigation chain: pr06-01 → pr06-02 → pr06-03 → pr06-04
 
 | File | Title |
 | --- | --- |
 | `pr06-01-python-base.html` | Python di base |
-| `pr06-02-python-strumenti.html` | Python: strumenti e applicazioni |
+| `pr06-02-strutture-dati-file.html` | Strutture dati e file |
+| `pr06-03-oggetti-pacchetti.html` | Oggetti e pacchetti |
+| `pr06-04-test-api-database.html` | Test, API e database |
 
 ### Modellazione e stampa 3D
 
@@ -754,15 +826,9 @@ has three quizzes, `RW01`, `RW02` and `RW03`. Flat series such as `HS01` or
 ## Index maintenance
 
 `00-indice.html` uses one `<div class="section-group">` per course section.
-Difficulty stars are generated, not assigned by hand. After adding a deck or
-substantially changing its content, run `node scripts/recalculate-difficulty.js`.
-The calculation combines 75% of the individual deck score (content units,
-words per unit, concept breadth and technical density) with 25% of the mean
-score of its macroarea. Quiz decks are measured from their questions and inherit
-the macroarea of the subject they assess. Stars are assigned by percentile with
-an approximately symmetric 10% / 20% / 40% / 20% / 10% distribution from one
-to five stars. The auditable intermediate values are written to
-`difficulty-index.js`; never edit that generated file directly.
+Difficulty stars and their generated metadata have been removed from the
+published index. Do not reintroduce them: the cards identify course order and
+subject, not a synthetic difficulty score.
 
 Card color classes:
 
@@ -803,9 +869,6 @@ an invisible decimal-point column so their hypothetical dot aligns vertically
 with the visible dot in hierarchical codes such as `RW01.01`. Preserve the
 spacing between this code column and the central box.
 
-The index has an inline JS snippet that auto-injects `↓ TXT` download buttons
-into every `.module-card[href]` at page load — no manual button markup needed.
-
 ### Index last-modified badge and link boundary
 
 Every published index card must show its deck's last-modified date below the
@@ -818,8 +881,8 @@ footers. An uncommitted deck receives today's date only when that internal
 content fingerprint has changed; layout-only or technical changes retain the
 previous editorial date. Never type dates into individual card markup.
 
-The four 88px-wide right-side controls form a reserved 2×2 rail: difficulty and
-`↓ TXT` on the left, synthetic evaluation and last-modified date on the right.
+The right-side controls (difficulty stars, optional agenda/exercise buttons,
+synthetic evaluation badge, last-modified date) form a reserved control rail.
 Only the bordered title/description box navigates to the deck. Clicking the
 module code, a control or empty space in the right rail must not open the deck;
 keyboard activation of the card itself must continue to work.
@@ -917,14 +980,14 @@ conceptually separate values into one visible `N/10` score:
   card: `coverage`, `clarity`, `examples`, `correctness`, `freshness`.
   Each field is `0`, `1`, or `2`; their sum is `Q N/10`.
 
-The badge sits to the right of the difficulty stars and `↓ TXT` button. Its
-chevron opens a compact fixed panel on the right with synthetic score, density,
-total quality and the five editorial fields. Rows stay compact; mouseover or
-keyboard focus reveals a tooltip explaining both the meaning and the exact
-calculation of that value. For decks with both values, the visible score is
+The badge sits to the right of the difficulty stars. Its chevron opens a
+compact fixed panel on the right with synthetic score, density, total quality
+and the five editorial fields. Rows stay compact; mouseover or keyboard focus
+reveals a tooltip explaining both the meaning and the exact calculation of
+that value. For decks with both values, the visible score is
 `round((density + quality) / 2)`; both inputs are already on the same `0`-`10`
 scale, so no rescaling happens here. Quiz cards do not have generated
-`.txt` density scores, so their visible synthetic score equals their quality
+density scores, so their visible synthetic score equals their quality
 score. Only one panel may be open; click outside, `Esc` or resize closes it.
 
 When Claude edits or adds a published card, update `quality-index.js` for that
@@ -979,8 +1042,7 @@ node scripts/build-exercise-index.js
 ```
 
 The index search reads `search-index.js`, generated from the index cards and
-their sibling `.txt` files. Rebuild it after changing deck text, `.txt`
-companions, or index cards:
+each deck's own slide HTML. Rebuild it after changing deck text or index cards:
 
 ```bash
 node scripts/build-search-index.js
@@ -992,12 +1054,13 @@ scripts must keep supporting `#slide-N` URL fragments.
 
 When adding a published deck:
 
-1. Add a card to the correct section in `00-indice.html`.
-2. Use the same card structure and topic chips as nearby cards.
-3. Update the previous deck closing chip when appropriate.
-4. Keep a fallback `↩ Indice del corso` link in closing slides.
-5. Check links with `rg 'href="[^"]+\.html"'`.
-6. Generate the `.txt` companion file (see TXT companion files section).
+1. Create the HTML file in `decks/`.
+2. Add a card to the correct section in `00-indice.html`, with
+   `href="decks/<file>.html"`.
+3. Use the same card structure and topic chips as nearby cards.
+4. Update the previous deck closing chip when appropriate.
+5. Keep a fallback `↩ Indice del corso` link in closing slides.
+6. Check links with `rg 'href="[^"]+\.html"'`.
 7. Rebuild `search-index.js` with `node scripts/build-search-index.js`.
 
 ## Quizzes
@@ -1028,13 +1091,8 @@ in this root-level HTML course set, include Arduino and Blender/3D.
 ## Lesson expansion 2026-07-16
 
 The question-driven lesson on digital content is documented in
-`REPORT-LEZIONE-CONTENUTI-DIGITALI.md`. Its 80 slides were generated by
-`scripts/build-question-lesson.js` and are now published — after the
-RW04/RW05 → Contenuti digitali renumbering — as `cd01-01-licenze-oer.html`,
-`cd01-02-accessibilita-immagini.html`, `cd01-03-metadati-formati.html`,
-`cd02-01-podcast-storytelling.html` and `pr01-07-iterazione-cicli.html`.
-The generator (and the report) still reference the pre-renumbering
-older `RW02` codes and filenames: do not re-run it — it would emit
-orphan duplicates under filenames that clash with the current numbering
-(`rw02-05` is now account-email). The published decks have also been edited
-by hand since generation; the script is kept as historical record only.
+`REPORT-LEZIONE-CONTENUTI-DIGITALI.md`. Its 80 slides are now published —
+after the RW04/RW05 → Contenuti digitali renumbering — in the corresponding
+decks under `decks/`. The obsolete one-shot generator was removed because it
+still used the pre-renumbering `RW02` filenames and would create orphan
+duplicates that clash with the current numbering.

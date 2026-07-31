@@ -1,0 +1,161 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programmare · PR06.02 — Strutture dati e file</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#241d17;font-family:var(--font-body)}.deck-stage{position:absolute;width:1920px;height:1080px;transform-origin:0 0;background:var(--paper)}.slide{position:absolute;inset:0;padding:88px 110px;background:var(--paper);color:var(--ink);visibility:hidden;opacity:0;overflow:hidden}.slide.visible{visibility:visible;opacity:1}.slide:before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.25}.slide>*{position:relative}.title{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;color:var(--red);font-size:34px}.h1{font-family:var(--font-display);font-size:108px;line-height:.92;margin:18px 0}.h2{font-family:var(--font-display);font-size:76px;line-height:.96;margin:0 0 22px}.lead{font-size:32px;line-height:1.34;color:var(--ink-soft);max-width:1120px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13)}.card h3{font-family:var(--font-display);font-size:36px;margin:0 0 10px}.card p,.card li{font-size:24px;line-height:1.33;color:var(--ink-soft)}.card ul{padding-left:24px}.tag{display:inline-block;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:2px;text-transform:uppercase;padding:10px 18px;border-radius:999px}.chip{display:inline-block;background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:11px 18px;border-radius:999px;margin-right:10px;text-decoration:none}.code{background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:25px;line-height:1.45;border-radius:16px;padding:30px;white-space:pre-line}.accent{color:var(--sky);font-style:italic}.num{position:absolute;right:110px;bottom:52px;font-family:var(--font-mono);font-size:24px;color:#7b6e63}.num b{color:var(--red);font-size:34px}.home-btn{position:fixed;left:18px;bottom:18px;z-index:10;color:#f4ece0;background:rgba(28,23,20,.6);border-radius:999px;padding:8px 15px;text-decoration:none;font-family:var(--font-mono)}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:10}.closing{background:var(--teal);color:var(--paper)}.closing .lead{color:var(--paper)}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display),Georgia,serif;font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:15px 28px;font-size:25px;font-weight:600}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:31px;color:var(--gold)}.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:28px;display:grid;place-items:center}.illu-cap{font-family:var(--font-mono);font-size:20px;color:var(--ink-faint);text-align:center;margin-top:12px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:20px 26px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:7px}.note p{font-size:23px;line-height:1.34;margin:0}.tight .h2{font-size:66px}.tight .lead{font-size:28px}.tight .card{padding:20px 24px}.tight .card h3{font-size:31px}.tight .card p,.tight .card li{font-size:21px}.tight .code{font-size:21px;padding:24px;line-height:1.38}</style>
+<link rel="stylesheet" href="../theme-corsi.css">
+</head>
+<body class="course-sc"><main class="deck-stage" id="deckStage">
+<section class="slide title visible"><div><h1 class="h1">Strutture dati<br><span class="accent">e file</span></h1><p class="lead">Liste, matrici, dizionari e insiemi per organizzare i dati; file di testo, CSV, JSON e pathlib per farli sopravvivere al programma.</p></div><div class="code code-example">dati = [12, 7, 9, 15]
+  &#8595; ordina, filtra, aggrega
+matrice[riga][colonna]
+  &#8595; salva
+file.json &#183; file.csv</div><div class="num"></div><div class="deck-author">Francesco Antonio Binetti</div></section>
+<section class="slide no-top-label"><div class="grid2" style="align-items:center;height:100%"><div><h2 class="h2">Liste come vettori</h2><p class="lead">In Python base un vettore monodimensionale si rappresenta normalmente con una lista ordinata. Gli indici partono da zero.</p><div class="agenda-item"><span class="n">0</span><div><span class="t">primo elemento</span></div></div><div class="agenda-item"><span class="n">−1</span><div><span class="t">ultimo elemento</span></div></div></div><div class="code code-example">vettore = [12, 7, 9, 15]
+
+print(vettore[0])     # 12
+print(vettore[-1])    # 15
+print(vettore[1:3])   # [7, 9]
+
+vettore.append(20)
+vettore.insert(1, 10)
+vettore.remove(7)
+ultimo = vettore.pop()</div></div><div class="num"></div></section>
+<section class="slide no-top-label"><h2 class="h2">Elaborare un vettore</h2><p class="lead">Le operazioni comuni sono aggregare, cercare, ordinare e costruire una nuova lista senza perdere l'originale.</p><div class="grid2"><div class="code code-example">valori = [12, 7, 9, 15]
+
+somma = sum(valori)
+media = somma / len(valori)
+minimo = min(valori)
+massimo = max(valori)
+ordinati = sorted(valori)
+
+sopra_dieci = [x for x in valori if x > 10]</div><div class="card"><h3>Mutare o creare?</h3><p><code>valori.sort()</code> modifica la lista.</p><p><code>sorted(valori)</code> restituisce una nuova lista.</p><p><code>x in valori</code> verifica la presenza; <code>valori.index(x)</code> cerca la posizione ma genera errore se x manca.</p></div></div><div class="num"></div></section>
+<section class="slide no-top-label"><h2 class="h2">Matrici: righe e colonne</h2><p class="lead">Una matrice rettangolare può essere rappresentata come lista di liste. Il primo indice sceglie la riga, il secondo la colonna.</p><div class="grid2"><div class="illu"><svg viewBox="0 0 620 420" role="img" aria-label="Matrice tre per tre"><g fill="#f4ece0" stroke="#163b35" stroke-width="5"><rect x="80" y="60" width="140" height="95"/><rect x="220" y="60" width="140" height="95"/><rect x="360" y="60" width="140" height="95"/><rect x="80" y="155" width="140" height="95"/><rect x="220" y="155" width="140" height="95"/><rect x="360" y="155" width="140" height="95"/><rect x="80" y="250" width="140" height="95"/><rect x="220" y="250" width="140" height="95"/><rect x="360" y="250" width="140" height="95"/></g><g font-family="Space Mono" font-size="38" text-anchor="middle" fill="#1c1714"><text x="150" y="120">1</text><text x="290" y="120">2</text><text x="430" y="120">3</text><text x="150" y="215">4</text><text x="290" y="215">5</text><text x="430" y="215">6</text><text x="150" y="310">7</text><text x="290" y="310">8</text><text x="430" y="310">9</text></g></svg><div class="illu-cap">matrice[riga][colonna]</div></div><div class="code code-example">matrice = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+centro = matrice[1][1]  # 5
+matrice[0][2] = 30</div></div><div class="num"></div></section>
+<section class="slide no-top-label"><h2 class="h2">Attraversare e costruire matrici</h2><p class="lead">Due cicli annidati visitano ogni cella. Prima di elaborare, controlla che tutte le righe abbiano la stessa lunghezza.</p><div class="grid2"><div class="code code-example">for riga in matrice:
+    for valore in riga:
+        print(valore, end=" ")
+    print()
+
+righe = 3
+colonne = 4
+zeri = [[0 for c in range(colonne)]
+           for r in range(righe)]</div><div class="card"><h3>Errore da evitare</h3><p><code>[[0] * colonne] * righe</code> riusa la stessa lista interna: modificare una cella può cambiare più righe.</p><p style="margin-top:14px">Per calcoli matriciali avanzati si usa spesso NumPy; le liste annidate bastano per griglie e piccoli programmi.</p></div></div><div class="num"></div></section>
+<section class="slide no-top-label tight"><h2 class="h2">Dizionari, tuple e insiemi</h2><p class="lead">Scegli la struttura che esprime meglio le operazioni richieste.</p><div class="grid3"><div class="card"><h3>Dizionario</h3><p>Coppie chiave-valore.</p><div class="code code-example">utente = {
+ "nome": "Ada",
+ "eta": 28
+}
+utente.get("email")</div></div><div class="card"><h3>Tupla</h3><p>Sequenza ordinata immutabile.</p><div class="code code-example">punto = (10, 25)
+x, y = punto</div></div><div class="card"><h3>Insieme</h3><p>Valori unici.</p><div class="code code-example">tag = {"python", "csv"}
+tag.add("json")
+comuni = tag &amp; altri_tag</div></div></div><div class="num"></div></section>
+<section class="slide no-top-label"><div class="grid2" style="align-items:center;height:100%"><div><h2 class="h2">Gestire gli errori previsti</h2><p class="lead">try ed except servono quando un'operazione può fallire nonostante il programma sia scritto correttamente.</p><div class="note"><div class="lbl">Regola</div><p>Cattura eccezioni specifiche; non usare un except generico che nasconde qualsiasi errore.</p></div></div><div class="code code-example">try:
+    eta = int(input("Età: "))
+except ValueError:
+    print("Inserisci un numero intero")
+else:
+    print(f"Età registrata: {eta}")
+finally:
+    print("Operazione terminata")</div></div><div class="num"></div></section>
+<section class="slide no-top-label"><h2 class="h2">File di testo: leggere e scrivere</h2><p class="lead">with chiude automaticamente il file anche in caso di errore. Specifica sempre la codifica.</p><div class="grid2"><div class="code code-example">with open("note.txt", "w", encoding="utf-8") as file:
+    file.write("Prima riga\n")
+    file.write("Seconda riga\n")</div><div class="code code-example">with open("note.txt", "r", encoding="utf-8") as file:
+    contenuto = file.read()
+
+with open("note.txt", "a", encoding="utf-8") as file:
+    file.write("Aggiunta\n")</div></div><div class="analogy" style="margin-top:24px"><span class="big">Modalità:</span> r legge · w riscrive · a aggiunge.</div><div class="num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.unicode.org/versions/latest/core-spec/chapter-2/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: UTF-8 — Unicode Standard" aria-label="Fonte ufficiale: UTF-8 — Unicode Standard" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: UTF-8 — Unicode Standard ↗</a></div></section>
+<section class="slide no-top-label tight"><h2 class="h2">CSV: righe e colonne</h2><p class="lead">Il modulo csv gestisce separatori e virgolette. DictReader e DictWriter usano le intestazioni come chiavi.</p><div class="grid2"><div class="code code-example">import csv
+
+with open("prodotti.csv", newline="", encoding="utf-8") as file:
+    lettore = csv.DictReader(file)
+    prodotti = list(lettore)
+
+for prodotto in prodotti:
+    print(prodotto["nome"], prodotto["prezzo"])</div><div class="code code-example">campi = ["nome", "prezzo"]
+with open("prodotti.csv", "w", newline="", encoding="utf-8") as file:
+    scrittore = csv.DictWriter(file, fieldnames=campi)
+    scrittore.writeheader()
+    scrittore.writerows(prodotti)</div></div><div class="num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://docs.python.org/3/library/csv.html" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Modulo csv — documentazione Python" aria-label="Fonte ufficiale: Modulo csv — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Modulo csv — documentazione Python ↗</a></div></section>
+<section class="slide no-top-label tight"><h2 class="h2">JSON: strutture annidate</h2><p class="lead">JSON rappresenta oggetti, liste, stringhe, numeri, booleani e null: in Python diventano soprattutto dizionari, liste e None.</p><div class="grid2"><div class="code code-example">import json
+
+dati = {
+    "corso": "Python",
+    "attivo": True,
+    "voti": [7, 8, 9]
+}
+
+with open("dati.json", "w", encoding="utf-8") as file:
+    json.dump(dati, file, ensure_ascii=False, indent=2)</div><div class="code code-example">with open("dati.json", encoding="utf-8") as file:
+    dati = json.load(file)
+
+print(dati["corso"])
+print(dati["voti"][0])</div></div><div class="num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://docs.python.org/3/library/json.html" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Modulo json — documentazione Python" aria-label="Fonte ufficiale: Modulo json — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Modulo json — documentazione Python ↗</a></div></section>
+<section class="slide no-top-label"><h2 class="h2">Scegliere il tipo di file</h2><p class="lead">Il formato dipende dalla struttura e da chi dovrà leggere i dati.</p><div class="grid3"><div class="card"><h3>TXT</h3><p>Testo libero e log. Semplice, ma senza colonne o tipi dichiarati.</p></div><div class="card"><h3>CSV</h3><p>Tabelle piatte: una riga per record, una colonna per campo.</p></div><div class="card"><h3>JSON</h3><p>Dati gerarchici e annidati: configurazioni, API e scambio tra applicazioni.</p></div></div><div class="note" style="margin-top:22px"><div class="lbl">E XML?</div><p>È strutturato tramite tag ed è usato in standard e documenti complessi; per iniziare CSV e JSON coprono i casi più comuni.</p></div><div class="num"></div></section>
+<section class="slide no-top-label"><div class="grid2" style="align-items:center;height:100%"><div><h2 class="h2">Percorsi sicuri con pathlib</h2><p class="lead">pathlib costruisce percorsi leggibili e portabili tra sistemi operativi.</p><div class="agenda-item"><span class="n">1</span><div><span class="t">costruisci il percorso</span></div></div><div class="agenda-item"><span class="n">2</span><div><span class="t">verifica che esista</span></div></div><div class="agenda-item"><span class="n">3</span><div><span class="t">leggi o crea la cartella</span></div></div></div><div class="code code-example">from pathlib import Path
+
+cartella = Path("dati")
+cartella.mkdir(exist_ok=True)
+file = cartella / "prodotti.json"
+
+if file.exists():
+    testo = file.read_text(encoding="utf-8")
+else:
+    file.write_text("[]", encoding="utf-8")</div></div><div class="num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://docs.python.org/3/library/pathlib.html" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Modulo pathlib — documentazione Python" aria-label="Fonte ufficiale: Modulo pathlib — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Modulo pathlib — documentazione Python ↗</a></div></section>
+<section class="slide tight"><h2 class="h-sec reveal">La struttura di un programma semplice</h2><p class="lead reveal d1">Un’applicazione piccola resta gestibile quando separa ingresso, elaborazione, uscita e salvataggio dei dati.</p><div class="grid3 reveal d2" style="margin-top:22px;"><div class="card teal" style="padding:16px 20px;"><h3>01 · Carica</h3><p>Leggi dal file i dati già disponibili e prepara lo stato iniziale.</p></div><div class="card sky" style="padding:16px 20px;"><h3>02 · Valida l’input</h3><p>Converti i valori ricevuti e rifiuta quelli mancanti o non validi.</p></div><div class="card gold" style="padding:16px 20px;"><h3>03 · Elabora</h3><p>Affida calcoli e trasformazioni a funzioni con un compito preciso.</p></div><div class="card red" style="padding:16px 20px;"><h3>04 · Presenta</h3><p>Mostra risultati e messaggi in una forma comprensibile per chi usa il programma.</p></div><div class="card teal" style="padding:16px 20px;"><h3>05 · Salva</h3><p>Scrivi sul file soltanto dati completi, validi e coerenti.</p></div><div class="card sky" style="padding:16px 20px;"><h3>06 · Gestisci gli errori</h3><p>Intercetta i fallimenti previsti e comunica come correggerli.</p></div></div><div class="analogy reveal d3" style="margin-top:18px;font-size:21px;padding:13px 22px;"><span class="big" style="font-size:28px;">Regola:</span> ogni funzione svolge un compito osservabile e verificabile.</div><div class="num"></div></section>
+<section class="slide no-top-label tight"><h2 class="h2">Esempio completo: registro delle spese</h2><p class="lead">Funzioni, lista di dizionari, input controllato, ciclo, JSON e punto di avvio lavorano insieme.</p><div class="grid2"><div class="code code-example">import json
+from pathlib import Path
+
+FILE = Path("spese.json")
+
+def carica():
+    if not FILE.exists():
+        return []
+    with FILE.open(encoding="utf-8") as f:
+        return json.load(f)
+
+def salva(spese):
+    with FILE.open("w", encoding="utf-8") as f:
+        json.dump(spese, f, indent=2, ensure_ascii=False)</div><div class="code code-example">def main():
+    spese = carica()
+    while True:
+        voce = input("Voce (fine per uscire): ").strip()
+        if voce.lower() == "fine": break
+        try:
+            importo = float(input("Importo: "))
+        except ValueError:
+            print("Importo non valido")
+            continue
+        spese.append({"voce": voce, "importo": importo})
+    salva(spese)
+    print(f"Totale: {sum(s['importo'] for s in spese):.2f} €")
+
+if __name__ == "__main__": main()</div></div><div class="num"></div></section>
+<section class="slide no-top-label"><h2 class="h2">Programmare come sequenza di passi</h2><p class="lead">Nei linguaggi procedurali il programma è un insieme di istruzioni e procedure eseguite in ordine. L'attenzione è sul percorso: cosa fare prima, cosa dopo, quando scegliere e quando ripetere. Come in una ricetta: prima accendi il forno, poi impasti, poi inforni.</p><div class="grid2"><div class="card"><h3>Vantaggio</h3><p>È vicino al modo in cui descriviamo procedure operative e calcoli passo-passo. Si legge riga per riga: ciò che accade al passo 3 dipende solo dai passi 1 e 2.</p></div><div class="card"><h3>Rischio</h3><p>Se il programma cresce senza struttura diventa un blocco unico: per capire una riga devi rileggere tutto ciò che la precede. Le procedure servono proprio a spezzarlo in parti.</p></div></div><div class="code code-example" style="margin-top:20px">1. leggi ordine    2. verifica scorta
+3. calcola totale  4. stampa ricevuta</div><div class="num"></div></section>
+<section class="slide no-top-label"><h2 class="h2">Dallo pseudocodice al programma</h2><div class="grid2"><div class="card"><h3>Pseudocodice</h3><p>Serve a controllare la logica senza bloccarci sulla sintassi.</p></div><div class="card"><h3>Codice</h3><p>Traduce la logica in istruzioni precise per un interprete o compilatore.</p></div></div><div class="code code-example" style="margin-top:34px">leggi numero
+se numero e pari allora
+  scrivi "pari"
+altrimenti
+  scrivi "dispari"</div><div class="num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Pseudocodice" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Pseudocodice — Wikipedia" aria-label="Fonte ufficiale: Pseudocodice — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Pseudocodice — Wikipedia ↗</a></div></section>
+<section class="slide no-top-label"><h2 class="h2">Debug: osservare il programma mentre lavora</h2><p class="lead">Fare debug significa ricostruire cosa succede davvero durante l'esecuzione. Si controllano input, valori intermedi, rami scelti e punto in cui il comportamento diverge dalle attese.</p><div class="grid3"><div class="card"><h3>Stampe</h3><p>Mostrano valori temporanei.</p></div><div class="card"><h3>Breakpoint</h3><p>Fermano l'esecuzione in un punto.</p></div><div class="card"><h3>Traccia</h3><p>Segue il percorso del programma.</p></div></div><div class="num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Debugging" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Debugging — Wikipedia" aria-label="Fonte ufficiale: Debugging — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Debugging — Wikipedia ↗</a></div></section>
+<section class="slide no-top-label"><h2 class="h2">Sviluppare piccoli passi verificabili</h2><p class="lead">Un buon flusso di lavoro alterna progettazione, scrittura, esecuzione e correzione. Meglio costruire programmi piccoli e testabili che scrivere molte istruzioni senza controllarle.</p><div class="grid3"><div class="card"><h3>Scrivi poco</h3><p>Aggiungi una parte alla volta.</p></div><div class="card"><h3>Esegui spesso</h3><p>Controlla subito cosa cambia.</p></div><div class="card"><h3>Testa casi</h3><p>Prova esempi normali, limite e sbagliati.</p></div></div><div class="num"></div></section>
+<section class="slide no-top-label"><h2 class="h2">Spiegare ciò che il codice non dice da solo</h2><p class="lead">I commenti non devono ripetere istruzioni ovvie. Servono per chiarire scelte, vincoli, casi limite e motivi per cui una soluzione è stata preferita a un'altra.</p><div class="grid2"><div class="card"><h3>Utile</h3><p>Spiega una decisione non evidente.</p></div><div class="card"><h3>Inutile</h3><p>Ripete parola per parola il codice.</p></div></div><div class="num"></div></section>
+<section class="slide closing"><div class="closing-inner"><h2 class="h2">Dai dati alla struttura di un programma.</h2><p class="lead">Sai lavorare con liste, matrici, dizionari e insiemi, gestire gli errori previsti, leggere e scrivere file di testo, CSV e JSON, e organizzare un programma in passi verificabili.</p><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://www.unicode.org/versions/latest/core-spec/chapter-2/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">UTF-8 — Unicode Standard &#8599;</a><a href="https://docs.python.org/3/library/csv.html" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Modulo csv — documentazione Python &#8599;</a><a href="https://docs.python.org/3/library/json.html" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Modulo json — documentazione Python &#8599;</a><a href="https://docs.python.org/3/library/pathlib.html" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Modulo pathlib — documentazione Python &#8599;</a><a href="https://it.wikipedia.org/wiki/Pseudocodice" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Pseudocodice — Wikipedia &#8599;</a><a href="https://it.wikipedia.org/wiki/Debugging" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Debugging — Wikipedia &#8599;</a></div></div><div class="closing-actions"><a class="chip closing-primary" href="pr06-03-oggetti-pacchetti.html">Prossimo &#8594; PR06.03 &#183; Oggetti e pacchetti</a></div></div><div class="deck-author">Francesco Antonio Binetti</div><div class="num"></div></section>
+</main><a class="home-btn" href="../00-indice.html">↩ Indice</a><div class="progress"></div><script src="../deck.js"></script>
+</body></html>

@@ -1,0 +1,363 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Design · GD_01 — Introduzione al gioco</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;background:#fff;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}.slide:last-child{break-after:auto;page-break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+code{font-family:var(--font-mono);}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}.d5{transition-delay:.68s !important;}.d6{transition-delay:.80s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal);}.tape.sky{background:var(--sky);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--sky);}
+.lead{font-size:32px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.body{font-size:27px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1;}
+.card p{font-size:24px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.card.red{border-color:var(--red);}.card.red h3{color:var(--red);}
+.card.teal{border-color:var(--teal);}.card.teal h3{color:var(--teal);}
+.card.sky{border-color:var(--sky);}.card.sky h3{color:var(--sky);}
+.card.gold{border-color:var(--gold-deep);}.card.gold h3{color:var(--gold-deep);}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.chip.red{background:var(--red);color:#fff;}.chip.sky{background:var(--sky);color:#fff;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa;border-color:var(--red);}
+.note.sky{background:#d4eaee;border-color:var(--sky);}
+.note.teal{background:#c0d4d1;border-color:var(--teal);}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.4;color:var(--ink);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.stack>*+*{margin-top:22px;}
+.tight-slide .h-sec{font-size:64px;}
+.tight-slide .lead{font-size:28px;line-height:1.34;}
+.tight-slide .body{font-size:24px;line-height:1.35;}
+.tight-slide .split{height:auto;}
+.tight-slide .grid2{gap:18px;}
+.tight-slide .grid3{gap:16px;}
+.tight-slide .stack>*+*{margin-top:12px;}
+.tight-slide .card{padding:18px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12);}
+.tight-slide .card h3{font-size:30px;margin-bottom:6px;}
+.tight-slide .card p{font-size:21px;line-height:1.28;}
+.tight-slide .card .ic{font-size:34px;margin-bottom:5px;}
+.tight-slide .note{padding:18px 22px;}
+.tight-slide .note .lbl{font-size:19px;margin-bottom:6px;}
+.tight-slide .note p{font-size:22px;line-height:1.3;}
+.steps{counter-reset:st;display:flex;flex-direction:column;gap:14px;}
+.step{display:flex;align-items:flex-start;gap:20px;background:#fbf5ec;border:2px solid var(--ink);border-radius:12px;padding:16px 24px;box-shadow:4px 5px 0 rgba(28,23,20,.12);}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:42px;line-height:1;}
+.step .t{font-size:26px;line-height:1.35;color:var(--ink-soft);padding-top:3px;}
+.step .t b{color:var(--ink);}
+.blockquote{border-left:6px solid var(--red);padding:20px 30px;background:#fbf5ec;border-radius:0 12px 12px 0;font-size:26px;line-height:1.5;color:var(--ink-soft);font-style:italic;}
+.blockquote b{color:var(--red);font-style:normal;}
+.err-label{display:inline-block;background:var(--red);color:#fff;font-family:var(--font-mono);font-weight:700;font-size:20px;padding:6px 16px;border-radius:20px;letter-spacing:1px;margin-bottom:10px;}
+.ok-label{display:inline-block;background:var(--teal);color:#fff;font-family:var(--font-mono);font-weight:700;font-size:20px;padding:6px 16px;border-radius:20px;letter-spacing:1px;margin-bottom:10px;}
+.flow-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.flow-box{background:#fbf5ec;border:2px solid var(--ink);border-radius:10px;padding:16px 24px;font-size:26px;font-weight:600;text-align:center;min-width:180px;box-shadow:4px 4px 0 rgba(28,23,20,.12);}
+.flow-arrow{font-size:34px;color:var(--ink-faint);}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--teal-2);position:relative;overflow:hidden;display:grid;place-items:center;}.title-right>div,.title-right>svg{position:relative;z-index:2;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .gold{color:var(--gold);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;bottom:0;left:0;height:4px;background:var(--red);transition:width .4s var(--ease);z-index:9999;}
+.title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display),Georgia,serif;font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}</style>
+<link rel="stylesheet" href="../theme-corsi.css">
+</head>
+<body class="course-gd">
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+  <!-- SLIDE 1 · TITLE -->
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <h1 class="h-mega reveal" style="margin-top:10px;">La Colonna<br><em style="font-style:italic;color:var(--sky);">Sonora</em></h1>
+      <p class="lead reveal d1" style="margin-top:28px;">Come la musica dei videogiochi è passata da traccia fissa a sistema reattivo — e come può diventare essa stessa una meccanica.</p>
+
+    </div>
+    <div class="title-right">
+      <div style="font-size:200px;line-height:1;text-align:center;" class="reveal">🎧</div>
+    </div>
+  <div class="deck-author">Francesco Antonio Binetti</div></section>
+
+  <!-- SLIDE 2 · AGENDA -->
+
+
+  <!-- SLIDE 3 · COS'E UNA OST -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;">Cos'è una <em class="hot">OST</em></h2>
+        <p class="lead reveal d1" style="margin-top:14px;">La <b>Original Soundtrack</b> è la musica composta appositamente per un'opera. Nel videogioco non è semplice sottofondo: guida l'emozione del giocatore, segnala i cambi di stato del mondo e scandisce il ritmo dell'azione in ogni momento.</p>
+        <div class="analogy reveal d2" style="margin-top:20px;"><span class="big">Regola:</span> <span>la musica migliore è quella che non noti — ma che sentiresti mancare appena sparisce.</span></div>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1"><span class="ic">🎬</span><h3>Emozione</h3><p>Tensione, trionfo, malinconia: la traccia costruisce lo stato d'animo della scena prima ancora che l'immagine parli.</p></div>
+        <div class="card sky reveal d2"><span class="ic">🚦</span><h3>Segnale</h3><p>Un cambio di musica comunica un cambio di stato: nemico in arrivo, boss, pericolo imminente o zona sicura.</p></div>
+        <div class="card gold reveal d3"><span class="ic">🥁</span><h3>Ritmo</h3><p>Scandisce il tempo dell'azione: un BPM alto accelera la sensazione, un BPM basso crea respiro e distanza.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 4 · OST STATICA -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;">OST <em class="hot">statica</em></h2>
+        <p class="lead reveal d1" style="margin-top:14px;">La traccia suona uguale ogni volta: parte, va in loop per tutta la durata del livello, e non sa nulla di quello che sta facendo il giocatore.</p>
+        <div class="note reveal d2" style="margin-top:20px;">
+          <div class="lbl">Bobby Prince</div>
+          <p>Compositore di <b>Wolfenstein 3D</b> (1992) e <b>DOOM</b> (1993). Riff metal scritti in MIDI e caricati come loop fissi a inizio livello — un intero brano compresso in pochi kilobyte.</p>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="card red reveal d1"><span class="ic">🔁</span><h3>Loop fisso</h3><p>Stessa traccia dall'inizio alla fine del livello. Semplice, economica e prevedibile: ascolti la stessa melodia decine di volte per partita.</p></div>
+        <div class="card reveal d2"><span class="ic">🚫</span><h3>Nessuna reazione</h3><p>La musica non distingue esplorazione da combattimento: suona identica in ogni situazione, indipendentemente dal ritmo del gameplay.</p></div>
+        <div class="illu reveal d3">
+          <svg viewBox="0 0 280 190" style="max-width:240px;margin:0 auto;" role="img" aria-label="Musicassetta con freccia di loop">
+            <rect x="30" y="52" width="220" height="112" rx="12" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
+            <rect x="48" y="66" width="184" height="42" rx="6" fill="#f4ece0"/>
+            <rect x="48" y="94" width="184" height="10" fill="#e6c14a"/>
+            <circle cx="100" cy="134" r="15" fill="#f4ece0" stroke="#1c1714" stroke-width="3"/>
+            <circle cx="100" cy="134" r="5" fill="#1c1714"/>
+            <circle cx="180" cy="134" r="15" fill="#f4ece0" stroke="#1c1714" stroke-width="3"/>
+            <circle cx="180" cy="134" r="5" fill="#1c1714"/>
+            <rect x="118" y="124" width="44" height="20" rx="4" fill="#1c1714" opacity=".35"/>
+            <circle cx="44" cy="26" r="16" fill="none" stroke="#e6533b" stroke-width="6" stroke-dasharray="74 27"/>
+            <polygon points="40,3 56,10 40,17" fill="#e6533b"/>
+          </svg>
+          <div class="illu-cap">La stessa traccia, in loop, per tutto il livello</div>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 5 · LIMITI HARDWARE -->
+  <section class="slide">
+
+    <h2 class="h-sec reveal" style="margin-top:24px;">Limiti <em class="hot">hardware</em></h2>
+    <p class="lead reveal d1" style="margin-top:14px;max-width:1300px;">Negli anni '80–'90 la musica doveva stare in pochi kilobyte e in pochissimi canali audio. Quel vincolo tecnico durissimo ha plasmato un'estetica sonora ancora oggi riconoscibile e amata.</p>
+    <div class="grid3 reveal d2" style="margin-top:24px;">
+      <div class="card"><span class="ic">🎛️</span><h3>8-bit / NES</h3><p>Solo 5 canali audio. Melodie iconiche nate dal vincolo: meno frequenze disponibili, più ogni nota deve essere memorabile e riconoscibile.</p></div>
+      <div class="card sky"><span class="ic">🎹</span><h3>SNES</h3><p>Chip SPC700, 8 canali con campioni PCM. Enorme salto qualitativo: nacquero le OST di Koji Kondo e Nobuo Uematsu, ancora citate oggi.</p></div>
+      <div class="card gold"><span class="ic">💾</span><h3>Il vincolo crea stile</h3><p>Il "chiptune" è oggi un genere musicale ricercato, non più un limite subìto: il vincolo tecnico è diventato scelta estetica consapevole.</p></div>
+    </div>
+    <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">In pratica:</span> <span>meno risorse hai, più ogni scelta conta — i vincoli forzano la creatività.</span></div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 6 · OST PROCEDURALE RANDOM -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;">OST procedurale <em class="hot">random</em></h2>
+        <p class="lead reveal d1" style="margin-top:14px;">La musica non è una traccia unica: è composta di <b>strati separati</b> (stem) ricombinati in tempo reale dal motore di gioco. Ogni sessione può suonare diversa mantenendo la stessa identità sonora.</p>
+        <div class="illu reveal d2">
+          <svg viewBox="0 0 280 200" style="max-width:280px;margin:0 auto;" role="img" aria-label="Mixer con quattro fader, uno per ogni stem">
+            <rect x="26" y="20" width="228" height="160" rx="14" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
+            <rect x="58" y="44" width="8" height="96" rx="4" fill="#f4ece0" opacity=".3"/>
+            <rect x="110" y="44" width="8" height="96" rx="4" fill="#f4ece0" opacity=".3"/>
+            <rect x="162" y="44" width="8" height="96" rx="4" fill="#f4ece0" opacity=".3"/>
+            <rect x="214" y="44" width="8" height="96" rx="4" fill="#f4ece0" opacity=".3"/>
+            <rect x="47" y="56" width="30" height="16" rx="5" fill="#e6533b"/>
+            <rect x="99" y="100" width="30" height="16" rx="5" fill="#e6c14a"/>
+            <rect x="151" y="74" width="30" height="16" rx="5" fill="#3f7e8c"/>
+            <rect x="203" y="118" width="30" height="16" rx="5" fill="#f4ece0"/>
+            <text x="62" y="166" text-anchor="middle" font-size="13" fill="#f4ece0" style="font-family:var(--font-mono);">DRUM</text>
+            <text x="114" y="166" text-anchor="middle" font-size="13" fill="#f4ece0" style="font-family:var(--font-mono);">BASS</text>
+            <text x="166" y="166" text-anchor="middle" font-size="13" fill="#f4ece0" style="font-family:var(--font-mono);">SYNTH</text>
+            <text x="218" y="166" text-anchor="middle" font-size="13" fill="#f4ece0" style="font-family:var(--font-mono);">GTR</text>
+          </svg>
+          <div class="illu-cap">Ogni stem ha il suo volume: il motore li miscela dal vivo</div>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="note teal reveal d1">
+          <div class="lbl">Mick Gordon · DOOM (2016)</div>
+          <p>La colonna sonora è costruita a <b>STEMS</b>: tracce separate — batteria, basso, sintetizzatori, chitarre — miscelate dinamicamente dal motore di gioco invece di essere un unico file audio.</p>
+        </div>
+        <div class="card sky reveal d2"><span class="ic">🎲</span><h3>Varietà infinita</h3><p>La stessa libreria di strati genera combinazioni sempre diverse: la musica non diventa ripetitiva anche dopo decine di ore di gioco.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 7 · GLI STEMS -->
+  <section class="slide">
+
+    <h2 class="h-sec reveal" style="margin-top:24px;">Gli <em class="hot">STEMS</em></h2>
+    <p class="lead reveal d1" style="margin-top:14px;max-width:1300px;">Uno <b>stem</b> è una singola traccia strumentale isolata — batteria, basso, melodia, ambience. Il motore di gioco mantiene tutti gli stem sincronizzati sullo stesso BPM e li accende o spegne in base al contesto narrativo e di gioco.</p>
+    <div class="grid2 reveal d2" style="margin-top:24px;">
+      <div class="card teal"><span class="ic">🥁</span><h3>Layering progressivo</h3><p>Zona tranquilla → solo basso e atmosfera. Nemici in avvicinamento → entra la batteria. Combattimento acceso → chitarre e ritmo pieno.</p></div>
+      <div class="card sky"><span class="ic">🎚️</span><h3>Mix dinamico</h3><p>Nessuna transizione brusca o stacco: i volumi salgono e scendono gradualmente, la musica "respira" col ritmo reale del gioco.</p></div>
+    </div>
+    <div class="note sky reveal d3" style="margin-top:22px;">
+      <div class="lbl">💡 Perché conta</div>
+      <p>La musica resta sempre <em>sincronizzata</em> all'intensità reale del momento — senza che il compositore debba scrivere una traccia separata per ogni possibile situazione o evento.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 8 · OST A FEEDBACK -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;">OST a <em class="hot">feedback</em></h2>
+        <p class="lead reveal d1" style="margin-top:14px;">Il salto finale: la musica non reagisce solo all'atmosfera generale, ma ad ogni singolo <b>evento preciso del gameplay</b> — un'arena che si apre, una uccisione, un colpo subìto, l'ingresso di un boss.</p>
+        <div class="illu reveal d2">
+          <svg viewBox="0 0 280 200" style="max-width:270px;margin:0 auto;" role="img" aria-label="Onda musicale collegata a un gamepad da una doppia freccia">
+            <path d="M18 52 H58 L70 24 L86 84 L102 36 L116 68 L128 52 H170 L182 30 L196 74 L208 52 H262" fill="none" stroke="#e6533b" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+            <line x1="140" y1="100" x2="140" y2="124" stroke="#3f7e8c" stroke-width="5"/>
+            <polygon points="140,88 148,102 132,102" fill="#3f7e8c"/>
+            <polygon points="140,136 132,122 148,122" fill="#3f7e8c"/>
+            <rect x="82" y="140" width="116" height="52" rx="26" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
+            <rect x="104" y="162" width="26" height="9" rx="2" fill="#f4ece0"/>
+            <rect x="113" y="153" width="9" height="26" rx="2" fill="#f4ece0"/>
+            <circle cx="164" cy="160" r="6" fill="#e6c14a"/>
+            <circle cx="180" cy="172" r="6" fill="#e6533b"/>
+          </svg>
+          <div class="illu-cap">Evento di gioco ↔ musica: un dialogo continuo</div>
+        </div>
+      </div>
+      <div class="col stack">
+        <div class="card red reveal d1"><span class="ic">🎮</span><h3>DOOM Eternal</h3><p>Mick Gordon lega ogni stem a trigger di gioco: entrare in un'arena attiva la batteria, le uccisioni "en fuoco" aggiungono chitarre distorte, il boss porta il tema principale al massimo volume.</p></div>
+        <div class="card gold reveal d2"><span class="ic">🔗</span><h3>Musica = HUD</h3><p>Il suono diventa informazione di gioco: puoi capire lo stato della battaglia dall'orecchio, senza guardare la barra della vita o la minimappa.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 9 · MUSICA COME MECCANICA -->
+  <section class="slide">
+
+    <h2 class="h-sec reveal" style="margin-top:24px;">Musica come <em class="hot">meccanica</em></h2>
+    <p class="lead reveal d1" style="margin-top:14px;max-width:1300px;">Il caso estremo: la musica non accompagna il gioco — <b>è</b> il gioco. Il ritmo detta le regole di interazione: perdere il tempo significa perdere la partita.</p>
+    <div class="grid3 reveal d2" style="margin-top:24px;">
+      <div class="card sky"><span class="ic">🎵</span><h3>Beat Saber</h3><p>Colpisci i blocchi colorati a tempo di musica con le sciabole VR. La traccia audio genera l'intera coreografia del livello: zero musica, zero gioco.</p></div>
+      <div class="card red"><span class="ic">🎸</span><h3>Guitar Hero</h3><p>Premi i tasti esattamente sulle note della canzone. Sbagli il ritmo, sbagli il gioco: la folla fischia e il brano si interrompe.</p></div>
+      <div class="card"><span class="ic">💀</span><h3>Crypt of the NecroDancer</h3><p>Un roguelike in cui puoi muoverti solo a battere del BPM: ogni passo, ogni attacco, ogni schivata deve cadere sul ritmo. Sbagliare tempo rompe la combo.</p></div>
+    </div>
+    <div class="analogy reveal d3" style="margin-top:18px;"><span class="big">Regola:</span> <span>quando la musica è meccanica, toglierla non riduce l'atmosfera — distrugge la giocabilità.</span></div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 10 · DIEGETICO VS NON-DIEGETICO -->
+  <section class="slide">
+
+    <h2 class="h-sec reveal" style="margin-top:24px;">Diegetico vs <em class="hot">non-diegetico</em></h2>
+    <div class="grid2 reveal d1" style="margin-top:24px;">
+      <div class="card teal"><span class="ic">🔊</span><h3>Diegetico</h3><p>Il suono <b>esiste nel mondo</b> di gioco: la radio in-game, lo stereo di un'auto in GTA, un NPC che suona la chitarra in un villaggio. Anche i personaggi lo sentono e possono reagire.</p></div>
+      <div class="card sky"><span class="ic">🎼</span><h3>Non-diegetico</h3><p>La colonna sonora "dall'esterno": solo il giocatore la sente, i personaggi no. La musica di tensione che si alza quando arriva il nemico è un segnale per noi, non per l'eroe.</p></div>
+    </div>
+    <div class="note red reveal d2" style="margin-top:22px;">
+      <div class="lbl">Design intent</div>
+      <p>Spostare un suono da non-diegetico a diegetico (o viceversa) cambia <em>chi sa cosa</em>. In <b>Cyberpunk 2077</b> la musica dei club è diegetica: uscire dall'edificio la interrompe davvero, rinforzando l'immersione nel mondo.</p>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 10B · LA COLONNA SONORA FUORI DAI VIDEOGIOCHI -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal" style="margin-top:18px;">Fuori dai <em class="hot">videogiochi</em></h2>
+        <p class="lead reveal d1" style="margin-top:14px;">Un gioco da tavolo o di ruolo non ha un motore che genera musica da solo: la colonna sonora la scegli tu, prima di sederti al tavolo, come parte della preparazione della sessione.</p>
+        <div class="analogy reveal d2"><span class="big">Regola:</span> il silenzio non è una buona idea — senza musica il tavolo perde ritmo e la tensione emotiva si affloscia tra un turno e l'altro.</div>
+      </div>
+      <div class="col stack">
+        <div class="card teal reveal d1"><span class="ic">🎭</span><h3>Giochi di ruolo</h3><p>Scegli un tema e trova la playlist coerente: un dungeon buio chiede altro rispetto a un salotto vittoriano.</p></div>
+        <div class="card sky reveal d2"><span class="ic">🎲</span><h3>Giochi da tavolo</h3><p>Titoli come <b>Mansions of Madness</b> o <b>Escape: The Curse of the Temple</b> includono già una loro colonna sonora ufficiale, pensata per scandire i turni.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- SLIDE 11 · ATTIVITA -->
+
+
+  <!-- SLIDE 18 · CLOSING -->
+  <section class="slide closing"><div class="closing-inner"><div class="center" style="align-items:center;text-align:center;">
+      <h2 class="h-mega reveal" style="margin-top:10px;">Non sottofondo.<br>Sistema.</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">
+        Da traccia fissa a strumento reattivo: la musica migliore di un gioco è quella che sa cosa stai facendo.
+      </p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="gd03-sfx-audio.html" class="chip" style="background:var(--paper);color:var(--ink);text-decoration:none;">→ GD_03 · SFX e Audio</a>
+      </div>
+    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div class="page-num"></div></section>
+
+</div>
+</div>
+
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="../00-indice-gd.html" title="Torna all'indice">↩ Indice</a>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Modalita modifica (E)">✏️</button>
+<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
+
+
+<script src="../deck.js"></script>
+</body>
+</html>

@@ -231,9 +231,8 @@
     return b;
   };
   const btnCopy = mkBtn('Copia');
-  const btnClear = mkBtn('Svuota');
   const btnClose = mkBtn('✕');
-  bar.append('📝 ', label, btnCopy, btnClear, btnClose);
+  bar.append('📝 ', label, btnCopy, btnClose);
   document.body.appendChild(bar);
 
   const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
@@ -287,24 +286,14 @@
     if (d.edits.length) parts.push('=== MODIFICHE DIRETTE ===\n\n' + d.edits.map(fmtEdit).join('\n\n'));
     const text = parts.join('\n\n');
     if (!text) return;
+    const done = () => { save({ notes: [], edits: [] }); stop(); };
     // file:// is a secure context, but keep a fallback for stubborn setups.
-    (navigator.clipboard?.writeText(text) || Promise.reject()).then(
-      () => { btnCopy.textContent = 'Copiato ✓'; setTimeout(() => btnCopy.textContent = 'Copia', 1500); },
-      () => {
-        const ta = document.createElement('textarea');
-        ta.value = text; document.body.appendChild(ta); ta.select();
-        document.execCommand('copy'); ta.remove();
-        btnCopy.textContent = 'Copiato ✓'; setTimeout(() => btnCopy.textContent = 'Copia', 1500);
-      });
-  });
-  btnClear.addEventListener('click', e => {
-    e.stopPropagation();
-    if (!confirm('Svuotare tutte le note e le modifiche di revisione?')) return;
-    editedEls.forEach(revertEl);
-    editedEls.clear();
-    save({ notes: [], edits: [] });
-    update();
-    renderPins();
+    (navigator.clipboard?.writeText(text) || Promise.reject()).then(done, () => {
+      const ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); ta.remove();
+      done();
+    });
   });
 
   const marker = (x, y) => {
@@ -457,7 +446,7 @@
       'Seleziona prima delle parole e poi clicca → la nota cita esattamente quelle parole.\n' +
       'Doppio clic su un titolo o una riga breve → modificala sul posto.\n' +
       'Invio conferma la modifica, Esc la annulla (o chiude la modalità).\n\n' +
-      '«Copia» esporta tutto — note e modifiche — negli appunti.');
+      '«Copia» esporta tutto — note e modifiche — negli appunti, poi chiude la modalità.');
   }
 
   // Close: the ✕ button or Esc. Reverts any live edit still showing (its diff

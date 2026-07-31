@@ -1,0 +1,193 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esercizi · Suite Ufficio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;}.slide:last-child{break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--red);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s;}.slide.visible .reveal:nth-child(2){transition-delay:.13s;}
+.slide.visible .reveal:nth-child(3){transition-delay:.21s;}.slide.visible .reveal:nth-child(4){transition-delay:.29s;}
+.slide.visible .reveal:nth-child(5){transition-delay:.37s;}.slide.visible .reveal:nth-child(6){transition-delay:.45s;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep);}.tape.teal{background:var(--teal-2);}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red);}
+em.gold{font-style:italic;color:var(--gold-deep);}
+em.teal{font-style:italic;color:var(--teal-2);}
+.lead{font-size:32px;line-height:1.45;color:var(--ink-soft);max-width:1100px;}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:10px;line-height:1;}
+.card p{font-size:24px;line-height:1.4;color:var(--ink-soft);}
+.card .ic{font-size:50px;line-height:1;display:block;margin-bottom:8px;}
+.chips{display:flex;gap:16px;flex-wrap:wrap;}
+.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px;}
+.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.teal{background:var(--teal-2);}.note.teal *{color:#fff !important;}.note.teal .lbl{color:var(--gold) !important;}
+.note.red{background:#f3b6aa;}
+.note.dark{background:var(--ink);}.note.dark *{color:var(--paper) !important;}.note.dark .lbl{color:var(--gold) !important;}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.4;color:var(--ink);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.stack>*+*{margin-top:20px;}
+.tight-slide .h-big{font-size:78px;}
+.tight-slide .h-sec{font-size:64px;}
+.tight-slide .lead{font-size:28px;line-height:1.34;}
+.tight-slide .body{font-size:27px;line-height:1.35;}
+.tight-slide .split{height:auto;}
+.tight-slide .stack>*+*{margin-top:12px;}
+.tight-slide .grid2{gap:18px;}
+.tight-slide .grid3{gap:16px;}
+.tight-slide .grid4{gap:16px;}
+.tight-slide .card{padding:18px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12);}
+.tight-slide .card h3{font-size:30px;margin-bottom:6px;}
+.tight-slide .card p{font-size:21px;line-height:1.28;}
+.tight-slide .card .ic{font-size:34px;margin-bottom:5px;}
+.tight-slide .note{padding:18px 22px;}
+.tight-slide .note .lbl{font-size:19px;margin-bottom:6px;}
+.tight-slide .note p{font-size:22px;line-height:1.3;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-left .tape{position:absolute;top:84px;left:90px;}
+.title-right{background:var(--red);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right::before{content:"";position:absolute;width:740px;height:740px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f07055,#8a2010);right:-160px;top:-130px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-30px,44px) scale(1.04);}}
+.closing{background:var(--red);}.closing::before{opacity:.10;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing em.hot{color:var(--gold);}
+.mono-box{background:var(--ink);color:var(--gold);font-family:var(--font-mono);font-size:28px;padding:16px 26px;border-radius:10px;border:2px solid var(--red);display:inline-block;line-height:1.6;}
+.mono-box.sm{font-size:22px;}
+.check-row{display:flex;align-items:flex-start;gap:20px;padding:14px 0;border-bottom:1px dashed var(--line);}
+.check-row .ck{font-size:28px;min-width:36px;}
+.check-row .tx{font-size:27px;line-height:1.4;color:var(--ink-soft);}
+.cmp-tag{font-family:var(--font-mono);font-size:20px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.cmp-ok{color:#2e7d4f;}.cmp-bad{color:var(--red);}
+.sig-block{background:#fbf5ec;border:3px solid var(--ink);border-radius:14px;padding:36px 44px;box-shadow:7px 8px 0 rgba(28,23,20,.14);}
+.sig-line{font-family:var(--font-mono);font-size:26px;line-height:1.7;color:var(--ink);}
+.sig-name{font-family:var(--font-display);font-weight:900;font-size:40px;color:var(--ink);line-height:1.1;}
+.sig-role{font-family:var(--font-body);font-size:26px;color:var(--teal-2);font-weight:600;}
+.sig-company{font-family:var(--font-body);font-size:24px;color:var(--ink-faint);font-weight:600;margin-bottom:12px;}
+.sig-divider{border:none;border-top:2px dashed var(--line);margin:12px 0;}
+.sig-contact{font-family:var(--font-mono);font-size:22px;color:var(--ink-soft);line-height:1.8;}
+.sig-link{color:var(--teal-2);}
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
+body.editing [contenteditable]{outline:2px dashed var(--red);outline-offset:4px;border-radius:4px;}
+.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
+.edit-hint.show{display:block;}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease);}
+.title-slide .lead,.title-slide .chips{display:none;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display),Georgia,serif;font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}
+/* Regole locali dei deck di origine */
+.tight .h-sec{font-size:60px}
+.tight .lead{font-size:27px}
+.tight .card{padding:18px 20px}
+.tight .card h3{font-size:29px}
+.tight .card p{font-size:20px}
+.tight .table th,.tight .table td{font-size:16px;padding:8px 9px}
+.tape.sky{background:var(--sky)}
+.card.sky{border-color:var(--sky)}
+.note.sky{background:#d9edf2}
+</style>
+<link rel="stylesheet" href="../theme-corsi.css">
+</head>
+<body class="course-su">
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<section class="slide active visible">
+  <div class="center">
+    <h2 class="h-big reveal">Esercizi · <em class="hot">Suite Ufficio</em></h2>
+    <p class="lead reveal d1" style="margin-top:24px;">Le esercitazioni pratiche dei moduli di Suite Ufficio. Svolgi ogni esercizio dopo aver studiato il capitolo da cui nasce.</p>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<section class="slide tight-slide" data-source="su02-01-documenti.html"><h2 class="h-sec reveal">Esercizio 1: prepara i contenuti dei documenti</h2><p class="lead reveal d1">Scrivi il contenuto grezzo di una scheda cliente, un curriculum e un listino, prima di occuparti della formattazione.</p><div class="grid3 reveal d2" style="margin-top:24px;"><div class="card teal"><span class="ic">1</span><h3>Scheda cliente</h3><p>Definisci campi utili, consenso e informazioni da non raccogliere.</p></div><div class="card sky"><span class="ic">2</span><h3>Curriculum</h3><p>Ordina profilo, esperienze, formazione e competenze per rilevanza.</p></div><div class="card gold"><span class="ic">3</span><h3>Listino</h3><p>Raggruppa servizi, prezzi, condizioni e validità dell’offerta.</p></div></div><div class="note reveal d3" style="margin-top:20px;"><div class="lbl">Consegna</div><p>Tre bozze testuali complete, ciascuna con destinatario, scopo e informazioni obbligatorie evidenziate.</p></div><div class="page-num"></div></section>
+
+<section class="slide tight-slide" data-source="su02-02-word-scrivere-formattare.html"><h2 class="h-sec reveal">Esercizio 2: formatta un listino modificabile</h2><p class="lead reveal d1">Ricrea il listino usando stili, paragrafi, elenchi e Trova/Sostituisci, senza correzioni voce per voce.</p><div class="grid3 reveal d2" style="margin-top:24px;"><div class="card teal"><h3>Stili</h3><p>Titolo, categorie e testo normale hanno ruoli riconoscibili e aggiornabili.</p></div><div class="card sky"><h3>Paragrafi</h3><p>Allineamenti e spaziature restano corretti senza righe vuote o tabulazioni manuali.</p></div><div class="card gold"><h3>Correzioni</h3><p>Trova e Sostituisci uniforma termini e doppi spazi senza modifiche indesiderate.</p></div></div><div class="note reveal d3" style="margin-top:20px;"><div class="lbl">Consegna</div><p>Un DOCX modificabile e una breve prova: cambia uno stile e mostra che tutte le voci associate si aggiornano insieme.</p></div><div class="page-num"></div></section>
+
+<section class="slide tight-slide" data-source="su02-03-word-impaginare-revisionare.html"><h2 class="h-sec reveal">Esercizio 3: revisiona un report di due pagine</h2><p class="lead reveal d1">Impagina un report, raccogli osservazioni con commenti e Revisioni, quindi prepara una copia PDF pulita.</p><div class="grid3 reveal d2" style="margin-top:24px;"><div class="card teal"><h3>Impaginazione</h3><p>Aggiungi numero di pagina, tabella e immagine con didascalia mantenendo stabile il layout.</p></div><div class="card sky"><h3>Collaborazione</h3><p>Inserisci due commenti e fai correggere un paragrafo con Revisioni attive.</p></div><div class="card gold"><h3>Controllo</h3><p>Risolvi commenti e modifiche senza lasciarli visibili nel documento finale.</p></div></div><div class="note reveal d3" style="margin-top:20px;"><div class="lbl">Consegna</div><p>DOCX con cronologia delle revisioni e PDF finale privo di commenti, modifiche aperte o interruzioni errate.</p></div><div class="page-num"></div></section>
+
+<section class="slide tight-slide" data-source="su02-04-word-documenti-professionali.html"><h2 class="h-sec reveal">Esercizio 4: crea un kit professionale</h2><p class="lead reveal d1">Costruisci un modello riutilizzabile, una lettera basata sul brief e una stampa unione per tre destinatari.</p><div class="grid3 reveal d2" style="margin-top:24px;"><div class="card teal"><h3>Modello</h3><p>Il master resta pulito e genera documenti coerenti senza contenuti residui.</p></div><div class="card sky"><h3>Personalizzazione</h3><p>Brief, campi e stampa unione producono risultati corretti per destinatari diversi.</p></div><div class="card gold"><h3>Versioni</h3><p>Master, file modificabile e PDF sono nominati e distinti senza metadati superflui.</p></div></div><div class="note reveal d3" style="margin-top:20px;"><div class="lbl">Consegna</div><p>Modello master, DOCX di lavoro, tre documenti personalizzati e un PDF finale pronto per l’invio.</p></div><div class="page-num"></div></section>
+
+<section class="slide tight" data-source="su03-03-fondamenti-matematici.html"><h2 class="h-sec reveal">Esercizio 5: riconosci struttura e funzione</h2><p class="lead reveal d1">Per ogni situazione identifica insieme, condizione logica e famiglia di funzione.</p><div class="grid4 reveal d2" style="margin-top:24px;"><div class="card teal"><span class="ic">A</span><h3>Clienti attivi</h3><p>Definisci l’insieme e il suo complemento.</p></div><div class="card sky"><span class="ic">B</span><h3>Sconto</h3><p>Scrivi una condizione con AND/OR.</p></div><div class="card gold"><span class="ic">C</span><h3>Costo fisso + ore</h3><p>Riconosci una funzione affine.</p></div><div class="card red"><span class="ic">D</span><h3>Crescita percentuale</h3><p>Riconosci una funzione esponenziale.</p></div></div><div class="note reveal d3" style="margin-top:20px;"><div class="lbl">Consegna</div><p>Dominio, formula, esempio numerico e grafico essenziale per ciascuna delle quattro situazioni.</p></div><div class="page-num"></div></section>
+
+<section class="slide" data-source="su03-09-tabelle-pivot-avanzate.html"><h2 class="h-sec reveal">Esercizio 6: costruisci un cruscotto vendite</h2><p class="lead reveal d1">Parti da Data, Sede, Servizio, Operatore, Ricavo e Costo.</p><div class="grid2 reveal d2" style="margin-top:24px;"><div class="card teal"><span class="ic">A</span><h3>Pivot 1</h3><p>Ricavo e margine per servizio, con % del totale.</p></div> <div class="card sky"><span class="ic">B</span><h3>Pivot 2</h3><p>Trend mensile e variazione dal mese precedente.</p></div> <div class="card gold"><span class="ic">C</span><h3>Controlli</h3><p>Slicer per sede e operatore, periodo visibile.</p></div> <div class="card red"><span class="ic">D</span><h3>Verifica</h3><p>Apri il dettaglio di un valore e quadrane il totale.</p></div></div><div class="note reveal d3" style="margin-top:20px;"><div class="lbl">Consegna</div><p>Due pivot collegate alla stessa sorgente, slicer funzionanti e una verifica numerica del totale.</p></div><div class="page-num"></div></section>
+
+<section class="slide tight" data-source="su03-10-grafici.html"><h2 class="h-sec reveal">Esercizio 7: scegli quattro grafici</h2><p class="lead reveal d1">Trasforma quattro domande sui dati in grafici adatti, leggibili e non fuorvianti.</p><div class="grid2 reveal d1" style="margin-top:24px;"><div class="card teal"><h3>Confronto</h3><p>Ricavi per servizio → barre ordinate. Inserisci unità in euro, periodo osservato e una nota se alcune categorie aggregano servizi differenti.</p></div> <div class="card sky"><h3>Trend</h3><p>Incasso mensile → linea. Mantieni tutti i mesi, segnala quelli incompleti e annota eventi che spiegano picchi o cadute.</p></div> <div class="card gold"><h3>Composizione</h3><p>Quota per sede → barre 100% impilate. Controlla che ogni barra rappresenti lo stesso universo e affianca il totale se le dimensioni cambiano molto.</p></div> <div class="card red"><h3>Relazione</h3><p>Prezzo e quantità → dispersione. Etichetta gli outlier, osserva eventuali gruppi e non presentare la relazione come prova di causalità.</p></div></div><div class="note reveal d3" style="margin-top:20px;"><div class="lbl">Consegna</div><p>Quattro grafici con titolo-messaggio, tipo giustificato e una possibile distorsione esplicitata.</p></div><div class="page-num"></div></section>
+
+<section class="slide" data-source="su03-09-tabelle-pivot-avanzate.html"><h2 class="h-sec reveal">Esercizio 8: crea un cruscotto filtrabile</h2><p class="lead reveal d1">Parti dalla tabella incassi del salone, con Data, Sede, Servizio, Operatore e Ricavo.</p><div class="grid3 reveal d2" style="margin-top:26px;"><div class="card teal"><span class="ic">1</span><h3>Costruisci</h3><p>Una pivot con il ricavo per servizio e un grafico a barre accanto.</p></div><div class="card sky"><span class="ic">2</span><h3>Aggiungi i controlli</h3><p>Uno slicer per Sede e uno per Operatore; se usi Excel, prova anche la timeline sulle date.</p></div><div class="card gold"><span class="ic">3</span><h3>Collauda</h3><p>Clicca una sede: pivot e grafico devono cambiare insieme. Togli il filtro e verifica che il totale torni.</p></div></div><div class="note reveal d3" style="margin-top:20px;"><div class="lbl">Consegna</div><p>Pivot, grafico, due slicer e prova documentata del ritorno al totale dopo la rimozione dei filtri.</p></div><div class="num"></div></section>
+
+<section class="slide" data-source="su03-16-collegamenti-fogli.html"><h2 class="h-sec reveal">Esercizio 9: collega sorgente e report</h2><p class="lead reveal d1">Crea due file di Google Sheets e collegali.</p><div class="grid3 reveal d2" style="margin-top:26px;"><div class="card teal"><span class="ic">1</span><h3>Il file dati</h3><p>In un file «Incassi» metti Data, Sede, Servizio e Ricavo, con qualche riga di esempio.</p></div><div class="card sky"><span class="ic">2</span><h3>Il file report</h3><p>In un secondo file usa IMPORTRANGE per leggere gli incassi, e autorizza l'accesso.</p></div><div class="card gold"><span class="ic">3</span><h3>Filtra e prova</h3><p>Avvolgi in QUERY per vedere solo una sede, poi aggiungi una riga alla sorgente e guarda il report aggiornarsi.</p></div></div><div class="note reveal d3" style="margin-top:20px;"><div class="lbl">Consegna</div><p>Due file collegati, formula IMPORTRANGE autorizzata, QUERY filtrata e prova di aggiornamento dalla sorgente.</p></div><div class="num"></div></section>
+
+<section class="slide" data-source="su03-17-oltre-il-foglio.html">
+<h2 class="h-sec reveal">Esercizio 10: trasforma il foglio in specifica</h2>
+<p class="lead reveal d1">Prendi il foglio più stanco che usi davvero e trasformalo in una richiesta per l'IA.</p>
+<div class="reveal d2" style="display:flex;flex-direction:column;gap:11px;margin-top:24px;"><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">1</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Descrivi</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Elenca colonne, formule e il rito settimanale che fai a mano, in un testo di dieci righe.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">2</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Chiedi</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Fatti proporre dall'IA un piccolo software: solo la prima funzione, quella che fa più male.</span></div></div><div style="display:flex;gap:22px;align-items:flex-start;border-bottom:2px dashed var(--line);padding:13px 4px;"><span style="font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;">3</span><div><b style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;">Valuta</b><br><span style="font-size:22px;color:var(--ink-faint);line-height:1.32;">Confronta il risultato col foglio su dati veri, e decidi con la regola: manutenzione contro tempo risparmiato.</span></div></div></div>
+<div class="note reveal d3" style="margin-top:20px;"><div class="lbl">Consegna</div><p>Specifica di dieci righe, proposta della prima funzione e confronto verificato con dati reali.</p></div><div class="page-num"></div>
+</section>
+
+
+<section class="slide" data-source="su03-10-grafici.html"><h2 class="h-sec reveal">Revisione finale: ricostruire un grafico debole</h2><p class="lead reveal d1">Prendi un grafico 3D con molte serie, legenda lontana e titolo generico. Ridisegnalo documentando ogni scelta.</p><div class="grid2 reveal d2" style="margin-top:24px;"><div class="card teal"><h3>Messaggio</h3><p>Scrivi una frase verificabile che il lettore deve capire. Se emergono due messaggi indipendenti, separali in due grafici.</p></div> <div class="card sky"><h3>Tipo</h3><p>Scegli la codifica in base alla relazione: barre per confronti, linea per tempo, dispersione per due misure, istogramma per distribuzioni.</p></div> <div class="card gold"><h3>Pulizia</h3><p>Rimuovi 3D, bordi, colori e griglie che non aiutano la lettura. Mantieni invece unità, riferimento zero, fonte e annotazioni necessarie.</p></div> <div class="card red"><h3>Verifica</h3><p>Controlla scala, unità, fonte, filtri e valori mancanti. Confronta alcuni punti con la tabella sorgente prima di considerare concluso il lavoro.</p></div></div><div class="analogy reveal d3" style="margin-top:22px;"><span class="big">Consegna:</span> prima/dopo + tre motivazioni verificabili.</div><div class="page-num"></div></section>
+
+
+<section class="slide" data-source="su03-14-vba.html"><div class="center"><h2 class="h-sec reveal">Esercizio: Progetta la prima macro</h2><p class="lead reveal d1" style="margin-top:28px;">Scegli un'attività ripetitiva del salone (per esempio il report del lunedì) e descrivila in tre passaggi precisi: input, trasformazione, output. È la bozza della tua prima macro.</p><p class="body reveal d2" style="margin-top:32px;"><b>Consegna:</b> documenta il risultato e il controllo finale.</p></div><div class="page-num"></div></section>
+
+<section class="slide" data-source="su03-14-vba.html"><div class="center"><h2 class="h-sec reveal">Esercizio: Attraversa tutti i fogli con For Each</h2><p class="lead reveal d1" style="margin-top:28px;">Scrivi il ciclo che attraversa tutti i fogli e stampa nella finestra Immediata il nome di ciascuno. Quale variabile oggetto serve?</p><p class="body reveal d2" style="margin-top:32px;"><b>Consegna:</b> documenta il risultato e il controllo finale.</p></div><div class="page-num"></div></section>
+
+<section class="slide" data-source="su03-14-vba.html"><div class="center"><h2 class="h-sec reveal">Esercizio: Prepara una macro da distribuire</h2><p class="lead reveal d1" style="margin-top:28px;">Prepara una checklist di consegna: formato .xlsm, origine attendibile, firma, backup e istruzioni per l’utente.</p><p class="body reveal d2" style="margin-top:32px;"><b>Consegna:</b> documenta il risultato e il controllo finale.</p></div><div class="page-num"></div></section>
+
+<section class="slide" data-source="su03-15-google-apps-script.html"><div class="center"><h2 class="h-sec reveal">Esercizio: Progetta un’automazione Workspace</h2><p class="lead reveal d1" style="margin-top:28px;">Scegli un’attività in Workspace e descrivi origine dei dati, azione automatica, destinazione e frequenza di esecuzione.</p><p class="body reveal d2" style="margin-top:32px;"><b>Consegna:</b> documenta il risultato e il controllo finale.</p></div><div class="page-num"></div></section>
+
+<section class="slide" data-source="su03-15-google-apps-script.html"><div class="center"><h2 class="h-sec reveal">Esercizio: Progetta un invio di prova</h2><p class="lead reveal d1" style="margin-top:28px;">Progetta un’email di prova inviata solo al tuo indirizzo: oggetto, corpo, allegato previsto e controllo che evita doppi invii.</p><p class="body reveal d2" style="margin-top:32px;"><b>Consegna:</b> documenta il risultato e il controllo finale.</p></div><div class="page-num"></div></section>
+
+<section class="slide" data-source="su03-15-google-apps-script.html"><div class="center"><h2 class="h-sec reveal">Esercizio: Prepara l’aggiornamento di un deployment</h2><p class="lead reveal d1" style="margin-top:28px;">Annota versione corrente, modifica introdotta, utenti coinvolti e procedura di rollback prima di aggiornare un deployment.</p><p class="body reveal d2" style="margin-top:32px;"><b>Consegna:</b> documenta il risultato e il controllo finale.</p></div><div class="page-num"></div></section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
+
+<script src="../deck.js"></script>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suite Ufficio · SU03.05 — Analizzare e cercare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.slide.visible .reveal:nth-child(5){transition-delay:.37s}
+.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}.d4{transition-delay:.56s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase;}
+.tape.gold{background:var(--gold-deep)}.tape.teal{background:var(--teal)}.tape.sky{background:var(--sky)}
+.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}
+.lead{font-size:32px;line-height:1.45;color:var(--ink-soft);max-width:1120px;}
+.body{font-size:27px;line-height:1.46;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1.05;}
+.card p{font-size:24px;line-height:1.36;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa}.note.sky{background:#d9edf2}.note.teal{background:var(--teal)}.note.teal *{color:var(--paper)!important}.note.teal .lbl{color:var(--gold)!important}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px;}
+.note p{font-size:25px;line-height:1.36;color:var(--ink);}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}
+.col{display:flex;flex-direction:column}.center{height:100%;display:flex;flex-direction:column;justify-content:center}
+.split{display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;height:100%}
+.split.even{grid-template-columns:1fr 1fr}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stack>*+*{margin-top:20px}
+.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:27px}.tight-slide .grid2{gap:18px}.tight-slide .grid3{gap:14px}.tight-slide .card{padding:18px 22px}.tight-slide .card h3{font-size:30px}.tight-slide .card p{font-size:21px;line-height:1.28}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}
+.title-right>div,.title-right>svg{position:relative;z-index:2}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04)}}
+.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}
+.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}
+.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:28px;display:grid;place-items:center;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.sheet{width:100%;border-collapse:collapse;font-family:var(--font-mono);}
+.sheet td,.sheet th{border:1px solid var(--line);height:48px;text-align:center;font-size:20px;color:var(--ink-soft);background:#fff;}
+.sheet th{background:var(--paper-2);color:var(--ink);font-weight:700;}
+.sheet .rowh{background:var(--paper-2);color:var(--ink);font-weight:700;width:44px;}
+.sheet .sel{background:var(--gold);color:var(--ink);font-weight:700;outline:3px solid var(--red);outline-offset:-3px;}
+.sheet .head{background:#d9edf2;color:var(--ink);font-weight:700;}
+.sheet .hit{background:#d2f0e8;color:var(--teal);font-weight:700;}
+.formula{font-family:var(--font-mono);font-size:27px;background:#fff;border:2px solid var(--ink);border-radius:12px;padding:16px 22px;box-shadow:5px 6px 0 rgba(28,23,20,.12);color:var(--ink);}
+.formula b{color:var(--red)}
+.fn-card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:22px 26px;box-shadow:7px 8px 0 rgba(28,23,20,.12);}
+.fn-card h3{font-family:var(--font-mono);font-weight:700;font-size:30px;color:var(--teal);margin-bottom:6px;}
+.fn-card .syntax{font-family:var(--font-mono);font-size:20px;color:var(--ink-faint);margin-bottom:8px;}
+.fn-card p{font-size:22px;color:var(--ink-soft);}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:23px}
+.cmp th{font-family:var(--font-display);font-weight:900;font-size:28px;text-align:left;padding:12px 16px;color:var(--paper);background:var(--teal)}
+.cmp th:first-child{background:var(--ink);border-radius:12px 0 0 0}.cmp th:last-child{border-radius:0 12px 0 0}
+.cmp td{padding:10px 16px;border-bottom:2px solid var(--line);color:var(--ink-soft);background:#fbf5ec;vertical-align:top;line-height:1.3}
+.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--paper-2);font-family:var(--font-mono)}.cmp tr:last-child td{border-bottom:none}
+.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.title-slide .lead,.title-slide .chips{display:none;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+</style>
+<link rel="stylesheet" href="../theme-corsi.css">
+</head>
+<body class="course-su">
+<div class="deck-viewport">
+<div class="deck-stage" id="deckStage">
+
+  <!-- 1. TITLE -->
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <h1 class="h-mega reveal">Analizzare<br>e <em class="hot">cercare</em></h1>
+      <p class="lead reveal" style="margin-top:30px;">Tabelle, filtri, pivot, condivisione, CERCA.VERT, CERCA.ORIZZ, CONFRONTA, INDICE e la moderna CERCA.X.</p>
+
+    </div>
+    <div class="title-right">
+      <div class="reveal" style="font-size:210px;line-height:1;">🔍</div>
+    </div>
+  <div class="deck-author">Francesco Antonio Binetti</div></section>
+
+  <!-- 2. AGENDA -->
+
+
+  <!-- 3. TABELLE STRUTTURATE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Tabelle <em class="hot">strutturate</em></h2>
+        <p class="lead reveal d1">Converti un range in Tabella: il formato si estende automaticamente, le formule si copiano, i filtri appaiono, i riferimenti strutturati funzionano.</p>
+        <p class="body reveal d2">Inserisci → Tabella (o Ctrl+T). Dai un nome significativo: <span style="font-family:var(--font-mono);color:var(--teal);">Vendite</span>, <span style="font-family:var(--font-mono);color:var(--teal);">Clienti</span>, <span style="font-family:var(--font-mono);color:var(--teal);">Prodotti</span>.</p>
+        <div class="analogy reveal d3"><span class="big">Regola:</span> Converti in tabella subito. Le tabelle sono "range intelligenti" che crescono con i dati.</div>
+      </div>
+      <div class="col stack reveal d1" style="justify-content:center;gap:18px;">
+        <div class="card">
+          <h3>✓ Espansione auto</h3>
+          <p>Scrivi nella riga sotto la tabella — viene inclusa automaticamente e formattata come le altre.</p>
+        </div>
+        <div class="card">
+          <h3>✓ Riga totali</h3>
+          <p>Un clic destro → Riga totali: aggiunge SOMMA, MEDIA, CONTA o altra funzione in fondo a ogni colonna.</p>
+        </div>
+        <div class="card">
+          <h3>✓ Riferimento strutturato</h3>
+          <p><span style="font-family:var(--font-mono);">=SOMMA(Vendite[Importo])</span> si aggiorna quando aggiungi righe.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 4. FILTRI E ORDINAMENTO -->
+  <section class="slide">
+    <div class="col stack">
+
+      <h2 class="h-sec reveal">Ordinamento e <em class="hot">filtri</em></h2>
+      <p class="lead reveal d1">Le frecce di filtro appaiono in automatico sulle intestazioni di una tabella. Cliccale per ordinare o filtrare i dati senza toccare le formule. <span class="shortcut-inline">Ctrl+Maiusc+L · filtri</span></p>
+      <div class="grid3 reveal d2">
+        <div class="card">
+          <span class="ic">↕️</span>
+          <h3>Ordinamento</h3>
+          <p>Ordina da A a Z, da Z ad A, dal minore al maggiore. Puoi ordinare per più colonne (prima per città, poi per data).</p>
+        </div>
+        <div class="card">
+          <span class="ic">🔽</span>
+          <h3>Filtro base</h3>
+          <p>Deseleziona i valori che non vuoi vedere. I dati non vengono cancellati — solo nascosti. Togli il filtro per ripristinarli.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🎯</span>
+          <h3>Filtro per condizione</h3>
+          <p>"Maggiore di 100", "contiene 'Roma'", "questa settimana" — condizioni potenti senza scrivere formule.</p>
+        </div>
+      </div>
+      <div class="note reveal d3" style="margin-top:16px;"><div class="lbl">💡 Filtro avanzato</div><p>Vuoi estrarre i dati filtrati in un'altra area del foglio? Usa la funzione <span style="font-family:var(--font-mono);">FILTER</span> — i risultati si aggiornano automaticamente.</p></div>
+    </div>
+    <div class="note" style="margin-top:20px"><div class="lbl">📍 Dove si trova</div><p><b>Excel:</b> Dati → Ordina / Filtro (o Home → Ordina e filtra). · <b>Google Fogli:</b> Dati → Ordina intervallo / Crea un filtro.</p></div><div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Supporto Microsoft Excel" aria-label="Fonte ufficiale: Supporto Microsoft Excel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Supporto Microsoft Excel ↗</a></div></section>
+
+  <!-- 5. PIVOT -->
+  <section class="slide">
+  <h2 class="h-sec reveal">Le tabelle pivot hanno un modulo dedicato</h2>
+  <p class="lead reveal d1">Qui basta riconoscere quando servono: riassumono molte righe per categoria senza costruire a mano decine di formule.</p>
+  <div class="grid3 reveal d2" style="margin-top:28px;">
+    <div class="card teal"><h3>Domanda</h3><p>Quale totale, media o conteggio vuoi confrontare?</p></div>
+    <div class="card sky"><h3>Campi</h3><p>Righe, colonne, valori e filtri trasformano la stessa sorgente in report diversi.</p></div>
+    <div class="card gold"><h3>Percorso</h3><p>Costruzione, aggiornamento e controlli sono sviluppati nel modulo SU03.08.</p></div>
+  </div>
+  <div class="page-num"></div>
+
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="su03-08-tabelle-pivot.html#slide-2">SU03.08 · Tabelle pivot ↗</a></div></section>
+
+  <!-- 6. FILTER / UNICI -->
+  <section class="slide">
+    <div class="col stack">
+
+      <h2 class="h-sec reveal">FILTER, UNICI, <em class="hot">ARRAYFORMULA</em></h2>
+      <p class="lead reveal d1">Formule "spill" che restituiscono una matrice di risultati: il foglio le espande automaticamente occupando tutte le celle necessarie.</p>
+      <div class="grid3 reveal d2">
+        <div class="fn-card">
+          <h3>FILTER</h3>
+          <div class="syntax">=FILTER(A2:C20; B2:B20&gt;100)</div>
+          <p>Estrae le righe che rispettano una condizione. Si aggiorna ogni volta che cambiano i dati sorgente.</p>
+        </div>
+        <div class="fn-card">
+          <h3>UNICI</h3>
+          <div class="syntax">=UNICI(A2:A100)</div>
+          <p>Restituisce la lista dei valori distinti senza duplicati. Equivale al "Rimuovi duplicati" ma dinamico.</p>
+        </div>
+        <div class="fn-card">
+          <h3>ARRAYFORMULA</h3>
+          <div class="syntax">=ARRAYFORMULA(B2:B10*1.22)</div>
+          <p>Google Sheets: applica la stessa formula a un intero range senza copiare. Excel usa "array impliciti".</p>
+        </div>
+      </div>
+      <div class="note reveal d3" style="margin-top:14px;"><div class="lbl">💡 Nomi e disponibilità</div><p>In Google Sheets si chiamano <b>FILTER</b> e <b>UNIQUE</b>; in Excel 365 italiano <b>FILTRO</b> e <b>UNICI</b>. Nelle versioni più vecchie di Excel usare le pivot o tabelle manuali.</p></div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Google Sheets" aria-label="Fonte ufficiale: Guida ufficiale Google Sheets" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Google Sheets ↗</a></div></section>
+
+  <!-- 7. CONDIVISIONE E AUTOMAZIONI -->
+  <section class="slide tight-slide">
+    <div class="col stack">
+
+      <h2 class="h-sec reveal">Condivisione e <em class="hot">automazioni</em></h2>
+      <div class="grid4 reveal d1" style="margin-top:18px;">
+        <div class="card">
+          <span class="ic">🔗</span>
+          <h3>Condivisione link</h3>
+          <p>Google Sheets: condividi con permesso di lettura, commento o modifica. I collaboratori vedono i dati in tempo reale.</p>
+        </div>
+        <div class="card">
+          <span class="ic">💬</span>
+          <h3>Commenti</h3>
+          <p>Clic destro → Inserisci commento. Tagga colleghi con @nome. Il thread resta ancorato alla cella.</p>
+        </div>
+        <div class="card">
+          <span class="ic">📜</span>
+          <h3>Cronologia versioni</h3>
+          <p>File → Cronologia → Versioni precedenti. Ripristina una versione precedente se qualcuno cancella dati importanti.</p>
+        </div>
+        <div class="card">
+          <span class="ic">🤖</span>
+          <h3>Macro e script</h3>
+          <p>Google Sheets: App Script (JavaScript). Excel: VBA. Automatizzano operazioni ripetitive come formattare report o inviare email.</p>
+        </div>
+      </div>
+      <div class="note reveal d2" style="margin-top:14px;"><div class="lbl">💡 Connessioni</div><p>Google Sheets si connette a Google Forms (raccogliere risposte), Google Data Studio/Looker (grafici avanzati) e centinaia di servizi tramite Zapier o Make.</p></div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://learn.microsoft.com/office/vba/api/overview/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Riferimento VBA per Office — Microsoft Learn" aria-label="Fonte ufficiale: Riferimento VBA per Office — Microsoft Learn" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Riferimento VBA per Office — Microsoft Learn ↗</a></div></section>
+
+  <!-- 8. CERCA.VERT -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Ricerca <em class="hot">verticale</em></h2>
+        <p class="lead reveal d1">CERCA.VERT cerca un valore nella prima colonna di una tabella e restituisce il valore in una colonna a destra scelta da te.</p>
+        <div class="formula reveal d2" style="font-size:21px;">=CERCA.VERT(<b>chiave</b>; tabella; col_risultato; 0)</div>
+        <div class="stack reveal d3">
+          <div class="agenda-item" style="border-color:var(--sky);padding:10px 4px;"><span style="font-size:26px;min-width:40px;">🔑</span><div><b style="font-size:24px;">chiave</b> — il valore da cercare (es. nome prodotto)</div></div>
+          <div class="agenda-item" style="border-color:var(--sky);padding:10px 4px;"><span style="font-size:26px;min-width:40px;">📋</span><div><b style="font-size:24px;">tabella</b> — il range dove cercare (colonna 1 = chiave)</div></div>
+          <div class="agenda-item" style="border-color:var(--sky);padding:10px 4px;"><span style="font-size:26px;min-width:40px;">🔢</span><div><b style="font-size:24px;">col_risultato</b> — numero della colonna da restituire</div></div>
+          <div class="agenda-item" style="border-color:var(--red);padding:10px 4px;"><span style="font-size:26px;min-width:40px;">0</span><div><b style="font-size:24px;">0 = corrispondenza esatta</b> — usare sempre 0</div></div>
+        </div>
+      </div>
+      <div class="illu reveal d1">
+        <table class="sheet" style="width:280px;">
+          <tr><th></th><th>A (Prod.)</th><th>B (Prezzo)</th></tr>
+          <tr><td class="rowh">1</td><td class="head" style="font-size:17px;">Listino</td><td class="head" style="font-size:17px;">€</td></tr>
+          <tr><td class="rowh">2</td><td class="hit" style="font-size:16px;">Crema X</td><td>25</td></tr>
+          <tr><td class="rowh">3</td><td style="font-size:16px;">Shampoo Y</td><td>12</td></tr>
+          <tr><td class="rowh">4</td><td style="font-size:16px;">Gel Z</td><td>8</td></tr>
+        </table>
+        <div style="margin:12px 0;text-align:center;font-family:var(--font-mono);font-size:18px;color:var(--red);">Cerco "Crema X" → 25 €</div>
+        <div class="formula" style="font-size:17px;padding:10px 16px;">=CERCA.VERT("Crema X"; A2:B4; 2; 0)</div>
+        <div class="illu-cap">Trova in colonna A, restituisce colonna B</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 9. CERCA.ORIZZ -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Ricerca <em class="hot">orizzontale</em></h2>
+        <p class="lead reveal d1">CERCA.ORIZZ funziona come CERCA.VERT ma su righe invece che su colonne. Cerca nella prima riga e restituisce un valore dalla riga specificata più in basso.</p>
+        <div class="formula reveal d2" style="font-size:21px;">=CERCA.ORIZZ(<b>chiave</b>; tabella; riga_risultato; 0)</div>
+        <div class="note reveal d3"><div class="lbl">💡 Quando usarla</div><p>CERCA.ORIZZ è utile quando i dati sono in orizzontale — es. mesi sulle colonne, categorie sulle righe. Nella maggior parte dei casi si usa CERCA.VERT.</p></div>
+      </div>
+      <div class="illu reveal d1">
+        <table class="sheet" style="width:300px;">
+          <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr>
+          <tr><td class="rowh">1</td><td class="head" style="font-size:16px;">Mese</td><td class="hit" style="font-size:16px;">Gen</td><td style="font-size:16px;">Feb</td><td style="font-size:16px;">Mar</td></tr>
+          <tr><td class="rowh">2</td><td style="font-size:16px;">Salone A</td><td>1200</td><td>1400</td><td>980</td></tr>
+          <tr><td class="rowh">3</td><td style="font-size:16px;">Salone B</td><td>800</td><td>950</td><td>1100</td></tr>
+        </table>
+        <div style="margin:12px 0;text-align:center;font-family:var(--font-mono);font-size:17px;color:var(--red);">Cerco "Gen" riga 2 → 1200</div>
+        <div class="formula" style="font-size:17px;padding:10px 16px;">=CERCA.ORIZZ("Gen"; A1:D3; 2; 0)</div>
+        <div class="illu-cap">Cerca sulla riga 1, restituisce dalla riga 2</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 10. CONFRONTA -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Trovare la <em class="hot">posizione</em></h2>
+        <p class="lead reveal d1">CONFRONTA cerca un valore in un range e restituisce la <b>posizione</b> (numero ordine), non il valore stesso. È il tassello fondamentale per la combinazione INDICE+CONFRONTA.</p>
+        <div class="formula reveal d2" style="font-size:22px;">=CONFRONTA(<b>chiave</b>; intervallo; 0)</div>
+        <p class="body reveal d3" style="margin-top:12px;">Restituisce un numero: <span style="font-family:var(--font-mono);color:var(--teal);">1</span> se la chiave è la prima, <span style="font-family:var(--font-mono);color:var(--teal);">2</span> la seconda, e così via. Se non trovata: #N/D.</p>
+        <div class="analogy reveal d4"><span class="big">Analogia:</span> CONFRONTA risponde "è alla posizione 3", non "vale 25". Come cercare su un indice e trovare il numero di pagina.</div>
+      </div>
+      <div class="illu reveal d1">
+        <table class="sheet" style="width:260px;">
+          <tr><th></th><th>A (Prodotti)</th></tr>
+          <tr><td class="rowh">1</td><td style="font-size:17px;">Crema X</td></tr>
+          <tr><td class="rowh">2</td><td style="font-size:17px;">Shampoo Y</td></tr>
+          <tr><td class="rowh">3</td><td class="hit" style="font-size:17px;">Gel Z</td></tr>
+          <tr><td class="rowh">4</td><td style="font-size:17px;">Lacca W</td></tr>
+        </table>
+        <div style="margin:12px 0;text-align:center;font-family:var(--font-mono);font-size:17px;color:var(--red);">CONFRONTA("Gel Z"; A1:A4; 0) → 3</div>
+        <div class="illu-cap">"Gel Z" è in posizione 3 nella lista</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 11. INDICE -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Estrarre per <em class="hot">posizione</em></h2>
+        <p class="lead reveal d1">INDICE è l'opposto di CONFRONTA: dato un numero di riga (e colonna), restituisce il valore in quella posizione all'interno di un range.</p>
+        <div class="formula reveal d2" style="font-size:22px;">=INDICE(<b>intervallo</b>; riga; colonna)</div>
+        <p class="body reveal d3" style="margin-top:12px;"><span style="font-family:var(--font-mono);color:var(--teal);">=INDICE(A1:A4; 3)</span> → restituisce il valore alla riga 3 del range — cioè "Gel Z".</p>
+        <div class="note reveal d4"><div class="lbl">💡 Combinazione</div><p>INDICE da solo è rigido (riga fissa). Combinato con CONFRONTA diventa dinamico — cerca la posizione e la usa per estrarre il valore.</p></div>
+      </div>
+      <div class="illu reveal d1">
+        <table class="sheet" style="width:260px;">
+          <tr><th></th><th>A (Prodotti)</th><th>B (Prezzo)</th></tr>
+          <tr><td class="rowh">1</td><td style="font-size:17px;">Crema X</td><td>25</td></tr>
+          <tr><td class="rowh">2</td><td style="font-size:17px;">Shampoo Y</td><td>12</td></tr>
+          <tr><td class="rowh">3</td><td class="hit" style="font-size:17px;">Gel Z</td><td class="sel">8</td></tr>
+          <tr><td class="rowh">4</td><td style="font-size:17px;">Lacca W</td><td>18</td></tr>
+        </table>
+        <div style="margin:12px 0;text-align:center;font-family:var(--font-mono);font-size:17px;color:var(--red);">INDICE(B1:B4; 3) → 8</div>
+        <div class="illu-cap">Riga 3 della colonna B = 8 (prezzo Gel Z)</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 12. INDICE+CONFRONTA -->
+  <section class="slide">
+    <div class="col stack">
+
+      <h2 class="h-sec reveal"><em class="hot">INDICE+CONFRONTA</em> — ricerca flessibile</h2>
+      <p class="lead reveal d1">CONFRONTA trova la posizione della chiave. INDICE usa quella posizione per estrarre il valore. Insieme formano una ricerca che non dipende dall'ordine delle colonne.</p>
+      <div class="formula reveal d2" style="font-size:21px;">=INDICE(<b>col_risultato</b>; CONFRONTA(<b>chiave</b>; <b>col_chiave</b>; 0))</div>
+      <div class="grid2 reveal d3" style="margin-top:20px;">
+        <div class="card">
+          <h3 style="font-size:28px;">CERCA.VERT</h3>
+          <p>La chiave deve essere nella <b>prima colonna</b>. Il risultato deve stare a destra. Se si aggiunge una colonna, il numero si sposta.</p>
+        </div>
+        <div class="card" style="border-color:var(--teal);">
+          <h3 style="font-size:28px;">INDICE+CONFRONTA</h3>
+          <p>Chiave e risultato possono essere in qualsiasi colonna — anche a sinistra. Più robusto ai cambiamenti nella tabella.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 13. CERCA.X -->
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal"><em class="hot">CERCA.X</em> — il futuro</h2>
+        <p class="lead reveal d1">CERCA.X (XLOOKUP) sostituisce sia CERCA.VERT che INDICE+CONFRONTA. Cerca in qualsiasi direzione, gestisce da sola i valori non trovati e ha una sintassi più leggibile.</p>
+        <div class="formula reveal d2" style="font-size:20px;">=CERCA.X(<b>chiave</b>; <b>dove_cercare</b>; <b>cosa_restituire</b>; [se_non_trovato])</div>
+        <p class="body reveal d3" style="margin-top:10px;">A differenza di CERCA.VERT non richiede il numero di colonna — specifichi direttamente il range di output.</p>
+        <div class="note reveal d4"><div class="lbl">💡 Compatibilità</div><p>Disponibile in Excel 365 (non versioni precedenti) e Google Sheets. Per file condivisi con utenti su Excel 2019 o meno, usa ancora CERCA.VERT.</p></div>
+      </div>
+      <div class="col stack reveal d1" style="justify-content:center;gap:20px;">
+        <div class="card">
+          <h3>CERCA.VERT (classica)</h3>
+          <p style="font-family:var(--font-mono);font-size:19px;color:var(--ink-faint);">=CERCA.VERT(E2;A:C;3;0)</p>
+          <p style="margin-top:8px;">Dipende dal numero di colonna — fragile se si inseriscono colonne.</p>
+        </div>
+        <div class="card" style="border-color:var(--teal);">
+          <h3>CERCA.X (moderna)</h3>
+          <p style="font-family:var(--font-mono);font-size:19px;color:var(--teal);">=CERCA.X(E2;A:A;C:C;"N/T")</p>
+          <p style="margin-top:8px;">Nessun numero di colonna. Se non trovato → mostra "N/T".</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 14. QUALE FUNZIONE SCEGLIERE -->
+  <section class="slide tight-slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:20px;">Quale funzione di ricerca <em class="hot">scegliere?</em></h2>
+      <table class="cmp reveal d1" style="margin-top:22px;">
+        <tr><th>Funzione</th><th>Usa quando…</th><th>Limite</th></tr>
+        <tr><td>CERCA.VERT</td><td>Chiave nella prima colonna, risultato a destra — caso più comune</td><td>Non cerca a sinistra; fragile agli inserimenti di colonne</td></tr>
+        <tr><td>CERCA.ORIZZ</td><td>I dati sono disposti in orizzontale (mesi sulle colonne)</td><td>Raro in pratica; rischioso con grandi tabelle</td></tr>
+        <tr><td>INDICE+CONFRONTA</td><td>Risultato a sinistra della chiave; vuoi robustezza strutturale</td><td>Sintassi doppia — più complessa da leggere</td></tr>
+        <tr><td>CERCA.X</td><td>Hai Excel 365 o Google Sheets; vuoi la soluzione più moderna</td><td>Non funziona su Excel 2019 e precedenti</td></tr>
+      </table>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- 15. VERIFICA -->
+
+
+  <!-- 16. CLOSING -->
+  <section class="slide closing"><div class="closing-inner"><div class="center" style="text-align:center;">
+      <h2 class="h-mega reveal" style="margin-top:10px;">Dati trovati,<br>istantaneamente.</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Tabelle strutturate, ordinamento, pivot e FILTER per esplorare migliaia di righe. CERCA.VERT, INDICE+CONFRONTA e CERCA.X per trovare qualsiasi valore in una lista.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a class="chip" href="su03-06-funzioni-top.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → SU03.06 · Top 10 funzioni</a>
+      </div>
+    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://support.microsoft.com/excel" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Supporto Microsoft Excel ↗</a><a href="https://support.google.com/docs/topic/9054603" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Google Sheets ↗</a><a href="https://learn.microsoft.com/office/vba/api/overview/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Riferimento VBA per Office — Microsoft Learn ↗</a></div></div><div class="page-num"></div></section>
+
+</div>
+</div>
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
+
+<script src="../deck.js"></script>
+</body>
+</html>

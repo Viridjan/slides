@@ -1,0 +1,278 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smartphones · SM04 — App e permessi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg)}.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg)}.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);font-family:var(--font-body);color:var(--ink);padding:96px 110px}.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30}@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px}.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint)}.page-num b{color:var(--red);font-size:30px}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}.slide.visible .reveal{opacity:1;transform:none}.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase}.tape.teal{background:var(--teal)}.tape.gold{background:var(--gold-deep)}.tape.sky{background:var(--sky)}.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red)}.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px}.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px}.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px}em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var(--sky)}.lead{font-size:32px;line-height:1.42;color:var(--ink-soft);max-width:1120px}.body{font-size:27px;line-height:1.46;color:var(--ink-soft)}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.title-right>div,.title-right>svg{position:relative;z-index:2;}.phone-art{width:330px;height:620px;border:8px solid var(--ink);border-radius:48px;background:#fbf5ec;box-shadow:16px 18px 0 rgba(0,0,0,.18);display:grid;place-items:center;position:relative}.phone-art::before{content:"";position:absolute;top:18px;width:88px;height:10px;border-radius:99px;background:var(--ink)}.phone-art::after{content:"";position:absolute;bottom:22px;width:72px;height:72px;border:5px solid var(--ink);border-radius:50%;opacity:.18}
+.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative}.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .card{padding:20px 24px}.tight-slide .card h3{font-size:30px}.tight-slide .card p,.tight-slide .card li{font-size:21px;line-height:1.28}
+.title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+</style>
+<link rel="stylesheet" href="../theme-corsi.css">
+</head>
+<body class="course-sm">
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <h1 class="h-mega reveal">App e permessi</h1>
+      <p class="lead reveal" style="margin-top:30px;">Dagli store ufficiali ai permessi di fotocamera, microfono e posizione: come installare e tenere sotto controllo le app.</p>
+
+    </div>
+    <div class="title-right"><div class="phone-art reveal"></div></div>
+  <div class="deck-author">Francesco Antonio Binetti</div></section>
+
+
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Cosa sono le app</h2>
+        <p class="lead reveal d1">Piccoli programmi specializzati: uno scopo preciso ciascuno, sempre a portata di dito. Ma per lavorare devono chiedere al telefono l'accesso a hardware e dati.</p>
+        <div class="note reveal d2"><div class="lbl">Alternativa leggera</div><p>Molti servizi funzionano anche come <b>web app</b> dal browser, senza installare nulla: meno permessi concessi e meno dati raccolti, in cambio di meno funzioni offline e niente notifiche push complete.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📱</span>
+        <h3>Dietro l'icona</h3>
+        <ul><li>Ogni app dialoga con il sistema operativo per usare fotocamera, rete, memoria e sensori: ogni accesso è una porta aperta sui tuoi dati.</li><li>Il modello economico conta: gratuita, a pagamento, freemium o in abbonamento. Se è gratis, spesso il "prezzo" sono i tuoi dati o la pubblicità.</li><li>Un'app ben fatta chiede solo i permessi indispensabili al suo scopo dichiarato.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:18px;">Gli store ufficiali</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Sono i "negozi controllati" del telefono: ogni app viene verificata prima della pubblicazione. Non è una garanzia assoluta, ma è il primo filtro di sicurezza.</p>
+      <div class="grid3 reveal d2" style="margin-top:30px;">
+        <div class="card"><span class="ic">🛍️</span><h3>Play Store</h3><p>Lo store di Android. <b>Google Play Protect</b> scansiona automaticamente le app installate alla ricerca di comportamenti dannosi, anche dopo l'installazione.</p></div>
+        <div class="card"><span class="ic">🍎</span><h3>App Store</h3><p>Lo store di iOS. Ogni app passa una <b>revisione</b> prima della pubblicazione; su iPhone è di fatto l'unico canale di installazione per la maggior parte degli utenti.</p></div>
+        <div class="card"><span class="ic">🚧</span><h3>Fuori dagli store</h3><p>Su Android si possono installare file <b>APK</b> scaricati dal web (sideloading): nessun controllo preventivo. Da evitare, salvo casi eccezionali e fonti fidatissime.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a><a data-source-origin="auto" href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Manuale utente iPhone — Apple" aria-label="Fonte ufficiale: Manuale utente iPhone — Apple" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Manuale utente iPhone — Apple ↗</a></div></section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:18px;">Riconoscere app pericolose</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Anche dentro gli store si nascondono app truffaldine. Prima di installare, dedica un minuto a questi tre controlli.</p>
+      <div class="grid3 reveal d2" style="margin-top:26px;">
+        <div class="card"><span class="ic">🎭</span><h3>Cloni e falsi</h3><p>Nome e icona imitano marchi famosi ("WhatsApp Gold", "Fortnite gratis"). Verifica il <b>nome dello sviluppatore</b> e il numero di download: gli originali ne hanno milioni.</p></div>
+        <div class="card"><span class="ic">🔓</span><h3>Permessi sproporzionati</h3><p>Una torcia che chiede contatti e posizione, un gioco che vuole leggere gli SMS: se il permesso non serve alla funzione dichiarata, è un campanello d'allarme.</p></div>
+        <div class="card"><span class="ic">⭐</span><h3>Recensioni anomale</h3><p>Poche recensioni tutte a 5 stelle, testi ripetitivi, ultimo aggiornamento vecchio di anni: leggi le recensioni <b>recenti e negative</b>, dicono la verità.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:26px;"><div class="lbl">Cosa rischi</div><p>Adware (pubblicità invasiva), spyware (raccolta nascosta di dati) e <b>fleeceware</b>: app banali che attivano abbonamenti carissimi dopo una "prova gratuita".</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Cosa sono i permessi</h2>
+        <p class="lead reveal d1">Sono le autorizzazioni che un'app deve chiederti per usare le risorse sensibili del telefono. Sei tu a decidere, e puoi cambiare idea in qualsiasi momento. I più delicati:</p>
+        <div class="stack reveal d2">
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📷</span><div><b style="font-size:27px;">Fotocamera e microfono</b><br><span style="font-size:23px;color:var(--ink-faint);">vedono e sentono ciò che ti circonda.</span></div></div>
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📍</span><div><b style="font-size:27px;">Posizione</b><br><span style="font-size:23px;color:var(--ink-faint);">rivela dove sei, dove abiti, dove lavori.</span></div></div>
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">👥</span><div><b style="font-size:27px;">Contatti e foto/file</b><br><span style="font-size:23px;color:var(--ink-faint);">espongono anche dati di altre persone.</span></div></div>
+          <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📨</span><div><b style="font-size:27px;">SMS e telefono</b><br><span style="font-size:23px;color:var(--ink-faint);">possono intercettare codici bancari o fare chiamate a pagamento.</span></div></div>
+        </div>
+        <div class="analogy reveal d3" style="font-size:25px;"><span class="big">Regola:</span> navigatore → posizione: sì. Gioco → rubrica: no.</div>
+      </div>
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 280 280" style="max-width:260px;margin:0 auto;" role="img" aria-label="Un'app chiede il permesso di usare il microfono: due pulsanti, consenti o nega">
+          <!-- Telefono -->
+          <rect x="85" y="16" width="110" height="248" rx="18" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+          <rect x="94" y="32" width="92" height="208" rx="8" fill="#f4ece0"/>
+          <rect x="124" y="22" width="32" height="5" rx="2.5" fill="#1c1714"/>
+          <circle cx="140" cy="252" r="6" fill="#f4ece0" opacity=".5"/>
+          <!-- Icone app sullo schermo -->
+          <rect x="104" y="44" width="20" height="20" rx="5" fill="#3f7e8c"/>
+          <rect x="130" y="44" width="20" height="20" rx="5" fill="#e6c14a"/>
+          <rect x="156" y="44" width="20" height="20" rx="5" fill="#e6533b"/>
+          <rect x="104" y="70" width="20" height="20" rx="5" fill="#d8c9b4"/>
+          <rect x="130" y="70" width="20" height="20" rx="5" fill="#d8c9b4"/>
+          <!-- Finestra di dialogo del permesso -->
+          <rect x="52" y="112" width="176" height="118" rx="12" fill="#fbf5ec" stroke="#1c1714" stroke-width="3"/>
+          <circle cx="140" cy="142" r="17" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
+          <rect x="136" y="132" width="8" height="13" rx="4" fill="#1c1714"/>
+          <path d="M131 141 a9 9 0 0 0 18 0" fill="none" stroke="#1c1714" stroke-width="2.5"/>
+          <line x1="140" y1="150" x2="140" y2="155" stroke="#1c1714" stroke-width="2.5"/>
+          <!-- Righe di testo -->
+          <rect x="72" y="168" width="136" height="7" rx="3.5" fill="#d8c9b4"/>
+          <rect x="88" y="181" width="104" height="7" rx="3.5" fill="#d8c9b4"/>
+          <!-- Pulsanti: consenti / nega -->
+          <rect x="66" y="198" width="68" height="22" rx="11" fill="#163b35"/>
+          <path d="M92 209 l5 5 l9 -10" fill="none" stroke="#f4ece0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="146" y="198" width="68" height="22" rx="11" fill="#e6533b"/>
+          <line x1="174" y1="203" x2="186" y2="215" stroke="#f4ece0" stroke-width="3" stroke-linecap="round"/>
+          <line x1="186" y1="203" x2="174" y2="215" stroke="#f4ece0" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="illu-cap">L'app chiede, tu decidi — e puoi cambiare idea</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:18px;">Fotocamera e microfono</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Sono gli occhi e le orecchie del telefono: i due permessi da concedere con più prudenza in assoluto.</p>
+      <div class="grid2 reveal d2" style="margin-top:28px;">
+        <div class="card"><span class="ic">📷</span><h3>Fotocamera</h3><p>Serve davvero a: foto e video, videochiamate, scansione di documenti e codici QR. <b>Non serve</b> a giochi, torce, app di note o calcolatrici: se la chiedono, insospettisciti.</p></div>
+        <div class="card"><span class="ic">🎙️</span><h3>Microfono</h3><p>Serve davvero a: chiamate, note vocali, video, traduzione vocale, assistenti. Android e iOS mostrano un <b>indicatore colorato</b> in alto quando microfono o fotocamera sono in uso: impara a notarlo.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:26px;"><div class="lbl">L'opzione giusta</div><p>Scegli sempre <b>"Solo mentre usi l'app"</b> o "Chiedi ogni volta". "Consenti sempre" significa che l'app può attivarli anche quando è chiusa: quasi nessuna app lo giustifica.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Posizione</h2>
+        <p class="lead reveal d1">Utile per mappe, meteo, trasporti e consegne — ma è anche il dato più ambito dal tracciamento commerciale: rivela abitudini, spostamenti e luoghi frequentati.</p>
+        <div class="note reveal d2"><div class="lbl">Sempre vs. durante l'uso</div><p>Per quasi tutte le app basta <b>"Solo durante l'uso"</b>. "Sempre" ha senso solo per casi come il tracciamento fitness continuo. La posizione in background costante è il principale vettore di profilazione.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">📍</span>
+        <h3>Precisa o approssimativa</h3>
+        <ul><li><b>Precisa</b>: GPS al metro. Indispensabile per navigazione e consegne a domicilio.</li><li><b>Approssimativa</b>: zona di qualche chilometro. Basta e avanza per meteo e notizie locali.</li><li>Android e iOS permettono di scegliere: quando l'app propone la scelta, parti dall'approssimativa.</li><li>Attenzione anche alle foto: possono contenere le coordinate GPS nei metadati.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:18px;">Contatti, foto e file</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Questi permessi non espongono solo i tuoi dati: rubrica e galleria contengono informazioni su altre persone, che non hanno mai dato il consenso.</p>
+      <div class="grid2 reveal d2" style="margin-top:28px;">
+        <div class="card"><span class="ic">👥</span><h3>Rubrica</h3><p>Quando concedi i contatti, l'app legge <b>l'intera rubrica</b> — nomi, numeri, email di amici e colleghi — e spesso la carica sui propri server. Se puoi inserire un numero a mano, fallo: è la scelta più rispettosa verso gli altri.</p></div>
+        <div class="card"><span class="ic">🖼️</span><h3>Galleria e file</h3><p>Contiene foto personali, documenti fotografati e screenshot con dati sensibili. Le versioni recenti di Android e iOS permettono l'<b>accesso selettivo</b>: concedi solo le foto che scegli, non tutta la galleria.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:26px;"><div class="lbl">Trucco pratico</div><p>Invece di dare a un'app l'accesso alla galleria, <b>condividi la singola foto</b> dall'app Foto/Galleria verso l'app di destinazione: stesso risultato, zero permessi permanenti.</p></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:18px;">Controllare e revocare i permessi</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Un permesso concesso non è per sempre: ecco come rivederli tutti in cinque minuti. Fallo ogni 3–6 mesi.</p>
+      <div class="grid2 reveal d2" style="margin-top:28px;">
+        <div class="card"><h3><em class="hot">1.</em> Apri il pannello</h3><p><b>Permessi su Android:</b> Impostazioni → Sicurezza e privacy → Gestione autorizzazioni.<br><b>Permessi su iOS:</b> Impostazioni → Privacy e sicurezza.</p></div>
+        <div class="card"><h3><em class="hot">2.</em> Scorri per permesso</h3><p>Scegli una risorsa (es. <b>Microfono</b>) e guarda l'elenco delle app che possono usarla: è qui che scopri le sorprese dimenticate.</p></div>
+        <div class="card"><h3><em class="hot">3.</em> Cambia o revoca</h3><p>Tocca l'app e scegli tra <b>Consenti sempre / Solo durante l'uso / Chiedi ogni volta / Non consentire</b>. Nel dubbio, scegli l'opzione più restrittiva.</p></div>
+        <div class="card"><h3><em class="hot">4.</em> Lascia fare al sistema</h3><p>Android e iOS <b>rimuovono da soli i permessi</b> alle app che non usi da mesi. Se dopo una revoca un'app smette di funzionare, te lo richiederà: nessun danno permanente.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Notifiche</h2>
+        <p class="lead reveal d1">Ogni avviso è un'interruzione: le app promozionali lo sanno e le usano per creare urgenza artificiale e riportarti dentro. La regola: disattivate per default, riattivate solo quando servono.</p>
+        <div class="note reveal d2"><div class="lbl">Cosa tenere</div><p>Solo le notifiche <b>funzionali</b>: chiamate, messaggi delle persone, calendario, banca. Da spegnere subito: e-commerce, giochi, news e promozioni social.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🔔</span>
+        <h3>Fare pulizia</h3>
+        <ul><li>Percorso: Impostazioni → Notifiche (o Impostazioni → App → [nome app] → Notifiche).</li><li>Trucco veloce: quando arriva una notifica inutile, <b>tienila premuta</b> — compare l'opzione per silenziare direttamente quella categoria.</li><li>Meno interruzioni significa meno controlli compulsivi del telefono e più concentrazione.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide" data-content-review-hash="e83c9eec8842b174" data-content-review-date="2026-07-18">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:18px;">Background e aggiornamenti</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Le app lavorano anche quando non le vedi: alcune attività in background sono utili, altre sprecano batteria e dati.</p>
+      <div class="grid2 reveal d2" style="margin-top:28px;">
+        <div class="card"><span class="ic">🔋</span><h3>Attività in background</h3><p>Un'app chiusa può comunque sincronizzare dati, usare la posizione e inviare notifiche. Per le app non essenziali limita tutto da <b>Impostazioni → App → [nome app] → Batteria → Con limitazioni</b>.</p></div>
+        <div class="card"><span class="ic">🔄</span><h3>Aggiornamenti automatici</h3><p>Correggono <b>falle di sicurezza</b>, non solo bug: tienili attivi, impostandoli "solo su Wi-Fi" per non consumare i dati mobili. Un'app abbandonata da anni dallo sviluppatore accumula vulnerabilità mai corrette.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:26px;"><div class="lbl">Segnale di infezione</div><p>Batteria che si scarica all'improvviso molto in fretta, telefono caldo a riposo, consumo dati anomalo: possono indicare un'app dannosa che lavora di nascosto in background.</p></div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" aria-label="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Wi-Fi — Wi-Fi Alliance ↗</a></div></section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:18px;">Rimuovere e app predefinite</h2>
+      <p class="lead reveal d1" style="margin-top:14px;">Meno app installate significa meno permessi attivi, meno spazio occupato e meno superficie di attacco.</p>
+      <div class="grid2 reveal d2" style="margin-top:28px;">
+        <div class="card"><span class="ic">🗑️</span><h3>Disinstallare</h3><p>Regola pratica: <b>non la usi da 3 mesi? Via.</b> Attenzione però: disinstallare non cancella l'account né i dati sui server del servizio — per quello serve chiudere l'account separatamente. Le app preinstallate non rimovibili si possono almeno <b>disattivare</b>.</p></div>
+        <div class="card"><span class="ic">⚙️</span><h3>App predefinite</h3><p>Sono quelle che aprono <b>silenziosamente</b> link, email, mappe e PDF ogni giorno. Controlla quali sono e scegli tu: Android → Impostazioni → App → App predefinite; iOS → Impostazioni → [nome app] → App predefinita.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Abbonamenti</h2>
+        <p class="lead reveal d1">Le "prove gratuite" si trasformano in addebiti automatici se non le annulli in tempo. E c'è una trappola classica: <em class="hot">disinstallare l'app non cancella l'abbonamento</em>.</p>
+        <div class="note reveal d2"><div class="lbl">Prima della prova gratuita</div><p>Segna subito in calendario la <b>data di scadenza</b> con un promemoria un giorno prima. L'annullamento va fatto dallo store o dal sito del servizio, mai solo cancellando l'app.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">💳</span>
+        <h3>Dove controllarli</h3>
+        <ul><li><b>Abbonamenti su Android:</b> Play Store → icona profilo → Pagamenti e abbonamenti → Abbonamenti.</li><li><b>Abbonamenti su iOS:</b> Impostazioni → [tuo nome] → Abbonamenti.</li><li>Lì vedi tutto: attivi, in scadenza, disdetti — e puoi annullare con un tocco.</li><li>Dai un'occhiata una volta al mese: è facile pagare da anni servizi dimenticati.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+
+
+  <section class="slide closing"><div class="closing-inner"><div class="center" style="align-items:center;text-align:center;">
+      <h2 class="h-mega reveal" style="margin-top:10px;">Permessi minimi,<br>controllo massimo.</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Permessi delle app, categorie e rischi, revoca nelle impostazioni, store ufficiali e app che non servono — o non dovrebbero esserci.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="sm05-privacy-telefono.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → SM05 · Privacy sul telefono</a>
+      </div>
+    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Android ↗</a><a href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Manuale utente iPhone — Apple ↗</a><a href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Wi-Fi — Wi-Fi Alliance ↗</a></div></div><div class="page-num"></div></section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
+
+<script src="../deck.js"></script>
+</body>
+</html>

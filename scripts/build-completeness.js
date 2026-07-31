@@ -3,19 +3,37 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.resolve(__dirname, '..');
+const decksDir = path.join(root, 'decks');
 const outPath = path.join(root, 'completeness-index.js');
 
-const countWords = text => text
-  .replace(/\[Fonte:[^\]]+\]/g, '')
-  .replace(/^Fonti ufficiali:[\s\S]*$/m, '')
-  .replace(/^Rimandi interni:.*$/gm, '')
-  .trim().split(/\s+/).filter(w => w.length > 0).length;
+// Chrome that never counts as educational content — same exclusion set as
+// build-search-index.js and manage-slide-review-tags.js.
+const stripTags = html => html
+  .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+  .replace(/<div\b[^>]*class="[^"]*\b(page-num|num|deck-author)\b[^"]*"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+  .replace(/<div\b[^>]*data-source-footer="true"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+  .replace(/<div\b[^>]*data-source-list="true"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+  .replace(/<div\b[^>]*data-cross-reference-footer="true"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+  .replace(/<[^>]+>/g, ' ')
+  .replace(/&nbsp;/gi, ' ')
+  .replace(/&amp;/gi, '&')
+  .replace(/&lt;/gi, '<')
+  .replace(/&gt;/gi, '>')
+  .replace(/&quot;/gi, '"')
+  .replace(/&#39;|&apos;/gi, "'")
+  .replace(/\s+/g, ' ')
+  .trim();
 
-const parseSlides = txt => {
+const countWords = text => text.trim().split(/\s+/).filter(w => w.length > 0).length;
+
+const parseSlides = html => {
   const slides = [];
-  const re = /--- Slide \d+ ---\n([\s\S]*?)(?=\n--- Slide \d+ ---|$)/g;
+  const pattern = /<section\b([^>]*)>([\s\S]*?)<\/section>/gi;
   let m;
-  while ((m = re.exec(txt))) slides.push(m[1].trim());
+  while ((m = pattern.exec(html))) {
+    const classes = m[1].match(/\bclass\s*=\s*["']([^"']*)["']/i)?.[1].split(/\s+/) || [];
+    if (classes.includes('slide')) slides.push(m[2]);
+  }
   return slides;
 };
 
@@ -26,21 +44,20 @@ const scoreSlide = words => Math.min(10, words / 25);
 
 const scores = {};
 
-fs.readdirSync(root)
-  .filter(f => /^[a-z]{2}\d{2}-.*\.txt$/.test(f) || /^quiz-.*\.txt$/.test(f))
+fs.readdirSync(decksDir)
+  .filter(f => /^[a-z]{2}\d{2}-.*\.html$/.test(f) || /^quiz-.*\.html$/.test(f))
   .sort()
-  .forEach(txtFile => {
-    const htmlFile = txtFile.replace('.txt', '.html');
-    if (!fs.existsSync(path.join(root, htmlFile))) return;
-    const txt = fs.readFileSync(path.join(root, txtFile), 'utf8');
-    const slides = parseSlides(txt);
+  .forEach(htmlFile => {
+    const html = fs.readFileSync(path.join(decksDir, htmlFile), 'utf8');
+    const slides = parseSlides(html);
     if (slides.length < 3) return;
     const content = slides.slice(1, -1); // skip title + closing
-    const slideScores = content.map(s => scoreSlide(countWords(s)));
+    const slideScores = content.map(s => scoreSlide(countWords(stripTags(s))));
     // Single rounding, at the very end: the average stays fractional until here.
     const avg = Math.round(slideScores.reduce((a, b) => a + b, 0) / slideScores.length);
-    scores[htmlFile] = avg;
-    console.log(`${htmlFile.padEnd(48)} content:${String(content.length).padStart(3)}  avg:${avg}/10`);
+    const key = `decks/${htmlFile}`;
+    scores[key] = avg;
+    console.log(`${key.padEnd(48)} content:${String(content.length).padStart(3)}  avg:${avg}/10`);
   });
 
 const out = `/* Proprietà intellettuale di Francesco Antonio Binetti */

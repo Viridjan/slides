@@ -1,0 +1,332 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sicurezza dei contenuti digitali · CD01.04</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;background:#fff;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}.slide:last-child{break-after:auto;page-break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}
+em.hot{font-style:italic;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+.lead{font-size:32px;line-height:1.45;color:var(--ink-soft);max-width:1160px;}
+.body{font-size:27px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:34px;margin-bottom:8px;line-height:1.05;}
+.card p{font-size:23px;line-height:1.36;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa;}
+.note.sky{background:#d9edf2;}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:24px;line-height:1.36;color:var(--ink);}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:26px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:32px;color:var(--gold);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;}
+.stack>*+*{margin-top:22px;}
+.agenda-item{display:flex;align-items:flex-start;gap:22px;border-bottom:2px dashed var(--line);padding:13px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;}
+.agenda-item b{font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;}
+.agenda-item span.d{font-size:22px;color:var(--ink-faint);line-height:1.32;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right>div,.title-right>svg{position:relative;z-index:2;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing .gold{color:var(--gold);}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease);}
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+a{color:inherit;}
+</style>
+<link rel="stylesheet" href="../theme-corsi.css">
+</head>
+<body class="course-cd">
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- === SLIDE 1: TITLE === -->
+<section class="slide title-slide active visible">
+  <div class="title-left">
+    <h1 class="h-big reveal">Sicurezza dei<br><em class="hot">contenuti digitali</em></h1>
+    <p class="lead reveal" style="margin-top:26px;">Chi crea contenuti non è solo autore: gestisce account, opere e strumenti di terzi — ognuno un possibile bersaglio.</p>
+  </div>
+  <div class="title-right"><div class="reveal" style="font-size:190px;z-index:2;">🔏</div></div>
+  <div class="deck-author">Francesco Antonio Binetti</div>
+</section>
+
+<!-- === SLIDE 2: PERCHÉ RIGUARDA CHI CREA === -->
+<section class="slide" data-content-review-hash="6f2fde839691527a" data-content-review-date="2026-07-20">
+  <h2 class="h-sec reveal">Perché riguarda anche <em class="hot">chi crea</em></h2>
+  <p class="lead reveal d1">Un canale, un blog, un profilo che pubblica: dietro c'è sempre un account con valore — accesso al pubblico, ai guadagni, al lavoro di mesi.</p>
+  <div class="reveal d2" style="margin-top:24px;">
+    <div class="agenda-item"><span class="n">—</span><div><b>L'account è il bersaglio</b><br><span class="d">Chi ruba un account con follower o abbonati non vuole i tuoi dati: vuole il pubblico che hai costruito. Vale più di una password qualsiasi.</span></div></div>
+    <div class="agenda-item"><span class="n">—</span><div><b>Il lavoro è il bene da proteggere</b><br><span class="d">Bozze, sorgenti, materiale non pubblicato: se sparisce, non lo ripubblichi con un clic come un post.</span></div></div>
+    <div class="agenda-item"><span class="n">—</span><div><b>Gli strumenti sono di terzi</b><br><span class="d">CMS, plugin, servizi cloud: ogni strumento esterno che usi per creare è anche un punto in più da cui puoi essere attaccato.</span></div></div>
+  </div>
+  <div class="analogy reveal d3" style="margin-top:22px;">
+    <span class="big">In pratica:</span> le difese di base — riconoscere il phishing e attivare la 2FA — valgono ancora di più su un account che pubblica.
+  </div>
+  <div class="page-num"></div>
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="sd02-minacce.html#slide-5">riconoscere il phishing ↗</a><a href="sd01-introduzione.html#slide-15">attivare la 2FA ↗</a></div></section>
+
+<!-- === SLIDE 3: SUPERFICIE D'ATTACCO === -->
+<section class="slide" data-content-review-hash="ee262801b7a348e5" data-content-review-date="2026-07-20">
+  <div class="split even">
+    <div class="col stack">
+      <h2 class="h-big reveal">Tre cose da <em class="hot">proteggere</em></h2>
+      <p class="lead reveal d1">La sicurezza di un contenuto non coincide con il file finale: comprende identità, materiali di lavoro e piattaforma di pubblicazione.</p>
+      <div class="note sky reveal d2"><div class="lbl">Il criterio</div><p>Per ogni risorsa chiediti quale danno produrrebbero perdita di accesso, modifica non autorizzata o pubblicazione anticipata.</p></div>
+    </div>
+    <div class="illu reveal d2">
+      <svg viewBox="0 0 700 520" role="img" aria-label="Account, archivio e sito collegati in un unico sistema">
+        <path d="M350 245 178 128M350 245l172-117M350 245v190" fill="none" stroke="#3f7e8c" stroke-width="12" stroke-linecap="round"/>
+        <circle cx="350" cy="245" r="84" fill="#e6c14a" stroke="#1c1714" stroke-width="8"/>
+        <rect x="88" y="55" width="180" height="145" rx="24" fill="#f4ece0" stroke="#163b35" stroke-width="8"/>
+        <rect x="432" y="55" width="180" height="145" rx="24" fill="#f4ece0" stroke="#e6533b" stroke-width="8"/>
+        <rect x="260" y="382" width="180" height="105" rx="24" fill="#f4ece0" stroke="#3f7e8c" stroke-width="8"/>
+        <text x="178" y="120" text-anchor="middle" font-size="54">👤</text><text x="178" y="170" text-anchor="middle" font-size="27" font-family="Space Mono">ACCOUNT</text>
+        <text x="522" y="120" text-anchor="middle" font-size="54">🗃️</text><text x="522" y="170" text-anchor="middle" font-size="27" font-family="Space Mono">ARCHIVIO</text>
+        <text x="350" y="447" text-anchor="middle" font-size="48">🌐</text><text x="350" y="478" text-anchor="middle" font-size="24" font-family="Space Mono">PIATTAFORMA</text>
+        <text x="350" y="262" text-anchor="middle" font-size="62">🔐</text>
+      </svg>
+      <div class="illu-cap">Una pubblicazione dipende da più risorse collegate.</div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 3: DRM === -->
+<section class="slide" data-content-review-hash="62d7b6ba8876ad08" data-content-review-date="2026-07-20">
+  <div class="split">
+    <div class="col stack">
+      <h2 class="h-big reveal">DRM: limitare <em class="hot">la copia</em></h2>
+      <p class="lead reveal d1">Il Digital Rights Management riunisce tecnologie che definiscono, controllano e fanno rispettare permessi d'uso lungo il ciclo di vita di un contenuto.</p>
+      <div class="note reveal d2">
+        <div class="lbl">💡 Esempi che usi già</div>
+        <p>Un ebook vincolato a un account, un film riproducibile solo nell'app autorizzata o un brano disponibile offline finché resta valido l'abbonamento.</p>
+      </div>
+    </div>
+    <div class="col stack">
+      <div class="card reveal d1"><span class="ic">🔒</span><h3>Cosa impedisce</h3><p>Copia, condivisione, uso su dispositivi o programmi non autorizzati — anche quando l'hai acquistato legittimamente.</p></div>
+      <div class="card reveal d2"><span class="ic">⚖️</span><h3>La tensione</h3><p>Protegge chi crea dalla copia abusiva, ma può impedire usi legittimi: un backup personale, un formato diverso, l'uso dopo la chiusura del servizio.</p></div>
+      <div class="card reveal d3"><span class="ic">🧩</span><h3>Se lo distribuisci tu</h3><p>Attivarlo sul tuo contenuto è una scelta, non un obbligo: valuta se il controllo vale la frizione che crea per chi acquista onestamente.</p></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.wipo.int/en/web/copyright/protection" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Proteggere le opere digitali — WIPO" aria-label="Fonte ufficiale: Proteggere le opere digitali — WIPO" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Proteggere le opere digitali — WIPO ↗</a></div></section>
+
+<!-- === SLIDE 5: QUANDO USARE IL DRM === -->
+<section class="slide" data-content-review-hash="f3d6778876c9f004" data-content-review-date="2026-07-20">
+  <div class="center">
+    <h2 class="h-sec reveal">Il DRM è una <em class="hot">scelta di equilibrio</em></h2>
+    <p class="lead reveal d1" style="margin-top:18px;">Prima di adottarlo confronta il rischio di copia con il costo imposto alle persone che usano legittimamente il contenuto.</p>
+    <div class="grid3 reveal d2" style="margin-top:28px;">
+      <div class="card"><span class="ic">💎</span><h3>Valore e anticipo</h3><p>Più l'opera è costosa, esclusiva o non ancora pubblicata, maggiore può essere il beneficio di un controllo tecnico.</p></div>
+      <div class="card"><span class="ic">🧭</span><h3>Accesso nel tempo</h3><p>Verifica cosa accade senza rete, dopo la scadenza dell'account o se il servizio chiude: l'acquirente deve conoscere questi limiti.</p></div>
+      <div class="card"><span class="ic">♿</span><h3>Usi legittimi</h3><p>Controlla che la protezione non ostacoli accessibilità, dispositivi compatibili, assistenza o formati necessari al pubblico.</p></div>
+    </div>
+    <div class="analogy reveal d3" style="margin-top:26px;"><span class="big">Regola:</span> proteggi il contenuto senza trasformare l'acquisto legittimo in un ostacolo.</div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 6: WATERMARKING === -->
+<section class="slide" data-content-review-hash="577fd1648aee2395" data-content-review-date="2026-07-20">
+  <h2 class="h-sec reveal">Watermarking: <em class="hot">firmare, non chiudere</em></h2>
+  <p class="lead reveal d1">Un watermark non impedisce la copia come il DRM: associa al file informazioni utili per attribuzione, tracciabilità e dissuasione.</p>
+  <div class="grid3 reveal d2" style="margin-top:26px;">
+    <div class="card">
+      <span class="ic">👁️</span>
+      <h3>Visibile</h3>
+      <p>Logo o testo sovrimpresso su foto e video. Dissuade il furto diretto, ma è visibile anche a chi guarda legittimamente.</p>
+    </div>
+    <div class="card">
+      <span class="ic">🫥</span>
+      <h3>Invisibile</h3>
+      <p>Dati incorporati nei pixel o nell'audio, rilevabili con strumenti dedicati. Possono sostenere una ricostruzione dell'origine, non provarla da soli.</p>
+    </div>
+    <div class="card">
+      <span class="ic">🎯</span>
+      <h3>Perché conviene</h3>
+      <p>Su anteprime e bozze pubbliche protegge senza impedire la fruizione: il file finale, pagato o autorizzato, resta pulito.</p>
+    </div>
+  </div>
+  <div class="analogy reveal d3" style="margin-top:24px;"><span class="big">Regola:</span> DRM controlla l'accesso; watermark aggiunge un segnale di provenienza.</div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 7: WATERMARK NEL FLUSSO === -->
+<section class="slide" data-content-review-hash="69a12d887e6c82a5" data-content-review-date="2026-07-20">
+  <div class="split">
+    <div class="illu reveal">
+      <svg viewBox="0 0 720 500" role="img" aria-label="Flusso da originale a copia pubblicata e controllo">
+        <rect x="40" y="165" width="170" height="150" rx="22" fill="#f4ece0" stroke="#163b35" stroke-width="8"/>
+        <rect x="275" y="165" width="170" height="150" rx="22" fill="#e6c14a" stroke="#1c1714" stroke-width="8"/>
+        <rect x="510" y="165" width="170" height="150" rx="22" fill="#f4ece0" stroke="#e6533b" stroke-width="8"/>
+        <path d="M210 240h65M445 240h65" stroke="#3f7e8c" stroke-width="12" stroke-linecap="round"/>
+        <path d="m258 222 20 18-20 18M493 222l20 18-20 18" fill="none" stroke="#3f7e8c" stroke-width="10"/>
+        <text x="125" y="225" text-anchor="middle" font-size="52">🖼️</text><text x="125" y="276" text-anchor="middle" font-size="24" font-family="Space Mono">ORIGINALE</text>
+        <text x="360" y="225" text-anchor="middle" font-size="52">🔏</text><text x="360" y="276" text-anchor="middle" font-size="24" font-family="Space Mono">MARCATURA</text>
+        <text x="595" y="225" text-anchor="middle" font-size="52">📤</text><text x="595" y="276" text-anchor="middle" font-size="24" font-family="Space Mono">COPIA</text>
+        <text x="360" y="390" text-anchor="middle" font-size="27" font-family="Space Grotesk" fill="#3a322c">Conserva anche originale, registro e impostazioni.</text>
+      </svg>
+      <div class="illu-cap">La marcatura vale di più se il processo è documentato.</div>
+    </div>
+    <div class="col stack">
+      <h2 class="h-big reveal">Un segnale serve con <em class="hot">un registro</em></h2>
+      <p class="lead reveal d1">Il watermark è più utile quando puoi collegarlo a una versione, una data, un destinatario e un originale conservato separatamente.</p>
+      <div class="note reveal d2"><div class="lbl">In pratica</div><p>Assegna un identificatore alla copia, annota a chi è stata consegnata e conserva il file sorgente con accesso limitato.</p></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 8: PROVENIENZA === -->
+<section class="slide" data-content-review-hash="9a54fa4bb6240740" data-content-review-date="2026-07-20">
+  <div class="center">
+    <h2 class="h-sec reveal">Provenienza: <em class="hot">più indizi insieme</em></h2>
+    <p class="lead reveal d1" style="margin-top:18px;">Nessun singolo segnale racconta tutta la storia. Una ricostruzione affidabile combina elementi tecnici e documentali.</p>
+    <div class="grid2 reveal d2" style="margin-top:28px;">
+      <div class="card"><span class="ic">🧾</span><h3>Registro e versioni</h3><p>Date, committenti, licenze, revisioni e persone autorizzate spiegano chi ha prodotto e modificato il contenuto.</p></div>
+      <div class="card"><span class="ic">#️⃣</span><h3>Impronta del file</h3><p>Un hash permette di verificare se due file sono identici; non identifica da solo l'autore e cambia quando il file viene modificato.</p></div>
+      <div class="card"><span class="ic">🏷️</span><h3>Metadati</h3><p>Autore, software e data possono aiutare, ma sono modificabili: vanno letti come indizi, non come certificati.</p></div>
+      <div class="card"><span class="ic">🔏</span><h3>Watermark</h3><p>Collega una copia al processo di distribuzione; può essere rimosso, alterato o degradato dalla ricompressione.</p></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 9: PLUGIN E CMS === -->
+<section class="slide" data-content-review-hash="9bac0923d5e79a93" data-content-review-date="2026-07-20">
+  <div class="split even">
+    <div class="col stack">
+      <h2 class="h-big reveal">Plugin e CMS: <em class="hot">la porta sul retro</em></h2>
+      <p class="lead reveal d1">Un CMS come WordPress gira su un server. Un plugin aggiunge codice e aumenta la superficie d'attacco: il possibile danno dipende dai permessi e dalla configurazione.</p>
+    </div>
+    <div class="col stack">
+      <div class="card reveal d1"><h3>Cos'è una backdoor</h3><p>Un meccanismo nascosto che consente accessi o comandi non previsti. Può essere inserito deliberatamente in codice compromesso.</p></div>
+      <div class="card reveal d2"><h3>Da dove arriva</h3><p>Plugin piratati o scaricati fuori dagli store ufficiali, temi "gratis" da siti terzi, estensioni abbandonate e mai più aggiornate.</p></div>
+      <div class="note red reveal d3"><div class="lbl">⚠️ Il danno segue i permessi</div><p>Una compromissione può raggiungere database, file o altri servizi solo entro gli accessi concessi al sito e al processo web.</p></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://developer.wordpress.org/advanced-administration/security/hardening/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Hardening WordPress — documentazione ufficiale" aria-label="Fonte ufficiale: Hardening WordPress — documentazione ufficiale" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Hardening WordPress — documentazione ufficiale ↗</a></div></section>
+
+<!-- === SLIDE 10: CONTENERE IL DANNO === -->
+<section class="slide" data-content-review-hash="2ce1dca0a5db2ba9" data-content-review-date="2026-07-20">
+  <div class="center">
+    <h2 class="h-sec reveal">Permessi minimi, <em class="hot">danno contenuto</em></h2>
+    <p class="lead reveal d1" style="margin-top:18px;">La sicurezza non presume che ogni difesa regga: limita ciò che un account o un componente può fare se viene compromesso.</p>
+    <div class="grid3 reveal d2" style="margin-top:28px;">
+      <div class="card"><span class="ic">👥</span><h3>Ruoli separati</h3><p>Chi scrive non deve necessariamente installare plugin; chi pubblica non deve gestire server e utenti amministratori.</p></div>
+      <div class="card"><span class="ic">🗄️</span><h3>Database limitato</h3><p>L'applicazione usa solo i privilegi necessari alle operazioni previste, riducendo l'impatto di codice malevolo.</p></div>
+      <div class="card"><span class="ic">📁</span><h3>File protetti</h3><p>Configurazioni e codice non devono essere modificabili dal processo web se il funzionamento ordinario non lo richiede.</p></div>
+    </div>
+    <div class="analogy reveal d3" style="margin-top:26px;"><span class="big">Analogia:</span> non consegnare la chiave di tutto l'edificio a chi deve aprire una sola stanza.</div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 11: BUONE PRATICHE E LEGAMI === -->
+<section class="slide" data-content-review-hash="20edfcd235988e36" data-content-review-date="2026-07-27">
+  <h2 class="h-sec reveal">La cassetta degli attrezzi <em class="hot">che hai già</em></h2>
+  <p class="lead reveal d1">La sicurezza del CMS è manutenzione continua: fonti affidabili, aggiornamenti, meno componenti e controllo degli accessi.</p>
+  <div class="grid3 reveal d2" style="margin-top:24px;">
+    <div class="card"><span class="ic">🔌</span><h3>Solo store ufficiali</h3><p>Installa plugin e temi solo dai repository ufficiali del CMS, aggiornati e con recensioni verificabili.</p></div>
+    <div class="card"><span class="ic">🧹</span><h3>Meno estensioni, meno rischi</h3><p>Ogni plugin attivo è una porta in più. Disinstalla — non solo disattiva — quello che non usi davvero.</p></div>
+    <div class="card"><span class="ic">🔄</span><h3>Aggiorna e verifica</h3><p>Mantieni core, temi e plugin aggiornati; scegli componenti ancora supportati e controlla il sito dopo ogni aggiornamento.</p></div>
+  </div>
+  <div class="note sky reveal d3" style="margin-top:22px;">
+    <div class="lbl">Già visto nel corso</div>
+    <p>Licenze e attribuzione: CD01.01 · Metadati sensibili nei file che pubblichi: CD01.03 · HTTPS sul sito che gestisci: RW01.05 · Collaborare in sicurezza sui contenuti: RW02.04.</p>
+  </div>
+  <div class="page-num"></div>
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="rw02-02-contenuti.html#slide-24">regola 3-2-1 ↗</a><a href="cd01-01-licenze-oer.html#slide-5">CD01.01 ↗</a><a href="cd01-03-metadati-formati.html#slide-6">CD01.03 ↗</a><a href="rw01-05-affidabilita.html#slide-5">RW01.05 ↗</a><a href="rw02-04-collaborazione-digitale.html#slide-15">RW02.04 ↗</a></div></section>
+
+<!-- === SLIDE 12: BACKUP E RIPRISTINO === -->
+<section class="slide" data-content-review-hash="6edfccbd0d7d949b" data-content-review-date="2026-07-20">
+  <div class="split even">
+    <div class="col stack">
+      <h2 class="h-big reveal">Un backup vale quando <em class="hot">si ripristina</em></h2>
+      <p class="lead reveal d1">Per un CMS servono insieme file, database e configurazione. Una copia incompleta può lasciare articoli senza immagini o un sito impossibile da avviare.</p>
+      <div class="analogy reveal d2" style="align-self:flex-start;"><span class="big">Regola:</span> copia, separa, prova.</div>
+    </div>
+    <div class="col stack">
+      <div class="agenda-item reveal d1"><span class="n">1</span><div><b>Copia completa</b><br><span class="d">File caricati, tema, configurazione e database della stessa versione.</span></div></div>
+      <div class="agenda-item reveal d2"><span class="n">2</span><div><b>Posizione separata</b><br><span class="d">Una copia non raggiungibile con le stesse credenziali del sito.</span></div></div>
+      <div class="agenda-item reveal d3"><span class="n">3</span><div><b>Prova di ripristino</b><br><span class="d">Verifica periodicamente tempi, istruzioni e integrità della copia.</span></div></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="rw02-02-contenuti.html#slide-24">regola 3-2-1 ↗</a></div></section>
+
+<!-- === SLIDE 13: RISPOSTA ALL'INCIDENTE === -->
+<section class="slide" data-content-review-hash="4a5b02fd374a7f4d" data-content-review-date="2026-07-20">
+  <div class="center">
+    <h2 class="h-sec reveal">Se qualcosa accade: <em class="hot">ferma, conserva, ripristina</em></h2>
+    <p class="lead reveal d1" style="margin-top:18px;">Agire in fretta non significa cancellare tutto: prima limita il danno e conserva le informazioni necessarie a capire cosa è successo.</p>
+    <div class="grid3 reveal d2" style="margin-top:28px;">
+      <div class="card"><span class="ic">⛔</span><h3>Contieni</h3><p>Metti il sito in manutenzione, revoca sessioni sospette e cambia le credenziali da un dispositivo affidabile.</p></div>
+      <div class="card"><span class="ic">🧪</span><h3>Documenta</h3><p>Conserva log, orari, messaggi e copie dei file sospetti. Evita modifiche casuali che cancellano le tracce.</p></div>
+      <div class="card"><span class="ic">♻️</span><h3>Ripristina</h3><p>Usa una copia verificata, aggiorna i componenti, correggi la causa e controlla il sito prima di riaprirlo.</p></div>
+    </div>
+    <div class="note red reveal d3" style="margin-top:24px;"><div class="lbl">⚠️ Dopo il ripristino</div><p>Controlla utenti amministratori, chiavi API, pagamenti, domini e servizi collegati: l'incidente potrebbe non essersi fermato al sito.</p></div>
+  </div>
+  <div class="page-num"></div>
+</section>
+
+<!-- === SLIDE 14: CLOSING === -->
+<section class="slide closing"><div class="closing-inner"><div class="closing-inner">
+    <h2 class="h-mega reveal">Pubblicato, non esposto.</h2>
+    <p class="lead reveal d1">DRM e watermark proteggono l'opera, plugin verificati e backup proteggono lo strumento: la sicurezza fa parte del mestiere di chi crea, non solo di chi programma.</p>
+    <div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://www.wipo.int/en/web/copyright/protection" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Proteggere le opere digitali — WIPO ↗</a><a href="https://developer.wordpress.org/advanced-administration/security/hardening/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Hardening WordPress — documentazione ufficiale ↗</a></div></div><div class="closing-actions reveal d2">
+      <a class="chip closing-primary" href="cd02-01-podcast-storytelling.html">Prossimo → CD02.01 · Podcast e storytelling</a>
+    </div>
+  </div>
+  <div class="deck-author">Francesco Antonio Binetti</div></div><div class="page-num"></div></section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
+
+<script src="../deck.js"></script>
+</body>
+</html>

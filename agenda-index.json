@@ -1,5 +1,5 @@
 {
-  "hs01-componenti.html": {
+  "decks/hs01-componenti.html": {
     "title": "Cosa vedremo",
     "items": [
       "Le parti dell'hardware · Il ciclo che ogni computer ripete, poi processore, RAM, dischi, scheda madre e alimentatore.",
@@ -7,7 +7,7 @@
       "Il software · I programmi che non si toccano: il sistema operativo, il browser e la suite per ufficio."
     ]
   },
-  "hs02-hard-disk-filesystem.html": {
+  "decks/hs02-hard-disk-filesystem.html": {
     "title": "Cosa vedremo",
     "items": [
       "Dove finiscono i dati · RAM contro spazio disco, HDD e SSD, e le unità di misura da bit a terabyte.",
@@ -15,7 +15,7 @@
       "Gestire i file · Organizzare le cartelle, la salute del disco, la compressione (ZIP, 7z, RAR) e i link."
     ]
   },
-  "hs03-os.html": {
+  "decks/hs03-os.html": {
     "title": "Cosa vedremo",
     "items": [
       "Usare il sistema · Leggere lo schermo, aprire e chiudere le attività, e cosa gestisce l'OS sotto.",
@@ -23,7 +23,7 @@
       "Come si differenziano · App, sicurezza e aggiornamenti, raccolta dati e personalizzazione a confronto."
     ]
   },
-  "hs04-os-concetti.html": {
+  "decks/hs04-os-concetti.html": {
     "title": "Cosa vedremo",
     "items": [
       "App, sistema e installazione · App contro documento contro account, le versioni e cosa succede davvero installando.",
@@ -31,7 +31,7 @@
       "Sicurezza e manutenzione · Utenti e privilegi, backup e ripristino, e come riconoscere il proprio sistema."
     ]
   },
-  "hs05-troubleshooting.html": {
+  "decks/hs05-troubleshooting.html": {
     "title": "Cosa vedremo",
     "items": [
       "Il metodo · Dove sta il problema, la checklist dei primi 60 secondi, capire prima di agire e isolare le variabili.",
@@ -39,7 +39,15 @@
       "Chiedere aiuto e prevenire · FAQ, forum e community, come chiedere aiuto nel modo giusto, e imparare per prevenire."
     ]
   },
-  "rw01-01-reti.html": {
+  "decks/hs06-tecnologia-obsoleta.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "Supporti scomparsi · Floppy disk, nastri magnetici, masterizzatori CD e DVD.",
+      "Connessioni sorpassate · Porte seriale, parallela, PS/2, IrDA, RAM storica e modem dial-up/ISDN.",
+      "Macchine e norme di altri tempi · Mainframe, minicomputer, terminali stupidi e la legge sulla privacy pre-GDPR."
+    ]
+  },
+  "decks/rw01-01-reti.html": {
     "title": "Cosa vedremo",
     "items": [
       "Cos'è una rete · Le tipologie di rete e come i dispositivi si connettono tra loro.",
@@ -47,7 +55,7 @@
       "Client, server e rischi · Chi chiede e chi risponde, i vantaggi delle reti e i loro rischi."
     ]
   },
-  "rw01-02-navigazione.html": {
+  "decks/rw01-02-navigazione.html": {
     "title": "Cosa vedremo",
     "items": [
       "Navigare e i protocolli · Cosa significa navigare, i protocolli di rete e HTTP contro HTTPS.",
@@ -55,7 +63,7 @@
       "Domini e link · Cos'è un dominio e cos'è un collegamento ipertestuale."
     ]
   },
-  "rw01-03-domini.html": {
+  "decks/rw01-03-domini.html": {
     "title": "Cosa vedremo",
     "items": [
       "Anatomia di un dominio · Le parti di un dominio, quelli geografici e quelli tematici.",
@@ -63,7 +71,7 @@
       "Leggere un URL · Riconoscere un indirizzo sospetto, con pratica guidata."
     ]
   },
-  "rw01-04-ricerca.html": {
+  "decks/rw01-04-ricerca.html": {
     "title": "Cosa vedremo",
     "items": [
       "Cercare informazioni · Motori di ricerca, parole chiave, operatori booleani e lettura della SERP.",
@@ -71,7 +79,7 @@
       "Dati e strumenti · Open Data, moduli, enciclopedie, dizionari e traduzione automatica."
     ]
   },
-  "rw01-05-affidabilita.html": {
+  "decks/rw01-05-affidabilita.html": {
     "title": "Cosa vedremo",
     "items": [
       "Valutare l'affidabilità · Rischi, camere dell'eco, siti sicuri e perché HTTPS non basta.",
@@ -79,7 +87,7 @@
       "Navigare sicuri · Acquisti online, dati personali, logout, controllo parentale e monitoraggio."
     ]
   },
-  "rw02-01-email.html": {
+  "decks/rw02-01-email.html": {
     "title": "Cosa vedremo",
     "items": [
       "Struttura · Indirizzi, destinatari, oggetto, corpo e allegati.",
@@ -87,7 +95,7 @@
       "Gestione sicura · Messaggi sospetti, netiquette, ordine e configurazione della firma."
     ]
   },
-  "rw02-02-contenuti.html": {
+  "decks/rw02-02-contenuti.html": {
     "title": "Cosa vedremo",
     "items": [
       "Visualizzare e salvare · Formati, pagine, segnalibri, stampa, PDF e PDF/A per la conservazione.",
@@ -95,7 +103,7 @@
       "Cloud e diritti · Il cloud, organizzare l'archivio, il copyright e le Creative Commons."
     ]
   },
-  "rw02-03-link-simbolici.html": {
+  "decks/rw02-03-link-simbolici.html": {
     "title": "Cosa vedremo",
     "items": [
       "Modello e differenze · Symlink, hard link, shortcut e junction nei diversi file system.",
@@ -103,7 +111,7 @@
       "Sicurezza e conservazione · Permessi, attacchi, archivi, cloud e policy di backup."
     ]
   },
-  "rw02-04-collaborazione-digitale.html": {
+  "decks/rw02-04-collaborazione-digitale.html": {
     "title": "Cosa vedremo",
     "items": [
       "La tua presenza online · L'impronta digitale, curare il profilo e la netiquette che ti rappresenta.",
@@ -111,7 +119,7 @@
       "Collaborare · Documenti condivisi, strumenti di project management e kanban, riunioni e videochiamate."
     ]
   },
-  "rw02-05-account-email.html": {
+  "decks/rw02-05-account-email.html": {
     "title": "Cosa vedremo",
     "items": [
       "Creare l'account · La procedura passo per passo, e come farlo anche senza numero di telefono.",
@@ -119,7 +127,7 @@
       "Tenerlo pulito · Archiviare, filtrare, disiscriversi e la manutenzione periodica."
     ]
   },
-  "rw02-06-accesso-remoto.html": {
+  "decks/rw02-06-accesso-remoto.html": {
     "title": "Cosa vedremo",
     "items": [
       "Modelli e protocolli · Assistenza, accesso permanente, RDP, SSH, VNC e gateway web.",
@@ -127,7 +135,7 @@
       "Scelta sicura · Rete, identità, periferiche, audit, truffe e checklist di configurazione."
     ]
   },
-  "rw03-01-identita.html": {
+  "decks/rw03-01-identita.html": {
     "title": "Cosa vedremo",
     "items": [
       "Identità e strumenti · Privata contro professionale, e SPID e PEC per dimostrare chi sei online.",
@@ -135,7 +143,7 @@
       "Farsi trovare bene · La prima impressione, l'impronta digitale e comunicare bene con i clienti."
     ]
   },
-  "rw03-02-societa.html": {
+  "decks/rw03-02-societa.html": {
     "title": "Cosa vedremo",
     "items": [
       "Tecnologia e benessere · L'effetto sull'umore, inclusione contro isolamento e l'uso incontrollato.",
@@ -143,7 +151,7 @@
       "Lavoro e società · Lo smart working, proteggere i dati da casa e la digitalizzazione."
     ]
   },
-  "rw03-03-vr-ar.html": {
+  "decks/rw03-03-vr-ar.html": {
     "title": "Cosa vedremo",
     "items": [
       "Realtà virtuale · Cos'è l'immersione, come funziona un sistema VR e dove si usa.",
@@ -151,7 +159,7 @@
       "Il metaverso · VR contro AR, cosa definisce un metaverso e dove esiste oggi."
     ]
   },
-  "rw03-04-branding.html": {
+  "decks/rw03-04-branding.html": {
     "title": "Cosa vedremo",
     "items": [
       "Cos'è la brand identity · Identity contro image, di cosa è fatta, vision e mission.",
@@ -159,7 +167,7 @@
       "La voce del brand · Logo, palette, font e un tono coerente su ogni canale."
     ]
   },
-  "rw03-05-social.html": {
+  "decks/rw03-05-social.html": {
     "title": "Cosa vedremo",
     "items": [
       "Scegliere i social · I passi della promozione, i social più usati e quale scegliere per chi.",
@@ -167,7 +175,7 @@
       "Crescere · La pubblicità di base, il blog per farsi trovare e cosa non pubblicare."
     ]
   },
-  "rw01-06-internet-morto.html": {
+  "decks/rw01-06-internet-morto.html": {
     "title": "Cosa vedremo",
     "items": [
       "La teoria · Origini, affermazioni e la parte complottista non dimostrata.",
@@ -175,7 +183,7 @@
       "Valutare le prove · Percentuali, detector, fonti, provenienza e dieta informativa."
     ]
   },
-  "cd01-01-licenze-oer.html": {
+  "decks/cd01-01-licenze-oer.html": {
     "title": "Cosa vedremo",
     "items": [
       "Diritto d'autore e licenze · Diritti morali e patrimoniali, la paternità dell'opera e cosa significa una licenza.",
@@ -183,7 +191,7 @@
       "Remix e OER · Adattamento e compatibilità, le risorse educative aperte e le 5R."
     ]
   },
-  "cd01-02-accessibilita-immagini.html": {
+  "decks/cd01-02-accessibilita-immagini.html": {
     "title": "Cosa vedremo",
     "items": [
       "Perché l'accessibilità · Accessibile significa percepibile, e il requisito WCAG 1.1.1.",
@@ -191,7 +199,7 @@
       "Casi difficili · Quando alt vuoto non basta, le immagini complesse e l'albero decisionale."
     ]
   },
-  "cd01-03-metadati-formati.html": {
+  "decks/cd01-03-metadati-formati.html": {
     "title": "Cosa vedremo",
     "items": [
       "I metadati · Cosa sono, perché servono in archivio e le tre famiglie utili.",
@@ -199,7 +207,7 @@
       "I formati immagine · Raster e vettoriale, JPEG, PNG, SVG e quale formato scegliere."
     ]
   },
-  "cd01-04-sicurezza-contenuti.html": {
+  "decks/cd01-04-sicurezza-contenuti.html": {
     "title": "Cosa vedremo",
     "items": [
       "Superficie d'attacco · Account, archivi e piattaforme come sistema collegato.",
@@ -207,7 +215,7 @@
       "CMS resilienti · Plugin, permessi minimi, manutenzione, backup e risposta agli incidenti."
     ]
   },
-  "cd02-01-podcast-storytelling.html": {
+  "decks/cd02-01-podcast-storytelling.html": {
     "title": "Cosa vedremo",
     "items": [
       "Il racconto · Il nucleo narrativo, pubblico e promessa, struttura lineare e non lineare.",
@@ -215,7 +223,7 @@
       "Montaggio e audio · Il montaggio editoriale, picco contro loudness e la normalizzazione."
     ]
   },
-  "sm01-smartphone-computer.html": {
+  "decks/sm01-smartphone-computer.html": {
     "title": "Cosa vedremo",
     "items": [
       "Dentro lo smartphone · La scheda logica, CPU, SoC e RAM, la memoria interna e la batteria.",
@@ -223,7 +231,7 @@
       "Un computer particolare · Il confronto con altri dispositivi e i suoi limiti fisici."
     ]
   },
-  "sm02-connessioni-reti-mobili.html": {
+  "decks/sm02-connessioni-reti-mobili.html": {
     "title": "Cosa vedremo",
     "items": [
       "Reti senza fili · WiFi, WiFi pubblico e VPN, Bluetooth e NFC.",
@@ -231,7 +239,7 @@
       "Posizione e problemi · Modalità aereo, localizzazione assistita e quando Internet non va."
     ]
   },
-  "sm03-android-ios.html": {
+  "decks/sm03-android-ios.html": {
     "title": "Cosa vedremo",
     "items": [
       "I due sistemi · Il sistema operativo mobile, Android e iOS a confronto.",
@@ -239,7 +247,7 @@
       "Ecosistemi e backup · Aggiornamenti di sistema e app, i due ecosistemi, backup e quale scegliere."
     ]
   },
-  "sm04-app-permessi.html": {
+  "decks/sm04-app-permessi.html": {
     "title": "Cosa vedremo",
     "items": [
       "Le app · Cosa sono, gli store ufficiali e come riconoscere quelle pericolose.",
@@ -247,7 +255,7 @@
       "Gestire le app · Notifiche, background e aggiornamenti, rimuoverle e gli abbonamenti."
     ]
   },
-  "sm05-privacy-telefono.html": {
+  "decks/sm05-privacy-telefono.html": {
     "title": "Cosa vedremo",
     "items": [
       "Cosa raccoglie · Cosa raccoglie il telefono, il tracciamento pubblicitario e la posizione.",
@@ -255,7 +263,7 @@
       "Proteggersi · Permessi periodici, condivisione involontaria, privacy dei minori e checklist."
     ]
   },
-  "sm06-sicurezza-smartphone.html": {
+  "decks/sm06-sicurezza-smartphone.html": {
     "title": "Cosa vedremo",
     "items": [
       "Chiudere a chiave · Il telefono come chiave, blocco schermo e biometria, 2FA e codici OTP.",
@@ -263,7 +271,7 @@
       "Difese quotidiane · Malware e fonti dubbie, aggiornamenti, WiFi pubbliche e la checklist."
     ]
   },
-  "sm07-file-telefono.html": {
+  "decks/sm07-file-telefono.html": {
     "title": "Cosa vedremo",
     "items": [
       "I file sul telefono · File anche qui, l'app File, download e documenti.",
@@ -271,7 +279,7 @@
       "Spostare e proteggere · Trasferire al PC, la condivisione, i file sensibili e i nomi chiari."
     ]
   },
-  "sm08-fotocamera-contenuti.html": {
+  "decks/sm08-fotocamera-contenuti.html": {
     "title": "Cosa vedremo",
     "items": [
       "I file che produci · Risoluzione e peso, compressione e formati, la fotocamera computazionale.",
@@ -279,7 +287,7 @@
       "Gestire e condividere · Galleria e backup, i metadati EXIF, la condivisione consapevole e il diritto d'immagine."
     ]
   },
-  "sm09-benessere-digitale.html": {
+  "decks/sm09-benessere-digitale.html": {
     "title": "Cosa vedremo",
     "items": [
       "Uso consapevole · Il tempo sullo schermo, le notifiche e l'autoplay.",
@@ -287,7 +295,7 @@
       "Attenzione ai rischi · Dipendenza e social, la messaggistica, bambini e adolescenti, e i segnali."
     ]
   },
-  "sm10-accessibilita-uso-pratico.html": {
+  "decks/sm10-accessibilita-uso-pratico.html": {
     "title": "Cosa vedremo",
     "items": [
       "Vedere meglio · Testo e contrasto, dark mode, zoom e lente.",
@@ -295,7 +303,7 @@
       "Uso pratico · Modalità semplificata, autonomia quotidiana, emergenze e traduzione."
     ]
   },
-  "sm11-manutenzione-scelta.html": {
+  "decks/sm11-manutenzione-scelta.html": {
     "title": "Cosa vedremo",
     "items": [
       "Far durare il telefono · Aggiornamenti e supporto, memoria e RAM, la batteria e la ricarica, la protezione fisica.",
@@ -303,7 +311,7 @@
       "Fine vita · Preparare il telefono alla vendita, l'impatto ambientale e lo smaltimento RAEE."
     ]
   },
-  "su01-01-microsoft.html": {
+  "decks/su01-01-microsoft.html": {
     "title": "Cosa vedremo",
     "items": [
       "Le app principali · Word, Excel, PowerPoint, Outlook, Teams e OneDrive.",
@@ -311,7 +319,7 @@
       "Scegliere e proteggere · Abbonamento o licenza, Microsoft contro alternative e la sicurezza aziendale."
     ]
   },
-  "su01-02-google-workspace.html": {
+  "decks/su01-02-google-workspace.html": {
     "title": "Cosa vedremo",
     "items": [
       "Account e Drive · Cos'è la suite Google, l'account e Drive, e cosa significa davvero condividere.",
@@ -319,7 +327,7 @@
       "Flusso e strumenti · Il flusso di lavoro tipico, i file Google/Office/PDF, le buone abitudini e le lavagne."
     ]
   },
-  "su01-03-adobe.html": {
+  "decks/su01-03-adobe.html": {
     "title": "Cosa vedremo",
     "items": [
       "Creative Cloud · Cos'è, e la differenza tra grafica raster e vettoriale.",
@@ -327,7 +335,7 @@
       "Scegliere · Quale app per quale lavoro, e il resto di Creative Cloud."
     ]
   },
-  "su01-04-alternativi.html": {
+  "decks/su01-04-alternativi.html": {
     "title": "Cosa vedremo",
     "items": [
       "Cos'è l'open source · Il concetto e le principali licenze open source.",
@@ -335,7 +343,7 @@
       "Scegliere · Commerciale contro alternativo."
     ]
   },
-  "su02-01-documenti.html": {
+  "decks/su02-01-documenti.html": {
     "title": "Cosa vedremo",
     "items": [
       "Il metodo · Ogni documento in tre domande: a cosa serve, cosa contiene, che aspetto ha.",
@@ -343,7 +351,7 @@
       "Il modello · Uno schema riusabile per costruire qualsiasi documento nei moduli Word."
     ]
   },
-  "su02-02-word-scrivere-formattare.html": {
+  "decks/su02-02-word-scrivere-formattare.html": {
     "title": "Cosa vedremo",
     "items": [
       "Basi del documento · L'interfaccia, creare, aprire e salvare, e selezionare senza fatica.",
@@ -351,7 +359,7 @@
       "Gli stili · La vera scorciatoia, applicata al listino del modulo precedente."
     ]
   },
-  "su02-03-word-impaginare-revisionare.html": {
+  "decks/su02-03-word-impaginare-revisionare.html": {
     "title": "Cosa vedremo",
     "items": [
       "Impaginare · La pagina, intestazioni e numeri, interruzioni e sezioni.",
@@ -359,7 +367,7 @@
       "Rifinire · Revisioni e confronto, controllo finale ed esportazione."
     ]
   },
-  "su02-04-word-documenti-professionali.html": {
+  "decks/su02-04-word-documenti-professionali.html": {
     "title": "Cosa vedremo",
     "items": [
       "Partire bene · Dal brief ai modelli e all'identità visiva.",
@@ -367,7 +375,7 @@
       "Documenti lunghi · Sommario, versioni e metadati, fino al kit professionale riutilizzabile."
     ]
   },
-  "su03-01-sistema.html": {
+  "decks/su03-01-sistema.html": {
     "title": "Cosa vedremo",
     "items": [
       "Il foglio di calcolo · Cos'è, le parti dell'interfaccia e i tipi di dati in una cella.",
@@ -375,7 +383,7 @@
       "Produrre · Creare un grafico, preparare la stampa e condividere il file."
     ]
   },
-  "su03-02-riferimenti.html": {
+  "decks/su03-02-riferimenti.html": {
     "title": "Cosa vedremo",
     "items": [
       "L'indirizzo delle celle · Riferimenti relativi, assoluti col simbolo dollaro, e misti.",
@@ -383,7 +391,7 @@
       "Formule solide · La funzione LET e cosa rompe le formule, e come evitarlo."
     ]
   },
-  "su03-03-fondamenti-matematici.html": {
+  "decks/su03-03-fondamenti-matematici.html": {
     "title": "Cosa vedremo",
     "items": [
       "Gli insiemi · Insiemi numerici, operazioni, diagrammi di Venn e le loro leggi fondamentali.",
@@ -391,7 +399,7 @@
       "Le funzioni · Dominio e grafico, i tipi di funzione, e composizione e funzione inversa."
     ]
   },
-  "su03-04-prime-formule.html": {
+  "decks/su03-04-prime-formule.html": {
     "title": "Cosa vedremo",
     "items": [
       "Come funziona una formula · Gli operatori aritmetici e logici, e la funzione più usata.",
@@ -399,7 +407,7 @@
       "Buone abitudini · Le otto funzioni del modulo, gli errori tipici e le buone abitudini."
     ]
   },
-  "su03-05-analisi.html": {
+  "decks/su03-05-analisi.html": {
     "title": "Cosa vedremo",
     "items": [
       "Ordinare e riassumere · Tabelle strutturate, ordinamento e filtri, tabelle pivot e FILTER.",
@@ -407,7 +415,7 @@
       "La ricerca giusta · INDICE+CONFRONTA, CERCA.X e quale funzione di ricerca scegliere."
     ]
   },
-  "su03-06-funzioni-top.html": {
+  "decks/su03-06-funzioni-top.html": {
     "title": "Cosa vedremo",
     "items": [
       "Somma e conteggio condizionali · SOMMA.PIÙ.SE, CONTA.PIÙ.SE e la media che sceglie.",
@@ -415,7 +423,7 @@
       "Date e riepilogo · OGGI, ADESSO e DATA, e le nove funzioni del modulo."
     ]
   },
-  "su03-07-testo.html": {
+  "decks/su03-07-testo.html": {
     "title": "Cosa vedremo",
     "items": [
       "Dati sporchi · Da tante celle a una, SPLIT, e TROVA e RICERCA per posizione.",
@@ -423,7 +431,7 @@
       "La cassetta degli attrezzi · MAIUSC, MINUSC e MAIUSC.INIZ, la pulizia in catena e le funzioni testo."
     ]
   },
-  "su03-08-tabelle-pivot.html": {
+  "decks/su03-08-tabelle-pivot.html": {
     "title": "Cosa vedremo",
     "items": [
       "Perché una pivot · Quando la tabella è troppo lunga e la regola una riga uguale un record.",
@@ -431,7 +439,7 @@
       "Usarla bene · Vedere solo ciò che serve, aggiornare la pivot e sapere quando mente."
     ]
   },
-  "su03-09-tabelle-pivot-avanzate.html": {
+  "decks/su03-09-tabelle-pivot-avanzate.html": {
     "title": "Cosa vedremo",
     "items": [
       "Analisi avanzata · Percentuali, periodi, raggruppamenti e campi calcolati.",
@@ -439,7 +447,7 @@
       "Controlli interattivi · Slicer e timeline collegati a una o più tabelle."
     ]
   },
-  "su03-10-grafici.html": {
+  "decks/su03-10-grafici.html": {
     "title": "Cosa vedremo",
     "items": [
       "Scegliere il grafico · Il grafico come risposta visiva: barre, linee, composizione, dispersione e istogramma.",
@@ -447,7 +455,7 @@
       "Leggere e sintetizzare · Trendline, media mobile, previsione, annotazioni e la dashboard finale."
     ]
   },
-  "su03-11-fogli-calcolo-avanzati.html": {
+  "decks/su03-11-fogli-calcolo-avanzati.html": {
     "title": "Cosa vedremo",
     "items": [
       "Dati puliti · Non solo una griglia, una tabella pulita, i tipi di dato e impedire gli errori.",
@@ -455,7 +463,7 @@
       "Cloud e consegna · Proteggere le celle, lavorare in cloud, dal foglio al cruscotto e la checklist."
     ]
   },
-  "su03-12-query-fogli-calcolo.html": {
+  "decks/su03-12-query-fogli-calcolo.html": {
     "title": "Cosa vedremo",
     "items": [
       "Cos'è una query · SELECT, WHERE e ORDER BY, e la funzione QUERY in Google Sheets.",
@@ -463,7 +471,7 @@
       "Oltre Sheets · Power Query in Excel, unire tabelle e la query come pipeline di pulizia."
     ]
   },
-  "su03-13-macro-fogli-calcolo.html": {
+  "decks/su03-13-macro-fogli-calcolo.html": {
     "title": "Cosa vedremo",
     "items": [
       "Cos'è una macro · Automatizzare solo processi stabili e registrare una macro.",
@@ -471,7 +479,7 @@
       "Macro affidabili · Gestire gli errori, testare su copie, i limiti e la checklist."
     ]
   },
-  "su03-14-vba.html": {
+  "decks/su03-14-vba.html": {
     "title": "Cosa vedremo",
     "items": [
       "Fondamenti · L'editor e i moduli, Sub e Function, variabili e tipi, e Option Explicit.",
@@ -479,7 +487,7 @@
       "In produzione · Errori, performance, file, eventi, UserForm, sicurezza e progetto finale."
     ]
   },
-  "su03-15-google-apps-script.html": {
+  "decks/su03-15-google-apps-script.html": {
     "title": "Cosa vedremo",
     "items": [
       "Fondamenti · Cos'è Apps Script, l'editor, JavaScript essenziale e SpreadsheetApp.",
@@ -487,7 +495,7 @@
       "In produzione · JSON, HTML Service e web app, proprietà e lock, debug, quote e deployment."
     ]
   },
-  "su03-16-collegamenti-fogli.html": {
+  "decks/su03-16-collegamenti-fogli.html": {
     "title": "Cosa vedremo",
     "items": [
       "Riferimenti tra schede · Richiamare una cella di un'altra scheda dello stesso file di calcolo.",
@@ -495,7 +503,7 @@
       "Tenere i collegamenti sani · Filtrare i dati importati, aggiornamenti e permessi, e non spezzare le catene."
     ]
   },
-  "su03-17-oltre-il-foglio.html": {
+  "decks/su03-17-oltre-il-foglio.html": {
     "title": "Cosa vedremo",
     "items": [
       "Quando il foglio non basta · I segnali che hai superato il limite dello strumento.",
@@ -503,7 +511,7 @@
       "Rischi e criterio · Codice non capito, manutenzione, dati — e quando il foglio resta la scelta giusta."
     ]
   },
-  "su04-01-presentazioni.html": {
+  "decks/su04-01-presentazioni.html": {
     "title": "Cosa vedremo",
     "items": [
       "Progettare · Cos'è PowerPoint, saper presentare, e la struttura inizio, corpo e fine.",
@@ -511,7 +519,7 @@
       "Consegnare · Le slide non bastano, provare fa la differenza, gli errori comuni e i post social."
     ]
   },
-  "sd01-introduzione.html": {
+  "decks/sd01-introduzione.html": {
     "title": "Cosa vedremo",
     "items": [
       "Cos'è la sicurezza digitale · La triade CID, cosa dobbiamo proteggere e quanto vale la nostra impronta digitale.",
@@ -519,7 +527,7 @@
       "Le difese di base · Aggiornamenti, password, autenticazione a due fattori, crittografia e buone abitudini."
     ]
   },
-  "sd02-minacce.html": {
+  "decks/sd02-minacce.html": {
     "title": "Cosa vedremo",
     "items": [
       "Le minacce · Minacce contro vulnerabilità, il malware, ransomware, phishing e ingegneria sociale.",
@@ -527,7 +535,7 @@
       "Difendersi · Antivirus ed EDR, backup, mettere in sicurezza la rete, VPN e cosa fare se attaccati."
     ]
   },
-  "sd03-privacy.html": {
+  "decks/sd03-privacy.html": {
     "title": "Cosa vedremo",
     "items": [
       "Privacy e tracciamento · Cos'è la privacy, i diritti del GDPR, come veniamo tracciati e i metadati.",
@@ -535,7 +543,7 @@
       "Proteggere la privacy · Social, telefono, diritto all'oblio, messaggi privati e la checklist finale."
     ]
   },
-  "sd04-professioni.html": {
+  "decks/sd04-professioni.html": {
     "title": "Cosa vedremo",
     "items": [
       "I ruoli · Analyst e SOC, penetration tester, incident responder, engineer, architect e CISO.",
@@ -543,7 +551,7 @@
       "Entrare nel settore · I percorsi di formazione e la mappa delle professioni."
     ]
   },
-  "sd05-assessment.html": {
+  "decks/sd05-assessment.html": {
     "title": "Cosa vedremo",
     "items": [
       "Vulnerability assessment · Le cinque fasi, il punteggio CVSS e la differenza col penetration test.",
@@ -551,7 +559,7 @@
       "I tuoi dati · Quali dati abbiamo e dove sono, chi li raccoglie e perché, e come riprenderne il controllo."
     ]
   },
-  "sd06-piani-b-digitali.html": {
+  "decks/sd06-piani-b-digitali.html": {
     "title": "Cosa vedremo",
     "items": [
       "Il principio · Ogni anello può cedere: la catena deve reggere lo stesso. Trovare i punti deboli.",
@@ -559,7 +567,7 @@
       "Gli scenari · Perdo il telefono, l'email, il PC: per ognuno, la contromossa già pronta."
     ]
   },
-  "ia01-concetti-generali.html": {
+  "decks/ia01-concetti-generali.html": {
     "title": "Cosa vedremo",
     "items": [
       "Cos'è l'IA · Cos'è, la storia, i concetti correlati, le reti neurali e come impara una macchina.",
@@ -567,7 +575,7 @@
       "Usarla con senso critico · Riconoscere gli elaborati IA, i bias, l'etica, la creatività, la privacy e il futuro."
     ]
   },
-  "ia02-esercizio-generazione.html": {
+  "decks/ia02-esercizio-generazione.html": {
     "title": "Cosa vedremo",
     "items": [
       "Gli strumenti · Per testo e conversazione, per audio e voce, per contenuti visivi.",
@@ -575,7 +583,7 @@
       "Scrivere prompt · Richieste chiare, prompt per testi e prompt per immagini."
     ]
   },
-  "ia03-llm.html": {
+  "decks/ia03-llm.html": {
     "title": "Cosa vedremo",
     "items": [
       "Cos'è un LLM · La definizione, cosa sono NLP e reti neurali profonde, e riconoscere un testo generato.",
@@ -583,7 +591,7 @@
       "Come funziona · La tokenizzazione, le reti di nodi, come interpreta il prompt e cosa non fa."
     ]
   },
-  "ia04-diversi-modelli-ia.html": {
+  "decks/ia04-diversi-modelli-ia.html": {
     "title": "Cosa vedremo",
     "items": [
       "Le famiglie · Modelli predittivi, generativi, multimodali e componenti specializzati.",
@@ -591,7 +599,7 @@
       "La scelta · Apertura, distribuzione, dimensione, costo, privacy e valutazione sul compito reale."
     ]
   },
-  "pr01-01-introduzione-programmazione.html": {
+  "decks/pr01-01-introduzione-programmazione.html": {
     "title": "Cosa vedremo",
     "items": [
       "Cosa significa programmare · Esprimere un comportamento in un linguaggio, scritto perché lo capiscano due lettori: la macchina e le persone.",
@@ -599,7 +607,7 @@
       "Correttezza e limiti · Validità e famiglie di linguaggi, errori e test, e ciò che nessun programma può calcolare."
     ]
   },
-  "pr01-02-dati-codifica.html": {
+  "decks/pr01-02-dati-codifica.html": {
     "title": "Cosa vedremo",
     "items": [
       "Bit, byte e binario · Perché zero e uno, le unità della memoria, dal decimale al binario e la scrittura esadecimale.",
@@ -607,7 +615,7 @@
       "Formati e limiti · La compressione, i formati di file, il limite pratico dei numeri e l'ordine dei byte."
     ]
   },
-  "pr01-03-algoritmi.html": {
+  "decks/pr01-03-algoritmi.html": {
     "title": "Cosa vedremo",
     "items": [
       "Cosa è un algoritmo · Una sequenza di passi controllabile, con le sue azioni fondamentali e i valori che conserva.",
@@ -615,7 +623,7 @@
       "Progettare un algoritmo · Dai quattro passaggi al top-down, dallo pseudocodice a Flowgorithm, con pre e post-condizioni."
     ]
   },
-  "pr01-04-costrutti-verifica.html": {
+  "decks/pr01-04-costrutti-verifica.html": {
     "title": "Cosa vedremo",
     "items": [
       "Decisioni e cicli · Condizioni verificabili, le tre forme di ciclo, cicli annidati e uscite anticipate.",
@@ -623,7 +631,7 @@
       "Verificare e valutare · La tabella di traccia, il costo di una soluzione e due esercizi da far girare."
     ]
   },
-  "pr01-05-operatori-funzioni.html": {
+  "decks/pr01-05-operatori-funzioni.html": {
     "title": "Cosa vedremo",
     "items": [
       "Operatori aritmetici · Somma, divisione, resto, potenza e assegnazione, con la precedenza che decide l'ordine dei calcoli.",
@@ -631,7 +639,7 @@
       "Funzioni · Isolare una responsabilità in un blocco riusabile, capirne lo scope e verificarlo con esempi."
     ]
   },
-  "pr01-06-misure-calcoli-unita.html": {
+  "decks/pr01-06-misure-calcoli-unita.html": {
     "title": "Cosa vedremo",
     "items": [
       "Misurare e calcolare · La misura osserva una grandezza; il calcolo trasforma valori già rappresentati.",
@@ -639,7 +647,7 @@
       "Programmare con precisione · Tipi, decimali, sensori, tolleranze e test che verificano anche le unità."
     ]
   },
-  "pr05-01-html-struttura.html": {
+  "decks/pr05-01-html-struttura.html": {
     "title": "Cosa vedremo",
     "items": [
       "Marcare, non programmare · Cos'è HTML, tag, attributi ed elementi.",
@@ -647,7 +655,7 @@
       "Ordine e cura · Annidamento, indentazione ed errori più comuni."
     ]
   },
-  "pr05-02-html-link-immagini.html": {
+  "decks/pr05-02-html-link-immagini.html": {
     "title": "Cosa vedremo",
     "items": [
       "I collegamenti · Il tag a, percorsi assoluti e relativi, link speciali.",
@@ -655,31 +663,55 @@
       "Le tabelle · table, tr, th e td; intestazioni e struttura leggibile."
     ]
   },
-  "pr05-03-html-form-semantica.html": {
+  "decks/pr05-03-html-form-semantica.html": {
     "title": "Cosa vedremo",
     "items": [
       "I moduli · form, campi di input, etichette, pulsanti e controlli.",
       "HTML semantico · header, nav, main, footer e perché conta.",
-      "Dare stile · Separare contenuto e aspetto con il CSS."
+      "Struttura significativa · Scegliere elementi che aiutano persone, tecnologie assistive e manutenzione."
     ]
   },
-  "pr06-01-python-base.html": {
+  "decks/pr05-04-css-stile-selettori.html": {
     "title": "Cosa vedremo",
     "items": [
-      "Costruire il programma · Sintassi, operatori, condizioni, cicli, funzioni, moduli ed errori.",
-      "Organizzare i dati · Stringhe, liste come vettori, matrici, dizionari, tuple e insiemi.",
-      "Conservare i risultati · Percorsi e file TXT, CSV e JSON fino a un programma completo."
+      "Regole e proprietà · Selettore, dichiarazioni, valori e punto e virgola.",
+      "Testo e presentazione · Peso, inclinazione, dimensione, famiglia, colore e ritmo.",
+      "Applicare gli stili · CSS esterno, classi, specificità e modello a scatola."
     ]
   },
-  "pr06-02-python-strumenti.html": {
+  "decks/pr06-01-python-base.html": {
     "title": "Cosa vedremo",
     "items": [
-      "Organizzare il codice · Classi, oggetti, dataclass, moduli, pacchetti e ambienti virtuali.",
-      "Elaborare e verificare · Iteratori, generatori, pipeline, test automatici e casi limite.",
-      "Collegare applicazioni e dati · Richieste HTTP, API, autenticazione e database SQLite."
+      "Costruire il programma · Sintassi, tipi di dato, conversioni e input/output.",
+      "Controllare il flusso · Operatori, stringhe, condizioni if/elif/else e cicli for/while.",
+      "Riusare il codice · Funzioni con parametri e return, variabili locali e moduli."
     ]
   },
-  "pr01-07-iterazione-cicli.html": {
+  "decks/pr06-02-strutture-dati-file.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "Organizzare i dati · Liste come vettori, matrici, dizionari, tuple e insiemi.",
+      "Gestire gli imprevisti · Errori previsti con try/except.",
+      "Conservare i risultati · File di testo, CSV, JSON e pathlib fino a un programma completo."
+    ]
+  },
+  "decks/pr06-03-oggetti-pacchetti.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "Modellare con oggetti · Classi, __init__, metodi, composizione, ereditarietà e dataclass.",
+      "Elaborare flussi · Iterable, iteratori, generatori, espressioni generatrici e pipeline.",
+      "Organizzare il progetto · Moduli, pacchetti, ambienti virtuali e dipendenze riproducibili."
+    ]
+  },
+  "decks/pr06-04-test-api-database.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "Verificare il comportamento · Assert, unittest, setUp e casi normali, limite ed errore.",
+      "Collegarsi a un servizio · Richieste HTTP con requests, stati, errori di rete, autenticazione.",
+      "Conservare dati strutturati · SQLite, query parametrizzate e funzioni CRUD verificabili."
+    ]
+  },
+  "decks/pr01-07-iterazione-cicli.html": {
     "title": "Cosa vedremo",
     "items": [
       "Che cos'è un ciclo · Dalla ripetizione al ciclo, le sue parti e il ciclo condizionale.",
@@ -687,7 +719,7 @@
       "Costruire risultati · Accumulatore e contatore, e progettare un ciclo che si ferma."
     ]
   },
-  "pr02-01-introduzione.html": {
+  "decks/pr02-01-introduzione.html": {
     "title": "Cosa vedremo",
     "items": [
       "L'ambiente Scratch · Online o offline, la mappa dell'interfaccia e come si leggono i blocchi.",
@@ -695,7 +727,7 @@
       "Un progetto completo · Da Abby e il Gatto ai costumi, ai suoni, agli errori tipici e al salvataggio."
     ]
   },
-  "pr02-02-questionario.html": {
+  "decks/pr02-02-questionario.html": {
     "title": "Cosa vedremo",
     "items": [
       "Impostare il quiz · I materiali, un file ordinato, le variabili e l'inizializzazione.",
@@ -703,7 +735,7 @@
       "Struttura avanzata · Timer, architettura a messaggi, più sprite, liste e collaudo finale."
     ]
   },
-  "pr03-01-microbit.html": {
+  "decks/pr03-01-microbit.html": {
     "title": "Cosa vedremo",
     "items": [
       "La scheda · Il microcontrollore, il tour di fronte e retro e i sensori a bordo.",
@@ -711,7 +743,7 @@
       "Programmare la scheda · Dai LED agli eventi fisici, le variabili, i progetti e il debug."
     ]
   },
-  "pr03-02-createai.html": {
+  "decks/pr03-02-createai.html": {
     "title": "Cosa vedremo",
     "items": [
       "L'ambiente CreateAI · Avviare una sessione, le aree dell'IDE e la pipeline del progetto.",
@@ -719,7 +751,7 @@
       "Usare il modello · Testarlo, correggerlo quando sbaglia, portarlo in MakeCode e documentarlo."
     ]
   },
-  "pr04-02-notepad-plus-plus.html": {
+  "decks/pr04-02-notepad-plus-plus.html": {
     "title": "Cosa vedremo",
     "items": [
       "Orientarsi · Installazione, interfaccia, sintassi, schede e barra di stato.",
@@ -727,7 +759,7 @@
       "Scegliere bene · Plugin, confronto, casi d'uso e limiti rispetto a editor e IDE."
     ]
   },
-  "pr04-03-sublime-text.html": {
+  "decks/pr04-03-sublime-text.html": {
     "title": "Cosa vedremo",
     "items": [
       "Navigare · Goto Anything, Command Palette, progetti, simboli e split view.",
@@ -735,7 +767,7 @@
       "Estendere e scegliere · Build systems, pacchetti, segnali del controllo versione e confronto tra editor."
     ]
   },
-  "pr04-04-vscode.html": {
+  "decks/pr04-04-vscode.html": {
     "title": "Cosa vedremo",
     "items": [
       "Orientarsi · Aprire la cartella-progetto, usare Explorer, pannelli e Command Palette.",
@@ -743,7 +775,7 @@
       "Eseguire e verificare · Terminale, debugger, formatter, linter e test nel flusso di VS Code."
     ]
   },
-  "pr04-05-git.html": {
+  "decks/pr04-05-git.html": {
     "title": "Cosa vedremo",
     "items": [
       "Fondamenti · Controllo versione distribuito, installazione, identità, init e clone.",
@@ -751,7 +783,7 @@
       "Condivisione e recupero · Remote, fetch, pull, push, restore, revert, tag e stash."
     ]
   },
-  "pr04-01-strumenti-ambiente.html": {
+  "decks/pr04-01-strumenti-ambiente.html": {
     "title": "Cosa vedremo",
     "items": [
       "Capire gli strumenti · Editor di testo, editor di codice, IDE, WYSIWYG e struttura di un progetto.",
@@ -759,7 +791,7 @@
       "Preparare l'ambiente · Dipendenze e «sul mio computer funziona», i caratteri invisibili, l'ergonomia e il primo setup."
     ]
   },
-  "pm01-introduzione.html": {
+  "decks/pm01-introduzione.html": {
     "title": "Cosa vedremo",
     "items": [
       "Cos'è un progetto · Da un'idea a un risultato, progetto contro processo, il triplo vincolo e perché falliscono.",
@@ -767,7 +799,7 @@
       "Il project manager · Le sue responsabilità, cosa non è, gli stakeholder e le soft skill."
     ]
   },
-  "pm02-pianificazione.html": {
+  "decks/pm02-pianificazione.html": {
     "title": "Cosa vedremo",
     "items": [
       "Obiettivi e perimetro · Dal «che bello sarebbe» al piano, gli obiettivi SMART e cosa sta dentro o fuori.",
@@ -775,7 +807,7 @@
       "Budget, rischi, comunicazione · Chi fa cosa, il budget, i rischi con probabilità e impatto, e il piano di comunicazione."
     ]
   },
-  "pm03-metodologie.html": {
+  "decks/pm03-metodologie.html": {
     "title": "Cosa vedremo",
     "items": [
       "Predittivo o adattivo · Waterfall e la curva del costo del cambiamento, contro l'approccio agile a cicli.",
@@ -783,7 +815,7 @@
       "Scegliere · Scrum o Kanban, quale metodo per quale progetto, gli approcci ibridi e le trappole."
     ]
   },
-  "pm04-strumenti.html": {
+  "decks/pm04-strumenti.html": {
     "title": "Cosa vedremo",
     "items": [
       "Perché uno strumento · Oltre il foglio di calcolo: le quattro famiglie di strumenti e le bacheche digitali.",
@@ -791,7 +823,7 @@
       "Sceglierlo e introdurlo · Come si sceglie, come introdurlo senza rigetto e i quattro fallimenti da strumento."
     ]
   },
-  "ms01-tinkercad-introduzione.html": {
+  "decks/ms01-tinkercad-introduzione.html": {
     "title": "Cosa vedremo",
     "items": [
       "Cos'è TinkerCAD · Tre laboratori in uno e il progetto che vive nel cloud.",
@@ -799,7 +831,7 @@
       "Il primo oggetto · Dall'idea all'oggetto, costruendo una targhetta semplice."
     ]
   },
-  "ms02-modellazione-base.html": {
+  "decks/ms02-modellazione-base.html": {
     "title": "Cosa vedremo",
     "items": [
       "L'ambiente · La mappa dell'ambiente, il piano di lavoro, la griglia di snap e il mouse come strumento.",
@@ -807,7 +839,7 @@
       "Muovere nello spazio · Spostare sugli assi, ruotare senza perdersi, e il mini-esercizio del portachiavi."
     ]
   },
-  "ms03-esportazione-stampa-3d.html": {
+  "decks/ms03-esportazione-stampa-3d.html": {
     "title": "Cosa vedremo",
     "items": [
       "I formati · Portare modelli dentro e fuori: SVG vettoriale, STL a triangoli, OBJ e come scegliere.",
@@ -815,7 +847,7 @@
       "Verificare e stampare · Simulare materiali e gravità, fino a una targhetta stampabile."
     ]
   },
-  "ms04-classi-attivita.html": {
+  "decks/ms04-classi-attivita.html": {
     "title": "Cosa vedremo",
     "items": [
       "La classe · Crearla, gestirla e il progetto di partenza.",
@@ -823,7 +855,7 @@
       "Valutare · Badge, valutazione e i quattro criteri."
     ]
   },
-  "ia05-strumenti-gratuiti.html": {
+  "decks/ia05-strumenti-gratuiti.html": {
     "title": "Cosa vedremo",
     "items": [
       "Cosa vuol dire gratis · Freemium, dati come prezzo, e le categorie di strumenti disponibili.",
@@ -831,7 +863,7 @@
       "I limiti · Cosa perde la versione gratuita e come valutare uno strumento prima di usarlo."
     ]
   },
-  "su02-05-word-docs-avanzato.html": {
+  "decks/su02-05-word-docs-avanzato.html": {
     "title": "Cosa vedremo",
     "items": [
       "Riferimenti e struttura · Note, citazioni e bibliografia, riferimenti incrociati, colonne e filigrana.",

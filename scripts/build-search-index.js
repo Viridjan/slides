@@ -21,15 +21,47 @@ const stripTags = value => value
   .replace(/\s+/g, ' ')
   .trim();
 
-const extractSlides = text => {
+const cleanSearchText = value => value
+  .replace(/^Rimandi interni:.*$/gm, ' ')
+  .replace(/^Fonti ufficiali:\s*$/gmi, ' ')
+  .replace(/^\s*-\s+.*https?:\/\/\S+.*$/gmi, ' ')
+  .replace(/\[Fonte:[^\]]+\]/gi, ' ')
+  .replace(/^\s*Fonte:\s+.*$/gmi, ' ')
+  .replace(/https?:\/\/\S+/gi, ' ')
+  .replace(/\b\d{1,3}\s*\/\s*\d{1,3}\b/g, ' ')
+  .replace(/[ \t]+/g, ' ')
+  .replace(/\n{3,}/g, '\n\n')
+  .trim();
+
+// Chrome that never contributes searchable content: scripts/styles, the
+// decorative source and cross-reference footers, and page numbers. Stripped
+// from the raw slide HTML before tag-stripping — the same set
+// build-completeness.js and manage-slide-review-tags.js exclude.
+const stripSlideChrome = body => body
+  .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+  .replace(/<div\b[^>]*class="[^"]*\b(page-num|num|deck-author)\b[^"]*"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+  .replace(/<div\b[^>]*data-source-footer="true"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+  .replace(/<div\b[^>]*data-source-list="true"[^>]*>[\s\S]*?<\/div>/gi, ' ')
+  .replace(/<div\b[^>]*data-cross-reference-footer="true"[^>]*>[\s\S]*?<\/div>/gi, ' ');
+
+// Slide text used to live in the TXT companion (--- Slide N --- markers); now
+// read straight from the deck's own <section class="slide"> blocks. Slide 1
+// (title) is skipped, matching the old behaviour, as is any slide that reads
+// like an agenda/outline rather than real content.
+const extractSlides = deckHtml => {
   const slides = [];
-  const pattern = /--- Slide (\d+) ---\n([\s\S]*?)(?=\n--- Slide \d+ ---|$)/g;
+  const pattern = /<section\b([^>]*)>([\s\S]*?)<\/section>/gi;
   let match;
-  while ((match = pattern.exec(text))) {
-    slides.push({
-      number: Number(match[1]),
-      text: match[2].replace(/^Rimandi interni:.*$/gm, '').trim()
-    });
+  let number = 0;
+  while ((match = pattern.exec(deckHtml))) {
+    const classes = match[1].match(/\bclass\s*=\s*["']([^"']*)["']/i)?.[1].split(/\s+/) || [];
+    if (!classes.includes('slide')) continue;
+    number++;
+    if (number === 1) continue;
+    const cleaned = cleanSearchText(stripTags(stripSlideChrome(match[2])));
+    const isOutline = /\b(cosa vedremo|questo modulo segue|in questo modulo affronteremo|panoramica del modulo)\b/i.test(cleaned);
+    if (!cleaned || isOutline) continue;
+    slides.push({ number, text: cleaned });
   }
   return slides;
 };
@@ -53,10 +85,10 @@ let match;
 while ((match = cardPattern.exec(html))) {
   const href = match[1];
   const block = match[2];
-  const txtPath = path.join(root, href.replace(/\.html$/, '.txt'));
-  const rawText = fs.existsSync(txtPath) ? fs.readFileSync(txtPath, 'utf8') : '';
-  const text = rawText.replace(/^Rimandi interni:.*$/gm, '');
-  const slides = extractSlides(text);
+  const deckPath = path.join(root, href);
+  const deckHtml = fs.existsSync(deckPath) ? fs.readFileSync(deckPath, 'utf8') : '';
+  const slides = extractSlides(deckHtml);
+  const text = slides.map(slide => slide.text).join('\n\n');
 
   cards.push({
     href,
@@ -78,5 +110,15 @@ const banner = [
   ''
 ].join('\n');
 
-fs.writeFileSync(outPath, banner);
-console.log(`Wrote ${path.relative(root, outPath)} with ${cards.length} entries.`);
+if (process.argv.includes('--check')) {
+  const current = fs.existsSync(outPath) ? fs.readFileSync(outPath, 'utf8') : '';
+  if (current !== banner) {
+    console.error(`${path.relative(root, outPath)} is stale. Run node scripts/build-search-index.js.`);
+    process.exitCode = 1;
+  } else {
+    console.log(`${path.relative(root, outPath)} is current (${cards.length} entries).`);
+  }
+} else {
+  fs.writeFileSync(outPath, banner);
+  console.log(`Wrote ${path.relative(root, outPath)} with ${cards.length} entries.`);
+}

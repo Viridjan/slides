@@ -1,0 +1,251 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smartphones · SM07 — Gestione dei file sul telefono</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg)}.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg)}.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);font-family:var(--font-body);color:var(--ink);padding:96px 110px}.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px}.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint)}.page-num b{color:var(--red);font-size:30px}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}.slide.visible .reveal{opacity:1;transform:none}.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase}.tape.teal{background:var(--teal)}.tape.gold{background:var(--gold-deep)}.tape.sky{background:var(--sky)}.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red)}.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px}.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px}.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px}em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var(--sky)}.lead{font-size:32px;line-height:1.42;color:var(--ink-soft);max-width:1120px}.body{font-size:27px;line-height:1.46;color:var(--ink-soft)}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.title-right>div,.title-right>svg{position:relative;z-index:2;}.phone-art{width:330px;height:620px;border:8px solid var(--ink);border-radius:48px;background:#fbf5ec;box-shadow:16px 18px 0 rgba(0,0,0,.18);display:grid;place-items:center;position:relative}.phone-art::before{content:"";position:absolute;top:18px;width:88px;height:10px;border-radius:99px;background:var(--ink)}.phone-art::after{content:"";position:absolute;bottom:22px;width:72px;height:72px;border:5px solid var(--ink);border-radius:50%;opacity:.18}
+.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13)}.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
+.title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+</style>
+<link rel="stylesheet" href="../theme-corsi.css">
+</head>
+<body class="course-sm">
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <h1 class="h-mega reveal">Gestione dei file sul telefono</h1>
+      <p class="lead reveal" style="margin-top:30px;">Dove finiscono i download, come lavora il cloud e come liberare spazio senza perdere nulla.</p>
+
+    </div>
+    <div class="title-right"><div class="phone-art reveal"></div></div>
+  <div class="deck-author">Francesco Antonio Binetti</div></section>
+
+
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">File anche sul telefono</h2>
+        <p class="lead reveal d1">Dietro le icone colorate lo smartphone è organizzato in cartelle, proprio come un computer: sapere quali sono ti evita di «perdere» i documenti.</p>
+        <div class="note reveal d2"><div class="lbl">iOS fa a modo suo</div><p>Su iPhone non c'è una cartella unica: ogni app custodisce i propri contenuti. L'app File li raccoglie in «Sul mio iPhone» e in iCloud Drive.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🗺️</span>
+        <h3>La mappa di Android</h3>
+        <ul><li><b>DCIM</b> — foto e video scattati con la fotocamera.</li><li><b>Download</b> — tutto ciò che scarichi dal browser o dalle email.</li><li><b>Documents</b> — PDF e file di lavoro salvati dalle app.</li><li><b>Android/data</b> — dati interni delle app: meglio non toccarli.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Manuale utente iPhone — Apple" aria-label="Fonte ufficiale: Manuale utente iPhone — Apple" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Manuale utente iPhone — Apple ↗</a><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a></div></section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:22px;">L'app File</h2>
+      <p class="lead reveal d1" style="margin-top:16px;">È l'«Esplora risorse» del telefono: cerca, sposta, rinomina e cancella senza dover aprire le singole app. Mostra insieme memoria locale e cloud collegati.</p>
+      <div class="grid2 reveal d2" style="margin-top:28px;">
+        <div class="card"><h3>Gestione file su Android</h3><ul><li>Si chiama «Files di Google» o «Gestione file», a seconda del produttore.</li><li>Organizza per categorie: Immagini, Video, Audio, Download.</li><li>La funzione «Libera spazio» segnala doppioni e file inutili da eliminare.</li></ul></div>
+        <div class="card"><span class="ic">🍎</span><h3>Su iPhone</h3><ul><li>L'app si chiama proprio «File» ed è preinstallata.</li><li>Due sezioni: «Sul mio iPhone» (memoria locale) e «iCloud Drive» (cloud).</li><li>La scheda Recenti elenca gli ultimi file toccati: perfetta per ritrovare un download al volo.</li></ul></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Download e documenti</h2>
+        <p class="lead reveal d1">Ogni PDF, biglietto o modulo che scarichi finisce da qualche parte — quasi sempre nella cartella Download, che nessuno svuota mai.</p>
+        <div class="note reveal d2"><div class="lbl">Il percorso</div><p>Dal browser → cartella Download. Gli allegati email si aprono in anteprima e restano salvati solo se tocchi «Salva» o li condividi. Su iPhone: app File → Download.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🧹</span>
+        <h3>Routine anti-accumulo</h3>
+        <ul><li>Una volta al mese apri Download: via scontrini scaduti, biglietti usati e doppioni.</li><li>I documenti da conservare spostali in una cartella con un nome sensato, o caricali sul cloud per averli anche da PC.</li><li>Non ritrovi un file? Usa la ricerca per nome dell'app File: copre tutta la memoria.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:22px;">Foto, video e allegati</h2>
+      <p class="lead reveal d1" style="margin-top:16px;">La voce che pesa di più sulla memoria: un minuto di video in 4K può superare il mezzo gigabyte.</p>
+      <div class="grid2 reveal d2" style="grid-template-columns:repeat(3,1fr);margin-top:28px;">
+        <div class="card"><span class="ic">📸</span><h3>Dalla fotocamera</h3><p>Scatti doppi, raffiche e screenshot si accumulano in silenzio nella galleria (cartella DCIM), spesso a decine ogni settimana.</p></div>
+        <div class="card"><span class="ic">💬</span><h3>Dalle chat</h3><p>WhatsApp e Telegram salvano una copia locale di ogni foto e video ricevuto. Il download automatico dei media si può spegnere nelle impostazioni della chat.</p></div>
+        <div class="card"><span class="ic">🧭</span><h3>Da dove iniziare</h3><p>Nella galleria parti dagli album «Screenshot» e «WhatsApp»: si svuotano senza rimpianti. Le foto vere valutale per ultime, con calma.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Cloud e backup</h2>
+        <p class="lead reveal d1">Il cloud archivia file accessibili da qualsiasi dispositivo; il backup automatico protegge i dati in caso di perdita o furto.</p>
+        <div class="analogy reveal d2"><span class="big">Regola:</span> cancellare dalla galleria non cancella dal cloud.</div>
+        <div class="illu reveal d3"><svg viewBox="0 0 280 280" style="max-width:250px;margin:0 auto;" role="img" aria-label="Telefono e nuvola collegati da frecce di sincronizzazione nei due sensi"><circle cx="140" cy="55" r="32" fill="#163b35"/><circle cx="100" cy="68" r="22" fill="#163b35"/><circle cx="180" cy="68" r="24" fill="#163b35"/><rect x="78" y="62" width="124" height="30" rx="15" fill="#163b35"/><path d="M124 62 l12 12 l24 -26" stroke="#e6c14a" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="97" y="150" width="86" height="124" rx="14" fill="#f4ece0" stroke="#1c1714" stroke-width="5"/><rect x="126" y="160" width="28" height="6" rx="3" fill="#1c1714"/><rect x="110" y="180" width="26" height="26" rx="5" fill="#e6c14a"/><rect x="144" y="180" width="26" height="26" rx="5" fill="#e6533b"/><rect x="110" y="214" width="26" height="26" rx="5" fill="#3f7e8c"/><rect x="144" y="214" width="26" height="26" rx="5" fill="#163b35"/><circle cx="140" cy="258" r="5" fill="#1c1714"/><line x1="60" y1="205" x2="60" y2="122" stroke="#e6533b" stroke-width="8" stroke-linecap="round"/><polygon points="46,132 60,106 74,132" fill="#e6533b"/><line x1="222" y1="115" x2="222" y2="198" stroke="#3f7e8c" stroke-width="8" stroke-linecap="round"/><polygon points="208,188 222,214 236,188" fill="#3f7e8c"/></svg><div class="illu-cap">Sincronizzazione: il file vive sul telefono e nel cloud</div></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">☁️</span>
+        <h3>Sincronizzare oltre il telefono</h3>
+        <ul><li>Cloud storage (Drive, iCloud, OneDrive, Dropbox) sincronizza i file in tempo reale su tutti i dispositivi.</li><li>Il backup automatico del telefono include app, impostazioni, messaggi e foto.</li><li>Controlla che il backup sia attivo e aggiornato: Impostazioni → account cloud → Backup.</li><li>Lo spazio gratuito (15 GB Google, 5 GB iCloud) si esaurisce: valuta un abbonamento se il telefono è il tuo strumento principale.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Spazio e cache</h2>
+        <p class="lead reveal d1">La cache velocizza le app ma accumula dati temporanei inutilizzati; svuotarla libera spazio senza perdere dati.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">💾</span>
+        <h3>Liberare i gigabyte nascosti</h3>
+        <ul><li>Lo spazio pieno rallenta il telefono: sistema e app hanno bisogno di spazio libero per funzionare bene.</li><li>La cache è dati temporanei per caricare le app più velocemente: può crescere a diversi gigabyte.</li><li>Android: Impostazioni → App → seleziona app → Svuota cache. iOS gestisce la cache automaticamente.</li><li>Prima di cancellare file: controlla cosa pesa di più in Impostazioni → Memoria → Analizza.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Trasferire a PC</h2>
+        <p class="lead reveal d1">Spostare file tra telefono e computer si fa via cavo USB, WiFi o cloud — ogni metodo ha velocità e casi d'uso diversi.</p>
+        <div class="note reveal d2"><div class="lbl">Metodo più veloce</div><p>WiFi: Nearby Share (Android) o AirDrop (iOS su Mac). Da Android a PC Windows: cavo USB, poi scegli "Trasferimento file". Da iPhone: Finder su Mac o cloud. Per molti file: cavo USB è il più veloce e affidabile.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🖥️</span>
+        <h3>Tre strade: cavo, aria, cloud</h3>
+        <ul><li>USB: collega il cavo, scegli "Trasferimento file" (Android) o usa Finder/iTunes (iOS).</li><li>WiFi diretto: Nearby Share su Android, AirDrop su Apple, per file singoli senza cavo.</li><li>Cloud: carica su Drive o OneDrive dal telefono, scarica dal PC — comodo ma richiede connessione.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" aria-label="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Wi-Fi — Wi-Fi Alliance ↗</a><a data-source-origin="auto" href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Documenti e specifiche USB — USB-IF" aria-label="Fonte ufficiale: Documenti e specifiche USB — USB-IF" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Documenti e specifiche USB — USB-IF ↗</a></div></section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:20px;">Dove portare i dati: quattro destinazioni</h2>
+      <div class="grid2 reveal d1" style="margin-top:26px;">
+        <div class="card"><span class="ic">💾</span><h3>Drive esterno</h3><ul><li>Chiavetta o disco USB: paghi una volta, i dati restano in mano tua</li><li>Ma si rompe, si perde, e la copia non si aggiorna da sola</li></ul></div>
+        <div class="card"><span class="ic">☁️</span><h3>Cloud gratuito</h3><ul><li>Google Drive, iCloud: comodo e automatico, zero spese</li><li>Spazio limitato (circa 15 GB) e i dati vivono sui server di un'azienda</li></ul></div>
+        <div class="card"><span class="ic">💶</span><h3>Cloud a pagamento</h3><ul><li>Pochi euro al mese per centinaia di GB, backup automatico e sincronizzazione</li><li>È un affitto: smetti di pagare, lo spazio si restringe</li></ul></div>
+        <div class="card"><span class="ic">🏠</span><h3>Self-hosted</h3><ul><li>Un tuo dispositivo (NAS) che fa da cloud personale: controllo totale</li><li>Richiede competenza e manutenzione: l'assistenza tecnica sei tu</li></ul></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:20px;">Come scegliere la destinazione</h2>
+      <div class="grid2 reveal d1" style="margin-top:30px;">
+        <div class="card"><span class="ic">📏</span><h3>Quanto e cosa</h3><ul><li>Poche foto → basta il cloud gratuito</li><li>Archivi grandi o video → disco esterno o cloud a pagamento</li><li>Dati riservati → drive esterno o self-hosted, fuori dai server altrui</li></ul></div>
+        <div class="card"><span class="ic">⚖️</span><h3>Le domande giuste</h3><ul><li>Quanto mi costa all'anno — e per sempre?</li><li>Se il servizio chiude o smetto di pagare, come riprendo i dati?</li><li>Chi altri può leggerli, lì dove stanno?</li></ul></div>
+      </div>
+      <div class="analogy reveal d2" style="margin-top:24px;"><span class="big">Regola:</span> i dati importanti stanno in due posti diversi, di cui uno sotto il tuo controllo — è la regola 3-2-1 di SD06.</div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Condivisione file</h2>
+        <p class="lead reveal d1">Condividere tramite link mantiene il controllo sul file; inviare una copia cede quel controllo.</p>
+        <div class="note reveal d2"><div class="lbl">Link vs copia</div><p>Condividere via link (Drive, iCloud) non crea duplicati e permette di revocare l'accesso. Inviare il file crea una copia che non controlli più. Per documenti di lavoro preferisci sempre il link condivisibile.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🔗</span>
+        <h3>Copia vs link</h3>
+        <ul><li>Inviare il file via WhatsApp o email crea una copia su ogni dispositivo: nessun controllo su chi la ridistribuisce.</li><li>Un link condiviso è revocabile, tracciabile e non duplica il file su ogni dispositivo.</li><li>Per file grandi, i link cloud evitano i limiti di dimensione delle chat e delle email.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">File sensibili</h2>
+        <p class="lead reveal d1">Documenti personali fotografati non vanno lasciati nella galleria aperta: usare cartelle protette o app con lock.</p>
+        <div class="note reveal d2"><div class="lbl">Dove tenerli</div><p>Documenti sensibili (carta d'identità, codice fiscale, referti) in cartella protetta: Samsung Secure Folder, app Note iOS con lock, o app vault cifrata. Non nella galleria principale visibile a tutte le app.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🔒</span>
+        <h3>La galleria non è una cassaforte</h3>
+        <ul><li>La galleria foto non è un archivio sicuro: app con accesso alle foto possono vederle tutte.</li><li>Foto di documenti, dati bancari e referti medici richiedono protezione aggiuntiva.</li><li>Una cartella bloccata o cifrata è accessibile solo con PIN separato, anche se lo schermo è sbloccato.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Nomi chiari e cestino</h2>
+        <p class="lead reveal d1">Nomi descrittivi con data permettono di trovare i file subito; il cestino trattiene i file eliminati 30 giorni prima della cancellazione definitiva.</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🗂️</span>
+        <h3>Ordine che si mantiene da solo</h3>
+        <ul><li>Schema utile: AAAA-MM-GG-descrizione.ext → 2026-06-30-contratto-affitto-v2.pdf. La data in testa permette ordinamento automatico.</li><li>Evita nomi come "documento.pdf", "foto.jpg", "file1" — impossibili da ritrovare dopo settimane.</li><li>Il cestino trattiene i file eliminati fino a 30 giorni: utile per errori, non per cancellazioni definitive.</li><li>Cancellare dalla galleria non cancella dal cloud (Google Foto, iCloud): controlla anche lì.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+
+
+  <section class="slide closing"><div class="closing-inner"><div class="center" style="align-items:center;text-align:center;">
+      <h2 class="h-mega reveal" style="margin-top:10px;">File sotto<br>controllo.</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">File manager su Android e iOS, trasferimento via USB e AirDrop, backup automatico e i formati di file da conoscere.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="sm08-fotocamera-contenuti.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → SM08 · Fotocamera e contenuti</a>
+      </div>
+    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Manuale utente iPhone — Apple ↗</a><a href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Android ↗</a><a href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Wi-Fi — Wi-Fi Alliance ↗</a><a href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Documenti e specifiche USB — USB-IF ↗</a></div></div><div class="page-num"></div></section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
+
+<script src="../deck.js"></script>
+</body>
+</html>

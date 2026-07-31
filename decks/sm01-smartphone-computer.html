@@ -1,0 +1,323 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smartphones · SM01 — Lo smartphone è un computer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;--red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;--font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;--stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;}
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:var(--stage-bg)}.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg)}.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);font-family:var(--font-body);color:var(--ink);padding:96px 110px}.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30}@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+.deck-tab{position:absolute;top:0;right:120px;z-index:5;background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:20px;letter-spacing:1px;padding:14px 22px 12px;border-radius:0 0 10px 10px}.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint)}.page-num b{color:var(--red);font-size:30px}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}.slide.visible .reveal{opacity:1;transform:none}.slide.visible .reveal:nth-child(1){transition-delay:.05s}.slide.visible .reveal:nth-child(2){transition-delay:.13s}.slide.visible .reveal:nth-child(3){transition-delay:.21s}.slide.visible .reveal:nth-child(4){transition-delay:.29s}.d1{transition-delay:.20s!important}.d2{transition-delay:.32s!important}.d3{transition-delay:.44s!important}
+.tape{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:24px;letter-spacing:3px;padding:11px 24px;transform:rotate(-2.5deg);box-shadow:4px 6px 0 rgba(0,0,0,.14);text-transform:uppercase}.tape.teal{background:var(--teal)}.tape.gold{background:var(--gold-deep)}.tape.sky{background:var(--sky)}.eyebrow{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:36px;color:var(--red)}.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px}.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px}.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px}em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var(--sky)}.lead{font-size:32px;line-height:1.42;color:var(--ink-soft);max-width:1120px}.body{font-size:27px;line-height:1.46;color:var(--ink-soft)}
+.title-slide{padding:0;display:grid;grid-template-columns:1.28fr 1fr}.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.title-left .tape{position:absolute;top:84px;left:90px}.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center}.title-right>div,.title-right>svg{position:relative;z-index:2;}.phone-art{width:330px;height:620px;border:8px solid var(--ink);border-radius:48px;background:#fbf5ec;box-shadow:16px 18px 0 rgba(0,0,0,.18);display:grid;place-items:center;position:relative}.phone-art::before{content:"";position:absolute;top:18px;width:88px;height:10px;border-radius:99px;background:var(--ink)}.phone-art::after{content:"";position:absolute;bottom:22px;width:72px;height:72px;border:5px solid var(--ink);border-radius:50%;opacity:.18}
+.center{height:100%;display:flex;flex-direction:column;justify-content:center}.split{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center;height:100%}.split.even{grid-template-columns:1fr 1fr}.col{display:flex;flex-direction:column}.stack>*+*{margin-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative}.card h3{font-family:var(--font-display);font-weight:900;font-size:36px;margin-bottom:8px;line-height:1.05}.card p,.card li{font-size:24px;line-height:1.36;color:var(--ink-soft)}.card ul{margin-left:25px}.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px}.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16)}.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:8px}.note p{font-size:25px;line-height:1.36;color:var(--ink)}
+.chips{display:flex;gap:16px;flex-wrap:wrap}.chip{background:var(--ink);color:var(--paper);font-weight:700;font-size:24px;padding:13px 24px;border-radius:40px}.chip.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}.agenda-list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:14px 58px;margin-top:16px}.agenda-item{display:flex;align-items:center;gap:22px;border-bottom:2px dashed var(--line);padding:12px 4px}.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);min-width:70px}.agenda-item .t{font-size:27px;font-weight:600;color:var(--ink)}.closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}.tight-slide .h-sec{font-size:62px}.tight-slide .lead{font-size:28px}.tight-slide .card{padding:20px 24px}.tight-slide .card h3{font-size:30px}.tight-slide .card p,.tight-slide .card li{font-size:21px;line-height:1.28}
+.title-slide .lead,.title-slide .chips{display:none;}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:27px;font-weight:600;}.analogy .big{font-family:var(--font-display);font-weight:900;font-size:33px;color:var(--gold);}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}.illu svg{width:100%;height:auto;display:block;}.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+
+/* home button */
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+</style>
+<link rel="stylesheet" href="../theme-corsi.css">
+</head>
+<body class="course-sm">
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+  <section class="slide title-slide active visible">
+    <div class="title-left">
+      <h1 class="h-mega reveal">Lo smartphone è un computer</h1>
+      <p class="lead reveal" style="margin-top:30px;">Cosa lavora dietro il vetro: SoC, memoria, batteria e sensori — e quando conviene ancora un PC o un tablet.</p>
+
+    </div>
+    <div class="title-right"><div class="phone-art reveal"></div></div>
+  <div class="deck-author">Francesco Antonio Binetti</div></section>
+
+
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Computer tascabile</h2>
+        <p class="lead reveal d1">Telefonare è ormai una funzione tra tante: nel taschino porti una macchina con processore, memoria, sistema operativo e applicazioni.</p>
+        <div class="note reveal d2"><div class="lbl">La vera differenza</div><p>Non è la potenza: è che lo smartphone è sempre acceso, sempre in rete e sempre con te. Per questo abitudini, rischi e attenzioni cambiano rispetto a un PC che si spegne a fine giornata.</p></div>
+      </div>
+      <div class="col stack">
+        <div class="card reveal d1">
+          <span class="ic">🔍</span>
+          <h3>Cosa c'è dietro il vetro</h3>
+          <ul><li>Gli stessi ingredienti di un PC, miniaturizzati: un processore (SoC), la RAM, una memoria per i dati, una batteria.</li><li>In più: antenne per rete mobile, WiFi, Bluetooth e GPS, due o più fotocamere e decine di sensori.</li><li>Il SoC (System on Chip) integra CPU, GPU, modem e NPU per l'AI in un unico componente delle dimensioni di un'unghia.</li></ul>
+        </div>
+        <div class="card reveal d2">
+          <span class="ic">✋</span>
+          <h3>Un'interfaccia diversa</h3>
+          <ul><li>Niente mouse né tastiera fisica: si comanda con tocchi, gesti e voce.</li><li>In questo capitolo apriamo il "cofano" e guardiamo i pezzi uno per uno.</li><li>A differenza del PC da scrivania, lo smartphone è progettato per essere usato con una mano sola, in mobilità, con la connettività sempre attiva — un paradigma completamente diverso.</li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: RAM — Wikipedia" aria-label="Fonte ufficiale: RAM — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: RAM — Wikipedia ↗</a><a data-source-origin="auto" href="https://www.bluetooth.com/specifications/specs/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Specifiche Bluetooth — Bluetooth SIG" aria-label="Fonte ufficiale: Specifiche Bluetooth — Bluetooth SIG" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Specifiche Bluetooth — Bluetooth SIG ↗</a></div></section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 280 280" style="max-width:260px;margin:0 auto;" role="img" aria-label="Spaccato di uno smartphone: scheda logica con SoC, RAM e modem, batteria e fotocamere">
+          <!-- Corpo del telefono -->
+          <rect x="34" y="14" width="150" height="252" rx="20" fill="#f4ece0" stroke="#1c1714" stroke-width="4"/>
+          <!-- Modulo fotocamere -->
+          <rect x="48" y="28" width="44" height="66" rx="10" fill="#1c1714"/>
+          <circle cx="70" cy="48" r="9" fill="#3f7e8c"/>
+          <circle cx="70" cy="74" r="9" fill="#3f7e8c"/>
+          <!-- Scheda logica -->
+          <rect x="104" y="28" width="66" height="122" rx="6" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+          <rect x="114" y="40" width="30" height="30" rx="3" fill="#e6533b"/>
+          <rect x="114" y="80" width="46" height="14" rx="3" fill="#e6c14a"/>
+          <rect x="114" y="104" width="46" height="14" rx="3" fill="#3f7e8c"/>
+          <rect x="114" y="128" width="22" height="14" rx="3" fill="#f4ece0" opacity=".85"/>
+          <!-- Batteria -->
+          <rect x="48" y="110" width="46" height="118" rx="8" fill="#e6c14a" stroke="#1c1714" stroke-width="3"/>
+          <path d="M75 138 L62 172 H71 L66 200 L82 162 H72 Z" fill="#1c1714"/>
+          <!-- Altoparlante -->
+          <rect x="104" y="240" width="60" height="10" rx="5" fill="#1c1714" opacity=".7"/>
+          <!-- Etichette -->
+          <line x1="146" y1="55" x2="202" y2="55" stroke="#6b5f54" stroke-width="2" stroke-dasharray="4"/>
+          <text x="208" y="60" font-family="Space Mono,monospace" font-size="14" fill="#1c1714">SoC</text>
+          <line x1="162" y1="87" x2="202" y2="87" stroke="#6b5f54" stroke-width="2" stroke-dasharray="4"/>
+          <text x="208" y="92" font-family="Space Mono,monospace" font-size="14" fill="#1c1714">RAM</text>
+          <line x1="162" y1="111" x2="202" y2="111" stroke="#6b5f54" stroke-width="2" stroke-dasharray="4"/>
+          <text x="208" y="116" font-family="Space Mono,monospace" font-size="14" fill="#1c1714">Modem</text>
+          <line x1="96" y1="200" x2="202" y2="200" stroke="#6b5f54" stroke-width="2" stroke-dasharray="4"/>
+          <text x="208" y="205" font-family="Space Mono,monospace" font-size="13" fill="#1c1714">Batteria</text>
+        </svg>
+        <div class="illu-cap">La scheda madre di un PC, compressa in pochi cm²</div>
+      </div>
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Scheda logica</h2>
+        <p class="lead reveal d1">Il "pavimento" su cui vive tutta l'elettronica: ogni componente ci è fissato sopra e comunica attraverso di essa.</p>
+        <div class="note reveal d2"><div class="lbl">Riparabilità</div><p>Quasi tutto è saldato: RAM, processore e memoria non si sostituiscono. In pratica si riparano solo schermo e batteria su modelli mainstream — e solo da tecnici specializzati. Gli smartphone progettati per la riparazione (come Fairphone) sono eccezioni: la norma del mercato è che un componente guasto equivale a sostituire l'intero telefono. Prima di acquistare, verifica i costi di riparazione e la politica di ricambi ufficiali del produttore.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="center">
+
+      <h2 class="h-sec reveal" style="margin-top:22px;">CPU, SoC e RAM</h2>
+      <p class="lead reveal d1" style="margin-top:16px;">Nei PC processore, scheda grafica e modem sono componenti separati. Nel telefono convivono in un unico chip.</p>
+      <div class="grid3 reveal d2" style="margin-top:32px;">
+        <div class="card"><span class="ic">🧠</span><h3>Il SoC</h3><p>System on a Chip: CPU, GPU, modem, processori AI e controller integrati insieme. Meno spazio, meno consumi, meno calore.</p></div>
+        <div class="card"><span class="ic">⚡</span><h3>La RAM</h3><p>Il banco di lavoro: tiene i dati delle app aperte. Quando è piena, il sistema chiude le app in background — che poi ripartono da zero.</p></div>
+        <div class="card"><span class="ic">🏭</span><h3>Chi li produce</h3><p>Apple (serie A), Qualcomm (Snapdragon), MediaTek e Samsung (Exynos): il nome del SoC dice molto sulla fascia del telefono.</p></div>
+      </div>
+      <div class="note reveal d3" style="margin-top:28px;"><div class="lbl">In pratica</div><p>Più RAM = multitasking più fluido: passi da un'app all'altra senza attese né riavvii. Sui volantini, guarda la sigla del SoC oltre ai gigabyte.</p></div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/CPU" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: CPU — Wikipedia" aria-label="Fonte ufficiale: CPU — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: CPU — Wikipedia ↗</a></div></section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Memoria interna</h2>
+        <p class="lead reveal d1">L'archivio permanente del telefono: sistema, app, foto e video restano al loro posto anche a dispositivo spento.</p>
+        <div class="note reveal d2"><div class="lbl">Come verificare</div><p>Android: Impostazioni → Memoria. iOS: Impostazioni → Generali → Spazio iPhone. Tieni almeno il 10% libero: sotto quella soglia il sistema rallenta e gli aggiornamenti falliscono.</p></div>
+      </div>
+      <div class="col stack">
+        <table class="reveal d1" style="width:100%;border-collapse:collapse;background:#fbf5ec;border:2px solid var(--ink);box-shadow:7px 8px 0 rgba(28,23,20,.13);font-size:22px;color:var(--ink-soft);">
+          <thead><tr style="background:var(--teal);color:var(--paper);font-family:var(--font-mono);font-size:19px;text-transform:uppercase;letter-spacing:1px;"><th style="padding:12px 18px;text-align:left;"></th><th style="padding:12px 18px;text-align:left;">RAM</th><th style="padding:12px 18px;text-align:left;">Memoria interna</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:13px 18px;border-top:2px solid var(--line);font-weight:700;color:var(--ink);">Contiene</td><td style="padding:13px 18px;border-top:2px solid var(--line);">Le app aperte adesso</td><td style="padding:13px 18px;border-top:2px solid var(--line);">App, foto, video, sistema</td></tr>
+            <tr><td style="padding:13px 18px;border-top:2px solid var(--line);font-weight:700;color:var(--ink);">Allo spegnimento</td><td style="padding:13px 18px;border-top:2px solid var(--line);">Si svuota</td><td style="padding:13px 18px;border-top:2px solid var(--line);">Conserva tutto</td></tr>
+            <tr><td style="padding:13px 18px;border-top:2px solid var(--line);font-weight:700;color:var(--ink);">Tagli tipici</td><td style="padding:13px 18px;border-top:2px solid var(--line);">4–16 GB</td><td style="padding:13px 18px;border-top:2px solid var(--line);">64 GB – 1 TB</td></tr>
+          </tbody>
+        </table>
+        <div class="card reveal d2"><span class="ic">💾</span><h3>Scegliere il taglio giusto</h3><p>Quasi mai espandibile con microSD sui modelli recenti: lo spazio si decide all'acquisto, non dopo. Foto e video in 4K riempiono in fretta i tagli piccoli.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a></div></section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Batteria e ricarica</h2>
+        <p class="lead reveal d1">La batteria degrada nel tempo; la ricarica rapida accelera il processo se usata male. La capacità si misura in mAh ma l'autonomia reale dipende anche da schermo, rete mobile, luminosità e intensità d'uso delle app.</p>
+        <div class="analogy reveal d3"><span class="big">Regola:</span> evita il calore, carica tra 20–80%, usa caricatori certificati.</div>
+      </div>
+      <div class="stack reveal d2">
+        <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🔋</span><div><b style="font-size:27px;">Capacità in mAh</b><br><span style="font-size:23px;color:var(--ink-faint);">ma l'autonomia reale dipende da schermo, rete, app e processore</span></div></div>
+        <div class="agenda-item" style="border-color:var(--gold-deep);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📉</span><div><b style="font-size:27px;">Con il tempo perde capacità</b><br><span style="font-size:23px;color:var(--ink-faint);">cicli, calore e ricariche a 0% accelerano il degrado</span></div></div>
+        <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🔌</span><div><b style="font-size:27px;">USB-C è lo standard comune</b><br><span style="font-size:23px;color:var(--ink-faint);">la ricarica rapida richiede caricatore, cavo e telefono compatibili — senza tutti e tre, la velocità di ricarica scende sensibilmente</span></div></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Documenti e specifiche USB — USB-IF" aria-label="Fonte ufficiale: Documenti e specifiche USB — USB-IF" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Documenti e specifiche USB — USB-IF ↗</a></div></section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Schermo touch</h2>
+        <p class="lead reveal d1">Lo schermo è insieme monitor e dispositivo di input: il centro dell'interfaccia mobile.</p>
+        <div class="note reveal d2"><div class="lbl">Tipi di display</div><p>LCD: retroilluminazione costante, consumi stabili. OLED/AMOLED: pixel autoilluminati, nero vero, colori vividi, consumi ridotti in dark mode. Refresh rate alto (120 Hz) dà fluidità ma consuma più batteria.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🛡️</span>
+        <h3>Tocco, luminosità, protezione</h3>
+        <ul><li>Tocchi, gesture, swipe e pinch sostituiscono mouse e tastiera.</li><li>Luminosità, risoluzione e refresh rate incidono su comfort visivo e autonomia.</li><li>Il vetro protettivo (Gorilla Glass e simili) riduce rischi da caduta o graffi.</li><li>I modelli recenti usano tecnologia LTPO che varia il refresh da 1 Hz a 120 Hz automaticamente per risparmiare batteria quando lo schermo è fermo.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Fotocamere</h2>
+        <p class="lead reveal d1">La qualità fotografica non dipende solo dai megapixel ma da sensore, ottica e software.</p>
+        <div class="note reveal d2"><div class="lbl">Qualità ≠ megapixel</div><p>Contano: dimensione sensore, apertura diaframma (f/1.8 è migliore di f/2.8), stabilizzazione ottica (OIS), qualità della lente e processing computazionale (HDR, modalità notte).</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🧩</span>
+        <h3>Sensori più software</h3>
+        <ul><li>Le fotocamere sono sensori ottici collegati a software di elaborazione avanzata.</li><li>La fotocamera frontale è ottimizzata per selfie e videochiamate; le posteriori per foto e video.</li><li>Sistemi multi-obiettivo: grandangolo, normale, teleobiettivo, macro — ogni lente è ottimizzata per un caso d'uso specifico. La videoregistrazione usa tutti i sensori in modo coordinato, abilitando zoom fluido e stabilizzazione avanzata durante le riprese.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">GPS e posizione</h2>
+        <p class="lead reveal d1">Il telefono combina GPS, WiFi e celle telefoniche per una localizzazione rapida e precisa.</p>
+        <div class="note reveal d2"><div class="lbl">GPS assistito (A-GPS)</div><p>Senza assistenza, il primo fix può richiedere minuti. Con WiFi e reti mobili (A-GPS), bastano secondi. Disattiva la localizzazione per le app che non ne hanno realmente bisogno: risparmia batteria e limita la raccolta dei tuoi spostamenti.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">⚙️</span>
+        <h3>Satelliti, WiFi e celle</h3>
+        <ul><li>Il GPS riceve segnali da satelliti (GNSS) per stimare latitudine e longitudine.</li><li>WiFi positioning e celle telefoniche integrano il GPS per velocità e precisione in interni.</li><li>La localizzazione è utile per mappe, meteo e sicurezza, ma va gestita per privacy e batteria.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Sensori di movimento e ambiente</h2>
+        <p class="lead reveal d1">Lo smartphone include decine di sensori invisibili che arricchiscono l'esperienza.</p>
+      </div>
+      <div class="stack reveal d2">
+        <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🧭</span><div><b style="font-size:27px;">Accelerometro e giroscopio</b><br><span style="font-size:23px;color:var(--ink-faint);">rilevano movimento, rotazione e orientamento in tempo reale — fondamentali per giochi, fitness tracking, realtà aumentata e rotazione automatica dello schermo</span></div></div>
+        <div class="agenda-item" style="border-color:var(--gold-deep);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">📵</span><div><b style="font-size:27px;">Sensore di prossimità</b><br><span style="font-size:23px;color:var(--ink-faint);">spegne lo schermo durante le chiamate per evitare tocchi accidentali con il viso e risparmia batteria</span></div></div>
+        <div class="agenda-item" style="border-color:var(--sky);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">💡</span><div><b style="font-size:27px;">Sensore di luce ambientale</b><br><span style="font-size:23px;color:var(--ink-faint);">regola la luminosità del display automaticamente in base alla luce ambiente, proteggendo la vista e risparmiando batteria</span></div></div>
+        <div class="agenda-item" style="border-color:var(--teal-2);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🌡️</span><div><b style="font-size:27px;">Barometro e motore aptico</b><br><span style="font-size:23px;color:var(--ink-faint);">il barometro misura la pressione atmosferica per meteo e altimetro; il motore aptico simula il feedback fisico al tocco</span></div></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Microfoni e altoparlanti</h2>
+        <p class="lead reveal d1">Il telefono registra voce e suoni ambientali: i permessi microfono vanno controllati.</p>
+        <div class="note reveal d2"><div class="lbl">Controlla i permessi</div><p>Android: Impostazioni → Privacy → Microfono. iOS: Impostazioni → Privacy e sicurezza → Microfono. Revoca l'accesso ad app che non registrano audio per funzione (es. giochi, torce).</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">💡</span>
+        <h3>Audio in entrata e in uscita</h3>
+        <ul><li>Più microfoni permettono cancellazione del rumore e audio stereo durante le riprese.</li><li>Usati per chiamate, assistenti vocali, dettatura, traduzione e registrazione video.</li><li>Gli altoparlanti stereo migliorano l'ascolto di musica e podcast senza cuffie.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Confronto con altri dispositivi</h2>
+        <p class="lead reveal d1">Tablet e PC condividono tecnologie con lo smartphone ma per usi diversi.</p>
+        <div class="card reveal d2" style="padding:20px 26px;">
+          <h3 style="font-size:30px;">Smartphone vs tablet e PC</h3>
+          <ul style="font-size:22px;"><li style="font-size:22px;">Il tablet privilegia schermo grande e produttività leggera; lo smartphone privilegia portabilità, fotocamera e uso continuo.</li><li style="font-size:22px;">Il PC è espandibile e adatto a lavori complessi: editing, programmazione, presentazioni lunghe.</li><li style="font-size:22px;">Lo smartphone è più integrato e sempre connesso; molte attività leggere si fanno su entrambi.</li><li style="font-size:22px;">La scelta dipende dalla situazione: nessun dispositivo sostituisce completamente gli altri.</li></ul>
+        </div>
+      </div>
+      <div class="illu reveal d1">
+        <svg viewBox="0 0 280 280" style="max-width:260px;margin:0 auto;" role="img" aria-label="Confronto dimensioni: smartphone, tablet e PC portatile">
+          <!-- Linea di base -->
+          <line x1="14" y1="232" x2="266" y2="232" stroke="#1c1714" stroke-width="3"/>
+          <!-- Smartphone -->
+          <rect x="24" y="130" width="52" height="102" rx="8" fill="#e6533b" stroke="#1c1714" stroke-width="3"/>
+          <rect x="31" y="142" width="38" height="72" rx="3" fill="#f4ece0" opacity=".9"/>
+          <circle cx="50" cy="223" r="4" fill="#1c1714"/>
+          <!-- Tablet -->
+          <rect x="94" y="94" width="80" height="138" rx="9" fill="#d98a2b" stroke="#1c1714" stroke-width="3"/>
+          <rect x="102" y="106" width="64" height="108" rx="4" fill="#f4ece0" opacity=".85"/>
+          <!-- PC portatile -->
+          <rect x="192" y="116" width="76" height="102" rx="6" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
+          <rect x="199" y="124" width="62" height="86" rx="3" fill="#3f7e8c" opacity=".8"/>
+          <rect x="182" y="218" width="96" height="14" rx="7" fill="#1c1714"/>
+          <!-- Etichette -->
+          <text x="50" y="258" text-anchor="middle" font-family="Space Mono,monospace" font-size="14" fill="#6b5f54">tasca</text>
+          <text x="134" y="258" text-anchor="middle" font-family="Space Mono,monospace" font-size="14" fill="#6b5f54">divano</text>
+          <text x="230" y="258" text-anchor="middle" font-family="Space Mono,monospace" font-size="14" fill="#6b5f54">scrivania</text>
+        </svg>
+        <div class="illu-cap">Stesse tecnologie, tre formati per usi diversi</div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="col stack">
+
+        <h2 class="h-big reveal">Limiti fisici</h2>
+        <p class="lead reveal d1">La compattezza limita la dissipazione del calore: il telefono si protegge riducendo le prestazioni.</p>
+        <div class="note reveal d2"><div class="lbl">Thermal throttling</div><p>Quando supera la soglia termica, il telefono riduce automaticamente le prestazioni (throttling). Si manifesta durante giochi intensi, riprese video lunghe o ricarica in uso. Soluzione: pausa, rimozione cover, ombra.</p></div>
+      </div>
+      <div class="card reveal d1">
+        <span class="ic">🧰</span>
+        <h3>Il calore comanda</h3>
+        <ul><li>Meno spazio = meno dissipazione: il calore è il limite principale delle prestazioni mobile.</li><li>Cover pesanti, sole diretto e ricarica durante uso intenso aumentano il problema.</li><li>Il software monitora temperatura e riduce clock CPU/GPU in automatico per proteggersi.</li></ul>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+
+
+  <section class="slide closing"><div class="closing-inner"><div class="center" style="align-items:center;text-align:center;">
+      <h2 class="h-mega reveal" style="margin-top:10px;">Smartphone computer<br>in pratica.</h2>
+      <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Lo smartphone è un computer tascabile: CPU, RAM, storage, sensori, sistema operativo e le differenze concrete con un PC fisso.</p>
+      <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
+        <a href="sm02-connessioni-reti-mobili.html" class="chip" style="background:var(--gold);color:var(--ink);text-decoration:none;">Prossimo → SM02 · Connessioni e reti mobili</a>
+      </div>
+    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">RAM — Wikipedia ↗</a><a href="https://www.bluetooth.com/specifications/specs/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Specifiche Bluetooth — Bluetooth SIG ↗</a><a href="https://it.wikipedia.org/wiki/CPU" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">CPU — Wikipedia ↗</a><a href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Android ↗</a><a href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Documenti e specifiche USB — USB-IF ↗</a></div></div><div class="page-num"></div></section>
+
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
+
+<script src="../deck.js"></script>
+</body>
+</html>

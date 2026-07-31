@@ -1,8 +1,11 @@
 /* Proprietà intellettuale di Francesco Antonio Binetti */
 const fs = require('fs');
+const path = require('path');
 
-const files = fs.readdirSync('.')
+const decksDir = path.join(__dirname, '..', 'decks');
+const files = fs.readdirSync(decksDir)
   .filter(name => /^[a-z]{2}\d{2}.*\.html$/.test(name))
+  .map(name => path.join(decksDir, name))
   .sort();
 
 const cleanText = value => value
@@ -92,26 +95,6 @@ for (const file of files) {
   if (updated === original) continue;
   fs.writeFileSync(file, updated);
   decksChanged++;
-
-  const txtFile = file.replace(/\.html$/, '.txt');
-  if (!fs.existsSync(txtFile) || (!removedTxtLabels.length && !addedTerminalAction)) continue;
-  const txt = fs.readFileSync(txtFile, 'utf8');
-  const lastSlide = slides.length;
-  const updatedTxt = txt.replace(
-    /--- Slide (\d+) ---\n([\s\S]*?)(?=\n--- Slide \d+ ---|\s*$)/g,
-    (block, number, body) => {
-      if (Number(number) !== lastSlide) return block;
-      for (const label of removedTxtLabels) {
-        const flexible = label.split(/\s+/).map(escapeRe).join('\\s+');
-        body = body.replace(new RegExp(`^[ \\t]*${flexible}[ \\t]*\\n?`, 'm'), '');
-      }
-      if (addedTerminalAction && !/Torna all[’']indice/i.test(body)) {
-        body = `${body.trimEnd()}\nTorna all’indice\n`;
-      }
-      return `--- Slide ${number} ---\n${body}`;
-    }
-  );
-  fs.writeFileSync(txtFile, `${updatedTxt.replace(/[ \t]+$/gm, '').trimEnd()}\n`);
 }
 
 console.log(JSON.stringify({

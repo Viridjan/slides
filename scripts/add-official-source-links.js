@@ -1,5 +1,7 @@
 /* Proprietà intellettuale di Francesco Antonio Binetti */
 const fs = require('fs');
+const path = require('path');
+const decksDir = path.join(__dirname, '..', 'decks');
 
 const SOURCES = [
   ['Git', 'https://git-scm.com/docs', 'Documentazione ufficiale Git', /^pr04-05/],
@@ -108,7 +110,7 @@ const SOURCES = [
   ['tabelle', 'https://developer.mozilla.org/it/docs/Web/HTML/Element/table', 'Elemento table — MDN', /^pr05-02/],
   ['form', 'https://developer.mozilla.org/it/docs/Learn/Forms', 'Form HTML — MDN', /^pr05-03/],
   ['semantica', 'https://developer.mozilla.org/it/docs/Glossary/Semantics', 'Semantica HTML — MDN', /^pr05-03/],
-  ['CSS', 'https://developer.mozilla.org/it/docs/Web/CSS', 'CSS — MDN Web Docs', /^pr05-03/],
+  ['CSS', 'https://developer.mozilla.org/it/docs/Web/CSS', 'CSS — MDN Web Docs', /^pr05-04/],
   ['algoritmo', 'https://xlinux.nist.gov/dads/', 'Dictionary of Algorithms and Data Structures — NIST', /^pr/],
   ['algoritmi', 'https://xlinux.nist.gov/dads/', 'Dictionary of Algorithms and Data Structures — NIST', /^pr/],
   ['Flowgorithm', 'https://www.flowgorithm.org/', 'Flowgorithm — sito ufficiale', /^pr/],
@@ -383,14 +385,15 @@ function closingList(section, used) {
   return stripped.replace(/<\/section>\s*$/i, `${list}</section>`);
 }
 
-const files = fs.readdirSync('.')
+const files = fs.readdirSync(decksDir)
   .filter(name => /^[a-z]{2}\d{2}.*\.html$/.test(name))
   .sort();
 
 let filesChanged = 0;
 let linksAdded = 0;
 for (const file of files) {
-  const original = fs.readFileSync(file, 'utf8');
+  const filePath = path.join(decksDir, file);
+  const original = fs.readFileSync(filePath, 'utf8');
   // Drop the links this script generated on an earlier run, then plan afresh.
   let before = original;
   before = before.replace(/<a\b(?=[^>]*data-source-origin="auto")[^>]*>[\s\S]*?<\/a>/gi, '');
@@ -411,7 +414,7 @@ for (const file of files) {
     .replace(/[ \t]+$/gm, '');
 
   if (after !== original) {
-    fs.writeFileSync(file, after);
+    fs.writeFileSync(filePath, after);
     filesChanged++;
     linksAdded += used.size;
   }

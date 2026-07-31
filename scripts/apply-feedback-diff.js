@@ -2,6 +2,7 @@
 // Applies the "MODIFICHE DIRETTE" block from a deck.js feedback-mode Copia
 // payload straight to the HTML files. See CLAUDE.md "Feedback mode".
 const fs = require('fs');
+const path = require('path');
 
 const payloadPath = process.argv[2];
 if (!payloadPath) {
@@ -50,7 +51,10 @@ let applied = 0;
 let skipped = 0;
 
 for (const [file, fileEdits] of byFile) {
-  if (!fs.existsSync(file)) {
+  // deck.js records the bare filename in a feedback payload; decks now live
+  // under decks/, so fall back there when the bare name isn't at repo root.
+  const resolvedFile = fs.existsSync(file) ? file : path.join('decks', file);
+  if (!fs.existsSync(resolvedFile)) {
     for (const edit of fileEdits) {
       console.log(`SALTATO ${file}#slide-${edit.slide} «${edit.near}»: file non trovato`);
       skipped++;
@@ -58,7 +62,7 @@ for (const [file, fileEdits] of byFile) {
     continue;
   }
 
-  let html = fs.readFileSync(file, 'utf8');
+  let html = fs.readFileSync(resolvedFile, 'utf8');
   const slides = html.match(slidePattern) || [];
   let changed = false;
 
@@ -109,7 +113,7 @@ for (const [file, fileEdits] of byFile) {
   }
 
   if (changed) {
-    fs.writeFileSync(file, html);
+    fs.writeFileSync(resolvedFile, html);
     touchedFiles.add(file);
   }
 }
@@ -119,10 +123,9 @@ if (touchedFiles.size) {
   console.log('\nFile modificati:');
   for (const file of touchedFiles) console.log(`  ${file}`);
   console.log('\nRicorda di rigenerare, se pertinente:');
-  console.log(`  node scripts/build-txt.js ${[...touchedFiles].join(' ')}`);
   console.log('  node scripts/add-official-source-links.js');
-  console.log('  node scripts/merge-source-links-into-txt.js');
   console.log('  node scripts/build-completeness.js');
   console.log('  node scripts/build-search-index.js');
+  console.log('  node scripts/build-slide-topic-inventory.js');
   console.log('\nE controlla ogni deck toccato con xdg-open prima di committare.');
 }

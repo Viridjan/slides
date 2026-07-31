@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 
-const root = path.resolve(__dirname, '..');
+const root = path.join(path.resolve(__dirname, '..'), 'decks');
 const mode = process.argv[2] || 'check';
 const requested = process.argv.slice(3);
 
