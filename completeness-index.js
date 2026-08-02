@@ -53,7 +53,7 @@ window.COMPLETENESS = {
   "decks/pr05-02-css-stile-selettori.html": 4,
   "decks/pr05-03-html-link-immagini.html": 3,
   "decks/pr05-04-html-form-semantica.html": 3,
-  "decks/pr06-01-python-base.html": 3,
+  "decks/pr06-01-python-base.html": 4,
   "decks/pr06-02-strutture-dati-file.html": 3,
   "decks/pr06-03-oggetti-pacchetti.html": 2,
   "decks/pr06-04-test-api-database.html": 2,

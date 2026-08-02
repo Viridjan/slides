@@ -268,7 +268,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="analogy reveal d3" style="margin-top:22px;"><span class="big">In pratica:</span> scrivi una lettera → la CPU la elabora → il file viene salvato → lo schermo la mostra.</div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/CPU" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: CPU — Wikipedia" aria-label="Fonte ufficiale: CPU — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: CPU — Wikipedia ↗</a></div></section>
+  </section>
 
   <!-- ============ SLIDE 3 · COS'È UN PC ============ -->
   <section class="slide">
@@ -369,10 +369,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
         <h2 class="h-big reveal">Il <em class="hot">processore</em></h2>
         <p class="lead reveal d1">La CPU (<i>Central Processing Unit</i>) è a tutti gli effetti il <b>“cervello” del computer</b>. Si occupa di elaborare le istruzioni e di eseguire le operazioni necessarie per far funzionare tutto.</p>
-        <p class="body reveal d2">Ogni cosa che chiedi — aprire un'app, scrivere una lettera, riprodurre un video — passa dalla CPU sotto forma di calcoli. Due numeri ne descrivono la potenza: la <b>frequenza</b>, misurata in <b>GHz</b> (gigahertz), cioè quanto è veloce; e i <b>core</b>, cioè quanti “cervelli” lavorano in parallelo. Più core significa più cose fatte contemporaneamente, senza rallentare.</p>
+        <p class="body reveal d2">Ogni cosa che chiedi — aprire un'app, scrivere una lettera, riprodurre un video — passa dalla CPU. La <b>frequenza</b>, misurata in GHz, indica quanti cicli di clock avvengono in un secondo; i <b>core</b> sono unità di elaborazione capaci di lavorare in parallelo.</p>
         <div class="note reveal d3">
           <div class="lbl">💡 Lo sapevi?</div>
-          <p>Una CPU moderna esegue <b>miliardi</b> di operazioni al secondo. Quando il PC sembra “lento”, spesso è perché la CPU ha troppe cose da calcolare tutte insieme.</p>
+          <p>GHz e numero di core, da soli, non misurano tutta la velocità. Contano anche architettura, cache, memoria, raffreddamento e programma eseguito: il confronto più utile si fa con prove sullo stesso lavoro.</p>
         </div>
       </div>
       <div class="illu reveal d2">
@@ -401,6 +401,22 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     </div>
     <div class="page-num"><b>06</b> / 21</div>
   </section>
+
+  <!-- ============ SLIDE · DENTRO LA CPU ============ -->
+  <section class="slide tight">
+    <div class="center">
+      <h2 class="h-sec reveal">Dentro la CPU: ruoli diversi</h2>
+      <p class="lead reveal d1">Un core non è un unico calcolatore indistinto: coordina istruzioni, opera sui dati e conserva temporaneamente i valori più vicini all'elaborazione.</p>
+      <div class="grid2 reveal d2" style="margin-top:24px;">
+        <div class="card teal"><h3>Unità di controllo</h3><p>Legge e decodifica le istruzioni, poi coordina l'ordine delle operazioni e lo scambio di dati con memoria e periferiche.</p></div>
+        <div class="card gold"><h3>Unità aritmetico-logica</h3><p>La ALU esegue calcoli e confronti: somme, sottrazioni, operazioni logiche e verifiche tra valori.</p></div>
+        <div class="card sky"><h3>Registri</h3><p>Sono piccole memorie interne velocissime. Conservano istruzioni, indirizzi e risultati su cui il core sta lavorando proprio ora.</p></div>
+        <div class="card red"><h3>Cache</h3><p>Memorizza copie dei dati usati più spesso. I livelli L1, L2 e L3 bilanciano velocità, capacità e distanza dai core.</p></div>
+      </div>
+      <div class="analogy reveal d3" style="margin-top:24px;"><span class="big">In pratica:</span> il clock dà il ritmo, ma il lavoro svolto a ogni ciclo dipende dall'intera architettura.</div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/CPU" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: CPU — Wikipedia" aria-label="Fonte ufficiale: CPU — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: CPU — Wikipedia ↗</a></div></section>
 
   <!-- ============ SLIDE 7 · RAM ============ -->
   <section class="slide">
@@ -435,10 +451,11 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <p class="lead reveal d1"><b>RAM</b> sta per <i>Random Access Memory</i>. È la <b>“memoria a breve termine”</b> del computer: conserva temporaneamente le informazioni con cui la macchina sta lavorando <i>in questo momento</i>.</p>
         <p class="body reveal d2">È velocissima, ma ha una caratteristica importante: <b>se spegni il computer, il contenuto della RAM si cancella</b>. Per questo i file vanno salvati sull'hard disk, altrimenti vanno persi.</p>
         <div class="analogy reveal d3"><span class="big">Come</span> la scrivania su cui tieni aperti i fogli mentre lavori: più è grande, più cose ci stanno sopra.</div>
+        <div class="note reveal d4"><div class="lbl">💡 Ancora più vicina alla CPU</div><p>Tra la CPU e la RAM c'è un gradino ulteriore, la <b>memoria cache</b>: più piccola e ancora più veloce della RAM, conserva i dati usati nell'istante immediatamente precedente per non farli ripercorrere tutta la strada fino alla RAM.</p></div>
       </div>
     </div>
     <div class="page-num"><b>07</b> / 21</div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: RAM — Wikipedia" aria-label="Fonte ufficiale: RAM — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: RAM — Wikipedia ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: RAM — Wikipedia" aria-label="Fonte ufficiale: RAM — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: RAM — Wikipedia ↗</a></div></section>
 
   <!-- ============ SLIDE · ROM & BIOS ============ -->
   <section class="slide">
@@ -473,7 +490,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://uefi.org/specifications" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Specifiche UEFI — UEFI Forum" aria-label="Fonte ufficiale: Specifiche UEFI — UEFI Forum" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Specifiche UEFI — UEFI Forum ↗</a></div></section>
+  </section>
 
   <!-- ============ SLIDE 8 · HARD DISK ============ -->
   <section class="slide">
@@ -515,7 +532,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.unicode.org/versions/latest/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Unicode Standard" aria-label="Fonte ufficiale: Unicode Standard" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Unicode Standard ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: ASCII — Wikipedia" aria-label="Fonte ufficiale: ASCII — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: ASCII — Wikipedia ↗</a><a data-source-origin="auto" href="https://www.unicode.org/versions/latest/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Unicode Standard" aria-label="Fonte ufficiale: Unicode Standard" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Unicode Standard ↗</a></div></section>
 
   <!-- ============ SLIDE 9 · SCHEDA MADRE ============ -->
   <section class="slide">
@@ -527,7 +544,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <p class="body reveal d2">Come la mappa di una città mostra le strade che uniscono i quartieri, la scheda madre contiene i “percorsi” elettrici che fanno arrivare dati ed energia da un componente all'altro. CPU, RAM, schede e hard disk si collegano tutti qui.</p>
         <div class="note reveal d3">
           <div class="lbl">Tieni a mente</div>
-          <p>Se la CPU è il cervello e la RAM la scrivania, la scheda madre è la <b>rete di strade</b> che permette a tutto di parlarsi.</p>
+          <p>Se la CPU è il cervello e la RAM la scrivania, la scheda madre è la <b>rete di strade</b> che permette a tutto di parlarsi. Il nome tecnico di queste "strade" è <b>BUS</b>.</p>
         </div>
       </div>
       <div class="illu reveal d2">
@@ -774,7 +791,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Documenti e specifiche USB — USB-IF" aria-label="Fonte ufficiale: Documenti e specifiche USB — USB-IF" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Documenti e specifiche USB — USB-IF ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Documenti e specifiche USB — USB-IF" aria-label="Fonte ufficiale: Documenti e specifiche USB — USB-IF" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Documenti e specifiche USB — USB-IF ↗</a></div></section>
 
   <!-- ===== 6 · VIA CAVO · RETE ===== -->
   <section class="slide">
@@ -851,7 +868,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" aria-label="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Wi-Fi — Wi-Fi Alliance ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" aria-label="Fonte ufficiale: Wi-Fi — Wi-Fi Alliance" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Wi-Fi — Wi-Fi Alliance ↗</a></div></section>
 
   <!-- ===== 9 · BLUETOOTH ===== -->
   <section class="slide">
@@ -873,7 +890,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://www.bluetooth.com/specifications/specs/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Specifiche Bluetooth — Bluetooth SIG" aria-label="Fonte ufficiale: Specifiche Bluetooth — Bluetooth SIG" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Specifiche Bluetooth — Bluetooth SIG ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.bluetooth.com/specifications/specs/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Specifiche Bluetooth — Bluetooth SIG" aria-label="Fonte ufficiale: Specifiche Bluetooth — Bluetooth SIG" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Specifiche Bluetooth — Bluetooth SIG ↗</a></div></section>
 
   <!-- ===== 10 · RETI TELEFONICHE ===== -->
   <section class="slide">
@@ -961,7 +978,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"><b>16</b> / 21</div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:6px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Sistema_operativo" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Sistema operativo — Wikipedia" aria-label="Fonte ufficiale: Sistema operativo — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Sistema operativo — Wikipedia ↗</a><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a></div><div class="cross-reference-footer" data-cross-reference-footer="true"><a href="hs03-os.html#slide-6">HS03 · Sistemi operativi ↗</a></div></section>
+  <div class="cross-reference-footer" data-cross-reference-footer="true"><a href="hs03-os.html#slide-6">HS03 · Sistemi operativi ↗</a></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Sistema_operativo" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Sistema operativo — Wikipedia" aria-label="Fonte ufficiale: Sistema operativo — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Sistema operativo — Wikipedia ↗</a><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a><a data-source-origin="auto" href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Manuale utente iPhone — Apple" aria-label="Fonte ufficiale: Manuale utente iPhone — Apple" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Manuale utente iPhone — Apple ↗</a></div></section>
 
   <!-- ============ SLIDE 17 · BROWSER ============ -->
   <section class="slide">
@@ -1058,7 +1075,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="chips reveal d2" style="margin-top:44px;justify-content:center;">
         <a class="chip" href="hs02-hard-disk-filesystem.html" style="background:var(--gold);color:var(--ink);text-decoration:none;cursor:pointer;">Prossimo → HS02 · Hard disk e file system</a>
       </div>
-    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:14px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.35;color:rgba(255,255,255,.92);"><a href="https://it.wikipedia.org/wiki/CPU" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">CPU — Wikipedia ↗</a><a href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">RAM — Wikipedia ↗</a><a href="https://uefi.org/specifications" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Specifiche UEFI — UEFI Forum ↗</a><a href="https://www.unicode.org/versions/latest/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Unicode Standard ↗</a><a href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Documenti e specifiche USB — USB-IF ↗</a><a href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Wi-Fi — Wi-Fi Alliance ↗</a><a href="https://www.bluetooth.com/specifications/specs/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Specifiche Bluetooth — Bluetooth SIG ↗</a><a href="https://it.wikipedia.org/wiki/Sistema_operativo" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Sistema operativo — Wikipedia ↗</a><a href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Android ↗</a></div></div><div class="page-num"></div></section>
+    </div></div><div class="deck-author">Francesco Antonio Binetti</div><div class="page-num"></div><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:10px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:7px 30px;font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:rgba(255,255,255,.92);"><a href="https://it.wikipedia.org/wiki/CPU" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">CPU — Wikipedia ↗</a><a href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">RAM — Wikipedia ↗</a><a href="https://www.unicode.org/versions/latest/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Unicode Standard ↗</a><a href="https://it.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">ASCII — Wikipedia ↗</a><a href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Documenti e specifiche USB — USB-IF ↗</a><a href="https://www.wi-fi.org/discover-wi-fi" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Wi-Fi — Wi-Fi Alliance ↗</a><a href="https://www.bluetooth.com/specifications/specs/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Specifiche Bluetooth — Bluetooth SIG ↗</a><a href="https://it.wikipedia.org/wiki/Sistema_operativo" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Sistema operativo — Wikipedia ↗</a><a href="https://support.apple.com/guide/iphone/welcome/ios" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Manuale utente iPhone — Apple ↗</a><a href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Android ↗</a></div></div></section>
 
 </main>
 </div>
