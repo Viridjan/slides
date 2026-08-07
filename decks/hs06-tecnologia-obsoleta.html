@@ -155,6 +155,19 @@ em.hot{font-style:italic;color:var(--red);}
 
 /* dashed icon list */
 .agenda-item{display:flex;align-items:center;gap:24px;border-bottom:2px dashed var(--line);padding:18px 4px;}
+.slide.history-table{justify-content:flex-start !important;padding-top:58px !important;padding-bottom:112px !important;}
+.ibm-grid h3,.ibm-grid p{font-size:28px;line-height:1.32;}
+.history-timeline{--steps:5;position:relative;display:grid;grid-template-columns:repeat(var(--steps),minmax(0,1fr));gap:16px;width:100%;margin-top:24px;align-items:start;}
+.history-timeline::before{content:"";position:absolute;left:2%;right:2%;top:62px;height:6px;border-radius:6px;background:linear-gradient(90deg,var(--teal),var(--sky),var(--gold-deep),var(--red));opacity:.85;}
+.tl-item{position:relative;min-width:0;}
+.tl-date{height:48px;display:flex;align-items:flex-end;font-family:var(--font-mono);font-size:18px;line-height:1.15;font-weight:700;color:var(--teal);}
+.tl-dot{position:relative;z-index:2;width:22px;height:22px;margin:5px 0 15px;border:5px solid var(--paper);border-radius:50%;background:var(--red);box-shadow:0 0 0 3px var(--teal);}
+.tl-card{min-height:286px;padding:20px 19px;border:2px solid var(--line);border-top:6px solid var(--gold-deep);border-radius:14px;background:#fbf5ec;box-shadow:5px 6px 0 rgba(28,23,20,.10);}
+.tl-card h3{font-family:var(--font-display);font-size:27px;line-height:1.04;margin-bottom:12px;}
+.tl-card p{font-size:20px;line-height:1.34;color:var(--ink-soft);}
+.history-timeline.compact .tl-card{min-height:304px;padding:18px 16px;}
+.history-timeline.compact .tl-card h3{font-size:24px;}
+.history-timeline.compact .tl-card p{font-size:18px;line-height:1.3;}
 
 /* ============================================================
    TITLE SLIDE
@@ -178,17 +191,6 @@ em.hot{font-style:italic;color:var(--red);}
 /* ============================================================
    EDIT MODE
    ============================================================ */
-.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
-.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;
-  border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;
-  opacity:0;pointer-events:none;transition:opacity .3s ease;}
-.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}
-.edit-toggle.active{background:var(--red);}
-body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
-.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);
-  font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
-.edit-hint.show{display:block;}
-
 /* progress bar */
 .progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;
   transition:width .35s var(--ease);}
@@ -221,33 +223,53 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     </div>
   <div class="deck-author">Francesco Antonio Binetti</div></section>
 
-  <!-- ============ SLIDE · PERCHÉ PARLARNE ============ -->
+  <!-- ============ SLIDE · ABACO ============ -->
   <section class="slide">
-    <div class="center">
-      <h2 class="h-sec reveal">La storia non si cancella</h2>
-      <p class="lead reveal d1">Ogni tecnologia che usiamo oggi esiste perché ha risolto il limite di quella precedente. Conoscere cosa c'era prima aiuta a capire <b>perché</b> le cose funzionano come funzionano adesso.</p>
-      <div class="stack reveal d2" style="margin-top:16px;">
-        <div class="agenda-item"><span style="font-size:30px;min-width:46px;">🧮</span><div><b style="font-size:24px;">I pionieri del calcolo</b><br><span style="font-size:21px;color:var(--ink-faint);">dall'abaco a Babbage e Hollerith, fino a ENIAC, MS-DOS e Windows</span></div></div>
-        <div class="agenda-item"><span style="font-size:30px;min-width:46px;">💾</span><div><b style="font-size:24px;">Supporti scomparsi</b><br><span style="font-size:21px;color:var(--ink-faint);">floppy disk, nastri magnetici, masterizzatori CD/DVD</span></div></div>
-        <div class="agenda-item"><span style="font-size:30px;min-width:46px;">🔌</span><div><b style="font-size:24px;">Connessioni e porte sorpassate</b><br><span style="font-size:21px;color:var(--ink-faint);">seriale, parallela, PS/2, IrDA, modem dial-up e ISDN</span></div></div>
-        <div class="agenda-item" style="border-color:transparent;"><span style="font-size:30px;min-width:46px;">🏛️</span><div><b style="font-size:24px;">Macchine e norme di altri tempi</b><br><span style="font-size:21px;color:var(--ink-faint);">mainframe, terminali, memorie SIMM/DIMM, la privacy pre-GDPR</span></div></div>
-      </div>
+    <h2 class="h-big reveal">Calcolare prima delle <em class="hot">macchine</em></h2>
+    <p class="lead reveal d1">Abachi e tavole di calcolo non eseguono autonomamente un algoritmo: aiutano una persona a rappresentare quantità e applicare una procedura senza perdere i risultati intermedi.</p>
+    <div class="split reveal d2">
+      <div class="card"><h3>La memoria è materiale</h3><p>La posizione di sassolini, gettoni o perline conserva unità, decine e centinaia. Spostare un elemento equivale a modificare un valore.</p></div>
+      <div class="card teal"><h3>Il calcolo resta umano</h3><p>È l’operatore a scegliere la regola, controllare il riporto e interpretare il risultato. Lo strumento riduce gli errori, ma non decide la sequenza da solo.</p></div>
     </div>
+    <div class="analogy reveal d3"><span class="big">In pratica:</span> è una memoria esterna organizzata, non ancora un computer programmabile.</div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.computerhistory.org/tdih/february/14/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: ENIAC — Computer History Museum" aria-label="Fonte ufficiale: ENIAC — Computer History Museum" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: ENIAC — Computer History Museum ↗</a><a data-source-origin="auto" href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Regolamento generale sulla protezione dei dati — EUR-Lex" aria-label="Fonte ufficiale: Regolamento generale sulla protezione dei dati — EUR-Lex" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a></div></section>
+  </section>
 
-  <!-- ============ SLIDE · PRIMA DEI COMPUTER ============ -->
+  <!-- ============ SLIDE · PASCALINA ============ -->
   <section class="slide">
-    <div class="col stack" style="justify-content:center;height:100%;">
-      <h2 class="h-big reveal">Prima dei <em class="hot">computer</em></h2>
-      <p class="lead reveal d1" style="margin-bottom:6px;">Molto prima dell'elettronica, l'uomo aveva già costruito macchine per calcolare. Ogni passo risolveva il limite del precedente.</p>
-      <div class="stack reveal d2">
-        <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🧮</span><div><b style="font-size:27px;">Abachi e tavole di calcolo (Antichità)</b><br><span style="font-size:23px;color:var(--ink-faint);">strumenti manuali di forme diverse: rappresentano quantità e rendono sistematiche le operazioni</span></div></div>
-        <div class="agenda-item" style="border-color:var(--gold-deep);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">⚙️</span><div><b style="font-size:27px;">Pascalina (1642, Blaise Pascal)</b><br><span style="font-size:23px;color:var(--ink-faint);">una delle prime calcolatrici meccaniche: somma e sottrazione con ruote e riporto automatico</span></div></div>
-        <div class="agenda-item" style="border-color:var(--teal);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🔢</span><div><b style="font-size:27px;">Leibniz e il binario (pubblicato nel 1703)</b><br><span style="font-size:23px;color:var(--ink-faint);">descrive sistematicamente un'aritmetica basata su 0 e 1; i circuiti digitali moderni useranno la stessa base numerica</span></div></div>
-        <div class="agenda-item" style="border-color:transparent;padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🕸️</span><div><b style="font-size:27px;">George Boole (1847)</b><br><span style="font-size:23px;color:var(--ink-faint);">trasforma la logica (AND, OR, NOT) in calcolo matematico: l'"algebra booleana"</span></div></div>
-      </div>
+    <h2 class="h-big reveal">La <em class="hot">Pascalina</em>: il riporto diventa meccanico</h2>
+    <p class="lead reveal d1">Nel 1642 Blaise Pascal iniziò a costruire una calcolatrice a ruote dentate per aiutare il padre nei conteggi fiscali.</p>
+    <div class="grid2 reveal d2">
+      <div class="card"><h3>Come si introduce un numero</h3><p>Ogni ruota rappresenta una cifra decimale. La rotazione imposta il valore di quella posizione: unità, decine, centinaia e così via.</p></div>
+      <div class="card"><h3>Che cosa automatizza</h3><p>Quando una ruota supera 9, il meccanismo trasferisce un’unità alla posizione successiva. Somma e sottrazione non richiedono più di eseguire manualmente ogni riporto.</p></div>
     </div>
+    <div class="note reveal d3"><div class="lbl">💡 Limite</div><p>La macchina applica una sola famiglia di operazioni incorporata negli ingranaggi: non conserva un programma sostituibile.</p></div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE · LEIBNIZ ============ -->
+  <section class="slide">
+    <h2 class="h-big reveal">Leibniz: calcolo meccanico e <em class="hot">binario</em></h2>
+    <p class="lead reveal d1">Gottfried Wilhelm Leibniz lavorò sia su una macchina capace di moltiplicare e dividere, sia su una descrizione sistematica dell’aritmetica con le sole cifre 0 e 1, pubblicata nel 1703.</p>
+    <div class="split reveal d2">
+      <div class="card"><h3>Stepped Reckoner</h3><p>La ruota a gradini ripete addizioni e sottrazioni per ottenere anche moltiplicazioni e divisioni. Il meccanismo amplia le operazioni disponibili, ma resta specializzato.</p></div>
+      <div class="card teal"><h3>Un sistema posizionale in base 2</h3><p>Ogni posizione vale una potenza di due. Per esempio, <code>1011₂</code> rappresenta <code>8 + 2 + 1 = 11₁₀</code>. I circuiti elettronici useranno questa rappresentazione molto più tardi.</p></div>
+    </div>
+    <div class="analogy reveal d3"><span class="big">Regola:</span> binario indica come rappresentare i valori; non significa automaticamente “computer”.</div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE · BOOLE ============ -->
+  <section class="slide">
+    <h2 class="h-big reveal">Boole: la <em class="hot">logica</em> diventa algebra</h2>
+    <p class="lead reveal d1">Nel 1847 George Boole formalizzò operazioni logiche applicabili a proposizioni vere o false. Nel Novecento questa algebra offrì il linguaggio matematico adatto a descrivere circuiti digitali.</p>
+    <table class="cmp reveal d2">
+      <tr><th>Operazione</th><th class="old">Domanda</th><th class="new">Quando vale vero</th></tr>
+      <tr><td>AND</td><td>Sono vere entrambe?</td><td>Solo quando le due condizioni sono vere.</td></tr>
+      <tr><td>OR</td><td>Almeno una è vera?</td><td>Quando è vera una condizione oppure entrambe.</td></tr>
+      <tr><td>NOT</td><td>Qual è il contrario?</td><td>Inverte il valore: vero diventa falso e viceversa.</td></tr>
+    </table>
+    <p class="body reveal d3">Un transistor può comportarsi come un interruttore; reti di interruttori realizzano porte logiche, e le porte compongono circuiti capaci di calcolare.</p>
     <div class="page-num"></div>
   </section>
 
@@ -279,30 +301,82 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="page-num"></div>
   <div class="cross-reference-footer" data-cross-reference-footer="true"><a href="hs01-componenti.html#slide-9">HS01 · ROM e bootstrap oggi ↗</a></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.computerhistory.org/babbage/engines/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Babbage e l’Analytical Engine — Computer History Museum" aria-label="Fonte ufficiale: Babbage e l’Analytical Engine — Computer History Museum" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Babbage e l’Analytical Engine — Computer History Museum ↗</a><a data-source-origin="auto" href="https://www.computerhistory.org/revolution/story/2" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Hollerith e il censimento — Computer History Museum" aria-label="Fonte ufficiale: Hollerith e il censimento — Computer History Museum" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Hollerith e il censimento — Computer History Museum ↗</a></div></section>
 
-  <!-- ============ SLIDE · GENERAZIONI DEL COMPUTER ============ -->
-  <section class="slide">
-    <div class="col stack" style="justify-content:center;height:100%;">
-      <h2 class="h-big reveal">Le <em class="hot">generazioni</em> del computer</h2>
-      <p class="lead reveal d1" style="margin-bottom:6px;"><b>ENIAC</b> — <i>Electronic Numerical Integrator and Computer</i> — fu presentato nel 1946: pesava circa 30 tonnellate e occupava circa 167 metri quadrati. È uno dei primi computer elettronici digitali programmabili per uso generale.</p>
-      <table class="cmp reveal d2">
-        <tr><th></th><th class="old">Tecnologia chiave</th><th class="new">Cosa cambiò</th></tr>
-        <tr><td>1ª (1946)</td><td>Valvole termoioniche</td><td>Enormi, bollenti, consumavano moltissima energia.</td></tr>
-        <tr><td>2ª (1960)</td><td>Transistor</td><td>Più piccoli, più affidabili, meno calore.</td></tr>
-        <tr><td>3ª (1964)</td><td>Circuiti integrati (chip)</td><td>Milioni di componenti su una piastrina di silicio.</td></tr>
-        <tr><td>4ª (dal 1971)</td><td>Microprocessore</td><td>Intel 4004: una CPU integrata in un singolo chip.</td></tr>
-        <tr><td>Età contemporanea</td><td>Integrazione e reti</td><td>Dispositivi mobili, cloud e sistemi connessi.</td></tr>
-      </table>
-      <p class="body reveal d3" style="margin-top:10px;">Le date di confine cambiano secondo le fonti: le “generazioni” sono un modello storico utile, non una classificazione scientifica universale.</p>
+  <!-- ============ SLIDE · GENERAZIONI ELETTRONICHE ============ -->
+  <section class="slide history-table">
+    <h2 class="h-big reveal">Dalle valvole al <em class="hot">microprocessore</em></h2>
+    <p class="lead reveal d1"><b>ENIAC</b>, presentato nel 1946, pesava circa 30 tonnellate e occupava circa 167 metri quadrati. Da allora, ogni salto nell’integrazione ha ridotto dimensioni e consumo aumentando affidabilità e velocità.</p>
+    <div class="history-timeline reveal d2" style="--steps:4;">
+      <div class="tl-item"><div class="tl-date">anni 1940–1950</div><div class="tl-dot"></div><div class="tl-card"><h3>Valvole termoioniche</h3><p>Migliaia di componenti discreti occupano molto spazio, consumano energia e richiedono manutenzione frequente.</p></div></div>
+      <div class="tl-item"><div class="tl-date">anni 1950–1960</div><div class="tl-dot"></div><div class="tl-card"><h3>Transistor</h3><p>Gli interruttori elettronici diventano più piccoli, affidabili ed efficienti rispetto alle valvole.</p></div></div>
+      <div class="tl-item"><div class="tl-date">anni 1960</div><div class="tl-dot"></div><div class="tl-card"><h3>Circuiti integrati</h3><p>Più transistor e collegamenti vengono fabbricati insieme sullo stesso supporto di silicio.</p></div></div>
+      <div class="tl-item"><div class="tl-date">anni 1970</div><div class="tl-dot"></div><div class="tl-card"><h3>LSI e microprocessore</h3><p>CPU, memoria e controllo si concentrano in pochi chip, rendendo possibile il microcomputer.</p></div></div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-intel-4004.html" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Intel 4004 — Intel" aria-label="Fonte ufficiale: Intel 4004 — Intel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Intel 4004 — Intel ↗</a><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/CPU" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: CPU — Wikipedia" aria-label="Fonte ufficiale: CPU — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: CPU — Wikipedia ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.computerhistory.org/tdih/february/14/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: ENIAC — Computer History Museum" aria-label="Fonte ufficiale: ENIAC — Computer History Museum" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: ENIAC — Computer History Museum ↗</a><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/CPU" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: CPU — Wikipedia" aria-label="Fonte ufficiale: CPU — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: CPU — Wikipedia ↗</a></div></section>
+
+  <!-- ============ SLIDE · EVOLUZIONE CPU ============ -->
+  <section class="slide history-table">
+    <h2 class="h-big reveal">Dal microprocessore alle <em class="hot">piattaforme connesse</em></h2>
+    <div class="history-timeline compact reveal d2" style="--steps:6;">
+      <div class="tl-item"><div class="tl-date">1971</div><div class="tl-dot"></div><div class="tl-card"><h3>Intel 4004</h3><p>Le funzioni essenziali della CPU diventano un singolo componente a 4 bit.</p></div></div>
+      <div class="tl-item"><div class="tl-date">1977</div><div class="tl-dot"></div><div class="tl-card"><h3>Colore</h3><p>L’Apple II usa un televisore per mostrare testo, grafica e giochi a colori.</p></div></div>
+      <div class="tl-item"><div class="tl-date">1978–1985</div><div class="tl-dot"></div><div class="tl-card"><h3>16 e 32 bit</h3><p>Intel 8086 (1978), Motorola 68000 (1979), Intel 80386 (1985) e ARM1 (1985) ampliano memoria e architetture disponibili.</p></div></div>
+      <div class="tl-item"><div class="tl-date">1983</div><div class="tl-dot"></div><div class="tl-card"><h3>Internet</h3><p>La transizione di ARPANET a TCP/IP collega reti differenti con protocolli comuni.</p></div></div>
+      <div class="tl-item"><div class="tl-date">anni 1990</div><div class="tl-dot"></div><div class="tl-card"><h3>Cellulari digitali</h3><p>GSM e processori Arm portano voce, SMS e software nei terminali mobili.</p></div></div>
+      <div class="tl-item"><div class="tl-date">1997–1999</div><div class="tl-dot"></div><div class="tl-card"><h3>Wi‑Fi</h3><p>IEEE 802.11 permette l’accesso alla rete locale e a Internet senza Ethernet.</p></div></div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-intel-4004.html" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Intel 4004 — Intel" aria-label="Fonte ufficiale: Intel 4004 — Intel" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Intel 4004 — Intel ↗</a><a data-source-origin="auto" href="https://www.internetsociety.org/internet/history-internet/brief-history-internet/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Breve storia di Internet — Internet Society" aria-label="Fonte ufficiale: Breve storia di Internet — Internet Society" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Breve storia di Internet — Internet Society ↗</a></div></section>
+
+  <!-- ============ SLIDE · DATI E AUTOMAZIONE ============ -->
+  <section class="slide history-table">
+    <h2 class="h-big reveal">Dall’automazione ai <em class="hot">sistemi che apprendono</em></h2>
+    <p class="lead reveal d1">Sensori, reti e potenza di calcolo trasformano il computer da strumento isolato a sistema capace di osservare processi, coordinare azioni e ricavare modelli dai dati.</p>
+    <div class="history-timeline reveal d2" style="--steps:5;">
+      <div class="tl-item"><div class="tl-date">fine anni 1960</div><div class="tl-dot"></div><div class="tl-card"><h3>PLC industriali</h3><p>La logica programmabile sostituisce molti relè cablati e controlla macchine e linee produttive.</p></div></div>
+      <div class="tl-item"><div class="tl-date">anni 2000</div><div class="tl-dot"></div><div class="tl-card"><h3>Big data</h3><p>Archiviazione e calcolo distribuiti elaborano dati troppo voluminosi, rapidi o vari per una sola macchina.</p></div></div>
+      <div class="tl-item"><div class="tl-date">2005</div><div class="tl-dot"></div><div class="tl-card"><h3>Arduino</h3><p>Microcontrollore e strumenti open source rendono accessibili sensori, attuatori e prototipi interattivi.</p></div></div>
+      <div class="tl-item"><div class="tl-date">dal 2012</div><div class="tl-dot"></div><div class="tl-card"><h3>Machine learning</h3><p>Reti neurali, grandi dataset e GPU permettono ai modelli di apprendere regolarità dagli esempi.</p></div></div>
+      <div class="tl-item"><div class="tl-date">oggi</div><div class="tl-dot"></div><div class="tl-card"><h3>Automazioni connesse</h3><p>IoT, cloud, robot e NPU collegano raccolta dati, decisione e azione in un ciclo continuo.</p></div></div>
+    </div>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE · PARALLELISMO ============ -->
+  <section class="slide history-table">
+    <h2 class="h-big reveal">Dalla frequenza al <em class="hot">parallelismo</em></h2>
+    <p class="lead reveal d1">Aumentare continuamente il clock fa crescere consumo e calore. Per progredire, i processori hanno affiancato più forme di lavoro parallelo.</p>
+    <table class="cmp reveal d2" style="font-size:21px;">
+      <tr><th>Meccanismo</th><th class="old">Come aumenta il parallelismo</th><th class="new">Limite da ricordare</th></tr>
+      <tr><td>Pipeline e superscalare</td><td>Più fasi o istruzioni avanzano nello stesso intervallo.</td><td>Dipendenze e salti possono lasciare unità inutilizzate.</td></tr>
+      <tr><td>SMT / Hyper‑Threading</td><td>Un core fisico espone più processori logici e alterna thread.</td><td>Le risorse sono condivise: non equivale a due core completi.</td></tr>
+      <tr><td>Multi-core</td><td>Più core fisici sono integrati nello stesso processore.</td><td>Il software deve dividere il lavoro in thread coordinabili.</td></tr>
+      <tr><td>GPU e acceleratori</td><td>Molte unità specializzate elaborano grafica, matrici, IA o segnali.</td><td>Accelerano compiti adatti, ma non sostituiscono sempre la CPU.</td></tr>
+      <tr><td>Chiplet</td><td>Più blocchi di silicio specializzati formano un unico package.</td><td>Interconnessione, latenza e memoria restano decisive.</td></tr>
+    </table>
+    <div class="page-num"></div>
+  </section>
+
+  <!-- ============ SLIDE · MOBILE E SOC ============ -->
+  <section class="slide history-table">
+    <h2 class="h-big reveal">Il computer entra nel <em class="hot">telefono</em></h2>
+    <p class="lead reveal d1">La storia del cellulare e quella del processore si incontrano quando comunicazione, calcolo e interfaccia vengono integrati in dispositivi alimentati a batteria.</p>
+    <div class="history-timeline reveal d2" style="--steps:5;">
+      <div class="tl-item"><div class="tl-date">anni 1980</div><div class="tl-dot"></div><div class="tl-card"><h3>Cellulari analogici</h3><p>La rete rende mobile la voce, ma il terminale offre capacità informatiche ancora limitate.</p></div></div>
+      <div class="tl-item"><div class="tl-date">anni 1990</div><div class="tl-dot"></div><div class="tl-card"><h3>GSM e Arm</h3><p>Comunicazione digitale, SMS e software crescono grazie a chip efficienti; il Nokia 6110 usa Arm7.</p></div></div>
+      <div class="tl-item"><div class="tl-date">2007–2008</div><div class="tl-dot"></div><div class="tl-card"><h3>Smartphone</h3><p>Touchscreen, browser, sensori e app trasformano iPhone e Android in piattaforme generaliste.</p></div></div>
+      <div class="tl-item"><div class="tl-date">anni 2010</div><div class="tl-dot"></div><div class="tl-card"><h3>SoC multi-core</h3><p>CPU, GPU e modem convivono; big.LITTLE alterna core potenti ed efficienti per contenere i consumi.</p></div></div>
+      <div class="tl-item"><div class="tl-date">oggi</div><div class="tl-dot"></div><div class="tl-card"><h3>SoC eterogenei</h3><p>NPU, immagini, sicurezza e connettività specializzate lavorano accanto a CPU e GPU.</p></div></div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://newsroom.arm.com/blog/arm-official-history" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Storia dell’architettura Arm" aria-label="Fonte ufficiale: Storia dell’architettura Arm" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Storia dell’architettura Arm ↗</a><a data-source-origin="auto" href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Guida ufficiale Android" aria-label="Fonte ufficiale: Guida ufficiale Android" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Guida ufficiale Android ↗</a></div></section>
 
   <!-- ============ SLIDE · IBM PC E I CLONI ============ -->
   <section class="slide">
     <div class="col stack" style="justify-content:center;height:100%;">
       <h2 class="h-big reveal">Il PC che tutti potevano <em class="hot">copiare</em></h2>
-      <p class="lead reveal d1" style="margin-bottom:6px;">Il 12 agosto 1981 IBM presentò il suo <b>Personal Computer 5150</b>. La configurazione base costava 1.565 dollari; monitor, unità a disco e altre periferiche aumentavano sensibilmente il prezzo.</p>
-      <div class="grid2 reveal d2">
+      <p class="lead reveal d1" style="margin-bottom:6px;">Il 12 agosto 1981 IBM presentò il suo <b>Personal Computer 5150</b>. La configurazione base costava 1.565 dollari: per potere d’acquisto sono circa <b>5.750 dollari di giugno 2026</b>. Monitor, unità a disco e altre periferiche aumentavano sensibilmente il prezzo.</p>
+      <div class="grid2 reveal d2 ibm-grid">
         <div class="card"><h3>Componenti disponibili</h3><p>IBM usò in larga parte componenti reperibili sul mercato e pubblicò informazioni tecniche che facilitarono la creazione di hardware compatibile.</p></div>
         <div class="card teal"><h3>Nascono i compatibili</h3><p>Altri produttori ricrearono legalmente un BIOS compatibile senza copiare il codice IBM. Si sviluppò così il mercato dei cosiddetti <b>cloni</b>.</p></div>
       </div>
@@ -312,7 +386,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.ibm.com/history/personal-computer" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: IBM Personal Computer — IBM" aria-label="Fonte ufficiale: IBM Personal Computer — IBM" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: IBM Personal Computer — IBM ↗</a></div></section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.ibm.com/history/personal-computer" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: IBM Personal Computer — IBM" aria-label="Fonte ufficiale: IBM Personal Computer — IBM" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: IBM Personal Computer — IBM ↗</a><a data-source-origin="auto" href="https://www.bls.gov/data/inflation_calculator.htm" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Calcolatore dell’inflazione CPI — U.S. BLS" aria-label="Fonte ufficiale: Calcolatore dell’inflazione CPI — U.S. BLS" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Calcolatore dell’inflazione CPI — U.S. BLS ↗</a></div></section>
 
   <!-- ============ SLIDE · MS-DOS E LA GUI ============ -->
   <section class="slide">
@@ -326,22 +400,49 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
           <p>In DOS si poteva cancellare un file con <code>DEL</code> seguito dal suo percorso. Con Windows 95 lo stesso obiettivo diventò un'azione visiva: trascinare il file nel cestino.</p>
         </div>
       </div>
-      <div class="illu reveal d2" style="background:#0a0a0a;border-color:#1c1714;">
-        <svg viewBox="0 0 300 160" role="img" aria-label="Prompt MS-DOS">
+      <div class="reveal d2" style="display:flex;align-items:center;justify-content:center;min-height:520px;">
+        <svg viewBox="0 0 300 160" role="img" aria-label="Prompt MS-DOS" style="width:100%;height:auto;display:block;">
           <rect x="10" y="10" width="280" height="140" fill="#0a0a0a" stroke="#3a322c" stroke-width="4"/>
           <text x="30" y="90" font-family="Space Mono,monospace" font-size="26" fill="#e6c14a">C:\&gt;_</text>
         </svg>
-        <div class="illu-cap" style="color:#cdbfa8;">Il prompt del DOS: solo testo</div>
       </div>
     </div>
     <div class="page-num"></div>
   <div class="cross-reference-footer" data-cross-reference-footer="true"><a href="hs03-os.html#slide-6">HS03 · Sistemi operativi di oggi ↗</a></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1981" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: MS-DOS e IBM PC — Microsoft" aria-label="Fonte ufficiale: MS-DOS e IBM PC — Microsoft" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: MS-DOS e IBM PC — Microsoft ↗</a><a data-source-origin="auto" href="https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1985" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Windows 1.0 — Microsoft" aria-label="Fonte ufficiale: Windows 1.0 — Microsoft" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Windows 1.0 — Microsoft ↗</a></div></section>
 
+  <!-- ============ SLIDE · WINDOWS 95 ============ -->
+  <section class="slide">
+    <h2 class="h-big reveal">Windows 95 porta il PC nel <em class="hot">grande pubblico</em></h2>
+    <p class="lead reveal d1">Lanciato il 24 agosto 1995, unificò un’interfaccia più riconoscibile, nomi di file più lunghi e una gestione dell’hardware più guidata. Microsoft ne vendette sette milioni di copie nelle prime cinque settimane.</p>
+    <div class="grid4 reveal d2" style="margin-top:26px;">
+      <div class="card"><h3>Start e barra delle applicazioni</h3><p>Programmi, documenti e finestre aperte trovano punti di accesso stabili sul desktop.</p></div>
+      <div class="card teal"><h3>Plug and Play</h3><p>Il sistema prova a riconoscere e configurare automaticamente il nuovo hardware compatibile.</p></div>
+      <div class="card gold"><h3>File più comprensibili</h3><p>I nomi non sono più vincolati al formato DOS di otto caratteri più tre per l’estensione.</p></div>
+      <div class="card sky"><h3>Internet entra nel sistema</h3><p>Internet Explorer 1.0 arrivò nel 1995 come componente aggiuntivo del pacchetto Plus! per Windows 95.</p></div>
+    </div>
+    <div class="analogy reveal d3"><span class="big">In pratica:</span> molte operazioni tecniche diventano scelte visive, menu e procedure guidate.</div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://news.microsoft.com/announcement/launch-of-windows-95/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Lancio di Windows 95 — Microsoft" aria-label="Fonte ufficiale: Lancio di Windows 95 — Microsoft" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Lancio di Windows 95 — Microsoft ↗</a></div></section>
+
+  <!-- ============ SLIDE · ASCESA DEI COMPUTER APPLE ============ -->
+  <section class="slide history-table">
+    <h2 class="h-big reveal">Come Apple costruisce l’identità del <em class="hot">Mac</em></h2>
+    <p class="lead reveal d1">L’ascesa non è lineare: successi, crisi e cambi di architettura collegano hardware, sistema operativo e progettazione dell’esperienza.</p>
+    <div class="history-timeline reveal d2" style="--steps:5;">
+      <div class="tl-item"><div class="tl-date">1977</div><div class="tl-dot"></div><div class="tl-card"><h3>Apple II</h3><p>Un computer pronto all’uso, espandibile e capace di grafica a colori raggiunge case, scuole e piccole imprese.</p></div></div>
+      <div class="tl-item"><div class="tl-date">1984</div><div class="tl-dot"></div><div class="tl-card"><h3>Macintosh</h3><p>Mouse e interfaccia grafica diventano il centro dell’esperienza di un personal computer rivolto al pubblico.</p></div></div>
+      <div class="tl-item"><div class="tl-date">1997–2001</div><div class="tl-dot"></div><div class="tl-card"><h3>Ritorno e rifondazione</h3><p>Il ritorno di Jobs semplifica la gamma; l’eredità di NeXT diventa la base di Mac OS X.</p></div></div>
+      <div class="tl-item"><div class="tl-date">2006</div><div class="tl-dot"></div><div class="tl-card"><h3>Transizione a Intel</h3><p>I Mac cambiano famiglia di processori mantenendo la compatibilità attraverso strumenti software.</p></div></div>
+      <div class="tl-item"><div class="tl-date">dal 2020</div><div class="tl-dot"></div><div class="tl-card"><h3>Apple silicon</h3><p>SoC progettati internamente riuniscono CPU, GPU e unità specializzate con attenzione alle prestazioni per watt.</p></div></div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.apple.com/newsroom/2020/06/apple-announces-mac-transition-to-apple-silicon/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Transizione del Mac ad Apple silicon — Apple" aria-label="Fonte ufficiale: Transizione del Mac ad Apple silicon — Apple" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Transizione del Mac ad Apple silicon — Apple ↗</a></div></section>
+
   <!-- ============ SLIDE · FLOPPY & NASTRI ============ -->
   <section class="slide">
-    <div class="split">
-      <div class="illu reveal d1">
-        <svg viewBox="0 0 300 260" role="img" aria-label="Floppy disk da 3,5 pollici">
+    <div class="split" style="grid-template-columns:.72fr 1.28fr;gap:84px;">
+      <div class="reveal d1" style="display:flex;align-items:center;justify-content:center;">
+        <svg viewBox="0 0 300 260" role="img" aria-label="Floppy disk da 3,5 pollici" style="width:100%;height:auto;display:block;">
           <rect x="30" y="20" width="240" height="220" rx="10" fill="#3f7e8c" stroke="#1c1714" stroke-width="6"/>
           <rect x="66" y="20" width="120" height="60" fill="#1c1714"/>
           <rect x="140" y="30" width="26" height="42" fill="#f4ece0"/>
@@ -349,7 +450,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
           <circle cx="150" cy="160" r="26" fill="none" stroke="#1c1714" stroke-width="5"/>
           <rect x="240" y="20" width="18" height="18" fill="#1c1714"/>
         </svg>
-        <div class="illu-cap">1,44 MB — quanto una singola foto di oggi</div>
       </div>
       <div class="col stack">
         <h2 class="h-big reveal">Floppy disk e <em class="hot">nastri magnetici</em></h2>
@@ -362,22 +462,51 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Documenti e specifiche USB — USB-IF" aria-label="Fonte ufficiale: Documenti e specifiche USB — USB-IF" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Documenti e specifiche USB — USB-IF ↗</a></div></section>
+  </section>
 
   <!-- ============ SLIDE · MASTERIZZATORI ============ -->
   <section class="slide">
     <div class="col stack" style="justify-content:center;height:100%;">
       <h2 class="h-big reveal">Masterizzatori <em class="hot">CD e DVD</em></h2>
-      <p class="lead reveal d1">Prima delle chiavette e del cloud, si "masterizzava": si bruciava con un laser la superficie di un disco per scrivervi dati o musica in modo permanente.</p>
+      <p class="lead reveal d1">Il <b>CD audio arrivò sul mercato nel 1982</b>; negli anni successivi la stessa tecnologia ottica fu adattata ai dati e alla scrittura tramite masterizzatore. Prima delle chiavette e del cloud, “masterizzare” significava incidere il disco con un laser.</p>
       <div class="grid3 reveal d2" style="margin-top:10px;">
-        <div class="card"><span class="ic">💿</span><h3>CD-ROM</h3><p>650-700 MB, circa 80 minuti di audio. Una volta scritti, i dati sono indelebili.</p></div>
-        <div class="card gold"><span class="ic">🔁</span><h3>CD-RW</h3><p>Riscrivibile un numero limitato di volte: ad ogni cancellazione la superficie si consuma un po'.</p></div>
-        <div class="card teal"><span class="ic">📀</span><h3>DVD</h3><p>4,7 GB, fino a 17 GB nelle versioni a doppio strato e doppio lato: molto più capiente del CD.</p></div>
+        <div class="card"><span class="ic">💿</span><h3>CD-ROM · 1985</h3><p>Lo standard per memorizzare dati su CD offre normalmente 650–700 MB. Il contenuto dei dischi stampati industrialmente è di sola lettura.</p></div>
+        <div class="card gold"><span class="ic">🔁</span><h3>CD-RW · 1997</h3><p>La versione riscrivibile può essere cancellata e incisa nuovamente un numero limitato di volte.</p></div>
+        <div class="card teal"><span class="ic">📀</span><h3>DVD · 1996</h3><p>La commercializzazione parte in Giappone. La capacità va da 4,7 GB a circa 17 GB nelle versioni a doppio strato e doppio lato.</p></div>
       </div>
-      <div class="analogy reveal d3" style="margin-top:24px;align-self:flex-start;"><span class="big">Oggi:</span> lo spazio che occupava un DVD sta in pochi secondi di upload su cloud.</div>
+      <div class="note reveal d3" style="margin-top:18px;padding:18px 24px;">
+        <div class="lbl">⚠️ Copia digitale, diritto d’autore e privacy in Italia</div>
+        <p><b>Copia privata:</b> una persona fisica può riprodurre fonogrammi e videogrammi acquisiti legittimamente per uso esclusivamente personale, senza fini commerciali e rispettando le misure tecnologiche di protezione. Questo non autorizza distribuzione, vendita o condivisione pubblica.</p>
+        <p><b>Dati personali:</b> per enti e professionisti, duplicare file che identificano persone è un trattamento di dati. Anche la copia deve avere una finalità e una base giuridica, essere protetta e accessibile soltanto a chi è autorizzato.</p>
+      </div>
     </div>
     <div class="page-num"></div>
-  </section>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.normattiva.it/uri-res/N2Ls?urn%3Anir%3Astato%3Alegge%3A1941-04-22%3B633~art71sexies=" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Copia privata, art. 71-sexies — Normattiva" aria-label="Fonte ufficiale: Copia privata, art. 71-sexies — Normattiva" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Copia privata, art. 71-sexies — Normattiva ↗</a></div></section>
+
+  <!-- ============ SLIDE · CHIAVETTE USB ============ -->
+  <section class="slide history-table">
+    <h2 class="h-big reveal">Chiavette USB: <em class="hot">più spazio in tasca</em></h2>
+    <p class="lead reveal d1">La memoria flash conserva i dati senza alimentazione e non richiede parti mobili. Dal 2000 la capacità è cresciuta di oltre centomila volte, mentre il connettore USB ha reso semplice spostare file tra computer diversi.</p>
+    <div class="history-timeline reveal d2" style="--timeline-cols:repeat(4,minmax(0,1fr));margin-top:28px;">
+      <div class="tl-item">
+        <div class="tl-date">2000</div><div class="tl-dot"></div>
+        <div class="tl-card"><h3>8 MB</h3><p>Le prime unità commerciali contengono più di cinque floppy da 1,44 MB in un dispositivo molto più piccolo.</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">primi anni 2000</div><div class="tl-dot"></div>
+        <div class="tl-card"><h3>32–512 MB</h3><p>Diventano pratiche per documenti, fotografie e presentazioni; il floppy perde progressivamente utilità.</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">anni 2010</div><div class="tl-dot"></div>
+        <div class="tl-card"><h3>8–64 GB</h3><p>Una chiavetta può contenere intere raccolte multimediali e immagini di installazione dei sistemi operativi.</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">oggi</div><div class="tl-dot"></div>
+        <div class="tl-card"><h3>32 GB–1 TB</h3><p>I tagli comuni sono nell’ordine delle decine o centinaia di gigabyte; esistono anche modelli da un terabyte.</p></div>
+      </div>
+    </div>
+    <div class="page-num"></div>
+  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.computerhistory.org/storageengine/portable-personal-storage-devices/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Dispositivi portatili di archiviazione — Computer History Museum" aria-label="Fonte ufficiale: Dispositivi portatili di archiviazione — Computer History Museum" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Dispositivi portatili di archiviazione — Computer History Museum ↗</a><a data-source-origin="auto" href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Documenti e specifiche USB — USB-IF" aria-label="Fonte ufficiale: Documenti e specifiche USB — USB-IF" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Documenti e specifiche USB — USB-IF ↗</a></div></section>
 
   <!-- ============ SLIDE · PORTE SCOMPARSE ============ -->
   <section class="slide">
@@ -428,9 +557,15 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <div class="card"><span class="ic">📞</span><h3>Modem dial-up (56K)</h3><p>Usava la normale linea telefonica analogica: mentre eri online, il telefono di casa risultava occupato. Velocità massima 56 Kbps — un video di oggi impiegherebbe ore.</p></div>
         <div class="card teal"><span class="ic">☎️</span><h3>ISDN</h3><p>Linea telefonica digitale dedicata, fino a 128 Kbps: più veloce del dial-up, ma serviva un abbonamento apposito.</p></div>
       </div>
-      <div class="note reveal d3" style="margin-top:18px;">
-        <div class="lbl">💡 Cosa li ha sostituiti</div>
-        <p>ADSL prima, fibra ottica oggi: linee sempre attive, senza occupare il telefono e migliaia di volte più veloci.</p>
+      <div class="grid2 reveal d3" style="margin-top:18px;">
+        <div class="card gold" style="padding:22px 26px;">
+          <h3>ADSL</h3>
+          <p>Usa frequenze diverse sul doppino di rame per separare voce e dati: telefono e connessione possono funzionare insieme. È sempre attiva e offre più velocità in download che in upload.</p>
+        </div>
+        <div class="card teal" style="padding:22px 26px;">
+          <h3>Fibra ottica</h3>
+          <p>Trasporta impulsi luminosi in sottili fibre di vetro. Con <b>FTTC</b> la fibra arriva all’armadio stradale; con <b>FTTH</b> raggiunge l’abitazione, offrendo maggiore velocità e minore latenza.</p>
+        </div>
       </div>
     </div>
     <div class="page-num"></div>
@@ -444,10 +579,9 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       <div class="stack reveal d2">
         <div class="agenda-item" style="border-color:var(--red);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🏛️</span><div><b style="font-size:27px;">Mainframe</b><br><span style="font-size:23px;color:var(--ink-faint);">grande computer centralizzato per gestire i sistemi di un'intera azienda o banca</span></div></div>
         <div class="agenda-item" style="border-color:var(--gold-deep);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🖥️</span><div><b style="font-size:27px;">Minicomputer</b><br><span style="font-size:23px;color:var(--ink-faint);">versione più piccola del mainframe, per gestire un sistema minore</span></div></div>
-        <div class="agenda-item" style="border-color:var(--teal);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">⌨️</span><div><b style="font-size:27px;">Terminale "stupido"</b><br><span style="font-size:23px;color:var(--ink-faint);">solo monitor e tastiera, senza capacità di elaborazione: sfruttava CPU e memoria del computer centrale</span></div></div>
+        <div class="agenda-item" style="border-color:var(--teal);padding:12px 4px;"><span style="font-size:34px;min-width:50px;">⌨️</span><div><b style="font-size:27px;">Dumb terminal</b><br><span style="font-size:23px;color:var(--ink-faint);">solo monitor e tastiera, senza capacità di elaborazione: sfruttava CPU e memoria del computer centrale</span></div></div>
         <div class="agenda-item" style="border-color:transparent;padding:12px 4px;"><span style="font-size:34px;min-width:50px;">🌐</span><div><b style="font-size:27px;">Network computer</b><br><span style="font-size:23px;color:var(--ink-faint);">elaborava in autonomia ma salvava tutti i dati su un computer centrale in rete, senza dischi propri</span></div></div>
       </div>
-      <div class="analogy reveal d3" style="margin-top:16px;align-self:flex-start;"><span class="big">Suona familiare?</span> Un servizio cloud oggi fa qualcosa di molto simile: elabora e salva su server centrali, tu usi solo lo schermo.</div>
     </div>
     <div class="page-num"></div>
   </section>
@@ -466,13 +600,13 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="cross-reference-footer" data-cross-reference-footer="true"><a href="sd03-privacy.html#slide-2">SD03 · Privacy oggi (GDPR) ↗</a></div></section>
+  <div class="cross-reference-footer" data-cross-reference-footer="true"><a href="sd03-privacy.html#slide-2">SD03 · Privacy oggi (GDPR) ↗</a></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Regolamento generale sulla protezione dei dati — EUR-Lex" aria-label="Fonte ufficiale: Regolamento generale sulla protezione dei dati — EUR-Lex" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a></div></section>
 
   <!-- ============ SLIDE · CHIUSURA ============ -->
   <section class="slide closing"><div class="closing-inner"><div class="center" style="align-items:center;text-align:center;">
       <h2 class="h-mega reveal" style="margin-top:10px;">Archiviato.</h2>
       <p class="lead reveal d1" style="color:var(--paper);max-width:1120px;text-align:center;margin-top:20px;">Ogni tecnologia nasce per superare il limite di quella precedente: capire cosa c'era prima dell'USB, della fibra e del cloud aiuta a capire perché oggi funzionano come funzionano.</p>
-      <div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:10px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:7px 30px;font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:rgba(255,255,255,.92);"><a href="https://www.computerhistory.org/tdih/february/14/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">ENIAC — Computer History Museum ↗</a><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a><a href="https://www.computerhistory.org/babbage/engines/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Babbage e l’Analytical Engine — Computer History Museum ↗</a><a href="https://www.computerhistory.org/revolution/story/2" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Hollerith e il censimento — Computer History Museum ↗</a><a href="https://it.wikipedia.org/wiki/CPU" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">CPU — Wikipedia ↗</a><a href="https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-intel-4004.html" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Intel 4004 — Intel ↗</a><a href="https://www.ibm.com/history/personal-computer" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">IBM Personal Computer — IBM ↗</a><a href="https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1981" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">MS-DOS e IBM PC — Microsoft ↗</a><a href="https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1985" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Windows 1.0 — Microsoft ↗</a><a href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Documenti e specifiche USB — USB-IF ↗</a><a href="https://www.bluetooth.com/specifications/specs/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Specifiche Bluetooth — Bluetooth SIG ↗</a><a href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">RAM — Wikipedia ↗</a></div></div><div class="closing-actions reveal d2"><a class="chip closing-primary" href="../00-indice.html">Torna all'indice</a></div>
+      <div data-source-list="true" style="margin-top:20px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:16px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:10px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px 30px;font-family:var(--font-mono,monospace);font-size:14px;line-height:1.25;color:rgba(255,255,255,.92);"><a href="https://www.computerhistory.org/babbage/engines/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Babbage e l’Analytical Engine — Computer History Museum ↗</a><a href="https://www.computerhistory.org/revolution/story/2" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Hollerith e il censimento — Computer History Museum ↗</a><a href="https://www.computerhistory.org/tdih/february/14/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">ENIAC — Computer History Museum ↗</a><a href="https://it.wikipedia.org/wiki/CPU" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">CPU — Wikipedia ↗</a><a href="https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-intel-4004.html" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Intel 4004 — Intel ↗</a><a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Breve storia di Internet — Internet Society ↗</a><a href="https://newsroom.arm.com/blog/arm-official-history" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Storia dell’architettura Arm ↗</a><a href="https://support.google.com/android/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Guida ufficiale Android ↗</a><a href="https://www.ibm.com/history/personal-computer" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">IBM Personal Computer — IBM ↗</a><a href="https://www.bls.gov/data/inflation_calculator.htm" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Calcolatore dell’inflazione CPI — U.S. BLS ↗</a><a href="https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1981" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">MS-DOS e IBM PC — Microsoft ↗</a><a href="https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1985" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Windows 1.0 — Microsoft ↗</a><a href="https://news.microsoft.com/announcement/launch-of-windows-95/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Lancio di Windows 95 — Microsoft ↗</a><a href="https://www.apple.com/newsroom/2020/06/apple-announces-mac-transition-to-apple-silicon/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Transizione del Mac ad Apple silicon — Apple ↗</a><a href="https://www.normattiva.it/uri-res/N2Ls?urn%3Anir%3Astato%3Alegge%3A1941-04-22%3B633~art71sexies=" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Copia privata, art. 71-sexies — Normattiva ↗</a><a href="https://www.usb.org/documents" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Documenti e specifiche USB — USB-IF ↗</a><a href="https://www.computerhistory.org/storageengine/portable-personal-storage-devices/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Dispositivi portatili di archiviazione — Computer History Museum ↗</a><a href="https://www.bluetooth.com/specifications/specs/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Specifiche Bluetooth — Bluetooth SIG ↗</a><a href="https://it.wikipedia.org/wiki/RAM" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">RAM — Wikipedia ↗</a><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Regolamento generale sulla protezione dei dati — EUR-Lex ↗</a></div></div><div class="closing-actions reveal d2"><a class="chip closing-primary" href="../00-indice.html">Torna all'indice</a></div>
     </div></div><div class="deck-author">Francesco Antonio Binetti</div><div class="page-num"></div></section>
 
 </main>
@@ -481,10 +615,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 <!-- progress + edit chrome (outside the stage) -->
 <div class="progress" id="progress"></div>
 <a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
-<div class="edit-hotzone" aria-hidden="true"></div>
-<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
-<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
-
 <script src="../deck.js"></script>
 </body>
 </html>

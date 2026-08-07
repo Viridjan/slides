@@ -53,7 +53,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
 .disk{width:360px;height:360px;border-radius:50%;background:radial-gradient(circle at 50% 50%,#fbf5ec 0 12%,#d8c9b4 13% 20%,#3f7e8c 21% 34%,#f4ece0 35% 50%,#e6533b 51% 62%,#1c1714 63% 66%,#f4ece0 67%);border:8px solid var(--ink);box-shadow:12px 14px 0 rgba(0,0,0,.18);position:relative}.disk::after{content:"";position:absolute;width:170px;height:12px;background:var(--ink);right:-24px;top:160px;transform:rotate(-18deg);border-radius:10px}
 .tree{font-family:var(--font-mono);font-size:28px;line-height:1.55;background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:28px 34px;box-shadow:7px 8px 0 rgba(28,23,20,.13);color:var(--ink-soft)}.tree b{color:var(--red)}
 .closing{background:var(--teal)}.closing::before{opacity:.12}.closing *{color:var(--paper)}.closing .gold{color:var(--gold)}
-.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer}.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease}.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto}.edit-toggle.active{background:var(--red)}body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px}.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px}.edit-hint.show{display:block}.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease)}
 .title-slide .lead,.title-slide .chips{display:none;}
 
 /* home button */
@@ -167,7 +167,8 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       </div>
     </div>
     <div class="page-num"></div>
-  <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.ibm.com/docs/en/power6?topic=arrays-raid-level-summary" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Livelli RAID — documentazione IBM" aria-label="Fonte ufficiale: Livelli RAID — documentazione IBM" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Livelli RAID — documentazione IBM ↗</a></div></section>
+
+  <div class="cross-reference-footer" data-cross-reference-footer="true"><a href="sd06-piani-b-digitali.html#slide-5">backup 3-2-1 ↗</a></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.ibm.com/docs/en/power6?topic=arrays-raid-level-summary" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Livelli RAID — documentazione IBM" aria-label="Fonte ufficiale: Livelli RAID — documentazione IBM" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Livelli RAID — documentazione IBM ↗</a></div></section>
 
   <section class="slide">
     <div class="center">
@@ -336,7 +337,7 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
       <p class="body reveal d2" style="margin-top:18px;"><b>Salute del disco:</b> monitora i segnali SMART (Self-Monitoring, Analysis and Reporting Technology) con strumenti come CrystalDiskInfo o smartmontools. Rumori di clic ripetuti su un HDD sono un segnale di guasto imminente: fai subito un backup.</p>
     </div>
     <div class="page-num"></div>
-  </section>
+  <div class="cross-reference-footer" data-cross-reference-footer="true"><a href="hs05-troubleshooting.html#slide-18">disco lento o rumoroso: cosa fare ↗</a></div></section>
 
   <section class="slide">
     <div class="split even">
@@ -373,22 +374,14 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
   </section>
 
   <section class="slide">
-    <div class="split">
-      <div class="col stack">
+    <div class="center">
 
-        <h2 class="h-big reveal">Link simbolici e hard link</h2>
-        <p class="lead reveal d1">Un collegamento può far apparire un file in una cartella diversa senza duplicarne il contenuto fisico sul disco. I due tipi principali, link simbolico e hard link, funzionano in modo molto diverso a livello di file system.</p>
-        <p class="body reveal d2">Questi meccanismi sono usati dal sistema operativo per tenere strutture pulite: cartelle di configurazione che puntano a versioni aggiornate, librerie condivise tra programmi, backup efficienti senza copia dei dati.</p>
-        <div class="analogy reveal d3"><span class="big">Analogia:</span> Un hard link è come avere due targhe sulla stessa porta; un link simbolico è un cartello che indica dove si trova la porta.</div>
-      </div>
-      <div class="col stack">
-        <div class="card reveal d1"><h3>Link simbolico (symlink)</h3><p>È un file speciale che contiene il percorso della destinazione. Se la destinazione viene spostata o cancellata, il link risulta "rotto" e non punta più a nulla di valido. Funziona tra partizioni diverse.</p></div>
-        <div class="card reveal d2"><h3>Hard link</h3><p>È un secondo nome nello stesso file system che punta allo stesso inode (blocco dati) del file originale. Il dato resta sul disco finché esiste almeno un nome che vi fa riferimento. Non può attraversare partizioni diverse.</p></div>
-        <div class="card reveal d3"><h3>Collegamento Windows (.lnk)</h3><p>I classici file <b>.lnk</b> sono scorciatoie gestite da Esplora risorse: simili concettualmente ai symlink, ma non equivalenti a livello di sistema. Windows supporta anche symlink nativi tramite <b>mklink</b>.</p></div>
-      </div>
+      <h2 class="h-sec reveal">Collegamenti senza copiare</h2>
+      <p class="lead reveal d1" style="max-width:1200px;">Un collegamento può far apparire un file in una cartella diversa senza duplicarne il contenuto fisico sul disco: il sistema operativo lo usa per cartelle di configurazione, librerie condivise e backup efficienti.</p>
+      <div class="analogy reveal d2" style="margin-top:20px;"><span class="big">Analogia:</span> un hard link è come avere due targhe sulla stessa porta; un link simbolico è un cartello che indica dove si trova la porta.</div>
     </div>
     <div class="page-num"></div>
-  </section>
+  <div class="cross-reference-footer" data-cross-reference-footer="true"><a href="rw02-03-link-simbolici.html#slide-4">link simbolici e hard link, in dettaglio ↗</a></div></section>
 
 
 
@@ -405,11 +398,6 @@ em.hot{font-style:italic;color:var(--red)}.gold{color:var(--gold)}.sky{color:var
 
 <div class="progress" id="progress"></div>
 <a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
-<div class="edit-hotzone" aria-hidden="true"></div>
-<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
-<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
-
-
 <script src="../deck.js"></script>
 </body>
 </html>

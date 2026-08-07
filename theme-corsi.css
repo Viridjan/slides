@@ -26,6 +26,9 @@
   --code-line-height:1.42;
   --code-padding:22px;
   --code-radius:10px;
+  --inline-code-radius:.3em;
+  --inline-code-pad-y:.08em;
+  --inline-code-pad-x:.34em;
 }
 
 body[class*="course-"]{
@@ -37,6 +40,9 @@ body[class*="course-"]{
   --line:rgba(84,92,102,.22);
   --code-bg:color-mix(in srgb,var(--course-dark) 90%,#000 10%);
   --code-ink:#fff;
+  --inline-code-bg:color-mix(in srgb,var(--accent) 14%,var(--paper) 86%);
+  --inline-code-ink:var(--ink);
+  --inline-code-border:color-mix(in srgb,var(--accent) 32%,transparent);
   --note-bg:color-mix(in srgb,var(--gold) 20%,var(--paper) 80%);
   font-family:var(--font-body,"Space Grotesk",sans-serif);
   background:
@@ -174,6 +180,18 @@ body.course-ms{
    altri), queste regole li uniformano. Il lead si distingue dal body per
    peso e colore, mai solo per dimensione. */
 .lead{font-size:30px !important;font-weight:500;color:var(--ink) !important;line-height:1.42 !important;}
+.lead.wide{width:100% !important;max-width:none !important;}
+
+/* Un lead che introduce l'intera composizione deve usare la stessa larghezza
+   della griglia o dello split seguente. I lead interni a una colonna non
+   corrispondono a questo selettore e conservano la misura di lettura breve. */
+.slide:not(.title):not(.title-slide):not(.closing)
+  > .lead:has(+ :is(.grid2,.grid3,.grid4,.split)),
+.slide:not(.title):not(.title-slide):not(.closing)
+  > .center > .lead:has(+ :is(.grid2,.grid3,.grid4,.split)){
+  width:100% !important;
+  max-width:none !important;
+}
 .body{font-size:26px !important;color:var(--ink-soft) !important;line-height:1.45 !important;}
 .eyebrow{font-size:34px !important;}
 .tag{font-size:22px !important;}
@@ -198,6 +216,56 @@ body.course-ms{
   padding:var(--code-padding) !important;
   white-space:pre-wrap !important;
   tab-size:2;
+}
+
+/* Il codice inserito in una frase conserva la dimensione del testo che lo
+   circonda. Sfondo, bordo e carattere mono lo distinguono senza alterare la
+   gerarchia tipografica del paragrafo, della scheda o della tabella. */
+.slide code,
+.deck-reader code{
+  font-family:var(--font-mono,"Space Mono",monospace) !important;
+  font-size:1em !important;
+  line-height:inherit !important;
+  font-weight:600;
+  color:var(--inline-code-ink,var(--ink)) !important;
+  background:var(--inline-code-bg,var(--paper-2)) !important;
+  border:1px solid var(--inline-code-border,var(--line)) !important;
+  border-radius:var(--inline-code-radius) !important;
+  padding:var(--inline-code-pad-y) var(--inline-code-pad-x) !important;
+  box-decoration-break:clone;
+  -webkit-box-decoration-break:clone;
+  overflow-wrap:anywhere;
+}
+
+/* Un eventuale <code> dentro un blocco eredita invece il trattamento del
+   contenitore: niente seconda scheda o doppia spaziatura. */
+.slide .code code,
+.slide .code-example code,
+.slide .codebox code,
+.slide pre code,
+.deck-reader pre code{
+  font-size:inherit !important;
+  line-height:inherit !important;
+  font-weight:inherit;
+  color:inherit !important;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  padding:0 !important;
+  overflow-wrap:normal;
+}
+
+.slide.closing code{
+  --inline-code-bg:rgba(255,255,255,.13);
+  --inline-code-ink:#fff;
+  --inline-code-border:rgba(255,255,255,.28);
+}
+
+/* Evita che il padding del codice sembri colorare il segno di punteggiatura
+   immediatamente successivo. */
+.slide code.code-before-punctuation,
+.deck-reader code.code-before-punctuation{
+  padding-right:.08em !important;
 }
 .illu-cap{font-size:21px !important;}
 .analogy{font-size:26px !important;}
@@ -243,6 +311,32 @@ em.sky,.accent{color:var(--accent-2) !important;}
   box-shadow:var(--panel-shadow) !important;
 }
 
+/* Geometria di base dei componenti ricorrenti. I deck possono comporre questi
+   elementi con modificatori più specifici, ma non devono ridefinire ogni volta
+   la struttura fondamentale. */
+.card{
+  padding:26px 30px;
+}
+
+.note{
+  padding:22px 28px;
+}
+
+.illu{
+  padding:30px;
+  display:grid;
+  place-items:center;
+}
+
+.illu > svg,
+.illu > img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:100%;
+  object-fit:contain;
+}
+
 .card::after,.note::after{
   content:"";
   position:absolute;
@@ -286,6 +380,14 @@ em.sky,.accent{color:var(--accent-2) !important;}
 }
 
 .chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 24px;
+  border-radius:999px !important;
+  font-weight:700;
+  line-height:1.15;
+  text-decoration:none;
   background:var(--course-dark) !important;
   color:#fff !important;
   border:1px solid rgba(255,255,255,.26) !important;
@@ -352,10 +454,31 @@ em.sky,.accent{color:var(--accent-2) !important;}
 
 .slide table td{color:var(--ink-soft) !important;}
 
-.split{gap:64px !important;}
-.grid2{gap:26px !important;}
-.grid3{gap:22px !important;}
-.grid4{gap:18px !important;}
+.split{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:64px !important;
+  align-items:center;
+  height:100%;
+}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:26px !important;
+}
+.grid3{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:22px !important;
+}
+.grid4{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:18px !important;
+}
+.col{display:flex;flex-direction:column;min-width:0;}
+.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
 .stack>*+*{margin-top:18px !important;}
 
 .grid2:has(> .step),
@@ -366,7 +489,26 @@ em.sky,.accent{color:var(--accent-2) !important;}
 }
 
 .agenda-item{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  padding:12px 4px;
   border-bottom-color:var(--line) !important;
+}
+
+.agenda-list{
+  display:grid;
+  grid-auto-flow:row;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px 58px;
+  margin-top:16px;
+}
+
+.card .ic{
+  display:block;
+  font-size:46px;
+  line-height:1;
+  margin-bottom:8px;
 }
 
 .agenda-item .t{
@@ -628,7 +770,33 @@ em.sky,.accent{color:var(--accent-2) !important;}
   display:flex !important;
   flex-direction:column !important;
   justify-content:safe center !important;
-  gap:20px !important;
+  gap:16px !important;
+}
+
+/* Slide headings use one compact rhythm everywhere. Deck-local `.h2`
+   declarations historically added another bottom margin on top of the flex
+   gap, producing inconsistent empty bands above the explanatory content. */
+.slide:not(.title):not(.title-slide):not(.closing)
+  :is(.h1,.h2,.h-sec,.h-big,.h-mega){
+  margin-block:0 !important;
+}
+
+/* A paragraph below a content heading starts a distinct reading block. Keep
+   this separation consistent across decks instead of restoring local heading
+   margins. `.lead` is reserved for a genuine concise subtitle; explanatory
+   prose uses `.body` but follows the same title-to-text rhythm. */
+.slide:not(.title):not(.title-slide):not(.closing)
+  :is(.h1,.h2,.h-sec,.h-big,.h-mega) + :is(.lead,.body){
+  margin-top:12px !important;
+}
+
+/* Official sources and internal references are absolutely positioned, so they
+   do not normally reduce the flex box used to centre the authored content.
+   deck.js measures their rendered height and supplies the actual lower safe
+   boundary. This keeps the content centred in the space above the references,
+   including when a footer wraps onto several rows. */
+.slide.reference-space-ready:not(.title):not(.title-slide):not(.closing){
+  padding-bottom:var(--reference-safe-bottom) !important;
 }
 
 .slide:not(.title):not(.title-slide):not(.closing)>.tag,
@@ -654,6 +822,13 @@ em.sky,.accent{color:var(--accent-2) !important;}
   /* Sources occupy their own baseline below the authored content. Keeping
      them close to the progress edge prevents collisions with the last card. */
   bottom:14px !important;
+  width:720px !important;
+  max-width:720px !important;
+  grid-template-columns:1fr !important;
+  gap:4px !important;
+}
+.slide:not(.title):not(.title-slide):not(.closing)>.source-footer a{
+  white-space:normal !important;
 }
 
 /* Internal teaching links are visually distinct from external sources. They

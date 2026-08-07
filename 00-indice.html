@@ -142,7 +142,7 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
 .module-card.inf .card-num{color:var(--gold-deep);}
 .module-card.inf .card-tag{color:rgba(217,138,43,.8);}
 
-.card-num{grid-area:num;position:relative;z-index:2;display:grid;grid-template-columns:132px 14px 48px;justify-content:end;align-items:baseline;font-family:var(--font-display);font-weight:900;font-size:38px;line-height:1;text-align:right;grid-row:1/3;padding-right:18px;white-space:nowrap;}
+.card-num{grid-area:num;position:relative;z-index:2;display:grid;grid-template-columns:132px 14px 48px;justify-content:end;align-items:center;align-self:center;font-family:var(--font-display);font-weight:900;font-size:38px;line-height:1;text-align:right;grid-row:1/3;padding-right:18px;white-space:nowrap;}
 .card-num-main{text-align:right;}
 .card-num-dot{text-align:center;}
 .card-num-sub{text-align:left;}
@@ -157,7 +157,7 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
 .card-title{grid-area:title;position:relative;z-index:2;font-family:var(--font-display);font-weight:900;font-size:24px;line-height:1.1;margin-bottom:2px;align-self:end;cursor:pointer;}
 .index-control-box{width:88px;min-height:29px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:8px 7px;border:1px solid rgba(63,126,140,.32);border-radius:7px;background:linear-gradient(135deg,rgba(63,126,140,.10),rgba(230,83,59,.08));color:rgba(244,236,224,.78);font-family:var(--font-mono);font-size:12px;line-height:1;letter-spacing:.3px;text-align:center;white-space:nowrap;cursor:pointer;transition:background .15s,color .15s,border-color .15s;}
 .index-control-box:hover,.index-control-box:focus-visible,.index-control-box[aria-expanded="true"]{color:var(--paper);border-color:rgba(63,126,140,.62);background:linear-gradient(135deg,rgba(63,126,140,.20),rgba(230,83,59,.14));outline:none;}
-.stats-badge{position:absolute;right:112px;top:calc(50% - 30px);width:44px;height:68px;min-height:0;flex-direction:column;gap:4px;padding:8px 4px;z-index:3;}
+.stats-badge{position:absolute;right:112px;top:50%;transform:translateY(-50%);width:44px;height:68px;min-height:0;flex-direction:column;gap:4px;padding:8px 4px;z-index:3;}
 .stats-badge .summary{color:rgba(244,236,224,.9);font-size:16px;font-weight:700;}
 .stats-badge .chev{display:inline-block;color:var(--sky);transition:transform .16s ease;transform:rotate(90deg);}
 .stats-badge[aria-expanded="true"] .chev{transform:rotate(-90deg);}
@@ -623,6 +623,7 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
       <a class="module-card pre" href="decks/cd01-02-accessibilita-immagini.html"><div class="card-num">CD01.02</div><div class="card-body"><div class="card-tag">CONTENUTI DIGITALI · CD01.02</div><div class="card-title">Accessibilità delle immagini</div><div class="card-desc">Rendere le immagini leggibili e accessibili a tutti.</div><div class="card-topics"><span class="topic">WCAG</span><span class="topic">Testo alternativo</span></div></div><div class="card-arrow">→</div></a>
       <a class="module-card pre" href="decks/cd01-03-metadati-formati.html"><div class="card-num">CD01.03</div><div class="card-body"><div class="card-tag">CONTENUTI DIGITALI · CD01.03</div><div class="card-title">Metadati e formati</div><div class="card-desc">Cosa c’è dentro un file e quale formato scegliere.</div><div class="card-topics"><span class="topic">Metadati</span><span class="topic">SVG</span></div></div><div class="card-arrow">→</div></a>
       <a class="module-card pre" href="decks/cd01-04-sicurezza-contenuti.html"><div class="card-num">CD01.04</div><div class="card-body"><div class="card-tag">CONTENUTI DIGITALI · CD01.04</div><div class="card-title">Sicurezza dei contenuti digitali</div><div class="card-desc">Proteggere i tuoi contenuti da furti e manomissioni.</div><div class="card-topics"><span class="topic">DRM</span><span class="topic">Watermarking</span></div></div><div class="card-arrow">→</div></a>
+      <a class="module-card pre" href="decks/cd01-05-viaggio-di-un-contenuto.html"><div class="card-num">CD01.05</div><div class="card-body"><div class="card-tag">CONTENUTI DIGITALI · CD01.05</div><div class="card-title">Il viaggio di un contenuto</div><div class="card-desc">Dalla nascita di un file alla pubblicazione: metadati, peso, posizione e regole d'uso.</div><div class="card-topics"><span class="topic">Metadati</span><span class="topic">Licenze</span></div></div><div class="card-arrow">→</div></a>
       <a class="module-card pre" href="decks/cd02-01-podcast-storytelling.html"><div class="card-num">CD02.01</div><div class="card-body"><div class="card-tag">CONTENUTI DIGITALI · CD02.01</div><div class="card-title">Podcast e storytelling digitale</div><div class="card-desc">Raccontare storie in audio: dalle idee alla pubblicazione.</div><div class="card-topics"><span class="topic">Podcast</span><span class="topic">Storytelling</span></div></div><div class="card-arrow">→</div></a>
 
     </div>
@@ -2071,6 +2072,8 @@ const normalizeSearch=text=>(text||'')
   .toLowerCase()
   .normalize('NFD')
   .replace(/[\u0300-\u036f]/g,'')
+  .replace(/crittograf/g,'cifr')
+  .replace(/cript/g,'cifr')
   .replace(/\s+/g,' ')
   .trim();
 const searchTokens=text=>normalizeSearch(text).match(/[a-z0-9]+/g)||[];

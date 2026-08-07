@@ -80,6 +80,47 @@
     });
   };
 
+  // Source and cross-reference footers are anchored to the bottom edge and are
+  // intentionally outside the slide's flex flow. Measure their real rendered
+  // height, then expose the lower safe boundary to theme-corsi.css so vertical
+  // centring uses only the space that remains above them. The original authored
+  // padding remains the minimum on slides with a short, single-line footer.
+  const referenceFooters = slide => [...slide.querySelectorAll(
+    ':scope > .source-footer, :scope > [data-source-footer="true"], ' +
+    ':scope > .cross-reference-footer, :scope > [data-cross-reference-footer="true"]'
+  )];
+
+  const syncReferenceSafeArea = slide => {
+    if (slide.matches('.title,.title-slide,.closing')) return;
+    const footers = referenceFooters(slide);
+    if (!footers.length) return;
+
+    if (!slide.dataset.referenceBasePaddingBottom) {
+      const base = parseFloat(getComputedStyle(slide).paddingBottom) || 0;
+      slide.dataset.referenceBasePaddingBottom = String(base);
+    }
+
+    const base = Number(slide.dataset.referenceBasePaddingBottom) || 0;
+    const footerBoundary = footers.reduce((largest, footer) => {
+      const style = getComputedStyle(footer);
+      const bottom = Number.parseFloat(style.bottom) || 0;
+      return Math.max(largest, bottom + footer.offsetHeight + 24);
+    }, 0);
+    const safeBottom = Math.ceil(Math.max(base, footerBoundary));
+    slide.style.setProperty('--reference-safe-bottom', `${safeBottom}px`);
+    slide.classList.add('reference-space-ready');
+  };
+
+  const syncAllReferenceSafeAreas = () => slides.forEach(syncReferenceSafeArea);
+  syncAllReferenceSafeAreas();
+  document.fonts?.ready.then(syncAllReferenceSafeAreas);
+  if ('ResizeObserver' in window) {
+    const referenceObserver = new ResizeObserver(entries => {
+      entries.forEach(entry => syncReferenceSafeArea(entry.target.closest('.slide')));
+    });
+    slides.forEach(slide => referenceFooters(slide).forEach(footer => referenceObserver.observe(footer)));
+  }
+
   const show = (n, pushHash = true) => {
     current = Math.max(0, Math.min(n, slides.length - 1));
     slides.forEach((slide, i) => {
@@ -332,13 +373,39 @@
     marker(ev.clientX, ev.clientY);
   };
 
-  // Live editing: text-only, and only on elements with zero child elements —
-  // e.g. an <h3> or a <p> with no nested tags. That guarantee is what makes it
-  // safe: textContent-based edit/revert can never corrupt nested markup like
-  // `<span class="cc0">CC0</span> non è...`, because such elements are simply
-  // not eligible (their closest() still resolves to something WITH children,
-  // so children.length !== 0 excludes them). Paste is forced to plain text for
-  // the same reason.
+  // Live editing: on elements with zero child elements it is plain-text-only
+  // — e.g. an <h3> or a <p> with no nested tags — because textContent-based
+  // edit/revert can never corrupt nested markup, full stop. That stays true
+  // here. The one addition: a *simple-inline* element — every descendant is
+  // just b/i/em/strong/code, however many levels deep, whatever their class —
+  // is also eligible, edited via innerHTML instead of textContent so the
+  // wrapping tags survive. It is still safe because the eligibility check
+  // (isSimpleInlineOnly) rejects anything else — a <span> with a handler, a
+  // nested <div>, a <br> — before contenteditable ever touches it, and every
+  // commit re-sanitizes the result through the same allow-list, so even a
+  // paste that smuggles in a stray tag gets unwrapped back down to text +
+  // those five tags before it's stored or shown. Anything more structural
+  // (`.card`, a list with mixed content) is still not eligible — fall back to
+  // a note there.
+  const INLINE_TAGS = new Set(['B', 'I', 'EM', 'STRONG', 'CODE']);
+  const isSimpleInlineOnly = el => {
+    const walk = node => [...node.children].every(c => INLINE_TAGS.has(c.tagName) && walk(c));
+    return walk(el);
+  };
+  const sanitizeInlineHtml = html => {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    const strip = node => {
+      [...node.childNodes].forEach(n => {
+        if (n.nodeType !== 1) return;
+        if (INLINE_TAGS.has(n.tagName)) strip(n);
+        else n.replaceWith(...n.childNodes);
+      });
+    };
+    strip(tmp);
+    return tmp.innerHTML;
+  };
+
   const editedEls = new Set();
   let editing = null;
 
@@ -350,7 +417,12 @@
   };
   const revertEl = el => {
     el.style.background = '';
-    if (el.dataset.fbBefore !== undefined) { el.textContent = el.dataset.fbBefore; delete el.dataset.fbBefore; }
+    if (el.dataset.fbBefore !== undefined) {
+      if (el.dataset.fbMode === 'html') el.innerHTML = el.dataset.fbBefore;
+      else el.textContent = el.dataset.fbBefore;
+      delete el.dataset.fbBefore;
+      delete el.dataset.fbMode;
+    }
   };
   const endEdit = el => {
     el.removeAttribute('contenteditable');
@@ -369,16 +441,21 @@
     if (!editing) return;
     const el = editing;
     endEdit(el);
+    const html = el.dataset.fbMode === 'html';
     const before = el.dataset.fbBefore ?? '';
-    const after = el.textContent.trim();
-    if (after === before.trim()) { revertEl(el); return; }
+    const after = html ? sanitizeInlineHtml(el.innerHTML) : el.textContent.trim();
+    if (html) el.innerHTML = after; // re-apply the sanitized version, in case paste smuggled a tag
+    if (after === (html ? before : before.trim())) { revertEl(el); return; }
     el.style.background = 'rgba(230,193,74,.18)';
     editedEls.add(el);
-    upsertEdit(currentSlideIndex(), nearLabel(el), before.trim(), after);
+    upsertEdit(currentSlideIndex(), nearLabel(el), html ? before : before.trim(), after);
   };
   const beginEdit = el => {
     commitCurrentEdit();
-    el.dataset.fbBefore = el.textContent;
+    hoverBox.style.display = 'none';
+    const html = el.children.length > 0; // only simple-inline elements reach here with children (guarded by callers)
+    el.dataset.fbMode = html ? 'html' : 'text';
+    el.dataset.fbBefore = html ? el.innerHTML : el.textContent;
     el.setAttribute('contenteditable', 'true');
     el.style.outline = '3px dashed #e6c14a';
     el.style.outlineOffset = '2px';
@@ -428,10 +505,17 @@
   };
   stage.addEventListener('click', onClick, true);
 
-  const EDIT_SEL = 'h1,h2,h3,p,li,span,b,.lbl';
+  // Every commonly-authored text tag in this codebase, not just the original
+  // headline/paragraph set: table cells (su03's comparison tables), captions,
+  // emphasis tags, links and plain divs used as leaf text (e.g. .illu-cap,
+  // .lbl). The children.length===0 guard below is what actually keeps this
+  // safe, not the tag list — broadening the list only reaches more leaf
+  // nodes, it never lets a container (which always has children) through.
+  const EDIT_SEL = 'h1,h2,h3,h4,h5,h6,p,li,dt,dd,td,th,figcaption,span,b,i,em,strong,code,a,div,.lbl';
   const onDblClick = e => {
     const el = e.target.closest(EDIT_SEL);
-    if (!el || el.children.length !== 0 || !stage.contains(el)) return;
+    if (!el || !stage.contains(el)) return;
+    if (el.children.length > 0 && !isSimpleInlineOnly(el)) return;
     e.preventDefault();
     e.stopPropagation();
     if (clickTimer) { clearTimeout(clickTimer); clickTimer = null; }
@@ -439,9 +523,80 @@
   };
   stage.addEventListener('dblclick', onDblClick, true);
 
+  // Hover preview: outlines the bounding box a click would anchor a note to,
+  // before you commit — reuses the exact same "walk up to nearest element
+  // with text" logic as doNote(), so what you see is what you'd get. A dashed
+  // border instead of solid means the element also qualifies for the
+  // double-click-to-edit path (EDIT_SEL + zero children), so you know in
+  // advance which action a click there will trigger. Purely visual: adds no
+  // new way to change a slide beyond what click/double-click already do.
+  const hoverBox = document.createElement('div');
+  hoverBox.style.cssText = 'position:fixed;z-index:10000;pointer-events:none;display:none;' +
+    'border:2px solid rgba(230,83,59,.85);border-radius:4px;box-sizing:border-box;';
+  const hoverLabel = document.createElement('div');
+  hoverLabel.style.cssText = 'position:absolute;left:0;top:-46px;font:700 12px/1.6 "Space Mono",monospace;' +
+    'background:rgba(28,23,20,.92);color:#e6c14a;padding:4px 8px;border-radius:4px;white-space:nowrap;';
+  const hoverLabelTag = document.createElement('div');
+  const hoverLabelStyle = document.createElement('div');
+  hoverLabelStyle.style.cssText = 'display:flex;align-items:center;gap:6px;font-weight:400;font-size:11px;color:rgba(244,236,224,.8);';
+  const hoverSwatch = document.createElement('span');
+  hoverSwatch.style.cssText = 'display:inline-block;width:9px;height:9px;border-radius:2px;border:1px solid rgba(244,236,224,.4);flex:none;';
+  hoverLabelStyle.appendChild(hoverSwatch);
+  const hoverSwatchText = document.createElement('span');
+  hoverLabelStyle.appendChild(hoverSwatchText);
+  hoverLabel.append(hoverLabelTag, hoverLabelStyle);
+  hoverBox.appendChild(hoverLabel);
+  document.body.appendChild(hoverBox);
+  const findAnchor = target => {
+    let t = target;
+    while (t && t !== stage && !(t.textContent || '').trim()) t = t.parentElement;
+    return t && t !== stage ? t : null;
+  };
+  // Font specs shown next to the tag name: family, size, weight (named where
+  // the number maps to a common CSS keyword), italic, letter-spacing when the
+  // author set one explicitly. Read from getComputedStyle so it reflects
+  // whatever CSS actually resolved — theme tokens, cascade, media queries —
+  // not a guess from the class name.
+  const WEIGHT_NAMES = { '100': 'thin', '200': 'extralight', '300': 'light', '400': 'regular',
+    '500': 'medium', '600': 'semibold', '700': 'bold', '800': 'extrabold', '900': 'black' };
+  const fontSpec = el => {
+    const cs = getComputedStyle(el);
+    const family = cs.fontFamily.split(',')[0].trim().replace(/^["']|["']$/g, '');
+    const size = Math.round(parseFloat(cs.fontSize));
+    const weight = WEIGHT_NAMES[cs.fontWeight] || cs.fontWeight;
+    const bits = [family, `${size}px`, weight];
+    if (cs.fontStyle === 'italic') bits.push('italic');
+    const spacing = parseFloat(cs.letterSpacing);
+    if (!Number.isNaN(spacing) && Math.abs(spacing) >= 0.5) bits.push(`${spacing > 0 ? '+' : ''}${spacing.toFixed(1)}px`);
+    return { text: bits.join(' · '), color: cs.color };
+  };
+  const onMouseMove = e => {
+    if (editing) { hoverBox.style.display = 'none'; return; }
+    const el = findAnchor(e.target);
+    if (!el) { hoverBox.style.display = 'none'; return; }
+    const r = el.getBoundingClientRect();
+    hoverBox.style.display = 'block';
+    hoverBox.style.left = r.left + 'px';
+    hoverBox.style.top = r.top + 'px';
+    hoverBox.style.width = r.width + 'px';
+    hoverBox.style.height = r.height + 'px';
+    const tagLabel = el.tagName.toLowerCase() +
+      (typeof el.className === 'string' && el.className.trim() ? '.' + el.className.trim().split(/\s+/)[0] : '');
+    const editable = el.matches(EDIT_SEL) && (el.children.length === 0 || isSimpleInlineOnly(el));
+    hoverLabelTag.textContent = editable ? `${tagLabel} · doppio clic per modificare` : tagLabel;
+    hoverBox.style.borderStyle = editable ? 'dashed' : 'solid';
+    const spec = fontSpec(el);
+    hoverSwatch.style.background = spec.color;
+    hoverSwatchText.textContent = spec.text;
+  };
+  const onMouseLeave = () => { hoverBox.style.display = 'none'; };
+  stage.addEventListener('mousemove', onMouseMove);
+  stage.addEventListener('mouseleave', onMouseLeave);
+
   if (!localStorage.getItem('deck-feedback-hint-seen-2')) {
     localStorage.setItem('deck-feedback-hint-seen-2', '1');
     alert('Modalità feedback attiva.\n\n' +
+      'Muovi il mouse → il contorno mostra l\'elemento che verrebbe scelto; tratteggiato = doppio clic lo modifica sul posto.\n' +
       'Clic su un elemento della slide → lascia una nota agganciata a quell\'elemento e al suo testo.\n' +
       'Seleziona prima delle parole e poi clicca → la nota cita esattamente quelle parole.\n' +
       'Doppio clic su un titolo o una riga breve → modificala sul posto.\n' +
@@ -461,6 +616,9 @@
     active = false;
     stage.removeEventListener('click', onClick, true);
     stage.removeEventListener('dblclick', onDblClick, true);
+    stage.removeEventListener('mousemove', onMouseMove);
+    stage.removeEventListener('mouseleave', onMouseLeave);
+    hoverBox.remove();
     bar.remove();
     removeEventListener('keydown', onEsc);
     if (/[?&]feedback\b/.test(location.search)) {

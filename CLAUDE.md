@@ -135,6 +135,14 @@ opening and searching for it themselves.
   footer (`data-cross-reference-footer="true"`), visually separate from the
   lower-left official sources. Run `node scripts/normalize-cross-reference-footers.js`
   after adding or changing a bare-filename `deck.html#slide-N` reference.
+- **Reference-aware vertical centring:** official-source footers and `Rimandi
+  interni` are absolutely positioned, but their rendered height must still
+  reduce the vertical area used to centre the other slide content. `deck.js`
+  measures every direct source/reference footer, sets
+  `--reference-safe-bottom`, and `theme-corsi.css` applies it through
+  `.reference-space-ready`. Keep these footers as direct children of the slide;
+  do not compensate with deck-local padding, negative margins, transforms or
+  fixed offsets, and do not remove the shared measurement code.
 - Preserve user changes in the working tree. This repo often has uncommitted
   generated decks and quizzes.
 
@@ -176,16 +184,15 @@ Every content deck should include:
   linking to `00-indice.html` (GD decks link to `00-indice-gd.html` and use the
   arcade variant)
 
-Do not add an agenda or “Cosa vedremo” slide after the title slide. Chapter
-overviews live in `agenda-index.json` and appear as tooltips when the matching
-index card title or description is hovered or focused. New decks must add a
-concise three-item overview there and rebuild `agenda-index.js` with
-`node scripts/build-agenda-index.js`.
-
-Do not add an agenda or “Cosa vedremo” slide after the title slide. Chapter
-overviews live in `agenda-index.json` and appear as tooltips when the matching
-index card title or description is hovered or focused. New decks must add a
-concise three-item overview there and rebuild `agenda-index.js` with
+Do not place an agenda, “Cosa vedremo”, introductory summary, route map or
+preview of later topics immediately after the title slide. Slide 2 must begin
+the substantive lesson with a definition, mechanism, example, problem or
+procedure that is developed on that slide; it must not merely list what later
+slides will explain. This also applies when the overview has a thematic title
+instead of being called “agenda”. Chapter overviews live in
+`agenda-index.json` and appear as tooltips when the matching index card title
+or description is hovered or focused. New decks must add a concise three-item
+overview there and rebuild `agenda-index.js` with
 `node scripts/build-agenda-index.js`.
 
 ### Closing slide standard
@@ -251,6 +258,14 @@ either by the URL carrying `?feedback`
 `F` on any deck at any time. Off by default: nothing runs until one of those
 happens; `Esc` or the toolbar's ✕ turns it back off and restores normal
 clicks/links.
+
+Moving the mouse over a slide draws a live bounding-box outline around the
+element a click would anchor to — same targeting logic as the click handler,
+so the preview always matches what actually happens. The label switches to
+`tag.class · doppio clic per modificare` and the outline goes dashed when
+that same element also qualifies for the double-click edit path below,
+telling the reviewer in advance which action a click there triggers. Purely
+visual, `pointer-events:none`, adds no interaction of its own.
 
 It has two actions:
 
@@ -352,17 +367,46 @@ Never hard-code one macroarea's palette into a reusable component.
 Available shared styles:
 
 - Typography: `.h1`, `.h2`, `.h-mega`, `.h-big`, `.h-sec`, `.lead`, `.body`
-  and `.eyebrow`.
+  and `.eyebrow`. A root-level `.lead` immediately followed by `.grid2`,
+  `.grid3`, `.grid4` or `.split` automatically uses the full content width;
+  the same applies inside the full-slide `.center` wrapper. Add `.wide` only
+  when this treatment is needed before a different component; do not reproduce
+  `width` or `max-width` inline. Content-slide headings receive zero block
+  margins and the slide stack uses the shared compact gap from
+  `theme-corsi.css`; never restore deck-local top or bottom margins on `.h1`,
+  `.h2`, `.h-sec`, `.h-big` or `.h-mega`. The shared theme also owns the
+  title-to-paragraph separation: do not add an inline margin for it. Use
+  `.lead` after a content heading only for a genuine concise subtitle; use
+  `.body` for explanatory prose, definitions and teaching paragraphs.
 - Layout: `.grid2`, `.grid3`, `.grid4`, `.split`, `.stack` and `.tight`.
+  Their base columns, gaps and alignment come from `theme-corsi.css`; use
+  `.split.even` for two equally weighted columns and a more specific modifier
+  only when the teaching relationship genuinely requires a different ratio.
 - Content panels: `.card` with optional `.red`, `.teal`, `.sky` or `.gold`;
-  `.note`; `.analogy`; `.illu` with `.illu-cap`.
-- Lists and data: `.agenda-list`, `.agenda-item` and `.table`.
-- Code: use `.code code-example` on every teaching code block. It provides the
-  standard 22px mono scale, shared padding and visible indentation through
-  `white-space: pre-wrap`; its background comes from the current macroarea's
-  `--course-dark`. Do not override its font size, line height, padding,
-  whitespace or colors inline. Use `.codebox` only for pseudocode, Scratch-like
-  scripts and textual flow diagrams, which use the larger 24px variant.
+  `.note`; `.analogy`; `.illu` with `.illu-cap`. Their padding, borders,
+  radius, shadow and base media fitting are shared; do not reproduce those
+  declarations inside a deck. Use a slide-specific class only for a real
+  semantic or compositional exception, not to create a slightly different
+  version of an existing panel.
+- Lists and data: `.agenda-list`, `.agenda-item` and `.table`. The shared theme
+  owns their grid/flex geometry and spacing; deck-local CSS may define only a
+  meaningful variant that cannot be expressed by these classes.
+- Inline code: wrap commands, keywords, paths, operators, function names and
+  short expressions in `<code>...</code>`, for example
+  `<p>La parola chiave <code>import</code> carica un modulo.</p>`. The shared
+  theme gives it a palette-aware background and mono face while keeping
+  `font-size: 1em`, so it never shrinks or enlarges relative to its sentence.
+  Do not add inline `font-family`, `font-size`, `line-height`, `background`,
+  `color`, `padding`, `border` or `border-radius`; use a code block when the
+  example spans multiple lines or must preserve indentation.
+- Code blocks: use `.code.code-example` on every teaching code block. It
+  provides the standard 22px mono scale, shared padding and visible indentation
+  through `white-space: pre-wrap`; its background comes from the current
+  macroarea's `--course-dark`. Do not override its font size, line height,
+  padding, whitespace or colors inline. Use `.codebox` only for pseudocode,
+  Scratch-like scripts and textual flow diagrams, which use the larger 24px
+  variant. If the block is a `<pre>`, a nested `<code>` is allowed and inherits
+  the block treatment without adding a second background.
 - Motion: `.reveal` with `.d1`, `.d2` and `.d3` for staggered entrance.
 - Closing and navigation: `.closing`, `.closing-inner`, `.closing-actions`,
   `.closing-primary`, `.page-num` and legacy `.num`.

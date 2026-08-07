@@ -14,37 +14,139 @@
 </style>
 <link rel="stylesheet" href="../theme-corsi.css">
 </head>
-<body class="course-sc"><main class="deck-stage" id="deckStage">
-<section class="slide title visible"><div><h1 class="h1">Oggetti<br><span style="color:var(--sky);font-style:italic">e pacchetti</span></h1><p class="lead">Classi, dataclass, iterable e generatori per modellare dati e flussi; moduli, pacchetti e ambienti virtuali per organizzare il progetto.</p></div><div class="code code-example">class Prodotto:
+<body class="course-sc">
+<main class="deck-stage" id="deckStage">
+<section class="slide title visible">
+<div>
+<h1 class="h1">Oggetti<br>
+<span style="color:var(--sky);font-style:italic">e pacchetti</span>
+</h1>
+<p class="lead">Classi e dataclass collegano dati e comportamenti in modelli coerenti; iterable e generatori controllano come i valori vengono prodotti. Moduli, pacchetti, ambienti virtuali e dipendenze trasformano questi elementi in un progetto organizzato e riproducibile.</p>
+</div>
+<div class="code code-example">class Prodotto:
     def __init__(self, nome):
         self.nome = nome
 
   &#8595; import
-negozio.calcoli</div><div class="deck-author">Francesco Antonio Binetti</div><div class="num"></div></section>
-<section class="slide"><div class="split"><div><h2 class="h2">Classi e oggetti</h2><p class="lead">Una classe descrive quali dati e comportamenti condividono oggetti dello stesso tipo. Ogni oggetto conserva però il proprio stato.</p><div class="analogy" style="margin-top:24px"><span class="big">Analogia:</span> la classe è il progetto; l'oggetto è una costruzione concreta.</div></div><div class="illu"><svg viewBox="0 0 640 390" width="620" height="380" aria-label="Una classe genera più oggetti"><rect x="220" y="30" width="200" height="90" rx="18" fill="#e6c14a" stroke="#1c1714" stroke-width="6"/><text x="263" y="84" font-size="28" font-family="monospace">Conto</text><path d="M320 120v70M320 190H120v50M320 190v50M320 190h200v50" fill="none" stroke="#163b35" stroke-width="7"/><g fill="#fbf5ec" stroke="#1c1714" stroke-width="5"><rect x="30" y="240" width="180" height="105" rx="16"/><rect x="230" y="240" width="180" height="105" rx="16"/><rect x="430" y="240" width="180" height="105" rx="16"/></g><text x="58" y="298" font-size="22" font-family="monospace">saldo 120</text><text x="258" y="298" font-size="22" font-family="monospace">saldo 50</text><text x="458" y="298" font-size="22" font-family="monospace">saldo 900</text></svg><div class="illu-cap">Stessa struttura, stato indipendente</div></div></div><div class="num"></div></section>
-<section class="slide"><h2 class="h2">Costruire un oggetto con __init__</h2><p class="lead">Il costruttore riceve i dati iniziali. <code>self</code> indica l'oggetto sul quale il metodo sta lavorando.</p><div class="grid2"><div class="code code-example">class Prodotto:
+negozio.calcoli</div>
+<div class="deck-author">Francesco Antonio Binetti</div>
+<div class="num">
+</div>
+</section>
+<section class="slide tight">
+<div class="split">
+<div>
+<h2 class="h2">Classi e oggetti</h2>
+<p class="lead">Una classe definisce la struttura comune di un tipo: quali attributi possono descriverlo e quali metodi possono modificarlo. L’oggetto, chiamato anche <b>istanza</b>, è un elemento concreto creato da quella classe e conserva valori propri.</p>
+<div class="card" style="margin-top:20px">
+<h3>Struttura comune, dati separati</h3>
+<p>Tre conti possono offrire tutti il metodo <code>deposita()</code>, ma ciascuno mantiene un saldo indipendente. Modificare un’istanza non cambia automaticamente le altre.</p>
+</div>
+<div class="analogy" style="margin-top:20px">
+<span class="big">Analogia:</span> la classe è il progetto; ogni oggetto è una costruzione concreta realizzata da quel progetto.</div>
+</div>
+<div class="illu">
+<svg viewBox="0 0 640 390" width="620" height="380" aria-label="Una classe genera più oggetti">
+<rect x="220" y="30" width="200" height="90" rx="18" fill="#e6c14a" stroke="#1c1714" stroke-width="6"/>
+<text x="263" y="84" font-size="28" font-family="monospace">Conto</text>
+<path d="M320 120v70M320 190H120v50M320 190v50M320 190h200v50" fill="none" stroke="#163b35" stroke-width="7"/>
+<g fill="#fbf5ec" stroke="#1c1714" stroke-width="5">
+<rect x="30" y="240" width="180" height="105" rx="16"/>
+<rect x="230" y="240" width="180" height="105" rx="16"/>
+<rect x="430" y="240" width="180" height="105" rx="16"/>
+</g>
+<text x="58" y="298" font-size="22" font-family="monospace">saldo 120</text>
+<text x="258" y="298" font-size="22" font-family="monospace">saldo 50</text>
+<text x="458" y="298" font-size="22" font-family="monospace">saldo 900</text>
+</svg>
+<div class="illu-cap">Stesso tipo e stessi metodi, ma uno stato distinto per ogni istanza</div>
+</div>
+</div>
+<div class="num">
+</div>
+</section>
+<section class="slide tight">
+<h2 class="h2">Costruire un oggetto con __init__</h2>
+<p class="lead"><code>__init__</code> inizializza ogni nuova istanza con i dati ricevuti. Python passa automaticamente l’oggetto appena creato nel parametro <code>self</code>; gli altri argomenti arrivano dalla chiamata a <code>Prodotto(...)</code>. Il nome <code>self</code> è una convenzione fondamentale e <code>__init__</code> non deve restituire l’oggetto: Python lo restituisce dopo l’inizializzazione.</p>
+<div class="grid2">
+<div class="code code-example">class Prodotto:
     def __init__(self, nome, prezzo):
         self.nome = nome
         self.prezzo = prezzo
 
-penna = Prodotto("Penna", 1.50)</div><div class="card"><h3>Cosa accade</h3><p><b>Prodotto(...)</b> crea un nuovo oggetto.</p><p><b>self.nome</b> e <b>self.prezzo</b> sono attributi dell'istanza.</p><p>Ogni prodotto può avere valori diversi.</p></div></div><div class="num"></div></section>
-<section class="slide"><h2 class="h2">I metodi proteggono lo stato</h2><p class="lead">Un metodo esprime un'operazione ammessa sull'oggetto e può controllare che lo stato rimanga valido.</p><div class="grid2"><div class="code code-example">class Conto:
+penna = Prodotto("Penna", 1.50)</div>
+<div class="card">
+<ul>
+<li><code>Prodotto("Penna", 1.50)</code> crea una nuova istanza.</li>
+<li>La nuova istanza diventa <code>self</code>; gli altri valori diventano <code>nome</code> e <code>prezzo</code>.</li>
+<li>Le assegnazioni creano <code>self.nome</code> e <code>self.prezzo</code> sull’istanza corrente.</li>
+<li>Il riferimento all’oggetto completo viene assegnato alla variabile <code>penna</code>.</li>
+<li><code>penna.nome</code> legge il suo attributo; un secondo prodotto può contenere valori diversi.</li>
+</ul>
+</div>
+</div>
+<div class="num">
+</div>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Tutorial ufficiale Python" aria-label="Fonte ufficiale: Tutorial ufficiale Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Tutorial ufficiale Python ↗</a></div></section>
+<section class="slide tight">
+<h2 class="h2">I metodi proteggono lo stato</h2>
+<p class="lead">Un metodo rappresenta un’operazione ammessa sull’oggetto. Prima di modificare gli attributi può controllare gli argomenti e rifiutare richieste che produrrebbero uno stato non valido. Scrivere direttamente <code>conto.saldo += importo</code> dall’esterno aggirerebbe invece la regola e distribuirebbe la validazione in più punti del programma.</p>
+<div class="grid2">
+<div class="stack">
+<div class="code code-example">class Conto:
     def __init__(self, saldo=0):
         self.saldo = saldo
 
     def deposita(self, importo):
         if importo &lt;= 0:
             raise ValueError("Importo non valido")
-        self.saldo += importo</div><div class="stack"><div class="card teal"><h3>Stato</h3><p><code>saldo</code> descrive la situazione corrente dell'oggetto.</p></div><div class="card gold"><h3>Regola</h3><p><code>deposita()</code> impedisce che un importo nullo o negativo modifichi il conto.</p></div></div></div><div class="num"></div></section>
-<section class="slide tight"><h2 class="h2">Composizione prima dell'ereditarietà</h2><p class="lead">La composizione collega oggetti con una relazione «ha un». L'ereditarietà crea una relazione «è un» e va usata soltanto quando il nuovo tipo rispetta davvero il contratto del tipo base.</p><div class="grid2"><div class="card teal"><h3>Composizione</h3><div class="code code-example">class Ordine:
+        self.saldo += importo</div>
+<div class="code code-example">conto = Conto(100)
+conto.deposita(50)
+print(conto.saldo)  # 150</div>
+</div>
+<div class="card teal">
+<h3>Stato controllato</h3>
+<p><code>saldo</code> descrive la situazione corrente. La modifica avviene dentro <code>deposita()</code>, così ogni chiamante attraversa lo stesso controllo.</p>
+<h3 style="margin-top:18px">Validazione prima della modifica</h3>
+<p>Se <code>importo &lt;= 0</code>, <code>raise ValueError(...)</code> interrompe il metodo e il saldo resta invariato. Solo un valore valido raggiunge l’ultima riga.</p>
+<h3 style="margin-top:18px">Passaggio implicito di self</h3>
+<p>Python passa <code>conto</code> come <code>self</code> e <code>50</code> come <code>importo</code>.</p>
+</div>
+</div>
+<div class="num">
+</div>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://docs.python.org/3/library/functions.html#print" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: print() — documentazione Python" aria-label="Fonte ufficiale: print() — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: print() — documentazione Python ↗</a></div></section>
+<section class="slide tight">
+<h2 class="h2">Composizione prima dell'ereditarietà</h2>
+<p class="lead">La composizione collega oggetti con una relazione «ha un» e permette di sostituire una parte senza cambiare l’identità dell’oggetto principale. L’ereditarietà crea invece una relazione «è un»: il sottotipo deve rispettare operazioni e aspettative del tipo base. Quando entrambe sembrano possibili, la composizione è spesso la scelta iniziale più flessibile perché riduce l’accoppiamento tra i tipi.</p>
+<div class="grid2">
+<div class="card teal">
+<h3>Composizione: contiene</h3>
+<div class="code code-example">class Ordine:
     def __init__(self, cliente):
         self.cliente = cliente
-        self.righe = []</div><p>Un ordine <b>ha un</b> cliente e più righe.</p></div><div class="card gold"><h3>Ereditarietà</h3><div class="code code-example">class Veicolo:
+        self.righe = []</div>
+<p>Un ordine <b>ha un</b> cliente e più righe. Può delegare il lavoro a questi oggetti senza copiarne il codice; le parti restano separabili e sostituibili nei test.</p>
+</div>
+<div class="card gold">
+<h3>Ereditarietà: specializza</h3>
+<div class="code code-example">class Veicolo:
     def muovi(self): ...
 
 class Bicicletta(Veicolo):
-    pass</div><p>Una bicicletta <b>è un</b> veicolo.</p></div></div><div class="num"></div></section>
-<section class="slide"><h2 class="h2">Dataclass: oggetti che rappresentano dati</h2><p class="lead">Per oggetti semplici, <code>@dataclass</code> genera costruttore, confronto e rappresentazione leggibile.</p><div class="grid2"><div class="code code-example">from dataclasses import dataclass
+    pass</div>
+<p>Una bicicletta <b>è un</b> veicolo soltanto se conserva il significato delle operazioni previste da <code>Veicolo</code>. Ereditare solo per riutilizzare righe crea legami rigidi e sottotipi incoerenti.</p>
+</div>
+</div>
+<div class="num">
+</div>
+</section>
+<section class="slide tight">
+<h2 class="h2">Dataclass: oggetti che rappresentano dati</h2>
+<p class="lead">Quando una classe serve soprattutto a raccogliere campi, <code>@dataclass</code> usa le annotazioni di tipo per generare automaticamente costruttore, confronto tra istanze e rappresentazione leggibile. I campi restano normali attributi Python.</p>
+<div class="grid2" style="width:100%;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);align-items:stretch;">
+<div class="code code-example">from dataclasses import dataclass
 
 @dataclass
 class Punto:
@@ -52,47 +154,264 @@ class Punto:
     y: float
 
 p = Punto(3, 4)
-print(p)  # Punto(x=3, y=4)</div><div class="card"><h3>Quando usarla</h3><p>Record, configurazioni, coordinate e risultati strutturati.</p><h3 style="margin-top:22px">Quando non basta</h3><p>Se l'oggetto coordina molte operazioni o deve imporre regole complesse sul proprio stato.</p></div></div><div class="num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://docs.python.org/3/library/functions.html#print" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: print() — documentazione Python" aria-label="Fonte ufficiale: print() — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: print() — documentazione Python ↗</a></div></section>
-<section class="slide"><h2 class="h2">Iterable e iteratori</h2><p class="lead">Un iterable può produrre elementi; un iteratore ricorda il punto raggiunto e restituisce il valore successivo.</p><div class="grid3"><div class="card teal"><h3>Iterable</h3><p>Liste, stringhe, dizionari, file e molti altri oggetti attraversabili.</p></div><div class="card sky"><h3>iter()</h3><p>Chiede all'oggetto un iteratore.</p></div><div class="card gold"><h3>next()</h3><p>Ottiene il prossimo elemento; alla fine arriva <code>StopIteration</code>.</p></div></div><div class="analogy" style="margin-top:24px"><span class="big">In pratica:</span> il ciclo for usa questo protocollo automaticamente.</div><div class="num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://docs.python.org/3/library/functions.html#iter" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: iter() — documentazione Python" aria-label="Fonte ufficiale: iter() — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: iter() — documentazione Python ↗</a><a data-source-origin="auto" href="https://docs.python.org/3/library/functions.html#next" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: next() — documentazione Python" aria-label="Fonte ufficiale: next() — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: next() — documentazione Python ↗</a></div></section>
-<section class="slide"><h2 class="h2">Consumare un iteratore una volta</h2><p class="lead">Un iteratore avanza: dopo aver restituito un elemento non torna indietro, a meno di crearne uno nuovo.</p><div class="grid2"><div class="code code-example">numeri = iter([10, 20, 30])
+print(p)  # Punto(x=3, y=4)</div>
+<div class="card">
+<h3>Cosa viene generato</h3>
+<ul>
+<li><code>Punto(3, 4)</code> funziona senza scrivere manualmente <code>__init__</code>.</li>
+<li><code>print(p)</code> mostra nomi e valori dei campi.</li>
+<li>Due istanze con gli stessi valori risultano uguali tramite <code>==</code>.</li>
+</ul>
+<h3 style="margin-top:18px">Quando usarla</h3>
+<p>È adatta a record, configurazioni, coordinate e risultati strutturati. Una classe esplicita resta preferibile quando deve coordinare molte operazioni o imporre regole complesse.</p>
+<p style="margin-top:12px">Le annotazioni <code>x: float</code> e <code>y: float</code> descrivono il tipo previsto, ma non convertono né validano automaticamente i valori durante l’esecuzione.</p>
+</div>
+</div>
+<div class="num">
+</div>
+
+</section>
+<section class="slide tight">
+<h2 class="h2">Iterable e iteratori</h2>
+<p class="lead">Un <b>iterable</b> è un oggetto dal quale si può ottenere una sequenza di elementi. <code>iter()</code> crea l’<b>iteratore</b>, che conserva la posizione raggiunta; <code>next()</code> gli chiede un elemento alla volta.</p>
+<div class="grid3">
+<div class="card teal">
+<h3>Iterable</h3>
+<p>Liste, stringhe, dizionari e file sono attraversabili. L’iterable descrive la sorgente e, in molti casi, può creare più iteratori indipendenti.</p>
+</div>
+<div class="card sky">
+<h3>iter()</h3>
+<p><code>iter(sorgente)</code> restituisce l’oggetto che terrà memoria dell’avanzamento. Per una lista nuova, la posizione iniziale precede il primo elemento.</p>
+</div>
+<div class="card gold">
+<h3>next()</h3>
+<p><code>next(iteratore)</code> restituisce il valore corrente e avanza. Quando non restano elementi genera <code>StopIteration</code>.</p>
+</div>
+</div>
+<div class="card" style="margin-top:18px;width:100%;padding:15px 22px">
+<p style="margin:0"><b>In pratica:</b> il ciclo <code>for</code> chiama <code>iter()</code> una volta e continua a chiamare <code>next()</code> finché riceve <code>StopIteration</code>; per questo funziona con sorgenti diverse senza conoscerne la struttura interna.</p>
+</div>
+<div class="num">
+</div>
+
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://docs.python.org/3/library/functions.html#iter" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: iter() — documentazione Python" aria-label="Fonte ufficiale: iter() — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: iter() — documentazione Python ↗</a><a data-source-origin="auto" href="https://docs.python.org/3/library/functions.html#next" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: next() — documentazione Python" aria-label="Fonte ufficiale: next() — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: next() — documentazione Python ↗</a></div></section>
+<section class="slide tight">
+<h2 class="h2">Consumare un iteratore una volta</h2>
+<p class="lead">Un iteratore rappresenta un attraversamento in corso. Ogni chiamata a <code>next()</code> modifica la sua posizione interna: il valore restituito non sarà prodotto di nuovo, a meno di creare un nuovo iteratore dalla sorgente.</p>
+<div class="grid2">
+<div class="code code-example">numeri = iter([10, 20, 30])
 
 print(next(numeri))  # 10
 print(next(numeri))  # 20
-print(next(numeri))  # 30</div><div class="note"><div class="lbl">⚠️ Attenzione</div><p>Liste e tuple si possono attraversare più volte. Un iteratore o un file aperto, invece, può essere già consumato.</p></div></div><div class="num"></div></section>
-<section class="slide"><h2 class="h2">Generatori: produrre valori con yield</h2><p class="lead">Una funzione generatrice sospende il lavoro a ogni <code>yield</code> e riprende dalla stessa riga alla richiesta successiva.</p><div class="grid2"><div class="code code-example">def quadrati(limite):
+print(next(numeri))  # 30</div>
+<div class="note">
+<div class="lbl">⚠️ Attenzione</div>
+<p>La lista originale resta disponibile e consente di chiamare nuovamente <code>iter(lista)</code>. La variabile <code>numeri</code>, invece, è già l’iteratore: dopo il terzo valore, un altro <code>next(numeri)</code> genera <code>StopIteration</code>. Anche lettori CSV, generatori e file aperti possono essere già parzialmente o totalmente consumati.</p>
+</div>
+<div class="card" style="margin-top:18px">
+<h3>Conseguenza pratica</h3>
+<p>Se più parti del programma devono rileggere gli stessi valori, conserva la sorgente oppure materializza consapevolmente l’iteratore con <code>list(...)</code>, valutando il costo in memoria.</p>
+</div>
+</div>
+<div class="num">
+</div>
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://docs.python.org/3/library/functions.html#func-list" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: list() — documentazione Python" aria-label="Fonte ufficiale: list() — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: list() — documentazione Python ↗</a></div></section>
+<section class="slide tight">
+<h2 class="h2">Generatori: produrre valori con yield</h2>
+<p class="lead">La presenza di <code>yield</code> trasforma la funzione in una funzione generatrice. Chiamarla non esegue subito il corpo: restituisce un generatore che parte alla prima richiesta, sospende il lavoro dopo ogni valore e conserva variabili e posizione per la richiesta seguente.</p>
+<div class="grid2" style="width:100%;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);align-items:stretch;">
+<div class="stack">
+<div class="code code-example">def quadrati(limite):
     for n in range(limite):
-        yield n * n
-
-for valore in quadrati(4):
+        yield n * n</div>
+<div class="code code-example">for valore in quadrati(4):
     print(valore)
-# 0, 1, 4, 9</div><div class="card"><h3>Perché serve</h3><p>Non costruisce subito l'intera collezione: produce un valore alla volta.</p><p>Questo riduce la memoria e permette di lavorare con sequenze molto grandi.</p></div></div><div class="num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://docs.python.org/3/library/functions.html#func-range" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: range() — documentazione Python" aria-label="Fonte ufficiale: range() — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: range() — documentazione Python ↗</a></div></section>
-<section class="slide"><h2 class="h2">Espressioni generatrici</h2><p class="lead">Assomigliano alle list comprehension, ma usano parentesi tonde e calcolano i valori soltanto quando servono.</p><div class="grid2"><div class="card red"><h3>Lista immediata</h3><div class="code code-example">quadrati = [n*n for n in range(1_000_000)]</div><p>Occupa memoria per tutti i risultati.</p></div><div class="card teal"><h3>Generatore pigro</h3><div class="code code-example">quadrati = (n*n for n in range(1_000_000))</div><p>Conserva soltanto lo stato necessario per continuare.</p></div></div><div class="num"></div></section>
-<section class="slide"><h2 class="h2">Pipeline: filtrare senza caricare tutto</h2><p class="lead">Generatori collegati formano una pipeline: ogni fase riceve un elemento, lo trasforma o lo scarta e lo passa avanti.</p><div class="code code-example">righe = (riga.strip() for riga in file)
+# 0, 1, 4, 9</div>
+</div>
+<div class="card">
+<h3>Cosa accade</h3>
+<ol>
+<li><code>quadrati(4)</code> crea il generatore senza calcolare i quattro risultati.</li>
+<li>Il <code>for</code> richiede il primo valore; il ciclo interno arriva a <code>yield 0</code> e si sospende.</li>
+<li>Alla richiesta successiva riprende dopo <code>yield</code>, aggiorna <code>n</code> e produce il valore seguente.</li>
+<li>Quando il ciclo termina, il generatore segnala automaticamente <code>StopIteration</code>.</li>
+</ol>
+<p>In memoria rimane lo stato necessario a proseguire, non l’intera collezione dei risultati.</p>
+<p><code>yield</code> produce un valore e sospende; <code>return</code> termina invece definitivamente il generatore. Dopo la conclusione non può essere riavvolto.</p>
+</div>
+</div>
+<div class="num">
+</div>
+
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://docs.python.org/3/library/functions.html#func-range" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: range() — documentazione Python" aria-label="Fonte ufficiale: range() — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: range() — documentazione Python ↗</a></div></section>
+<section class="slide tight">
+<h2 class="h2">Espressioni generatrici</h2>
+<p class="lead">Le due forme possono esprimere lo stesso calcolo, ma lo eseguono in momenti diversi. La <b>list comprehension</b> crea subito l’intera lista; l’<b>espressione generatrice</b> produce invece un valore alla volta, solo quando viene richiesto.</p>
+<div class="grid2">
+<div class="card red">
+<h3>Lista immediata</h3>
+<div class="code code-example">quadrati = [n*n for n in range(1_000_000)]</div>
+<p>Il milione di quadrati viene calcolato subito e conservato. È utile quando occorrono accesso per indice, più attraversamenti o la lunghezza già disponibile.</p>
+</div>
+<div class="card teal">
+<h3>Generatore pigro</h3>
+<div class="code code-example">quadrati = (n*n for n in range(1_000_000))</div>
+<p>Conserva soltanto la posizione e il calcolo da eseguire. Riduce la memoria, ma avanza in una sola direzione e va ricreato per un secondo attraversamento.</p>
+</div>
+</div>
+<div class="num">
+</div>
+</section>
+<section class="slide tight">
+<h2 class="h2">Pipeline: filtrare senza caricare tutto</h2>
+<p class="lead">Generatori collegati formano una pipeline pigra: il consumatore finale richiede un valore, e la richiesta risale le fasi fino alla sorgente. Ogni fase elabora soltanto l’elemento necessario, senza creare liste intermedie.</p>
+<div class="grid2" style="grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);align-items:stretch">
+<div class="code code-example">righe = (riga.strip() for riga in file)
 non_vuote = (riga for riga in righe if riga)
 importi = (float(riga) for riga in non_vuote)
 
-totale = sum(importi)</div><div class="analogy" style="margin-top:24px"><span class="big">Regola:</span> utile per log, grandi CSV e flussi che non devono stare tutti in memoria.</div><div class="num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://docs.python.org/3/library/stdtypes.html#str.strip" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: str.strip() — documentazione Python" aria-label="Fonte ufficiale: str.strip() — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: str.strip() — documentazione Python ↗</a><a data-source-origin="auto" href="https://docs.python.org/3/library/functions.html#float" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: float() — documentazione Python" aria-label="Fonte ufficiale: float() — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: float() — documentazione Python ↗</a><a data-source-origin="auto" href="https://docs.python.org/3/library/functions.html#sum" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: sum() — documentazione Python" aria-label="Fonte ufficiale: sum() — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: sum() — documentazione Python ↗</a></div></section>
-<section class="slide"><h2 class="h2">Moduli e pacchetti organizzano il progetto</h2><p class="lead">Un modulo è un file Python. Un pacchetto raggruppa moduli correlati sotto uno stesso nome.</p><div class="grid2"><div class="stack"><div class="agenda-item"><span style="font-size:34px;min-width:50px">📄</span><div><b>modulo</b><br><span><code>calcoli.py</code></span></div></div><div class="agenda-item"><span style="font-size:34px;min-width:50px">🗂️</span><div><b>pacchetto</b><br><span><code>negozio/calcoli.py</code></span></div></div><div class="agenda-item"><span style="font-size:34px;min-width:50px">→</span><div><b>import</b><br><span><code>from negozio.calcoli import totale</code></span></div></div></div><div class="code code-example">progetto/
+totale = sum(importi)</div>
+<div class="card">
+<h3>Il percorso di una riga</h3>
+<ol>
+<li><code>file</code> fornisce una riga alla volta.</li>
+<li><code>strip()</code> rimuove spazi e fine riga.</li>
+<li>Il filtro scarta le stringhe vuote.</li>
+<li><code>float()</code> converte il testo rimasto in numero.</li>
+<li><code>sum()</code> consuma gli importi e aggiorna il totale.</li>
+</ol>
+<p>Se una conversione fallisce, l’errore emerge soltanto quando quella riga raggiunge il consumatore.</p>
+<p>Questa valutazione su richiesta evita lavoro inutile se il consumatore si ferma prima di esaurire la sorgente.</p>
+</div>
+</div>
+<div class="analogy" style="margin-top:18px">
+<span class="big">Regola:</span> una pipeline è utile per log, grandi CSV e flussi che non devono stare tutti in memoria.</div>
+<div class="num">
+</div>
+
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://docs.python.org/3/library/stdtypes.html#str.strip" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: str.strip() — documentazione Python" aria-label="Fonte ufficiale: str.strip() — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: str.strip() — documentazione Python ↗</a><a data-source-origin="auto" href="https://docs.python.org/3/library/functions.html#float" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: float() — documentazione Python" aria-label="Fonte ufficiale: float() — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: float() — documentazione Python ↗</a><a data-source-origin="auto" href="https://docs.python.org/3/library/functions.html#sum" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: sum() — documentazione Python" aria-label="Fonte ufficiale: sum() — documentazione Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: sum() — documentazione Python ↗</a></div></section>
+<section class="slide tight">
+<h2 class="h2">Moduli e pacchetti organizzano il progetto</h2>
+<p class="lead">Un <b>modulo</b> è un file Python importabile; raccoglie nomi correlati e crea un proprio spazio dei nomi. Un <b>pacchetto</b> organizza più moduli sotto un nome comune e rispecchia la struttura delle cartelle del progetto.</p>
+<div class="grid2" style="width:100%;grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);align-items:stretch;">
+<div class="stack">
+<div class="agenda-item">
+<span style="font-size:34px;min-width:50px">📄</span>
+<div>
+<b>modulo</b>
+<br>
+<span><code>calcoli.py</code> può definire funzioni, classi e costanti dedicate ai calcoli.</span>
+</div>
+</div>
+<div class="agenda-item">
+<span style="font-size:34px;min-width:50px">🗂️</span>
+<div>
+<b>pacchetto</b>
+<br>
+<span><code>negozio/</code> raggruppa moduli dello stesso dominio; <code>__init__.py</code> ne marca esplicitamente il confine.</span>
+</div>
+</div>
+<div class="agenda-item">
+<span style="font-size:34px;min-width:50px">→</span>
+<div>
+<b>import</b>
+<br>
+<span><code>from negozio.calcoli import totale</code> percorre pacchetto, modulo e nome richiesto.</span>
+</div>
+</div>
+</div>
+<div class="stack">
+<div class="code code-example">progetto/
   app.py
   negozio/
     __init__.py
     calcoli.py
-    modelli.py</div></div><div class="num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Tutorial ufficiale Python" aria-label="Fonte ufficiale: Tutorial ufficiale Python" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Tutorial ufficiale Python ↗</a></div></section>
-<section class="slide"><h2 class="h2">Un ambiente virtuale per ogni progetto</h2><p class="lead">L'ambiente virtuale isola interprete e pacchetti: progetti diversi possono usare versioni diverse senza interferire.</p><div class="code code-example">python -m venv .venv
+    modelli.py</div>
+<div class="code code-example"># app.py
+from negozio.calcoli import totale
+
+risultato = totale([12.50, 7.00])</div>
+</div>
+</div>
+<div class="analogy" style="margin-top:18px"><span class="big">Regola:</span> i moduli separano responsabilità; i pacchetti rendono visibile la relazione tra moduli senza concentrare tutto in un solo file.</div>
+<div class="num">
+</div>
+
+</section>
+<section class="slide tight">
+<h2 class="h2">Un ambiente virtuale per ogni progetto</h2>
+<p class="lead">Un ambiente virtuale crea una cartella con un interprete di riferimento e una directory separata per i pacchetti installati. In questo modo due progetti possono richiedere versioni diverse della stessa libreria senza modificare l’installazione globale.</p>
+<div class="grid2" style="grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:stretch">
+<div class="code code-example">python -m venv .venv
 
 # Linux / macOS
 source .venv/bin/activate
 
 # Windows PowerShell
-.venv\Scripts\Activate.ps1</div><div class="note" style="margin-top:22px"><div class="lbl">💡 Controllo</div><p>Dopo l'attivazione, <code>python</code> e <code>pip</code> devono puntare dentro la cartella <code>.venv</code>.</p></div><div class="num"></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Interprete_(informatica)" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Interprete — Wikipedia" aria-label="Fonte ufficiale: Interprete — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Interprete — Wikipedia ↗</a></div></section>
-<section class="slide"><h2 class="h2">Installare pacchetti con pip</h2><p class="lead"><code>pip</code> scarica e installa distribuzioni Python. Va eseguito attraverso l'interprete dell'ambiente attivo.</p><div class="grid2"><div class="code code-example">python -m pip install requests
+.venv\Scripts\Activate.ps1</div>
+<div class="card">
+<h3>Creazione e attivazione</h3>
+<ul><li><code>python -m venv .venv</code> crea l’ambiente nella cartella nascosta <code>.venv</code>.</li><li>L’attivazione modifica temporaneamente il percorso dei comandi nella shell corrente.</li><li>Non “entra” nel progetto: indica soltanto quali <code>python</code> e <code>pip</code> usare.</li><li>Chiudendo la shell l’attivazione termina; i file dell’ambiente restano disponibili.</li></ul>
+</div>
+</div>
+<div class="note" style="margin-top:18px">
+<div class="lbl">💡 Controllo</div>
+<p>Dopo l’attivazione, <code>python</code> e <code>python -m pip</code> devono puntare dentro <code>.venv</code>. La cartella dell’ambiente non si condivide nel repository: si ricrea dalle dipendenze dichiarate.</p>
+</div>
+<div class="num">
+</div>
+
+<div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://it.wikipedia.org/wiki/Interprete_(informatica)" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Interprete — Wikipedia" aria-label="Fonte ufficiale: Interprete — Wikipedia" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Interprete — Wikipedia ↗</a></div></section>
+<section class="slide tight">
+<h2 class="h2">Installare pacchetti con pip</h2>
+<p class="lead"><code>pip</code> cerca una distribuzione compatibile, scarica il pacchetto e le dipendenze necessarie, quindi li installa nell’ambiente associato all’interprete scelto. Non importa automaticamente il pacchetto nel programma: rende soltanto disponibile il codice.</p>
+<div class="grid2">
+<div class="code code-example">python -m pip install requests
 python -m pip show requests
-python -m pip uninstall requests</div><div class="card"><h3>Perché python -m pip?</h3><p>Rende esplicito quale interprete esegue pip e riduce il rischio di installare il pacchetto nell'ambiente sbagliato.</p></div></div><div class="num"></div></section>
-<section class="slide tight"><h2 class="h2">Dichiarare dipendenze riproducibili</h2><p class="lead">Il progetto deve comunicare quali pacchetti richiede. Bloccare ogni versione e dichiarare intervalli compatibili sono decisioni diverse.</p><div class="grid3"><div class="card teal"><h3>requirements.txt</h3><div class="code code-example">requests==2.32.3
-pytest==8.3.5</div><p>Elenco semplice, spesso usato per ambienti o applicazioni.</p></div><div class="card sky"><h3>pyproject.toml</h3><div class="code code-example">dependencies = [
+python -m pip uninstall requests</div>
+<div class="card">
+<h3>Cosa fanno i tre comandi</h3>
+<ul><li><code>install requests</code> risolve e installa la versione richiesta insieme alle sue dipendenze.</li><li><code>show requests</code> mostra versione, posizione, metadati e dipendenze dichiarate.</li><li><code>uninstall requests</code> rimuove quel pacchetto dopo conferma, ma non elimina automaticamente ogni dipendenza condivisa.</li></ul>
+<h3 style="margin-top:18px">Perché <code>python -m pip</code>?</h3>
+<p>Rende esplicito quale interprete esegue <code>pip</code> e riduce il rischio di installare nell’ambiente sbagliato.</p>
+</div>
+</div>
+<div class="num">
+</div>
+</section>
+<section class="slide tight">
+<h2 class="h2">Dichiarare dipendenze riproducibili</h2>
+<p class="lead">Installare localmente non basta: il progetto deve comunicare quali pacchetti richiede e con quali vincoli. Dichiarare un intervallo esprime compatibilità prevista; registrare versioni esatte descrive invece un ambiente già risolto e riproducibile.</p>
+<div class="grid3">
+<div class="card teal">
+<h3>requirements.txt</h3>
+<div class="code code-example">requests==2.32.3
+pytest==8.3.5</div>
+<p>Elenco semplice installabile con <code>python -m pip install -r requirements.txt</code>. Il simbolo <code>==</code> richiede esattamente quella versione.</p>
+</div>
+<div class="card sky">
+<h3>pyproject.toml</h3>
+<div class="code code-example">dependencies = [
   "requests&gt;=2.32,&lt;3"
-]</div><p>Metadati e dipendenze del progetto.</p></div><div class="card gold"><h3>Lock file</h3><p>Registra le versioni esatte risolte da uno strumento, per ricreare lo stesso ambiente.</p></div></div><div class="num"></div></section>
-<section class="slide"><h2 class="h2">Import stabili, avvio esplicito</h2><p class="lead">Il codice importabile non dovrebbe partire da solo. Un punto di ingresso separato rende test e riuso più semplici.</p><div class="grid2"><div class="code code-example"># negozio/calcoli.py
+]</div>
+<p>Descrive metadati e dipendenze del progetto. L’intervallo accetta aggiornamenti compatibili dalla versione 2.32 fino alla precedente alla 3.</p>
+</div>
+<div class="card gold">
+<h3>Lock file</h3>
+<p>Registra le versioni esatte dell’intero albero, incluse le dipendenze indirette. Consente allo strumento che lo ha prodotto di ricreare lo stesso ambiente.</p>
+</div>
+</div>
+<div class="analogy" style="margin-top:18px"><span class="big">Distinzione:</span> la dichiarazione dice cosa è compatibile; il lock file registra cosa è stato effettivamente scelto.</div>
+</div>
+</div>
+<div class="num">
+</div>
+</section>
+<section class="slide tight">
+<h2 class="h2">Import stabili, avvio esplicito</h2>
+<p class="lead">Importare un modulo esegue le istruzioni al suo livello principale. Per evitare richieste di input, scritture su file o avvii inattesi, il codice importabile dovrebbe limitarsi a definire funzioni, classi e costanti; l’orchestrazione appartiene a un punto di ingresso esplicito.</p>
+<div class="grid2">
+<div class="code code-example"># negozio/calcoli.py
 def totale(righe):
     return sum(r.prezzo for r in righe)
 
@@ -103,6 +422,31 @@ def main():
     ...
 
 if __name__ == "__main__":
-    main()</div><div class="card"><h3>Confine utile</h3><p>I moduli definiscono funzioni e classi.</p><p><code>app.py</code> coordina input, output e avvio.</p><p>I test importano i moduli senza eseguire l'applicazione.</p></div></div><div class="num"></div></section>
-<section class="slide closing"><div class="closing-inner"><h2 class="h2">Dagli oggetti al progetto organizzato.</h2><p class="lead">Sai modellare dati e comportamenti con classi e dataclass, lavorare con iterable, iteratori e generatori, e organizzare un progetto in moduli, pacchetti e ambienti virtuali.</p><div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:10px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:7px 30px;font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:rgba(255,255,255,.92);"><a href="https://docs.python.org/3/library/functions.html#print" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">print() — documentazione Python ↗</a><a href="https://docs.python.org/3/library/functions.html#iter" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">iter() — documentazione Python ↗</a><a href="https://docs.python.org/3/library/functions.html#next" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">next() — documentazione Python ↗</a><a href="https://docs.python.org/3/library/functions.html#func-range" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">range() — documentazione Python ↗</a><a href="https://docs.python.org/3/library/functions.html#sum" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">sum() — documentazione Python ↗</a><a href="https://docs.python.org/3/library/functions.html#float" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">float() — documentazione Python ↗</a><a href="https://docs.python.org/3/library/stdtypes.html#str.strip" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">str.strip() — documentazione Python ↗</a><a href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Tutorial ufficiale Python ↗</a><a href="https://it.wikipedia.org/wiki/Interprete_(informatica)" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Interprete — Wikipedia ↗</a></div></div><div class="closing-actions"><a class="chip closing-primary" href="pr06-04-test-api-database.html">Prossimo &#8594; PR06.04 &#183; Test, API e database</a></div></div><div class="deck-author">Francesco Antonio Binetti</div><div class="num"></div></section>
-</main><div class="progress" id="progress"></div><a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a><script src="../deck.js"></script></body></html>
+    main()</div>
+<div class="card">
+<h3>Confine utile</h3>
+<ul><li><code>negozio/calcoli.py</code> definisce una funzione riutilizzabile e non avvia operazioni da solo.</li><li><code>app.py</code> importa la funzione e concentra input, output e coordinamento dentro <code>main()</code>.</li><li>Quando il file è eseguito direttamente, <code>__name__</code> vale <code>"__main__"</code> e la guardia chiama <code>main()</code>.</li><li>Quando è importato, <code>__name__</code> contiene il nome del modulo: la guardia è falsa e l’applicazione non parte.</li><li>I test possono così importare <code>totale</code> senza simulare l’intera interfaccia.</li><li>Lo stesso modulo può essere riutilizzato da un’altra applicazione senza duplicare la logica di calcolo.</li></ul>
+</div>
+</div>
+<div class="num">
+</div>
+</section>
+<section class="slide closing"><div class="closing-inner"><div class="closing-inner">
+<h2 class="h2">Dagli oggetti al progetto organizzato.</h2>
+<p class="lead">Sai distinguere classe e istanza, inizializzare e proteggere lo stato, scegliere tra composizione, ereditarietà e dataclass. Sai inoltre controllare flussi pigri con iteratori e generatori e organizzare codice e dipendenze tramite moduli, pacchetti, ambienti virtuali e punti di ingresso espliciti.</p>
+
+<div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:10px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:7px 30px;font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:rgba(255,255,255,.92);"><a href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Tutorial ufficiale Python ↗</a><a href="https://docs.python.org/3/library/functions.html#print" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">print() — documentazione Python ↗</a><a href="https://docs.python.org/3/library/functions.html#iter" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">iter() — documentazione Python ↗</a><a href="https://docs.python.org/3/library/functions.html#next" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">next() — documentazione Python ↗</a><a href="https://docs.python.org/3/library/functions.html#func-list" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">list() — documentazione Python ↗</a><a href="https://docs.python.org/3/library/functions.html#func-range" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">range() — documentazione Python ↗</a><a href="https://docs.python.org/3/library/functions.html#sum" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">sum() — documentazione Python ↗</a><a href="https://docs.python.org/3/library/functions.html#float" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">float() — documentazione Python ↗</a><a href="https://docs.python.org/3/library/stdtypes.html#str.strip" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">str.strip() — documentazione Python ↗</a><a href="https://it.wikipedia.org/wiki/Interprete_(informatica)" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Interprete — Wikipedia ↗</a></div></div><div class="closing-actions">
+<a class="chip closing-primary" href="pr06-04-test-api-database.html">Prossimo &#8594; PR06.04 &#183; Test, API e database</a>
+</div>
+</div>
+<div class="deck-author">Francesco Antonio Binetti</div>
+</div><div class="num">
+</div></section>
+</main>
+<div class="progress" id="progress">
+</div>
+<a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
+<script src="../deck.js">
+</script>
+</body>
+</html>

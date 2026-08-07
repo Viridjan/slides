@@ -230,19 +230,19 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
 <!-- === SLIDE 5: RANSOMWARE === -->
 <section class="slide">
-  <div class="split">
+  <div class="center">
+    <h2 class="h-sec reveal">Ransomware: il <em class="hot">sequestro digitale</em></h2>
+    <div class="split" style="height:auto;margin-top:28px;">
     <div class="col stack">
-
-      <h2 class="h-big reveal">Ransomware:<br>il <em class="hot">sequestro<br>digitale</em></h2>
-      <p class="lead reveal d1">Può cifrare file locali e condivisi accessibili al dispositivo e chiedere un riscatto, ma comportamento e portata dipendono dalla variante e dai privilegi ottenuti. Spesso non li restituisce neanche dopo il pagamento.</p>
+      <p class="body reveal d1">Può cifrare file locali e condivisi accessibili al dispositivo e chiedere un riscatto, ma comportamento e portata dipendono dalla variante e dai privilegi ottenuti. Spesso non li restituisce neanche dopo il pagamento.</p>
       <p class="body reveal d2">Un click su un allegato email sbagliato può cifrare in pochi minuti l'intero disco fisso, tutti i file di rete condivisi, tutti gli hard disk collegati via USB.</p>
       <div class="note red reveal d3">
         <div class="lbl">Impatto reale 2023</div>
-        <p>Importi e conseguenze variano molto tra campioni. Il pagamento non garantisce il recupero: isola l'incidente, conserva le prove e ripristina da backup verificati.</p>
+        <p>Importi e conseguenze variano molto tra campioni. <b>Il pagamento non garantisce il recupero</b>: isola l'incidente, conserva le prove e ripristina da backup verificati.</p>
       </div>
     </div>
-    <div class="illu reveal d1">
-      <svg viewBox="0 0 280 300" style="max-width:260px;margin:0 auto;" role="img" aria-label="Schermata ransomware con lucchetto e richiesta di riscatto">
+    <div class="reveal d1" style="display:grid;place-items:center;">
+      <svg viewBox="0 0 280 300" style="width:100%;max-width:610px;max-height:740px;" role="img" aria-label="Schermata ransomware con lucchetto e richiesta di riscatto">
         <!-- Screen -->
         <rect x="20" y="20" width="240" height="200" rx="12" fill="#1c1714" stroke="#e6533b" stroke-width="5"/>
         <!-- Warning icon -->
@@ -260,11 +260,11 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <rect x="116" y="220" width="48" height="10" rx="3" fill="#3a322c"/>
         <rect x="100" y="230" width="80" height="8" rx="4" fill="#3a322c"/>
         <!-- Countdown timer feel -->
-        <rect x="44" y="248" width="192" height="40" rx="8" fill="#e6533b" opacity=".15" stroke="#e6533b" stroke-width="2"/>
+        <rect x="4" y="248" width="272" height="40" rx="8" fill="#e6533b" opacity=".15" stroke="#e6533b" stroke-width="2"/>
         <text x="140" y="274" text-anchor="middle" font-family="Space Mono" font-size="20" fill="#e6533b" font-weight="700">⏰ 47:23:11 rimasti</text>
       </svg>
-      <div class="illu-cap">Schermata tipica di un ransomware</div>
     </div>
+  </div>
   </div>
   <div class="page-num"></div>
 <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.cisa.gov/stopransomware" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: StopRansomware — CISA" aria-label="Fonte ufficiale: StopRansomware — CISA" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: StopRansomware — CISA ↗</a></div></section>
@@ -301,10 +301,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <div style="margin-top:12px;"><span class="threat-badge high">Alto rischio</span></div>
       </div>
     </div>
-    <div class="note reveal d3" style="margin-top:20px;">
-      <div class="lbl">Lo sapevi?</div>
-      <p>Phishing e pretexting restano componenti importanti dell'ingegneria sociale, ma la quota cambia per settore e rapporto: cita sempre anno, campione e definizione.</p>
-    </div>
   </div>
   <div class="page-num"></div>
 <div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.cisa.gov/secure-our-world/recognize-and-report-phishing" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Riconoscere il phishing — CISA" aria-label="Fonte ufficiale: Riconoscere il phishing — CISA" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Riconoscere il phishing — CISA ↗</a></div></section>
@@ -323,8 +319,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <div class="agenda-item" style="padding:12px 4px;"><span style="font-size:30px;min-width:46px;">🟡</span><div><b style="font-size:26px;">Errori grammaticali o tono strano</b><br><span style="font-size:22px;color:var(--ink-faint);">Le banche vere usano i tuoi dati precisi e non fanno errori</span></div></div>
       </div>
     </div>
-    <div class="illu reveal d1">
-      <svg viewBox="0 0 280 300" style="max-width:260px;margin:0 auto;" role="img" aria-label="Email con segnali di phishing evidenziati">
+    <div class="reveal d1" style="display:grid;place-items:center;">
+      <svg viewBox="0 0 280 300" style="width:100%;max-width:610px;max-height:740px;" role="img" aria-label="Email con segnali di phishing evidenziati">
         <!-- Email frame -->
         <rect x="20" y="20" width="240" height="260" rx="10" fill="#fbf5ec" stroke="#1c1714" stroke-width="4"/>
         <!-- Header bar -->
@@ -355,7 +351,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <rect x="80" y="240" width="120" height="28" rx="8" fill="#e6533b"/>
         <text x="140" y="259" text-anchor="middle" font-family="Space Grotesk" font-size="14" fill="#fff" font-weight="700">Accedi subito →</text>
       </svg>
-      <div class="illu-cap">Anatomia di una email di phishing</div>
     </div>
   </div>
   <div class="page-num"></div>
@@ -368,19 +363,19 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <h2 class="h-sec reveal" style="margin-top:22px;">Attacchi alle <em class="hot">Reti WiFi</em></h2>
     <p class="lead reveal d1">Le reti wireless sono comode ma esposte. Chi si connette alla tua rete può vedere il traffico, accedere ai dispositivi e intercettare dati sensibili.</p>
     <div class="grid3 reveal d2" style="margin-top:20px;">
-      <div class="card">
+      <div class="card red">
         <span class="ic">📶</span>
         <h3>Evil Twin (AP Gemello)</h3>
         <p>L'attaccante crea una rete WiFi con lo stesso nome del tuo bar o hotel preferito. Ti connetti pensando sia quella legittima — in realtà passa tutto attraverso di lui.</p>
         <p style="margin-top:10px;font-family:var(--font-mono);font-size:21px;color:var(--red);">WiFi: "HotelMilano_Free" ← falsa!</p>
       </div>
-      <div class="card">
+      <div class="card red">
         <span class="ic">🔓</span>
         <h3>Reti aperte e non cifrate</h3>
         <p>Il WiFi di bar, stazioni e aeroporti spesso non cifra il traffico. Chiunque nella stessa rete può "sniffare" — vedere le pagine che visiti, i dati che invii su HTTP.</p>
         <p style="margin-top:10px;">Riduzione del rischio: usa HTTPS, evita avvisi di certificato, limita attività sensibili e valuta una VPN affidabile sapendo che protegge solo il tratto fino al server VPN.</p>
       </div>
-      <div class="card">
+      <div class="card teal">
         <span class="ic">🏠</span>
         <h3>Router di casa vulnerabile</h3>
         <p>La password predefinita del router (spesso "admin" o "1234") non viene mai cambiata. L'attaccante si connette alla tua rete domestica e controlla tutti i dispositivi.</p>
@@ -401,7 +396,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="col stack">
 
       <h2 class="h-big reveal">Attacco<br><em class="hot">Man-in-the-Middle</em></h2>
-      <p class="lead reveal d1">L'attaccante si posiziona "in mezzo" alla comunicazione tra te e il server. Legge, e a volte modifica, tutto il traffico che passa — senza che tu te ne accorga.</p>
+      <p class="body reveal d1">L'attaccante si posiziona "in mezzo" alla comunicazione tra te e il server. Legge, e a volte modifica, tutto il traffico che passa — senza che tu te ne accorga.</p>
       <p class="body reveal d2">Immagina di mandare una lettera a qualcuno. Il postino la apre, la legge, eventualmente cambia il contenuto e la richiude. Tu e il destinatario non sapete nulla.</p>
       <div class="stack reveal d3">
         <div class="note">
@@ -410,34 +405,44 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         </div>
       </div>
     </div>
-    <div class="illu reveal d1">
-      <svg viewBox="0 0 260 300" style="max-width:240px;margin:0 auto;" role="img" aria-label="Schema Man-in-the-Middle: attaccante tra utente e server">
-        <!-- User -->
-        <circle cx="50" cy="60" r="24" fill="#3f7e8c"/>
-        <rect x="34" y="84" width="32" height="40" rx="8" fill="#163b35"/>
-        <text x="50" y="140" text-anchor="middle" font-family="Space Grotesk" font-size="14" fill="#6b5f54">Tu</text>
+    <div class="reveal d1" style="display:grid;place-items:center;">
+      <svg viewBox="0 0 520 380" style="width:100%;max-width:640px;max-height:720px;" role="img" aria-label="Schema Man-in-the-Middle: il traffico tra utente e server passa attraverso l'attaccante">
+        <defs>
+          <marker id="mitm-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#e6533b"/>
+          </marker>
+        </defs>
+
+        <!-- Percorso diretto atteso, ma interrotto -->
+        <line x1="106" y1="78" x2="414" y2="78" stroke="#d8c9b4" stroke-width="4" stroke-dasharray="10 9"/>
+        <circle cx="260" cy="78" r="23" fill="#f4ece0" stroke="#e6533b" stroke-width="4"/>
+        <path d="M248 66 L272 90 M272 66 L248 90" stroke="#e6533b" stroke-width="6" stroke-linecap="round"/>
+
+        <!-- Utente -->
+        <circle cx="72" cy="150" r="30" fill="#3f7e8c"/>
+        <path d="M31 224 C31 183 48 169 72 169 C96 169 113 183 113 224 Z" fill="#163b35"/>
+
+        <!-- Attaccante al centro -->
+        <circle cx="260" cy="178" r="58" fill="#e6533b" stroke="#1c1714" stroke-width="5"/>
+        <path d="M230 184 Q232 145 260 132 Q288 145 290 184 Z" fill="#1c1714"/>
+        <ellipse cx="260" cy="160" rx="20" ry="24" fill="#f4ece0"/>
+        <rect x="245" y="155" width="30" height="10" rx="5" fill="#1c1714"/>
+        <circle cx="252" cy="160" r="2.5" fill="#e6533b"/>
+        <circle cx="268" cy="160" r="2.5" fill="#e6533b"/>
+        <text x="260" y="211" text-anchor="middle" font-family="Space Mono" font-size="16" font-weight="700" fill="#fff">attaccante</text>
+
         <!-- Server -->
-        <rect x="192" y="36" width="48" height="68" rx="6" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
-        <rect x="200" y="44" width="32" height="6" rx="2" fill="#e6c14a"/>
-        <rect x="200" y="56" width="32" height="6" rx="2" fill="#e6c14a" opacity=".5"/>
-        <rect x="200" y="68" width="32" height="6" rx="2" fill="#e6c14a" opacity=".3"/>
-        <text x="216" y="120" text-anchor="middle" font-family="Space Grotesk" font-size="14" fill="#6b5f54">Server</text>
-        <!-- Attacker in middle -->
-        <circle cx="130" cy="170" r="28" fill="#e6533b" stroke="#1c1714" stroke-width="3"/>
-        <text x="130" y="165" text-anchor="middle" font-size="24" fill="#fff">👹</text>
-        <text x="130" y="185" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#fff">hacker</text>
-        <!-- Arrows -->
-        <line x1="74" y1="80" x2="106" y2="152" stroke="#e6533b" stroke-width="3" stroke-dasharray="8"/>
-        <polygon points="100,150 112,146 108,158" fill="#e6533b"/>
-        <line x1="154" y1="152" x2="192" y2="82" stroke="#e6533b" stroke-width="3" stroke-dasharray="8"/>
-        <polygon points="186,88 196,82 192,94" fill="#e6533b"/>
-        <!-- X on direct path -->
-        <line x1="74" y1="72" x2="190" y2="72" stroke="#d8c9b4" stroke-width="2" stroke-dasharray="6" opacity=".5"/>
-        <!-- Label -->
-        <text x="130" y="240" text-anchor="middle" font-family="Space Grotesk" font-size="16" fill="#e6533b" font-weight="700">Legge tutto il traffico</text>
-        <text x="130" y="262" text-anchor="middle" font-family="Space Mono" font-size="13" fill="#6b5f54">password, dati, messaggi</text>
+        <rect x="414" y="119" width="76" height="112" rx="10" fill="#163b35" stroke="#1c1714" stroke-width="5"/>
+        <rect x="426" y="135" width="52" height="10" rx="3" fill="#e6c14a"/>
+        <rect x="426" y="155" width="52" height="10" rx="3" fill="#e6c14a" opacity=".65"/>
+        <rect x="426" y="175" width="52" height="10" rx="3" fill="#e6c14a" opacity=".35"/>
+        <circle cx="440" cy="210" r="5" fill="#e6533b"/>
+
+        <!-- Traffico deviato attraverso l'attaccante -->
+        <line x1="116" y1="178" x2="195" y2="178" stroke="#e6533b" stroke-width="6" marker-end="url(#mitm-arrow)"/>
+        <line x1="325" y1="178" x2="403" y2="178" stroke="#e6533b" stroke-width="6" marker-end="url(#mitm-arrow)"/>
+
       </svg>
-      <div class="illu-cap">Il postino che apre le lettere</div>
     </div>
   </div>
   <div class="page-num"></div>
@@ -449,7 +454,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="col stack">
 
       <h2 class="h-big reveal">Botnet e<br><em class="hot">Attacchi DDoS</em></h2>
-      <p class="lead reveal d1">Una <b>botnet</b> è una rete di dispositivi infetti controllati a distanza da un hacker — a tua insaputa. Il tuo computer potrebbe farne parte adesso.</p>
+      <p class="body reveal d1">Una <b>botnet</b> è una rete di dispositivi infetti controllati a distanza da un hacker — a tua insaputa. Il tuo computer potrebbe farne parte adesso.</p>
       <p class="body reveal d2">Le botnet vengono usate per lanciare <b>attacchi DDoS</b> (Distributed Denial of Service): migliaia di dispositivi bombardano un sito con richieste fino a farlo crashare.</p>
       <div class="note reveal d3" style="margin-top:14px;">
         <div class="lbl">Scala reale</div>
@@ -457,8 +462,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
       <div class="analogy reveal d3" style="margin-top:14px;font-size:25px;"><span class="big">Analogia:</span> 10.000 persone che bloccano l'ingresso di un negozio.</div>
     </div>
-    <div class="illu reveal d1">
-      <svg viewBox="0 0 280 280" style="max-width:260px;margin:0 auto;" role="img" aria-label="Schema botnet: hacker controlla dispositivi infetti che attaccano un server">
+    <div class="illu reveal d1" style="min-height:760px;">
+      <svg viewBox="0 0 280 280" style="width:100%;max-width:560px;max-height:560px;margin:0 auto;" role="img" aria-label="Schema botnet: hacker controlla dispositivi infetti che attaccano un server">
         <!-- C&C Server (hacker) -->
         <rect x="106" y="20" width="68" height="44" rx="8" fill="#e6533b" stroke="#1c1714" stroke-width="3"/>
         <text x="140" y="47" text-anchor="middle" font-family="Space Mono" font-size="13" fill="#fff" font-weight="700">C&amp;C</text>
@@ -529,27 +534,20 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <div class="center">
 
     <h2 class="h-sec reveal" style="margin-top:22px;">Ingegneria Sociale: <em class="hot">le tecniche</em></h2>
-    <p class="lead reveal d1">Il social engineering sfrutta le debolezze psicologiche umane — non quelle tecniche. Conoscere le tecniche è il primo passo per non caderne vittima.</p>
+    <p class="body reveal d1" style="margin-top:28px;">Il social engineering sfrutta le debolezze psicologiche umane — non quelle tecniche. Conoscere le tecniche è il primo passo per non caderne vittima.</p>
     <div class="grid3 reveal d2" style="margin-top:20px;">
       <div class="card">
-        <span class="ic">⏰</span>
         <h3>Urgenza e paura</h3>
         <p>"Il tuo account viene chiuso tra 2 ore." La fretta fa bypassare il pensiero critico. Un servizio legittimo non ti mette mai sotto pressione temporale artificiale.</p>
       </div>
       <div class="card">
-        <span class="ic">🤝</span>
         <h3>Pretexting</h3>
         <p>L'attaccante crea uno scenario credibile: si finge un collega IT, un funzionario bancario, un cliente arrabbiato. Raccoglie informazioni nel tempo per costruire fiducia.</p>
       </div>
       <div class="card">
-        <span class="ic">🎁</span>
         <h3>Baiting</h3>
         <p>Una chiavetta USB trovata "per caso" nel parcheggio dell'azienda. La curiosità fa sì che qualcuno la inserisca nel computer. Dentro c'è malware.</p>
       </div>
-    </div>
-    <div class="note red reveal d3" style="margin-top:22px;">
-      <div class="lbl">⚠️ Il principio fondamentale</div>
-      <p>Se qualcosa crea <b>urgenza, paura o curiosità artificiale</b>, fermati. Un secondo di pausa per verificare vale più di qualsiasi tecnologia di sicurezza.</p>
     </div>
   </div>
   <div class="page-num"></div>
@@ -570,30 +568,32 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <div class="agenda-item" style="padding:11px 4px;"><span style="font-size:30px;min-width:46px;">🌐</span><div><b style="font-size:26px;">Attiva il firewall</b><br><span style="font-size:22px;color:var(--ink-faint);">Blocca le connessioni non autorizzate da e verso internet</span></div></div>
       </div>
     </div>
-    <div class="illu reveal d1">
-      <svg viewBox="0 0 260 300" style="max-width:240px;margin:0 auto;" role="img" aria-label="Scudo a strati di difesa">
-        <!-- Outer shield layer -->
-        <path d="M130 20 l90 40 v80 a90 90 0 0 1-180 0 V60 z" fill="#d8c9b4" stroke="#1c1714" stroke-width="3" opacity=".5"/>
-        <!-- Middle shield layer -->
-        <path d="M130 44 l66 30 v66 a66 66 0 0 1-132 0 V74 z" fill="#e6c14a" stroke="#1c1714" stroke-width="3" opacity=".7"/>
-        <!-- Inner shield layer -->
-        <path d="M130 68 l42 20 v52 a42 42 0 0 1-84 0 V88 z" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
-        <!-- Center icon -->
-        <text x="130" y="152" text-anchor="middle" font-size="44" fill="#f4ece0">✓</text>
-        <!-- Layer labels -->
-        <text x="230" y="90" font-family="Space Mono" font-size="12" fill="#6b5f54">Firewall</text>
-        <line x1="214" y1="88" x2="194" y2="78" stroke="#6b5f54" stroke-width="1"/>
-        <text x="230" y="130" font-family="Space Mono" font-size="12" fill="#d98a2b">Antivirus</text>
-        <line x1="218" y1="128" x2="194" y2="120" stroke="#d98a2b" stroke-width="1"/>
-        <text x="30" y="90" text-anchor="end" font-family="Space Mono" font-size="12" fill="#6b5f54">Updates</text>
-        <line x1="36" y1="88" x2="60" y2="78" stroke="#6b5f54" stroke-width="1"/>
-        <text x="30" y="130" text-anchor="end" font-family="Space Mono" font-size="12" fill="#d98a2b">Backup</text>
-        <line x1="36" y1="128" x2="60" y2="118" stroke="#d98a2b" stroke-width="1"/>
-        <!-- Core -->
-        <text x="130" y="230" text-anchor="middle" font-family="Space Grotesk" font-size="15" fill="#1c1714" font-weight="700">Difesa in profondità</text>
-        <text x="130" y="250" text-anchor="middle" font-family="Space Mono" font-size="13" fill="#6b5f54">più strati = più sicurezza</text>
+    <div class="reveal d1" style="display:grid;place-items:center;">
+      <svg viewBox="-90 0 440 340" style="width:100%;max-width:660px;max-height:740px;" role="img" aria-label="Quattro scudi concentrici rappresentano firewall, aggiornamenti, antivirus e backup">
+        <!-- Quattro strati distinti -->
+        <path d="M130 18 l100 44 v82 a100 100 0 0 1-200 0 V62 z" fill="#ece0cf" stroke="#1c1714" stroke-width="4"/>
+        <path d="M130 42 l78 35 v67 a78 78 0 0 1-156 0 V77 z" fill="#3f7e8c" fill-opacity=".42" stroke="#1c1714" stroke-width="4"/>
+        <path d="M130 66 l56 26 v52 a56 56 0 0 1-112 0 V92 z" fill="#e6c14a" fill-opacity=".82" stroke="#1c1714" stroke-width="4"/>
+        <path d="M130 90 l34 16 v38 a34 34 0 0 1-68 0 V106 z" fill="#163b35" stroke="#1c1714" stroke-width="4"/>
+        <text x="130" y="151" text-anchor="middle" font-size="34" font-weight="700" fill="#f4ece0">✓</text>
+
+        <!-- Un richiamo per ogni strato -->
+        <text x="246" y="70" font-family="Space Mono" font-size="17" font-weight="700" fill="#3a322c">Firewall</text>
+        <line x1="238" y1="66" x2="218" y2="62" stroke="#3a322c" stroke-width="2.5"/>
+
+        <text x="14" y="108" text-anchor="end" font-family="Space Mono" font-size="17" font-weight="700" fill="#3f7e8c">Updates</text>
+        <line x1="24" y1="104" x2="58" y2="91" stroke="#3f7e8c" stroke-width="2.5"/>
+
+        <text x="246" y="142" font-family="Space Mono" font-size="17" font-weight="700" fill="#d98a2b">Antivirus</text>
+        <line x1="238" y1="138" x2="184" y2="122" stroke="#d98a2b" stroke-width="2.5"/>
+
+        <text x="14" y="176" text-anchor="end" font-family="Space Mono" font-size="17" font-weight="700" fill="#163b35">Backup</text>
+        <line x1="24" y1="172" x2="98" y2="144" stroke="#163b35" stroke-width="2.5"/>
+
+        <!-- Testo fuori dalla sagoma -->
+        <text x="130" y="278" text-anchor="middle" font-family="Space Grotesk" font-size="22" fill="#1c1714" font-weight="700">Difesa in profondità</text>
+        <text x="130" y="308" text-anchor="middle" font-family="Space Mono" font-size="17" fill="#3a322c">più strati = più sicurezza</text>
       </svg>
-      <div class="illu-cap">Ogni strato copre le lacune degli altri</div>
     </div>
   </div>
   <div class="page-num"></div>
@@ -604,39 +604,21 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <div class="center">
 
     <h2 class="h-sec reveal" style="margin-top:22px;">Il <em class="hot">Backup</em>: l'ultima linea di difesa</h2>
-    <p class="lead reveal d1">Contro il ransomware, un buon backup è spesso l'unica vera soluzione. Se i tuoi dati sono copiati altrove, il sequestro non ha potere.</p>
-    <div class="grid3 reveal d2" style="margin-top:22px;">
-      <div class="card" style="text-align:center;">
-        <h3 style="font-size:60px;margin-bottom:14px;">3</h3>
-        <h3>Copie dei dati</h3>
-        <p>L'originale + due backup. Se una copia fallisce, ne hai ancora un'altra.</p>
-      </div>
-      <div class="card" style="text-align:center;">
-        <h3 style="font-size:60px;margin-bottom:14px;">2</h3>
-        <h3>Supporti diversi</h3>
-        <p>Hard disk esterno + cloud, oppure HD interno + NAS. Diversifica il rischio di guasto hardware.</p>
-      </div>
-      <div class="card" style="text-align:center;">
-        <h3 style="font-size:60px;margin-bottom:14px;">1</h3>
-        <h3>Copia offline/offsite</h3>
-        <p>Almeno una copia scollegata dalla rete. Un ransomware che cifra tutto non raggiunge un HD staccato.</p>
-      </div>
-    </div>
+    <p class="body reveal d1" style="margin-top:32px;">Contro il ransomware, un buon backup è spesso l'unica vera soluzione. La copia deve essere separata o non modificabile dallo stesso attacco e il ripristino va provato periodicamente: un backup mai verificato potrebbe risultare inutilizzabile proprio durante l'incidente.</p>
     <div class="note reveal d3" style="margin-top:22px;">
-      <div class="lbl">💡 La regola 3-2-1</div>
-      <p><b>3 copie, 2 supporti diversi, 1 offsite/offline.</b> Chi segue questa regola può ripristinare tutto in poche ore dopo un ransomware — senza pagare il riscatto.</p>
+      <div class="lbl">💡 Perché conta qui</div>
+      <p>Un backup fatto bene — copie separate, verificate, non raggiungibili dallo stesso attacco — permette di ripristinare tutto in poche ore dopo un ransomware, senza pagare il riscatto.</p>
     </div>
   </div>
   <div class="page-num"></div>
-</section>
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="sd06-piani-b-digitali.html#slide-5">regola del backup 3-2-1 ↗</a></div></section>
 
 <!-- === SLIDE 15: ANTIVIRUS VS EDR === -->
 <section class="slide">
-  <div class="split even">
+  <div class="split" style="grid-template-columns:3fr 2fr;gap:54px;">
     <div class="col stack">
 
       <h2 class="h-big reveal">Antivirus <em class="hot">vs</em> EDR</h2>
-      <p class="lead reveal d1">Non tutti i software di protezione sono uguali. La differenza è cruciale.</p>
       <div class="grid2 reveal d2" style="margin-top:10px;">
         <div class="card">
           <h3>🛡️ Antivirus classico</h3>
@@ -654,35 +636,55 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <p>Windows Defender integrato in Windows 10/11 è ottimo per uso domestico. Tienilo attivo e aggiornato — è gratuito e più che sufficiente per il 95% delle minacce quotidiane.</p>
       </div>
     </div>
-    <div class="illu reveal d1">
-      <svg viewBox="0 0 260 260" style="max-width:240px;margin:0 auto;" role="img" aria-label="Confronto antivirus firma vs EDR comportamentale">
-        <!-- Antivirus side -->
-        <rect x="20" y="30" width="100" height="200" rx="10" fill="#fbf5ec" stroke="#d8c9b4" stroke-width="3"/>
-        <text x="70" y="58" text-anchor="middle" font-family="Space Grotesk" font-size="15" fill="#1c1714" font-weight="700">Antivirus</text>
-        <text x="70" y="74" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#6b5f54">firma = lista</text>
-        <!-- Known malware match -->
-        <rect x="36" y="88" width="68" height="20" rx="4" fill="#e6533b" opacity=".7"/>
-        <text x="70" y="102" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#fff">malware A ✓</text>
-        <rect x="36" y="114" width="68" height="20" rx="4" fill="#e6533b" opacity=".7"/>
-        <text x="70" y="128" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#fff">malware B ✓</text>
-        <!-- Unknown -->
-        <rect x="36" y="140" width="68" height="20" rx="4" fill="#d8c9b4" opacity=".5"/>
-        <text x="70" y="154" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#6b5f54">NEW ??? 👻</text>
-        <text x="70" y="185" text-anchor="middle" font-family="Space Grotesk" font-size="13" fill="#e6533b">Non visto!</text>
-        <!-- EDR side -->
-        <rect x="140" y="30" width="100" height="200" rx="10" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
-        <text x="190" y="58" text-anchor="middle" font-family="Space Grotesk" font-size="15" fill="#f4ece0" font-weight="700">EDR</text>
-        <text x="190" y="74" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#e6c14a">comportamento</text>
-        <!-- Behavior monitoring -->
-        <rect x="156" y="88" width="68" height="20" rx="4" fill="#e6c14a" opacity=".8"/>
-        <text x="190" y="102" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#1c1714">script run ✓</text>
-        <rect x="156" y="114" width="68" height="20" rx="4" fill="#e6c14a" opacity=".8"/>
-        <text x="190" y="128" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#1c1714">network conn ✓</text>
-        <rect x="156" y="140" width="68" height="20" rx="4" fill="#e6533b"/>
-        <text x="190" y="154" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#fff">NEW → BLOCCA</text>
-        <text x="190" y="185" text-anchor="middle" font-family="Space Grotesk" font-size="13" fill="#e6c14a">Comportamento sospetto!</text>
+    <div class="reveal d1">
+      <svg viewBox="0 0 520 560" style="width:100%;height:auto;display:block;" role="img" aria-label="L'antivirus confronta una firma con un archivio di minacce note; l'EDR osserva le azioni e blocca un comportamento anomalo">
+        <!-- Percorso dell'antivirus: confronto con un archivio noto -->
+        <rect x="20" y="26" width="480" height="226" rx="28" fill="#fbf5ec" stroke="#d8c9b4" stroke-width="5"/>
+        <circle cx="74" cy="80" r="30" fill="#e6533b"/>
+        <path d="M74 58l20 8v16c0 15-9 26-20 32-11-6-20-17-20-32V66z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/>
+        <text x="126" y="75" font-family="Space Grotesk" font-size="30" font-weight="700" fill="#1c1714">Antivirus</text>
+        <text x="126" y="102" font-family="Space Mono" font-size="17" fill="#6b5f54">CONFRONTA LA FIRMA</text>
+
+        <g transform="translate(60 148)">
+          <ellipse cx="60" cy="16" rx="52" ry="16" fill="#e6533b"/>
+          <path d="M8 16v40c0 9 23 16 52 16s52-7 52-16V16" fill="#f7d3ca" stroke="#e6533b" stroke-width="4"/>
+          <path d="M8 36c0 9 23 16 52 16s52-7 52-16" fill="none" stroke="#e6533b" stroke-width="3"/>
+          <text x="60" y="41" text-anchor="middle" font-family="Space Mono" font-size="14" font-weight="700" fill="#7a2d20">FIRME NOTE</text>
+        </g>
+        <path d="M222 190h44" stroke="#1c1714" stroke-width="5" stroke-linecap="round"/>
+        <path d="M258 178l16 12-16 12" fill="none" stroke="#1c1714" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="294" y="151" width="174" height="64" rx="18" fill="#e6533b"/>
+        <circle cx="322" cy="183" r="16" fill="#fff"/>
+        <path d="M315 183l5 6 10-12" fill="none" stroke="#e6533b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="396" y="178" text-anchor="middle" font-family="Space Mono" font-size="13" fill="#fbd9d1">MINACCIA NOTA</text>
+        <text x="396" y="201" text-anchor="middle" font-family="Space Grotesk" font-size="18" font-weight="700" fill="#fff">bloccata</text>
+        <text x="260" y="240" text-anchor="middle" font-family="Space Grotesk" font-size="17" font-weight="600" fill="#6b5f54">Efficace se la firma è già nell’archivio</text>
+
+        <!-- Percorso dell'EDR: osservazione di una sequenza di azioni -->
+        <rect x="20" y="282" width="480" height="252" rx="28" fill="#163b35" stroke="#1c1714" stroke-width="5"/>
+        <circle cx="74" cy="338" r="30" fill="#e6c14a"/>
+        <circle cx="74" cy="338" r="13" fill="none" stroke="#163b35" stroke-width="4"/>
+        <path d="M74 315v10M74 351v10M51 338h10M87 338h10" stroke="#163b35" stroke-width="4" stroke-linecap="round"/>
+        <text x="126" y="333" font-family="Space Grotesk" font-size="30" font-weight="700" fill="#f4ece0">EDR</text>
+        <text x="126" y="360" font-family="Space Mono" font-size="17" fill="#e6c14a">OSSERVA IL COMPORTAMENTO</text>
+
+        <path d="M60 424H360" stroke="#6c948d" stroke-width="4" stroke-linecap="round"/>
+        <g font-family="Space Mono" font-size="14" text-anchor="middle">
+          <circle cx="90" cy="424" r="18" fill="#3f7e8c"/>
+          <text x="90" y="463" fill="#f4ece0">script</text>
+          <circle cx="225" cy="424" r="18" fill="#3f7e8c"/>
+          <text x="225" y="463" fill="#f4ece0">rete</text>
+          <circle cx="360" cy="424" r="18" fill="#e6533b"/>
+          <path d="M353 417l14 14M367 417l-14 14" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+          <text x="360" y="463" fill="#e6c14a">anomalia</text>
+        </g>
+        <path d="M382 424h28" stroke="#e6533b" stroke-width="5" stroke-linecap="round"/>
+        <path d="M400 412l16 12-16 12" fill="none" stroke="#e6533b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="416" y="390" width="70" height="68" rx="16" fill="#e6533b"/>
+        <text x="451" y="418" text-anchor="middle" font-family="Space Mono" font-size="13" font-weight="700" fill="#fff">AZIONE</text>
+        <text x="451" y="439" text-anchor="middle" font-family="Space Grotesk" font-size="17" font-weight="700" fill="#fff">bloccata</text>
+        <text x="260" y="500" text-anchor="middle" font-family="Space Grotesk" font-size="18" font-weight="600" fill="#e6c14a">Riconosce anche schemi mai catalogati</text>
       </svg>
-      <div class="illu-cap">Firma vs comportamento: approcci diversi</div>
     </div>
   </div>
   <div class="page-num"></div>
@@ -692,8 +694,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 <section class="slide tight-slide">
   <div class="center">
 
-    <h2 class="h-sec reveal" style="margin-top:22px;">Mettere in sicurezza<br>la propria <em class="hot">rete domestica</em></h2>
-    <p class="lead reveal d1">La rete di casa è il perimetro della tua vita digitale. Configurarla bene protegge tutti i dispositivi collegati — smartphone, PC, smart TV, dispositivi IoT.</p>
+    <h2 class="h-sec reveal">Mettere in sicurezza la propria <em class="hot">rete domestica</em></h2>
+    <p class="body reveal d1">La rete di casa è il perimetro della tua vita digitale. Configurarla bene protegge tutti i dispositivi collegati — smartphone, PC, smart TV e dispositivi IoT.</p>
     <div class="grid4 reveal d2" style="margin-top:22px;">
       <div class="card">
         <span class="ic">🔑</span>
@@ -730,7 +732,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="col stack">
 
       <h2 class="h-big reveal">VPN: rete<br><em class="hot">privata virtuale</em></h2>
-      <p class="lead reveal d1">Una VPN crea un tunnel cifrato fino al server VPN e protegge dal monitoraggio sulla rete locale; non rende sicuri endpoint compromessi, siti malevoli o traffico oltre il server VPN.</p>
+      <p class="body reveal d1">Una VPN crea un tunnel cifrato fino al server VPN e protegge dal monitoraggio sulla rete locale; non rende sicuri endpoint compromessi, siti malevoli o traffico oltre il server VPN.</p>
       <p class="body reveal d2">Particolarmente utile su WiFi pubblici, per aggirare censure geografiche, e per mascherare il tuo indirizzo IP dal sito che visiti.</p>
       <div class="stack reveal d3" style="margin-top:10px;">
         <div class="note">
@@ -743,34 +745,51 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         </div>
       </div>
     </div>
-    <div class="illu reveal d1">
-      <svg viewBox="0 0 260 260" style="max-width:240px;margin:0 auto;" role="img" aria-label="Schema VPN: tunnel cifrato tra dispositivo e internet">
-        <!-- Device -->
-        <rect x="20" y="110" width="60" height="40" rx="8" fill="#3f7e8c" stroke="#1c1714" stroke-width="3"/>
-        <text x="50" y="136" text-anchor="middle" font-family="Space Mono" font-size="12" fill="#f4ece0">📱 Tu</text>
-        <!-- VPN tunnel -->
-        <rect x="88" y="118" width="84" height="24" rx="12" fill="#e6c14a" stroke="#1c1714" stroke-width="2"/>
-        <text x="130" y="134" text-anchor="middle" font-family="Space Mono" font-size="11" fill="#1c1714" font-weight="700">VPN cifrata 🔒</text>
-        <!-- Attacker above -->
-        <circle cx="130" cy="72" r="20" fill="#e6533b" opacity=".6"/>
-        <text x="130" y="67" text-anchor="middle" font-size="16" fill="#fff">👹</text>
-        <text x="130" y="86" text-anchor="middle" font-family="Space Grotesk" font-size="12" fill="#e6533b">attaccante</text>
-        <!-- X over sniffing -->
-        <line x1="118" y1="92" x2="122" y2="118" stroke="#e6533b" stroke-width="2" stroke-dasharray="4"/>
-        <line x1="116" y1="100" x2="128" y2="108" stroke="#e6533b" stroke-width="3"/>
-        <line x1="128" y1="100" x2="116" y2="108" stroke="#e6533b" stroke-width="3"/>
-        <!-- VPN server -->
-        <rect x="180" y="100" width="60" height="60" rx="8" fill="#163b35" stroke="#1c1714" stroke-width="3"/>
-        <text x="210" y="126" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#e6c14a">VPN</text>
-        <text x="210" y="142" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#e6c14a">SERVER</text>
-        <!-- Internet cloud -->
-        <ellipse cx="210" cy="210" rx="44" ry="26" fill="#d8c9b4"/>
-        <ellipse cx="188" cy="220" rx="28" ry="18" fill="#d8c9b4"/>
-        <ellipse cx="232" cy="220" rx="28" ry="18" fill="#d8c9b4"/>
-        <text x="210" y="218" text-anchor="middle" font-family="Space Grotesk" font-size="13" fill="#1c1714">🌐 Internet</text>
-        <line x1="210" y1="160" x2="210" y2="190" stroke="#163b35" stroke-width="3"/>
+    <div class="reveal d1">
+      <svg viewBox="0 0 560 520" style="width:100%;max-height:760px;display:block;margin:0 auto;" role="img" aria-label="Il dispositivo invia dati cifrati al server VPN; chi osserva la rete locale non può leggerli, mentre il server VPN inoltra la connessione a Internet">
+        <defs>
+          <marker id="vpn-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 0l10 5-10 5z" fill="#1c1714"/>
+          </marker>
+        </defs>
+
+        <!-- Osservatore escluso dal tunnel -->
+        <circle cx="280" cy="82" r="46" fill="#f7d3ca" stroke="#e6533b" stroke-width="4"/>
+        <path d="M258 84c13-17 31-17 44 0-13 17-31 17-44 0z" fill="none" stroke="#e6533b" stroke-width="5"/>
+        <circle cx="280" cy="84" r="8" fill="#e6533b"/>
+        <path d="M250 52l60 60" stroke="#e6533b" stroke-width="7" stroke-linecap="round"/>
+        <text x="280" y="148" text-anchor="middle" font-family="Space Grotesk" font-size="22" font-weight="700" fill="#e6533b">osservatore sulla rete</text>
+        <path d="M280 166v54" stroke="#e6533b" stroke-width="4" stroke-dasharray="8 9"/>
+        <circle cx="280" cy="199" r="15" fill="#e6533b"/>
+        <path d="M273 192l14 14M287 192l-14 14" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+
+        <!-- Percorso principale -->
+        <rect x="24" y="246" width="124" height="112" rx="24" fill="#3f7e8c" stroke="#1c1714" stroke-width="5"/>
+        <rect x="65" y="268" width="42" height="62" rx="7" fill="none" stroke="#f4ece0" stroke-width="5"/>
+        <circle cx="86" cy="319" r="3" fill="#f4ece0"/>
+        <text x="86" y="388" text-anchor="middle" font-family="Space Grotesk" font-size="25" font-weight="700" fill="#1c1714">Tu</text>
+
+        <path d="M150 302h254" stroke="#1c1714" stroke-width="7" marker-end="url(#vpn-arrow)"/>
+        <rect x="164" y="266" width="210" height="72" rx="36" fill="#e6c14a" stroke="#1c1714" stroke-width="5"/>
+        <path d="M196 288v-8a16 16 0 0132 0v8" fill="none" stroke="#1c1714" stroke-width="5"/>
+        <rect x="190" y="288" width="44" height="34" rx="7" fill="#1c1714"/>
+        <circle cx="212" cy="301" r="5" fill="#e6c14a"/>
+        <path d="M212 306v8" stroke="#e6c14a" stroke-width="4" stroke-linecap="round"/>
+        <text x="300" y="310" text-anchor="middle" font-family="Space Mono" font-size="19" font-weight="700" fill="#1c1714">DATI CIFRATI</text>
+
+        <rect x="412" y="230" width="124" height="144" rx="24" fill="#163b35" stroke="#1c1714" stroke-width="5"/>
+        <path d="M444 264h60M444 282h60M444 300h60" stroke="#e6c14a" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="454" cy="334" r="6" fill="#3f7e8c"/>
+        <circle cx="474" cy="334" r="6" fill="#e6c14a"/>
+        <text x="474" y="405" text-anchor="middle" font-family="Space Grotesk" font-size="24" font-weight="700" fill="#163b35">Server VPN</text>
+
+        <!-- Dal server VPN a Internet: tratta distinta e non più nel tunnel locale -->
+        <path d="M474 376v54h-92" fill="none" stroke="#163b35" stroke-width="6" marker-end="url(#vpn-arrow)"/>
+        <path d="M188 444c0-23 19-42 42-42 12 0 24 5 32 14 8-13 23-22 40-22 25 0 45 18 49 42 18 2 32 17 32 36 0 20-16 36-36 36H210c-25 0-46-20-46-45 0-17 10-32 24-39z" fill="#d8c9b4" stroke="#1c1714" stroke-width="4"/>
+        <circle cx="274" cy="455" r="27" fill="none" stroke="#1c1714" stroke-width="4"/>
+        <path d="M247 455h54M274 428c10 10 15 18 15 27s-5 18-15 27M274 428c-10 10-15 18-15 27s5 18 15 27" fill="none" stroke="#1c1714" stroke-width="3"/>
+        <text x="320" y="464" font-family="Space Grotesk" font-size="25" font-weight="700" fill="#1c1714">Internet</text>
       </svg>
-      <div class="illu-cap">Il tunnel VPN rende il traffico illeggibile</div>
     </div>
   </div>
   <div class="page-num"></div>
@@ -781,16 +800,12 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
   <div class="center">
 
     <h2 class="h-sec reveal" style="margin-top:22px;">Sei stato <em class="hot">attaccato?</em> Cosa fare</h2>
-    <p class="lead reveal d1">Scoprire di essere stati compromessi è stressante. Avere un piano in testa aiuta a limitare i danni e agire con lucidità.</p>
-    <div class="grid2 reveal d2" style="margin-top:20px;gap:20px 40px;">
-      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:60px;line-height:1;">1</span><div><b style="font-size:28px;">Disconnetti dalla rete</b><br><p style="font-size:24px;color:var(--ink-soft);">Stacca il cavo o disattiva il WiFi subito. Impedisci al malware di comunicare con l'attaccante o diffondersi in rete.</p></div></div>
-      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:60px;line-height:1;">2</span><div><b style="font-size:28px;">Non spegnere il PC</b><br><p style="font-size:24px;color:var(--ink-soft);">Alcuni malware cancellano le tracce allo spegnimento. Lascia acceso per permettere l'analisi forense se necessaria.</p></div></div>
-      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:60px;line-height:1;">3</span><div><b style="font-size:28px;">Cambia le password dall'esterno</b><br><p style="font-size:24px;color:var(--ink-soft);">Da un altro dispositivo, cambia subito le password di email, banca e account critici. Il dispositivo infetto non è attendibile.</p></div></div>
-      <div style="display:flex;gap:16px;"><span style="font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--red);min-width:60px;line-height:1;">4</span><div><b style="font-size:28px;">Segnala e chiedi aiuto</b><br><p style="font-size:24px;color:var(--ink-soft);">Denuncia alla Polizia Postale (<a href="https://www.commissariatodips.it/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">commissariatodips.it</a>). Per aziende: contatta un team di incident response professionista.</p></div></div>
-    </div>
-    <div class="note red reveal d3" style="margin-top:18px;">
-      <div class="lbl">⚠️ Non pagare il riscatto</div>
-      <p>Il pagamento non garantisce il ripristino dei dati — e finanzia il gruppo criminale. Un backup isolato e verificato riduce fortemente l'impatto sui dati, ma restano possibili fermo operativo, furto di informazioni e costi di ripristino.</p>
+    <p class="body reveal d1">Scoprire di essere stati compromessi è stressante. Avere un piano in testa aiuta a limitare i danni e agire con lucidità.</p>
+    <div class="stack reveal d2" style="margin-top:18px;gap:10px;">
+      <div style="display:grid;grid-template-columns:60px 1fr;gap:18px;align-items:start;border-bottom:2px dashed var(--line);padding:0 0 10px;"><span style="font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);line-height:1;">1</span><div><b style="font-size:27px;">Disconnetti dalla rete</b><p style="font-size:23px;color:var(--ink-soft);">Stacca il cavo o disattiva il WiFi: impedisci al malware di comunicare o diffondersi.</p></div></div>
+      <div style="display:grid;grid-template-columns:60px 1fr;gap:18px;align-items:start;border-bottom:2px dashed var(--line);padding:0 0 10px;"><span style="font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);line-height:1;">2</span><div><b style="font-size:27px;">Non spegnere il PC</b><p style="font-size:23px;color:var(--ink-soft);">Lascialo acceso se potrebbe servire un’analisi forense: alcune tracce risiedono in memoria.</p></div></div>
+      <div style="display:grid;grid-template-columns:60px 1fr;gap:18px;align-items:start;border-bottom:2px dashed var(--line);padding:0 0 10px;"><span style="font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);line-height:1;">3</span><div><b style="font-size:27px;">Cambia le password dall’esterno</b><p style="font-size:23px;color:var(--ink-soft);">Usa un altro dispositivo per proteggere email, banca e account critici.</p></div></div>
+      <div style="display:grid;grid-template-columns:60px 1fr;gap:18px;align-items:start;padding:0;"><span style="font-family:var(--font-display);font-weight:900;font-size:44px;color:var(--red);line-height:1;">4</span><div><b style="font-size:27px;">Segnala e chiedi aiuto</b><p style="font-size:23px;color:var(--ink-soft);">Contatta la Polizia Postale e, in azienda, il team responsabile della risposta agli incidenti.</p></div></div>
     </div>
   </div>
   <div class="page-num"></div>
@@ -802,7 +817,7 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <div class="col stack">
 
       <h2 class="h-big reveal">Doxing:<br>i tuoi dati come <em class="hot">arma</em></h2>
-      <p class="lead reveal d1">Il <b>doxing</b> consiste nel raccogliere e pubblicare online dati personali di qualcuno senza consenso, con l'obiettivo di intimidire, ricattare o danneggiare.</p>
+      <p class="body reveal d1">Il <b>doxing</b> consiste nel raccogliere e pubblicare online dati personali di qualcuno senza consenso, con l'obiettivo di intimidire, ricattare o danneggiare.</p>
       <div class="stack reveal d2">
         <div class="note">
           <div class="lbl">Dati usati</div>
@@ -815,8 +830,8 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
       </div>
       <div class="analogy reveal d3"><span class="big">Difesa:</span> Ridurre dati pubblici, controllare privacy di ogni profilo, rimuovere vecchie info, segnalare alle piattaforme.</div>
     </div>
-    <div class="illu reveal d1">
-      <svg viewBox="0 0 220 220" style="max-width:200px;margin:0 auto;" role="img" aria-label="Dati personali raccolti e pubblicati">
+    <div class="reveal d1">
+      <svg viewBox="0 0 220 220" style="width:100%;max-height:700px;display:block;margin:0 auto;" role="img" aria-label="Dati personali raccolti e pubblicati">
         <circle cx="110" cy="80" r="36" fill="#f4ece0" stroke="#e6533b" stroke-width="2.5"/>
         <text x="110" y="86" text-anchor="middle" font-size="30">👤</text>
         <rect x="10" y="140" width="58" height="26" rx="6" fill="#e6533b" opacity=".18" stroke="#e6533b" stroke-width="1.5"/>
@@ -831,7 +846,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <rect x="30" y="178" width="160" height="30" rx="8" fill="#e6533b" opacity=".25"/>
         <text x="110" y="198" text-anchor="middle" font-family="Space Grotesk" font-size="13" font-weight="700" fill="#e6533b">pubblicati insieme = doxing</text>
       </svg>
-      <div class="illu-cap">Dati sparsi raccolti e usati come attacco</div>
     </div>
   </div>
   <div class="page-num"></div>
@@ -860,10 +874,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
         <p>Finge di aver trovato virus gravi per spingere l'utente a pagare un "antivirus" falso o a chiamare un numero truffa. Sfrutta la paura, non la tecnica.</p>
       </div>
     </div>
-    <div class="note reveal d3" style="margin-top:20px;">
-      <div class="lbl">Difesa comune</div>
-      <p>Non installare software da fonti non ufficiali. Tenere aggiornato il sistema operativo. Un avviso pop-up che urla "Virus trovato!" è quasi sempre scareware — chiudere il browser senza cliccare nulla.</p>
-    </div>
   </div>
   <div class="page-num"></div>
 </section>
@@ -876,11 +886,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     <h2 class="h-sec reveal" style="margin-top:14px;">Darknet, dark market ed <em class="hot">exploit kit</em></h2>
     <p class="lead reveal d1">Non serve frequentare ambienti criminali per subirne gli effetti: credenziali, documenti e strumenti d'attacco circolano dopo violazioni e furti di dati.</p>
     <div class="grid3 reveal d2" style="margin-top:22px;">
-      <div class="card" style="border-color:var(--red);"><span class="ic">🌑</span><h3>Darknet</h3><p>Reti non raggiungibili con un browser standard. Possono servire anche all'anonimato, ma ospitano mercati e servizi illegali.</p></div>
-      <div class="card" style="border-color:var(--red);"><span class="ic">🛒</span><h3>Dark market</h3><p>Mercati dove vengono venduti dati rubati, accessi, malware, documenti falsi e servizi criminali.</p></div>
-      <div class="card" style="border-color:var(--gold-deep);"><span class="ic">🧰</span><h3>Exploit kit</h3><p>Pacchetti pronti per sfruttare vulnerabilità note. Funzionano soprattutto contro sistemi non aggiornati.</p></div>
+      <div class="card" style="border-color:var(--red);"><h3>Darknet</h3><p>Reti non raggiungibili con un browser standard. Possono servire anche all'anonimato, ma ospitano mercati e servizi illegali.</p></div>
+      <div class="card" style="border-color:var(--red);"><h3>Dark market</h3><p>Mercati dove vengono venduti dati rubati, accessi, malware, documenti falsi e servizi criminali.</p></div>
+      <div class="card" style="border-color:var(--gold-deep);"><h3>Exploit kit</h3><p>Pacchetti pronti per sfruttare vulnerabilità note. Funzionano soprattutto contro sistemi non aggiornati.</p></div>
     </div>
-    <div class="note reveal d3" style="margin-top:22px;"><div class="lbl">Difesa concreta</div><p>Aggiornamenti, password uniche, 2FA e monitoraggio dei leak riducono il valore dei dati rubati e chiudono molte vulnerabilità sfruttabili.</p></div>
   </div>
   <div class="page-num"></div>
 </section>

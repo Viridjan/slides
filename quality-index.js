@@ -30,6 +30,7 @@ window.QUALITY_INDEX = {
   "decks/cd01-02-accessibilita-immagini.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "decks/cd01-03-metadati-formati.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "decks/cd01-04-sicurezza-contenuti.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
+  "decks/cd01-05-viaggio-di-un-contenuto.html": { coverage: 2, clarity: 2, examples: 1, correctness: 2, freshness: 2 },
   "decks/cd02-01-podcast-storytelling.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 2 },
   "decks/rw03-01-identita.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },
   "decks/rw03-02-societa.html": { coverage: 2, clarity: 2, examples: 2, correctness: 2, freshness: 1 },

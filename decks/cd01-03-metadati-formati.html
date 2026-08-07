@@ -237,6 +237,24 @@
 <div class="page-num">
 </div>
 </section>
+<section class="slide">
+<h2 class="h-sec reveal">DPI: la risoluzione per la stampa</h2>
+<p class="lead reveal d1">I <b>DPI</b> (dots per inch, punti per pollice) contano quanti punti di inchiostro entrano in un pollice di carta stampata — non vanno confusi con i pixel dello schermo.</p>
+<table class="table reveal d2" style="margin-top:24px;">
+<thead><tr><th>Uso</th><th>DPI consigliati</th><th>Perché</th></tr></thead>
+<tbody>
+<tr><td>Schermo e web</td><td>72–96 dpi</td><td>A distanza di lettura l'occhio non nota densità maggiori: file più leggero</td></tr>
+<tr><td>Documenti stampati</td><td>300 dpi</td><td>Standard per testo e foto nitidi da vicino, il minimo per una stampa professionale</td></tr>
+<tr><td>Poster e grandi formati</td><td>150 dpi</td><td>Visti da lontano: bastano meno punti per pollice senza perdere nitidezza percepita</td></tr>
+</tbody>
+</table>
+<div class="note reveal d3" style="margin-top:22px;">
+<div class="lbl">💡 Attenzione</div>
+<p>La stessa immagine da 3000×2000 pixel può stampare grande e sgranata a 72 dpi oppure piccola e nitida a 300 dpi: i pixel non cambiano, cambia solo quanto sono fitti sulla carta.</p>
+</div>
+<div class="page-num">
+</div>
+</section>
 <section class="slide" data-content-review-hash="ff10b7caaf9e7282" data-content-review-date="2026-07-20">
 <h2 class="h-sec reveal">JPEG, PNG e SVG</h2>
 <p class="lead reveal d1">Tre formati per tre lavori diversi. Non è una classifica di qualità: è questione di adattarsi al contenuto.</p>
@@ -291,7 +309,7 @@
 <div class="page-num">
 </div>
 </section>
-<section class="slide"><div style="height:100%;display:flex;flex-direction:column;justify-content:center;"><h2 class="h-sec reveal">Audio, video e codec</h2><p class="lead reveal d1" style="margin-top:16px;">Cambiare l’estensione non trasforma i dati; e se l’audio funziona ma lo schermo resta nero, il file c’è: manca il decoder video.</p><div class="reveal d2" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:26px;"><div class="card"><h3>Audio: WAV vs MP3</h3><p>WAV per registrazione e montaggio (grande, lossless); MP3 per distribuire (leggero, con perdita).</p></div><div class="card"><h3>Codec video</h3><p>Il player deve supportare contenitore, codec e profilo. Offri formati multipli come fallback.</p></div><div class="card"><h3>Convertire ≠ rinominare</h3><p>Un convertitore decodifica il formato iniziale e ricodifica quello finale.</p></div></div><div class="reveal d3" style="margin-top:24px;align-self:flex-start;display:inline-flex;align-items:center;gap:14px;background:var(--teal);color:var(--paper);border-radius:50px;padding:14px 28px;font-size:23px;font-weight:600;line-height:1.3;"><b style="color:var(--gold);font-family:var(--font-display);font-weight:900;">In pratica:</b> Conserva il master; distribuisci una copia adatta al canale.</div></div><div class="page-num"></div></section><section class="slide closing"><div class="closing-inner"><h2 class="h-sec reveal">Punti da portare con sé</h2>
+<section class="slide"><div style="height:100%;display:flex;flex-direction:column;justify-content:center;"><h2 class="h-sec reveal">Audio, video e codec</h2><p class="lead reveal d1" style="margin-top:16px;">Cambiare l’estensione non trasforma i dati; e se l’audio funziona ma lo schermo resta nero, il file c’è: manca il decoder video.</p><div class="reveal d2" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:26px;"><div class="card"><h3>Audio: WAV vs MP3</h3><p>WAV per registrazione e montaggio (grande, lossless); MP3 per distribuire (leggero, con perdita).</p></div><div class="card"><h3>Codec video</h3><p>Il player deve supportare contenitore, codec e profilo. Offri formati multipli come fallback.</p></div><div class="card"><h3>Convertire ≠ rinominare</h3><p>Un convertitore decodifica il formato iniziale e ricodifica quello finale.</p></div></div><div class="reveal d3" style="margin-top:24px;align-self:flex-start;display:inline-flex;align-items:center;gap:14px;background:var(--teal);color:var(--paper);border-radius:50px;padding:14px 28px;font-size:23px;font-weight:600;line-height:1.3;"><b style="color:var(--gold);font-family:var(--font-display);font-weight:900;">In pratica:</b> Conserva il master; distribuisci una copia adatta al canale.</div></div><div class="page-num"></div></section><section class="slide tight-slide"><div style="height:100%;display:flex;flex-direction:column;justify-content:center;"><h2 class="h-sec reveal">Bitrate: il rubinetto dei dati</h2><p class="lead reveal d1" style="margin-top:16px;">Durante l'esportazione di audio o video, il <b>bitrate</b> (bit al secondo) è il parametro che più incide sul peso del file finale: quanti dati vengono riservati a ogni secondo di contenuto.</p><div class="reveal d2" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:26px;"><div class="card"><h3>Bitrate alto</h3><p>Più dati al secondo: qualità migliore, file più pesante.</p></div><div class="card teal"><h3>Bitrate basso</h3><p>Meno dati al secondo: file leggero, ma con più artefatti visibili o udibili.</p></div><div class="card gold"><h3>Costante o variabile</h3><p>Fisso (CBR) su tutta la durata, oppure variabile (VBR): più bit dove la scena è complessa, meno dove è statica.</p></div></div><div class="reveal d3" style="margin-top:24px;align-self:flex-start;display:inline-flex;align-items:center;gap:14px;background:var(--teal);color:var(--paper);border-radius:50px;padding:14px 28px;font-size:23px;font-weight:600;line-height:1.3;"><b style="color:var(--gold);font-family:var(--font-display);font-weight:900;">In pratica:</b> a parità di risoluzione e codec, è il bitrate a decidere se il file esportato pesa 10 MB o 100 MB.</div></div><div class="page-num"></div></section><section class="slide closing"><div class="closing-inner"><h2 class="h-sec reveal">Punti da portare con sé</h2>
 <p class="lead reveal">Rivedi le decisioni, motiva le risposte e applica il metodo a un contenuto reale prima di passare al blocco successivo.</p>
 <div class="sources">
 <a href="https://www.loc.gov/standards/premis/" target="_blank" rel="noopener noreferrer">PREMIS — Library of Congress ↗</a>

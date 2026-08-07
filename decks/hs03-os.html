@@ -121,12 +121,6 @@ em.hot{font-style:italic;color:var(--red);}em.sky{font-style:italic;color:var(--
 .agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:48px;color:var(--teal);min-width:72px;}
 .agenda-item .t{font-size:27px;font-weight:600;color:var(--ink);}
 .closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing .gold{color:var(--gold);}
-.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
-.edit-toggle{position:fixed;top:18px;left:18px;z-index:10001;width:56px;height:56px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);font-size:24px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease;}
-.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}.edit-toggle.active{background:var(--red);}
-body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;border-radius:4px;}
-.edit-hint{position:fixed;top:84px;left:18px;z-index:10001;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:15px;padding:8px 12px;border-radius:8px;display:none;max-width:240px;}
-.edit-hint.show{display:block;}
 .progress{position:fixed;bottom:0;left:0;height:4px;background:var(--teal);transition:width .4s var(--ease);z-index:9999;}
 .title-slide .lead,.title-slide .chips{display:none;}
 
@@ -446,10 +440,10 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
     </div>
     <div class="note reveal d2" style="margin-top:28px;">
       <div class="lbl">💡 Perché importa</div>
-      <p>Il modello di licenza non è un dettaglio legale: decide se puoi ispezionare, modificare e ridistribuire il sistema che usi. Definizioni complete di libero, open source e proprietario in HS04 · Concetti fondamentali degli OS.</p>
+      <p>Il modello di licenza non è un dettaglio legale: decide se puoi ispezionare, modificare e ridistribuire il sistema che usi.</p>
     </div>
     <div class="page-num"></div>
-  </section>
+  <div class="cross-reference-footer" data-cross-reference-footer="true"><a href="hs04-os-concetti.html#slide-8">proprietario, open source, software libero ↗</a></div></section>
 
   <!-- ===== SLIDE 10 · ANDROID NEL CONFRONTO ===== -->
   <section class="slide tight-slide">
@@ -757,11 +751,6 @@ body.editing [contenteditable]{outline:2px dashed var(--sky);outline-offset:4px;
 
 <div class="progress" id="progress"></div>
 <a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
-<div class="edit-hotzone" aria-hidden="true"></div>
-<button class="edit-toggle" id="editToggle" title="Modalità modifica (E)">✏️</button>
-<div class="edit-hint" id="editHint">Modifica attiva — clicca un testo per cambiarlo. Premi <b>Ctrl+S</b> per salvare, <b>E</b> per uscire.</div>
-
-
 <script src="../deck.js"></script>
 </body>
 </html>

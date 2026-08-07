@@ -218,6 +218,14 @@ globalThis.AGENDA_INDEX = {
       "CMS resilienti · Plugin, permessi minimi, manutenzione, backup e risposta agli incidenti."
     ]
   },
+  "decks/cd01-05-viaggio-di-un-contenuto.html": {
+    "title": "Cosa vedremo",
+    "items": [
+      "Nascita e peso · Metadati nascosti alla creazione, poi compressione e bitrate prima della pubblicazione.",
+      "Posizione e regole · Gerarchia visiva, testo alternativo, contenuti dinamici e licenze d'uso.",
+      "Collaborazione e chiusura · Cronologia delle versioni e cifratura a riposo quando il file si ferma."
+    ]
+  },
   "decks/cd02-01-podcast-storytelling.html": {
     "title": "Cosa vedremo",
     "items": [

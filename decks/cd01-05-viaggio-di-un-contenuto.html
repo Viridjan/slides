@@ -1,0 +1,214 @@
+<!-- Proprietà intellettuale di Francesco Antonio Binetti -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il viaggio di un contenuto · CD01.05</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ece0;--paper-2:#ece0cf;--ink:#1c1714;--ink-soft:#3a322c;--ink-faint:#6b5f54;
+  --red:#e6533b;--teal:#163b35;--teal-2:#1f5249;--gold:#e6c14a;--gold-deep:#d98a2b;--sky:#3f7e8c;--line:#d8c9b4;
+  --font-display:"Fraunces",Georgia,serif;--font-body:"Space Grotesk",sans-serif;--font-mono:"Space Mono",monospace;
+  --stage-bg:#241d17;--slide-bg:var(--paper);--ease:cubic-bezier(.2,.8,.2,1);--dur:.6s;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+@media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff;}.deck-viewport{position:static;overflow:visible;background:#fff;}.deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none;}.slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always;}.slide:last-child{break-after:auto;page-break-after:auto;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.2s !important;}}
+.slide{font-family:var(--font-body);color:var(--ink);padding:96px 110px;}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:26px 26px;opacity:.30;}
+.page-num{position:absolute;bottom:56px;right:120px;z-index:5;font-family:var(--font-mono);font-size:22px;color:var(--ink-faint);}
+.page-num b{color:var(--red);font-size:30px;}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);}
+.slide.visible .reveal{opacity:1;transform:none;}
+.d1{transition-delay:.20s !important;}.d2{transition-delay:.32s !important;}.d3{transition-delay:.44s !important;}
+.d4{transition-delay:.56s !important;}
+em.hot{font-style:italic;color:var(--red);}
+.h-mega{font-family:var(--font-display);font-weight:900;font-size:138px;line-height:.86;letter-spacing:-4px;}
+.h-big{font-family:var(--font-display);font-weight:900;font-size:90px;line-height:.92;letter-spacing:-2px;}
+.h-sec{font-family:var(--font-display);font-weight:900;font-size:72px;line-height:.95;letter-spacing:-1.5px;}
+.lead{font-size:32px;line-height:1.45;color:var(--ink-soft);max-width:1160px;}
+.body{font-size:27px;line-height:1.5;color:var(--ink-soft);}
+.card{background:#fbf5ec;border:2px solid var(--ink);border-radius:14px;padding:26px 30px;box-shadow:7px 8px 0 rgba(28,23,20,.13);position:relative;}
+.card h3{font-family:var(--font-display);font-weight:900;font-size:34px;margin-bottom:8px;line-height:1.05;}
+.card p{font-size:23px;line-height:1.36;color:var(--ink-soft);}
+.card .ic{font-size:46px;line-height:1;display:block;margin-bottom:8px;}
+.note{background:var(--gold);border:2px solid var(--ink);border-radius:14px;padding:22px 28px;box-shadow:6px 7px 0 rgba(28,23,20,.16);}
+.note.red{background:#f3b6aa;}
+.note.sky{background:#d9edf2;}
+.note .lbl{font-family:var(--font-mono);font-weight:700;font-size:21px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.note p{font-size:24px;line-height:1.36;color:var(--ink);}
+.analogy{display:inline-flex;align-items:center;gap:18px;background:var(--teal);color:var(--paper);border-radius:50px;padding:16px 30px;font-size:26px;font-weight:600;}
+.analogy .big{font-family:var(--font-display);font-weight:900;font-size:32px;color:var(--gold);}
+.col{display:flex;flex-direction:column;}.center{height:100%;display:flex;flex-direction:column;justify-content:center;}
+.split{display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;height:100%;}
+.split.even{grid-template-columns:1fr 1fr;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;}
+.stack>*+*{margin-top:22px;}
+.agenda-item{display:flex;align-items:flex-start;gap:22px;border-bottom:2px dashed var(--line);padding:13px 4px;}
+.agenda-item .n{font-family:var(--font-display);font-weight:900;font-size:38px;color:var(--red);min-width:44px;line-height:1;}
+.agenda-item b{font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--ink);line-height:1.1;}
+.agenda-item span.d{font-size:22px;color:var(--ink-faint);line-height:1.32;}
+.illu{background:#fbf5ec;border:3px solid var(--ink);border-radius:20px;box-shadow:9px 10px 0 rgba(28,23,20,.14);padding:30px;display:grid;place-items:center;}
+.illu-cap{font-family:var(--font-mono);font-size:21px;color:var(--ink-faint);text-align:center;margin-top:14px;}
+.title-slide{padding:0;display:grid;grid-template-columns:1.35fr 1fr;}
+.title-left{padding:120px 90px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;}
+.title-right{background:var(--teal);position:relative;overflow:hidden;display:grid;place-items:center;}
+.title-right>div,.title-right>svg{position:relative;z-index:2;}
+.title-right::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold),var(--gold-deep));right:-180px;top:-140px;animation:float 8s ease-in-out infinite alternate;}
+@keyframes float{to{transform:translate(-34px,46px) scale(1.04);}}
+.closing{background:var(--teal);}.closing::before{opacity:.12;}.closing *{color:var(--paper);}.closing .h-mega{color:var(--paper);}.closing .gold{color:var(--gold);}
+.progress{position:fixed;left:0;bottom:0;height:6px;background:var(--red);z-index:1000;transition:width .35s var(--ease);}
+.home-btn{position:fixed;left:18px;bottom:18px;z-index:10001;font-family:var(--font-mono);font-size:15px;letter-spacing:.5px;color:#f4ece0;background:rgba(28,23,20,.6);border:1px solid rgba(244,236,224,.35);border-radius:999px;padding:8px 15px;text-decoration:none;opacity:.55;transition:opacity .2s ease,background .2s ease;}
+.home-btn:hover{opacity:1;background:rgba(28,23,20,.85);}
+a{color:inherit;}
+</style>
+<link rel="stylesheet" href="../theme-corsi.css">
+</head>
+<body class="course-cd">
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- === SLIDE 1: TITLE === -->
+<section class="slide title-slide active visible">
+  <div class="title-left">
+    <h1 class="h-big reveal">Il viaggio di<br><em class="hot">un contenuto</em></h1>
+    <p class="lead reveal" style="margin-top:26px;">Da quando nasce a quando resta salvato da qualche parte, un file attraversa tappe che raramente si vedono: si alleggerisce, trova posto, incontra regole, invecchia con altri autori.</p>
+  </div>
+  <div class="title-right"><div class="reveal" style="font-size:190px;z-index:2;">🧭</div></div>
+  <div class="deck-author">Francesco Antonio Binetti</div>
+</section>
+
+<!-- === SLIDE 2: NASCE CON PIÙ DI QUELLO CHE VEDI (EXIF/metadati) === -->
+<section class="slide">
+  <h2 class="h-sec reveal">Nasce con più di quello <em class="hot">che vedi</em></h2>
+  <p class="lead reveal d1">Il primo passo del viaggio avviene prima ancora della pubblicazione: nel momento dello scatto o della registrazione, il file si porta dietro dei <b>metadati EXIF</b> — informazioni tecniche automatiche che l'immagine o il video non mostrano.</p>
+  <div class="grid3 reveal d2" style="margin-top:28px;">
+    <div class="card"><span class="ic">📍</span><h3>Dove</h3><p>Molti dispositivi registrano le coordinate del luogo insieme allo scatto, senza che si veda nell'immagine finale.</p></div>
+    <div class="card"><span class="ic">🕒</span><h3>Quando</h3><p>Data e ora esatte restano scritte nel file, anche se il contenuto viene pubblicato mesi dopo.</p></div>
+    <div class="card"><span class="ic">📷</span><h3>Con cosa</h3><p>Modello del dispositivo e impostazioni tecniche: dettagli che possono rivelare più di quanto sembri a prima vista.</p></div>
+  </div>
+  <div class="grid2 reveal d3" style="margin-top:20px;">
+    <div class="note sky"><div class="lbl">Il punto del viaggio</div><p>Questi dati viaggiano nascosti dentro il file fin dal primo istante: chi pubblica dovrebbe sapere che ci sono, prima di decidere se lasciarli.</p></div>
+    <div class="note"><div class="lbl">Chi definisce lo standard</div><p>Il formato è mantenuto da un consorzio giapponese di produttori (CIPA/JEITA) dal 1985: registra anche l'orientamento dello scatto, per questo una foto ruotata resta dritta quando la riapri altrove.</p></div>
+  </div>
+  <div class="page-num"></div>
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="cd01-03-metadati-formati.html#slide-6">metadati e privacy ↗</a></div></section>
+
+<!-- === SLIDE 3: VA ALLEGGERITO PRIMA DI PARTIRE (compressione/bitrate) === -->
+<section class="slide">
+  <h2 class="h-sec reveal">Va alleggerito <em class="hot">prima di partire</em></h2>
+  <p class="lead reveal d1">Un file appena creato è spesso troppo pesante per viaggiare così com'è. Prima di raggiungere una pagina web o una casella di posta, quasi sempre perde peso: cambia formato, oppure viene compresso.</p>
+  <div class="grid2 reveal d2" style="margin-top:28px;">
+    <div class="card"><h3>JPEG: con perdita</h3><p>Compressione <b>lossy</b>: scarta dati in modo irreversibile per pesare meno. È adatta alle fotografie, ma può creare artefatti sui bordi netti.</p></div>
+    <div class="card"><h3>PNG: senza perdita</h3><p>Compressione <b>lossless</b>: conserva tutti i dati e supporta la trasparenza. In cambio, sulle fotografie produce spesso file più pesanti.</p></div>
+    <div class="card"><h3>WebP: flessibile</h3><p>Supporta compressione con e senza perdita. A parità di qualità percepita, una fotografia WebP pesa spesso meno della corrispondente JPEG.</p></div>
+    <div class="card"><h3>AVIF: più efficiente</h3><p>Il formato AVIF, più recente, comprime ancora meglio: a parità di qualità può pesare il 20–30% in meno di un WebP e circa la metà di un JPEG.</p></div>
+  </div>
+  <div class="page-num"></div>
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="cd01-03-metadati-formati.html#slide-8">formati immagine ↗</a></div></section>
+
+<!-- === SLIDE 4: IL VIDEO TROVA IL SUO PESO (bitrate) === -->
+<section class="slide" style="justify-content:flex-start!important;">
+  <h2 class="h-sec reveal">Anche il video deve trovare <em class="hot">il suo peso</em></h2>
+  <p class="lead reveal d1">Nel video il formato non basta a prevedere le dimensioni finali. Durante l’esportazione, il <b>bitrate</b> stabilisce quanti dati vengono assegnati a ogni secondo di riproduzione.</p>
+  <div class="grid2 reveal d2" style="margin-top:28px;">
+    <div class="card"><h3>Bitrate più alto</h3><p>Conserva più dettaglio nelle scene ricche di movimento, nelle texture e nelle variazioni di colore. Richiede però più spazio, più banda durante lo streaming e tempi di caricamento maggiori.</p></div>
+    <div class="card"><h3>Bitrate più basso</h3><p>Riduce il peso e facilita la distribuzione, ma può produrre blocchi, contorni imprecisi e perdita di dettaglio. Gli artefatti diventano più visibili nelle scene complesse.</p></div>
+  </div>
+  <div class="note sky reveal d3" style="margin-top:22px;"><div class="lbl">La scelta avviene in esportazione</div><p>Durata e bitrate determinano gran parte del peso: a parità di durata, raddoppiare il bitrate porta indicativamente a raddoppiare i dati da conservare. Risoluzione, frequenza dei fotogrammi e codec influenzano invece quanta qualità si ottiene con quei dati.</p></div>
+  <div class="analogy reveal d4" style="margin-top:20px;"><span class="big">Regola:</span> scegli il bitrate in funzione del contenuto e del canale di distribuzione, non soltanto del file più piccolo possibile.</div>
+  <div class="page-num"></div>
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="cd01-03-metadati-formati.html#slide-11">bitrate ↗</a></div></section>
+
+<!-- === SLIDE 4: PRENDE POSTO NELLA PAGINA (gerarchia/alt/widget-API) === -->
+<section class="slide">
+  <div class="split">
+    <div class="col stack">
+      <h2 class="h-big reveal" style="font-size:62px!important;white-space:nowrap;">Prende posto <em class="hot">nella pagina</em></h2>
+      <p class="lead reveal d1">Alleggerito, il contenuto arriva a destinazione: ma "essere nella pagina" significa tre cose diverse — dove sta, cosa dice a chi non lo vede, se resta fermo o si aggiorna da solo.</p>
+      <div class="note reveal d2"><div class="lbl">Cosa serve sapere</div><p><b>Gerarchia visiva:</b> dimensione, colore e posizione guidano l'occhio verso ciò che conta per primo.</p><p style="margin-top:10px;"><b>Alt vuoto:</b> <code>alt=""</code> dichiara un'immagine solo decorativa, così lo screen reader la salta invece di leggerla ad alta voce — è il criterio WCAG 1.1.1. Lasciare l'attributo del tutto assente, invece, spinge alcuni screen reader a leggere il nome del file.</p><p style="margin-top:10px;"><b>Contenuto dinamico:</b> un widget o un blocco alimentato da un'API richiama dati aggiornati a ogni caricamento della pagina, senza bisogno di ripubblicarla.</p></div>
+      <div class="note sky reveal d3" style="margin-top:4px;"><div class="lbl">Come si muove l'occhio</div><p>Gli studi di eye-tracking mostrano che si legge una pagina secondo pattern a "F" o a "Z": ecco perché il titolo in alto e il primo blocco a sinistra catturano l'attenzione per primi.</p></div>
+    </div>
+    <div class="reveal d2" style="display:grid;place-items:center;">
+      <svg width="620" height="414" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-label="Schema della disposizione di immagine, testo ed elemento dinamico">
+        <rect x="10" y="10" width="280" height="180" rx="12" fill="#f4ece0" stroke="#1c1714" stroke-width="4"/>
+        <rect x="30" y="30" width="90" height="70" rx="6" fill="#3f7e8c"/>
+        <rect x="140" y="30" width="130" height="30" rx="6" fill="#e6c14a"/>
+        <rect x="140" y="70" width="130" height="14" rx="4" fill="#1c1714" opacity=".18"/>
+        <rect x="140" y="92" width="90" height="14" rx="4" fill="#1c1714" opacity=".18"/>
+        <rect x="30" y="112" width="240" height="14" rx="4" fill="#1c1714" opacity=".15"/>
+        <rect x="30" y="134" width="180" height="14" rx="4" fill="#1c1714" opacity=".15"/>
+        <circle cx="255" cy="168" r="15" fill="#e6533b"/>
+      </svg>
+    </div>
+  </div>
+  <div class="page-num"></div>
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="su04-01-presentazioni.html#slide-6">gerarchia visiva ↗</a><a href="cd01-02-accessibilita-immagini.html#slide-3">alt vuoto ↗</a><a href="cd01-04-sicurezza-contenuti.html#slide-10">contenuti dinamici e API ↗</a></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.w3.org/Translations/WCAG22-it/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: WCAG 2.2 — W3C" aria-label="Fonte ufficiale: WCAG 2.2 — W3C" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: WCAG 2.2 — W3C ↗</a></div></section>
+
+<!-- === SLIDE 5: HA DELLE REGOLE D'USO (CC-NC) === -->
+<section class="slide">
+  <h2 class="h-sec reveal">Ha delle <em class="hot">regole d'uso</em></h2>
+  <p class="lead reveal d1">Pubblicato non significa libero da vincoli. Ogni contenuto porta con sé condizioni su chi può riusarlo, e come — anche quando l'autore ha scelto una licenza aperta.</p>
+  <div class="reveal d2" style="margin-top:24px;">
+    <div class="agenda-item"><span class="n">—</span><div><b>Riuso libero non è riuso illimitato</b><br><span class="d">Una licenza aperta indica cosa è permesso, non che tutto è permesso senza condizioni.</span></div></div>
+    <div class="agenda-item"><span class="n">—</span><div><b>Anche il "non commerciale" ha un confine preciso</b><br><span class="d">Chi riusa deve capire dove passa quel confine prima di pubblicare, non dopo aver ricevuto una contestazione.</span></div></div>
+    <div class="agenda-item"><span class="n">—</span><div><b>Le regole seguono il file, non l'intenzione</b><br><span class="d">Non conta perché si vuole riusare un contenuto, conta cosa dice la licenza allegata.</span></div></div>
+  </div>
+  <div class="note reveal d4" style="margin-top:18px;max-width:1160px;"><div class="lbl">Da dove vengono queste sigle</div><p>Le licenze Creative Commons nascono nel 2001 dal giurista Lawrence Lessig. Si compongono di quattro elementi combinabili — <b>BY</b> (attribuzione, sempre richiesta), <b>SA</b> (condividi allo stesso modo), <b>NC</b> (non commerciale) e <b>ND</b> (non opere derivate) — che insieme formano sei licenze diverse.</p></div>
+  <div class="page-num"></div>
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="cd01-01-licenze-oer.html#slide-4">Creative Commons e uso commerciale ↗</a></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://creativecommons.org/share-your-work/cclicenses/" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: Licenze Creative Commons" aria-label="Fonte ufficiale: Licenze Creative Commons" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: Licenze Creative Commons ↗</a></div></section>
+
+<!-- === SLIDE 6: IL TEMPO PASSA, SI COLLABORA (cronologia versioni) === -->
+<section class="slide">
+  <div class="center">
+    <h2 class="h-sec reveal">Il tempo passa, <em class="hot">si collabora</em></h2>
+    <p class="lead reveal d1" style="margin-top:18px;">Un contenuto pubblicato raramente resta fermo: più persone lo aprono, lo correggono, lo aggiornano. A quel punto il file non ha più un solo autore e un solo istante di creazione, ma una storia di modifiche.</p>
+    <div class="grid2 reveal d2" style="margin-top:28px;">
+      <div class="note sky"><div class="lbl">Perché conta saperlo</div><p>Se una modifica di gruppo va nella direzione sbagliata, tornare indietro non deve significare rifare tutto da capo.</p></div>
+      <div class="note"><div class="lbl">Quanto resta disponibile</div><p>In Google Drive la cronologia non ha una scadenza fissa mentre il file resta attivo; le versioni con nome — fino a 40 per documento — restano accessibili indefinitamente, anche quando le altre vengono compattate nel tempo.</p></div>
+    </div>
+  </div>
+  <div class="page-num"></div>
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="su01-02-google-workspace.html#slide-6">cronologia versioni ↗</a></div></section>
+
+<!-- === SLIDE 7: IL FILE SI FERMA, MA RESTA PROTETTO (crittografia a riposo) === -->
+<section class="slide">
+  <h2 class="h-sec reveal">Il file si ferma, <em class="hot">ma resta protetto</em></h2>
+  <p class="lead reveal d1">Prima o poi il viaggio si interrompe: il contenuto è pubblicato, l'evento è concluso, il progetto è chiuso. Il file smette di muoversi — ma resta salvato da qualche parte, e continua a essere un bersaglio possibile.</p>
+  <div class="grid2 reveal d2" style="margin-top:24px;">
+    <div class="note"><div class="lbl">L'ultima tappa</div><p>Un file fermo non è un file al sicuro per definizione: se il supporto che lo conserva viene rubato o violato, solo la cifratura a riposo lo tiene illeggibile.</p></div>
+    <div class="note sky"><div class="lbl">Uno standard, due momenti diversi</div><p>Lo standard più diffuso è l'<b>AES a 256 bit</b>: protegge il file fermo, ma è un controllo diverso dal <b>TLS</b> che cifra la stessa informazione mentre viaggia in rete. Servono entrambi: uno non sostituisce l'altro.</p></div>
+  </div>
+  <div class="page-num"></div>
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="cd01-04-sicurezza-contenuti.html#slide-4">crittografia a riposo ↗</a></div><div class="source-footer" data-source-footer="true" style="position:absolute;left:220px;bottom:14px;z-index:4;display:grid;grid-template-columns:repeat(2,max-content);align-items:start;gap:5px 24px;max-width:1500px;"><a data-source-origin="auto" href="https://www.rfc-editor.org/rfc/rfc8446" target="_blank" rel="noopener noreferrer" title="Fonte ufficiale: TLS 1.3 — RFC 8446" aria-label="Fonte ufficiale: TLS 1.3 — RFC 8446" style="font-family:var(--font-mono,monospace);font-size:16px;line-height:1.25;color:var(--teal,#163b35);text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Fonte: TLS 1.3 — RFC 8446 ↗</a></div></section>
+
+<!-- === SLIDE 8: CLOSING === -->
+<section class="slide closing"><div class="closing-inner"><div class="closing-inner">
+    <h2 class="h-mega reveal">Nasce, viaggia, resta.</h2>
+    <p class="lead reveal d1">Metadati, peso, posizione, regole, collaborazione, protezione: sei tappe dello stesso file, già viste una per una — qui unite nell'ordine in cui un contenuto le attraversa davvero.</p>
+
+    <div data-source-list="true" style="margin-top:36px;text-align:left;"><div style="font-family:var(--font-mono,monospace);font-size:19px;letter-spacing:2px;text-transform:uppercase;color:var(--gold,#e6c14a);margin-bottom:10px;">Fonti e approfondimenti</div><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:7px 30px;font-family:var(--font-mono,monospace);font-size:18px;line-height:1.25;color:rgba(255,255,255,.92);"><a href="https://www.w3.org/Translations/WCAG22-it/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">WCAG 2.2 — W3C ↗</a><a href="https://creativecommons.org/share-your-work/cclicenses/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">Licenze Creative Commons ↗</a><a href="https://www.rfc-editor.org/rfc/rfc8446" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:3px;">TLS 1.3 — RFC 8446 ↗</a></div></div><div class="closing-actions reveal d2">
+      <a class="chip closing-primary" href="cd02-01-podcast-storytelling.html">Prossimo → CD02.01 · Podcast e storytelling</a>
+    </div>
+  </div>
+  <div class="deck-author">Francesco Antonio Binetti</div></div><div class="page-num"></div></section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<a class="home-btn" href="../00-indice.html" title="Torna all'indice">↩ Indice</a>
+<script src="../deck.js"></script>
+</body>
+</html>

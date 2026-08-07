@@ -256,7 +256,7 @@ code{font-family:var(--font-mono);}
       <h3 style="font-family:var(--font-display);margin-bottom:16px;">Zoom: adattare la visualizzazione</h3>
       <div class="card" style="border-color:var(--gold-deep);padding:24px 28px;">
         <h3>⌨️ Tastiera</h3>
-        <p style="margin-top:8px;">Nel browser: <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">Ctrl +</code> per ingrandire, <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">Ctrl -</code> per ridurre, <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">Ctrl 0</code> per resettare.</p>
+        <p style="margin-top:8px;">Nel browser: <code>Ctrl +</code> per ingrandire, <code>Ctrl -</code> per ridurre, <code>Ctrl 0</code> per resettare.</p>
       </div>
       <div class="card" style="border-color:var(--sky);padding:24px 28px;margin-top:18px;">
         <h3>🖱️ Trackpad / Touch</h3>
@@ -607,8 +607,8 @@ code{font-family:var(--font-mono);}
     </div>
     <div class="col stack reveal d1">
       <h3 style="font-family:var(--font-display);font-size:32px;margin-bottom:10px;">Come fare uno screenshot</h3>
-      <div class="check-row"><span class="ck">💻</span><div class="tx"><b>Screenshot su Windows:</b> <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">Win+Shift+S</code> per selezione, <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">PrtSc</code> per schermo intero</div></div>
-      <div class="check-row"><span class="ck">🍎</span><div class="tx"><b>Mac:</b> <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">Cmd+Shift+4</code> per selezione, <code style="font-family:var(--font-mono);background:var(--paper-2);padding:2px 8px;border-radius:4px;">Cmd+Shift+3</code> schermo intero</div></div>
+      <div class="check-row"><span class="ck">💻</span><div class="tx"><b>Screenshot su Windows:</b> <code>Win+Shift+S</code> per selezione, <code>PrtSc</code> per schermo intero</div></div>
+      <div class="check-row"><span class="ck">🍎</span><div class="tx"><b>Mac:</b> <code>Cmd+Shift+4</code> per selezione, <code>Cmd+Shift+3</code> schermo intero</div></div>
       <div class="check-row"><span class="ck">📱</span><div class="tx"><b>Smartphone Android/iOS:</b> tasto volume giù + power simultaneamente</div></div>
       <div class="check-row"><span class="ck">🌐</span><div class="tx"><b>Browser Chrome:</b> estensione "GoFullPage" per catturare pagine intere inclusa la parte sotto il fold</div></div>
       <h3 style="font-family:var(--font-display);font-size:32px;margin-top:20px;margin-bottom:10px;">Strumenti OCR</h3>
@@ -819,7 +819,7 @@ code{font-family:var(--font-mono);}
       </div>
       <div class="card" style="border-color:var(--teal-2);padding:22px 26px;margin-top:14px;">
         <h3>🏷️ Nomi significativi</h3>
-        <p style="margin-top:8px;">Usa nomi descrittivi: <code style="font-family:var(--font-mono);font-size:22px;">2025-01-articolo-gdpr.pdf</code> invece di <code style="font-family:var(--font-mono);font-size:22px;">download(3).pdf</code></p>
+        <p style="margin-top:8px;">Usa nomi descrittivi: <code>2025-01-articolo-gdpr.pdf</code> invece di <code>download(3).pdf</code></p>
       </div>
       <div class="card" style="border-color:var(--sky);padding:22px 26px;margin-top:14px;">
         <h3>☁️ Backup periodici</h3>
@@ -831,18 +831,12 @@ code{font-family:var(--font-mono);}
 </section>
 
 <section class="slide tight-slide">
-  <h2 class="h-sec reveal">Backup 3-2-1: copiare non basta</h2>
-  <p class="lead reveal d1" style="margin-top:12px;">Un backup protegge soltanto se è separato dall’originale, aggiornato e realmente ripristinabile. La sincronizzazione da sola non basta: una cancellazione o un file corrotto può propagarsi su tutti i dispositivi.</p>
-  <div class="grid4 reveal d2" style="margin-top:18px;">
-    <div class="card"><h3>3 copie complessive</h3><p>Conserva il file di lavoro e almeno due copie. Se esiste in un solo posto, non è ancora protetto.</p></div>
-    <div class="card"><h3>2 supporti differenti</h3><p>Per esempio computer e disco esterno. Due cartelle sullo stesso disco condividono lo stesso guasto.</p></div>
-    <div class="card"><h3>1 copia fuori sede</h3><p>Cloud con versioni precedenti oppure supporto custodito altrove: furto, incendio e ransomware non devono raggiungere ogni copia.</p></div>
-    <div class="card"><h3>Prova il ripristino</h3><p>Ogni tre mesi recupera un file di prova e aprilo. Controlla completezza, data e leggibilità.</p></div>
-  </div>
+  <h2 class="h-sec reveal">Un backup vale solo se è separato e verificato</h2>
+  <p class="lead reveal d1" style="margin-top:12px;">Un backup protegge soltanto se è separato dall'originale, aggiornato e realmente ripristinabile. La sincronizzazione da sola non basta: una cancellazione o un file corrotto può propagarsi su tutti i dispositivi.</p>
   <div class="analogy reveal d3" style="margin-top:18px;"><span class="big">Regola:</span> automatizza le copie, conserva versioni precedenti e verifica il ripristino.</div>
   <div class="page-num"></div>
 
-<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="rw02-03-link-simbolici.html#slide-16">RW02.03 · Un link non è un backup ↗</a></div></section>
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="sd06-piani-b-digitali.html#slide-5">regola del backup 3-2-1 ↗</a><a href="rw02-03-link-simbolici.html#slide-16">RW02.03 · Un link non è un backup ↗</a></div></section>
 
 <section class="slide tight-slide">
   <h2 class="h-sec reveal">Dove salvare e come ripristinare</h2>
@@ -875,7 +869,7 @@ code{font-family:var(--font-mono);}
     </div>
   </div>
   <div class="page-num"></div>
-<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="cd01-01-licenze-oer.html#slide-5">CD01.01 · Licenze aperte e OER ↗</a></div></section>
+<div class="cross-reference-footer" data-cross-reference-footer="true"><a href="cd01-01-licenze-oer.html#slide-4">CD01.01 · Licenze aperte e OER ↗</a></div></section>
 
 <!-- SLIDE 26: RIEPILOGO -->
 
