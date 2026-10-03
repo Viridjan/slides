@@ -244,8 +244,10 @@ node scripts/build-search-index.js
 Clicking the slide canvas or either half of the stage must do nothing. Never
 attach click-to-next, click-to-previous, hotspot navigation or other actions to
 `.slide`, `.deck-stage` or the general presentation background. Navigation may
-use keyboard and wheel; clicks are reserved for explicit visible controls such
-as links, quiz inputs and the home button.
+use keyboard, touch swipe and the fixed `‹ ›` `.deck-nav` buttons that
+`deck.js` adds at bottom-centre (outside the stage, hidden in reader mode);
+clicks are reserved for explicit visible controls such as those buttons,
+links, quiz inputs and the home button.
 
 Slides are read-only at runtime outside of feedback mode (below). Do not add
 an always-on editor, edit hotzone, edit toggle, `contenteditable` mode or `E`

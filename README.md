@@ -32,6 +32,7 @@ Inside any deck:
 - Arrow keys / Space / PageUp / PageDown — advance or go back
 - Ctrl + mouse wheel — zoom; the wheel pans only while zoomed
 - Touch swipe — left/right
+- `‹ ›` buttons at bottom-centre — previous / next slide with the mouse
 - `#slide-N` in the URL — open a deck directly at slide N
 - `F` key — enable the opt-in feedback overlay; `Esc` closes it
 - `📖 Leggi` / `🖼️ Slide` button on narrow screens — switch between the

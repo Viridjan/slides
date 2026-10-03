@@ -984,3 +984,19 @@ body.course-gd .slide.title-slide>.deck-author{
   border-radius:6px;background:color-mix(in srgb,var(--teal,#163b35) 8%,transparent);
   color:var(--teal,#163b35);font:700 .72em var(--font-mono,"Space Mono",monospace);white-space:nowrap;
 }
+
+/* Mouse navigation: fixed ‹ › pair at bottom-centre, outside the stage, so
+   clicks on the slide itself still do nothing. Hidden in reader mode. */
+.deck-nav{
+  position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:600;
+  display:flex;gap:8px;
+}
+.deck-nav button{
+  width:44px;height:44px;border-radius:999px;cursor:pointer;
+  font:700 26px/1 var(--font-mono,"Space Mono",monospace);
+  background:rgba(21,23,27,.68);color:#fff;border:1px solid rgba(255,255,255,.24);
+  opacity:.55;transition:opacity .2s;
+}
+.deck-nav button:hover,.deck-nav button:focus-visible{opacity:1;}
+.deck-nav button:disabled{opacity:.2;cursor:default;}
+body:has(.deck-reader.on) .deck-nav{display:none;}

@@ -129,6 +129,8 @@
       slide.classList.toggle('visible', on);
     });
     if (progress) progress.style.width = `${(current + 1) / slides.length * 100}%`;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === slides.length - 1;
     // replaceState, not location.hash: a deck browsed to the end should leave one
     // history entry, not forty for the back button to walk through.
     if (pushHash) history.replaceState(null, '', `#slide-${current + 1}`);
@@ -136,6 +138,26 @@
 
   const next = () => show(current + 1);
   const prev = () => show(current - 1);
+
+  // Visible ‹ › buttons for mouse users. Fixed outside the stage, so the
+  // "clicking the slide does nothing" rule still holds and feedback mode's
+  // capture-phase stage listeners never see these clicks.
+  const nav = document.createElement('div');
+  nav.className = 'deck-nav';
+  const navBtn = (label, text, fn) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = text;
+    b.setAttribute('aria-label', label);
+    b.title = label;
+    // blur: a focused button plus Space would advance twice (keydown + click).
+    b.addEventListener('click', () => { fn(); b.blur(); });
+    nav.appendChild(b);
+    return b;
+  };
+  const prevBtn = navBtn('Slide precedente', '‹', prev);
+  const nextBtn = navBtn('Slide successiva', '›', next);
+  document.body.appendChild(nav);
 
   addEventListener('keydown', e => {
     if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); next(); }
