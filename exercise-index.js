@@ -360,23 +360,33 @@ globalThis.EXERCISE_INDEX = {
       "file": "decks/esercizi-suite-ufficio.html",
       "slide": 15,
       "title": "Esercizio: Prepara una macro da distribuire"
+    },
+    {
+      "file": "decks/esercizi-suite-ufficio.html",
+      "slide": 16,
+      "title": "Progetto finale VBA"
     }
   ],
   "decks/su03-15-google-apps-script.html": [
     {
       "file": "decks/esercizi-suite-ufficio.html",
-      "slide": 16,
+      "slide": 17,
       "title": "Esercizio: Progetta un’automazione Workspace"
     },
     {
       "file": "decks/esercizi-suite-ufficio.html",
-      "slide": 17,
+      "slide": 18,
       "title": "Esercizio: Progetta un invio di prova"
     },
     {
       "file": "decks/esercizi-suite-ufficio.html",
-      "slide": 18,
+      "slide": 19,
       "title": "Esercizio: Prepara l’aggiornamento di un deployment"
+    },
+    {
+      "file": "decks/esercizi-suite-ufficio.html",
+      "slide": 20,
+      "title": "Progetto finale Apps Script"
     }
   ]
 };

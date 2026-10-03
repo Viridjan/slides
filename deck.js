@@ -369,6 +369,65 @@
     setTimeout(() => dot.remove(), 4500);
   };
 
+  // Native prompt() opened from the delayed single-click handler is no longer
+  // reliable in recent browsers: the 250 ms delay used to distinguish click
+  // from double-click can lose the transient user activation and the browser
+  // silently suppresses the dialog. Keep the delay, but collect the note in a
+  // small in-page dialog that is part of feedback mode and therefore works
+  // consistently on file:// decks too.
+  let noteDialog = null;
+  const askNote = (title, done) => {
+    if (noteDialog) return;
+    const veil = document.createElement('div');
+    veil.style.cssText = 'position:fixed;inset:0;z-index:10020;background:rgba(28,23,20,.48);' +
+      'display:grid;place-items:center;padding:24px;';
+    const panel = document.createElement('div');
+    panel.style.cssText = 'width:min(680px,calc(100vw - 48px));background:#f4ece0;color:#1c1714;' +
+      'border:2px solid #1c1714;border-radius:16px;box-shadow:10px 12px 0 rgba(28,23,20,.3);' +
+      'padding:22px;font-family:"Space Grotesk",sans-serif;';
+    const heading = document.createElement('div');
+    heading.textContent = title;
+    heading.style.cssText = 'font:700 17px/1.35 "Space Mono",monospace;margin-bottom:14px;';
+    const input = document.createElement('textarea');
+    input.rows = 5;
+    input.placeholder = 'Scrivi la modifica richiesta…';
+    input.style.cssText = 'display:block;width:100%;resize:vertical;min-height:120px;padding:12px 14px;' +
+      'border:2px solid #d8c9b4;border-radius:10px;background:#fff;color:#1c1714;' +
+      'font:17px/1.45 "Space Grotesk",sans-serif;outline:none;';
+    const actions = document.createElement('div');
+    actions.style.cssText = 'display:flex;justify-content:flex-end;gap:10px;margin-top:14px;';
+    const button = (label, primary = false) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.textContent = label;
+      b.style.cssText = 'border:2px solid #1c1714;border-radius:999px;padding:8px 18px;cursor:pointer;' +
+        `font:700 15px "Space Mono",monospace;background:${primary ? '#e6533b' : '#f4ece0'};` +
+        `color:${primary ? '#fff' : '#1c1714'};`;
+      return b;
+    };
+    const cancel = button('Annulla');
+    const saveNote = button('Salva nota', true);
+    actions.append(cancel, saveNote);
+    panel.append(heading, input, actions);
+    veil.appendChild(panel);
+    document.body.appendChild(veil);
+    noteDialog = veil;
+    const close = value => {
+      veil.remove(); noteDialog = null;
+      if (value) done(value);
+    };
+    cancel.addEventListener('click', () => close(''));
+    saveNote.addEventListener('click', () => close(input.value.trim()));
+    veil.addEventListener('click', e => { if (e.target === veil) close(''); });
+    veil.addEventListener('keydown', e => {
+      e.stopPropagation();
+      if (e.key === 'Escape') { e.preventDefault(); close(''); }
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault(); close(input.value.trim());
+      }
+    });
+    input.focus();
+  };
+
   const doNote = ev => {
     const slidesNow = [...document.querySelectorAll('.slide')];
     const current = document.querySelector('.slide.visible, .slide.active');
@@ -389,10 +448,11 @@
       (typeof t.className === 'string' && t.className.trim() ? '.' + t.className.trim().split(/\s+/)[0] : '') : '';
     const quote = (ev.sel ||
       (t && t !== stage ? (t.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 90) : ''));
-    const txt = prompt(`Nota per slide ${idx}${quote ? ` · "${quote.slice(0, 60)}"` : near ? ` · «${near}»` : ''}:`);
-    if (!txt) return;
-    addNote({ file, slide: idx, x, y, near, target, quote, sel: !!ev.sel, text: txt });
-    marker(ev.clientX, ev.clientY);
+    const title = `Nota per slide ${idx}${quote ? ` · "${quote.slice(0, 60)}"` : near ? ` · «${near}»` : ''}`;
+    askNote(title, txt => {
+      addNote({ file, slide: idx, x, y, near, target, quote, sel: !!ev.sel, text: txt });
+      marker(ev.clientX, ev.clientY);
+    });
   };
 
   // Live editing: on elements with zero child elements it is plain-text-only
@@ -631,6 +691,8 @@
   // the page matches the real file exactly once feedback mode is off.
   const stop = () => {
     cancelCurrentEdit();
+    noteDialog?.remove();
+    noteDialog = null;
     editedEls.forEach(revertEl);
     editedEls.clear();
     pinObserver.disconnect();

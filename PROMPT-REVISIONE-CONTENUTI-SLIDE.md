@@ -99,7 +99,6 @@ node scripts/normalize-cross-reference-footers.js
 node scripts/build-search-index.js
 node scripts/build-completeness.js
 node scripts/build-slide-topic-inventory.js
-node scripts/build-last-modified.js
 node scripts/check-shared-styles.js
 node scripts/manage-ip-notice.js check
 git diff --check

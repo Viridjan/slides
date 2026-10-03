@@ -161,7 +161,6 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
 .stats-badge .summary{color:rgba(244,236,224,.9);font-size:16px;font-weight:700;}
 .stats-badge .chev{display:inline-block;color:var(--sky);transition:transform .16s ease;transform:rotate(90deg);}
 .stats-badge[aria-expanded="true"] .chev{transform:rotate(-90deg);}
-.last-modified{position:absolute;left:auto;right:188px;top:auto;bottom:7px;width:auto;min-height:16px;box-sizing:border-box;display:flex;align-items:center;justify-content:flex-end;padding:0;border:0;background:transparent;color:rgba(244,236,224,.46);font:13px/1 var(--font-mono);letter-spacing:-.4px;text-align:right;white-space:nowrap;z-index:2;pointer-events:none!important;}
 .control-rail{position:absolute;right:0;top:0;bottom:0;width:232px;pointer-events:none;z-index:1;}
 /* Inert full-card overlay for utility controls and the date. Interactive
    children re-enable pointer events; the date remains inert in the card panel. */
@@ -244,7 +243,6 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
 </style>
 <script src="completeness-index.js"></script>
 <script src="quality-index.js"></script>
-<script src="last-modified-index.js"></script>
 <script src="exercise-index.js"></script>
 <script src="agenda-index.js"></script>
 </head>
@@ -2405,16 +2403,6 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
       exercisePanel.setAttribute('aria-hidden', 'false');
     });
     controlRow.appendChild(exerciseButton);
-  }
-  const isoDate = window.LAST_MODIFIED_INDEX?.[href];
-  if (isoDate) {
-    const date = document.createElement('div');
-    date.className = 'last-modified';
-    date.title = `Ultima modifica: ${isoDate}`;
-    date.setAttribute('aria-label', `Ultima modifica ${isoDate}`);
-    const [year, month, day] = isoDate.split('-');
-    date.textContent = `${day}/${month}/${year}`;
-    controlRow.appendChild(date);
   }
   // Synthetic index: normalized density + editorial quality collapsed to one value.
   const density = window.COMPLETENESS?.[href];

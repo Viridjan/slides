@@ -76,13 +76,9 @@ Inside any deck:
   share `theme-corsi.css` and the `deck.js` slide engine.
 - `agenda-index.json` contains the three-item chapter overviews;
   `agenda-index.js` is its generated browser-ready version.
-- `exercise-index.js`, `last-modified-index.js`, `search-index.js` and
-  `inventario-argomenti-slide.csv` are generated artifacts; edit their source
-  content rather than editing these files by hand.
-- Every index card shows a generated content-last-modified date beneath its
-  evaluation badge. It tracks visible text changes in internal slides, not
-  cover/closing, CSS or technical edits. Rebuild it with
-  `node scripts/build-last-modified.js` after deck edits.
+- `exercise-index.js`, `search-index.js` and `inventario-argomenti-slide.csv`
+  are generated artifacts; edit their source content rather than editing
+  these files by hand.
 - Links between decks use bare filenames: `href="rw01-02-navigazione.html"`.
 - `corsi/` holds source PPTX/PDF; `corsi/images/` holds extracted images (untracked, ~200 MB, regenerable).
 
@@ -149,7 +145,6 @@ boundary tags with `node scripts/manage-slide-review-tags.js prune-boundaries`.
 
 ```bash
 node scripts/build-agenda-index.js
-node scripts/build-last-modified.js
 node scripts/build-exercise-index.js
 node scripts/build-slide-topic-inventory.js
 node scripts/build-search-index.js
