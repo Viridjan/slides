@@ -870,9 +870,18 @@ em.sky,.accent{color:var(--accent-2) !important;}
   text-decoration:none;
 }
 
+/* Printable version: Ctrl+P, or the index "Stampa" button (deck.html?print),
+   lays every slide out as one 1920x1080 page. */
+@page{size:1920px 1080px;margin:0;}
 @media print{
-  .deck-stage{box-shadow:none !important;}
-  .slide{background:var(--slide-bg) !important;}
+  html,body{width:1920px !important;height:auto !important;overflow:visible !important;background:#fff !important;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .deck-viewport{position:static !important;overflow:visible !important;}
+  .deck-stage{display:block !important;position:static !important;width:1920px !important;height:auto !important;transform:none !important;box-shadow:none !important;background:none !important;}
+  .slide{position:relative !important;visibility:visible !important;opacity:1 !important;width:1920px !important;height:1080px !important;break-after:page;page-break-after:always;}
+  .slide:last-child{break-after:auto;page-break-after:auto;}
+  .reveal{opacity:1 !important;transform:none !important;animation:none !important;transition:none !important;}
+  .home-btn,.deck-nav,.deck-reader,.deck-reader-toggle,.progress,.deck-controls{display:none !important;}
 }
 
 /* Course authorship: shown only where explicitly included on title and closing

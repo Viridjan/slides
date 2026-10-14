@@ -136,6 +136,12 @@
     if (pushHash) history.replaceState(null, '', `#slide-${current + 1}`);
   };
 
+  // ?print (index "Stampa" button): open the print dialog once fonts are in;
+  // the @media print rules in theme-corsi.css lay out one slide per page.
+  if (/[?&]print\b/.test(location.search)) {
+    addEventListener('load', () => (document.fonts?.ready || Promise.resolve()).then(() => setTimeout(print, 300)));
+  }
+
   const next = () => show(current + 1);
   const prev = () => show(current - 1);
 

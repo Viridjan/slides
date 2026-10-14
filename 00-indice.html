@@ -196,6 +196,7 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
 
 .exercise-btn{position:absolute;right:220px;top:8px;height:24px;min-height:0;width:88px;padding:0 7px;z-index:3;color:var(--gold);border-color:rgba(230,193,74,.38);background:rgba(230,193,74,.08);}
 .exercise-btn:hover,.exercise-btn:focus-visible,.exercise-btn[aria-expanded="true"]{color:var(--paper);border-color:rgba(230,193,74,.68);background:rgba(230,193,74,.18);}
+.print-btn{position:absolute;right:24px;top:50%;transform:translateY(-50%);width:72px;height:24px;min-height:0;padding:0 7px;z-index:3;text-decoration:none;}
 .agenda-btn{position:absolute;right:188px;top:8px;width:24px;height:24px;min-height:0;padding:0;z-index:3;color:var(--sky);border-color:rgba(63,126,140,.38);background:rgba(63,126,140,.08);}
 .agenda-btn:hover,.agenda-btn:focus-visible,.agenda-btn[aria-expanded="true"]{color:var(--paper);border-color:rgba(63,126,140,.68);background:rgba(63,126,140,.18);}
 .exercise-panel{position:fixed;width:340px;max-height:360px;overflow:auto;padding:11px;border:1px solid rgba(230,193,74,.42);border-radius:9px;background:rgba(22,18,16,.98);box-shadow:0 18px 50px rgba(0,0,0,.48);z-index:110;opacity:0;visibility:hidden;transform:translateY(-5px);transition:opacity .16s ease,transform .16s ease,visibility .16s;}
@@ -2342,6 +2343,14 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
       return;
     }
   });
+  const printLink = document.createElement('a');
+  printLink.className = 'print-btn index-control-box';
+  printLink.href = `${href}?print`;
+  printLink.target = '_blank';
+  printLink.setAttribute('aria-label', `Versione stampabile: ${title.textContent.trim()}`);
+  printLink.textContent = 'Stampa';
+  printLink.addEventListener('click', e => e.stopPropagation());
+  controlRow.appendChild(printLink);
   const exercises = window.EXERCISE_INDEX?.[href] || [];
   const agenda = window.AGENDA_INDEX?.[href];
   if (agenda?.items?.length) {
