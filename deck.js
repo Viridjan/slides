@@ -136,12 +136,6 @@
     if (pushHash) history.replaceState(null, '', `#slide-${current + 1}`);
   };
 
-  // ?print (index "Stampa" button): open the print dialog once fonts are in;
-  // the @media print rules in theme-corsi.css lay out one slide per page.
-  if (/[?&]print\b/.test(location.search)) {
-    addEventListener('load', () => (document.fonts?.ready || Promise.resolve()).then(() => setTimeout(print, 300)));
-  }
-
   const next = () => show(current + 1);
   const prev = () => show(current - 1);
 
@@ -761,6 +755,7 @@
   // heading turning up again as its own stray paragraph).
   const skipSelector = '.page-num,.num,.home-btn,.deck-author,[data-source-footer],' +
     '[data-source-list],[data-cross-reference-footer],.progress,script,style,svg,' +
+    '.closing-actions,.closing .chip,.deck-nav,.deck-reader-toggle,' +
     'h1,h2,.lead,.h-mega,.h-big,.h-sec';
 
   // Generic on purpose: decks use dozens of different card/note/list layouts,
@@ -775,6 +770,11 @@
         if (row) out.push({ type: 'p', text: row });
         continue;
       }
+      if (tag === 'pre' || child.matches('.code,.codebox')) {
+        const t = child.textContent.replace(/^\n+|\s+$/g, '');
+        if (t) out.push({ type: 'code', text: t });
+        continue;
+      }
       if (tag === 'p' || tag === 'blockquote' || tag === 'li') {
         const t = cleanText(child);
         if (t) out.push({ type: tag === 'li' ? 'li' : 'p', text: t });
@@ -786,7 +786,10 @@
         if (t) out.push({ type: 'sub', text: t });
         continue;
       }
-      if (child.children.length) { walk(child, out); continue; }
+      // Mixed content such as .analogy ("<span>In pratica:</span> text") keeps
+      // its text in bare text nodes; descending would drop them, so read it whole.
+      const mixed = [...child.childNodes].some(n => n.nodeType === 3 && n.textContent.trim());
+      if (child.children.length && !mixed) { walk(child, out); continue; }
       const t = cleanText(child);
       if (t) out.push({ type: 'p', text: t });
     }
@@ -841,6 +844,38 @@
     }
     return section;
   };
+
+  // ?txt (index "↓ TXT" button): download the deck as plain text ready to
+  // print — headings, leads, cards and lists, without page numbers or
+  // navigation — then return to the index card it came from.
+  if (/[?&]txt\b/.test(location.search)) {
+    const parts = [document.title, ''];
+    slides.forEach(slide => {
+      const heading = slide.querySelector('h1, h2, .h-mega, .h-big, .h-sec');
+      const lead = slide.querySelector('.lead');
+      const lines = [];
+      if (heading) lines.push(cleanText(heading).toUpperCase());
+      if (lead) lines.push(cleanText(lead));
+      const blocks = [];
+      walk(slide, blocks);
+      for (const block of blocks) {
+        if (heading && block.text === cleanText(heading)) continue;
+        if (lead && block.text === cleanText(lead)) continue;
+        if (!/[\p{L}\p{N}]/u.test(block.text)) continue; // icon-only slots
+        if (block.type === 'code') { lines.push('', block.text, ''); continue; }
+        lines.push(block.type === 'li' ? `- ${block.text}` : block.type === 'sub' ? `\n${block.text}` : block.text);
+      }
+      if (lines.length) parts.push(lines.join('\n'), '', '');
+    });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([parts.join('\n').trim() + '\n'], { type: 'text/plain;charset=utf-8' }));
+    a.download = decodeURIComponent(location.pathname.split('/').pop()).replace(/\.html$/, '.txt');
+    document.body.appendChild(a);
+    a.click();
+    const back = document.querySelector('.home-btn')?.href;
+    if (back) setTimeout(() => location.replace(back), 600);
+    return;
+  }
 
   let built = false;
   const reader = document.createElement('div');

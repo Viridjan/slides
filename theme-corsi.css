@@ -870,8 +870,7 @@ em.sky,.accent{color:var(--accent-2) !important;}
   text-decoration:none;
 }
 
-/* Printable version: Ctrl+P, or the index "Stampa" button (deck.html?print),
-   lays every slide out as one 1920x1080 page. */
+/* Printable version: Ctrl+P lays every slide out as one 1920x1080 page. */
 @page{size:1920px 1080px;margin:0;}
 @media print{
   html,body{width:1920px !important;height:auto !important;overflow:visible !important;background:#fff !important;}
