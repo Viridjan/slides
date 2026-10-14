@@ -845,35 +845,24 @@
     return section;
   };
 
-  // ?txt (index "↓ TXT" button): download the deck as plain text ready to
-  // print — headings, leads, cards and lists, without page numbers or
-  // navigation — then return to the index card it came from.
-  if (/[?&]txt\b/.test(location.search)) {
-    const parts = [document.title, ''];
-    slides.forEach(slide => {
+  // ?export: the index loads the deck in a hidden iframe and receives its
+  // slides as structured text via postMessage (file:// frames are opaque
+  // origins, so the index cannot read the DOM itself). The index merges the
+  // selected chapters into one .rtf.
+  if (/[?&]export\b/.test(location.search)) {
+    const data = slides.map(slide => {
       const heading = slide.querySelector('h1, h2, .h-mega, .h-big, .h-sec');
       const lead = slide.querySelector('.lead');
-      const lines = [];
-      if (heading) lines.push(cleanText(heading).toUpperCase());
-      if (lead) lines.push(cleanText(lead));
       const blocks = [];
       walk(slide, blocks);
-      for (const block of blocks) {
-        if (heading && block.text === cleanText(heading)) continue;
-        if (lead && block.text === cleanText(lead)) continue;
-        if (!/[\p{L}\p{N}]/u.test(block.text)) continue; // icon-only slots
-        if (block.type === 'code') { lines.push('', block.text, ''); continue; }
-        lines.push(block.type === 'li' ? `- ${block.text}` : block.type === 'sub' ? `\n${block.text}` : block.text);
-      }
-      if (lines.length) parts.push(lines.join('\n'), '', '');
+      return {
+        heading: cleanText(heading),
+        lead: cleanText(lead),
+        blocks: blocks.filter(b => b.text !== cleanText(heading) && b.text !== cleanText(lead) &&
+          /[\p{L}\p{N}]/u.test(b.text)) // drop icon-only slots
+      };
     });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([parts.join('\n').trim() + '\n'], { type: 'text/plain;charset=utf-8' }));
-    a.download = decodeURIComponent(location.pathname.split('/').pop()).replace(/\.html$/, '.txt');
-    document.body.appendChild(a);
-    a.click();
-    const back = document.querySelector('.home-btn')?.href;
-    if (back) setTimeout(() => location.replace(back), 600);
+    parent.postMessage({ type: 'deck-export', href: location.href.split(/[?#]/)[0], slides: data }, '*');
     return;
   }
 

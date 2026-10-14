@@ -196,7 +196,12 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
 
 .exercise-btn{position:absolute;right:220px;top:8px;height:24px;min-height:0;width:88px;padding:0 7px;z-index:3;color:var(--gold);border-color:rgba(230,193,74,.38);background:rgba(230,193,74,.08);}
 .exercise-btn:hover,.exercise-btn:focus-visible,.exercise-btn[aria-expanded="true"]{color:var(--paper);border-color:rgba(230,193,74,.68);background:rgba(230,193,74,.18);}
-.txt-btn{position:absolute;right:24px;top:50%;transform:translateY(-50%);width:72px;height:24px;min-height:0;padding:0 7px;z-index:3;text-decoration:none;}
+.export-pick{position:absolute;right:40px;top:50%;transform:translateY(-50%);z-index:3;display:flex;align-items:center;justify-content:center;width:40px;height:40px;cursor:pointer;}
+.export-pick input{width:20px;height:20px;margin:0;accent-color:var(--gold);cursor:pointer;}
+.export-bar{display:flex;justify-content:flex-end;align-items:center;gap:12px;margin-top:12px;}
+.export-btn{width:auto;padding:9px 14px;font-size:13px;}
+.export-btn:disabled{opacity:.4;cursor:default;}
+.export-status{font-family:var(--font-mono);font-size:12px;color:rgba(244,236,224,.46);}
 .agenda-btn{position:absolute;right:188px;top:8px;width:24px;height:24px;min-height:0;padding:0;z-index:3;color:var(--sky);border-color:rgba(63,126,140,.38);background:rgba(63,126,140,.08);}
 .agenda-btn:hover,.agenda-btn:focus-visible,.agenda-btn[aria-expanded="true"]{color:var(--paper);border-color:rgba(63,126,140,.68);background:rgba(63,126,140,.18);}
 .exercise-panel{position:fixed;width:340px;max-height:360px;overflow:auto;padding:11px;border:1px solid rgba(230,193,74,.42);border-radius:9px;background:rgba(22,18,16,.98);box-shadow:0 18px 50px rgba(0,0,0,.48);z-index:110;opacity:0;visibility:hidden;transform:translateY(-5px);transition:opacity .16s ease,transform .16s ease,visibility .16s;}
@@ -262,6 +267,10 @@ body.search-active .quiz-macro-group:not(:has(.module-card:not(.search-hidden)))
         <button id="courseSearchClear" class="search-clear" type="button" aria-label="Cancella ricerca">×</button>
       </div>
       <div id="courseSearchMeta" class="search-meta" aria-live="polite"></div>
+    </div>
+    <div class="export-bar">
+      <span id="exportStatus" class="export-status" aria-live="polite"></span>
+      <button id="exportBtn" class="export-btn index-control-box" type="button" disabled>↓ Scarica selezionati (RTF)</button>
     </div>
   </header>
 
@@ -2343,13 +2352,16 @@ document.querySelectorAll('.module-card[href]').forEach(card => {
       return;
     }
   });
-  const txtLink = document.createElement('a');
-  txtLink.className = 'txt-btn index-control-box';
-  txtLink.href = `${href}?txt`;
-  txtLink.setAttribute('aria-label', `Scarica il testo da stampare: ${title.textContent.trim()}`);
-  txtLink.textContent = '↓ TXT';
-  txtLink.addEventListener('click', e => e.stopPropagation());
-  controlRow.appendChild(txtLink);
+  const pick = document.createElement('label');
+  pick.className = 'export-pick';
+  pick.title = 'Includi nel file RTF';
+  pick.innerHTML = '<input type="checkbox" class="export-check">';
+  const check = pick.firstChild;
+  check.dataset.href = href;
+  check.dataset.title = `${cardNum?.dataset.code || ''} · ${title.textContent.trim()}`.replace(/^ · /, '');
+  check.setAttribute('aria-label', `Includi nel file RTF: ${title.textContent.trim()}`);
+  pick.addEventListener('click', e => e.stopPropagation());
+  controlRow.appendChild(pick);
   const exercises = window.EXERCISE_INDEX?.[href] || [];
   const agenda = window.AGENDA_INDEX?.[href];
   if (agenda?.items?.length) {
@@ -2580,6 +2592,100 @@ if (returnHref) {
   cleanUrl.searchParams.delete('from');
   history.replaceState(null, '', cleanUrl.href);
 }
+</script>
+<script>
+// Export: tick chapters, then download them merged into one .rtf. Each deck
+// is loaded in a hidden iframe with ?export; deck.js posts its slides back
+// (file:// frames are opaque origins, so postMessage is the only channel).
+(() => {
+  const btn = document.getElementById('exportBtn');
+  const status = document.getElementById('exportStatus');
+  const checks = () => [...document.querySelectorAll('.export-check:checked')];
+  const refresh = () => {
+    const n = checks().length;
+    btn.disabled = !n;
+    btn.textContent = n ? `↓ Scarica selezionati (${n}) · RTF` : '↓ Scarica selezionati (RTF)';
+  };
+  document.addEventListener('change', e => { if (e.target.matches('.export-check')) refresh(); });
+
+  const loadDeck = href => new Promise((resolve, reject) => {
+    const frame = document.createElement('iframe');
+    frame.style.cssText = 'position:fixed;left:-10000px;top:0;width:1280px;height:720px;visibility:hidden;';
+    const done = () => { removeEventListener('message', onMessage); clearTimeout(timer); frame.remove(); };
+    const onMessage = e => {
+      if (e.source !== frame.contentWindow || e.data?.type !== 'deck-export') return;
+      done();
+      resolve(e.data.slides);
+    };
+    const timer = setTimeout(() => { done(); reject(new Error(href)); }, 15000);
+    addEventListener('message', onMessage);
+    frame.src = `${href}?export`;
+    document.body.appendChild(frame);
+  });
+
+  // RTF is 7-bit: escape control chars and emit everything else as \uN?
+  // (signed 16-bit UTF-16 units, so emoji surrogate pairs survive).
+  const esc = text => [...text].map(ch => {
+    if (ch === '\\' || ch === '{' || ch === '}') return '\\' + ch;
+    if (ch === '\n') return '\\line ';
+    if (ch === '\t') return '\\tab ';
+    let out = '';
+    for (let i = 0; i < ch.length; i++) {
+      const code = ch.charCodeAt(i);
+      out += code < 128 ? ch[i] : `\\u${code > 32767 ? code - 65536 : code}?`;
+    }
+    return out;
+  }).join('');
+  const para = (style, text) => `{\\pard${style} ${esc(text)}\\par}\n`;
+
+  const chapterRtf = (title, slides) => {
+    // Title slide gives only the chapter heading (its subtitle and
+    // illustration labels are dropped); the closing slide is left out entirely.
+    let out = para('\\sb0\\sa240\\keepn\\b\\fs44', title);
+    slides.slice(1, -1).forEach(slide => {
+      if (slide.heading) out += para('\\sb360\\sa120\\keepn\\b\\fs32', slide.heading);
+      if (slide.lead) out += para('\\sa120\\i\\fs24', slide.lead);
+      slide.blocks.forEach(b => {
+        if (b.type === 'sub') out += para('\\sb160\\sa60\\keepn\\b\\fs24', b.text);
+        else if (b.type === 'li') out += para('\\fi-280\\li560\\sa60\\fs22', `\u2022\t${b.text}`);
+        else if (b.type === 'code') out += para('\\li280\\sb80\\sa120\\f1\\fs19', b.text);
+        else out += para('\\sa100\\fs22', b.text);
+      });
+    });
+    return out;
+  };
+
+  btn.addEventListener('click', async () => {
+    const picked = checks();
+    if (!picked.length) return;
+    btn.disabled = true;
+    const chapters = [];
+    for (const [i, c] of picked.entries()) {
+      status.textContent = `Preparo ${i + 1}/${picked.length}: ${c.dataset.title}`;
+      try {
+        chapters.push(chapterRtf(c.dataset.title, await loadDeck(c.dataset.href)));
+      } catch {
+        status.textContent = `Impossibile leggere ${c.dataset.title}`;
+        refresh();
+        return;
+      }
+    }
+    const rtf = '{\\rtf1\\ansi\\ansicpg1252\\deff0' +
+      '{\\fonttbl{\\f0\\fswiss Arial;}{\\f1\\fmodern Courier New;}}\n' +
+      '\\paperw11906\\paperh16838\\margl1134\\margr1134\\margt1134\\margb1134\n' +
+      chapters.join('{\\pard\\page\\par}\n') + '}';
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([rtf], { type: 'application/rtf' }));
+    a.download = picked.length === 1
+      ? picked[0].dataset.href.split('/').pop().replace(/\.html$/, '.rtf')
+      : 'educazione-digitale-selezione.rtf';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    status.textContent = `Scaricati ${picked.length} capitoli`;
+    refresh();
+  });
+})();
 </script>
 </body>
 </html>
